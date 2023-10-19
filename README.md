@@ -1,7 +1,7 @@
 **This is a template README.md.  Be sure to update this with project specific content that describes your ui test project.**
 
 # alcohol-duty-ui-tests
-`<digital service name>` UI journey tests.  
+`Alhocol Duty` UI journey tests.  
 
 ## Pre-requisites
 
