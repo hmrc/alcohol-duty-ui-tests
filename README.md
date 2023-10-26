@@ -13,10 +13,10 @@ Start Mongo Docker container as follows:
 docker run --rm -d -p 27017:27017 --name mongo mongo:4.4
 ```
 
-Start `<digital service name>` services as follows:
+Start `Alhocol Duty` services as follows:
 
 ```bash
-sm2 --start <profile>
+sm2 --start ALCOHOL_DUTY_ALL
 ```
 
 ### Dockerized browser container(s)
