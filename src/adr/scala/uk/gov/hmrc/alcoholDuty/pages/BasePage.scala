@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.alcoholDuty.pages
 
 import org.openqa.selenium.By
+import org.scalatest.matchers.should.Matchers
+import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 
-object CheckYourVATResult extends BasePage {
+trait BasePage extends BrowserDriver with Matchers {
+  val continueButton = "continue-button"
 
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
-
-  def result: String =
-    driver.findElement(By.id(resultOutcome)).getText
+  def submitPage(): Unit =
+    driver.findElement(By.id(continueButton)).click()
 }

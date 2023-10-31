@@ -14,28 +14,22 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.alcoholDuty.pages
 
 import org.openqa.selenium.By
-import uk.gov.hmrc.test.ui.conf.TestConfiguration
 
-object CheckYourVATHomePage extends BasePage {
-  val url: String = TestConfiguration.url("example-frontend") + "/vat-return-period"
+object CostOfGoods extends BasePage {
 
-  val annuallyRadioButton  = "vatReturnPeriod"
-  val quarterlyRadioButton = "vatReturnPeriod-2"
+  val costOfGoodsInput = "costOfGoods"
 
-  def loadPage: this.type = {
-    driver.navigate().to(url)
+  def provideCostOfGoodsAmount(amount: String): this.type = {
+    driver.findElement(By.id(costOfGoodsInput)).clear()
+    driver.findElement(By.id(costOfGoodsInput)).sendKeys(amount)
     this
   }
 
-  def provideVATPeriod(period: String): Turnover.type = {
-    period match {
-      case "Annually" => driver.findElement(By.id(annuallyRadioButton)).click()
-      case _          => driver.findElement(By.id(quarterlyRadioButton)).click()
-    }
+  def submitVATInformation: CheckYourVATResult.type = {
     submitPage()
-    Turnover
+    CheckYourVATResult
   }
 }

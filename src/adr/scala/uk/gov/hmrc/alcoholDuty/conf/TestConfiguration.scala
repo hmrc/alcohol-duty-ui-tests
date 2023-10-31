@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.conf
+package uk.gov.hmrc.alcoholDuty.conf
 
 import com.typesafe.config.{Config, ConfigFactory}
 
