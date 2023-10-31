@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.alcoholDuty.pages
 
 import org.openqa.selenium.By
 
-object CostOfGoods extends BasePage {
+object Turnover extends BasePage {
 
-  val costOfGoodsInput = "costOfGoods"
+  val turnoverInput = "turnover"
 
-  def provideCostOfGoodsAmount(amount: String): this.type = {
-    driver.findElement(By.id(costOfGoodsInput)).clear()
-    driver.findElement(By.id(costOfGoodsInput)).sendKeys(amount)
-    this
-  }
-
-  def submitVATInformation: CheckYourVATResult.type = {
+  def provideTurnoverAmount(amount: String): CostOfGoods.type = {
+    driver.findElement(By.id(turnoverInput)).clear()
+    driver.findElement(By.id(turnoverInput)).sendKeys(amount)
     submitPage()
-    CheckYourVATResult
+    CostOfGoods
   }
 }

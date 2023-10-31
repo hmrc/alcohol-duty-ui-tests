@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.cucumber.stepdefs
+package uk.gov.hmrc.alcoholDuty.cucumber.runner
 
-import io.cucumber.scala.{EN, ScalaDsl, Scenario}
-import org.openqa.selenium.{OutputType, TakesScreenshot}
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
+import io.cucumber.junit.Cucumber
+import io.cucumber.junit.CucumberOptions
+import org.junit.runner.RunWith
 
-class Hooks extends ScalaDsl with EN with BrowserDriver {
-  After { scenario: Scenario =>
-    if (scenario.isFailed) {
-      val screenshotName = scenario.getName.replaceAll(" ", "_")
-      val screenshot     = driver.asInstanceOf[TakesScreenshot].getScreenshotAs(OutputType.BYTES)
-      scenario.attach(screenshot, "image/png", screenshotName)
-    }
-  }
-}
+@RunWith(classOf[Cucumber])
+@CucumberOptions(
+  features = Array("src/test/resources/features"),
+  glue = Array("uk.gov.hmrc.alcoholDuty.cucumber.stepdefs"),
+  plugin =
+    Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/ZapRunner.xml"),
+  tags = "@ZAP"
+)
+class ZapRunner {}

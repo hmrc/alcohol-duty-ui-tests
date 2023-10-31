@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
-import org.openqa.selenium.By
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.concurrent.Eventually
+import io.cucumber.scala.{EN, ScalaDsl}
+import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
+import uk.gov.hmrc.webdriver.SingletonDriver
 
-object Turnover extends BasePage {
+import scala.util.Try
 
-  val turnoverInput = "turnover"
+trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually with Matchers {
 
-  def provideTurnoverAmount(amount: String): CostOfGoods.type = {
-    driver.findElement(By.id(turnoverInput)).clear()
-    driver.findElement(By.id(turnoverInput)).sendKeys(amount)
-    submitPage()
-    CostOfGoods
+  sys.addShutdownHook {
+    Try(SingletonDriver.closeInstance)
   }
 }

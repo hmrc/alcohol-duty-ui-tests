@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.cucumber.runner
+package uk.gov.hmrc.alcoholDuty.pages
 
-import io.cucumber.junit.Cucumber
-import io.cucumber.junit.CucumberOptions
-import org.junit.runner.RunWith
+import org.openqa.selenium.By
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("src/test/resources/features"),
-  glue = Array("uk.gov.hmrc.test.ui.cucumber.stepdefs"),
-  plugin =
-    Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/ZapRunner.xml"),
-  tags = "@ZAP"
-)
-class ZapRunner {}
+object CheckYourVATResult extends BasePage {
+
+  val resultOutcome        = "resultOutcome"
+  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
+  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
+
+  def result: String =
+    driver.findElement(By.id(resultOutcome)).getText
+}

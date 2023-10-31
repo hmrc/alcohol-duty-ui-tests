@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.cucumber.stepdefs
+package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
-import uk.gov.hmrc.test.ui.pages.CheckYourVATHomePage
-import uk.gov.hmrc.test.ui.pages.CheckYourVATHomePage.provideVATPeriod
-import uk.gov.hmrc.test.ui.pages.CheckYourVATResult.{result, useSetVATFlatRate, useUniqueVATFlatRate}
+import uk.gov.hmrc.alcoholDuty.pages.CheckYourVATHomePage
+import uk.gov.hmrc.alcoholDuty.pages.CheckYourVATHomePage.provideVATPeriod
+import uk.gov.hmrc.alcoholDuty.pages.CheckYourVATResult.{result, useSetVATFlatRate, useUniqueVATFlatRate}
 
-class ExampleStepDef extends BaseStepDef {
+class AlcoholDutyStepDef extends BaseStepDef {
 
   Given("I am on the Check your VAT flat rate service") { () =>
     CheckYourVATHomePage.loadPage

@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
-import org.openqa.selenium.By
-import org.scalatest.matchers.should.Matchers
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
+import io.cucumber.scala.{EN, ScalaDsl, Scenario}
+import org.openqa.selenium.{OutputType, TakesScreenshot}
+import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 
-trait BasePage extends BrowserDriver with Matchers {
-  val continueButton = "continue-button"
-
-  def submitPage(): Unit =
-    driver.findElement(By.id(continueButton)).click()
+class Hooks extends ScalaDsl with EN with BrowserDriver {
+  After { scenario: Scenario =>
+    if (scenario.isFailed) {
+      val screenshotName = scenario.getName.replaceAll(" ", "_")
+      val screenshot     = driver.asInstanceOf[TakesScreenshot].getScreenshotAs(OutputType.BYTES)
+      scenario.attach(screenshot, "image/png", screenshotName)
+    }
+  }
 }
