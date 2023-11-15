@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages
+package uk.gov.hmrc.alcoholDuty.pages.auth
 
 import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object CheckYourVATHomePage extends BasePage {
-  val url: String = TestConfiguration.url("example-frontend") + "/vat-return-period"
+object AuthLoginStubPage extends BasePage {
 
-  val annuallyRadioButton  = "vatReturnPeriod"
-  val quarterlyRadioButton = "vatReturnPeriod-2"
+  override val url: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
+  override val title = "Authority Wizard"
 
-  def loadPage: this.type = {
-    driver.navigate().to(url)
-    this
+  override def expectedPageErrorTitle: Option[String] = Some("")
+
+  override def expectedPageTitle: Option[String] = Some("Authority Wizard")
+
+  override def expectedPageHeader: Option[String] = Some("Authority Wizard")
+
+  def enterRedirectURL(url: String): Unit = {
+    driver.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
   }
 
-  def provideVATPeriod(period: String): Turnover.type = {
-    period match {
-      case "Annually" => driver.findElement(By.id(annuallyRadioButton)).click()
-      case _          => driver.findElement(By.id(quarterlyRadioButton)).click()
-    }
-    submitPage()
-    Turnover
-  }
 }

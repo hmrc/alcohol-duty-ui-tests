@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages
+package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
-import org.openqa.selenium.By
+import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 
-object CheckYourVATResult extends BasePage {
+class AlcoholDutyStepDef extends BaseStepDef {
 
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "You can use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "You can use the VAT flat rate for your business type"
-
-  def result: String =
-    driver.findElement(By.id(resultOutcome)).getText
+  When("""I enter redirectURL on {string}""") { (page: String) =>
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend"))
+    }
+  }
 }

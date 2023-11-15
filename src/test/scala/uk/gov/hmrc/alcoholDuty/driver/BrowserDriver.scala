@@ -14,19 +14,28 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
+package uk.gov.hmrc.alcoholDuty.driver
 
-import org.scalatest.matchers.should.Matchers
-import org.scalatest.concurrent.Eventually
-import io.cucumber.scala.{EN, ScalaDsl}
-import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
+import com.typesafe.scalalogging.LazyLogging
+import org.openqa.selenium.WebDriver
 import uk.gov.hmrc.webdriver.SingletonDriver
 
 import scala.util.Try
 
-trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually with Matchers {
+trait BrowserDriver extends LazyLogging {
+  logger.info(
+    s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
+  )
 
-  sys.addShutdownHook {
-    Try(SingletonDriver.closeInstance)
+  if (!Option(System.getProperty("browser")).exists(_.nonEmpty)) {
+    System.setProperty("browser", "chrome")
   }
+
+  implicit lazy val driver: WebDriver = SingletonDriver.getInstance()
+
+  val debug: Boolean = sys.props.getOrElse("drivernotquit", "false").toBoolean
+  if (!debug)
+    sys.addShutdownHook {
+      Try(driver.quit())
+    }
 }
