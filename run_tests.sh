@@ -1,12 +1,12 @@
-#!/bin/bash -e
-ENV=${1:-local}
-BROWSER=${2:-chrome}
-DRIVER=
+#!/usr/bin/env bash
 
-if [ "$BROWSER" = "chrome" ]; then
-    DRIVER="-Dwebdriver.chrome.driver=/usr/local/bin/chromedriver"
-elif [ "$BROWSER" = "firefox" ]; then
-    DRIVER="-Dwebdriver.gecko.driver=/usr/local/bin/geckodriver"
-fi
+BROWSER=${1:-remote-chrome}
+JOURNEY=${2:-Alcohol Duty UI Tests}
 
-sbt -Dbrowser=$BROWSER -Denvironment=$ENV $DRIVER "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.Runner"
+echo "Running browser tests..."
+echo "=========================================="
+echo "Browser:              ${BROWSER}"
+echo "Env:                  local"
+echo "Journey:              ${JOURNEY}"
+echo "=========================================="
+sbt -Dbrowser=${BROWSER} -Denvironment=local "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.Runner"
