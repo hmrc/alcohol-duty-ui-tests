@@ -24,6 +24,7 @@ import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 
 import java.time.Duration
+import scala.jdk.CollectionConverters.asScalaBufferConverter
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
@@ -83,4 +84,21 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def clickContinueButton(): Unit = click on cssSelector("#submit")
+
+  def clickSaveAndContinueButton(): Unit = click on cssSelector("#main-content > div > div > form > button")
+
+  def clickBackButton(): Unit = click on cssSelector("#main-content > div > div > form > button")
+
+  def clickRadioButton(text: String): Unit =
+    driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
+
+  def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
+    val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
+    actualErrorSummaryTitle should be(errorSummaryTitle)
+  }
+
+  def checkPageErrorMessage(errorMessage: String): Unit = {
+    val actualErrorMessage = driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText
+    assert(actualErrorMessage.contains(errorMessage))
+  }
 }
