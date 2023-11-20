@@ -41,4 +41,31 @@ trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually wi
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
+
+  When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickRadioButton(choice)
+  }
+
+  When("""I click save and continue button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickSaveAndContinueButton()
+  }
+
+  When("""I click back button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickBackButton()
+  }
+
+  Then("""I am presented with the {string} error page""") { page: String =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageErrorTitle()
+  }
+
+  Then("""The error summary title is {string} and the error message is {string}""") { (errorSummaryTitle: String, errorMessage: String) =>
+    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+    PageObjectFinder.checkPageErrorMessage(errorMessage)
+  }
+
 }
