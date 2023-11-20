@@ -87,7 +87,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickSaveAndContinueButton(): Unit = click on cssSelector("#main-content > div > div > form > button")
 
-  def clickBackButton(): Unit = click on cssSelector("#main-content > div > div > form > button")
+  def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
