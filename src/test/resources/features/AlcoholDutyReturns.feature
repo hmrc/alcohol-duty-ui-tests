@@ -16,3 +16,6 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "No" on "Draught Relief Question Page"
     And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Relief Producer Question Page"
+    When I select radio button "Yes" on "Small Relief Producer Question Page"
+    And I click save and continue button on "Small Relief Producer Question Page"
+#   Then I am presented with the "Tax Type Page"
