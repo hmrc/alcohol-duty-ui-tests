@@ -14,3 +14,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I select radio button "Yes" on "Draught Relief Question Page"
     And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Relief Producer Question Page"
+    When I click save and continue button on "Small Relief Producer Question Page"
+    And The error summary title is "There is a problem" and the error message is "Select yes if this product is eligible for Small Producer Relief"
+    When I select radio button "Yes" on "Small Relief Producer Question Page"
+    And I click save and continue button on "Small Relief Producer Question Page"
+#   Then I am presented with the "Tax Type Page"
