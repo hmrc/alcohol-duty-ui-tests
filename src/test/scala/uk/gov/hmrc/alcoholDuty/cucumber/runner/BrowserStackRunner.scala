@@ -27,3 +27,7 @@ import org.junit.runner.RunWith
   tags = "@BrowserStack"
 )
 class BrowserStackRunner {}
+
+object BrowserStackRunner extends BrowserStackRunner
+
+

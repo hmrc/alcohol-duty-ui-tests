@@ -29,3 +29,5 @@ import org.junit.runner.RunWith
   tags = "@ZAP"
 )
 class ZapRunner {}
+
+object ZapRunner extends ZapRunner
