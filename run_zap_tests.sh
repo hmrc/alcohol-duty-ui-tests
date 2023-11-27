@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-ENV=${1:-local}
-BROWSER=${2:-chrome}
+BROWSER=${1:-remote-chrome}
+JOURNEY=${2:-Alcohol Duty ZAP Tests}
 
-if [ "$BROWSER" = "chrome" ]; then
-    DRIVER="-Dwebdriver.chrome.driver=/usr/local/bin/chromedriver"
-elif [ "$BROWSER" = "firefox" ]; then
-    DRIVER="-Dwebdriver.gecko.driver=/usr/local/bin/geckodriver"
-fi
-
-# NOTE: It is not required to proxy every journey test via ZAP. The intention of proxying a test through ZAP is to expose all the
-# relevant pages of an application to ZAP. So tagging a subset of the journey tests or creating a
-# single ZAP focused journey test is sufficient.
-
-sbt -Dbrowser=$BROWSER -Denvironment=$ENV $DRIVER -Dzap.proxy=true "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.ZapRunner"
+echo "Running ZAP tests..."
+echo "=========================================="
+echo "Browser:              ${BROWSER}"
+echo "Env:                  local"
+echo "Journey:              ${JOURNEY}"
+echo "=========================================="
+sbt -Dbrowser=${BROWSER} -Denvironment=local "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.ZapRunner"

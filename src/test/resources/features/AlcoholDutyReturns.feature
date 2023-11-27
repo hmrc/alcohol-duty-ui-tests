@@ -1,4 +1,4 @@
-@Test
+@Test @ZAP @@a11y
 Feature: Alcohol Duty Returns Journey
 
   Background: : Common Steps - Alcohol Duty Returns Journey

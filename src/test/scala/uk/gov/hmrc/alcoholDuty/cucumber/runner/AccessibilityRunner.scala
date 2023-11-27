@@ -27,3 +27,5 @@ import org.junit.runner.RunWith
   tags = "@a11y"
 )
 class AccessibilityRunner {}
+
+object AccessibilityRunner extends AccessibilityRunner
