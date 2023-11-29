@@ -67,6 +67,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     expectedPageErrorTitleList should contain(List(pageTitle))
   }
 
+  def enterText(id: String, textToEnter: String): Unit = {
+    driver.findElement(By.id(id)).clear()
+    driver.findElement(By.id(id)).sendKeys(textToEnter)
+  }
+
   def checkPageTitle(page: String): Unit = {}
 
   def checkPageErrorTitle(page: String): Unit = {}
@@ -85,9 +90,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickContinueButton(): Unit = click on cssSelector("#submit")
 
-  def clickSaveAndContinueButton(): Unit = click on cssSelector("#main-content > div > div > form > button")
+  def clickSaveAndContinueButton(): Unit = click on id("saveAndContinueButton")
 
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
+
+  def enterDetails(data: String): Unit = {}
 
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
