@@ -68,4 +68,9 @@ trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually wi
     PageObjectFinder.checkPageErrorMessage(errorMessage)
   }
 
+  When("""I enter {string} on {string}""") { (data: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterDetails(data)
+  }
+
 }
