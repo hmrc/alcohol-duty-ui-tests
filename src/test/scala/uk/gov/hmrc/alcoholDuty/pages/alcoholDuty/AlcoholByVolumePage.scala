@@ -35,6 +35,6 @@ object AlcoholByVolumePage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("What is this product’s Alcohol by Volume (ABV) strength?")
 
   override def enterDetails(textToEnter: String): Unit = {
-    enterText("value", textToEnter)
+    enterText("alcohol-by-volume-input", textToEnter)
   }
 }

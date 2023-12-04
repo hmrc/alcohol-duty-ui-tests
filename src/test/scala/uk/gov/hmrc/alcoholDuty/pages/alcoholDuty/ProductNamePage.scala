@@ -35,6 +35,6 @@ object ProductNamePage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("What name do you want to give this product?")
 
   override def enterDetails(textToEnter: String): Unit = {
-    enterText("value", textToEnter)
+    enterText("product-name-input", textToEnter)
   }
 }
