@@ -36,8 +36,8 @@ object DraughtReliefQuestionPage extends BasePage {
 
   override def clickRadioButton(text: String): Unit = {
     text match {
-      case "Yes" => click on cssSelector("#value")
-      case "No" => click on cssSelector("#value-no")
+      case "Yes" => click on cssSelector("#draught-relief-input")
+      case "No" => click on cssSelector("#draught-relief-input-no")
     }
   }
 }

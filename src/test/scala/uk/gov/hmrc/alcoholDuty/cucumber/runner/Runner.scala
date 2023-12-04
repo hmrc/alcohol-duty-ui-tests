@@ -30,3 +30,4 @@ import org.junit.runner.RunWith
 class Runner {}
 
 object Runner extends Runner
+
