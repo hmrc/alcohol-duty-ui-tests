@@ -20,11 +20,19 @@ import io.cucumber.scala.{EN, ScalaDsl}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
+import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 
-trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually with Matchers with WebBrowser with BasePage {
+trait BaseStepDef
+    extends ScalaDsl
+    with EN
+    with BrowserDriver
+    with Eventually
+    with Matchers
+    with WebBrowser
+    with BasePage {
 
   Then("""I navigate to the {string}""") { page: String =>
     go to PageObjectFinder.page(page)
@@ -63,14 +71,24 @@ trait BaseStepDef extends ScalaDsl with EN with BrowserDriver with Eventually wi
     PageObjectFinder.page(page).checkPageErrorTitle()
   }
 
-  Then("""The error summary title is {string} and the error message is {string}""") { (errorSummaryTitle: String, errorMessage: String) =>
-    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-    PageObjectFinder.checkPageErrorMessage(errorMessage)
+  Then("""The error summary title is {string} and the error message is {string}""") {
+    (errorSummaryTitle: String, errorMessage: String) =>
+      PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+      PageObjectFinder.checkPageErrorMessage(errorMessage)
   }
 
   When("""I enter {string} on {string}""") { (data: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDetails(data)
+  }
+
+  When("""I enter redirect url for {string}""") { (page: String) =>
+    page match {
+      case "Product Volume Page"                    =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productVolumeQuestion")
+      case "Declare Duty Suspended Deliveries Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
+    }
   }
 
 }

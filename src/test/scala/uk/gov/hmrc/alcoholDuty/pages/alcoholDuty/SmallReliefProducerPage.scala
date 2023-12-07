@@ -19,25 +19,25 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DraughtReliefQuestionPage extends BasePage {
+object SmallReliefProducerPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/draughtReliefQuestion"
-  override val title       = "Is this product eligible for Draught Relief?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/smallProducerReliefQuestion"
+  override val title = "Is this product eligible for Small Producer Relief?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Is this product eligible for Draught Relief? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Is this product eligible for Small Producer Relief? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Is this product eligible for Draught Relief? - Manage your Alcohol Duty - GOV.UK"
+    "Is this product eligible for Small Producer Relief? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Is this product eligible for Draught Relief?")
+  override def expectedPageHeader: Option[String] = Some("Is this product eligible for Small Producer Relief?")
 
   override def clickRadioButton(text: String): Unit = {
     text match {
-      case "Yes" => click on cssSelector("#draught-relief-input")
-      case "No" => click on cssSelector("#draught-relief-input-no")
+      case "Yes" => click on cssSelector("#small-producer-relief-input")
+      case "No" => click on cssSelector("#small-producer-relief-input-no")
     }
   }
 }
