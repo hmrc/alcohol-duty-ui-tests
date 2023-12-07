@@ -49,7 +49,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
 
     Examples:
       | errorMessageHeader | correctName | invalidCharacters | numberTooBig | numberTooLow | correctVolume | tooManyDecimals | errorMessage1                                         | errorMessage2                                                    | errorMessage3                                                       | errorMessage4                                                        | errorMessage5                                                                 |
-      | There is a problem | TestName    | test              | 999          | 0            | correctVolume | 0.0001          | Enter this product’s Alcohol by Volume (ABV) strength | This product’s Alcohol by Volume (ABV) strength must be a number | This product’s Alcohol by Volume (ABV) strength must be 100 or less | This product’s Alcohol by Volume (ABV) strength must be 0.01 or more | This product’s Alcohol by Volume (ABV) must be a number to two decimal places |
+      | There is a problem | TestName    | test              | 999          | 0            | correctVolume | 0.0001          | Enter this product^s Alcohol by Volume (ABV) strength | This product^s Alcohol by Volume (ABV) strength must be a number | This product^s Alcohol by Volume (ABV) strength must be 100 or less | This product^s Alcohol by Volume (ABV) strength must be 0.01 or more | This product^s Alcohol by Volume (ABV) must be a number to two decimal places |
 
   Scenario Outline:3- Alcohol Duty Returns Journey - Error Message Validations - Draught Relief Page
     Then I am presented with the "Product Name Page"
@@ -123,7 +123,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
 
     Examples:
       | errorMessageHeader | correctName | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
-      | There is a problem | TestName    | 100           | Enter how much of this product you need to declare | This product’s volume must be 0.01 or more | This product’s volume must be a number to 2 decimal places | This product’s volume must be a number | This product’s volume must be 999999999.99 or less |
+      | There is a problem | TestName    | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
 
   Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Declare Duty Suspended Deliveries Page
     Then I am presented with the "Product Name Page"

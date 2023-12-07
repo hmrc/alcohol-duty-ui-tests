@@ -74,7 +74,8 @@ trait BaseStepDef
   Then("""The error summary title is {string} and the error message is {string}""") {
     (errorSummaryTitle: String, errorMessage: String) =>
       PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-      PageObjectFinder.checkPageErrorMessage(errorMessage)
+      val finalErrorMessage = errorMessage.replace("^", "’")
+      PageObjectFinder.checkPageErrorMessage(finalErrorMessage)
   }
 
   When("""I enter {string} on {string}""") { (data: String, page: String) =>
@@ -90,5 +91,4 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
     }
   }
-
 }
