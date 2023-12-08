@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
+import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 
 class AlcoholDutyStepDef extends BaseStepDef {
@@ -23,7 +24,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
   When("""I enter redirectURL on {string}""") { (page: String) =>
     page match {
       case "Auth Login Stub Page" =>
-        AuthLoginStubPage.enterRedirectURL("http://localhost:16000/manage-alcohol-duty/productName")
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") +"/productName")
     }
   }
 }
