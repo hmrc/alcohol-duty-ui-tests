@@ -86,7 +86,7 @@ trait BaseStepDef
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "Product Volume Page"                    =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productVolumeQuestion")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productVolume")
       case "Declare Duty Suspended Deliveries Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
     }
