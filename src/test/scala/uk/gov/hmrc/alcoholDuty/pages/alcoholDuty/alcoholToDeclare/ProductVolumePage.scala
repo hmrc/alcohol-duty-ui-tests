@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty
+package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage

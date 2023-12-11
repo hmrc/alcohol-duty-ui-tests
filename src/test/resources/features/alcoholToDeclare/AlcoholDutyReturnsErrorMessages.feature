@@ -1,4 +1,4 @@
-@Test
+@Test @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey - Error Messages
 
   Background: Alcohol Duty Returns Journey - Common Steps
@@ -124,20 +124,3 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Examples:
       | errorMessageHeader | correctName | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
       | There is a problem | TestName    | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
-
-  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Declare Duty Suspended Deliveries Page
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-#   Then I am presented with the "DSD Guidance Page"
-
-    Examples:
-      | errorMessageHeader | errorMessage1                                                   |
-      | There is a problem | Select yes if you need to declare any Duty Suspended Deliveries |
