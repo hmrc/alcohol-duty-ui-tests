@@ -26,12 +26,15 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
 #   Then I am presented with the "Task List Page"
 
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Outside UK Page
+  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Outside and Inside UK Pages
     Then I am presented with the "Product Name Page"
     When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     When I enter redirect url for "Declare Duty Suspended Deliveries Outside UK Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page"
     When I enter "150" on "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-#   Then I am presented with the "Declare Duty Suspended Deliveries Within UK Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page"
+    When I enter "999" on "Declare Duty Suspended Deliveries Inside UK Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
+#   Then I am presented with the "Duty Suspense Page"
