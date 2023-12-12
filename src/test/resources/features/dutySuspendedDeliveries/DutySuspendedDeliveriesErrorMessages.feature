@@ -85,6 +85,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage5>"
     When I enter "<correctVolume>" on "Declare Duty Suspended Deliveries Inside UK Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
+#   Then I am presented with the "Duty Suspense Page"
 
     Examples:
       | errorMessageHeader | invalidCharacters | numberTooBig | numberTooLow | correctVolume | tooManyDecimals | errorMessage1                                    | errorMessage2                                               | errorMessage3                                                           | errorMessage4                                                   | errorMessage5                                                                   |
