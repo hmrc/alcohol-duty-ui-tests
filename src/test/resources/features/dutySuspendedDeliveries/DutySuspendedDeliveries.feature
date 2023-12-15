@@ -14,7 +14,9 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-#   Then I am presented with the "DSD Guidance Page"
+    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
+    When I click continue button on "Duty Suspended Deliveries Guidance Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page"
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     Then I am presented with the "Product Name Page"

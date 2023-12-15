@@ -92,6 +92,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickSaveAndContinueButton(): Unit = click on id("saveAndContinueButton")
 
+  def clickPageContinueButton(): Unit = click on id("continueButton")
+
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def enterDetails(data: String): Unit = {}

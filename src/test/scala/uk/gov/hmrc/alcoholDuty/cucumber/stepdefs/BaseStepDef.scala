@@ -60,6 +60,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickSaveAndContinueButton()
   }
 
+  When("""I click continue button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickPageContinueButton()
+  }
+
   When("""I click back button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickBackButton()
