@@ -17,7 +17,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-#   Then I am presented with the "DSD Guidance Page"
+#   Then I am presented with the "Duty Suspended Deliveries Guidance Page"
 
     Examples:
       | errorMessageHeader | errorMessage1                                                   |
