@@ -38,9 +38,9 @@ trait BaseStepDef
     go to PageObjectFinder.page(page)
   }
 
-  When("""I click continue on {string}""") { (page: String) =>
+  When("""I click submit button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickContinueButton()
+    PageObjectFinder.page(page).clickSubmitButton()
   }
 
   Then("""I am presented with the {string}""") { page: String =>
@@ -58,6 +58,11 @@ trait BaseStepDef
   When("""I click save and continue button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSaveAndContinueButton()
+  }
+
+  When("""I click continue button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickContinueButton()
   }
 
   When("""I click back button on {string}""") { (page: String) =>
