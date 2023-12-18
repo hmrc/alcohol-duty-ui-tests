@@ -1,12 +1,12 @@
-@Test @AlcoholToDeclare
-Feature: Alcohol Duty Returns Journey - Error Messages
+@Test @QuarterlySpiritsQuestions
+Feature: Quarterly Spirits Questions Journey - Error Messages
 
-  Background: Alcohol Duty Returns Journey - Common Steps
+  Background: Common Steps - Quarterly Spirits Questions Journey
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
 
-  Scenario Outline:1- Alcohol Duty Returns - Error Message Validations - Declare Spirits Total Page
+  Scenario Outline:1- Quarterly Spirits Questions - Error Message Validations - Declare Spirits Total Page
     Then I am presented with the "Product Name Page"
     When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
