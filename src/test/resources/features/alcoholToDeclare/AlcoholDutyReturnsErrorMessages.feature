@@ -4,7 +4,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Background: Alcohol Duty Returns Journey - Common Steps
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
-    And I click continue on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
 
   Scenario Outline:1- Alcohol Duty Returns Journey - Error Message Validations - Product Name Page
     Then I am presented with the "Product Name Page"
