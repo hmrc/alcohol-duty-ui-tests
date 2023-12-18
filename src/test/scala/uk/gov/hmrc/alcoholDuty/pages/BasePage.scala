@@ -88,9 +88,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     expectedPageHeaderList should contain(List(pageHeader.get))
   }
 
-  def clickContinueButton(): Unit = click on cssSelector("#submit")
+  def clickSubmitButton(): Unit = click on cssSelector("#submit")
 
   def clickSaveAndContinueButton(): Unit = click on id("saveAndContinueButton")
+
+  def clickContinueButton(): Unit = click on id("continueButton")
 
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
