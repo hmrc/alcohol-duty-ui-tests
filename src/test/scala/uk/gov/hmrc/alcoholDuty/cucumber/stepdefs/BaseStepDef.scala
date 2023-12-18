@@ -96,6 +96,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesOutsideUk")
+      case "Declare Spirits Total Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
     }
   }
 }
