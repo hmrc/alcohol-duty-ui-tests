@@ -35,3 +35,37 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     Examples:
       | errorMessageHeader  | invalidCharacters | numberTooBig | numberTooLow | tooManyDecimals | errorMessage1                                         | errorMessage2                                                    | errorMessage3                                                       | errorMessage4                                                        | errorMessage5                                                                 |
       | There is a problem  | test              | 99998788899.89          | -1 | 0.0001          | Enter the volume of spirits you need to declare for this quarter | The volume of spirits you need to declare must be 999999999.99 or less | The volume of spirits you need to declare must be 0.00 or more | The volume of spirits you need to declare must be a number | The volume of spirits you need to declare must be a number to 2 decimal places |
+    
+  Scenario Outline:2- Quarterly Spirits Questions - Error Message Validations - Declare Scotch Whisky Page
+    Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    When I enter redirect url for "Declare Spirits Total Page"
+    Then I am presented with the "Declare Spirits Total Page"
+    When I enter "5" on "Declare Spirits Total Page"
+    And I click save and continue button on "Declare Spirits Total Page"
+    Then I am presented with the "Declare Scotch Whisky Page"
+    When I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Scotch Whisky Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
+    When I enter "<numberTooBig>" on "Declare Scotch Whisky Page"
+    And I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Scotch Whisky Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage2>"
+    When I enter "<numberTooLow>" on "Declare Scotch Whisky Page"
+    And I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Scotch Whisky Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage3>"
+    When I enter "<invalidCharacters>" on "Declare Scotch Whisky Page"
+    And I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Scotch Whisky Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage4>"
+    When I enter "<tooManyDecimals>" on "Declare Scotch Whisky Page"
+    And I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Scotch Whisky Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage5>"
+
+    Examples:
+      | errorMessageHeader  | invalidCharacters | numberTooBig | numberTooLow | tooManyDecimals | errorMessage1                                         | errorMessage2                                                    | errorMessage3                                                       | errorMessage4                                                        | errorMessage5                                                                 |
+      | There is a problem  | test              | 99998788899.89          | -1 | 0.0001          | Enter how much Scotch Whisky you need to declare this quarter | The volume of Scotch Whisky you need to declare must be 999999999.99 or less | The volume of Scotch Whisky you need to declare must be 0.00 or more | The volume of Scotch Whisky you need to declare must be a number| The volume of Scotch Whisky you need to declare must be a number to 2 decimal places |
+
