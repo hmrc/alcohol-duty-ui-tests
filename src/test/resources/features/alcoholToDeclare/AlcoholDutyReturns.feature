@@ -1,4 +1,4 @@
-@Test @ZAP @@a11y @AlcoholToDeclare
+@Test @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey
 
   Background: : Common Steps - Alcohol Duty Returns Journey
@@ -6,6 +6,7 @@ Feature: Alcohol Duty Returns Journey
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
 
+  @ZAP @a11y
   Scenario: Alcohol Duty Returns Journey - Happy Path
     Then I am presented with the "Product Name Page"
     When I enter "TestName" on "Product Name Page"

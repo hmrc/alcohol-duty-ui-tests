@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
+import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
@@ -24,6 +25,8 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
+import scala.collection.JavaConverters._
+
 
 trait BaseStepDef
     extends ScalaDsl
@@ -46,6 +49,13 @@ trait BaseStepDef
   Then("""I am presented with the {string}""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  Then("""I am presented with the {string} with new url""") { page: String =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
@@ -99,5 +109,15 @@ trait BaseStepDef
       case "Declare Spirits Total Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
     }
+  }
+
+  And("""^I should see the following details""") { data: DataTable =>
+    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
+    val actualData = PageObjectFinder.pageData
+    actualData should be(expectedData)
+  }
+
+  When("""I click {string} on {string}""") { (button: String, page: String) =>
+    PageObjectFinder.page(page).clickButton(button)
   }
 }
