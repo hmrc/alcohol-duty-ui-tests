@@ -18,4 +18,7 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "Declare Scotch Whisky Page"
     When I enter "10" on "Declare Scotch Whisky Page"
     And I click save and continue button on "Declare Scotch Whisky Page"
+    Then I am presented with the "Declare Irish Whisky Page"
+    When I enter "10" on "Declare Irish Whisky Page"
+    And I click save and continue button on "Declare Irish Whisky Page"
 
