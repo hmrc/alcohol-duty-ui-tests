@@ -1,4 +1,4 @@
-@Test @ZAP @@a11y @QuarterlySpiritsQuestions
+@Test @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Questions
 
   Background: : Common Steps - Quarterly Spirits Questions Journey
@@ -6,6 +6,7 @@ Feature: Quarterly Spirits Questions
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
 
+  @ZAP @a11y
   Scenario: Quarterly Spirits Questions Journey- Happy path
     Then I am presented with the "Product Name Page"
     When I enter "TestName" on "Product Name Page"

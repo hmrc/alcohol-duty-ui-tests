@@ -22,6 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DeclareDutySuspendedDeliveriesInsideUKPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/dutySuspendedDeliveries"
+  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/changeDutySuspendedDeliveries"
   override val title       = "How much have you delivered duty suspended within the UK?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

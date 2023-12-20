@@ -28,6 +28,7 @@ import scala.jdk.CollectionConverters.asScalaBufferConverter
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
+  val newUrl: String = ""
   val title: String        = ""
 
   /** Fluent Wait config * */
@@ -83,6 +84,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(url)
     }
 
+  def checkNewURL: Assertion =
+    if (newUrl.contains("...")) {
+      driver.getCurrentUrl should fullyMatch regex (newUrl.replace("...", "") + ".*").r
+    } else {
+      driver.getCurrentUrl should equal(newUrl)
+    }
+
   def checkPageHeader(): Assertion = {
     fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
     expectedPageHeaderList should contain(List(pageHeader.get))
@@ -110,4 +118,16 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val actualErrorMessage = driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText
     assert(actualErrorMessage.contains(errorMessage))
   }
+
+  def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
+
+  def pageData: Map[String, String] = driver
+    .findElements(By.cssSelector(".govuk-summary-list__row"))
+    .asScala
+    .flatMap { row =>
+      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
+      Map(key -> value)
+    }
+    .toMap
 }
