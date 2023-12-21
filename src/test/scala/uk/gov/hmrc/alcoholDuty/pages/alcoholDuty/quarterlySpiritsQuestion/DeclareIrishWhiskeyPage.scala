@@ -19,22 +19,22 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DeclareIrishWhiskyPage extends BasePage {
+object DeclareIrishWhiskeyPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareIrishWhisky"
-  override val title = "How much Irish Whisky have you made?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareIrishWhiskey"
+  override val title = "How much Irish Whiskey have you made?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much Irish Whisky have you made? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much Irish Whiskey have you made? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much Irish Whisky have you made? - Manage your Alcohol Duty - GOV.UK"
+    "How much Irish Whiskey have you made? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("How much Irish Whisky have you made?")
+  override def expectedPageHeader: Option[String] = Some("How much Irish Whiskey have you made?")
 
   override def enterDetails(textToEnter: String): Unit = {
-    enterText("declare-irish-whisky-input", textToEnter)
+    enterText("declare-irish-whiskey-input", textToEnter)
   }
 }
