@@ -110,6 +110,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
       case "Quarterly Spirits Returns Guidance Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/quarterlySpiritsReturnGuidance")
+      case "Product Entry Guidance Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productEntryGuidance")
     }
   }
 
