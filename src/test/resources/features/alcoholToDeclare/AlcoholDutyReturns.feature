@@ -31,12 +31,10 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Small Producer Relief Question Page"
     And I click save and continue button on "Small Producer Relief Question Page"
 #   Then I am presented with the "Tax Type Page"
-
-  Scenario: Alcohol Duty Returns Journey - Product Volume Page
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Product Volume Page"
+    When I enter redirect url for "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
+    When I enter "50" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
