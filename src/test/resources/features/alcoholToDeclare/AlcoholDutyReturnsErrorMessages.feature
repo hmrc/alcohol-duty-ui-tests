@@ -69,7 +69,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader | correctName | correctVolume | errorMessage1                                             |
       | There is a problem | TestName    | 5             | Select yes if this product is eligible for Draught Relief |
 
-  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Small Relief Producer Page
+  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Small Producer Relief Question Page
     Then I am presented with the "Product Name Page"
     When I enter "<correctName>" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
@@ -79,12 +79,12 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Draught Relief Page"
     When I select radio button "Yes" on "Draught Relief Page"
     And I click save and continue button on "Draught Relief Page"
-    Then I am presented with the "Small Relief Producer Page"
-    When I click save and continue button on "Small Relief Producer Page"
-    Then I am presented with the "Small Relief Producer Page" error page
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I click save and continue button on "Small Producer Relief Question Page"
+    Then I am presented with the "Small Producer Relief Question Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
-    When I select radio button "Yes" on "Small Relief Producer Page"
-    And I click save and continue button on "Small Relief Producer Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
 #   Then I am presented with the "Tax Type Page"
 
     Examples:
