@@ -91,11 +91,34 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader | correctName | correctVolume | errorMessage1                                                    |
       | There is a problem | TestName    | 5             | Select yes if this product is eligible for Small Producer Relief |
 
-  Scenario Outline:5- Alcohol Duty Returns Journey - Error Message Validations - Declare Small Producer Relief Duty Rate Page
+  Scenario Outline:5- Alcohol Duty Returns Journey - Error Message Validations - Product Volume Page
     Then I am presented with the "Product Name Page"
-    When I enter "<correctName>" on "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Product Volume Page"
+    When I enter redirect url for "Product Entry Guidance Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "5" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "Yes" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I click back button on "Small Producer Relief Question Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "No" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+#   Then I am presented with the "Tax Type Page"
+    When I enter redirect url for "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
+    When I enter "50" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
     Then I am presented with the "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
     Then I am presented with the "Product Volume Page" error page
@@ -121,10 +144,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
 #   Then I am presented with the "Pure Alcohol Page"
 
     Examples:
-      | errorMessageHeader | correctName | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
-      | There is a problem | TestName    | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
+      | errorMessageHeader | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
+      | There is a problem | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
 
-  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Product Volume Page
+  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Declare Small Producer Relief Duty Rate Page
     Then I am presented with the "Product Name Page"
     When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
