@@ -69,7 +69,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader | correctName | correctVolume | errorMessage1                                             |
       | There is a problem | TestName    | 5             | Select yes if this product is eligible for Draught Relief |
 
-  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Small Relief Producer Page
+  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Small Producer Relief Question Page
     Then I am presented with the "Product Name Page"
     When I enter "<correctName>" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
@@ -79,12 +79,12 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Draught Relief Page"
     When I select radio button "Yes" on "Draught Relief Page"
     And I click save and continue button on "Draught Relief Page"
-    Then I am presented with the "Small Relief Producer Page"
-    When I click save and continue button on "Small Relief Producer Page"
-    Then I am presented with the "Small Relief Producer Page" error page
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I click save and continue button on "Small Producer Relief Question Page"
+    Then I am presented with the "Small Producer Relief Question Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
-    When I select radio button "Yes" on "Small Relief Producer Page"
-    And I click save and continue button on "Small Relief Producer Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
 #   Then I am presented with the "Tax Type Page"
 
     Examples:
@@ -93,9 +93,32 @@ Feature: Alcohol Duty Returns Journey - Error Messages
 
   Scenario Outline:5- Alcohol Duty Returns Journey - Error Message Validations - Product Volume Page
     Then I am presented with the "Product Name Page"
-    When I enter "<correctName>" on "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Product Volume Page"
+    When I enter redirect url for "Product Entry Guidance Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "5" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "Yes" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I click back button on "Small Producer Relief Question Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "No" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+#   Then I am presented with the "Tax Type Page"
+    When I enter redirect url for "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
+    When I enter "50" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
     Then I am presented with the "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
     Then I am presented with the "Product Volume Page" error page
@@ -120,7 +143,59 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Product Volume Page"
 #   Then I am presented with the "Pure Alcohol Page"
 
+    Examples:
+      | errorMessageHeader | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
+      | There is a problem | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
+
+  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Declare Small Producer Relief Duty Rate Page
+    Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    When I enter redirect url for "Product Entry Guidance Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "5" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "Yes" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I click back button on "Small Producer Relief Question Page"
+    Then I am presented with the "Draught Relief Page"
+    When I select radio button "No" on "Draught Relief Page"
+    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+#   Then I am presented with the "Tax Type Page"
+    When I enter redirect url for "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
+    When I enter "0" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage2>"
+    When I enter "0.001" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage3>"
+    When I enter "Test" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage4>"
+    When I enter "9999999999" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage5>"
+    When I enter "<correctVolume>" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Product Volume Page"
 
     Examples:
-      | errorMessageHeader | correctName | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
-      | There is a problem | TestName    | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
+      | errorMessageHeader | correctVolume | errorMessage1                              | errorMessage2                                             | errorMessage3                                                             | errorMessage4                                         | errorMessage5                                                     |
+      | There is a problem | 100           | Enter your Small Producer Relief duty rate | Your Small Producer Relief duty rate must be 0.01 or more | Your Small Producer Relief duty rate must be a number to 2 decimal places | Your Small Producer Relief duty rate must be a number | Your Small Producer Relief duty rate must be 999999999.99 or less |
