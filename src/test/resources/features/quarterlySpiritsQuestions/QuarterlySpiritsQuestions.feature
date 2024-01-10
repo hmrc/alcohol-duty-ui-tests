@@ -8,9 +8,9 @@ Feature: Quarterly Spirits Questions
 
   @ZAP @a11y
   Scenario: Quarterly Spirits Questions Journey- Happy path
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     And I click continue button on "Quarterly Spirits Returns Guidance Page"

@@ -8,9 +8,9 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
 
   @ZAP @a11y
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes'
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -32,9 +32,9 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
       | 150 litres                                     | 999 litres                                | 500 litres                     |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -74,9 +74,9 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
       | 555 litres                                     | 666 litres                                | 777 litres                     |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"

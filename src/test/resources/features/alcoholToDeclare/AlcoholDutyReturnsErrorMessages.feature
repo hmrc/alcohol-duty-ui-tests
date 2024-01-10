@@ -6,7 +6,22 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
 
-  Scenario Outline:1- Alcohol Duty Returns Journey - Error Message Validations - Product Name Page
+  Scenario Outline:1- Alcohol Duty Returns Journey - Error Message Validations - Declare Alcohol Duty Question Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
+
+    Examples:
+      | errorMessageHeader | errorMessage1                                                    |
+      | There is a problem | Select yes if you need to declare duty on any alcoholic products |
+
+  Scenario Outline:2- Alcohol Duty Returns Journey - Error Message Validations - Product Name Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
     When I click save and continue button on "Product Name Page"
     Then I am presented with the "Product Name Page" error page
@@ -20,9 +35,14 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader | longName                                              | errorMessage1                                | errorMessage2                              |
       | There is a problem | TestName TestName TestName TestName TestName TestName | Enter the name you want to give this product | Product name must be 50 characters or less |
 
-  Scenario Outline:2- Alcohol Duty Returns Journey - Error Message Validations - Alcohol By Volume Page
+  Scenario Outline:3- Alcohol Duty Returns Journey - Error Message Validations - Alcohol By Volume Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
-    When I enter "<correctName>" on "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
@@ -48,37 +68,47 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Alcohol By Volume Page"
 
     Examples:
-      | errorMessageHeader | correctName | invalidCharacters | numberTooBig | numberTooLow | correctVolume | tooManyDecimals | errorMessage1                                         | errorMessage2                                                    | errorMessage3                                                       | errorMessage4                                                        | errorMessage5                                                                 |
-      | There is a problem | TestName    | test              | 999          | 0            | correctVolume | 0.0001          | Enter this product^s Alcohol by Volume (ABV) strength | This product^s Alcohol by Volume (ABV) strength must be a number | This product^s Alcohol by Volume (ABV) strength must be 100 or less | This product^s Alcohol by Volume (ABV) strength must be 0.01 or more | This product^s Alcohol by Volume (ABV) must be a number to two decimal places |
+      | errorMessageHeader | invalidCharacters | numberTooBig | numberTooLow | correctVolume | tooManyDecimals | errorMessage1                                         | errorMessage2                                                    | errorMessage3                                                       | errorMessage4                                                        | errorMessage5                                                                 |
+      | There is a problem | test              | 999          | 0            | correctVolume | 0.0001          | Enter this product^s Alcohol by Volume (ABV) strength | This product^s Alcohol by Volume (ABV) strength must be a number | This product^s Alcohol by Volume (ABV) strength must be 100 or less | This product^s Alcohol by Volume (ABV) strength must be 0.01 or more | This product^s Alcohol by Volume (ABV) must be a number to two decimal places |
 
-  Scenario Outline:3- Alcohol Duty Returns Journey - Error Message Validations - Draught Relief Page
+  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Draught Relief Question Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
-    When I enter "<correctName>" on "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
-    When I enter "<correctVolume>" on "Alcohol By Volume Page"
+    When I enter "5" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
-    Then I am presented with the "Draught Relief Page"
-    When I click save and continue button on "Draught Relief Page"
-    Then I am presented with the "Draught Relief Page" error page
+    Then I am presented with the "Draught Relief Question Page"
+    When I click save and continue button on "Draught Relief Question Page"
+    Then I am presented with the "Draught Relief Question Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
-    When I select radio button "Yes" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    When I select radio button "Yes" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
 
     Examples:
-      | errorMessageHeader | correctName | correctVolume | errorMessage1                                             |
-      | There is a problem | TestName    | 5             | Select yes if this product is eligible for Draught Relief |
+      | errorMessageHeader | errorMessage1                                             |
+      | There is a problem | Select yes if this product is eligible for Draught Relief |
 
-  Scenario Outline:4- Alcohol Duty Returns Journey - Error Message Validations - Small Producer Relief Question Page
+  Scenario Outline:5- Alcohol Duty Returns Journey - Error Message Validations - Small Producer Relief Question Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
-    When I enter "<correctName>" on "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
-    When I enter "<correctVolume>" on "Alcohol By Volume Page"
+    When I enter "5" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
-    Then I am presented with the "Draught Relief Page"
-    When I select radio button "Yes" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "Yes" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
     When I click save and continue button on "Small Producer Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page" error page
@@ -88,29 +118,29 @@ Feature: Alcohol Duty Returns Journey - Error Messages
 #   Then I am presented with the "Tax Type Page"
 
     Examples:
-      | errorMessageHeader | correctName | correctVolume | errorMessage1                                                    |
-      | There is a problem | TestName    | 5             | Select yes if this product is eligible for Small Producer Relief |
+      | errorMessageHeader | errorMessage1                                                    |
+      | There is a problem | Select yes if this product is eligible for Small Producer Relief |
 
-  Scenario Outline:5- Alcohol Duty Returns Journey - Error Message Validations - Product Volume Page
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Product Entry Guidance Page"
+  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Product Volume Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Product Entry Guidance Page"
     When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
     When I enter "5" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
-    Then I am presented with the "Draught Relief Page"
-    When I select radio button "Yes" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "Yes" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
     When I click back button on "Small Producer Relief Question Page"
-    Then I am presented with the "Draught Relief Page"
-    When I select radio button "No" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "No" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
     When I select radio button "Yes" on "Small Producer Relief Question Page"
     And I click save and continue button on "Small Producer Relief Question Page"
@@ -147,26 +177,26 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader | correctVolume | errorMessage1                                      | errorMessage2                              | errorMessage3                                              | errorMessage4                          | errorMessage5                                      |
       | There is a problem | 100           | Enter how much of this product you need to declare | This product^s volume must be 0.01 or more | This product^s volume must be a number to 2 decimal places | This product^s volume must be a number | This product^s volume must be 999999999.99 or less |
 
-  Scenario Outline:6- Alcohol Duty Returns Journey - Error Message Validations - Declare Small Producer Relief Duty Rate Page
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
-    When I enter redirect url for "Product Entry Guidance Page"
+  Scenario Outline:7- Alcohol Duty Returns Journey - Error Message Validations - Declare Small Producer Relief Duty Rate Page
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Product Entry Guidance Page"
     When I click continue button on "Product Entry Guidance Page"
     Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
     When I enter "5" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
-    Then I am presented with the "Draught Relief Page"
-    When I select radio button "Yes" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "Yes" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
     When I click back button on "Small Producer Relief Question Page"
-    Then I am presented with the "Draught Relief Page"
-    When I select radio button "No" on "Draught Relief Page"
-    And I click save and continue button on "Draught Relief Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "No" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
     When I select radio button "Yes" on "Small Producer Relief Question Page"
     And I click save and continue button on "Small Producer Relief Question Page"

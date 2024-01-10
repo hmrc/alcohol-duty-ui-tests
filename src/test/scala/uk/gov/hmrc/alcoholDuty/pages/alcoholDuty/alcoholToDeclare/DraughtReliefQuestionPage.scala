@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DraughtReliefPage extends BasePage {
+object DraughtReliefQuestionPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/draughtReliefQuestion"
   override val title       = "Is this product eligible for Draught Relief?"
