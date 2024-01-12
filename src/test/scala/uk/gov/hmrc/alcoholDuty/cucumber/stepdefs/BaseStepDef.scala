@@ -18,6 +18,7 @@ package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
+import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
@@ -25,8 +26,8 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
-import scala.collection.JavaConverters._
 
+import scala.collection.JavaConverters._
 
 trait BaseStepDef
     extends ScalaDsl
@@ -100,30 +101,36 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Product Volume Page"                    =>
+      case "Product Volume Page"                               =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productVolume")
-      case "Declare Duty Suspended Deliveries Page" =>
+      case "Declare Duty Suspended Deliveries Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesOutsideUk")
-      case "Declare Spirits Total Page" =>
+      case "Declare Spirits Total Page"                        =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
-      case "Quarterly Spirits Returns Guidance Page" =>
+      case "Quarterly Spirits Returns Guidance Page"           =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/quarterlySpiritsReturnGuidance")
-      case "Product Entry Guidance Page" =>
+      case "Product Entry Guidance Page"                       =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productEntryGuidance")
-      case "Declare Small Producer Relief Duty Rate Page" =>
+      case "Declare Small Producer Relief Duty Rate Page"      =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSmallProducerReliefDutyRate")
     }
   }
 
   And("""^I should see the following details""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    val actualData = PageObjectFinder.pageData
+    val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
+  }
+
+  When("""I verify the ABV value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
+    actualText should be(expectedText)
   }
 }
