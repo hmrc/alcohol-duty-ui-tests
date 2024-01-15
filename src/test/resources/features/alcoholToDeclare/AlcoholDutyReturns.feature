@@ -7,7 +7,109 @@ Feature: Alcohol Duty Returns Journey
     And I click submit button on "Auth Login Stub Page"
 
   @ZAP @a11y
-  Scenario: Alcohol Duty Returns Journey - Happy Path
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected NO
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "1.1" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "No" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "No" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+    Then I am presented with the "Tax Type Page"
+    And I verify the ABV value displayed as "1.1% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Wine, tax type code 301                     |
+      | Other fermented products, tax type code 301 |
+      | Beer, tax type code 301                     |
+      | Cider, tax type code 301                    |
+      | Spirits, tax type code 301                  |
+    When I select radio button "Other fermented products, tax type code 301" on "Tax Type Page"
+    And I click save and continue button on "Tax Type Page"
+    Then I am presented with the "Product Volume Page"
+    When I enter "100" on "Product Volume Page"
+    And I click save and continue button on "Product Volume Page"
+#   Then I am presented with the "Pure Alcohol Page"
+
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected YES & Small Producer Relief Selected NO
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "2.5" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "Yes" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "No" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+    Then I am presented with the "Tax Type Page"
+    And I verify the ABV value displayed as "2.5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 351                     |
+      | Cider, tax type code 352                    |
+      | Wine, tax type code 353                     |
+      | Other fermented products, tax type code 354 |
+      | Spirits, tax type code 355                  |
+    When I select radio button "Cider, tax type code 352" on "Tax Type Page"
+    And I click save and continue button on "Tax Type Page"
+    Then I am presented with the "Product Volume Page"
+    When I enter "100" on "Product Volume Page"
+    And I click save and continue button on "Product Volume Page"
+#   Then I am presented with the "Pure Alcohol Page"
+
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected NO & Small Producer Relief Selected YES
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Product Entry Guidance Page"
+    When I click continue button on "Product Entry Guidance Page"
+    Then I am presented with the "Product Name Page"
+    When I enter "TestName" on "Product Name Page"
+    And I click save and continue button on "Product Name Page"
+    Then I am presented with the "Alcohol By Volume Page"
+    When I enter "3.5" on "Alcohol By Volume Page"
+    And I click save and continue button on "Alcohol By Volume Page"
+    Then I am presented with the "Draught Relief Question Page"
+    When I select radio button "No" on "Draught Relief Question Page"
+    And I click save and continue button on "Draught Relief Question Page"
+    Then I am presented with the "Small Producer Relief Question Page"
+    When I select radio button "Yes" on "Small Producer Relief Question Page"
+    And I click save and continue button on "Small Producer Relief Question Page"
+    Then I am presented with the "Tax Type Page"
+    And I verify the ABV value displayed as "3.5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 366                     |
+      | Cider, tax type code 367                    |
+      | Wine, tax type code 368                     |
+      | Other fermented products, tax type code 369 |
+      | Spirits, tax type code 370                  |
+    When I select radio button "Spirits, tax type code 370" on "Tax Type Page"
+    And I click save and continue button on "Tax Type Page"
+    Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
+    When I enter "50" on "Declare Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Product Volume Page"
+    When I enter "100" on "Product Volume Page"
+    And I click save and continue button on "Product Volume Page"
+#   Then I am presented with the "Pure Alcohol Page"
+
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -23,15 +125,18 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Draught Relief Question Page"
     And I click save and continue button on "Draught Relief Question Page"
     Then I am presented with the "Small Producer Relief Question Page"
-    When I click back button on "Small Producer Relief Question Page"
-    Then I am presented with the "Draught Relief Question Page"
-    When I select radio button "No" on "Draught Relief Question Page"
-    And I click save and continue button on "Draught Relief Question Page"
-    Then I am presented with the "Small Producer Relief Question Page"
     When I select radio button "Yes" on "Small Producer Relief Question Page"
     And I click save and continue button on "Small Producer Relief Question Page"
-#   Then I am presented with the "Tax Type Page"
-    When I enter redirect url for "Declare Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Tax Type Page"
+    And I verify the ABV value displayed as "5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 376                     |
+      | Cider, tax type code 377                    |
+      | Wine, tax type code 378                     |
+      | Other fermented products, tax type code 379 |
+      | Spirits, tax type code 380                  |
+    When I select radio button "Wine, tax type code 378" on "Tax Type Page"
+    And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
     When I enter "50" on "Declare Small Producer Relief Duty Rate Page"
     And I click save and continue button on "Declare Small Producer Relief Duty Rate Page"
