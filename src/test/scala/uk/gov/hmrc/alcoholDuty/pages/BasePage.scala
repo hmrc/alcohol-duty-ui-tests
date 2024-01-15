@@ -28,7 +28,7 @@ import scala.jdk.CollectionConverters.asScalaBufferConverter
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
-  val newUrl: String = ""
+  val newUrl: String       = ""
   val title: String        = ""
 
   /** Fluent Wait config * */
@@ -130,4 +130,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       Map(key -> value)
     }
     .toMap
+
+  private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
+
+  def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 }

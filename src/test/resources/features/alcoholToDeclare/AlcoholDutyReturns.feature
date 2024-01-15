@@ -27,6 +27,12 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Small Producer Relief Question Page"
     Then I am presented with the "Tax Type Page"
     And I verify the ABV value displayed as "1.1% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Wine, tax type code 301                     |
+      | Other fermented products, tax type code 301 |
+      | Beer, tax type code 301                     |
+      | Cider, tax type code 301                    |
+      | Spirits, tax type code 301                  |
     When I select radio button "Other fermented products, tax type code 301" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Product Volume Page"
@@ -54,6 +60,12 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Small Producer Relief Question Page"
     Then I am presented with the "Tax Type Page"
     And I verify the ABV value displayed as "2.5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 351                     |
+      | Cider, tax type code 352                    |
+      | Wine, tax type code 353                     |
+      | Other fermented products, tax type code 354 |
+      | Spirits, tax type code 355                  |
     When I select radio button "Cider, tax type code 352" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Product Volume Page"
@@ -81,6 +93,12 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Small Producer Relief Question Page"
     Then I am presented with the "Tax Type Page"
     And I verify the ABV value displayed as "3.5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 366                     |
+      | Cider, tax type code 367                    |
+      | Wine, tax type code 368                     |
+      | Other fermented products, tax type code 369 |
+      | Spirits, tax type code 370                  |
     When I select radio button "Spirits, tax type code 370" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Declare Small Producer Relief Duty Rate Page"
@@ -111,6 +129,12 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Small Producer Relief Question Page"
     Then I am presented with the "Tax Type Page"
     And I verify the ABV value displayed as "5% Alcohol by Volume (ABV) strength" on "Tax Type Page"
+    And I can see below tax type codes on the "Tax Type Page"
+      | Beer, tax type code 376                     |
+      | Cider, tax type code 377                    |
+      | Wine, tax type code 378                     |
+      | Other fermented products, tax type code 379 |
+      | Spirits, tax type code 380                  |
     When I select radio button "Wine, tax type code 378" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Declare Small Producer Relief Duty Rate Page"

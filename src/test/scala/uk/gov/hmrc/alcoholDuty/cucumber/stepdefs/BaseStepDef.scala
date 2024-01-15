@@ -26,6 +26,7 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
+import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
 import scala.collection.JavaConverters._
 
@@ -132,5 +133,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
     actualText should be(expectedText)
+  }
+
+  Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expectedText = data.asScalaListOfStrings
+    allTaxTypeCodeText() should be (expectedText)
   }
 }

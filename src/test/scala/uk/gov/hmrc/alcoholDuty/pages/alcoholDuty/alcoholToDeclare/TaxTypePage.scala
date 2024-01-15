@@ -38,11 +38,10 @@ object TaxTypePage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Beer, tax type code 321"                     => click on cssSelector("#value_321")
-      case "Cider, tax type code 352"                    => click on cssSelector("#value_352")
+      case "Cider, tax type code 352"                    => click on xpath("//input[@id='352_Cider']")
       case "Other fermented products, tax type code 301" =>
         click on xpath("//input[@value='301_OtherFermentedProduct']")
       case "Spirits, tax type code 370"                  => click on xpath("//input[@value='370_Spirits']")
-      case "Wine, tax type code 378"                  => click on xpath("//input[@value='378_Wine']")
+      case "Wine, tax type code 378"                     => click on xpath("//input[@value='378_Wine']")
     }
 }
