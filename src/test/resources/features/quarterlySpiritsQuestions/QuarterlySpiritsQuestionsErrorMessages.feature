@@ -123,7 +123,7 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
 #   And I click save and continue button on "Declare Irish Whiskey Page"
     When I enter redirect url for "How Much Rye Have You Used Page"
     Then I am presented with the "How Much Rye Have You Used Page"
-    And I click save and continue button on "Declare Scotch Whisky Page"
+    And I click save and continue button on "How Much Rye Have You Used Page"
     Then I am presented with the "How Much Rye Have You Used Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "<errorMessage1>"
     When I enter "test123" on "How Much Rye Have You Used Page"
