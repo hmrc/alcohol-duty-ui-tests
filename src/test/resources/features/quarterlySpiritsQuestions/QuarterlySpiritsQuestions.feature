@@ -22,5 +22,11 @@ Feature: Quarterly Spirits Questions
     And I click save and continue button on "Declare Scotch Whisky Page"
     Then I am presented with the "Declare Irish Whiskey Page"
     When I enter "10" on "Declare Irish Whiskey Page"
-    And I click save and continue button on "Declare Irish Whiskey Page"
+#   And I click save and continue button on "Declare Irish Whiskey Page"
+    When I enter redirect url for "How Much Rye Have You Used Page"
+    Then I am presented with the "How Much Rye Have You Used Page"
+    When I enter "25" on "How Much Rye Have You Used Page"
+    And I click save and continue button on "How Much Rye Have You Used Page"
+#   Then I am presented with the "Check your answers"
+
 
