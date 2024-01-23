@@ -108,6 +108,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
+  def clickCheckBox(text: String): Unit    =
+    driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
     val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText

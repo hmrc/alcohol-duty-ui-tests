@@ -67,6 +67,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickRadioButton(choice)
   }
 
+  When("""I select checkbox {string} on {string}""") { (choice: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickCheckBox(choice)
+  }
+
   When("""I click save and continue button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSaveAndContinueButton()
@@ -102,7 +107,7 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "How Much Rye Have You Used Page"                               =>
+      case "How Much Rye Have You Used Page"                   =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used")
       case "Declare Duty Suspended Deliveries Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
@@ -138,6 +143,6 @@ trait BaseStepDef
   Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
-    allTaxTypeCodeText() should be (expectedText)
+    allTaxTypeCodeText() should be(expectedText)
   }
 }
