@@ -18,11 +18,14 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
+import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.DraughtReliefQuestionPage.cssSelector
+import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.TaxTypePage.xpath
 
 object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-of-these-spirits-have-you-made"
-  override val title = "Which of these spirits have you made?"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-of-these-spirits-have-you-made"
+  override val title       = "Which of these spirits have you made?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Which of these spirits have you made? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +37,11 @@ object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("Which of these spirits have you made?")
 
-  override def enterDetails(textToEnter: String): Unit = {
-    enterText("rye-used-input", textToEnter)
-  }
+  override def clickCheckBox(text: String): Unit =
+    text match {
+      case "Malt spirits"                           => click on cssSelector("#value_maltSpirits")
+      case "Neutral spirits of agricultural origin" =>
+        click on cssSelector("#value_neutralAgriculturalOrigin")
+      case "Spirits produced from beer"             => click on cssSelector("#value_beer")
+    }
 }
