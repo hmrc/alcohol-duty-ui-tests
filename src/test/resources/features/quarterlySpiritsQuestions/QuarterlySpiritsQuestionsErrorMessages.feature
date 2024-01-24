@@ -38,6 +38,14 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And I click save and continue button on "How Much Rye Have You Used Page"
     Then I am presented with the "How Much Rye Have You Used Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much rye you have used"
+    When I enter "25" on "How Much Rye Have You Used Page"
+    And I click save and continue button on "How Much Rye Have You Used Page"
+    When I enter redirect url for "How Much Malted Barley Have You Used Page"
+    Then I am presented with the "How Much Malted Barley Have You Used Page"
+    And I click save and continue button on "How Much Malted Barley Have You Used Page"
+    Then I am presented with the "How Much Malted Barley Have You Used Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much malted barley you have used"
+#   Then I am presented with the "Check your answers"
 
     Examples:
       | errorMessageHeader |
