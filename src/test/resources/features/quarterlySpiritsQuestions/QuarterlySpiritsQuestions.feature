@@ -37,6 +37,10 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "How Much Malted Barley Have You Used Page"
     When I enter "50" on "How Much Malted Barley Have You Used Page"
     And I click save and continue button on "How Much Malted Barley Have You Used Page"
+    When I enter redirect url for "How Much Unmalted Barley Have You Used Page"
+    Then I am presented with the "How Much Unmalted Barley Have You Used Page"
+    When I enter "75" on "How Much Unmalted Barley Have You Used Page"
+    And I click save and continue button on "How Much Unmalted Barley Have You Used Page"
 #   Then I am presented with the "Check your answers"
 
 
