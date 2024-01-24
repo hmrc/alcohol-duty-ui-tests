@@ -28,11 +28,15 @@ Feature: Quarterly Spirits Questions
     And I select checkbox "Neutral spirits of agricultural origin" on "Which Of These Spirits Have You Made Page"
     And I select checkbox "Spirits produced from beer" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
-#    Then I am presented with the "Spirits Ingredients"
+#   Then I am presented with the "Spirits Ingredients"
     When I enter redirect url for "How Much Rye Have You Used Page"
     Then I am presented with the "How Much Rye Have You Used Page"
     When I enter "25" on "How Much Rye Have You Used Page"
     And I click save and continue button on "How Much Rye Have You Used Page"
+    When I enter redirect url for "How Much Malted Barley Have You Used Page"
+    Then I am presented with the "How Much Malted Barley Have You Used Page"
+    When I enter "50" on "How Much Malted Barley Have You Used Page"
+    And I click save and continue button on "How Much Malted Barley Have You Used Page"
 #   Then I am presented with the "Check your answers"
 
 

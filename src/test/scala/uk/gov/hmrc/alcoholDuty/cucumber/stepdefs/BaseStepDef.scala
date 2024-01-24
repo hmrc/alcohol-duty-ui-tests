@@ -109,6 +109,8 @@ trait BaseStepDef
     page match {
       case "How Much Rye Have You Used Page"                   =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used")
+      case "How Much Malted Barley Have You Used Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-malted-barley-have-you-used")
       case "Declare Duty Suspended Deliveries Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
