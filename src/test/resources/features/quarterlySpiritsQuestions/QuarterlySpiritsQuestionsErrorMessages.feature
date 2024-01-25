@@ -47,10 +47,10 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much malted barley you have used"
     When I enter "50" on "How Much Malted Barley Have You Used Page"
     And I click save and continue button on "How Much Malted Barley Have You Used Page"
-    When I enter redirect url for "How Much Unmalted Barley Have You Used Page"
-    Then I am presented with the "How Much Unmalted Barley Have You Used Page"
-    And I click save and continue button on "How Much Unmalted Barley Have You Used Page"
-    Then I am presented with the "How Much Unmalted Barley Have You Used Page" error page
+    When I enter redirect url for "How Much Unmalted Grain Have You Used Page"
+    Then I am presented with the "How Much Unmalted Grain Have You Used Page"
+    And I click save and continue button on "How Much Unmalted Grain Have You Used Page"
+    Then I am presented with the "How Much Unmalted Grain Have You Used Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much unmalted grain you have used"
 #   Then I am presented with the "Check your answers"
 
