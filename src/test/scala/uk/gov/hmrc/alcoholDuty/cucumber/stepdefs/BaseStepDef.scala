@@ -107,32 +107,32 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "How Much Rye Have You Used Page"                   =>
+      case "How Much Rye Have You Used Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used")
-      case "How Much Malted Barley Have You Used Page"         =>
+      case "How Much Malted Barley Have You Used Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-malted-barley-have-you-used")
-      case "How Much Unmalted Grain Have You Used Page"        =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used")
-      case "How Much Wheat Have You Used Page"                 =>
+      case "How Much Wheat Have You Used Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-wheat-have-you-used")
-      case "Declare Duty Suspended Deliveries Page"            =>
+      case "How Much Unmalted Grain Have You Used Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used")
+      case "Declare Duty Suspended Deliveries Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesOutsideUk")
-      case "Declare Spirits Total Page"                        =>
+      case "Declare Spirits Total Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
-      case "Quarterly Spirits Returns Guidance Page"           =>
+      case "Quarterly Spirits Returns Guidance Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/quarterlySpiritsReturnGuidance")
-      case "Product Entry Guidance Page"                       =>
+      case "Product Entry Guidance Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productEntryGuidance")
-      case "Declare Small Producer Relief Duty Rate Page"      =>
+      case "Declare Small Producer Relief Duty Rate Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSmallProducerReliefDutyRate")
     }
   }
 
   And("""^I should see the following details""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    val actualData   = PageObjectFinder.pageData
+    val actualData = PageObjectFinder.pageData
     actualData should be(expectedData)
   }
 
@@ -150,5 +150,17 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
     allTaxTypeCodeText() should be(expectedText)
+  }
+
+  Then("""I can see below text on the {string}""") { (page: String, data: DataTable) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expectedText = data.asScalaListOfStrings
+    getPureAlcoholPageText should be(expectedText)
+  }
+
+  Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageTitle(specificPage)
   }
 }
