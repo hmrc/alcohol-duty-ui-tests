@@ -38,5 +38,6 @@ object PureAlcoholPage extends BasePage {
   override def checkPageTitle(page: String): Unit = {
     val pageCaption: Array[String] = page.split(",")
     driver.findElement(By cssSelector ".govuk-heading-xl").getText should equal(s"""This product has ${pageCaption(0)} litres of pure alcohol""")
+    driver.getCurrentUrl should equal(TestConfiguration.url("alcohol-duty-returns-frontend") + "/you-have-declared-this-many-litres-of-pure-alcohol")
   }
 }
