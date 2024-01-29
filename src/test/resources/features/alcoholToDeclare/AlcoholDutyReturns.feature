@@ -38,7 +38,10 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-#   Then I am presented with the "Pure Alcohol Page"
+    Then I am presented with the "Pure Alcohol Page" "1.1"
+    And I can see below text on the "Pure Alcohol Page"
+      | this product is 1.1% Alcohol by Volume (ABV) strength |
+      | you need to declare 100 litres of this product        |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected YES & Small Producer Relief Selected NO
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -71,7 +74,10 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-#   Then I am presented with the "Pure Alcohol Page"
+    Then I am presented with the "Pure Alcohol Page" "2.5"
+    And I can see below text on the "Pure Alcohol Page"
+      | this product is 2.5% Alcohol by Volume (ABV) strength |
+      | you need to declare 100 litres of this product        |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected NO & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -107,7 +113,10 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-#   Then I am presented with the "Pure Alcohol Page"
+    Then I am presented with the "Pure Alcohol Page" "3.5"
+    And I can see below text on the "Pure Alcohol Page"
+      | this product is 3.5% Alcohol by Volume (ABV) strength |
+      | you need to declare 100 litres of this product        |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -143,4 +152,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-#   Then I am presented with the "Pure Alcohol Page"
+    Then I am presented with the "Pure Alcohol Page" "5"
+    And I can see below text on the "Pure Alcohol Page"
+      | this product is 5% Alcohol by Volume (ABV) strength |
+      | you need to declare 100 litres of this product      |
