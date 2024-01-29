@@ -18,8 +18,6 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
-import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.DraughtReliefQuestionPage.cssSelector
-import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.TaxTypePage.xpath
 
 object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
 
