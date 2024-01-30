@@ -20,24 +20,24 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object PureAlcoholPage extends BasePage {
+object ProductDutyRatePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/you-have-declared-this-many-litres-of-pure-alcohol"
-  override val title = "This product has 2.5 litres of pure alcohol"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/the-duty-due-on-this-product"
+  override val title = "The duty due on this product is £0.00"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: This product has 2.5 litres of pure alcohol - GOV.UK"
+    "Error: The duty due on this product is £0.00 - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "This product has 2.5 litres of pure alcohol - Manage your Alcohol Duty - GOV.UK"
+    "The duty due on this product is £0.00 - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("This product has 2.5 litres of pure alcohol")
+  override def expectedPageHeader: Option[String] = Some("The duty due on this product is £0.00")
 
   override def checkPageTitle(page: String): Unit = {
     val pageCaption: Array[String] = page.split(",")
-    driver.findElement(By cssSelector ".govuk-heading-xl").getText should equal(s"""This product has ${pageCaption(0)} litres of pure alcohol""")
-    driver.getCurrentUrl should equal(TestConfiguration.url("alcohol-duty-returns-frontend") + "/you-have-declared-this-many-litres-of-pure-alcohol")
+    driver.findElement(By cssSelector ".govuk-heading-xl").getText should equal(s"""The duty due on this product is ${pageCaption(0)}""")
+    driver.getCurrentUrl should equal(TestConfiguration.url("alcohol-duty-returns-frontend") + "/the-duty-due-on-this-product")
   }
 }

@@ -155,7 +155,7 @@ trait BaseStepDef
   Then("""I can see below text on the {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
-    getPureAlcoholPageText should be(expectedText)
+    getBulletPointsTextOnThePage should be(expectedText)
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
