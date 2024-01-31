@@ -42,6 +42,12 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Pure Alcohol Page"
       | this product is 1.1% Alcohol by Volume (ABV) strength |
       | you need to declare 100 litres of this product        |
+    When I click continue button on "Pure Alcohol Page"
+    Then I am presented with the "Product Duty Rate Page" "£0.00"
+    And I can see below text on the "Product Duty Rate Page"
+      | Litres of pure alcohol: 1.1 |
+      | Tax type: 301               |
+      | Duty rate per litre: 0.00   |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected YES & Small Producer Relief Selected NO
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -78,6 +84,12 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Pure Alcohol Page"
       | this product is 2.5% Alcohol by Volume (ABV) strength |
       | you need to declare 100 litres of this product        |
+    When I click continue button on "Pure Alcohol Page"
+    Then I am presented with the "Product Duty Rate Page" "£21.05"
+    And I can see below text on the "Product Duty Rate Page"
+      | Litres of pure alcohol: 2.5 |
+      | Tax type: 352               |
+      | Duty rate per litre: 8.42   |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected NO & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -117,6 +129,12 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Pure Alcohol Page"
       | this product is 3.5% Alcohol by Volume (ABV) strength |
       | you need to declare 100 litres of this product        |
+    When I click continue button on "Pure Alcohol Page"
+    Then I am presented with the "Product Duty Rate Page" "£175.00"
+    And I can see below text on the "Product Duty Rate Page"
+      | Litres of pure alcohol: 3.5 |
+      | Tax type: 370               |
+      | Duty rate per litre: 50.00  |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -156,3 +174,9 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Pure Alcohol Page"
       | this product is 5% Alcohol by Volume (ABV) strength |
       | you need to declare 100 litres of this product      |
+    When I click continue button on "Pure Alcohol Page"
+    Then I am presented with the "Product Duty Rate Page" "£250.00"
+    And I can see below text on the "Product Duty Rate Page"
+      | Litres of pure alcohol: 5  |
+      | Tax type: 378              |
+      | Duty rate per litre: 50.00 |

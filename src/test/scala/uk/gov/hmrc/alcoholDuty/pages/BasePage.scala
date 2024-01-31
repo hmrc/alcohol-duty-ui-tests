@@ -137,7 +137,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 
-  private def pureAlcoholPageText() = driver.findElement(By.cssSelector(".govuk-list.govuk-list--bullet"))
+  private def bulletPointsTextOnThePage() = driver.findElement(By.cssSelector(".govuk-list.govuk-list--bullet"))
 
-  def getPureAlcoholPageText: Seq[String] = pureAlcoholPageText().getText.split("\n").toList
+  def getBulletPointsTextOnThePage: Seq[String] = bulletPointsTextOnThePage().getText.split("\n").toList
 }
