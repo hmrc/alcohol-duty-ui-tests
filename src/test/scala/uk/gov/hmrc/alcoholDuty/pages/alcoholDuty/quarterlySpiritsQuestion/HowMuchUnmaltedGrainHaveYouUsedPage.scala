@@ -21,8 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object HowMuchUnmaltedGrainHaveYouUsedPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used"
-  override val title = "How much unmalted grain have you used?"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used"
+  override val title       = "How much unmalted grain have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: How much unmalted grain have you used? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +35,6 @@ object HowMuchUnmaltedGrainHaveYouUsedPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("How much unmalted grain have you used?")
 
-  override def enterDetails(textToEnter: String): Unit = {
+  override def enterDetails(textToEnter: String): Unit =
     enterText("unmalted-grain-used-input", textToEnter)
-  }
 }

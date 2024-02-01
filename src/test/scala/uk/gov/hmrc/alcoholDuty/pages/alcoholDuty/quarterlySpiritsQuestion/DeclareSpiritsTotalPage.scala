@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DeclareSpiritsTotalPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal"
-  override val title = "What is the total volume of spirits you made this quarter?"
+  override val title       = "What is the total volume of spirits you made this quarter?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: What is the total volume of spirits you made this quarter? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +34,6 @@ object DeclareSpiritsTotalPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("What is the total volume of spirits you made this quarter?")
 
-  override def enterDetails(textToEnter: String): Unit = {
+  override def enterDetails(textToEnter: String): Unit =
     enterText("declare-spirits-total-input", textToEnter)
-  }
 }
