@@ -47,7 +47,7 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Product Duty Rate Page"
       | Litres of pure alcohol: 1.1 |
       | Tax type: 301               |
-      | Duty rate per litre: 0.00   |
+      | Duty rate per litre: £0.00   |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected YES & Small Producer Relief Selected NO
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -89,7 +89,7 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Product Duty Rate Page"
       | Litres of pure alcohol: 2.5 |
       | Tax type: 352               |
-      | Duty rate per litre: 8.42   |
+      | Duty rate per litre: £8.42   |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected NO & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -134,7 +134,7 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Product Duty Rate Page"
       | Litres of pure alcohol: 3.5 |
       | Tax type: 370               |
-      | Duty rate per litre: 50.00  |
+      | Duty rate per litre: £50.00  |
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -179,4 +179,4 @@ Feature: Alcohol Duty Returns Journey
     And I can see below text on the "Product Duty Rate Page"
       | Litres of pure alcohol: 5  |
       | Tax type: 378              |
-      | Duty rate per litre: 50.00 |
+      | Duty rate per litre: £50.00 |
