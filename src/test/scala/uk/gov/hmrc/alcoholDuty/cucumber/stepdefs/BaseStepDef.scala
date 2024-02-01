@@ -111,8 +111,12 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used")
       case "How Much Malted Barley Have You Used Page"         =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-malted-barley-have-you-used")
-      case "How Much Unmalted Grain Have You Used Page"       =>
+      case "How Much Wheat Have You Used Page"                 =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-wheat-have-you-used")
+      case "How Much Unmalted Grain Have You Used Page"        =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used")
+      case "How Much Ethylene Gas Have You Used Page"          =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used")
       case "Declare Duty Suspended Deliveries Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
@@ -148,5 +152,17 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
     allTaxTypeCodeText() should be(expectedText)
+  }
+
+  Then("""I can see below text on the {string}""") { (page: String, data: DataTable) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expectedText = data.asScalaListOfStrings
+    getBulletPointsTextOnThePage should be(expectedText)
+  }
+
+  Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageTitle(specificPage)
   }
 }

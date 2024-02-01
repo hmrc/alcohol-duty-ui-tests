@@ -19,21 +19,21 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object HowMuchRyeHaveYouUsedPage extends BasePage {
+object HowMuchWheatHaveYouUsedPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used"
-  override val title       = "How much rye have you used?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-wheat-have-you-used"
+  override val title       = "How much wheat have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much rye have you used? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much wheat have you used? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much rye have you used? - Manage your Alcohol Duty - GOV.UK"
+    "How much wheat have you used? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("How much rye have you used?")
+  override def expectedPageHeader: Option[String] = Some("How much wheat have you used?")
 
   override def enterDetails(textToEnter: String): Unit =
-    enterText("rye-used-input", textToEnter)
+    enterText("wheat-used-input", textToEnter)
 }
