@@ -45,6 +45,10 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "How Much Wheat Have You Used Page"
     When I enter "68.75" on "How Much Wheat Have You Used Page"
     And I click save and continue button on "How Much Wheat Have You Used Page"
+    When I enter redirect url for "How Much Ethylene Gas Have You Used Page"
+    Then I am presented with the "How Much Ethylene Gas Have You Used Page"
+    When I enter "100" on "How Much Ethylene Gas Have You Used Page"
+    And I click save and continue button on "How Much Ethylene Gas Have You Used Page"
 #   Then I am presented with the "Check your answers"
 
 

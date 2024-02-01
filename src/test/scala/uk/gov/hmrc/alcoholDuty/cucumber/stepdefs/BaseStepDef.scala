@@ -115,6 +115,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-wheat-have-you-used")
       case "How Much Unmalted Grain Have You Used Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used")
+      case "How Much Ethylene Gas Have You Used Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used")
       case "Declare Duty Suspended Deliveries Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
