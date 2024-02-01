@@ -21,8 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object HowMuchEthyleneGasHaveYouUsedPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used"
-  override val title = "How much ethylene gas have you used?"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used"
+  override val title       = "How much ethylene gas have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: How much ethylene gas have you used? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +35,6 @@ object HowMuchEthyleneGasHaveYouUsedPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("How much ethylene gas have you used?")
 
-  override def enterDetails(textToEnter: String): Unit = {
+  override def enterDetails(textToEnter: String): Unit =
     enterText("ethylene-gas-used-input", textToEnter)
-  }
 }

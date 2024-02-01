@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object HowMuchRyeHaveYouUsedPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used"
-  override val title = "How much rye have you used?"
+  override val title       = "How much rye have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: How much rye have you used? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +34,6 @@ object HowMuchRyeHaveYouUsedPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("How much rye have you used?")
 
-  override def enterDetails(textToEnter: String): Unit = {
+  override def enterDetails(textToEnter: String): Unit =
     enterText("rye-used-input", textToEnter)
-  }
 }
