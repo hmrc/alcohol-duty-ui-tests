@@ -21,13 +21,6 @@ import org.openqa.selenium.WebDriver
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 trait BrowserDriver extends LazyLogging {
-  logger.info(
-    s"Instantiating Browser: ${sys.props.getOrElse("browser", "'browser' System property not set. This is required")}"
-  )
-
-  if (!Option(System.getProperty("browser")).exists(_.nonEmpty)) {
-    System.setProperty("browser", "chrome")
-  }
 
   implicit val driver: WebDriver = Driver.instance
 
