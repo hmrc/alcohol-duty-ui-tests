@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BROWSER=${1:-remote-chrome}
+BROWSER=${1:-chrome}
 JOURNEY=${2:-Alcohol Duty UI Tests}
 
 echo "Running browser tests..."
