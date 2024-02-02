@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BROWSER=${1:-remote-chrome}
+BROWSER=${1:-chrome}
 JOURNEY=${2:-Alcohol Duty UI Tests}
 
 echo "Running browser tests..."
@@ -9,4 +9,4 @@ echo "Browser:              ${BROWSER}"
 echo "Env:                  local"
 echo "Journey:              ${JOURNEY}"
 echo "=========================================="
-sbt -Dbrowser=${BROWSER} -Denvironment=local "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.Runner"
+sbt clean -Dbrowser="${BROWSER}" -Denvironment=local "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.Runner" testReport

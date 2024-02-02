@@ -28,7 +28,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters.{CollectionHasAsScala, MapHasAsScala}
 
 trait BaseStepDef
     extends ScalaDsl

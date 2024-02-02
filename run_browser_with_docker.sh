@@ -17,13 +17,11 @@
 # Initializes port_mappings with all running application ports using the Service Manager status command.
 # Appends ZAP_PORT 11000 to ./run-zap-spec.sh
 #######################################
-port_mappings=$(sm2 --status | grep PASS | awk '{ print $8"->"$8 }' | paste -sd "," -)
+#port_mappings=$(sm2 --status | grep PASS | awk '{ print $8"->"$8 }' | paste -sd "," -)
 # If using sm, comment out the above line and instead use the below line
-#port_mappings=$(sm -s | grep PASS | awk '{ print $12"->"$12 }' | paste -sd "," -)
-port_mappings="$port_mappings,11000->11000,6010->6010"
-
-# Alternatively, port_mappings can be explicitly initialised as below:
-#port_mappings="9032->9032,9250->9250,9080->9080"
+port_mappings=$(sm2 -s | grep PASS | awk '{ print $12"->"$12 }' | paste -sd "," -)
+ipConfigAddress=$(ifconfig en0 | grep 'inet ' | awk '{print $2}')
+port_mappings="$port_mappings,27017->27017,12346->12346,16002->16002,16003->16003,16001->16001,16000->16000,16004->16004,9032->9032,8500->8500,8585->8585,9949->9949,9557->9557,9553->9553,9025->9025,9250->9250,8100->8100,9514->9514,9927->9927,12345->12345,9978->9978"
 
 #######################################
 # Defines the BROWSER variable from the argument passed to the script
@@ -54,15 +52,15 @@ fi
 # NOTE:
 # When using on a Linux OS, add "--net=host" to the docker run command.
 #######################################
-
+docker stop $(docker ps --filter name=${1} --format="{{.ID}}")
 docker pull ${BROWSER} \
-  && docker run \
-  -d \
-  --rm \
-  --name "${1}" \
-  --shm-size=2g \
-  -p 4444:4444 \
-  -p 5900:5900 \
-  -e PORT_MAPPINGS="$port_mappings" \
-  -e TARGET_IP='host.docker.internal' \
-  ${BROWSER}
+    && docker run \
+        -d \
+        --rm \
+        --name "${1}" \
+        --shm-size=2g \
+        -p 4444:4444 \
+        -p 5900:5900 \
+        -e PORT_MAPPINGS="$port_mappings" \
+        -e TARGET_IP="$ipConfigAddress" \
+        ${BROWSER}
