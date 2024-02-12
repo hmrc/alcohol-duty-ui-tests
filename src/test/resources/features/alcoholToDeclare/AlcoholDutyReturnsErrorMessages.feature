@@ -51,7 +51,14 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much of this product you need to declare"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-#   Then I am presented with the "Pure Alcohol Page"
+    Then I am presented with the "Pure Alcohol Page"
+    When I click continue button on "Pure Alcohol Page"
+    Then I am presented with the "Product Duty Rate Page"
+    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Product List Page"
+    And I click save and continue button on "Product List Page"
+    Then I am presented with the "Product List Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you want to add another product"
 
     Examples:
       | errorMessageHeader |

@@ -202,3 +202,19 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
       | TestName | 5% ABV           | Yes                         | Yes                                | 378           | 100 litres | 5 litres     | £50.00 per litre | £250.00  |
+
+    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Product List Page"
+    And I can see below text on the "Product List Page"
+      | Litres of pure alcohol: 5  |
+      | Tax type: 378              |
+    When I click "Change Hyperlink" on "Product List Page"
+    Then I am presented with the "Product Check your answers" with new url
+    When I click "Remove Hyperlink" on "Product List Page"
+    Then I am presented with the "Delete Product Page"
+    When I select radio button "Yes" on "Product List Page"
+    And I click save and continue button on "Product List Page"
+    Then I am presented with the "Product Name Page"
+    When I select radio button "No" on "Product List Page"
+    And I click save and continue button on "Product List Page"
+    Then I am presented with the "Task List Page"
