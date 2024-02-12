@@ -55,6 +55,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click continue button on "Pure Alcohol Page"
     Then I am presented with the "Product Duty Rate Page"
     When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Check Your Answers Page"
+    When I click continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product List Page" error page

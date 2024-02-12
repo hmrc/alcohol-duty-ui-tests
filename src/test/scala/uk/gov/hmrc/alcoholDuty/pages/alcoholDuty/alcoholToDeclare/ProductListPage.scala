@@ -19,6 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
 import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
+import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.DraughtReliefQuestionPage.cssSelector
 
 object ProductListPage extends BasePage {
 
@@ -35,9 +36,10 @@ object ProductListPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("Products to declare")
 
-  override def checkPageTitle(page: String): Unit = {
-    val pageCaption: Array[String] = page.split(",")
-    driver.findElement(By cssSelector ".govuk-heading-xl").getText should equal(s"""This product has ${pageCaption(0)} litres of pure alcohol""")
-    driver.getCurrentUrl should equal(TestConfiguration.url("alcohol-duty-returns-frontend") + "/you-have-declared-this-many-litres-of-pure-alcohol")
+  override def clickRadioButton(text: String): Unit = {
+    text match {
+      case "Yes" => click on cssSelector("#productList-yesNoValue")
+      case "No" => click on cssSelector("#productList-yesNoValue-no")
+    }
   }
 }
