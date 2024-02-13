@@ -56,5 +56,7 @@ object PageObjectFinder extends BasePage {
   implicit class DataTableConverters(dataTable: DataTable) {
 
     def asScalaListOfStrings: List[String] = dataTable.cells().asScala.flatMap(_.asScala).toList
+
+    def asScalaListOfLists: List[List[String]] = dataTable.rows(0).asLists().asScala.map(_.asScala.toList).toList
   }
 }

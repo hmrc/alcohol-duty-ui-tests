@@ -22,6 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object CheckYourAnswersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers"
+  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers?index=0"
   override val title       = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -25,7 +25,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Alcohol By Volume Page"
     Then I am presented with the "Alcohol By Volume Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter this product^s Alcohol by Volume (ABV) strength"
-    When I enter "15" on "Alcohol By Volume Page"
+    When I enter "2.5" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
     Then I am presented with the "Draught Relief Question Page"
     When I click save and continue button on "Draught Relief Question Page"
@@ -43,7 +43,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Tax Type Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select this product^s tax type"
-    When I select radio button "Beer, tax type code 331" on "Tax Type Page"
+    When I select radio button "Beer, tax type code 311" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
@@ -53,10 +53,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Product Volume Page"
     Then I am presented with the "Pure Alcohol Page"
     When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page"
+    Then I am presented with the "Product Duty Rate Page" "£23.17"
     When I click continue button on "Product Duty Rate Page"
     Then I am presented with the "Check Your Answers Page"
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product List Page" error page

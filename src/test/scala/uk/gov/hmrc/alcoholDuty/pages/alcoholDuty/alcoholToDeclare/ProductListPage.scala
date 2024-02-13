@@ -27,7 +27,7 @@ object ProductListPage extends BasePage {
   override val title = "Products to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Products to declare - GOV.UK"
+    "Error: Products to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
@@ -40,6 +40,13 @@ object ProductListPage extends BasePage {
     text match {
       case "Yes" => click on cssSelector("#productList-yesNoValue")
       case "No" => click on cssSelector("#productList-yesNoValue-no")
+    }
+  }
+
+  override def clickButton(buttonText: String): Unit = {
+    buttonText match {
+      case "Change Hyperlink" => click on xpath("(//a[normalize-space()='Change'])[1]")
+      case "Remove Hyperlink" => click on xpath("(//a[normalize-space()='Remove'])[1]")
     }
   }
 }

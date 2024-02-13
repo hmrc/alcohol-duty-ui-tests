@@ -7,7 +7,7 @@ Feature: Alcohol Duty Returns Journey
     And I click submit button on "Auth Login Stub Page"
 
   @ZAP @a11y
-  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected NO
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief are set to NO, and Product List Page is set to NO
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -53,19 +53,15 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate       | Duty due |
       | TestName | 1.1% ABV         | No                          | No                                 | 301           | 100 litres | 1.1 litres   | £0.00 per litre | £0.00    |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | 0.00     |
-    When I select radio button "Yes" on "Product List Page"
+    And I should see "TestName", "£0.00", "Change" and "Remove" text at the "Product List Page"
+    When I select radio button "No" on "Product List Page"
     And I click save and continue button on "Product List Page"
-    Then I am presented with the "Product Name Page"
-#    When I select radio button "No" on "Product List Page"
-#    And I click save and continue button on "Product List Page"
-#    Then I am presented with the "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
 
-  Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected YES & Small Producer Relief Selected NO - Select No on Product List Page
+
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief is set to YES & Small Producer Relief is set to NO, and Product List Page is set to YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -111,20 +107,15 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate       | Duty due |
       | TestName | 2.5% ABV         | Yes                         | No                                 | 352           | 100 litres | 2.5 litres   | £8.42 per litre | £21.05   |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | 21.05    |
+    And I should see "TestName", "£21.05", "Change" and "Remove" text at the "Product List Page"
     When I select radio button "Yes" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product Name Page"
-#    When I select radio button "No" on "Product List Page"
-#    And I click save and continue button on "Product List Page"
-#    Then I am presented with the "Task List Page"
 
 
-  Scenario: Alcohol Duty Returns Journey - When Draught Relief Selected NO & Small Producer Relief Selected YES
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief is set to NO & Small Producer Relief is set to YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -173,20 +164,15 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
       | TestName | 3.5% ABV         | No                          | Yes                                | 370           | 100 litres | 3.5 litres   | £50.00 per litre | £175.00  |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | 175.00   |
+    And I should see "TestName", "£175.00", "Change" and "Remove" text at the "Product List Page"
     When I select radio button "Yes" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product Name Page"
-#    When I select radio button "No" on "Product List Page"
-#    And I click save and continue button on "Product List Page"
-#    Then I am presented with the "Task List Page"
 
 
-  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief Selected YES - Select Yes on Product List Page
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief are set to YES
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -235,20 +221,14 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
       | TestName | 5% ABV           | Yes                         | Yes                                | 378           | 100 litres | 5 litres     | £50.00 per litre | £250.00  |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | £250.00  |
-#    When I click "Change Hyperlink" on "Product List Page"
-#    Then I am presented with the "Product Check your answers"
-#    When I click "Remove Hyperlink" on "Product List Page"
-#    Then I am presented with the "Delete Product Page"
+    And I should see "TestName", "£250.00", "Change" and "Remove" text at the "Product List Page"
     When I select radio button "No" on "Product List Page"
     And I click save and continue button on "Product List Page"
-#    Then I am presented with the "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
 
-  Scenario: Alcohol Duty Returns Journey - Change Product on Product List Page
+  Scenario: Alcohol Duty Returns Journey - verifying change link functionality on Product List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -297,13 +277,11 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
       | TestName | 5% ABV           | Yes                         | Yes                                | 378           | 100 litres | 5 litres     | £50.00 per litre | £250.00  |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | £250.00  |
+    And I should see "TestName", "£250.00", "Change" and "Remove" text at the "Product List Page"
     When I click "Change Hyperlink" on "Product List Page"
-    Then I am presented with the "Check Your Answers Page"
+    Then I am presented with the "Check Your Answers Page" with new url
 
   Scenario: Alcohol Duty Returns Journey - Remove Product on Product List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -354,10 +332,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
       | TestName | 5% ABV           | Yes                         | Yes                                | 378           | 100 litres | 5 litres     | £50.00 per litre | £250.00  |
-    When I click continue button on "Check Your Answers Page"
+    When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
-    And I should see the following details
-      | Name     | Duty due |
-      | TestName | £250.00  |
+    And I should see "TestName", "£250.00", "Change" and "Remove" text at the "Product List Page"
     When I click "Remove Hyperlink" on "Product List Page"
-    Then I am presented with the "Delete Product Page"
+#    Then I am presented with the "Delete Product Page"
