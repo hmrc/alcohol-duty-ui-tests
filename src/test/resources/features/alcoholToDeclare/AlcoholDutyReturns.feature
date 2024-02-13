@@ -7,7 +7,7 @@ Feature: Alcohol Duty Returns Journey
     And I click submit button on "Auth Login Stub Page"
 
   @ZAP @a11y
-  Scenario: Alcohol Duty Returns Journey - When Draught Relief & Small Producer Relief are set to NO, and Product List Page is set to NO
+  Scenario: Alcohol Duty Returns Journey - When Draught Relief, Small Producer Relief, and Product List Page are set to NO
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
