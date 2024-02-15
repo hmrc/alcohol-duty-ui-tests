@@ -42,5 +42,6 @@ object TaxTypePage extends BasePage {
       case "Spirits, tax type code 370"                  => click on xpath("//input[@value='370_Spirits']")
       case "Wine, tax type code 378"                     => click on xpath("//input[@value='378_Wine']")
       case "Beer, tax type code 331"                     => click on xpath("//input[@value='331_Beer']")
+      case "Beer, tax type code 311"                     => click on xpath("//input[@value='311_Beer']")
     }
 }
