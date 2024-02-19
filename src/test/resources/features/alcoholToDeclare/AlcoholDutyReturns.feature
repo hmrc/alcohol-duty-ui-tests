@@ -344,4 +344,4 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Delete Product Page"
     When I select radio button "Yes" on "Delete Product Page"
     And I click save and continue button on "Delete Product Page"
-#    Then I am presented with the "Product List Page"
+    Then I am presented with the "Product List Page"
