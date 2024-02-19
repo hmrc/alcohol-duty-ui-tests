@@ -61,6 +61,11 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product List Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you want to add another product"
+    When I click "Remove Hyperlink" on "Product List Page"
+    Then I am presented with the "Delete Product Page"
+    And I click save and continue button on "Delete Product Page"
+    Then I am presented with the "Delete Product Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to delete a product"
 
     Examples:
       | errorMessageHeader |
