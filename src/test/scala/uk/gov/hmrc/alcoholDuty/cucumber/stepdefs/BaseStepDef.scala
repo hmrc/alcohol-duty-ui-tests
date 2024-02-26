@@ -138,6 +138,12 @@ trait BaseStepDef
     actualData should be(expectedData)
   }
 
+  And("""^I should see the following product details""") { data: DataTable =>
+    val expected = data.asScalaListOfLists
+    val actual = productsList
+    actual should be(expected)
+  }
+
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
   }
@@ -164,15 +170,5 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageTitle(specificPage)
-  }
-
-//  this method needs to be improved to fit with multiple tables
-  When("""I should see {string}, {string}, {string} and {string} text at the {string}""") { (productName: String, dutyDue: String, actionChange:String, actionRemove: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val listOfProductText = driver.findElement(By.cssSelector("tbody tr[class='govuk-table__row']")).getText
-    assert(listOfProductText.contains(productName))
-    assert(listOfProductText.contains(dutyDue))
-    assert(listOfProductText.contains(actionChange))
-    assert(listOfProductText.contains(actionRemove))
   }
 }
