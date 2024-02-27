@@ -402,3 +402,6 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Delete Product Page"
     And I click save and continue button on "Delete Product Page"
     Then I am presented with the "Product List Page"
+    And I should see the following product details
+    | Name            | Duty due | Action |
+
