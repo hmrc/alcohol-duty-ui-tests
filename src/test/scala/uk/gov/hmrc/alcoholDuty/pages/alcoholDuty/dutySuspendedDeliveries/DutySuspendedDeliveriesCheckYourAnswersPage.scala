@@ -35,10 +35,10 @@ object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change amount delivered duty suspended outside the UK" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/changeDeclareDutySuspendedDeliveriesOutsideUk']")
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-delivered-duty-suspended-outside-of-the-uk']")
       case "Change amount delivered duty suspended in the UK"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/changeDutySuspendedDeliveries']")
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-delivered-duty-suspended-within-the-uk']")
       case "Change amount received duty suspended"                 =>
-        click on cssSelector("a[href='/manage-alcohol-duty/changeDeclareDutySuspendedReceived']")
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-received-suspended']")
     }
 }

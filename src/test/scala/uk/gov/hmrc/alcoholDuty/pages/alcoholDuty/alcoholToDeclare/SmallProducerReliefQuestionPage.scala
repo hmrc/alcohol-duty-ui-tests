@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object SmallProducerReliefQuestionPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/smallProducerReliefQuestion"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/is-this-product-eligible-for-small-producer-relief"
   override val title = "Is this product eligible for Small Producer Relief?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

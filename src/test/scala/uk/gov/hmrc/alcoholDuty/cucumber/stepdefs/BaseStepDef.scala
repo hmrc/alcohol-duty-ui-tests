@@ -118,17 +118,17 @@ trait BaseStepDef
       case "How Much Ethylene Gas Have You Used Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used")
       case "Declare Duty Suspended Deliveries Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesQuestion")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
       case "Declare Duty Suspended Deliveries Outside UK Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareDutySuspendedDeliveriesOutsideUk")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-have-you-delivered-duty-suspended-outside-of-the-uk")
       case "Declare Spirits Total Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSpiritsTotal")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-total-volume-of-spirits-you-made-this-quarter")
       case "Quarterly Spirits Returns Guidance Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/quarterlySpiritsReturnGuidance")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
       case "Product Entry Guidance Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/productEntryGuidance")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSmallProducerReliefDutyRate")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
     }
   }
 

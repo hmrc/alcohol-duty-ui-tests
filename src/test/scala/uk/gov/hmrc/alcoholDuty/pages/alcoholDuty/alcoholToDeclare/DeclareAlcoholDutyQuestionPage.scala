@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareAlcoholDutyQuestionPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareAlcoholDutyQuestion"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-duty"
   override val title = "Do you need to declare duty on any alcoholic products?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
