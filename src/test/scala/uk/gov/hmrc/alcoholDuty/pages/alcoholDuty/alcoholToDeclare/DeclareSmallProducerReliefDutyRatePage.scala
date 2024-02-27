@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareSmallProducerReliefDutyRatePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/declareSmallProducerReliefDutyRate"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate"
   override val title       = "What is your Small Producer Relief duty rate?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
