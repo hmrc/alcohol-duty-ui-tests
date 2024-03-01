@@ -129,6 +129,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
+      case "Declare Adjustment Question Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
     }
   }
 
