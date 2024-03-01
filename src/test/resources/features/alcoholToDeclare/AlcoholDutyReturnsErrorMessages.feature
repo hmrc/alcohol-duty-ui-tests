@@ -66,6 +66,12 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Delete Product Page"
     Then I am presented with the "Delete Product Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to delete a product"
+#Declare Adjustment Question Page section will be moved to the top of the scenario once other pages have been developed
+    When I enter redirect url for "Declare Adjustment Question Page"
+    Then I am presented with the "Declare Adjustment Question Page"
+    And I click save and continue button on "Declare Adjustment Question Page"
+    Then I am presented with the "Declare Adjustment Question Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to enter an adjustment."
 
     Examples:
       | errorMessageHeader |
