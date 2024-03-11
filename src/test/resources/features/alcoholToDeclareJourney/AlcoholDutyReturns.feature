@@ -57,7 +57,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due | Action       |
-      | TestName        | £0.00    | Change,Remove|
+      | TestName        | £0.00    | Change,this product,Remove,this product|
     When I select radio button "No" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -113,7 +113,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due | Action       |
-      | TestName        | £21.05   | Change,Remove|
+      | TestName        | £21.05   | Change,this product,Remove,this product|
     When I select radio button "Yes" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product Name Page"
@@ -160,8 +160,8 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due | Action       |
-      | TestName        | £21.05   | Change,Remove|
-      | Product2        | £25.26   | Change,Remove|
+      | TestName        | £21.05   | Change,this product,Remove,this product|
+      | Product2        | £25.26   | Change,this product,Remove,this product|
 
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief is set to NO & Small Producer Relief is set to YES
@@ -217,7 +217,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due  | Action       |
-      | TestName        | £175.00   | Change,Remove|
+      | TestName        | £175.00   | Change,this product,Remove,this product|
     When I select radio button "Yes" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Product Name Page"
@@ -276,7 +276,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due | Action       |
-      | TestName        | £250.00  | Change,Remove|
+      | TestName        | £250.00  | Change,this product,Remove,this product|
     When I select radio button "No" on "Product List Page"
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -334,10 +334,10 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due  | Action       |
-      | TestName        | £250.00   | Change,Remove|
+      | TestName        | £250.00   | Change,this product,Remove,this product|
     When I click "Change Hyperlink" on "Product List Page"
     Then I am presented with the "Check Your Answers Page" with new url
-@
+
   Scenario: Alcohol Duty Returns Journey - Remove Product on Product List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
@@ -391,7 +391,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product List Page"
     And I should see the following product details
       | Name            | Duty due | Action |
-      | TestName        | £250.00  | Change,Remove|
+      | TestName        | £250.00  | Change,this product,Remove,this product|
     When I click "Remove Hyperlink" on "Product List Page"
     Then I am presented with the "Delete Product Page"
     When I select radio button "No" on "Delete Product Page"
@@ -415,4 +415,5 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
 #   Then I am presented with the "Select Adjustment Type Page"
+
 
