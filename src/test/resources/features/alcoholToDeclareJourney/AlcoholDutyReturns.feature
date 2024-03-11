@@ -405,6 +405,7 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following product details
     | Name            | Duty due | Action |
 
+
 #This scenario will be deleted once the other pages have been developed
   Scenario: Alcohol Duty Returns Journey - Declare Adjustment Question page
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -415,4 +416,5 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
 #   Then I am presented with the "Select Adjustment Type Page"
+
 
