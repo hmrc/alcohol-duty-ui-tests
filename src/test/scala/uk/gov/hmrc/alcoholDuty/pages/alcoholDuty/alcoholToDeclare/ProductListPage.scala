@@ -20,6 +20,7 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.DraughtReliefQuestionPage.cssSelector
+import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.dutySuspendedDeliveries.DutySuspendedDeliveriesCheckYourAnswersPage.cssSelector
 
 object ProductListPage extends BasePage {
 
@@ -45,8 +46,8 @@ object ProductListPage extends BasePage {
 
   override def clickButton(buttonText: String): Unit = {
     buttonText match {
-      case "Change Hyperlink" => click on xpath("(//a[normalize-space()='Change'])[1]")
-      case "Remove Hyperlink" => click on xpath("(//a[normalize-space()='Remove'])[1]")
+      case "Change Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers?index=0']")
+      case "Remove Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/delete-return-product?index=0']")
     }
   }
 }
