@@ -405,7 +405,6 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following product details
     | Name            | Duty due | Action |
 
-
 #This scenario will be deleted once the other pages have been developed
   Scenario: Alcohol Duty Returns Journey - Declare Adjustment Question page
     Then I am presented with the "Declare Alcohol Duty Question Page"
