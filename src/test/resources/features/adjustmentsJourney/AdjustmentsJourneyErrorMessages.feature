@@ -21,6 +21,11 @@ Feature: Adjustments Journey - Error Messages
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the "Adjustment Type Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select the adjustment you need to make"
+    When I enter redirect url for "Adjustment Alcohol By Volume Page"
+    Then I am presented with the "Adjustment Alcohol By Volume Page"
+    And I click save and continue button on "Adjustment Alcohol By Volume Page"
+    Then I am presented with the "Adjustment Alcohol By Volume Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the ABV of this adjustment"
 
     Examples:
       | errorMessageHeader |
