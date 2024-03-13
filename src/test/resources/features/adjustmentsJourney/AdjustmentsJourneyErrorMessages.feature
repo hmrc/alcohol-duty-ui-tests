@@ -28,7 +28,7 @@ Feature: Adjustments Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter the ABV of this adjustment"
     When I enter redirect url for "Adjustment Volume Page"
     Then I am presented with the "Adjustment Volume Page"
-    And I click save and continue button on "Adjustment Volume Page"
+    When I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Volume Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of this adjustment"
 
