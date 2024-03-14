@@ -24,6 +24,11 @@ Feature: Adjustments Journey
     When I enter "5" on "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
 #    Then I am presented with the "Adjustment Tax Type Page"
+    When I enter redirect url for "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "500" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+#    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Over declarations
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -42,6 +47,11 @@ Feature: Adjustments Journey
     When I enter "5" on "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
 #    Then I am presented with the "Adjustment Tax Type Page"
+    When I enter redirect url for "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "600" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+#    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Spoilt
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -60,6 +70,11 @@ Feature: Adjustments Journey
     When I enter "5" on "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
 #    Then I am presented with the "Adjustment Tax Type Page"
+    When I enter redirect url for "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "700" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+#    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Drawback
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -78,6 +93,11 @@ Feature: Adjustments Journey
     When I enter "5" on "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
 #    Then I am presented with the "Adjustment Tax Type Page"
+    When I enter redirect url for "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "800" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+#    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Repackaged draught products
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -96,5 +116,10 @@ Feature: Adjustments Journey
     When I enter "5" on "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
 #    Then I am presented with the "Adjustment Tax Type Page"
+    When I enter redirect url for "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "900" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+#    Then I am presented with the "Your Calculations Page"
 
 
