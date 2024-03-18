@@ -16,16 +16,12 @@
 
 package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
-import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.DraughtReliefQuestionPage.cssSelector
-import uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.dutySuspendedDeliveries.DutySuspendedDeliveriesCheckYourAnswersPage.cssSelector
-
 object ProductListPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-products"
-  override val title = "Products to declare"
+  override val title       = "Products to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Products to declare - Manage your Alcohol Duty - GOV.UK"
@@ -37,17 +33,16 @@ object ProductListPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("Products to declare")
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#productList-yesNoValue")
-      case "No" => click on cssSelector("#productList-yesNoValue-no")
+      case "No"  => click on cssSelector("#productList-yesNoValue-no")
     }
-  }
 
-  override def clickButton(buttonText: String): Unit = {
+  override def clickButton(buttonText: String): Unit =
     buttonText match {
-      case "Change Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers?index=0']")
+      case "Change Hyperlink" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers?index=0']")
       case "Remove Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/delete-return-product?index=0']")
     }
-  }
 }
