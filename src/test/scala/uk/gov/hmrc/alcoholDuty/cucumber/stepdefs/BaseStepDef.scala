@@ -55,6 +55,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
+  Then("""I check the dynamic header for {string}""") { (text: String )=>
+    checkDynamicPageHeader(text)
+  }
+
   Then("""I am presented with the {string} with new url""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL
