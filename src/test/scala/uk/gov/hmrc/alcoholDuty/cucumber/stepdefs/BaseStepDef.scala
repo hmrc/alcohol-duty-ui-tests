@@ -48,14 +48,18 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickSubmitButton()
   }
 
-  Then("""I am presented with the {string}""") { page: String =>
+  Then("""I am presented with the {string}""") {( page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
 
-  Then("""I check the dynamic header for {string}""") { (text: String )=>
+  Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
     checkDynamicPageHeader(text)
   }
 

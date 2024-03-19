@@ -151,7 +151,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
-    .map(_.findElements(By.xpath("td | th")).asScala.map(_.getText.trim.replace("\n", ",")).toList)
+    .map(_.findElements(By.xpath("td | th")).asScala.map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n" , " ")).toList)
     .toList
 
   private def bulletPointsTextOnThePage() = driver.findElement(By.cssSelector(".govuk-list.govuk-list--bullet"))
