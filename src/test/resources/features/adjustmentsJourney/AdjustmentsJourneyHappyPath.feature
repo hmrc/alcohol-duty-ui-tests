@@ -6,7 +6,7 @@ Feature: Adjustments Journey
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
 
-  @ZAP @a11y @try
+  @ZAP @a11y
   Scenario: Adjustments Journey - Happy path - Under declarations
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
