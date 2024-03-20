@@ -121,6 +121,16 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     assert(actualErrorMessage.contains(errorMessage))
   }
 
+  def checkDynamicPageHeader(text: String): Unit = {
+    text match {
+      case "Under-declaration"           => driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal("Adjust for under-declared alcohol")
+      case "Over-declaration"            => driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal("Adjust for over-declared alcohol")
+      case "Spoilt"                      => driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal("Adjust for spoilt alcohol")
+      case "Drawback"                    => driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal("Adjust for duty drawback")
+      case "Repackaged draught products" => driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal("Adjust for repackaged draught products")
+    }
+  }
+
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 
   def pageData: Map[String, String] = driver
@@ -141,7 +151,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
-    .map(_.findElements(By.xpath("td | th")).asScala.map(_.getText.trim.replace("\n", ",")).toList)
+    .map(_.findElements(By.xpath("td | th")).asScala.map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n" , " ")).toList)
     .toList
 
   private def bulletPointsTextOnThePage() = driver.findElement(By.cssSelector(".govuk-list.govuk-list--bullet"))
