@@ -21,8 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareSmallProducerReliefDutyRatePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate"
-  override val title       = "What is your Small Producer Relief duty rate?"
+  override val url: String    =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-is-your-small-producer-duty-rate"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: What is your Small Producer Relief duty rate? - Manage your Alcohol Duty - GOV.UK"
@@ -34,7 +36,6 @@ object DeclareSmallProducerReliefDutyRatePage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("What is your Small Producer Relief duty rate?")
 
-  override def enterDetails(textToEnter: String): Unit = {
+  override def enterDetails(textToEnter: String): Unit =
     enterText("declareSmallProducerReliefDutyRate-input", textToEnter)
-  }
 }
