@@ -21,9 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers?index=0"
-  override val title       = "Check your answers"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers?index=0"
+  override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
@@ -34,4 +35,22 @@ object CheckYourAnswersPage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("Check your answers")
+
+  override def clickButton(text: String): Unit =
+    text match {
+      case "Change Name"                               =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-name-do-you-want-to-give-this-product']")
+      case "Change Alcohol Strength"                   =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-is-this-products-alcohol-by-volume-strength']")
+      case "Change Eligible for Draught Relief"        =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-is-this-product-eligible-for-draught-relief']")
+      case "Change Eligible for Small Producer Relief" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-is-this-product-eligible-for-small-producer-relief']")
+      case "Change Tax Type Code"                      =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-is-this-products-tax-type']")
+      case "Change Volume"                             =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-of-this-product-do-you-need-to-declare']")
+      case "Change Duty Rate"                          =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-is-your-small-producer-duty-rate']")
+    }
 }
