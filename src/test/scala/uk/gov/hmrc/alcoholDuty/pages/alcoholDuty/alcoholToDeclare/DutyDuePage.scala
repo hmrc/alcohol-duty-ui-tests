@@ -16,28 +16,17 @@
 
 package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
 
-import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ProductDutyRatePage extends BasePage {
+object DutyDuePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/the-duty-due-on-this-product"
-  override val title = "The duty due on this product is £0.00"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: The duty due on this product is £0.00 - GOV.UK"
-  )
+  override val title       = "Your calculations"
 
   override def expectedPageTitle: Option[String] = Some(
-    "The duty due on this product is £0.00 - Manage your Alcohol Duty - GOV.UK"
+    "Your calculations - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("The duty due on this product is £0.00")
-
-  override def checkPageTitle(page: String): Unit = {
-    val pageCaption: Array[String] = page.split(",")
-    driver.findElement(By cssSelector ".govuk-heading-xl").getText should equal(s"""The duty due on this product is ${pageCaption(0)}""")
-    driver.getCurrentUrl should equal(TestConfiguration.url("alcohol-duty-returns-frontend") + "/the-duty-due-on-this-product")
-  }
+  override def expectedPageHeader: Option[String] = Some("Your calculations")
 }
