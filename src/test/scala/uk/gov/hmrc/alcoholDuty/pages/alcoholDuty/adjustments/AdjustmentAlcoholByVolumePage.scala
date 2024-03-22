@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 
-import org.openqa.selenium.By
-import org.openqa.selenium.By.cssSelector
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
