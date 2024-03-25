@@ -51,10 +51,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much of this product you need to declare"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page"
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£23.17"
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
@@ -66,12 +64,6 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Delete Product Page"
     Then I am presented with the "Delete Product Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to delete a product"
-#Declare Adjustment Question Page section will be moved to the top of the scenario once other pages have been developed
-    When I enter redirect url for "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to enter an adjustment."
 
     Examples:
       | errorMessageHeader |

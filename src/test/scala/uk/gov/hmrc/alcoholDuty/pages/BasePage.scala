@@ -147,14 +147,18 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 
-  def productsList = driver
+  def productsList: Seq[List[String]] = driver
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
     .map(_.findElements(By.xpath("td | th")).asScala.map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n" , " ")).toList)
     .toList
 
-  private def bulletPointsTextOnThePage() = driver.findElement(By.cssSelector(".govuk-list.govuk-list--bullet"))
+  //To get the pure alcohol text
+  private def bulletPointsTextPureAlcohol() = driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))
+  def getBulletPointsTextPureAlcohol: Seq[String] = bulletPointsTextPureAlcohol().getText.split("\n").toList
 
-  def getBulletPointsTextOnThePage: Seq[String] = bulletPointsTextOnThePage().getText.split("\n").toList
+  //To get the duty due text
+  private def bulletPointsTextDutyDue() = driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
+  def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
 }

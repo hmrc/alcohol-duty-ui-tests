@@ -177,7 +177,20 @@ trait BaseStepDef
   Then("""I can see below text on the {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings
-    getBulletPointsTextOnThePage should be(expectedText)
+    getBulletPointsTextPureAlcohol should be(expectedText)
+  }
+
+  Then("""I can see below text on the {string} for pure alcohol""") { (data: DataTable) =>
+    val expectedText = data.asScalaListOfStrings
+    getBulletPointsTextPureAlcohol should be(expectedText)
+  }
+
+  Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>
+    val expectedText = data.asScalaListOfStrings
+    entryType match {
+      case "pure alcohol" => getBulletPointsTextPureAlcohol should be(expectedText)
+      case "duty due" => getBulletPointsTextDutyDue should be(expectedText)
+    }
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>

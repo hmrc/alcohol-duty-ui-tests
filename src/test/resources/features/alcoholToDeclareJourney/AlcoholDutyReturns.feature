@@ -38,17 +38,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "1.1"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 1.1% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product        |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£0.00"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 1.1 |
-      | Tax type: 301               |
-      | Duty rate per litre: £0.00  |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 1.1 |
+      | you need to declare 100 litres of this entry              |
+    And I can see below text for "duty due"
+      | the entry having 1.1 litres of pure alcohol (Lpa)                  |
+      | the duty rate for this entry being £0.00 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate       | Duty due |
@@ -94,17 +91,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "2.5"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 2.5% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product        |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£21.05"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 2.5 |
-      | Tax type: 352               |
-      | Duty rate per litre: £8.42  |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 2.5 |
+      | you need to declare 100 litres of this entry              |
+    And I can see below text for "duty due"
+      | the entry having 2.5 litres of pure alcohol (Lpa)                  |
+      | the duty rate for this entry being £8.42 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate       | Duty due |
@@ -141,17 +135,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "200" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "3"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 1.5% Alcohol by Volume (ABV) strength |
-      | you need to declare 200 litres of this product        |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£25.26"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 3  |
-      | Tax type: 352              |
-      | Duty rate per litre: £8.42 |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 1.5 |
+      | you need to declare 200 litres of this entry              |
+    And I can see below text for "duty due"
+      | the entry having 3 litres of pure alcohol (Lpa)                    |
+      | the duty rate for this entry being £8.42 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate       | Duty due |
@@ -198,17 +189,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "3.5"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 3.5% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product        |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£175.00"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 3.5 |
-      | Tax type: 370               |
-      | Duty rate per litre: £50.00 |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 3.5 |
+      | you need to declare 100 litres of this entry              |
+    And I can see below text for "duty due"
+      | the entry having 3.5 litres of pure alcohol (Lpa)                   |
+      | the duty rate for this entry being £50.00 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
@@ -257,17 +245,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "5"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 5% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product      |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£250.00"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 5   |
-      | Tax type: 378               |
-      | Duty rate per litre: £50.00 |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5 |
+      | you need to declare 100 litres of this entry            |
+    And I can see below text for "duty due"
+      | the entry having 5 litres of pure alcohol (Lpa)                     |
+      | the duty rate for this entry being £50.00 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
@@ -315,17 +300,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "5"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 5% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product      |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£250.00"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 5   |
-      | Tax type: 378               |
-      | Duty rate per litre: £50.00 |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5 |
+      | you need to declare 100 litres of this entry            |
+    And I can see below text for "duty due"
+      | the entry having 5 litres of pure alcohol (Lpa)                     |
+      | the duty rate for this entry being £50.00 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
@@ -372,17 +354,14 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
     And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Pure Alcohol Page" "5"
-    And I can see below text on the "Pure Alcohol Page"
-      | this product is 5% Alcohol by Volume (ABV) strength |
-      | you need to declare 100 litres of this product      |
-    When I click continue button on "Pure Alcohol Page"
-    Then I am presented with the "Product Duty Rate Page" "£250.00"
-    And I can see below text on the "Product Duty Rate Page"
-      | Litres of pure alcohol: 5   |
-      | Tax type: 378               |
-      | Duty rate per litre: £50.00 |
-    When I click continue button on "Product Duty Rate Page"
+    Then I am presented with the "Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5 |
+      | you need to declare 100 litres of this entry            |
+    And I can see below text for "duty due"
+      | the entry having 5 litres of pure alcohol (Lpa)                     |
+      | the duty rate for this entry being £50.00 per litre of pure alcohol |
+    When I click continue button on "Duty Due Page"
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
