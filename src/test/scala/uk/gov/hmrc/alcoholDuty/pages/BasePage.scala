@@ -161,4 +161,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   //To get the duty due text
   private def bulletPointsTextDutyDue() = driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
   def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
+
+  def enterDate(month: String, year: String): Unit = {}
 }

@@ -113,6 +113,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterDate(month,year)
+  }
+
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "How Much Rye Have You Used Page" =>
@@ -139,8 +144,6 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
       case "Declare Adjustment Question Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
-      case "Adjustment Alcohol By Volume Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-adjustment-abv")
       case "Adjustment Volume Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-is-the-adjustment")
     }
