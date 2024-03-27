@@ -21,7 +21,6 @@ Feature: Adjustments Journey
     Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Under-declaration"
     When I enter month "09" and year "2023" on "DutyDue Date Selection Page"
     And I click save and continue button on "Duty Due Date Selection Page"
-#    Then I am presented with the "Choose The Date Page"
     When I enter redirect url for "Adjustment Alcohol By Volume Page"
     Then I am presented with the dynamic header page "Adjustment Alcohol By Volume Page" "Under-declaration"
     When I enter "5" on "Adjustment Alcohol By Volume Page"
