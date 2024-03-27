@@ -27,7 +27,8 @@ Feature: Adjustments Journey - Error Messages
     And I click save and continue button on "Duty Due Date Selection Page"
     Then I am presented with the "Duty Due Date Selection Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter a month and year"
-    When I enter redirect url for "Adjustment Alcohol By Volume Page"
+    When I enter month "09" and year "2023" on "DutyDue Date Selection Page"
+    And I click save and continue button on "Duty Due Date Selection Page"
     Then I am presented with the "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
     Then I am presented with the "Adjustment Alcohol By Volume Page" error page
