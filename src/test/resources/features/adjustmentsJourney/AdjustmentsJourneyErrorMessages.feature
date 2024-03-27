@@ -23,6 +23,10 @@ Feature: Adjustments Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Select the adjustment you need to make"
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Under-declaration"
+    And I click save and continue button on "Duty Due Date Selection Page"
+    Then I am presented with the "Duty Due Date Selection Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter a month and year"
     When I enter redirect url for "Adjustment Alcohol By Volume Page"
     Then I am presented with the "Adjustment Alcohol By Volume Page"
     And I click save and continue button on "Adjustment Alcohol By Volume Page"

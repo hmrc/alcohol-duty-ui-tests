@@ -113,6 +113,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterDate(month,year)
+  }
+
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "How Much Rye Have You Used Page" =>
