@@ -37,5 +37,5 @@ object AdjustmentTaxTypePage extends BasePage {
   )
 
   override def enterDetails(textToEnter: String): Unit =
-    enterText("adjustmentTaxType-input", textToEnter)
+    enterText("adjustment-tax-type-input", textToEnter)
 }
