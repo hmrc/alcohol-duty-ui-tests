@@ -33,7 +33,14 @@ Feature: Adjustments Journey - Error Messages
     And I click save and continue button on "Adjustment Alcohol By Volume Page"
     Then I am presented with the "Adjustment Alcohol By Volume Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter the ABV of this adjustment"
-    When I enter redirect url for "Adjustment Volume Page"
+    When I enter "5" on "Adjustment Alcohol By Volume Page"
+    And I click save and continue button on "Adjustment Alcohol By Volume Page"
+    Then I am presented with the "Adjustment Tax Type Page"
+    And I click save and continue button on "Adjustment Tax Type Page"
+    Then I am presented with the "Adjustment Tax Type Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter a valid 3 digit tax type"
+    When I enter "371" on "Adjustment Tax Type Page"
+    And I click save and continue button on "Adjustment Tax Type Page"
     Then I am presented with the "Adjustment Volume Page"
     When I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Volume Page" error page
