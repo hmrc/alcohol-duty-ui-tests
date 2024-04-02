@@ -163,4 +163,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
 
   def enterDate(month: String, year: String): Unit = {}
+
+  def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
+    for (i <- choiceOfCheckBox.indices)
+      click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
 }
