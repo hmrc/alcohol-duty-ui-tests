@@ -77,7 +77,7 @@ trait BaseStepDef
 
   When("""I select checkbox {string} on {string}""") { (choice: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickCheckBox(choice)
+    PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
   }
 
   When("""I click save and continue button on {string}""") { (page: String) =>
