@@ -106,15 +106,15 @@ Feature: Alcohol Duty Returns Journey - Task List Page
     When I enter "TestName" on "Product Name Page"
     And I click save and continue button on "Product Name Page"
     Then I am presented with the "Alcohol By Volume Page"
-    When I enter "9" on "Alcohol By Volume Page"
+    When I enter "25" on "Alcohol By Volume Page"
     And I click save and continue button on "Alcohol By Volume Page"
     Then I am presented with the "Tax Type Page"
     And I can see below tax type codes on the "Tax Type Page"
-      | Beer, tax type code 331                     |
-      | Wine, tax type code 333                     |
-      | Other fermented products, tax type code 334 |
-      | Spirits, tax type code 335                  |
-    When I select radio button "Wine, tax type code 333" on "Tax Type Page"
+      | Beer, tax type code 341                     |
+      | Wine, tax type code 343                     |
+      | Other fermented products, tax type code 344 |
+      | Spirits, tax type code 345                  |
+    When I select radio button "Spirits, tax type code 345" on "Tax Type Page"
     And I click save and continue button on "Tax Type Page"
     Then I am presented with the "Product Volume Page"
     When I enter "100" on "Product Volume Page"
@@ -124,7 +124,7 @@ Feature: Alcohol Duty Returns Journey - Task List Page
     Then I am presented with the "Check Your Answers Page"
     And I should see the following details
       | Name     | Alcohol strength | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
-      | TestName | 9% ABV           | 333           | 100 litres | 9 litres     | £28.50 per litre | £256.50  |
+      | TestName | 25% ABV          | 345           | 100 litres | 25 litres    | £31.64 per litre | £791.00  |
     When I click save and continue button on "Check Your Answers Page"
     Then I am presented with the "Product List Page"
     When I select radio button "No" on "Product List Page"
