@@ -1,15 +1,18 @@
 @Test @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Questions Journey - Error Messages
 
-  Background: Common Steps - Quarterly Spirits Questions Journey
+  Scenario Outline: Quarterly Spirits Questions - Error Message Validations - Declare Spirits Total Page
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-
-  Scenario Outline: Quarterly Spirits Questions - Error Message Validations - Declare Spirits Total Page
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare |
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? |
+      | Not started                  |
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Spirits Total Page"
     Then I am presented with the "Declare Spirits Total Page"
     When I click save and continue button on "Declare Spirits Total Page"

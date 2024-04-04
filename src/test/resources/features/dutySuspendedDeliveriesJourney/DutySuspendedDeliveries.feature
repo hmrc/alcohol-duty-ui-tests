@@ -5,14 +5,19 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare |
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? |
+      | Not started                  |
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
 
   @ZAP @a11y
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes'
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
@@ -32,11 +37,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
       | 150 litres                                     | 999 litres                                | 500 litres                     |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
@@ -74,11 +74,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
       | 555 litres                                     | 666 litres                                | 777 litres                     |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
 #   Then I am presented with the "Task List Page"

@@ -144,6 +144,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
       case "Declare Adjustment Question Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
+      case "Task List Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
     }
   }
 
@@ -198,5 +200,21 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageTitle(specificPage)
+  }
+
+  When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//a[normalize-space()='"+hyperlink+"']")).click()
+  }
+
+  And("""^I should see the following status of the submission journey""") { data: DataTable =>
+    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
+    val actualData = PageObjectFinder.taskListPageContentView
+    actualData should be(expectedData)
+  }
+
+  And("""^I should see the following subsections$""") { data: DataTable =>
+    val expected = data.asScalaListOfStrings
+    subSectionsHeaderText should be(expected)
   }
 }
