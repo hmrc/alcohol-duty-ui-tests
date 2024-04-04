@@ -35,7 +35,4 @@ object TaskListPage extends BasePage {
   override def expectedPageHeader: Option[String] = Some(
     "Alcohol Duty return"
   )
-
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("adjustment-tax-type-input", textToEnter)
 }
