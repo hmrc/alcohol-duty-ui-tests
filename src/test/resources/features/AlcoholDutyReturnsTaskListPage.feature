@@ -5,9 +5,6 @@ Feature: Alcohol Duty Returns Journey - Task List Page
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-
-  @ZAP @a11y
-  Scenario: 1. To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
     Then I am presented with the "Task List Page"
     And I should see the following subsections
       | Alcohol to declare |
@@ -16,6 +13,9 @@ Feature: Alcohol Duty Returns Journey - Task List Page
       | Not started                  |
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
+
+  @ZAP @a11y
+  Scenario: 1. To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
     When I select radio button "No" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
@@ -25,14 +25,6 @@ Feature: Alcohol Duty Returns Journey - Task List Page
 
 
   Scenario: 2. To verify the status of the submission changes to 'Not started' if the journey is incomplete
-    Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? |
-      | Not started                  |
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Product Entry Guidance Page"
@@ -45,14 +37,6 @@ Feature: Alcohol Duty Returns Journey - Task List Page
 
 
   Scenario: 3. To verify the status of the submission to 'In progress' if the user not selects any options at the Product List Page
-    Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? |
-      | Not started                  |
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Product Entry Guidance Page"
@@ -90,14 +74,6 @@ Feature: Alcohol Duty Returns Journey - Task List Page
 
 
   Scenario: 4. To verify the status of the submission to 'Completed' if the user completes the journey
-    Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? |
-      | Not started                  |
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Product Entry Guidance Page"
