@@ -20,26 +20,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Type Page"
 
   @ZAP @a11y
-  Scenario: Adjustments Journey - Happy path - Under declarations - SPR & DR No
-    When I select radio button "Under-declaration" on "Adjustment Type Page"
-    And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Under-declaration"
-    When I enter month "09" and year "2023" on "DutyDue Date Selection Page"
-    And I click save and continue button on "Duty Due Date Selection Page"
-    Then I am presented with the "Adjustment Alcohol By Volume Page"
-    When I enter "5" on "Adjustment Alcohol By Volume Page"
-    And I click save and continue button on "Adjustment Alcohol By Volume Page"
-    Then I am presented with the "Adjustment Tax Type Page"
-    When I enter "311" on "Adjustment Tax Type Page"
-    And I click save and continue button on "Adjustment Tax Type Page"
-    Then I am presented with the "Adjustment Volume Page"
-    When I enter "500" on "Adjustment Volume Page"
-    And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
-
-
-  @ZAP @a11y
-  Scenario: Adjustments Journey - Happy path - Under declarations
+  Scenario: Adjustments Journey - Happy path - Under declarations - SPR No & DR No
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Under-declaration"
@@ -113,7 +94,7 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment Volume Page"
 #    Then I am presented with the "Your Calculations Page"
 
-  Scenario: Adjustments Journey - Happy path - Repackaged draught products - SPR & DR No
+  Scenario: Adjustments Journey - Happy path - Repackaged draught products - SPR No & DR No
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Repackaged draught products"
