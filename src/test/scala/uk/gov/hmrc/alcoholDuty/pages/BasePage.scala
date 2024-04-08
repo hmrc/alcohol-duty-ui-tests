@@ -167,4 +167,21 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
       click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
+
+  def subSectionsHeaderText: List[String] = driver
+    .findElement(By.cssSelector("ol[class='govuk-heading-m']"))
+    .findElements(By.tagName("h2"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
+
+  def taskListPageContentView: Map[String, String] = driver
+    .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
+    .asScala
+    .flatMap { row =>
+      val key = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
+      val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
+      Map(key -> value)
+    }
+    .toMap
 }

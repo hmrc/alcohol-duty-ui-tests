@@ -14,17 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
+package uk.gov.hmrc.alcoholDuty.pages.common
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
+import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-class AlcoholDutyStepDef extends BaseStepDef {
+object TaskListPage extends BasePage {
 
-  When("""I enter redirectURL on {string}""") { (page: String) =>
-    page match {
-      case "Auth Login Stub Page" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") +"/task-list/your-alcohol-duty-return")
-    }
-  }
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return"
+  override val title       = "Alcohol Duty return"
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+  )
+
+  override def expectedPageTitle: Option[String] = Some(
+    "Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+  )
+
+  override def expectedPageHeader: Option[String] = Some(
+    "Alcohol Duty return"
+  )
 }

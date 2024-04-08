@@ -5,17 +5,22 @@ Feature: Adjustments Journey
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-
-  @ZAP @a11y
-  Scenario: Adjustments Journey - Happy path - Under declarations
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare |
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? |
+      | Not started                  |
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
+
+  @ZAP @a11y
+  Scenario: Adjustments Journey - Happy path - Under declarations
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Under-declaration"
@@ -33,14 +38,6 @@ Feature: Adjustments Journey
 #    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Over declarations
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    When I select radio button "Yes" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Over-declaration"
@@ -58,14 +55,6 @@ Feature: Adjustments Journey
 #    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Spoilt
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    When I select radio button "Yes" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Spoilt"
@@ -83,14 +72,6 @@ Feature: Adjustments Journey
 #    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Drawback
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    When I select radio button "Yes" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Drawback"
@@ -108,14 +89,6 @@ Feature: Adjustments Journey
 #    Then I am presented with the "Your Calculations Page"
 
   Scenario: Adjustments Journey - Happy path - Repackaged draught products
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    When I select radio button "Yes" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Repackaged draught products"

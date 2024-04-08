@@ -21,9 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object TaxTypePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-this-products-tax-type"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-is-this-products-tax-type"
-  override val title       = "Your product’s tax type code"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-this-products-tax-type"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-is-this-products-tax-type"
+  override val title          = "Your product’s tax type code"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Your product’s tax type code - Manage your Alcohol Duty - GOV.UK"
@@ -49,5 +50,7 @@ object TaxTypePage extends BasePage {
       case "Wine, tax type code 363"                     => click on xpath("//input[@value='363_Wine']")
       case "Cider, tax type code 377"                    => click on xpath("//input[@value='377_Cider']")
       case "Cider, tax type code 301"                    => click on xpath("//input[@value='301_Cider']")
+      case "Wine, tax type code 333"                     => click on xpath("//input[@value='333_Wine']")
+      case "Spirits, tax type code 345"                  => click on xpath("//input[@value='345_Spirits']")
     }
 }
