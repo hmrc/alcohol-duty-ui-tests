@@ -77,7 +77,7 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment Volume Page"
 #    Then I am presented with the "Your Calculations Page"
 
-  Scenario: Adjustments Journey - Happy path - Happy path - When user is not eligible for SPR and eligible for DR and enters respective Tax Type Code - Drawback
+  Scenario: Adjustments Journey - Happy path- Happy path - When user is not eligible for SPR and eligible for DR and enters respective Tax Type Code - Drawback
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Drawback"
@@ -94,7 +94,7 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment Volume Page"
 #    Then I am presented with the "Your Calculations Page"
 
-  Scenario: Adjustments Journey - Happy path - When user is not eligible for both SPR and DR and enters respective Tax Type Code - Repackaged draught products
+  Scenario: Adjustments Journey - Happy path- When user is not eligible for both SPR and DR and enters respective Tax Type Code - Repackaged draught products
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Duty Due Date Selection Page" "Repackaged draught products"
