@@ -44,6 +44,12 @@ Feature: Adjustments Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter a valid 3 digit tax type"
     When I enter "371" on "Adjustment Tax Type Page"
     And I click save and continue button on "Adjustment Tax Type Page"
+    Then I am presented with the "Adjustment Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Adjustment Small Producer Relief Duty Rate Page"
+    Then I am presented with the "Adjustment Small Producer Relief Duty Rate Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter your Small Producer Relief duty rate"
+    When I enter "10.9" on "Adjustment Small Producer Relief Duty Rate Page"
+    And I click save and continue button on "Adjustment Small Producer Relief Duty Rate Page"
     Then I am presented with the "Adjustment Volume Page"
     When I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Volume Page" error page
