@@ -35,7 +35,15 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Volume Page"
     When I enter "500" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
+    Then I am presented with the "Adjustment Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+      | you need to declare 500 litres of this entry             |
+    And I can see below text for "duty due"
+      | the entry having 25 litres of pure alcohol (Lpa)                   |
+      | the duty rate for this entry being £9.27 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Due Page"
+#   Then I am presented with the "Adjustment Check Your Answers Page"
 
   Scenario: Adjustments Journey - Happy path - When user is eligible for both SPR and DR and enters respective Tax Type Code - Over declarations
     When I select radio button "Over-declaration" on "Adjustment Type Page"
@@ -55,7 +63,15 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Volume Page"
     When I enter "600" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
+    Then I am presented with the "Adjustment Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+      | you need to declare 600 litres of this entry             |
+    And I can see below text for "duty due"
+      | the entry having 30 litres of pure alcohol (Lpa)                    |
+      | the duty rate for this entry being £10.90 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Due Page"
+#   Then I am presented with the "Adjustment Check Your Answers Page"
 
   Scenario: Adjustments Journey - Happy path - When user is eligible for SPR and not eligible for DR and enters respective Tax Type Code - Spoilt
     When I select radio button "Spoilt" on "Adjustment Type Page"
@@ -75,7 +91,15 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Volume Page"
     When I enter "700" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
+    Then I am presented with the "Adjustment Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+      | you need to declare 700 litres of this entry             |
+    And I can see below text for "duty due"
+      | the entry having 35 litres of pure alcohol (Lpa)                    |
+      | the duty rate for this entry being £10.90 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Due Page"
+#   Then I am presented with the "Adjustment Check Your Answers Page"
 
   Scenario: Adjustments Journey - Happy path - Happy path - When user is not eligible for SPR and eligible for DR and enters respective Tax Type Code - Drawback
     When I select radio button "Drawback" on "Adjustment Type Page"
@@ -92,7 +116,15 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Volume Page"
     When I enter "800" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
+    Then I am presented with the "Adjustment Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+      | you need to declare 800 litres of this entry             |
+    And I can see below text for "duty due"
+      | the entry having 40 litres of pure alcohol (Lpa)                   |
+      | the duty rate for this entry being £8.42 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Due Page"
+#   Then I am presented with the "Adjustment Check Your Answers Page"
 
   Scenario: Adjustments Journey - Happy path - When user is not eligible for both SPR and DR and enters respective Tax Type Code - Repackaged draught products
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
@@ -109,6 +141,14 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Volume Page"
     When I enter "900" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-#    Then I am presented with the "Your Calculations Page"
+    Then I am presented with the "Adjustment Duty Due Page"
+    And I can see below text for "pure alcohol"
+      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+      | you need to declare 900 litres of this entry             |
+    And I can see below text for "duty due"
+      | the entry having 45 litres of pure alcohol (Lpa)                   |
+      | the duty rate for this entry being £9.27 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Due Page"
+#   Then I am presented with the "Adjustment Check Your Answers Page"
 
 
