@@ -105,7 +105,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def enterDetails(data: String): Unit = {}
-
+  def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
   def clickCheckBox(text: String): Unit    =
@@ -117,7 +117,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def checkPageErrorMessage(errorMessage: String): Unit = {
-    val actualErrorMessage = driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText
+    val actualErrorMessage = driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
     assert(actualErrorMessage.contains(errorMessage))
   }
 

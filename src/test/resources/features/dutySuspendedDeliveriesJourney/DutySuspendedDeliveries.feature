@@ -22,56 +22,23 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page"
-    When I enter "150" on "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page"
-    When I enter "999" on "Declare Duty Suspended Deliveries Inside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
-    Then I am presented with the "Declare Duty Suspended Received Page"
-    When I enter "500" on "Declare Duty Suspended Received Page"
-    And I click save and continue button on "Declare Duty Suspended Received Page"
-    Then I am presented with the "Duty Suspended Deliveries CheckYour Answers Page"
-    And I should see the following details
-      | Amount delivered duty suspended outside the UK | Amount delivered duty suspended in the UK | Amount received duty suspended |
-      | 150 litres                                     | 999 litres                                | 500 litres                     |
+    Then I am presented with the "Duty Suspended Beer Page"
+    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+#    Then I am presented with the "Duty Suspended Cider Page"
 
+#  This test needs to be updated once we have the CYA page updated as per new screens
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page"
-    When I enter "150" on "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page"
-    When I enter "999" on "Declare Duty Suspended Deliveries Inside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
-    Then I am presented with the "Declare Duty Suspended Received Page"
-    When I enter "500" on "Declare Duty Suspended Received Page"
-    And I click save and continue button on "Declare Duty Suspended Received Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Amount delivered duty suspended outside the UK | Amount delivered duty suspended in the UK | Amount received duty suspended |
-      | 150 litres                                     | 999 litres                                | 500 litres                     |
-    When I click "Change amount delivered duty suspended outside the UK" on "Duty Suspended Deliveries Check Your Answers Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page" with new url
-    When I enter "555" on "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    When I click "Change amount delivered duty suspended in the UK" on "Duty Suspended Deliveries Check Your Answers Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page" with new url
-    When I enter "666" on "Declare Duty Suspended Deliveries Inside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    When I click "Change amount received duty suspended" on "Duty Suspended Deliveries Check Your Answers Page"
-    Then I am presented with the "Declare Duty Suspended Received Page" with new url
-    When I enter "777" on "Declare Duty Suspended Received Page"
-    And I click save and continue button on "Declare Duty Suspended Received Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Amount delivered duty suspended outside the UK | Amount delivered duty suspended in the UK | Amount received duty suspended |
-      | 555 litres                                     | 666 litres                                | 777 litres                     |
+    Then I am presented with the "Duty Suspended Beer Page"
+    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+#    Then I am presented with the "Duty Suspended Cider Page"
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
