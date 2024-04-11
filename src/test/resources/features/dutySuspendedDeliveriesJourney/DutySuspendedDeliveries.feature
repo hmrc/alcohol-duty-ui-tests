@@ -26,21 +26,13 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
     And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
-#    Then I am presented with the "Duty Suspended Cider Page"
-
-#  This test needs to be updated once we have the CYA page updated as per new screens
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
-    When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Duty Suspended Beer Page"
-    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
-    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
-    And I click save and continue button on "Duty Suspended Beer Page"
-#    Then I am presented with the "Duty Suspended Cider Page"
+    Then I am presented with the "Duty Suspended Cider Page"
+    When I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
+    And I enter "99.19" for "Pure Alcohol In Cider" on "Duty Suspended Cider Page"
+    And I click save and continue button on "Duty Suspended Cider Page"
+#   Then I am presented with the "Duty Suspended Wine Page"
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-#   Then I am presented with the "Task List Page"
+    Then I am presented with the "Task List Page"

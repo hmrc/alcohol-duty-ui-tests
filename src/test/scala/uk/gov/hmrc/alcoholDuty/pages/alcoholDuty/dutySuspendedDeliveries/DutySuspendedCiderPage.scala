@@ -19,28 +19,28 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.dutySuspendedDeliveries
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DutySuspendedBeerPage extends BasePage {
+object DutySuspendedCiderPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-beer-in-duty-suspense"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-cider-in-duty-suspense"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-your-beer-in-duty-suspense"
-  override val title          = "Tell us about your duty suspended beer"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-your-cider-in-duty-suspense"
+  override val title          = "Tell us about your duty suspended cider"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your duty suspended beer - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about your duty suspended cider - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your duty suspended beer - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about your duty suspended cider - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Tell us about your duty suspended beer")
+  override def expectedPageHeader: Option[String] = Some("Tell us about your duty suspended cider")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Total Beer"           => enterText("totalBeer", textToEnter)
-      case "Pure Alcohol In Beer" => enterText("pureAlcoholInBeer", textToEnter)
+      case "Total Cider"           => enterText("totalCider", textToEnter)
+      case "Pure Alcohol In Cider" => enterText("pureAlcoholInCider", textToEnter)
     }
 
 }
