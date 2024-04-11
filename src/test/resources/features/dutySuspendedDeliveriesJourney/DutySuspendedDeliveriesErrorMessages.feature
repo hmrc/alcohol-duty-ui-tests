@@ -22,25 +22,15 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Outside UK Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much you have delivered duty suspended"
-    When I enter "777" on "Declare Duty Suspended Deliveries Outside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Outside UK Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Inside UK Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much you have delivered duty suspended"
-    When I enter "888" on "Declare Duty Suspended Deliveries Inside UK Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Inside UK Page"
-    Then I am presented with the "Declare Duty Suspended Received Page"
-    And I click save and continue button on "Declare Duty Suspended Received Page"
-    Then I am presented with the "Declare Duty Suspended Received Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much you have received duty suspended"
-    When I enter "999" on "Declare Duty Suspended Received Page"
-    And I click save and continue button on "Declare Duty Suspended Received Page"
-    Then I am presented with the "Duty Suspended Deliveries CheckYour Answers Page"
+    Then I am presented with the "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Beer Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of pure alcohol in beer in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of beer in litres"
+    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+#    Then I am presented with the "Duty Suspended Cider Page"
 
     Examples:
       | errorMessageHeader |

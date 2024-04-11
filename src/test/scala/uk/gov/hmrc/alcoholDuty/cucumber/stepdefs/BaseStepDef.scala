@@ -113,6 +113,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterMultipleDetails(textToEnter,text)
+  }
+
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month,year)
