@@ -30,7 +30,11 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
     And I enter "99.19" for "Pure Alcohol In Cider" on "Duty Suspended Cider Page"
     And I click save and continue button on "Duty Suspended Cider Page"
-#   Then I am presented with the "Duty Suspended Wine Page"
+    Then I am presented with the "Duty Suspended Wine Page"
+    When I enter "9999.99" for "Total Wine" on "Duty Suspended Wine Page"
+    And I enter "99.19" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
+    And I click save and continue button on "Duty Suspended Wine Page"
+#   Then I am presented with the "Duty Suspended Spirits Page"
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
