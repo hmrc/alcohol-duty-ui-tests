@@ -30,6 +30,16 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
     And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Cider Page"
+    And I click save and continue button on "Duty Suspended Cider Page"
+    Then I am presented with the "Duty Suspended Cider Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of pure alcohol in cider in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of cider in litres"
+    When I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
+    And I enter "99.19" for "Pure Alcohol In Cider" on "Duty Suspended Cider Page"
+    And I click save and continue button on "Duty Suspended Cider Page"
+#   Then I am presented with the "Duty Suspended Wine Page"
+
 #    Then I am presented with the "Duty Suspended Cider Page"
 
     Examples:
