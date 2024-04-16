@@ -37,7 +37,7 @@ object DutySuspendedSpiritsPage extends BasePage {
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit = {
     text match {
-      case "Total Spirits" => enterText("totalSpirits", textToEnter)
+      case "Total Spirits"           => enterText("totalSpirits", textToEnter)
       case "Pure Alcohol In Spirits" => enterText("pureAlcoholInSpirits", textToEnter)
     }
   }
