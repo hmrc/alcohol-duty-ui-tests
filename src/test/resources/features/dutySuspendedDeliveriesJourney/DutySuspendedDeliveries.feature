@@ -35,6 +35,12 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I enter "99.19" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
     And I click save and continue button on "Duty Suspended Wine Page"
 #   Then I am presented with the "Duty Suspended Spirits Page"
+    When I enter redirect url for "Duty Suspended Spirits Page"
+    Then I am presented with the "Duty Suspended Spirits Page"
+    When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
+    And I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
+    And I click save and continue button on "Duty Suspended Spirits Page"
+#    Then I am presented with the "Duty Suspended Other Fermented Products Page"
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"

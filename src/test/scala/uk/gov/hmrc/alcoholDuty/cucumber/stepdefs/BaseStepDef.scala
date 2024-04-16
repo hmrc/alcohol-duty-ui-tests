@@ -149,6 +149,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
+      case "Duty Suspended Spirits Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-spirits-in-duty-suspense")
     }
   }
 
