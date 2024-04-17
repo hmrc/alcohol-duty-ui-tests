@@ -56,6 +56,15 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
     And I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
+    When I enter redirect url for "Duty Suspended Other Fermented Products Page"
+    Then I am presented with the "Duty Suspended Other Fermented Products Page"
+    And I click save and continue button on "Duty Suspended Other Fermented Products Page"
+    Then I am presented with the "Duty Suspended Other Fermented Products Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of other fermented products in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of pure alcohol in other fermented products in litres"
+    When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I click save and continue button on "Duty Suspended Other Fermented Products Page"
 #    Then I am presented with the "Duty Suspended Other Fermented Products Page"
 
     Examples:
