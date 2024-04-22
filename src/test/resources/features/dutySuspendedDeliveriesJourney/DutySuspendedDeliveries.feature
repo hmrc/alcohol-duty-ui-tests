@@ -6,14 +6,7 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? |
-      | Not started                  |
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Declare Duty Suspended Deliveries Page"
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
 
   @ZAP @a11y
@@ -46,6 +39,11 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I should see the following details
       | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
       | 2000.75 litres                            | 150.55 litres                                                  | 9999.99 litres                             | 99.19 litres                                                    | 7777.77 litres                            | 77.77 litres                                                   | 2100.75 litres                               | 160.55 litres                                                     | 8888.88 litres                                                | 88.88 litres                                                                       |
+    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about |
+      | Not started                  | Completed                                                    | Completed                                  |
 
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
