@@ -83,7 +83,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I should see the following details
       | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
       | 2000.75 litres                            | 150.55 litres                                                  | 9999.99 litres                             | 99.19 litres                                                    | 7777.77 litres                            | 77.77 litres                                                   | 2100.75 litres                               | 160.55 litres                                                     | 8888.88 litres                                                | 88.88 litres                                                                       |
-
     When I click "Change total net quantity of duty suspended beer" on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Duty Suspended Beer Page" with new url
     When I enter "3000.75" for "Total Beer" on "Duty Suspended Beer Page"
