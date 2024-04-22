@@ -46,8 +46,6 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I enter "9999.99" for "Total Wine" on "Duty Suspended Wine Page"
     And I enter "99.19" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
     And I click save and continue button on "Duty Suspended Wine Page"
-#   Then I am presented with the "Duty Suspended Spirits Page"
-    When I enter redirect url for "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Spirits Page" error page
@@ -56,7 +54,6 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
     And I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
-    When I enter redirect url for "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page" error page
@@ -65,7 +62,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
-#    Then I am presented with the "Duty Suspended Other Fermented Products Page"
+    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
 
     Examples:
       | errorMessageHeader |

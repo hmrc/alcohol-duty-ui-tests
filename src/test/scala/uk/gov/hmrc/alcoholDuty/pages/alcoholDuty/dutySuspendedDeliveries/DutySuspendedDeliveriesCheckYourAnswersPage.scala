@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
 
   override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-duty-suspended-deliveries"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-duty-suspended-deliveries"
   override val title       = "Check your answers"
 
   override def expectedPageTitle: Option[String]  = Some(
@@ -34,11 +34,25 @@ object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Change amount delivered duty suspended outside the UK" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-delivered-duty-suspended-outside-of-the-uk']")
-      case "Change amount delivered duty suspended in the UK"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-delivered-duty-suspended-within-the-uk']")
-      case "Change amount received duty suspended"                 =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-have-you-received-suspended']")
+      case "Change total net quantity of duty suspended beer"                                          =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-beer-in-duty-suspense']")
+      case "Change total net quantity of pure alcohol in your duty suspended beer"                     =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-beer-in-duty-suspense']")
+      case "Change total net quantity of duty suspended cider"                                         =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-cider-in-duty-suspense']")
+      case "Change total net quantity of pure alcohol in your duty suspended cider"                    =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-cider-in-duty-suspense']")
+      case "Change total net quantity of duty suspended wine"                                          =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-wine-in-duty-suspense']")
+      case "Change total net quantity of pure alcohol in your duty suspended wine"                     =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-wine-in-duty-suspense']")
+      case "Change total net quantity of duty suspended spirits"                                       =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-spirits-in-duty-suspense']")
+      case "Change total net quantity of pure alcohol in your duty suspended spirits"                  =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-spirits-in-duty-suspense']")
+      case "Change total net quantity of duty suspended other fermented products"                      =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-other-fermented-in-duty-suspense']")
+      case "Change total net quantity of pure alcohol in your duty suspended other fermented products" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-your-other-fermented-in-duty-suspense']")
     }
 }
