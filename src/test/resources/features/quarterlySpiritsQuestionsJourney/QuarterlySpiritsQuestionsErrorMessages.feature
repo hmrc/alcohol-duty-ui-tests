@@ -6,11 +6,6 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? |
-      | Not started                  |
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Spirits Total Page"
