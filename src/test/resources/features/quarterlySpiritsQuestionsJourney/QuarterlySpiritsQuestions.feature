@@ -2,7 +2,7 @@
 Feature: Quarterly Spirits Questions
 
   @ZAP @a11y
-  Scenario: Quarterly Spirits Questions Journey- Happy path
+  Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'Yes'
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -11,7 +11,8 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
-    And I click continue button on "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Declare Spirits Total Page"
     When I enter "5" on "Declare Spirits Total Page"
     And I click save and continue button on "Declare Spirits Total Page"
@@ -47,4 +48,15 @@ Feature: Quarterly Spirits Questions
     And I click save and continue button on "How Much Ethylene Gas Have You Used Page"
 #   Then I am presented with the "Check your answers"
 
-
+  Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
+    Given I navigate to the "Auth Login Stub Page"
+    When I enter redirectURL on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Task List Page"
