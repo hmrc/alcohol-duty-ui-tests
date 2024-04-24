@@ -137,8 +137,6 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used")
       case "Declare Duty Suspended Deliveries Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
-      case "Declare Spirits Total Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-total-volume-of-spirits-you-made-this-quarter")
       case "Quarterly Spirits Returns Guidance Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
       case "Product Entry Guidance Page" =>

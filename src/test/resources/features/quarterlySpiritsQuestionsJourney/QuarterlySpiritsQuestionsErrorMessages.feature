@@ -15,13 +15,12 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any spirits or ingredients used this quarter"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
-    When I enter redirect url for "Declare Spirits Total Page"
-    Then I am presented with the "Declare Spirits Total Page"
-    When I click save and continue button on "Declare Spirits Total Page"
-    Then I am presented with the "Declare Spirits Total Page" error page
+    Then I am presented with the "Total Of All Spirits Page"
+    And I click save and continue button on "Total Of All Spirits Page"
+    Then I am presented with the "Total Of All Spirits Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of spirits you need to declare for this quarter"
-    When I enter "555" on "Declare Spirits Total Page"
-    And I click save and continue button on "Declare Spirits Total Page"
+    When I enter "99" on "Total Of All Spirits Page"
+    And I click save and continue button on "Total Of All Spirits Page"
     Then I am presented with the "Declare Scotch Whisky Page"
     When I click save and continue button on "Declare Scotch Whisky Page"
     Then I am presented with the "Declare Scotch Whisky Page" error page
