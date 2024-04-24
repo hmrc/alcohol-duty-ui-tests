@@ -33,4 +33,11 @@ object QuarterlySpiritsReturnsGuidancePage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("Tell us about your ingredients and spirits")
+
+  override def clickRadioButton(text: String): Unit = {
+    text match {
+      case "Yes" => click on cssSelector("#declareQuarterlySpirits-yesNoValue")
+      case "No" => click on cssSelector("#declareQuarterlySpirits-yesNoValue-no")
+    }
+  }
 }

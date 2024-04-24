@@ -8,6 +8,13 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any spirits or ingredients used this quarter"
+    When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     When I enter redirect url for "Declare Spirits Total Page"
     Then I am presented with the "Declare Spirits Total Page"
     When I click save and continue button on "Declare Spirits Total Page"
