@@ -4,7 +4,9 @@ Feature: Alcohol Duty Returns Journey
   Background: : Common Steps - Alcohol Duty Returns Journey
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then Then I am presented with the "Before You Start Page"
 
   @ZAP @a11y
   Scenario: Alcohol Duty Returns Journey - When Draught Relief, Small Producer Relief, and Product List Page are set to NO
