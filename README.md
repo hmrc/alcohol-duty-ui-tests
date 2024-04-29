@@ -19,6 +19,8 @@ Start `Alhocol Duty` services as follows:
 
 ```bash
 sm2 --start ALCOHOL_DUTY_ALL
+To enable test only endpoint, stop ALCOHOL_DUTY_FRONTEND & ALCOHOL_DUTY_RETURNS services and run with an argument as below:
+sbt "run -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"
 ```
 
 ### Dockerized browser container(s)

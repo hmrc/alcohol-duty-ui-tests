@@ -24,11 +24,15 @@ class AlcoholDutyStepDef extends BaseStepDef {
   When("""I enter redirectURL on {string}""") { (page: String) =>
     page match {
       case "Auth Login Stub Page" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") +"/start/24AE")
-    }
-
-    When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") { (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, _: String) =>
-      AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AA")
     }
   }
-}
+
+    When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") { (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
+      page match {
+        case "Auth Login Stub Page" =>
+          AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
+      }
+    }
+  }
+
