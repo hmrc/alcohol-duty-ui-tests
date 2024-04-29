@@ -19,21 +19,24 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DeclareScotchWhiskyPage extends BasePage {
+object DeclareWhiskeyPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-scotch-whisky-have-you-made"
-  override val title       = "How much Scotch Whisky have you made?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-whiskey-have-you-made"
+  override val title       = "How much Scotch whisky and Irish whiskey have you produced?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much Scotch Whisky have you made? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much Scotch whisky and Irish whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much Scotch Whisky have you made? - Manage your Alcohol Duty - GOV.UK"
+    "How much Scotch whisky and Irish whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("How much Scotch Whisky have you made?")
+  override def expectedPageHeader: Option[String] = Some("How much Scotch whisky and Irish whiskey have you produced?")
 
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("declare-scotch-whisky-input", textToEnter)
+  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
+    text match {
+      case "Scotch Whisky" => enterText("ScotchWhisky", textToEnter)
+      case "Irish Whiskey" => enterText("IrishWhiskey", textToEnter)
+    }
 }

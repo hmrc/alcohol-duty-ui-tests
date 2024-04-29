@@ -1,7 +1,7 @@
 @Test @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Questions Journey - Error Messages
 
-  Scenario Outline: Quarterly Spirits Questions - Error Message Validations - Declare Spirits Total Page
+  Scenario Outline: Quarterly Spirits Questions - Error Message Validations
     Given I navigate to the "Auth Login Stub Page"
     When I enter redirectURL on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -21,18 +21,14 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of spirits you need to declare for this quarter"
     When I enter "99" on "Total Of All Spirits Page"
     And I click save and continue button on "Total Of All Spirits Page"
-    Then I am presented with the "Declare Scotch Whisky Page"
-    When I click save and continue button on "Declare Scotch Whisky Page"
-    Then I am presented with the "Declare Scotch Whisky Page" error page
+    Then I am presented with the "Declare Whiskey Page"
+    When I click save and continue button on "Declare Whiskey Page"
+    Then I am presented with the "Declare Whiskey Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Scotch Whisky you need to declare this quarter"
-    When I enter "666" on "Declare Scotch Whisky Page"
-    And I click save and continue button on "Declare Scotch Whisky Page"
-    Then I am presented with the "Declare Irish Whiskey Page"
-    When I click save and continue button on "Declare Irish Whiskey Page"
-    Then I am presented with the "Declare Irish Whiskey Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Irish Whiskey you need to declare this quarter"
-    When I enter "777" on "Declare Irish Whiskey Page"
-    And I click save and continue button on "Declare Irish Whiskey Page"
+    When I enter "10.55" for "Scotch Whisky" on "Declare Whiskey Page"
+    And I enter "20.67" for "Irish Whiskey" on "Declare Whiskey Page"
+    And I click save and continue button on "Declare Whiskey Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page" error page
