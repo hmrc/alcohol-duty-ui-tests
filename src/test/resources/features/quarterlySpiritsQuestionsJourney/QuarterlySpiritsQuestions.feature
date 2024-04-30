@@ -49,6 +49,10 @@ Feature: Quarterly Spirits Questions
     When I enter "Test Grain" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
     And I enter "156.54" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
     And I click save and continue button on "Declare Other Malted Grains Page"
+    When I enter redirect url for "Declare Other Spirits Produced Page"
+    Then I am presented with the "Declare Other Spirits Produced Page"
+    When I enter "Test Spirits" on "Declare Other Spirits Produced Page"
+    And I click save and continue button on "Declare Other Spirits Produced Page"
 #   Then I am presented with the "Check your answers"
 
   Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
