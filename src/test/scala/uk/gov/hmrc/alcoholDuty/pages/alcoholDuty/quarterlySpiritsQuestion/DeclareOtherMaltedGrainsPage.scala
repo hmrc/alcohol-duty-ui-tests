@@ -36,7 +36,7 @@ object DeclareOtherMaltedGrainsPage extends BasePage {
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Other Malted Grains Types" => enterText("otherMaltedGrainsTypes", textToEnter)
+      case "Other Malted Grains Types"    => enterText("otherMaltedGrainsTypes", textToEnter)
       case "Other Malted Grains Quantity" => enterText("otherMaltedGrainsQuantity", textToEnter)
     }
 }
