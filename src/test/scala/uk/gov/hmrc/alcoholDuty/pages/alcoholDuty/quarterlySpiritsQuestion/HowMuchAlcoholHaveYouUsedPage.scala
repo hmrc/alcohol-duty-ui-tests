@@ -37,9 +37,9 @@ object HowMuchAlcoholHaveYouUsedPage extends BasePage {
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Beer" => enterText("beer", textToEnter)
-      case "Wine" => enterText("wine", textToEnter)
-      case "Made-wine" => enterText("madeWine", textToEnter)
+      case "Beer"           => enterText("beer", textToEnter)
+      case "Wine"           => enterText("wine", textToEnter)
+      case "Made-wine"      => enterText("madeWine", textToEnter)
       case "Cider or perry" => enterText("ciderOrPerry", textToEnter)
     }
 }
