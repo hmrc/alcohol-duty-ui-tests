@@ -44,6 +44,11 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "How Much Ethylene Gas Have You Used Page"
     When I enter "100" on "How Much Ethylene Gas Have You Used Page"
     And I click save and continue button on "How Much Ethylene Gas Have You Used Page"
+    When I enter redirect url for "Declare Other Malted Grains Page"
+    Then I am presented with the "Declare Other Malted Grains Page"
+    When I enter "Test Grain" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
+    And I enter "156.54" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
+    And I click save and continue button on "Declare Other Malted Grains Page"
 #   Then I am presented with the "Check your answers"
 
   Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
