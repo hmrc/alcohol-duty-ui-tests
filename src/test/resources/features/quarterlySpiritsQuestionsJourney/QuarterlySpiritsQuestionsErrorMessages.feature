@@ -62,6 +62,15 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And I click save and continue button on "How Much Ethylene Gas Have You Used Page"
     Then I am presented with the "How Much Ethylene Gas Have You Used Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much ethylene gas you have used"
+    When I enter redirect url for "Declare Other Malted Grains Page"
+    Then I am presented with the "Declare Other Malted Grains Page"
+    And I click save and continue button on "Declare Other Malted Grains Page"
+    Then I am presented with the "Declare Other Malted Grains Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter other malted grains"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much other malted grains you have used"
+    When I enter "Test Grains" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
+    And I enter "156.54" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
+    And I click save and continue button on "Declare Other Malted Grains Page"
 #   Then I am presented with the "Check your answers"
 
     Examples:
