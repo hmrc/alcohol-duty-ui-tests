@@ -33,6 +33,15 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page" error page
     And The error summary title is "<errorMessageHeader>" and the error message is "Select the spirits you have made this quarter"
+    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer" on "Which Of These Spirits Have You Made Page"
+    And I click save and continue button on "Which Of These Spirits Have You Made Page"
+    When I enter redirect url for "Declare Other Spirits Produced Page"
+    Then I am presented with the "Declare Other Spirits Produced Page"
+    And I click save and continue button on "Declare Other Spirits Produced Page"
+    Then I am presented with the "Declare Other Spirits Produced Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the other spirits you produced"
+    When I enter "Test Spirits" on "Declare Other Spirits Produced Page"
+    And I click save and continue button on "Declare Other Spirits Produced Page"
     When I enter redirect url for "How Much Rye Have You Used Page"
     Then I am presented with the "How Much Rye Have You Used Page"
     And I click save and continue button on "How Much Rye Have You Used Page"
@@ -71,14 +80,15 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     When I enter "Test Grains" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
     And I enter "156.54" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
     And I click save and continue button on "Declare Other Malted Grains Page"
-    When I enter redirect url for "Declare Other Spirits Produced Page"
-    Then I am presented with the "Declare Other Spirits Produced Page"
-    And I click save and continue button on "Declare Other Spirits Produced Page"
-    Then I am presented with the "Declare Other Spirits Produced Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the other spirits you produced"
-    When I enter "Test Spirits" on "Declare Other Spirits Produced Page"
-    And I click save and continue button on "Declare Other Spirits Produced Page"
-#   Then I am presented with the "Check your answers"
+    When I enter redirect url for "How Much Alcohol Have You Used Page"
+    Then I am presented with the "How Much Alcohol Have You Used Page"
+    And I click save and continue button on "How Much Alcohol Have You Used Page"
+    Then I am presented with the "How Much Alcohol Have You Used Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Beer you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Wine you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Made-wine you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Cider or perry you have used"
+#   Then I am presented with the "How Much Ethylene Gas Or Molasses Have You Used Page"
 
     Examples:
       | errorMessageHeader |

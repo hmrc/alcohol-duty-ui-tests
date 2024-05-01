@@ -151,6 +151,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-malted-grains-you-have-used")
       case "Declare Other Spirits Produced Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-spirits-you-have-produced")
+      case "How Much Alcohol Have You Used Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-alcohol-you-have-used")
     }
   }
 
