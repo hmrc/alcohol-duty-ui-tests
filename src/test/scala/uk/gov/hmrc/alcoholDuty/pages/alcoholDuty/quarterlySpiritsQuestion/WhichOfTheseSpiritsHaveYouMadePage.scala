@@ -41,5 +41,6 @@ object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
       case "Neutral spirits of agricultural origin" =>
         click on cssSelector("#value_neutralAgriculturalOrigin")
       case "Spirits produced from beer"             => click on cssSelector("#value_beer")
+      case "Other"                                  => click on cssSelector("#value_other")
     }
 }
