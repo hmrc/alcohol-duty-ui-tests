@@ -125,16 +125,6 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "How Much Rye Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-rye-have-you-used")
-      case "How Much Malted Barley Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-malted-barley-have-you-used")
-      case "How Much Wheat Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-wheat-have-you-used")
-      case "How Much Unmalted Grain Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-unmalted-grain-have-you-used")
-      case "How Much Ethylene Gas Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-ethylene-gas-have-you-used")
       case "Declare Duty Suspended Deliveries Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
       case "Quarterly Spirits Returns Guidance Page" =>
@@ -147,12 +137,6 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
-      case "Declare Other Malted Grains Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-malted-grains-you-have-used")
-      case "Declare Other Spirits Produced Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-spirits-you-have-produced")
-      case "How Much Alcohol Have You Used Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-alcohol-you-have-used")
     }
   }
 
