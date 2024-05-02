@@ -88,7 +88,22 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Wine you have used"
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Made-wine you have used"
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Cider or perry you have used"
-#   Then I am presented with the "How Much Ethylene Gas Or Molasses Have You Used Page"
+    When I enter "555.55" for "Beer" on "How Much Alcohol Have You Used Page"
+    And I enter "666.66" for "Wine" on "How Much Alcohol Have You Used Page"
+    And I enter "777.77" for "Made-wine" on "How Much Alcohol Have You Used Page"
+    And I enter "888.88" for "Cider or perry" on "How Much Alcohol Have You Used Page"
+    And I click save and continue button on "How Much Alcohol Have You Used Page"
+    Then I am presented with the "Declare Ethylene Gas Or Molasses Page"
+    And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
+    Then I am presented with the "Declare Ethylene Gas Or Molasses Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much ethylene gas you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much molasses you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes to declare any other ingredients you have used"
+    When I enter "465.55" for "Ethylene Gas" on "Declare Ethylene Gas Or Molasses Page"
+    And I enter "745.66" for "Molasses" on "Declare Ethylene Gas Or Molasses Page"
+    And I select radio button "Yes" on "Declare Ethylene Gas Or Molasses Page"
+    And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
+#    Then I am presented with the "Declare Other Ingredients Page"
 
     Examples:
       | errorMessageHeader |

@@ -59,7 +59,12 @@ Feature: Quarterly Spirits Questions
     And I enter "777.77" for "Made-wine" on "How Much Alcohol Have You Used Page"
     And I enter "888.88" for "Cider or perry" on "How Much Alcohol Have You Used Page"
     And I click save and continue button on "How Much Alcohol Have You Used Page"
-#   Then I am presented with the "How Much Ethylene Gas Or Molasses Have You Used Page"
+    Then I am presented with the "Declare Ethylene Gas Or Molasses Page"
+    When I enter "465.55" for "Ethylene Gas" on "Declare Ethylene Gas Or Molasses Page"
+    And I enter "745.66" for "Molasses" on "Declare Ethylene Gas Or Molasses Page"
+    And I select radio button "Yes" on "Declare Ethylene Gas Or Molasses Page"
+    And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
+#    Then I am presented with the "Declare Other Ingredients Page"
 
   Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
     Given I navigate to the "Auth Login Stub Page"
