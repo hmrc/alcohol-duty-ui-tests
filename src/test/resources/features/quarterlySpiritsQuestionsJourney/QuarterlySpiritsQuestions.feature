@@ -52,7 +52,6 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "Declare Other Ingredients Page"
     When I enter "Test Other Ingredients" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
     And I enter "2045.55" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
-    And I select radio button "Yes" on "Declare Other Ingredients Page"
     And I click save and continue button on "Declare Other Ingredients Page"
 #    Then I am presented with the "Quarterly Spirits Return Check Your Answers Page"
 
