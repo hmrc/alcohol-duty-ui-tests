@@ -77,7 +77,14 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     When I enter "745.66" for "Molasses" on "Declare Ethylene Gas Or Molasses Page"
     And I select radio button "Yes" on "Declare Ethylene Gas Or Molasses Page"
     And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
-#    Then I am presented with the "Declare Other Ingredients Page"
+    Then I am presented with the "Declare Other Ingredients Page"
+    When I enter "Test Other Ingredients" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
+    And I click save and continue button on "Declare Other Ingredients Page"
+    Then I am presented with the "Declare Other Ingredients Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much of the other ingredients you have used"
+    When I enter "2045.55" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
+    And I click save and continue button on "Declare Other Ingredients Page"
+#    Then I am presented with the "Quarterly Spirits Return Check Your Answers Page"
 
     Examples:
       | errorMessageHeader |
