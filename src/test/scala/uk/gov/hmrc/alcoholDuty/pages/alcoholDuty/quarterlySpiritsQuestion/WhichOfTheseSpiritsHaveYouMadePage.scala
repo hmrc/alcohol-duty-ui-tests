@@ -21,9 +21,11 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
 
-  override val url: String =
+  override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-of-these-spirits-have-you-made"
-  override val title       = "Which of these spirits have you made?"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-which-of-these-spirits-have-you-made"
+  override val title          = "Which of these spirits have you made?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Which of these spirits have you made? - Manage your Alcohol Duty - GOV.UK"
