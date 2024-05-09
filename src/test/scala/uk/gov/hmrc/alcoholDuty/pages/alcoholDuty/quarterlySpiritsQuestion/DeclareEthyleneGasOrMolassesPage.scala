@@ -21,8 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareEthyleneGasOrMolassesPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-gas-or-molasses-you-have-used"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-gas-or-molasses-you-have-used"
+  override val url: String    =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-gas-or-molasses-you-have-used"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-gas-or-molasses-you-have-used"
   override val title          = "How much ethylene gas or molasses have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
