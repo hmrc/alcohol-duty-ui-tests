@@ -21,9 +21,11 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object HowMuchAlcoholHaveYouUsedPage extends BasePage {
 
-  override val url: String =
+  override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-alcohol-you-have-used"
-  override val title       = "How much alcohol have you used this quarter?"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-alcohol-you-have-used"
+  override val title          = "How much alcohol have you used this quarter?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: How much alcohol have you used this quarter? - Manage your Alcohol Duty - GOV.UK"

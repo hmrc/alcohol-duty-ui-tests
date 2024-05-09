@@ -21,8 +21,11 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareOtherMaltedGrainsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-malted-grains-you-have-used"
-  override val title       = "Tell us about the other malted grains you have used"
+  override val url: String    =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-malted-grains-you-have-used"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-other-malted-grains-you-have-used"
+  override val title          = "Tell us about the other malted grains you have used"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Tell us about the other malted grains you have used - Manage your Alcohol Duty - GOV.UK"
