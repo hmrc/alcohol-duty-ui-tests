@@ -19,28 +19,27 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object WhichOfTheseSpiritsHaveYouMadePage extends BasePage {
+object HowMuchAlcoholHaveYouUsedPage extends BasePage {
 
   override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-of-these-spirits-have-you-made"
-  override val title       = "Which of these spirits have you made?"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-alcohol-you-have-used"
+  override val title       = "How much alcohol have you used this quarter?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Which of these spirits have you made? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much alcohol have you used this quarter? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Which of these spirits have you made? - Manage your Alcohol Duty - GOV.UK"
+    "How much alcohol have you used this quarter? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Which of these spirits have you made?")
+  override def expectedPageHeader: Option[String] = Some("How much alcohol have you used this quarter?")
 
-  override def clickCheckBox(text: String): Unit =
+  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Malt spirits"                           => click on cssSelector("#value_maltSpirits")
-      case "Neutral spirits of agricultural origin" =>
-        click on cssSelector("#value_neutralAgriculturalOrigin")
-      case "Spirits produced from beer"             => click on cssSelector("#value_beer")
-      case "Other"                                  => click on cssSelector("#value_other")
+      case "Beer"           => enterText("beer", textToEnter)
+      case "Wine"           => enterText("wine", textToEnter)
+      case "Made-wine"      => enterText("madeWine", textToEnter)
+      case "Cider or perry" => enterText("ciderOrPerry", textToEnter)
     }
 }

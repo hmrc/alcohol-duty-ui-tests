@@ -19,24 +19,31 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.quarterlySpiritsQuestion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DeclareWhiskeyPage extends BasePage {
+object DeclareEthyleneGasOrMolassesPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-whiskey-have-you-made"
-  override val title       = "How much Scotch whisky and Irish whiskey have you produced?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-gas-or-molasses-you-have-used"
+  override val title = "How much ethylene gas or molasses have you used?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much Scotch whisky and Irish whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much ethylene gas or molasses have you used? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much Scotch whisky and Irish whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
+    "How much ethylene gas or molasses have you used? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("How much Scotch whisky and Irish whiskey have you produced?")
+  override def expectedPageHeader: Option[String] = Some("How much ethylene gas or molasses have you used?")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Scotch Whisky" => enterText("scotchWhisky", textToEnter)
-      case "Irish Whiskey" => enterText("irishWhiskey", textToEnter)
+      case "Ethylene Gas" => enterText("ethyleneGas", textToEnter)
+      case "Molasses"     => enterText("molasses", textToEnter)
     }
+
+  override def clickRadioButton(text: String): Unit = {
+    text match {
+      case "Yes"          => click on cssSelector("#otherIngredients")
+      case "No"           => click on cssSelector("#otherIngredients-no")
+    }
+  }
 }
