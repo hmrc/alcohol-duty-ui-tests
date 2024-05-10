@@ -2,9 +2,13 @@
 Feature: Quarterly Spirits Questions Journey - Error Messages
 
   Scenario Outline: Quarterly Spirits Questions - Error Message Validations
-    Given I navigate to the "Auth Login Stub Page"
-    When I enter redirectURL on "Auth Login Stub Page"
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"

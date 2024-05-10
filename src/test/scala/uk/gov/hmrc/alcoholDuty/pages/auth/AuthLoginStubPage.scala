@@ -35,4 +35,10 @@ object AuthLoginStubPage extends BasePage {
     driver.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
   }
 
+  def enrolments(enrollmentKey: String, IdentifierName: String, IdentifierValue: String): Unit = {
+    driver.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
+    driver.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
+    driver.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
+  }
+
 }

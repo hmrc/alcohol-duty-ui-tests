@@ -48,7 +48,7 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickSubmitButton()
   }
 
-  Then("""I am presented with the {string}""") {( page: String) =>
+  Then("""I am presented with the {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
@@ -115,12 +115,12 @@ trait BaseStepDef
 
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterMultipleDetails(textToEnter,text)
+    PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
   }
 
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDate(month,year)
+    PageObjectFinder.page(page).enterDate(month, year)
   }
 
   When("""I enter redirect url for {string}""") { (page: String) =>
@@ -195,7 +195,7 @@ trait BaseStepDef
 
   When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//a[normalize-space()='"+hyperlink+"']")).click()
+    driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
   }
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
@@ -204,8 +204,12 @@ trait BaseStepDef
     actualData should be(expectedData)
   }
 
-  And("""^I should see the following subsections$""") { data: DataTable =>
+  And("""I should see the following subsections""") { data: DataTable =>
     val expected = data.asScalaListOfStrings
     subSectionsHeaderText should be(expected)
+  }
+
+  Given("""I cleared the data for the service""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
   }
 }
