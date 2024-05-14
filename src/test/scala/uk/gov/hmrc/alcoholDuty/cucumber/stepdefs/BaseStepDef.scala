@@ -125,30 +125,42 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Declare Duty Suspended Deliveries Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
-      case "Quarterly Spirits Returns Guidance Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
-      case "Product Entry Guidance Page" =>
+      case "Declare Duty Suspended Deliveries Page"       =>
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/do-you-need-to-declare-delivered-received-duty-suspended"
+        )
+      case "Quarterly Spirits Returns Guidance Page"      =>
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/tell-us-about-the-spirits-and-ingredients-you-have-used"
+        )
+      case "Product Entry Guidance Page"                  =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
-      case "Declare Adjustment Question Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
-      case "Task List Page" =>
+      case "Declare Adjustment Question Page"             =>
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/do-you-need-to-make-any-adjustments-from-a-previous-return"
+        )
+      case "Task List Page"                               =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
     }
   }
 
   And("""^I should see the following details""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    val actualData = PageObjectFinder.pageData
+    val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
   }
 
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists
-    val actual = productsList
+    val actual   = productsList
     actual should be(expected)
   }
 
@@ -183,7 +195,7 @@ trait BaseStepDef
     val expectedText = data.asScalaListOfStrings
     entryType match {
       case "pure alcohol" => getBulletPointsTextPureAlcohol should be(expectedText)
-      case "duty due" => getBulletPointsTextDutyDue should be(expectedText)
+      case "duty due"     => getBulletPointsTextDutyDue     should be(expectedText)
     }
   }
 
@@ -200,7 +212,7 @@ trait BaseStepDef
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-    val actualData = PageObjectFinder.taskListPageContentView
+    val actualData   = PageObjectFinder.taskListPageContentView
     actualData should be(expectedData)
   }
 
@@ -211,5 +223,12 @@ trait BaseStepDef
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  And("""I should see following details at the {string}""") { (page: String, data: DataTable) =>
+    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualData   = PageObjectFinder.dataAtCheckYourAnswersPage
+    actualData should be(expectedData)
   }
 }

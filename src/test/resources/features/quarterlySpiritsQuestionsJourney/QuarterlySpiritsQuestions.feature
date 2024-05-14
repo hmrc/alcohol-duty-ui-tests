@@ -59,7 +59,10 @@ Feature: Quarterly Spirits Questions
     When I enter "Test Other Ingredients" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
     And I enter "2045.55" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
     And I click save and continue button on "Declare Other Ingredients Page"
-#    Then I am presented with the "Quarterly Spirits Return Check Your Answers Page"
+    Then I am presented with the "Quarterly Spirits Check Your Answers Page"
+    And I should see following details at the "Quarterly Spirits Check Your Answers Page"
+      | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain    | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
+      | 99 litres            | 10.55 litres           | 20.67 litres           | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 222.22 tonnes | 333.33 tonnes | 444.44 tonnes | 555.55 tonnes | 666.66 tonnes  | 156.54 tonnes | 555.55 litres | 666.66 litres | 777.77 litres | 888.88 litres | 465.55 tonnes | 745.66 tonnes | 2045.55 tonnes         |
 
   Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
