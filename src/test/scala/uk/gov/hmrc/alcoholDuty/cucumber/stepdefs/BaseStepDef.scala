@@ -126,27 +126,15 @@ trait BaseStepDef
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "Declare Duty Suspended Deliveries Page"       =>
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/do-you-need-to-declare-delivered-received-duty-suspended"
-        )
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
       case "Quarterly Spirits Returns Guidance Page"      =>
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/tell-us-about-the-spirits-and-ingredients-you-have-used"
-        )
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
       case "Product Entry Guidance Page"                  =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
       case "Declare Adjustment Question Page"             =>
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/do-you-need-to-make-any-adjustments-from-a-previous-return"
-        )
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend")+ "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page"                               =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
     }
