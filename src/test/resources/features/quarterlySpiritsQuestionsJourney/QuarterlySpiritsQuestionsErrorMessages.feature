@@ -10,9 +10,7 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page" error page
@@ -88,7 +86,7 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much of the other ingredients you have used"
     When I enter "2045.55" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
     And I click save and continue button on "Declare Other Ingredients Page"
-#    Then I am presented with the "Quarterly Spirits Return Check Your Answers Page"
+    Then I am presented with the "Quarterly Spirits Check Your Answers Page"
 
     Examples:
       | errorMessageHeader |

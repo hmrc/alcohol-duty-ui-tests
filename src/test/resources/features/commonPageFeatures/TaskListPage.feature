@@ -11,11 +11,12 @@ Feature: Alcohol Duty Journey - Task List Page
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
-      | Alcohol to declare        |
-      | Duty suspended deliveries |
+      | Alcohol to declare          |
+      | Duty suspended deliveries   |
+      | Your spirits and ingredients|
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Tell us about your duty suspended deliveries |
-      | Not started                  | Not started                                  |
+      | Do you need to declare duty? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients  |
+      | Not started                  | Not started                                  | Not started                                 |
 
   Scenario: 1. ADR Journey - To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
@@ -121,3 +122,58 @@ Feature: Alcohol Duty Journey - Task List Page
       | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about |
       | Not started                  | Completed                                                    | In progress                                |
 
+  Scenario: 7. QSR Journey - To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Quarterly Spirits Returns Guidance Page
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You don't need to tell us about any spirits or ingredients    |
+      | Completed                                                     |
+
+  Scenario: 8. QSR Journey - To verify the status of the submission changes to 'Not started' if the journey is incomplete
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Total Of All Spirits Page"
+    When I click back button on "Total Of All Spirits Page"
+    And I click back button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare spirits and ingredients | Tell us about your spirits and ingredients |
+      | Completed                                                  | Not started                                |
+
+  Scenario: 9. QSR Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Total Of All Spirits Page"
+    When I enter "99" on "Total Of All Spirits Page"
+    And I click save and continue button on "Total Of All Spirits Page"
+    Then I am presented with the "Declare Whiskey Page"
+    When I enter "10.55" for "Scotch Whisky" on "Declare Whiskey Page"
+    And I enter "20.67" for "Irish Whiskey" on "Declare Whiskey Page"
+    And I click save and continue button on "Declare Whiskey Page"
+    Then I am presented with the "Which Of These Spirits Have You Made Page"
+    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other" on "Which Of These Spirits Have You Made Page"
+    When I enter redirect url for "Task List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about |
+      | Completed                                                  | In progress                                             |
+
+  Scenario: 10. QSR Journey - To verify quarterly spirits returns link is not visible for months other than March, June, Sep and Dec
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL with Jan Period Key on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare          |
+      | Duty suspended deliveries   |

@@ -10,9 +10,7 @@ Feature: Quarterly Spirits Questions
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I enter redirect url for "Quarterly Spirits Returns Guidance Page"
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
 
   @ZAP @a11y
