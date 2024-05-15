@@ -127,8 +127,6 @@ trait BaseStepDef
     page match {
       case "Declare Duty Suspended Deliveries Page"       =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
-      case "Quarterly Spirits Returns Guidance Page"      =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
       case "Product Entry Guidance Page"                  =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
