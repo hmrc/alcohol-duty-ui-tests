@@ -69,7 +69,7 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     And I enter "888.88" for "Cider or perry" on "How Much Alcohol Have You Used Page"
     And I click save and continue button on "How Much Alcohol Have You Used Page"
     Then I am presented with the "How Much Alcohol Have You Used Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much Wine you have used"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter how much wine you have used"
     And I enter "666.66" for "Wine" on "How Much Alcohol Have You Used Page"
     And I click save and continue button on "How Much Alcohol Have You Used Page"
     Then I am presented with the "Declare Ethylene Gas Or Molasses Page"
