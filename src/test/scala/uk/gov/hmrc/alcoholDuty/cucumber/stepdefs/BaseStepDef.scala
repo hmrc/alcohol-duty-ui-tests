@@ -160,6 +160,12 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
+  Then("""I verify the return due date displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
+    actualText should be(expectedText)
+  }
+
   Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expectedText = data.asScalaListOfStrings

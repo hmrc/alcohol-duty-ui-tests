@@ -1,4 +1,4 @@
-@Test @AdjustmentsErrorMessage @ZAP @a11y
+@Test @AdjustmentsErrorMessage
 Feature: Adjustments Journey - Error Messages
 
   Scenario Outline: Adjustments Journey - Error Message Validations

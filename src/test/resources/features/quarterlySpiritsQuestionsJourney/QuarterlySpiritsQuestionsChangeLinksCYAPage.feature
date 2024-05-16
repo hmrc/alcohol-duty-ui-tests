@@ -8,6 +8,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Before You Start Page"
+    And  I verify the return due date displayed as "Use this service to submit your Alcohol Duty return for 1 Mar 2024 to 31 Mar 2024." on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
