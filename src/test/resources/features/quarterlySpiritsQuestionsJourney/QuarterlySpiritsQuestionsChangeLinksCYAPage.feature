@@ -24,23 +24,16 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And I enter "333.33" for "Irish Whiskey" on "Declare Whiskey Page"
     And I click save and continue button on "Declare Whiskey Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page"
-    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other" on "Which Of These Spirits Have You Made Page"
+    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
-    Then I am presented with the "Declare Other Spirits Produced Page"
-    When I enter "Test Spirits" on "Declare Other Spirits Produced Page"
-    And I click save and continue button on "Declare Other Spirits Produced Page"
     Then I am presented with the "How Much Grain Have You Used Page"
     When I enter "444.44" for "Malted barley" on "How Much Grain Have You Used Page"
     And I enter "555.55" for "Wheat" on "How Much Grain Have You Used Page"
     And I enter "666.66" for "Maize" on "How Much Grain Have You Used Page"
     And I enter "777.77" for "Rye" on "How Much Grain Have You Used Page"
     And I enter "888.88" for "Unmalted grain" on "How Much Grain Have You Used Page"
-    And I select radio button "Yes" on "How Much Grain Have You Used Page"
+    And I select radio button "No" on "How Much Grain Have You Used Page"
     And I click save and continue button on "How Much Grain Have You Used Page"
-    Then I am presented with the "Declare Other Malted Grains Page"
-    When I enter "Test Grain" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
-    And I enter "999.99" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
-    And I click save and continue button on "Declare Other Malted Grains Page"
     Then I am presented with the "How Much Alcohol Have You Used Page"
     When I enter "147.99" for "Beer" on "How Much Alcohol Have You Used Page"
     And I enter "258.99" for "Wine" on "How Much Alcohol Have You Used Page"
@@ -50,16 +43,12 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     Then I am presented with the "Declare Ethylene Gas Or Molasses Page"
     When I enter "898.88" for "Ethylene Gas" on "Declare Ethylene Gas Or Molasses Page"
     And I enter "879.99" for "Molasses" on "Declare Ethylene Gas Or Molasses Page"
-    And I select radio button "Yes" on "Declare Ethylene Gas Or Molasses Page"
+    And I select radio button "No" on "Declare Ethylene Gas Or Molasses Page"
     And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
-    Then I am presented with the "Declare Other Ingredients Page"
-    When I enter "Test Other Ingredients" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
-    And I enter "969.99" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
-    And I click save and continue button on "Declare Other Ingredients Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
     And I should see following details at the "Quarterly Spirits Check Your Answers Page"
-      | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain    | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
-      | 111.11 litres        | 222.22 litres          | 333.33 litres          | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 444.44 tonnes | 555.55 tonnes | 666.66 tonnes | 777.77 tonnes | 888.88 tonnes  | 999.99 tonnes | 147.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 879.99 tonnes | 969.99 tonnes          |
+      | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      |
+      | 111.11 litres        | 222.22 litres          | 333.33 litres          | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | 444.44 tonnes | 555.55 tonnes | 666.66 tonnes | 777.77 tonnes | 888.88 tonnes  | 147.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 879.99 tonnes |
 #To verify 'Change' link functionality for Total of all spirits
     When I click "Change total of all spirits" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Total Of All Spirits Page" with new url
@@ -76,20 +65,22 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
 #To verify 'Change' link functionality for Type of spirits
     When I click "Change type of spirits" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page" with new url
-    When I select checkbox "Grain spirits" on "Which Of These Spirits Have You Made Page"
+    When I select checkbox "Grain spirits,Other" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
-    Then I am presented with the "Quarterly Spirits Check Your Answers Page"
-#To verify 'Change' link functionality for Other spirits produced
-    When I click "Change other spirits produced" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Declare Other Spirits Produced Page" with new url
-    When I enter "Test Spirits2" on "Declare Other Spirits Produced Page"
+    When I enter "Test Spirits" on "Declare Other Spirits Produced Page"
     And I click save and continue button on "Declare Other Spirits Produced Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
 #To verify 'Change' link functionality for Maize
     When I click "Change maize" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "How Much Grain Have You Used Page" with new url
     And I enter "666.99" for "Maize" on "How Much Grain Have You Used Page"
-    When I click save and continue button on "How Much Grain Have You Used Page"
+    And I select radio button "Yes" on "How Much Grain Have You Used Page"
+    And I click save and continue button on "How Much Grain Have You Used Page"
+    Then I am presented with the "Declare Other Malted Grains Page" with new url
+    When I enter "Test Grain" for "Other Malted Grains Types" on "Declare Other Malted Grains Page"
+    And I enter "999.99" for "Other Malted Grains Quantity" on "Declare Other Malted Grains Page"
+    And I click save and continue button on "Declare Other Malted Grains Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
 #To verify 'Change' link functionality for Test Grain
     When I click "Change test grain" on "Quarterly Spirits Check Your Answers Page"
@@ -108,16 +99,19 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     When I click "Change molasses" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Declare Ethylene Gas Or Molasses Page" with new url
     And I enter "999.99" for "Molasses" on "Declare Ethylene Gas Or Molasses Page"
-    And I click save and continue button on "How Much Alcohol Have You Used Page"
+    And I select radio button "Yes" on "Declare Ethylene Gas Or Molasses Page"
+    And I click save and continue button on "Declare Ethylene Gas Or Molasses Page"
+    Then I am presented with the "Declare Other Ingredients Page" with new url
+    When I enter "Test Other Ingredients" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
+    And I enter "969.99" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
+    And I click save and continue button on "Declare Other Ingredients Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
 #To verify 'Change' link functionality for Test Other Ingredients
     When I click "Change test other ingredients" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Declare Other Ingredients Page" with new url
-    When I enter "Test Other Ingredients2" for "Other Ingredients Used Types" on "Declare Other Ingredients Page"
-    And I enter "888.99" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
     And I click save and continue button on "Declare Other Ingredients Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
     And I should see following details at the "Quarterly Spirits Check Your Answers Page"
-      | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                              | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain2   | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients2 |
-      | 111.99 litres        | 222.99 litres          | 333.99 litres          | Grain spirits,Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits2          | 444.44 tonnes | 555.55 tonnes | 666.99 tonnes | 777.77 tonnes | 888.88 tonnes  | 100.99 tonnes | 199.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 999.99 tonnes | 888.99 tonnes           |
+      | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                              | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain2   | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
+      | 111.99 litres        | 222.99 litres          | 333.99 litres          | Grain spirits,Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 444.44 tonnes | 555.55 tonnes | 666.99 tonnes | 777.77 tonnes | 888.88 tonnes  | 100.99 tonnes | 199.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 999.99 tonnes | 969.99 tonnes          |
 
