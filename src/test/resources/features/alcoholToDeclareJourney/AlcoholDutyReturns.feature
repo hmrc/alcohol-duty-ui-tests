@@ -65,8 +65,8 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Change the products you’ve told us about | Tell us about your duty suspended deliveries |
-      | Completed                               | Completed                                | Not started                                  |
+      | You’ve told us you need to declare duty | Change the products you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed                                | Not started                                  | Not started                                |
 
 
   Scenario: Alcohol Duty Returns Journey - When Draught Relief is set to YES & Small Producer Relief is set to NO, and Product List Page is set to YES
@@ -281,8 +281,8 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Product List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Change the products you’ve told us about | Tell us about your duty suspended deliveries |
-      | Completed                               | Completed                                | Not started                                  |
+      | You’ve told us you need to declare duty | Change the products you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed                                | Not started                                  | Not started                                |
 
 
   Scenario: Alcohol Duty Returns Journey - verifying change link functionality on Product List Page

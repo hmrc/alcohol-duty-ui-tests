@@ -21,8 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object BeforeYouStartPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AA"
-  override val title       = "Before you start"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AC"
+  override val title          = "Before you start"
+  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AA"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Before you start - Manage your Alcohol Duty - GOV.UK"
