@@ -127,8 +127,6 @@ trait BaseStepDef
     page match {
       case "Declare Duty Suspended Deliveries Page"       =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
-      case "Quarterly Spirits Returns Guidance Page"      =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used")
       case "Product Entry Guidance Page"                  =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
       case "Declare Small Producer Relief Duty Rate Page" =>
@@ -159,6 +157,12 @@ trait BaseStepDef
   When("""I verify the ABV value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
+    actualText should be(expectedText)
+  }
+
+  Then("""I verify the return due date displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
     actualText should be(expectedText)
   }
 
