@@ -173,6 +173,28 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
+  def outstandingReturnsList: Seq[List[String]] = driver
+    .findElement(By.tagName("table"))
+    .findElements(By.tagName("tr"))
+    .asScala
+    .map(
+      _.findElements(By.xpath("td | th")).asScala
+        .map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n", " "))
+        .toList
+    )
+    .toList
+
+  def completedReturnsList: Seq[List[String]] = driver
+    .findElement(By.tagName("table"))
+    .findElements(By.tagName("tr"))
+    .asScala
+    .map(
+      _.findElements(By.xpath("td | th")).asScala
+        .map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n", " "))
+        .toList
+    )
+    .toList
+
   //To get the pure alcohol text
   private def bulletPointsTextPureAlcohol()       =
     driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))

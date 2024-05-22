@@ -150,6 +150,18 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  And("""I should see the below details for outstanding returns""") { data: DataTable =>
+    val expected = data.asScalaListOfLists
+    val actual = outstandingReturnsList
+    actual should be(expected)
+  }
+
+  And("""I should see the below details for completed returns""") { data: DataTable =>
+    val expected = data.asScalaListOfLists
+    val actual = completedReturnsList
+    actual should be(expected)
+  }
+
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
   }
