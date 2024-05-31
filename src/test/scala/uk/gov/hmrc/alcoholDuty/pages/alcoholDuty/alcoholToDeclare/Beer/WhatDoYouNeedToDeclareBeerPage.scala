@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare
+package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Beer
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object WhatDoYouNeedToDeclarePage extends BasePage {
+object WhatDoYouNeedToDeclareBeerPage extends BasePage {
 
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-do-you-need-to-declare/Beer"

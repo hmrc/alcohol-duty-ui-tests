@@ -32,7 +32,7 @@ object DeclareAlcoholDutyQuestionPage extends BasePage {
     "Declaring your alcohol duty - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Do you need to declare duty on any alcoholic products?")
+  override def expectedPageHeader: Option[String] = Some("Declaring your alcohol duty")
 
   override def clickRadioButton(text: String): Unit = {
     text match {
