@@ -175,7 +175,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Before You Start Page" with new url
-    And  I verify the return due date displayed as "Use this service to submit your Alcohol Duty return for 1 Jan 2024 to 31 Jan 2024." on "Before You Start Page"
+    And  I verify the return due date displayed as "Use this service to submit your Alcohol Duty return for 1 Feb 2024 to 29 Feb 2024." on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
