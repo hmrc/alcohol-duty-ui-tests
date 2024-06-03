@@ -5,6 +5,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Before You Start Page"
@@ -169,6 +170,7 @@ Feature: Alcohol Duty Journey - Task List Page
   Scenario: 10. QSR Journey - To verify quarterly spirits returns link is not visible for months other than March, June, Sep and Dec
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter redirectURL with Feb Period Key on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
