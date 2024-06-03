@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Wine
+package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Spirits
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object MultipleSmallProducerReliefQuestionWinePage extends BasePage {
+object DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-have-multiple-small-producer-relief-duty-rates/Wine"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Wine"
+  override val url: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
+  override val newUrl: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
   override val title = "More than one Small Producer Relief duty rate?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -35,10 +39,9 @@ object MultipleSmallProducerReliefQuestionWinePage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("If you have more than one Small Producer Relief duty rate")
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#doYouHaveMultipleSPRDutyRates-yesNoValue")
       case "No" => click on cssSelector("#doYouHaveMultipleSPRDutyRates-yesNoValue-no")
     }
-  }
 }

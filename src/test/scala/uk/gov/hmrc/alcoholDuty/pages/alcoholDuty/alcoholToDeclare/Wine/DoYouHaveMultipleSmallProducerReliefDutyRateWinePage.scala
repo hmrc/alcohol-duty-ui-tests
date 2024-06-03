@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Beer
+package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Wine
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage extends BasePage {
+object DoYouHaveMultipleSmallProducerReliefDutyRateWinePage extends BasePage {
 
-  override val url: String    = TestConfiguration.url(
+  override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/do-you-have-multiple-small-producer-relief-duty-rates/Beer"
+  ) + "/do-you-have-multiple-small-producer-relief-duty-rates/Wine"
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Beer"
-  override val title          = "More than one Small Producer Relief duty rate?"
+  ) + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Wine"
+  override val title = "More than one Small Producer Relief duty rate?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: More than one Small Producer Relief duty rate? - Manage your Alcohol Duty - GOV.UK"

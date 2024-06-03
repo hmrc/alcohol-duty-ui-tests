@@ -22,34 +22,34 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object HowMuchYouNeedToDeclareWinePage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-do-you-need-to-declare/Beer"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-do-you-need-to-declare/Wine"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-alcohol-you-have-used"
-  override val title          = "Tell us about the beer you need to declare"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-how-much-do-you-need-to-declare/Wine"
+  override val title          = "Tell us about the wine you need to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the beer you need to declare - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about the wine you need to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the beer you need to declare - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about the wine you need to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Tell us about the beer you need to declare")
+  override def expectedPageHeader: Option[String] = Some("Tell us about the wine you need to declare")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Standard beer between 1.2% and 3.4% ABV - Total litres" => enterText("volumes_0_totalLitres", textToEnter)
-      case "Standard beer between 1.2% and 3.4% ABV - Pure alcohol" => enterText("volumes_0_pureAlcohol", textToEnter)
-      case "Standard beer between 3.5% and 8.4% ABV - Total litres" => enterText("volumes_1_totalLitres", textToEnter)
-      case "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" => enterText("volumes_1_pureAlcohol", textToEnter)
-      case "Standard beer between 8.5% and 22% ABV - Total litres"  => enterText("volumes_2_totalLitres", textToEnter)
-      case "Standard beer between 8.5% and 22% ABV - Pure alcohol"  => enterText("volumes_2_pureAlcohol", textToEnter)
-      case "Standard beer exceeding 22% ABV - Total litres"         => enterText("volumes_3_totalLitres", textToEnter)
-      case "Standard beer exceeding 22% ABV - Pure alcohol"         => enterText("volumes_3_pureAlcohol", textToEnter)
-      case "Draught beer between 1.2% and 3.4% ABV - Total litres"  => enterText("volumes_4_totalLitres", textToEnter)
-      case "Draught beer between 1.2% and 3.4% ABV - Pure alcohol"  => enterText("volumes_4_pureAlcohol", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Total litres"  => enterText("volumes_5_totalLitres", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol"  => enterText("volumes_5_pureAlcohol", textToEnter)
+      case "Standard wine between 1.3% and 3.4% ABV - Total litres" => enterText("volumes_0_totalLitres", textToEnter)
+      case "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" => enterText("volumes_0_pureAlcohol", textToEnter)
+      case "Standard wine between 3.5% and 8.4% ABV - Total litres" => enterText("volumes_1_totalLitres", textToEnter)
+      case "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" => enterText("volumes_1_pureAlcohol", textToEnter)
+      case "Standard wine between 8.5% and 22% ABV - Total litres"  => enterText("volumes_2_totalLitres", textToEnter)
+      case "Standard wine between 8.5% and 22% ABV - Pure alcohol"  => enterText("volumes_2_pureAlcohol", textToEnter)
+      case "Standard wine exceeding 22% ABV - Total litres"         => enterText("volumes_3_totalLitres", textToEnter)
+      case "Standard wine exceeding 22% ABV - Pure alcohol"         => enterText("volumes_3_pureAlcohol", textToEnter)
+      case "Draught wine between 1.3% and 3.4% ABV - Total litres"  => enterText("volumes_4_totalLitres", textToEnter)
+      case "Draught wine between 1.3% and 3.4% ABV - Pure alcohol"  => enterText("volumes_4_pureAlcohol", textToEnter)
+      case "Draught wine between 3.5% and 8.4% ABV - Total litres"  => enterText("volumes_5_totalLitres", textToEnter)
+      case "Draught wine between 3.5% and 8.4% ABV - Pure alcohol"  => enterText("volumes_5_pureAlcohol", textToEnter)
     }
 }
