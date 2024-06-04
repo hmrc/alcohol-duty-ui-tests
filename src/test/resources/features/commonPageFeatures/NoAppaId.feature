@@ -1,4 +1,4 @@
-@Test @AlcoholToDeclare
+@Test @NoApprovalId
 Feature: No Approval Id Journey
 
   @ZAP @a11y
