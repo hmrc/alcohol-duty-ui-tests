@@ -41,5 +41,12 @@ class AlcoholDutyStepDef extends BaseStepDef {
           AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
     }
+
+  When("""I select Affinity Type as {string} on {string}""") { (value: String, page: String) =>
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.selectAffinityGroup(value)
+    }
+  }
   }
 

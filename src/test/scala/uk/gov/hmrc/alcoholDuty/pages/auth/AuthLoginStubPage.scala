@@ -41,4 +41,7 @@ object AuthLoginStubPage extends BasePage {
     driver.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
   }
 
+  def selectAffinityGroup(value: String): Unit = {
+    driver.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)
+  }
 }
