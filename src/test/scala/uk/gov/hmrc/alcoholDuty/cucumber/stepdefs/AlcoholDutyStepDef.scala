@@ -28,10 +28,17 @@ class AlcoholDutyStepDef extends BaseStepDef {
     }
   }
 
-  When("""I enter redirectURL with Jan Period Key on {string}""") { (page: String) =>
+  When("""I enter redirectURL with Feb Period Key on {string}""") { (page: String) =>
     page match {
       case "Auth Login Stub Page" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AA")
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/24AB")
+    }
+  }
+
+  When("""I enter redirectURL for No Approval Id journey on {string}""") { (page: String) =>
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/no-approval-id")
     }
   }
 
@@ -48,5 +55,6 @@ class AlcoholDutyStepDef extends BaseStepDef {
         AuthLoginStubPage.selectAffinityGroup(value)
     }
   }
+
   }
 
