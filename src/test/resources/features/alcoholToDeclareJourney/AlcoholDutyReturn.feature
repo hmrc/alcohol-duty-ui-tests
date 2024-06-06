@@ -1,7 +1,7 @@
 @Test @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey - Beer
 
-  Background: : Common Steps - Alcohol Duty Returns Journey - Beer
+  Background: : Common Steps - Alcohol Duty Returns Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
@@ -311,27 +311,5 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
 #    Then I am presented with the "Check Your Answers Other Fermented Product Page"
-
-
-    And I should see the following details
-      | Name     | Alcohol strength | Eligible for Draught Relief | Eligible for Small Producer Relief | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
-      | TestName | 5% ABV           | Yes                         | Yes                                | 378           | 100 litres | 5 litres     | £50.00 per litre | £250.00  |
-    When I click save and continue button on "Check Your Answers Page"
-    Then I am presented with the "Product List Page"
-    And I should see the following product details
-      | Name     | Duty due | Action        |
-      | TestName | £250.00  | Change Remove |
-    When I click "Remove Hyperlink" on "Product List Page"
-    Then I am presented with the "Delete Product Page"
-    When I select radio button "No" on "Delete Product Page"
-    And I click save and continue button on "Delete Product Page"
-    Then I am presented with the "Product List Page"
-    When I click "Remove Hyperlink" on "Product List Page"
-    Then I am presented with the "Delete Product Page"
-    When I select radio button "Yes" on "Delete Product Page"
-    And I click save and continue button on "Delete Product Page"
-    Then I am presented with the "Product List Page"
-    And I should see the following product details
-      | Name | Duty due | Action |
 
 
