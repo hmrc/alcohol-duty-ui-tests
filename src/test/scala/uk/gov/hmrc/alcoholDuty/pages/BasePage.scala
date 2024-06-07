@@ -122,6 +122,10 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     assert(actualErrorMessage.contains(errorMessage))
   }
 
+  private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
+
+  def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
+
   def checkDynamicPageHeader(text: String): Unit =
     text match {
       case "Under-declaration"           =>

@@ -223,4 +223,10 @@ trait BaseStepDef
     val actualData   = PageObjectFinder.dataAtCheckYourAnswersPage
     actualData should be(expectedData)
   }
+
+  And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
+    val expectedErrorMessage = data.asScalaListOfStrings
+    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
+  }
 }

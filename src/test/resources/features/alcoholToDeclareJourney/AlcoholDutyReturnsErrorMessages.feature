@@ -17,7 +17,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Beer - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Declare Alcohol Duty Question Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any alcohol"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select yes if you need to declare any alcohol |
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
@@ -25,14 +26,26 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "What Do You Need To Declare Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select the beers you need to declare"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the beers you need to declare |
     When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 311),Between 3.5% and 8.4% ABV (tax type code 321),Between 8.5% and 22% ABV (tax type code 331),Exceeding 22.1% ABV (tax type code 341),Between 1.3% and 3.4% ABV (tax type code 351),Between 3.5% and 8.4% ABV (tax type code 356),Between 1.3% and 3.4% ABV (tax type code 361),Between 3.5% and 8.4% ABV (tax type code 366),Between 1.3% and 3.4% ABV (tax type code 371),Between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total litres of beer"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the litres of pure alcohol in beer"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
+      | Enter the total litres of beer           |
+      | Enter the litres of pure alcohol in beer |
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
     And I enter "55.55" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
     And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
@@ -49,15 +62,26 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you have more than one Small Producer Relief duty rate to declare"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select yes if you have more than one Small Producer Relief duty rate to declare |
     When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     Then I am presented with the "Single Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Single Small Producer Relief Rate Beer Page"
     Then I am presented with the "Single Small Producer Relief Rate Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total litres of beer"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the litres of pure alcohol in beer"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter your Small Producer Relief duty rate"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of beer             |
+      | Enter the litres of pure alcohol in beer   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of beer             |
+      | Enter the litres of pure alcohol in beer   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of beer             |
+      | Enter the litres of pure alcohol in beer   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of beer             |
+      | Enter the litres of pure alcohol in beer   |
+      | Enter your Small Producer Relief duty rate |
     When I enter "888.88" for "Non-draught beer between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page"
     And I enter "99.45" for "Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page"
     And I enter "15" for "Non-draught beer between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page"
@@ -104,17 +128,141 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select the type of beer to declare"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total litres of beer"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the litres of pure alcohol in beer"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter your Small Producer Relief duty rate"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the type of beer to declare         |
+      | Enter the total litres of beer             |
+      | Enter the litres of pure alcohol in beer   |
+      | Enter your Small Producer Relief duty rate |
     When I select radio button "Beer between 1.3% and 3.4% ABV (tax type code 361)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "89.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers Beer Page"
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
 
+  Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your wine" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Wine Page"
+    Then I am presented with the "What Do You Need To Declare Wine Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the wines you need to declare |
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 313),Between 3.5% and 8.4% ABV (tax type code 323),Between 8.5% and 22% ABV (tax type code 333),Exceeding 22.1% ABV (tax type code 343),Between 1.3% and 3.4% ABV (tax type code 353),Between 3.5% and 8.4% ABV (tax type code 358),Between 1.3% and 3.4% ABV (tax type code 363),Between 3.5% and 8.4% ABV (tax type code 368),Between 1.3% and 3.4% ABV (tax type code 373),Between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Wine Page"
+    Then I am presented with the "How Much You Need To Declare Wine Page"
+    And I click save and continue button on "How Much You Need To Declare Wine Page"
+    Then I am presented with the "How Much You Need To Declare Wine Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
+    When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "35.55" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "3698.52" for "Standard wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "88.88" for "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "8974.23" for "Standard wine between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "22.22" for "Standard wine between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "990.01" for "Standard wine exceeding 22% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "82.22" for "Standard wine exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "895.22" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "22.33" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "569.33" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "24.55" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I click save and continue button on "How Much You Need To Declare Wine Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Wine Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select yes if you have more than one Small Producer Relief duty rate to declare |
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    Then I am presented with the "Single Small Producer Relief Rate Wine Page"
+    And I click save and continue button on "Single Small Producer Relief Rate Wine Page"
+    Then I am presented with the "Single Small Producer Relief Rate Wine Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of wine             |
+      | Enter the litres of pure alcohol in wine   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of wine             |
+      | Enter the litres of pure alcohol in wine   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of wine             |
+      | Enter the litres of pure alcohol in wine   |
+      | Enter your Small Producer Relief duty rate |
+      | Enter the total litres of wine             |
+      | Enter the litres of pure alcohol in wine   |
+      | Enter your Small Producer Relief duty rate |
+    When I enter "888.88" for "Non-draught wine between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "99.45" for "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "15" for "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "776.45" for "Non-draught wine between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "78.9" for "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "18" for "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "776.89" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "99.99" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "15" for "Draught wine between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "889.65" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "66.54" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page"
+    And I enter "20" for "Draught wine between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page"
+    And I click save and continue button on "Single Small Producer Relief Rate Wine Page"
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
+
+  Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your wine" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Wine Page"
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 313),Between 3.5% and 8.4% ABV (tax type code 323),Between 8.5% and 22% ABV (tax type code 333),Exceeding 22.1% ABV (tax type code 343),Between 1.3% and 3.4% ABV (tax type code 353),Between 3.5% and 8.4% ABV (tax type code 358),Between 1.3% and 3.4% ABV (tax type code 363),Between 3.5% and 8.4% ABV (tax type code 368),Between 1.3% and 3.4% ABV (tax type code 373),Between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Wine Page"
+    Then I am presented with the "How Much You Need To Declare Wine Page"
+    When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "35.55" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "3698.52" for "Standard wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "88.88" for "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "8974.23" for "Standard wine between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "22.22" for "Standard wine between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "990.01" for "Standard wine exceeding 22% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "82.22" for "Standard wine exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "895.22" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "22.33" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I enter "569.33" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page"
+    And I enter "24.55" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page"
+    And I click save and continue button on "How Much You Need To Declare Wine Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Wine Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the type of wine to declare         |
+      | Enter the total litres of wine             |
+      | Enter the litres of pure alcohol in wine   |
+      | Enter your Small Producer Relief duty rate |
+    When I select radio button "Wine between 3.5% and 8.4% ABV (tax type code 368)" on "Multiple Small Producer Relief Rate Wine Page"
+    And I enter "678.99" for "Total litres" on "Multiple Small Producer Relief Rate Wine Page"
+    And I enter "66.43" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Wine Page"
+    And I enter "15.65" for "Duty rate" on "Multiple Small Producer Relief Rate Wine Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
+    Then I am presented with the "Check Your Answers Wine Page"
     Examples:
       | errorMessageHeader |
       | There is a problem |
