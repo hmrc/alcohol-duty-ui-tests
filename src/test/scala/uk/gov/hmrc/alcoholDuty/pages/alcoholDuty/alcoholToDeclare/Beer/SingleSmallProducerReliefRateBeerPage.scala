@@ -50,8 +50,8 @@ object SingleSmallProducerReliefRateBeerPage extends BasePage {
       case "Draught beer between 1.3% and 3.4% ABV - Total litres"            => enterText("volumesWithRate_2_totalLitres", textToEnter)
       case "Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres"     => enterText("volumesWithRate_2_pureAlcohol", textToEnter)
       case "Draught beer between 1.3% and 3.4% ABV - SPR Rate"                => enterText("volumesWithRate_2_dutyRate", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Total litres"            => enterText("volumesWithRate_2_totalLitres", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres"     => enterText("volumesWithRate_2_pureAlcohol", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - SPR Rate"                => enterText("volumesWithRate_2_dutyRate", textToEnter)
+      case "Draught beer between 3.5% and 8.4% ABV - Total litres"            => enterText("volumesWithRate_3_totalLitres", textToEnter)
+      case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres"     => enterText("volumesWithRate_3_pureAlcohol", textToEnter)
+      case "Draught beer between 3.5% and 8.4% ABV - SPR Rate"                => enterText("volumesWithRate_3_dutyRate", textToEnter)
     }
 }

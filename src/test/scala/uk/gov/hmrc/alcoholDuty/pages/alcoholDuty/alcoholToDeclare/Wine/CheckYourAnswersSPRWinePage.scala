@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Beer
+package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Wine
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object CheckYourAnswersBeerPage extends BasePage {
+object CheckYourAnswersSPRWinePage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Beer"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Beer"
-  override val title          = "Check your answers"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
+  override val title = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
@@ -38,13 +38,13 @@ object CheckYourAnswersBeerPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#taxType']")
-      case "Total beer"         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#totalLitres']")
+      case "Description" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#taxType']")
+      case "Total spirits" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#totalLitres']")
       case "Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#pureAlcohol']")
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#pureAlcohol']")
       case "Duty rate" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#dutyRate']")
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#dutyRate']")
     }
 }

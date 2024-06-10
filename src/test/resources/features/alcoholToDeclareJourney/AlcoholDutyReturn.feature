@@ -54,6 +54,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "66.54" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page"
     And I enter "20" for "Draught beer between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Single Small Producer Relief Rate Beer Page"
+    Then I am presented with the "Check Your Answers Returns Beer Page"
 
   @ZAP @a11y
   Scenario: Beer - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -84,7 +85,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "89.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
-    Then I am presented with the "Check Your Answers Beer Page"
+    Then I am presented with the "Check Your Answers SPR Beer Page"
 
 
   @ZAP @a11y
@@ -141,6 +142,8 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "66.54" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page"
     And I enter "20" for "Draught wine between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page"
     And I click save and continue button on "Single Small Producer Relief Rate Wine Page"
+    Then I am presented with the "Check Your Answers Returns Wine Page"
+
 
   @ZAP @a11y
   Scenario: Wine - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -171,7 +174,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "66.43" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "15.65" for "Duty rate" on "Multiple Small Producer Relief Rate Wine Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
-    Then I am presented with the "Check Your Answers Wine Page"
+    Then I am presented with the "Check Your Answers SPR Wine Page"
 
 
   @ZAP @a11y
@@ -180,6 +183,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     Then I am presented with the "What Do You Need To Declare Spirits Page"
     And I select checkbox "Between 1.3% and 3.4% ABV (tax type code 315),Between 3.5% and 8.4% ABV (tax type code 325),Between 8.5% and 22% ABV (tax type code 335),Exceeding 22.1% ABV (tax type code 345),Between 1.3% and 3.4% ABV (tax type code 355),Between 3.5% and 8.4% ABV (tax type code 360),Between 1.3% and 3.4% ABV (tax type code 365),Between 3.5% and 8.4% ABV (tax type code 370),Between 1.3% and 3.4% ABV (tax type code 375),Between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page"
     And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page"
     And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page"
@@ -210,6 +214,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "66.54" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page"
     And I enter "20" for "Draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page"
     And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
 
 
   @ZAP @a11y
@@ -240,7 +245,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "55.55" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Spirits Page"
     And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Spirits Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
-    Then I am presented with the "Check Your Answers Spirits Page"
+    Then I am presented with the "Check Your Answers SPR Spirits Page"
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -279,7 +284,7 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "99.23" for "Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
     And I enter "19" for "Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
-#    Then I am presented with the "Check Your Answers Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -310,6 +315,6 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "99.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
-#    Then I am presented with the "Check Your Answers Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
 
 

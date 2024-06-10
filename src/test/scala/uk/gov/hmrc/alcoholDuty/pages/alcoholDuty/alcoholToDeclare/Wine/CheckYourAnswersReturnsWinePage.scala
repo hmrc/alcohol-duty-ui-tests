@@ -19,11 +19,11 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Wine
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object CheckYourAnswersWinePage extends BasePage {
+object CheckYourAnswersReturnsWinePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Wine"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Wine"
   override val title = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
