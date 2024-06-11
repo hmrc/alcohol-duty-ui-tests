@@ -22,8 +22,9 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
-
-import java.time.Duration
+import java.time.format.DateTimeFormatter
+import java.time.{Duration, LocalDate}
+import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
@@ -158,6 +159,37 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
+  val Year: Int  = LocalDate.now().getYear()
+  val Month: Int = LocalDate.now().getMonthValue()
+
+  def periodKey(): String         = s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+  def previousPeriodKey(): String = s"${Year.toString.takeRight(2)}A${((generateMonth(Month: Int) - 1) + 64).toChar}"
+  def generateYear(Year: Int): Int = {
+    if (generateMonth(Month: Int) == 12)
+     Year - 1
+    else
+      Year
+  }
+
+  def generateMonth(Month: Int): Int = {
+    if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
+      3
+    else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
+      6
+    else if ((Month - 1) == 9 || (Month - 1) == 10 || (Month - 1) == 11)
+      9
+    else
+      12
+  }
+
+  val currentDate: LocalDate          = LocalDate.now()
+  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1)withDayOfMonth 1
+  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1
+  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfCurrentMonth: String   = firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfPreviousMonth: String  = firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
@@ -174,23 +206,23 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .toList
 
   def outstandingReturnsList: Seq[List[String]] = driver
-    .findElement(By.tagName("table"))
+    .findElement(By.xpath("//div/table[1]"))
     .findElements(By.tagName("tr"))
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n", " "))
+        .map(_.getText.trim.replaceAll("\nsubmit return", "").replaceAll("\n", " "))
         .toList
     )
     .toList
 
   def completedReturnsList: Seq[List[String]] = driver
-    .findElement(By.tagName("table"))
+    .findElement(By.xpath("//div/table[2]"))
     .findElements(By.tagName("tr"))
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("\n", " "))
+        .map(_.getText.trim.replaceAll("\nview return", "").replaceAll("\n", " "))
         .toList
     )
     .toList
@@ -214,6 +246,12 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def subSectionsHeaderText: List[String] = driver
     .findElement(By.cssSelector("ol[class='govuk-heading-m']"))
     .findElements(By.tagName("h2"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
+
+  def tableHeaderText: List[String] = driver
+    .findElements(By.cssSelector("caption[class='govuk-table__caption govuk-table__caption--m']"))
     .asScala
     .map(_.getText.trim)
     .toList

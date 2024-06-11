@@ -6,10 +6,10 @@ Feature: Alcohol Duty Journey - Task List Page
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Before You Start Page"
-    And  I verify the return due date displayed as "Use this service to submit your Alcohol Duty return for 1 Mar 2024 to 31 Mar 2024." on "Before You Start Page"
+    And  I verify the return due date for "Latest Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
@@ -19,7 +19,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I should see the following status of the submission journey
       | Do you need to declare duty? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Not started                                  | Not started                                |
-
+@check
   Scenario: 1. ADR Journey - To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -171,11 +171,11 @@ Feature: Alcohol Duty Journey - Task List Page
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter redirectURL with Feb Period Key on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000000208" on "Auth Login Stub Page"
+    And I enter redirectURL for "Previous Month Period Key"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Before You Start Page" with new url
-    And  I verify the return due date displayed as "Use this service to submit your Alcohol Duty return for 1 Feb 2024 to 29 Feb 2024." on "Before You Start Page"
+    And  I verify the return due date for "Previous Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
