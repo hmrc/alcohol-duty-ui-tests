@@ -125,15 +125,9 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Declare Duty Suspended Deliveries Page"       =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended")
-      case "Product Entry Guidance Page"                  =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-alcohol")
-      case "Declare Small Producer Relief Duty Rate Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-your-small-producer-duty-rate")
       case "Declare Adjustment Question Page"             =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend")+ "/do-you-need-to-make-any-adjustments-from-a-previous-return")
-      case "Task List Page"                               =>
+      case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
     }
   }
@@ -150,6 +144,20 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedOutstandingReturns
+    val actual = outstandingReturnsList
+    actual should be(expected)
+  }
+
+  And("""I should verify the completed returns details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedCompletedReturns
+    val actual = completedReturnsList
+    actual should be(expected)
+  }
+
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
   }
@@ -160,10 +168,17 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
-  Then("""I verify the return due date displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+  Then("""I verify the return due date for {string} on {string}""") { (content: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
-    actualText should be(expectedText)
+
+      content match {
+        case "Latest Month Selected" =>
+          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(1) + " to " + lastDayOfCurrentMonth + ".")
+
+        case "Previous Month Selected" =>
+          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(1) + " to " + lastDayOfPreviousMonth + ".")
+      }
   }
 
   Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
@@ -211,6 +226,11 @@ trait BaseStepDef
   And("""I should see the following subsections""") { data: DataTable =>
     val expected = data.asScalaListOfStrings
     subSectionsHeaderText should be(expected)
+  }
+
+  And("""I should verify the table header displayed""") { (data: DataTable) =>
+    val expectedText = data.asScalaListOfStrings
+    tableHeaderText should be(expectedText)
   }
 
   Given("""I cleared the data for the service""") {
