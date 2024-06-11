@@ -1,5 +1,5 @@
 @Test @AlcoholToDeclare
-Feature: Alcohol Duty Returns Journey - Beer
+Feature: Alcohol Duty Returns Journey
 
   Background: : Common Steps - Alcohol Duty Returns Journey
     Given I cleared the data for the service
@@ -86,7 +86,9 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
-
+    And I should see following details at the "Check Your Answers SPR Beer Page"
+      | Description                                                                 | Total beer      | Total pure alcohol | Duty rate        |
+      | Non-draught, between 1.3% and 3.4% ABV eligible for SPR (tax type code 361) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -175,6 +177,9 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "15.65" for "Duty rate" on "Multiple Small Producer Relief Rate Wine Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers SPR Wine Page"
+    And I should see following details at the "Check Your Answers SPR Wine Page"
+      | Description                                                                 | Total wine    | Total pure alcohol | Duty rate        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 368) | 678.99 litres | 66.43 Lpa          | £15.65 per litre |
 
 
   @ZAP @a11y
@@ -246,6 +251,9 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Spirits Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page"
+    And I should see following details at the "Check Your Answers SPR Spirits Page"
+      | Description                                                             | Total spirits | Total pure alcohol | Duty rate        |
+      | Draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 380) | 789.99 litres | 55.55 Lpa          | £20.00 per litre |
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -316,5 +324,8 @@ Feature: Alcohol Duty Returns Journey - Beer
     And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
+    And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
+      | Description                                                                 | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 369) | 999.99 litres                  | 99.99 Lpa          | £20.00 per litre |
 
 

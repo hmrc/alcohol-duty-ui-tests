@@ -391,3 +391,128 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Examples:
       | errorMessageHeader |
       | There is a problem |
+
+  Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
+    When I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the other fermented products you need to declare |
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 314),Between 3.5% and 8.4% ABV (tax type code 324),Between 8.5% and 22% ABV (tax type code 334),Exceeding 22.1% ABV (tax type code 344),Between 1.3% and 3.4% ABV (tax type code 354),Between 3.5% and 8.4% ABV (tax type code 359),Between 1.3% and 3.4% ABV (tax type code 364),Between 3.5% and 8.4% ABV (tax type code 369),Between 1.3% and 3.4% ABV (tax type code 374),Between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
+    When I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+    When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "34.55" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select yes if you have more than one Small Producer Relief duty rate to declare |
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter your Small Producer Relief duty rate                   |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter your Small Producer Relief duty rate                   |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter your Small Producer Relief duty rate                   |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter your Small Producer Relief duty rate                   |
+    When I enter "777.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "77.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "15" for "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "888.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "88.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "16" for "Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "667.88" for "Draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "78.77" for "Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "20" for "Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "678.44" for "Draught other fermented product between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "99.23" for "Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "19" for "Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
+
+  Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 314),Between 3.5% and 8.4% ABV (tax type code 324),Between 8.5% and 22% ABV (tax type code 334),Exceeding 22.1% ABV (tax type code 344),Between 1.3% and 3.4% ABV (tax type code 354),Between 3.5% and 8.4% ABV (tax type code 359),Between 1.3% and 3.4% ABV (tax type code 364),Between 3.5% and 8.4% ABV (tax type code 369),Between 1.3% and 3.4% ABV (tax type code 374),Between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
+    When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page"
+    And I enter "34.55" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page"
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select the type of other fermented products                  |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
+      | Enter your Small Producer Relief duty rate                   |
+    When I select radio button "Other fermented products between 3.5% and 8.4% ABV (tax type code 369)" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "999.99" for "Total litres" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "99.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
