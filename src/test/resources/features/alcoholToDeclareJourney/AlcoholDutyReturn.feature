@@ -89,22 +89,87 @@ Feature: Alcohol Duty Returns Journey
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                                                 | Total beer      | Total pure alcohol | Duty rate        |
       | Non-draught, between 1.3% and 3.4% ABV eligible for SPR (tax type code 361) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
+    When I click continue button on "Check Your Answers SPR Beer Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                                                 | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught, between 1.3% and 3.4% ABV eligible for SPR (tax type code 361) | 9,999.99l             | 89.99 Lpa             | £19.00 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Beer Page"
+    And I click save and continue button on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "Check Your Answers Returns Beer Page"
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
     When I click on "Tell us about your cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 312),Between 3.5% and 8.4% ABV (tax type code 322),Between 1.3% and 3.4% ABV (tax type code 352),Between 3.5% and 8.4% ABV (tax type code 357),Between 1.3% and 3.4% ABV (tax type code 362),Between 3.5% and 8.4% ABV (tax type code 367),Between 1.3% and 3.4% ABV (tax type code 372),Between 3.5% and 8.4% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
-    Then I am presented with the "How Much Cider You Need To Declare Page"
+    Then I am presented with the "How Much You Need To Declare Cider Page"
+    When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "43.44" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "22.22" for "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I click save and continue button on "How Much You Need To Declare Cider Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    Then I am presented with the "Single Small Producer Relief Rate Cider Page"
+    When I enter "656.66" for "Non-draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "66.66" for "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "14" for "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "999.99" for "Non-draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "98.99" for "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "12.45" for "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "887.21" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "45.56" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "16" for "Draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "653.11" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "33.33" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page"
+    And I enter "18" for "Draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page"
+    And I click save and continue button on "Single Small Producer Relief Rate Cider Page"
+    Then I am presented with the "Check Your Answers Returns Cider Page"
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
     When I click on "Tell us about your cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
+    When I select checkbox "Between 1.3% and 3.4% ABV (tax type code 312),Between 3.5% and 8.4% ABV (tax type code 322),Between 1.3% and 3.4% ABV (tax type code 352),Between 3.5% and 8.4% ABV (tax type code 357),Between 1.3% and 3.4% ABV (tax type code 362),Between 3.5% and 8.4% ABV (tax type code 367),Between 1.3% and 3.4% ABV (tax type code 372),Between 3.5% and 8.4% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
-    Then I am presented with the "How Much Cider You Need To Declare Page"
+    Then I am presented with the "How Much You Need To Declare Cider Page"
+    When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "43.44" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "22.22" for "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page"
+    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page"
+    And I click save and continue button on "How Much You Need To Declare Cider Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page"
+    When I select radio button "Cider between 3.5% and 8.4% ABV (tax type code 367)" on "Multiple Small Producer Relief Rate Cider Page"
+    And I enter "7999.99" for "Total litres" on "Multiple Small Producer Relief Rate Cider Page"
+    And I enter "77.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
+    And I enter "20.99" for "Duty rate" on "Multiple Small Producer Relief Rate Cider Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
+    Then I am presented with the "Check Your Answers SPR Cider Page"
+    And I should see following details at the "Check Your Answers SPR Cider Page"
+      | Description                                                                 | Total cider     | Total pure alcohol | Duty rate        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 367) | 7,999.99 litres | 77.99 Lpa          | £20.99 per litre |
+    When I click continue button on "Check Your Answers SPR Cider Page"
+    Then I am presented with the "Multiple SPR List Question Cider Page"
+    And I should see the following product details
+      | Description                                                                 | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 367) | 7,999.99l             | 77.99 Lpa             | £20.99 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Cider Page"
+    And I click save and continue button on "Multiple SPR List Question Cider Page"
+    Then I am presented with the "Check Your Answers Returns Cider Page"
 
 
   @ZAP @a11y
@@ -180,6 +245,14 @@ Feature: Alcohol Duty Returns Journey
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                                                 | Total wine    | Total pure alcohol | Duty rate        |
       | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 368) | 678.99 litres | 66.43 Lpa          | £15.65 per litre |
+    When I click continue button on "Check Your Answers SPR Wine Page"
+    Then I am presented with the "Multiple SPR List Question Wine Page"
+    And I should see the following product details
+      | Description                                                                 | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 368) | 678.99l               | 66.43 Lpa             | £15.65 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Wine Page"
+    And I click save and continue button on "Multiple SPR List Question Wine Page"
+    Then I am presented with the "Check Your Answers Returns Wine Page"
 
 
   @ZAP @a11y
@@ -254,6 +327,14 @@ Feature: Alcohol Duty Returns Journey
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                                             | Total spirits | Total pure alcohol | Duty rate        |
       | Draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 380) | 789.99 litres | 55.55 Lpa          | £20.00 per litre |
+    When I click continue button on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple SPR List Question Spirits Page"
+    And I should see the following product details
+      | Description                                                                 | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 368) | 678.99l               | 66.43 Lpa             | £15.65 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Spirits Page"
+    And I click save and continue button on "Multiple SPR List Question Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -327,5 +408,12 @@ Feature: Alcohol Duty Returns Journey
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                 | Total other fermented products | Total pure alcohol | Duty rate        |
       | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 369) | 999.99 litres                  | 99.99 Lpa          | £20.00 per litre |
-
+    When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
+    Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
+    And I should see the following product details
+      | Description                                                                 | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught, between 3.5% and 8.4% ABV eligible for SPR (tax type code 369) | 999.99l               | 99.99 Lpa             | £20.00 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
+    And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
 
