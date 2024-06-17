@@ -19,20 +19,27 @@ package uk.gov.hmrc.alcoholDuty.pages.common
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object NoApprovalIdPage extends BasePage {
+object DoYouHaveAppaIdPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/no-approval-id"
-  override val title          = "You need an Alcoholic Products Producer approval ID to access Alcohol Duty"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id"
+  override val title          = "Do you have an Alcoholic Products Producer approval ID?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: You need an Alcoholic Products Producer approval ID to access Alcohol Duty - Manage your Alcohol Duty - GOV.UK"
+    "Error: Do you have an Alcoholic Products Producer approval ID? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "You need an Alcoholic Products Producer approval ID to access Alcohol Duty - Manage your Alcohol Duty - GOV.UK"
+    "Do you have an Alcoholic Products Producer approval ID? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "You need an Alcoholic Products Producer approval ID to access Alcohol Duty"
+    "Do you have an Alcoholic Products Producer approval ID?"
   )
+
+  override def clickRadioButton(text: String): Unit = {
+    text match {
+      case "Yes" => click on cssSelector("#doYouHaveAnAppaId-yesNoValue")
+      case "No" => click on cssSelector("#doYouHaveAnAppaId-yesNoValue-no")
+    }
+  }
 }
