@@ -41,10 +41,10 @@ object MultipleSmallProducerReliefRateSpiritsPage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Spirits between 1.3% and 3.4% ABV (tax type code 365)" => click on cssSelector("#volumesWithRate_taxType")
-      case "Spirits between 3.5% and 8.4% ABV (tax type code 370)" => click on cssSelector("#volumesWithRate_taxType-2")
-      case "Spirits between 1.3% and 3.4% ABV (tax type code 375)" => click on cssSelector("#volumesWithRate_taxType-3")
-      case "Spirits between 3.5% and 8.4% ABV (tax type code 380)" => click on cssSelector("#volumesWithRate_taxType-4")
+      case "Non-draught spirits between 1.3% and 3.4% ABV (365 SPR)"  => click on cssSelector("#volumesWithRate_taxType")
+      case "Non-draught spirits between 3.5% and 8.4% ABV (370 SPR)"  => click on cssSelector("#volumesWithRate_taxType-2")
+      case "Draught spirits between 1.3% and 3.4% ABV (375 SPR)"      => click on cssSelector("#volumesWithRate_taxType-3")
+      case "Draught spirits between 3.5% and 8.4% ABV (380 SPR)"      => click on cssSelector("#volumesWithRate_taxType-4")
     }
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =

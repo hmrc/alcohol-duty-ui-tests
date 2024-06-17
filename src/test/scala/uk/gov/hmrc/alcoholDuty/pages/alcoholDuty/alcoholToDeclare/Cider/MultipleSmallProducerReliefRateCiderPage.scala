@@ -41,10 +41,12 @@ object MultipleSmallProducerReliefRateCiderPage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Cider between 1.3% and 3.4% ABV (tax type code 362)" => click on cssSelector("#volumesWithRate_taxType")
-      case "Cider between 3.5% and 8.4% ABV (tax type code 367)" => click on cssSelector("#volumesWithRate_taxType-2")
-      case "Cider between 1.3% and 3.4% ABV (tax type code 372)" => click on cssSelector("#volumesWithRate_taxType-3")
-      case "Cider between 3.5% and 8.4% ABV (tax type code 377)" => click on cssSelector("#volumesWithRate_taxType-4")
+      case "Non-draught cider between 1.3% and 3.4% ABV (362 SPR)"                                               => click on cssSelector("#volumesWithRate_taxType")
+      case "Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR)" =>
+        click on cssSelector("#volumesWithRate_taxType-2")
+      case "Draught cider between 1.3% and 3.4% ABV (372 SPR)"                                                   => click on cssSelector("#volumesWithRate_taxType-3")
+      case "Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.4% ABV (377 SPR)"     =>
+        click on cssSelector("#volumesWithRate_taxType-4")
     }
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =

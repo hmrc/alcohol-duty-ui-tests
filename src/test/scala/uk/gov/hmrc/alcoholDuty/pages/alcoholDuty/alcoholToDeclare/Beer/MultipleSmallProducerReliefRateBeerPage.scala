@@ -41,10 +41,10 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Beer between 1.3% and 3.4% ABV (tax type code 361)" => click on cssSelector("#volumesWithRate_taxType")
-      case "Beer between 3.5% and 8.4% ABV (tax type code 366)" => click on cssSelector("#volumesWithRate_taxType-2")
-      case "Beer between 1.3% and 3.4% ABV (tax type code 371)" => click on cssSelector("#volumesWithRate_taxType-3")
-      case "Beer between 3.5% and 8.4% ABV (tax type code 376)" => click on cssSelector("#volumesWithRate_taxType-4")
+      case "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" => click on cssSelector("#volumesWithRate_taxType")
+      case "Non-draught beer between 3.5% and 8.4% ABV (366 SPR)" => click on cssSelector("#volumesWithRate_taxType-2")
+      case "Draught beer between 1.3% and 3.4% ABV (371 SPR)"     => click on cssSelector("#volumesWithRate_taxType-3")
+      case "Draught beer between 3.5% and 8.4% ABV (376 SPR)"     => click on cssSelector("#volumesWithRate_taxType-4")
     }
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =

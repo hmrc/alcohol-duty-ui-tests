@@ -41,10 +41,14 @@ object MultipleSmallProducerReliefRateOtherFermentedProductPage extends BasePage
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Other fermented products between 1.3% and 3.4% ABV (tax type code 364)" => click on cssSelector("#volumesWithRate_taxType")
-      case "Other fermented products between 3.5% and 8.4% ABV (tax type code 369)" => click on cssSelector("#volumesWithRate_taxType-2")
-      case "Other fermented products between 1.3% and 3.4% ABV (tax type code 374)" => click on cssSelector("#volumesWithRate_taxType-3")
-      case "Other fermented products between 3.5% and 8.4% ABV (tax type code 379)" => click on cssSelector("#volumesWithRate_taxType-4")
+      case "Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)"                                               =>
+        click on cssSelector("#volumesWithRate_taxType")
+      case "Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR)" =>
+        click on cssSelector("#volumesWithRate_taxType-2")
+      case "Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)"                                                   =>
+        click on cssSelector("#volumesWithRate_taxType-3")
+      case "Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.5% and 8.4% ABV (379 SPR)"     =>
+        click on cssSelector("#volumesWithRate_taxType-4")
     }
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
