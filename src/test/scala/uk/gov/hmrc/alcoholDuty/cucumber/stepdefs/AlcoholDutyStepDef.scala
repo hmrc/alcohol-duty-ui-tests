@@ -28,17 +28,18 @@ class AlcoholDutyStepDef extends BaseStepDef {
     }
   }
 
+  Given("""I enter the url for Unauthenticated journey""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id")
+  }
+
   When("""I enter redirectURL for {string}""") { (text: String) =>
     text match {
-      case "No Approval Id Journey" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/no-approval-id")
       case "View Past Returns Page" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
       case "Previous Month Period Key" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + previousPeriodKey())
     }
   }
-
 
   When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") { (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
       page match {
