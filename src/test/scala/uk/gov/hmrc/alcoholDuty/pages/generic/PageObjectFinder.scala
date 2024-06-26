@@ -23,6 +23,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 import java.io.{File, FileNotFoundException}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 object PageObjectFinder extends BasePage {
 
@@ -53,10 +56,24 @@ object PageObjectFinder extends BasePage {
     new File(path)
   }
 
-  implicit class DataTableConverters(dataTable: DataTable) {
+  val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
+  val now: LocalDate = LocalDate.now()
+  val getDueMonth: String        = now.minusMonths(1).format(formatter)
+  val getOverdueMonth1: String   = now.minusMonths(2).format(formatter)
+  val getOverdueMonth2: String   = now.minusMonths(3).format(formatter)
+  val getOverdueMonth3: String   = now.minusMonths(4).format(formatter)
+  val getCompletedMonth1: String = now.minusMonths(5).format(formatter)
+  val getCompletedMonth2: String = now.minusMonths(6).format(formatter)
+  val getCompletedMonth3: String = now.minusMonths(7).format(formatter)
+  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "DUE", "Submit Return"), List(getOverdueMonth1, "OVERDUE", "Submit Return"),
+    List(getOverdueMonth2, "OVERDUE", "Submit Return"), List(getOverdueMonth3, "OVERDUE", "Submit Return"))
+  def expectedCompletedReturns: List[List[String]]   = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "COMPLETED", "View Return"), List(getCompletedMonth2, "COMPLETED", "View Return"),
+    List(getCompletedMonth3, "COMPLETED", "View Return"))
 
+  implicit class DataTableConverters(dataTable: DataTable) {
     def asScalaListOfStrings: List[String] = dataTable.cells().asScala.flatMap(_.asScala).toList
 
     def asScalaListOfLists: List[List[String]] = dataTable.rows(0).asLists().asScala.map(_.asScala.toList).toList
+
   }
 }
