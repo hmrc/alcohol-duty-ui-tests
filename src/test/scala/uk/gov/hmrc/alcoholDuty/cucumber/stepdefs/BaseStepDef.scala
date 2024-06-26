@@ -152,6 +152,21 @@ trait BaseStepDef
     actualData should be(expectedData)
   }
 
+
+  And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedOutstandingReturns
+    val actual = outstandingReturnsList
+    actual should be(expected)
+  }
+  And("""I should verify the completed returns details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedCompletedReturns
+    val actual = completedReturnsList
+    actual should be(expected)
+    actual should be(expected)
+  }
+
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists
     val actual = productsList
@@ -168,11 +183,26 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
-  Then("""I verify the return due date displayed as {string} on {string}""") { (expectedText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
-    actualText should be(expectedText)
-  }
+  Then("""I verify the return due date for {string} on {string}""") { (content: String, page: String) =>
+    Then("""I verify the return due date displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinder.page(page).waitForPageHeader
+      val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
+      val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
+      actualText should be(expectedText)
+      content match {
+        case "Latest Month Selected" =>
+          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(1) + " to " + lastDayOfCurrentMonth + ".")
+        case "Previous Month Selected" =>
+          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(1) + " to " + lastDayOfPreviousMonth + ".")
+      }
+    }
+
+
+    And("""I should verify the table header displayed""") { (data: DataTable) =>
+      val expectedText = data.asScalaListOfStrings
+      tableHeaderText should be(expectedText)
+    }
 
   Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
