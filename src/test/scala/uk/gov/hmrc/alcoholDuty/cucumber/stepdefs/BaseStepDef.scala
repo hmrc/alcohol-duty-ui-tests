@@ -129,6 +129,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
+      case "View Past Returns Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
     }
   }
 
@@ -156,6 +158,11 @@ trait BaseStepDef
     val expected = data.asScalaListOfLists
     val actual   = productsList
     actual should be(expected)
+  }
+
+  And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
