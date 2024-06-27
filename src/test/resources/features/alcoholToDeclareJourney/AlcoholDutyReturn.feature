@@ -98,7 +98,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     | 66.54 Lpa              | £20.00 per litre | £1,330.80 | Change |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Beer - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -169,6 +171,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught beer between 3.5% and 8.4% ABV (356)     | 66.89 Lpa              | £19.08 per litre | £1,276.26 | Change |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -240,7 +245,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.4% ABV (377 SPR)     | 33.33 Lpa              | £18.00 per litre | £599.94   | Change |
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -301,7 +308,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)     | 22.45 Lpa              | £8.78 per litre | £197.11  | Change |
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Wine - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -383,7 +392,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     | 66.54 Lpa              | £20.00 per litre | £1,330.80 | Change |
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Wine - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -454,7 +465,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught wine between 3.5% and 8.4% ABV (358)     | 24.55 Lpa              | £19.08 per litre | £468.41   | Change |
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Spirits - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -536,7 +549,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     | 66.54 Lpa              | £20.00 per litre | £1,330.80 | Change |
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
-
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Spirits - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -606,6 +621,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught spirits between 3.5% and 8.4% ABV (360)     | 33.33 Lpa              | £19.08 per litre | £635.93   | Change |
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -687,6 +705,9 @@ Feature: Alcohol Duty Returns Journey
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.5% and 8.4% ABV (379 SPR)     | 99.23 Lpa              | £19.00 per litre | £1,885.37 | Change |
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -748,12 +769,15 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£5,103.96"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol | Duty rate        | Duty due  | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33 Lpa              | £9.27 per litre  | £308.96   | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22 Lpa              | £24.77 per litre | £550.38   | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44 Lpa              | £28.50 per litre | £1,266.54 | Change |
-      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         | 55.55 Lpa              | £31.64 per litre | £1,757.60 | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66 Lpa              | £8.42 per litre  | £561.27   | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.55 Lpa              | £19.08 per litre | £659.21   | Change |
+      | Description                                                                                                        | Litres of pure alcohol | Duty rate        | Duty due  | Action |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                               | 33.33 Lpa              | £9.27 per litre  | £308.96   | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324) | 22.22 Lpa              | £24.77 per litre | £550.38   | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                | 44.44 Lpa              | £28.50 per litre | £1,266.54 | Change |
+      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                     | 55.55 Lpa              | £31.64 per litre | £1,757.60 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                   | 66.66 Lpa              | £8.42 per litre  | £561.27   | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)     | 34.55 Lpa              | £19.08 per litre | £659.21   | Change |
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                                  | Not started                                |
