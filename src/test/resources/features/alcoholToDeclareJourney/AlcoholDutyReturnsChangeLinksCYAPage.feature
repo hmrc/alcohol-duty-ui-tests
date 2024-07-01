@@ -1,4 +1,4 @@
-@Test @AlcoholToDeclareChangeLinks
+@wip @AlcoholToDeclareChangeLinks
 Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 
   Background: : Common Steps - Alcohol Duty Returns Journey

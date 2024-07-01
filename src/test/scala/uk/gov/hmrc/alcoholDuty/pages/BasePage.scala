@@ -29,8 +29,8 @@ import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
-  val newUrl: String       = ""
-  val title: String        = ""
+  val newUrl: String = ""
+  val title: String = ""
 
   /** Fluent Wait config * */
   var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](driver)
@@ -106,10 +106,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def enterDetails(data: String): Unit = {}
+
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
+
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
-  def clickCheckBox(text: String): Unit    =
+
+  def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
@@ -123,21 +126,25 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     assert(actualErrorMessage.contains(errorMessage))
   }
 
+  private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
+
+  def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
+
   def checkDynamicPageHeader(text: String): Unit =
     text match {
-      case "Under-declaration"           =>
+      case "Under-declaration" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for under-declared alcohol"
         )
-      case "Over-declaration"            =>
+      case "Over-declaration" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for over-declared alcohol"
         )
-      case "Spoilt"                      =>
+      case "Spoilt" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for spoilt alcohol"
         )
-      case "Drawback"                    =>
+      case "Drawback" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for duty drawback"
         )
@@ -153,7 +160,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -228,13 +235,15 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .toList
 
   //To get the pure alcohol text
-  private def bulletPointsTextPureAlcohol()       =
+  private def bulletPointsTextPureAlcohol() =
     driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))
+
   def getBulletPointsTextPureAlcohol: Seq[String] = bulletPointsTextPureAlcohol().getText.split("\n").toList
 
   //To get the duty due text
-  private def bulletPointsTextDutyDue()       =
+  private def bulletPointsTextDutyDue() =
     driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
+
   def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
 
   def enterDate(month: String, year: String): Unit = {}
@@ -260,7 +269,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
+      val key = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -270,7 +279,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", "")
       Map(key -> value)
     }

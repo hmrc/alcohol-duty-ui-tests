@@ -19,7 +19,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I should see the following status of the submission journey
       | Do you need to declare duty? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Not started                                  | Not started                                |
-@check
+
   Scenario: 1. ADR Journey - To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
@@ -35,51 +35,58 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Product Entry Guidance Page"
-    When I click back button on "Product Entry Guidance Page"
-    And I click back button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
+#Only beer scenario added for this - the rest are exactly the same
   Scenario: 3. ADR Journey - To verify the status of the submission to 'In progress' if the user not selects any options at the Product List Page
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Product Entry Guidance Page"
-    When I click continue button on "Product Entry Guidance Page"
-    Then I am presented with the "Product Name Page"
-    When I enter "TestName" on "Product Name Page"
-    And I click save and continue button on "Product Name Page"
-    Then I am presented with the "Alcohol By Volume Page"
-    When I enter "9" on "Alcohol By Volume Page"
-    And I click save and continue button on "Alcohol By Volume Page"
-    Then I am presented with the "Tax Type Page"
-    And I can see below tax type codes on the "Tax Type Page"
-      | Beer, tax type code 331                     |
-      | Wine, tax type code 333                     |
-      | Other fermented products, tax type code 334 |
-      | Spirits, tax type code 335                  |
-    When I select radio button "Wine, tax type code 333" on "Tax Type Page"
-    And I click save and continue button on "Tax Type Page"
-    Then I am presented with the "Product Volume Page"
-    When I enter "100" on "Product Volume Page"
-    And I click save and continue button on "Product Volume Page"
-    Then I am presented with the "Duty Due Page"
-    When I click continue button on "Duty Due Page"
-    Then I am presented with the "Check Your Answers Page"
-    And I should see the following details
-      | Name     | Alcohol strength | Tax type code | Volume     | Pure alcohol | Duty rate        | Duty due |
-      | TestName | 9% ABV           | 333           | 100 litres | 9 litres     | £28.50 per litre | £256.50  |
-    When I click save and continue button on "Check Your Answers Page"
-    Then I am presented with the "Product List Page"
-    When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
+    When I click on "Tell us about your beer" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Beer Page"
+    When I select checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer exceeding 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    And I click save and continue button on "What Do You Need To Declare Beer Page"
+    Then I am presented with the "How Much You Need To Declare Beer Page"
+    When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "55.55" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page"
+    And I enter "66.89" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page"
+    And I click save and continue button on "How Much You Need To Declare Beer Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
+    When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "89.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
+    Then I am presented with the "Check Your Answers SPR Beer Page"
+    And I should see following details at the "Check Your Answers SPR Beer Page"
+      | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
+    When I click continue button on "Check Your Answers SPR Beer Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                          | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99l             | 89.99 Lpa             | £19.00 per litre | Change Remove |
+    When I enter redirect url for "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Change the products you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | In progress                              | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | In progress             | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
 
   Scenario: 4. DSD Journey - To verify the status of the submission changes from 'Not started' to 'Completed' if the answer is set to 'No' at the Declare Duty Suspended Deliveries Page
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"

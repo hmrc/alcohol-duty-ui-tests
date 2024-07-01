@@ -28,7 +28,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
-import scala.jdk.CollectionConverters.{CollectionHasAsScala, MapHasAsScala}
+import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
     extends ScalaDsl
@@ -125,8 +125,8 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Declare Adjustment Question Page"             =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend")+ "/do-you-need-to-make-any-adjustments-from-a-previous-return")
+      case "Declare Adjustment Question Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
     }
@@ -138,23 +138,23 @@ trait BaseStepDef
     actualData should be(expectedData)
   }
 
-  And("""^I should see the following product details""") { data: DataTable =>
-    val expected = data.asScalaListOfLists
-    val actual   = productsList
-    actual should be(expected)
-  }
-
   And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedOutstandingReturns
-    val actual = outstandingReturnsList
+    val actual   = outstandingReturnsList
     actual should be(expected)
   }
-
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
-    val actual = completedReturnsList
+    val actual   = completedReturnsList
+    actual should be(expected)
+    actual should be(expected)
+  }
+
+  And("""^I should see the following product details""") { data: DataTable =>
+    val expected = data.asScalaListOfLists
+    val actual   = productsList
     actual should be(expected)
   }
 
@@ -172,13 +172,18 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
 
-      content match {
-        case "Latest Month Selected" =>
-          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(1) + " to " + lastDayOfCurrentMonth + ".")
+    content match {
+      case "Latest Month Selected" =>
+        actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(1) + " to " + lastDayOfCurrentMonth + ".")
 
-        case "Previous Month Selected" =>
-          actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(1) + " to " + lastDayOfPreviousMonth + ".")
-      }
+      case "Previous Month Selected" =>
+        actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(1) + " to " + lastDayOfPreviousMonth + ".")
+    }
+  }
+
+  And("""I should verify the table header displayed""") { (data: DataTable) =>
+    val expectedText = data.asScalaListOfStrings
+    tableHeaderText should be(expectedText)
   }
 
   Then("""I can see below tax type codes on the {string}""") { (page: String, data: DataTable) =>
@@ -228,11 +233,6 @@ trait BaseStepDef
     subSectionsHeaderText should be(expected)
   }
 
-  And("""I should verify the table header displayed""") { (data: DataTable) =>
-    val expectedText = data.asScalaListOfStrings
-    tableHeaderText should be(expectedText)
-  }
-
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
   }
@@ -242,5 +242,34 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val actualData   = PageObjectFinder.dataAtCheckYourAnswersPage
     actualData should be(expectedData)
+  }
+
+  And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
+    val expectedErrorMessage = data.asScalaListOfStrings
+    PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
+    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
+  }
+  And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
+    val pageSource: String = driver.getPageSource.trim
+    val keyValuePairs      = data.asMaps(classOf[String], classOf[String]).asScala
+
+    // Function to count occurrences of a substring in a string
+    def countOccurrences(source: String, target: String): Int =
+      source.sliding(target.length).count(window => window == target)
+    // Verify each key-value pair
+    keyValuePairs.foreach { pair =>
+      val key   = pair.get("key")
+      val value = pair.get("value")
+      if (key != null && value != null) {
+        val keyCount   = countOccurrences(pageSource, key)
+        if (keyCount == 0) {
+          fail(s"The key '$key' does not exist, please check")
+        }
+        val valueCount = countOccurrences(pageSource, value)
+        if (valueCount == 0) {
+          fail(s"The value '$value' does not exist, please check")
+        }
+      }
+    }
   }
 }
