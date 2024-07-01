@@ -21,10 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersSPRWinePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
-  override val title = "Check your answers"
+  override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
@@ -38,13 +38,13 @@ object CheckYourAnswersSPRWinePage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description" =>
+      case "Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#taxType']")
-      case "Total spirits" =>
+      case "Total spirits"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#totalLitres']")
       case "Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#pureAlcohol']")
-      case "Duty rate" =>
+      case "Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#dutyRate']")
     }
 }

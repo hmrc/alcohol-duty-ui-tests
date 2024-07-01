@@ -21,7 +21,8 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/OtherFermentedProduct"
+  override val url: String    =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/OtherFermentedProduct"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/OtherFermentedProduct"
   override val title          = "Check your answers"
@@ -40,11 +41,11 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
     text match {
       case "Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#taxType']")
-      case "Total spirits"         =>
+      case "Total spirits"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#totalLitres']")
       case "Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#pureAlcohol']")
-      case "Duty rate" =>
+      case "Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#dutyRate']")
     }
 }

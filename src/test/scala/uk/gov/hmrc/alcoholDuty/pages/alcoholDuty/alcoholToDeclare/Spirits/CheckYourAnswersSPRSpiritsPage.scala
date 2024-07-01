@@ -40,11 +40,11 @@ object CheckYourAnswersSPRSpiritsPage extends BasePage {
     text match {
       case "Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#taxType']")
-      case "Total spirits"         =>
+      case "Total spirits"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#totalLitres']")
       case "Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#pureAlcohol']")
-      case "Duty rate" =>
+      case "Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#dutyRate']")
     }
 }

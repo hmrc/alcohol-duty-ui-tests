@@ -40,11 +40,11 @@ object CheckYourAnswersReturnsCiderPage extends BasePage {
     text match {
       case "Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#taxType']")
-      case "Total cider"         =>
+      case "Total cider"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#totalLitres']")
       case "Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#pureAlcohol']")
-      case "Duty rate" =>
+      case "Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#dutyRate']")
     }
 }

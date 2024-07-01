@@ -21,8 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object MultipleSPRListQuestionOtherFermentedProductPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-list/OtherFermentedProduct"
-  override val title = "Small Producer Reliefs to declare"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-list/OtherFermentedProduct"
+  override val title       = "Small Producer Reliefs to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Small Producer Reliefs to declare - Manage your Alcohol Duty - GOV.UK"
@@ -34,10 +35,9 @@ object MultipleSPRListQuestionOtherFermentedProductPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("Small Producer Reliefs to declare")
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#multipleSPRList-yesNoValue")
-      case "No" => click on cssSelector("#multipleSPRList-yesNoValue-no")
+      case "No"  => click on cssSelector("#multipleSPRList-yesNoValue-no")
     }
-  }
 }

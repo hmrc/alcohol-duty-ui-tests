@@ -21,13 +21,13 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url(
+  override val url: String    = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
-  override val title = "More than one Small Producer Relief duty rate?"
+  override val title          = "More than one Small Producer Relief duty rate?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: More than one Small Producer Relief duty rate? - Manage your Alcohol Duty - GOV.UK"
@@ -42,6 +42,6 @@ object DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage extends BasePage 
   override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#doYouHaveMultipleSPRDutyRates-yesNoValue")
-      case "No" => click on cssSelector("#doYouHaveMultipleSPRDutyRates-yesNoValue-no")
+      case "No"  => click on cssSelector("#doYouHaveMultipleSPRDutyRates-yesNoValue-no")
     }
 }
