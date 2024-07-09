@@ -2,7 +2,7 @@
 Feature: Alcohol Duty Return - Duty Suspended Deliveries
 
   @ZAP @a11y
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes' - User with approval for all regimes
+  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes' - User with approval for all regime types
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
