@@ -1,7 +1,8 @@
 @Test @DutySuspendedDeliveries
 Feature: Alcohol Duty Return - Duty Suspended Deliveries
 
-  Background: : Common Steps - Duty Suspended Deliveries
+  @ZAP @a11y
+  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes' - User with approval for all regime types
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
@@ -13,9 +14,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
-
-  @ZAP @a11y
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'Yes'
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
@@ -50,14 +48,112 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
       | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                                    | Completed                                  | Not started                                |
 
+  Scenario: Alcohol Duty Returns - DSD Journey for a user with only wine regime approval
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000111208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare           |
+      | Duty suspended deliveries    |
+      | Your spirits and ingredients |
+#    Your spirits and ingredients subsection will be removed once the related bug is fixed
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
+    When I click continue button on "Duty Suspended Deliveries Guidance Page"
+    Then I am presented with the "Duty Suspended Wine Page"
+    When I enter "7777.77" for "Total Wine" on "Duty Suspended Wine Page"
+    And I enter "77.77" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
+    And I click save and continue button on "Duty Suspended Wine Page"
+    Then I am presented with the "Duty Suspended Other Fermented Products Page"
+    When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I click save and continue button on "Duty Suspended Other Fermented Products Page"
+    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
+    And I should see the following details
+     | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
+     | 7777.77 litres                            | 77.77 litres                                                   | 8888.88 litres                                                | 88.88 litres                                                                       |
+    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                                    | Completed                                  | Not started                                |
+
+  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000106208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare           |
+      | Duty suspended deliveries    |
+      | Your spirits and ingredients |
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
+    When I click continue button on "Duty Suspended Deliveries Guidance Page"
+    Then I am presented with the "Duty Suspended Beer Page"
+    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Spirits Page"
+    When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
+    And I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
+    And I click save and continue button on "Duty Suspended Spirits Page"
+    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
+    And I should see the following details
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits |
+      | 2000.75 litres                            | 150.55 litres                                                  | 2100.75 litres                               | 160.55 litres                                                     |
+    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                                    | Completed                                  | Not started                                |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
 
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
