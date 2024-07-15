@@ -19,14 +19,23 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AdjustmentDutyDuePage extends BasePage {
+object NewTaxTypeCodePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-calculations"
-  override val title       = "Your calculations"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/new-tax-type-code"
+  override val title       = "What is the tax type code for the newly repackaged products?"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Your calculations - Manage your Alcohol Duty - GOV.UK"
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: What is the tax type code for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Your calculations")
+  override def expectedPageTitle: Option[String] = Some(
+    "What is the tax type code for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
+  )
+
+  override def expectedPageHeader: Option[String] = Some(
+    "What is the tax type code for the newly repackaged products?"
+  )
+
+  override def enterDetails(textToEnter: String): Unit =
+    enterText("new-tax-type-code", textToEnter)
 }

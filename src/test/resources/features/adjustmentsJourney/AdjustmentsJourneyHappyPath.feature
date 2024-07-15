@@ -20,30 +20,32 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Type Page"
 
   @ZAP @a11y
-  Scenario: Adjustments Journey - Happy path - When user is not eligible for both SPR and DR and enters respective Tax Type Code - Under declarations
+  Scenario: Adjustments Journey - Happy path - Undeclaration - Beer - Without SPR
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "DutyDue Date Selection Page" "Under-declaration"
-    When I enter month "09" and year "2023" on "DutyDue Date Selection Page"
-    And I click save and continue button on "Duty Due Date Selection Page"
-    Then I am presented with the "Adjustment Alcohol By Volume Page"
-    When I enter "5" on "Adjustment Alcohol By Volume Page"
-    And I click save and continue button on "Adjustment Alcohol By Volume Page"
-    Then I am presented with the "Adjustment Tax Type Page"
-    When I enter "311" on "Adjustment Tax Type Page"
-    And I click save and continue button on "Adjustment Tax Type Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    When I enter month "09" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
+    When I enter "311" on "Adjustment Tax Type Code Page"
+    And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume Page"
-    When I enter "500" on "Adjustment Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Due Page"
-    And I can see below text for "pure alcohol"
-      | the Alcohol by Volume (ABV) strength of this entry is 5% |
-      | you need to declare 500 litres of this entry             |
-    And I can see below text for "duty due"
-      | the entry having 25 litres of pure alcohol (Lpa)                   |
-      | the duty rate for this entry being £9.27 per litre of pure alcohol |
-    When I click continue button on "Adjustment Duty Due Page"
-#   Then I am presented with the "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
+#    And I can see below text for "pure alcohol"
+#      | the Alcohol by Volume (ABV) strength of this entry is 5% |
+#      | you need to declare 500 litres of this entry             |
+#    And I can see below text for "duty due"
+#      | the entry having 25 litres of pure alcohol (Lpa)                   |
+#      | the duty rate for this entry being £9.27 per litre of pure alcohol |
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
+      | 3000.75 litres                            | 250.55 litres                                                  | 1500.35 litres                             | 300.55 litres                                                   | 2800.35 litres                            | 160.65 litres                                                  | 7800.35 litres                               | 460.65 litres                                                     | 8800.35 litres                                                | 560.65 litres                                                                      |
+
 
   Scenario: Adjustments Journey - Happy path - When user is eligible for both SPR and DR and enters respective Tax Type Code - Over declarations
     When I select radio button "Over-declaration" on "Adjustment Type Page"

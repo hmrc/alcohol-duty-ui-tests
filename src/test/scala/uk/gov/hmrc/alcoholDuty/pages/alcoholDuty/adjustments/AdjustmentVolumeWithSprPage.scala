@@ -19,23 +19,27 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AdjustmentTaxTypePage extends BasePage {
+object AdjustmentVolumeWithSprPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-adjustment-tax-type"
-  override val title       = "What is the tax type for this adjustment?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume-with-spr"
+  override val title       = "How much do you need to adjust?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the tax type for this adjustment? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the tax type for this adjustment? - Manage your Alcohol Duty - GOV.UK"
+    "How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "What is the tax type for this adjustment?"
+    "How much do you need to adjust?"
   )
 
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("adjustment-tax-type-input", textToEnter)
+  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
+    text match {
+      case "Total Litres" => enterText("volumes_totalLitresVolume", textToEnter)
+      case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
+      case "SPR Duty Rate" => enterText("volumes_sprDutyRate", textToEnter)
+    }
 }

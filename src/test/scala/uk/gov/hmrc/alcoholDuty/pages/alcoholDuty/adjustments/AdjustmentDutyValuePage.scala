@@ -19,26 +19,13 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AdjustmentVolumePage extends BasePage {
+object AdjustmentDutyValuePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume"
-  override val title       = "How much do you need to adjust?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
-  )
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-duty-value"
+  override val title       = "The duty value for this adjustment is £16.00"
 
   override def expectedPageTitle: Option[String] = Some(
-    "How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
+    "The duty value for this adjustment is £16.00 - Manage your Alcohol Duty - GOV.UK"
   )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "How much do you need to adjust?"
-  )
-
-  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
-    text match {
-      case "Total Litres" => enterText("volumes_totalLitresVolume", textToEnter)
-      case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
-    }
+  override def expectedPageHeader: Option[String] = Some("The duty value for this adjustment is £16.00")
 }

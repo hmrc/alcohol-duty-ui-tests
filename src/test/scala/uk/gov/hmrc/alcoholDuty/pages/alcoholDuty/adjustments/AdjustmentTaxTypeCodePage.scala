@@ -19,28 +19,23 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DeclareAdjustmentQuestionPage extends BasePage {
+object AdjustmentTaxTypeCodePage extends BasePage {
 
-  override val url: String = TestConfiguration.url(
-    "alcohol-duty-returns-frontend"
-  ) + "/adjust-a-previous-return"
-  override val title       = "Do you need to make an adjustment to a previously submitted return?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-tax-type-code"
+  override val title       = "What is the tax type code for the alcohol you are adjusting?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Do you need to make an adjustment to a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "Error: What is the tax type code for the alcohol you are adjusting? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to make an adjustment to a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "What is the tax type code for the alcohol you are adjusting? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Do you need to make an adjustment to a previously submitted return?"
+    "What is the tax type code for the alcohol you are adjusting?"
   )
 
-  override def clickRadioButton(text: String): Unit =
-    text match {
-      case "Yes" => click on cssSelector("#declare-adjustment-question-value")
-      case "No"  => click on cssSelector("#declare-adjustment-question-value-no")
-    }
+  override def enterDetails(textToEnter: String): Unit =
+    enterText("adjustment-tax-type-input", textToEnter)
 }

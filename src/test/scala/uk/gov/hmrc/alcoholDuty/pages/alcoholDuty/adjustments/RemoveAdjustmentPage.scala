@@ -19,27 +19,28 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AdjustmentTypePage extends BasePage {
+object RemoveAdjustmentPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/type-of-adjustment"
-  override val title       = "What type of adjustment do you need to make?"
+  override val url: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/remove-adjustment?index=0"
+  override val title       = "Remove this adjustment?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What type of adjustment do you need to make? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Remove this adjustment? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What type of adjustment do you need to make? - Manage your Alcohol Duty - GOV.UK"
+    "Remove this adjustment? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("What type of adjustment do you need to make?")
+  override def expectedPageHeader: Option[String] = Some(
+    "Remove this adjustment?"
+  )
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Under-declaration"           => click on cssSelector("#under-declaration")
-      case "Over-declaration"            => click on cssSelector("#over-declaration")
-      case "Repackaged draught products" => click on cssSelector("#repackaged-draught-products")
-      case "Spoilt"                      => click on cssSelector("#spoilt")
-      case "Drawback"                    => click on cssSelector("#drawback")
+      case "Yes" => click on cssSelector("#delete-adjustment-yes-no-value")
+      case "No"  => click on cssSelector("#delete-adjustment-yes-no-value-no")
     }
 }
