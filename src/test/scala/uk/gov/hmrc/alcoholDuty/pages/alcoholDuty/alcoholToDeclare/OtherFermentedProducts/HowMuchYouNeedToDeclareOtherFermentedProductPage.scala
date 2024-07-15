@@ -25,17 +25,17 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-do-you-need-to-declare/OtherFermentedProduct"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-how-much-do-you-need-to-declare/OtherFermentedProduct"
-  override val title          = "Tell us about the other fermented products you need to declare"
+  override val title          = "Tell us about other fermented products you need to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the other fermented products you need to declare - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about other fermented products you need to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the other fermented products you need to declare - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about other fermented products you need to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Tell us about the other fermented products you need to declare")
+  override def expectedPageHeader: Option[String] = Some("Tell us about other fermented products you need to declare")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {

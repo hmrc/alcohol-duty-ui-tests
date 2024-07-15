@@ -22,6 +22,7 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
+
 import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
 import java.util.Locale
@@ -201,7 +202,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 
-  def productsList: Seq[List[String]] = driver
+  def productsList:  Seq[List[String]] = driver
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
