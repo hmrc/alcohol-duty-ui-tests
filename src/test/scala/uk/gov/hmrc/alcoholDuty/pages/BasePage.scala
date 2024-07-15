@@ -209,11 +209,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val getCompletedMonth3: String = now.minusMonths(7).format(formatter)
   def getCompletedMonth1PeriodKey(): String = s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
 
-  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "DUE", "Submit Return"), List(getOverdueMonth1, "OVERDUE", "Submit Return"),
-    List(getOverdueMonth2, "OVERDUE", "Submit Return"), List(getOverdueMonth3, "OVERDUE", "Submit Return"))
+  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "Due", "Submit Return"), List(getOverdueMonth1, "Overdue", "Submit Return"),
+    List(getOverdueMonth2, "Overdue", "Submit Return"), List(getOverdueMonth3, "Overdue", "Submit Return"))
 
-  def expectedCompletedReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "COMPLETED", "View Return"), List(getCompletedMonth2, "COMPLETED", "View Return"),
-    List(getCompletedMonth3, "COMPLETED", "View Return"))
+  def expectedCompletedReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "Completed", "View Return"), List(getCompletedMonth2, "Completed", "View Return"),
+    List(getCompletedMonth3, "Completed", "View Return"))
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
@@ -251,6 +251,65 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         .toList
     )
     .toList
+
+  def getActualResultList(text: String): Seq[List[String]] =
+    text match {
+      case "Alcohol declared section" =>
+        driver
+          .findElement(By.xpath("//div/table[1]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim)
+              .toList
+          )
+          .toList
+      case "Total declared duty value section" =>
+        driver
+          .findElement(By.xpath("//div/table[2]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim)
+              .toList
+          )
+          .toList
+      case "Adjustments declared section" =>
+        driver
+          .findElement(By.xpath("//div/table[3]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim)
+              .toList
+          )
+          .toList
+      case "Total adjustments duty value section" =>
+        driver
+          .findElement(By.xpath("//div/table[4]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim)
+              .toList
+          )
+          .toList
+      case "Total duty value section" =>
+        driver
+          .findElement(By.xpath("//div/table[5]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim)
+              .toList
+          )
+          .toList
+    }
 
   //To get the pure alcohol text
   private def bulletPointsTextPureAlcohol() =

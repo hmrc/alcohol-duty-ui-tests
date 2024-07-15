@@ -146,11 +146,18 @@ trait BaseStepDef
     val actual   = outstandingReturnsList
     actual should be(expected)
   }
+
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
     val actual   = completedReturnsList
     actual should be(expected)
+  }
+
+  And("""I should verify the details of the {string} on {string}""") { (text: String, page: String, data: DataTable) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = data.asScalaListOfLists
+    val actual = getActualResultList(text)
     actual should be(expected)
   }
 
@@ -208,6 +215,11 @@ trait BaseStepDef
   Then("""I can see below text on the {string} for pure alcohol""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     getBulletPointsTextPureAlcohol should be(expectedText)
+  }
+
+  Then("""I should verify the text for the return date on {string}""") {(page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(getCompletedMonth1)
   }
 
   Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>
