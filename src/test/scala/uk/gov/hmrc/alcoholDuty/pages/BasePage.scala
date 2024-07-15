@@ -252,65 +252,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
-  def getActualResultList(text: String): Seq[List[String]] =
-    text match {
-      case "Alcohol declared section" =>
-        driver
-          .findElement(By.xpath("//div/table[1]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim)
-              .toList
-          )
-          .toList
-      case "Total declared duty value section" =>
-        driver
-          .findElement(By.xpath("//div/table[2]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim)
-              .toList
-          )
-          .toList
-      case "Adjustments declared section" =>
-        driver
-          .findElement(By.xpath("//div/table[3]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim)
-              .toList
-          )
-          .toList
-      case "Total adjustments duty value section" =>
-        driver
-          .findElement(By.xpath("//div/table[4]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim)
-              .toList
-          )
-          .toList
-      case "Total duty value section" =>
-        driver
-          .findElement(By.xpath("//div/table[5]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim)
-              .toList
-          )
-          .toList
-    }
-
   //To get the pure alcohol text
   private def bulletPointsTextPureAlcohol() =
     driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))

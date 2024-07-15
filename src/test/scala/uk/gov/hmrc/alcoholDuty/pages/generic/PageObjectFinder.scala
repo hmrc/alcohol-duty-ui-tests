@@ -23,9 +23,6 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 import java.io.{File, FileNotFoundException}
 import scala.jdk.CollectionConverters.CollectionHasAsScala
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 object PageObjectFinder extends BasePage {
 

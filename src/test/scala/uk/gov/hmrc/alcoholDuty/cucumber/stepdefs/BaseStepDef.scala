@@ -154,10 +154,22 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-  And("""I should verify the details of the {string} on {string}""") { (text: String, page: String, data: DataTable) =>
+  And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = data.asScalaListOfLists
-    val actual = getActualResultList(text)
+    def getResultList(num: Int): Seq[List[String]] =
+          driver
+            .findElement(By.xpath("//div/table["+ num +"]"))
+            .findElements(By.tagName("tr"))
+            .asScala
+            .map(
+              _.findElements(By.xpath("td | th")).asScala
+                .map(_.getText.trim)
+                .toList
+            )
+            .toList
+
+    val actual = getResultList(num)
     actual should be(expected)
   }
 
