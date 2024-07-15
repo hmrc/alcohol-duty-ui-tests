@@ -25,18 +25,18 @@ object MultipleSmallProducerReliefRateCiderPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-rates/Cider"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-multiple-spr-rates/Cider"
-  override val title          = "Tell us about the cider that is eligible for Small Producer Relief"
+  override val title          = "Tell us about the cider you need to declare that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the cider that is eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about the cider you need to declare that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the cider that is eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about the cider you need to declare that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Tell us about the cider that is eligible for Small Producer Relief"
+    "Tell us about the cider you need to declare that are eligible for Small Producer Relief"
   )
 
   override def clickRadioButton(text: String): Unit =
