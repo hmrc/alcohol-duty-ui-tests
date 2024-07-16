@@ -129,6 +129,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
+      case "View Past Returns Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
     }
   }
 
@@ -144,11 +146,30 @@ trait BaseStepDef
     val actual   = outstandingReturnsList
     actual should be(expected)
   }
+
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
     val actual   = completedReturnsList
     actual should be(expected)
+  }
+
+  And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = data.asScalaListOfLists
+    def getResultList(num: Int): Seq[List[String]] =
+          driver
+            .findElement(By.xpath("//div/table["+ num +"]"))
+            .findElements(By.tagName("tr"))
+            .asScala
+            .map(
+              _.findElements(By.xpath("td | th")).asScala
+                .map(_.getText.trim)
+                .toList
+            )
+            .toList
+
+    val actual = getResultList(num)
     actual should be(expected)
   }
 
@@ -156,6 +177,11 @@ trait BaseStepDef
     val expected = data.asScalaListOfLists
     val actual   = productsList
     actual should be(expected)
+  }
+
+  And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
@@ -201,6 +227,11 @@ trait BaseStepDef
   Then("""I can see below text on the {string} for pure alcohol""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     getBulletPointsTextPureAlcohol should be(expectedText)
+  }
+
+  Then("""I should verify the text for the return date on {string}""") {(page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(getCompletedMonth1)
   }
 
   Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>

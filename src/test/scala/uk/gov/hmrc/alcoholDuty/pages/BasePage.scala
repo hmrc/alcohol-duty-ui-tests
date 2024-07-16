@@ -198,6 +198,23 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
   val lastDayOfPreviousMonth: String  = firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
 
+  val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
+  val now: LocalDate               = LocalDate.now()
+  val getDueMonth: String          = now.minusMonths(1).format(formatter)
+  val getOverdueMonth1: String     = now.minusMonths(2).format(formatter)
+  val getOverdueMonth2: String     = now.minusMonths(3).format(formatter)
+  val getOverdueMonth3: String     = now.minusMonths(4).format(formatter)
+  val getCompletedMonth1: String   = now.minusMonths(5).format(formatter)
+  val getCompletedMonth2: String   = now.minusMonths(6).format(formatter)
+  val getCompletedMonth3: String   = now.minusMonths(7).format(formatter)
+  def getCompletedMonth1PeriodKey(): String          = s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
+
+  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "Due", "Submit Return"), List(getOverdueMonth1, "Overdue", "Submit Return"),
+    List(getOverdueMonth2, "Overdue", "Submit Return"), List(getOverdueMonth3, "Overdue", "Submit Return"))
+
+  def expectedCompletedReturns: List[List[String]]   = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "Completed", "View Return"), List(getCompletedMonth2, "Completed", "View Return"),
+    List(getCompletedMonth3, "Completed", "View Return"))
+
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
