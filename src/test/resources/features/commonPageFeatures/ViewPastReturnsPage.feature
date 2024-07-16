@@ -19,7 +19,7 @@ Feature: View Past Returns Journey
       | Outstanding returns |
       | Completed returns   |
     Then I should verify the outstanding returns details on "View Past Returns Page"
-    Then I should verify the completed returns details on "View Past Returns Page"
+    And I should verify the completed returns details on "View Past Returns Page"
 
   Scenario: 2. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of successful return with multiple regimes
     Given I cleared the data for the service
@@ -42,7 +42,7 @@ Feature: View Past Returns Journey
     And I should verify the completed returns details on "View Past Returns Page"
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
-    Then I should verify the text for the return date on "View Specific Return Page"
+    And I should verify the text for the return date on "View Specific Return Page"
     And I should verify the table header displayed
       | Alcohol declared     |
       | Adjustments declared |
@@ -94,7 +94,7 @@ Feature: View Past Returns Journey
     And I should verify the completed returns details on "View Past Returns Page"
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
-    Then I should verify the text for the return date on "View Specific Return Page"
+    And I should verify the text for the return date on "View Specific Return Page"
     And I should verify the table header displayed
       | Alcohol declared     |
       | Adjustments declared |
