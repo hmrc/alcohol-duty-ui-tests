@@ -70,6 +70,13 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
+  Then("""I am presented with the {string} with new url suffix {string}""") { (page: String, urlSuffix: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkNewURLWithDynamicSuffix(urlSuffix)
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
@@ -116,6 +123,11 @@ trait BaseStepDef
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
+  }
+
+  When("""I enter {string} for {string} on {string} at {string} input box""") { (textToEnter: String, text: String, page: String, index: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
@@ -282,17 +294,17 @@ trait BaseStepDef
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
-    val keyValuePairs      = data.asMaps(classOf[String], classOf[String]).asScala
+    val keyValuePairs = data.asMaps(classOf[String], classOf[String]).asScala
 
     // Function to count occurrences of a substring in a string
     def countOccurrences(source: String, target: String): Int =
       source.sliding(target.length).count(window => window == target)
     // Verify each key-value pair
     keyValuePairs.foreach { pair =>
-      val key   = pair.get("key")
+      val key = pair.get("key")
       val value = pair.get("value")
       if (key != null && value != null) {
-        val keyCount   = countOccurrences(pageSource, key)
+        val keyCount = countOccurrences(pageSource, key)
         if (keyCount == 0) {
           fail(s"The key '$key' does not exist, please check")
         }
@@ -302,5 +314,15 @@ trait BaseStepDef
         }
       }
     }
+  }
+
+    And("""I should see the following text on the page""") { data: DataTable =>
+      val expected = data.asScalaListOfStrings
+      alcoholToDeclareSectionText should be(expected)
+    }
+
+  And("""I click on change link {int} on {string}""") { (changeLinkIndex: Int, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/Beer'])["+changeLinkIndex+"]")).click()
   }
 }

@@ -1,7 +1,7 @@
 @Test @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Journey - Change Links - CYA Page
 
-  Scenario:  To verify the change link functionality at Check Your Answers page
+  Scenario:  To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"

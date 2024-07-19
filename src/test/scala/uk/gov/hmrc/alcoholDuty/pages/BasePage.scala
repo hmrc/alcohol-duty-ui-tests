@@ -56,9 +56,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       header
   }
 
-  private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
+  private val expectedPageTitleList = expectedPageTitle.map(_.split(";").toList)
   private val expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
-  private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
+  private val expectedPageHeaderList = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
@@ -93,6 +93,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(newUrl)
     }
 
+  def checkNewURLWithDynamicSuffix(urlSuffix: String): Assertion =
+    if (newUrl.contains("...")) {
+      driver.getCurrentUrl should fullyMatch regex newUrl.replace("...", urlSuffix)
+    } else {
+      driver.getCurrentUrl should equal(newUrl)
+    }
+
   def checkPageHeader(): Assertion = {
     fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
     expectedPageHeaderList should contain(List(pageHeader.get))
@@ -109,6 +116,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def enterDetails(data: String): Unit = {}
 
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
+
+  def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
 
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
@@ -167,19 +176,21 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
-  val Year: Int  = LocalDate.now().getYear()
+  val Year: Int = LocalDate.now().getYear()
   val Month: Int = LocalDate.now().getMonthValue()
 
-  def periodKey(): String         = s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+  def periodKey(): String =
+    s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+
   def previousPeriodKey(): String = s"${Year.toString.takeRight(2)}A${((generateMonth(Month: Int) - 1) + 64).toChar}"
-  def generateYear(Year: Int): Int = {
+
+  def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
-     Year - 1
+      Year - 1
     else
       Year
-  }
 
-  def generateMonth(Month: Int): Int = {
+  def generateMonth(Month: Int): Int =
     if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
       3
     else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
@@ -188,38 +199,52 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       9
     else
       12
-  }
 
-  val currentDate: LocalDate          = LocalDate.now()
-  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1)withDayOfMonth 1
-  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1
-  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val lastDayOfCurrentMonth: String   = firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val lastDayOfPreviousMonth: String  = firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val currentDate: LocalDate = LocalDate.now()
+  val firstDayOfNextMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
+  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
+  val firstDayOfCurrentMonth: String = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
+    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfCurrentMonth: String =
+    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1)
+    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfPreviousMonth: String =
+    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-  val now: LocalDate               = LocalDate.now()
-  val getDueMonth: String          = now.minusMonths(1).format(formatter)
-  val getOverdueMonth1: String     = now.minusMonths(2).format(formatter)
-  val getOverdueMonth2: String     = now.minusMonths(3).format(formatter)
-  val getOverdueMonth3: String     = now.minusMonths(4).format(formatter)
-  val getCompletedMonth1: String   = now.minusMonths(5).format(formatter)
-  val getCompletedMonth2: String   = now.minusMonths(6).format(formatter)
-  val getCompletedMonth3: String   = now.minusMonths(7).format(formatter)
-  def getCompletedMonth1PeriodKey(): String          = s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
+  val now: LocalDate = LocalDate.now()
+  val getDueMonth: String = now.minusMonths(1).format(formatter)
+  val getOverdueMonth1: String = now.minusMonths(2).format(formatter)
+  val getOverdueMonth2: String = now.minusMonths(3).format(formatter)
+  val getOverdueMonth3: String = now.minusMonths(4).format(formatter)
+  val getCompletedMonth1: String = now.minusMonths(5).format(formatter)
+  val getCompletedMonth2: String = now.minusMonths(6).format(formatter)
+  val getCompletedMonth3: String = now.minusMonths(7).format(formatter)
 
-  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "Due", "Submit Return"), List(getOverdueMonth1, "Overdue", "Submit Return"),
-    List(getOverdueMonth2, "Overdue", "Submit Return"), List(getOverdueMonth3, "Overdue", "Submit Return"))
+  def getCompletedMonth1PeriodKey(): String =
+    s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
 
-  def expectedCompletedReturns: List[List[String]]   = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "Completed", "View Return"), List(getCompletedMonth2, "Completed", "View Return"),
-    List(getCompletedMonth3, "Completed", "View Return"))
+  def expectedOutstandingReturns: List[List[String]] = List(
+    List("Period", "Status", "Action"),
+    List(getDueMonth, "Due", "Submit Return"),
+    List(getOverdueMonth1, "Overdue", "Submit Return"),
+    List(getOverdueMonth2, "Overdue", "Submit Return"),
+    List(getOverdueMonth3, "Overdue", "Submit Return")
+  )
+
+  def expectedCompletedReturns: List[List[String]] = List(
+    List("Period", "Status", "Action"),
+    List(getCompletedMonth1, "Completed", "View Return"),
+    List(getCompletedMonth2, "Completed", "View Return"),
+    List(getCompletedMonth3, "Completed", "View Return")
+  )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 
-  def productsList:  Seq[List[String]] = driver
+  def productsList: Seq[List[String]] = driver
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
@@ -302,4 +327,36 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       Map(key -> value)
     }
     .toMap
+
+  def alcoholToDeclareSectionText: List[String] = driver
+    .findElement(By.xpath("//dd[@class='govuk-summary-list__value']/ul"))
+    .findElements(By.tagName("li"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
+
+  def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
+    case "first" => 0
+    case "second" => 1
+    case "third" => 2
+    case "fourth" => 3
+    case "fifth" => 4
+    case "sixth" => 5
+    case "seventh" => 6
+    case "eighth" => 7
+    case "ninth" => 8
+    case "tenth" => 9
+    case "eleventh" => 10
+    case "twelfth" => 11
+    case "thirteenth" => 12
+    case "fourteenth" => 13
+    case "fifteenth" => 14
+    case "sixteenth" => 15
+    case "seventeenth" => 16
+    case "eighteenth" => 17
+    case "nineteenth" => 18
+    case "twentieth" => 19
+    case _ => throw new IllegalArgumentException("Invalid ordinal")
+  }
 }
+

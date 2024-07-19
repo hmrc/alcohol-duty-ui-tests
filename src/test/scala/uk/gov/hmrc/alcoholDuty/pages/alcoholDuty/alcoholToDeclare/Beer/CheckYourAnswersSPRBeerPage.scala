@@ -38,13 +38,13 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
+      case "Change Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#taxType']")
-      case "Total beer"         =>
+      case "Change Total beer"         =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#totalLitres']")
-      case "Total pure alcohol" =>
+      case "Change Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#pureAlcohol']")
-      case "Duty rate"          =>
+      case "Change Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#dutyRate']")
     }
 }
