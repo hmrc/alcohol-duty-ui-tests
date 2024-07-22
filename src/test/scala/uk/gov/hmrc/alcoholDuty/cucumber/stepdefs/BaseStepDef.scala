@@ -70,11 +70,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
-  Then("""I am presented with the {string} with new url suffix {string}""") { (page: String, urlSuffix: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkNewURLWithDynamicSuffix(urlSuffix)
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
+  Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
+    (page: String, urlPrefix: String, urlSuffix: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinder.page(page).checkNewURLWithDynamicSuffix(urlPrefix, urlSuffix)
+      PageObjectFinder.page(page).checkPageHeader()
+      PageObjectFinder.page(page).checkPageTitle()
   }
 
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
@@ -82,9 +83,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickRadioButton(choice)
   }
 
-  When("""I select checkbox {string} on {string}""") { (choice: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
+  When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
+    checkBoxAction match {
+      case "select" | "unselect"  =>
+        PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
+    }
   }
 
   When("""I click save and continue button on {string}""") { (page: String) =>
@@ -125,9 +129,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
   }
 
-  When("""I enter {string} for {string} on {string} at {string} input box""") { (textToEnter: String, text: String, page: String, index: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
+  When("""I enter {string} for {string} on {string} at {string} input box""") {
+    (textToEnter: String, text: String, page: String, index: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
@@ -138,10 +143,14 @@ trait BaseStepDef
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "Declare Adjustment Question Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-make-any-adjustments-from-a-previous-return")
-      case "Task List Page" =>
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/do-you-need-to-make-any-adjustments-from-a-previous-return"
+        )
+      case "Task List Page"                   =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
-      case "View Past Returns Page" =>
+      case "View Past Returns Page"           =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
     }
   }
@@ -168,18 +177,18 @@ trait BaseStepDef
 
   And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
-    val expected = data.asScalaListOfLists
+    val expected                                   = data.asScalaListOfLists
     def getResultList(num: Int): Seq[List[String]] =
-          driver
-            .findElement(By.xpath("//div/table["+ num +"]"))
-            .findElements(By.tagName("tr"))
-            .asScala
-            .map(
-              _.findElements(By.xpath("td | th")).asScala
-                .map(_.getText.trim)
-                .toList
-            )
+      driver
+        .findElement(By.xpath("//div/table[" + num + "]"))
+        .findElements(By.tagName("tr"))
+        .asScala
+        .map(
+          _.findElements(By.xpath("td | th")).asScala
+            .map(_.getText.trim)
             .toList
+        )
+        .toList
 
     val actual = getResultList(num)
     actual should be(expected)
@@ -212,10 +221,18 @@ trait BaseStepDef
 
     content match {
       case "Latest Month Selected" =>
-        actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(1) + " to " + lastDayOfCurrentMonth + ".")
+        actualText should be(
+          "Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(
+            1
+          ) + " to " + lastDayOfCurrentMonth + "."
+        )
 
       case "Previous Month Selected" =>
-        actualText should be("Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(1) + " to " + lastDayOfPreviousMonth + ".")
+        actualText should be(
+          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(
+            1
+          ) + " to " + lastDayOfPreviousMonth + "."
+        )
     }
   }
 
@@ -241,7 +258,7 @@ trait BaseStepDef
     getBulletPointsTextPureAlcohol should be(expectedText)
   }
 
-  Then("""I should verify the text for the return date on {string}""") {(page: String) =>
+  Then("""I should verify the text for the return date on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(getCompletedMonth1)
   }
@@ -294,17 +311,17 @@ trait BaseStepDef
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
-    val keyValuePairs = data.asMaps(classOf[String], classOf[String]).asScala
+    val keyValuePairs      = data.asMaps(classOf[String], classOf[String]).asScala
 
     // Function to count occurrences of a substring in a string
     def countOccurrences(source: String, target: String): Int =
       source.sliding(target.length).count(window => window == target)
     // Verify each key-value pair
     keyValuePairs.foreach { pair =>
-      val key = pair.get("key")
+      val key   = pair.get("key")
       val value = pair.get("value")
       if (key != null && value != null) {
-        val keyCount = countOccurrences(pageSource, key)
+        val keyCount   = countOccurrences(pageSource, key)
         if (keyCount == 0) {
           fail(s"The key '$key' does not exist, please check")
         }
@@ -316,13 +333,17 @@ trait BaseStepDef
     }
   }
 
-    And("""I should see the following text on the page""") { data: DataTable =>
-      val expected = data.asScalaListOfStrings
-      alcoholToDeclareSectionText should be(expected)
-    }
+  And("""I should see the following text on the page""") { data: DataTable =>
+    val expected = data.asScalaListOfStrings
+    alcoholToDeclareSectionText should be(expected)
+  }
 
   And("""I click on change link {int} on {string}""") { (changeLinkIndex: Int, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/Beer'])["+changeLinkIndex+"]")).click()
+    driver
+      .findElement(
+        By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/Beer'])[" + changeLinkIndex + "]")
+      )
+      .click()
   }
 }

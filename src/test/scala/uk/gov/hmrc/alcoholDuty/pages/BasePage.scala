@@ -27,11 +27,20 @@ import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
 import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
+import scala.util.matching.Regex
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
   val newUrl: String = ""
   val title: String = ""
+  val urlPattern: Regex = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
+
+  def validateUrl(url: String): Boolean = {
+    url match {
+      case urlPattern(_, _, _, _, _, _) => true
+      case _ => false
+    }
+  }
 
   /** Fluent Wait config * */
   var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](driver)
@@ -93,12 +102,17 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(newUrl)
     }
 
-  def checkNewURLWithDynamicSuffix(urlSuffix: String): Assertion =
+  def checkNewURLWithDynamicSuffix(urlPrefix: String, urlSuffix: String): Unit = {
+    val currentUrl = driver.getCurrentUrl
     if (newUrl.contains("...")) {
-      driver.getCurrentUrl should fullyMatch regex newUrl.replace("...", urlSuffix)
+      val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
+      validateUrl(updatedUrl)
+      currentUrl shouldBe updatedUrl
     } else {
-      driver.getCurrentUrl should equal(newUrl)
+      validateUrl(currentUrl)
+      currentUrl shouldBe newUrl
     }
+  }
 
   def checkPageHeader(): Assertion = {
     fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))

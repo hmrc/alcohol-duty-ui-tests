@@ -24,7 +24,7 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-rates/Beer"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-multiple-spr-rates/..."
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-multiple-spr-rates/..."
   override val title = "Tell us about the beer you need to declare that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -52,13 +52,5 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
       case "Total litres" => enterText("volumesWithRate_totalLitres", textToEnter)
       case "Litres of pure alcohol" => enterText("volumesWithRate_pureAlcohol", textToEnter)
       case "Duty rate" => enterText("volumesWithRate_dutyRate", textToEnter)
-    }
-
-  override def clickButton(text: String): Unit =
-    text match {
-      case "Change" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Beer?index=0']")
-      case "Remove" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Beer/0']")
     }
 }
