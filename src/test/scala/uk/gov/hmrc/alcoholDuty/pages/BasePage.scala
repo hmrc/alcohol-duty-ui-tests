@@ -102,10 +102,22 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(newUrl)
     }
 
-  def checkNewURLWithDynamicSuffix(urlPrefix: String, urlSuffix: String): Unit = {
+  def checkNewURLWithTwoDynamicValues(urlPrefix: String, urlSuffix: String): Unit = {
     val currentUrl = driver.getCurrentUrl
     if (newUrl.contains("...")) {
       val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
+      validateUrl(updatedUrl)
+      currentUrl shouldBe updatedUrl
+    } else {
+      validateUrl(currentUrl)
+      currentUrl shouldBe newUrl
+    }
+  }
+
+  def checkNewURLWithOneDynamicValue(urlSuffix: String): Unit = {
+    val currentUrl = driver.getCurrentUrl
+    if (newUrl.contains("...")) {
+      val updatedUrl = newUrl.replace("preFix-", "").replace("...", urlSuffix)
       validateUrl(updatedUrl)
       currentUrl shouldBe updatedUrl
     } else {

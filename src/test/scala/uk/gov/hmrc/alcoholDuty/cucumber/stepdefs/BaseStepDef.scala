@@ -73,7 +73,15 @@ trait BaseStepDef
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
     (page: String, urlPrefix: String, urlSuffix: String) =>
       PageObjectFinder.page(page).waitForPageHeader
-      PageObjectFinder.page(page).checkNewURLWithDynamicSuffix(urlPrefix, urlSuffix)
+      PageObjectFinder.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
+      PageObjectFinder.page(page).checkPageHeader()
+      PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  Then("""I am presented with the {string} with url suffix as {string}""") {
+    (page: String, urlSuffix: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinder.page(page).checkNewURLWithOneDynamicValue(urlSuffix)
       PageObjectFinder.page(page).checkPageHeader()
       PageObjectFinder.page(page).checkPageTitle()
   }
@@ -338,11 +346,11 @@ trait BaseStepDef
     alcoholToDeclareSectionText should be(expected)
   }
 
-  And("""I click on change link {int} on {string}""") { (changeLinkIndex: Int, page: String) =>
+  And("""I click on change link {int} on {string} for alcohol type {string}""") { (changeLinkIndex: Int, page: String, alcoholType: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver
       .findElement(
-        By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/Beer'])[" + changeLinkIndex + "]")
+        By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/"+alcoholType+"'])[" + changeLinkIndex + "]")
       )
       .click()
   }

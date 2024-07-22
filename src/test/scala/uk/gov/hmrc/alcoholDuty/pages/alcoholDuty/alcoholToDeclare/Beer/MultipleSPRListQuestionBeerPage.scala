@@ -45,6 +45,6 @@ object MultipleSPRListQuestionBeerPage extends BasePage {
       case "Change hyperlink" =>
         click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Beer?index=0']")
       case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Beer/0']")
+        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Beer?index=0]")
     }
 }

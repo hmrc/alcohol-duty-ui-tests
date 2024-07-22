@@ -23,7 +23,7 @@ object CheckYourAnswersSPRWinePage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Wine"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -38,13 +38,13 @@ object CheckYourAnswersSPRWinePage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
+      case "Change Description"        =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#taxType']")
-      case "Total spirits"      =>
+      case "Change Total spirits"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#totalLitres']")
-      case "Total pure alcohol" =>
+      case "Change Total pure alcohol" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#pureAlcohol']")
-      case "Duty rate"          =>
+      case "Change Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Wine#dutyRate']")
     }
 }

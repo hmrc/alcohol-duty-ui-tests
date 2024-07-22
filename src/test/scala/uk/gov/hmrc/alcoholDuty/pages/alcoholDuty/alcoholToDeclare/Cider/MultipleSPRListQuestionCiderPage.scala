@@ -45,6 +45,6 @@ object MultipleSPRListQuestionCiderPage extends BasePage {
       case "Change hyperlink" =>
         click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Cider?index=0']")
       case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Cider/0']")
+        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Cider?index=0']")
     }
 }
