@@ -39,13 +39,11 @@ object CheckYourAnswersReturnsSpiritsPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#taxType']")
-      case "Total spirits"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#totalLitres']")
-      case "Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#pureAlcohol']")
-      case "Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#dutyRate']")
+      case "Change Spirits to declare"                         =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Spirits']")
+      case "Change Spirits duty"                               =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Spirits']")
+      case "Change Spirits eligible for Small Producer Relief" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Spirits']")
     }
 }

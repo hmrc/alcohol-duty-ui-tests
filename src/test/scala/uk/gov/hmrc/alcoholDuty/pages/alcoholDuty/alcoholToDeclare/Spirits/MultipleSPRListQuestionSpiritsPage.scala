@@ -39,4 +39,12 @@ object MultipleSPRListQuestionSpiritsPage extends BasePage {
       case "Yes" => click on cssSelector("#multipleSPRList-yesNoValue")
       case "No"  => click on cssSelector("#multipleSPRList-yesNoValue-no")
     }
+
+  override def clickButton(text: String): Unit =
+    text match {
+      case "Change hyperlink" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Spirits?index=0']")
+      case "Remove hyperlink" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Spirits?index=0']")
+    }
 }

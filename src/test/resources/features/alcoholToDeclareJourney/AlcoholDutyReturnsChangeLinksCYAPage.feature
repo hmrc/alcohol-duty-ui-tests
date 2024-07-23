@@ -1097,4 +1097,374 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Total volume | 569.33 litres  |
       | Pure alcohol | 24.55 litres   |
       | Total volume | 999.99 litres  |
-      | Pure alcohol | 	88.88 litres  |
+      | Pure alcohol | 88.88 litres   |
+
+  Scenario: Spirits- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
+    When I click on "Tell us about your spirits" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits exceeding 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    And I click save and continue button on "What Do You Need To Declare Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page"
+    When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I enter "33.33" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Spirits Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    Then I am presented with the "Single Small Producer Relief Rate Spirits Page"
+    When I enter "888.88" for "Non-draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "99.45" for "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "15" for "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "776.45" for "Non-draught spirits between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "78.9" for "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "18" for "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "776.89" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "99.99" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "15" for "Draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "889.65" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "fourth" input box
+    And I enter "66.54" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "fourth" input box
+    And I enter "20" for "Draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "fourth" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    And I should see the following text on the page
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 8888.66 litres |
+      | Pure alcohol  | 88.8 litres    |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 5555.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7777.77 litres |
+      | Pure alcohol  | 77.77 litres   |
+      | Total volume  | 4444.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 3333.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.45 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9 litres    |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.99 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 889.65 litres  |
+      | Pure alcohol  | 66.54 litres   |
+      | SPR duty rate | £20.00         |
+#To verify 'Change' link functionality for spirits to declare
+    When I click "Change Spirits to declare" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "What Do You Need To Declare Spirits Page" with new url
+    When I click save and continue button on "What Do You Need To Declare Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    When I click "Change Spirits to declare" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "What Do You Need To Declare Spirits Page" with new url
+    When I "unselect" checkbox "Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    And I click save and continue button on "What Do You Need To Declare Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page"
+    When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I enter "33.33" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Spirits Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    Then I am presented with the "Single Small Producer Relief Rate Spirits Page"
+    When I enter "888.88" for "Non-draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "99.45" for "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "15" for "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "776.45" for "Non-draught spirits between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "78.9" for "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "18" for "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "776.89" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "99.99" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "15" for "Draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    And I should see the following text on the page
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 8888.66 litres |
+      | Pure alcohol  | 88.8 litres    |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 5555.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7777.77 litres |
+      | Pure alcohol  | 77.77 litres   |
+      | Total volume  | 4444.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 3333.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.45 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9 litres    |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.99 litres   |
+      | SPR duty rate | £15.00         |
+  #To verify 'Change' link functionality for Spirits to duty
+    When I click "Change Spirits duty" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page" with new url
+    And I click save and continue button on "How Much You Need To Declare Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    When I click "Change Spirits duty" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page" with new url
+    When I enter "3636.36" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "36.36" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I enter "33.33" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    And I should see the following text on the page
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 3636.36 litres |
+      | Pure alcohol  | 36.36 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 5555.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7777.77 litres |
+      | Pure alcohol  | 77.77 litres   |
+      | Total volume  | 4444.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 3333.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.45 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9 litres    |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.99 litres   |
+      | SPR duty rate | £15.00         |
+#To verify 'Change' link functionality for Spirits eligible for Small Producer Relief
+    When I click "Change Spirits eligible for Small Producer Relief" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "Single Small Producer Relief Rate Spirits Page" with new url
+    And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    When I click "Change Spirits eligible for Small Producer Relief" on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "Single Small Producer Relief Rate Spirits Page" with new url
+    When I enter "888.88" for "Non-draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "99.45" for "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "15" for "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
+    And I enter "776.45" for "Non-draught spirits between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "78.9" for "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "18" for "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
+    And I enter "888.88" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "88.88" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I enter "8.88" for "Draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    And I should see the following text on the page
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 3636.36 litres |
+      | Pure alcohol  | 36.36 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 5555.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7777.77 litres |
+      | Pure alcohol  | 77.77 litres   |
+      | Total volume  | 4444.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 3333.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.45 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9 litres    |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 88.88 litres   |
+      | SPR duty rate | £8.88          |
+    When I click save and continue button on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
+#At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
+    And I should see the following product details
+      | Description                                             | Litres of pure alcohol | Duty rate        | Duty due  | Action                                                         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 36.36 Lpa              | £9.27 per litre  | £337.05   | Change Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77 Lpa              | £24.77 per litre | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66 Lpa              | £28.50 per litre | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           | 55.55 Lpa              | £31.64 per litre | £1,757.60 | Change Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.44 Lpa              | £8.42 per litre  | £374.18   | Change Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.33 Lpa              | £19.08 per litre | £635.93   | Change Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.45 Lpa              | £15.00 per litre | £1,491.75 | Change Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 78.9 Lpa               | £18.00 per litre | £1,420.20 | Change Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     | 88.88 Lpa              | £8.88 per litre  | £789.25   | Change Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+  #At Duty due page, all the change links are designed to redirect to Check your answers page so I am checking a couple of random links
+    When I click on change link 2 on "Duty Due Spirits Page" for alcohol type "Spirits"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    When I click save and continue button on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
+    When I click on change link 4 on "Duty Due Spirits Page" for alcohol type "Spirits"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    When I click save and continue button on "Check Your Answers Returns Spirits Page"
+    Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
+
+  Scenario: Spirits- Alcohol Duty Returns Journey - When Multiple SPR is set to 'YES' - Change link functionality
+    When I click on "Tell us about your spirits" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits exceeding 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    And I click save and continue button on "What Do You Need To Declare Spirits Page"
+    When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
+    And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
+    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
+    And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I enter "33.33" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Spirits Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page"
+    When I select radio button "Draught spirits between 3.5% and 8.4% ABV (380 SPR)" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I enter "789.99" for "Total litres" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I enter "55.55" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers SPR Spirits Page"
+    And I should see following details at the "Check Your Answers SPR Spirits Page"
+      | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.55 Lpa          | £20.00 per litre |
+#To verify 'Change' link functionality at Check Your Answers SPR Spirits Page. All the links are set to redirect to the same page so checking only one link
+    When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "change-" and suffix as "Spirits#pureAlcohol"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers SPR Spirits Page"
+    When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "change-" and suffix as "Spirits#pureAlcohol"
+    And I enter "88.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers SPR Spirits Page"
+    And I should see following details at the "Check Your Answers SPR Spirits Page"
+      | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 88.99 Lpa          | £20.00 per litre |
+    When I click continue button on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple SPR List Question Spirits Page"
+    And I should see the following product details
+      | Description                                         | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99l               | 88.99 Lpa             | £20.00 per litre | Change Remove |
+ #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
+    When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "" and suffix as "Spirits?index=0"
+    When I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Multiple SPR List Question Spirits Page"
+    When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
+    And I select radio button "Non-draught spirits between 3.5% and 8.4% ABV (370 SPR)" on "Multiple Small Producer Relief Rate Spirits Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
+    Then I am presented with the "Check Your Answers SPR Spirits Page" with url suffix as "Spirits?index=0"
+    And I should see following details at the "Check Your Answers SPR Spirits Page"
+      | Description                                             | Total spirits | Total pure alcohol | Duty rate        |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99 litres | 88.99 Lpa          | £20.00 per litre |
+    When I click continue button on "Check Your Answers SPR Spirits Page"
+    And I should see the following product details
+      | Description                                         | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99l               | 88.99 Lpa             | £20.00 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Spirits Page"
+    And I click save and continue button on "Multiple SPR List Question Spirits Page"
+    Then I am presented with the "Check Your Answers Returns Spirits Page"
+    And I should see the following text on the page
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      |
+      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key          | value          |
+      | Total volume | 8888.66 litres |
+      | Pure alcohol | 88.8 litres    |
+      | Total volume | 6666.66 litres |
+      | Pure alcohol | 66.66 litres   |
+      | Total volume | 5555.55 litres |
+      | Pure alcohol | 55.55 litres   |
+      | Total volume | 7777.77 litres |
+      | Pure alcohol | 77.77 litres   |
+      | Total volume | 4444.44 litres |
+      | Pure alcohol | 44.44 litres   |
+      | Total volume | 3333.33 litres |
+      | Pure alcohol | 33.33 litres   |
+      | Total volume | 789.99 litres  |
+      | Pure alcohol | 89.99 litres   |
