@@ -24,7 +24,7 @@ object CheckYourAnswersSPROtherFermentedProductPage extends BasePage {
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/OtherFermentedProduct"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/OtherFermentedProduct"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -39,13 +39,13 @@ object CheckYourAnswersSPROtherFermentedProductPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#taxType']")
-      case "Total spirits"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#totalLitres']")
-      case "Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#pureAlcohol']")
-      case "Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#dutyRate']")
+      case "Change Description"                   =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/OtherFermentedProduct#taxType']")
+      case "Change Total other fermented product" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/OtherFermentedProduct#totalLitres']")
+      case "Change Total pure alcohol"            =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/OtherFermentedProduct#pureAlcohol']")
+      case "Change Duty rate"                     =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/OtherFermentedProduct#dutyRate']")
     }
 }

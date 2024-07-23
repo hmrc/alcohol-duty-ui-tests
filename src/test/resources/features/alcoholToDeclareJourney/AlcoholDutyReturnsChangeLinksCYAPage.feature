@@ -65,7 +65,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) |
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
-#    this method needs to be improved after the empty keys have been resolved at the CYA page
     And I check the page source for the following key-value pairs:
       | key           | value         |
       | Total volume  | 999.19 litres |
@@ -173,14 +172,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "How Much You Need To Declare Beer Page" with new url
     And I enter "999.99" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "99.99" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
-    And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
-    And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
-    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
-    And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
-    And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
-    And I enter "66.89" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I should see the following text on the page
@@ -226,15 +217,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I enter "9999.99" for "Non-draught beer between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page" at "first" input box
     And I enter "999.99" for "Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page" at "first" input box
     And I enter "99.99" for "Non-draught beer between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page" at "first" input box
-    And I enter "776.45" for "Non-draught beer between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page" at "second" input box
-    And I enter "78.9" for "Non-draught beer between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page" at "second" input box
-    And I enter "18" for "Non-draught beer between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page" at "second" input box
-    And I enter "776.89" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page" at "third" input box
-    And I enter "99.99" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page" at "third" input box
-    And I enter "15" for "Draught beer between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page" at "third" input box
-    And I enter "889.65" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page" at "fourth" input box
-    And I enter "66.54" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page" at "fourth" input box
-    And I enter "20" for "Draught beer between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page" at "fourth" input box
     And I click save and continue button on "Single Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I check the page source for the following key-value pairs:
@@ -325,19 +307,16 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click "Change Description" on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer#taxType"
     When I select radio button "Non-draught beer between 3.5% and 8.4% ABV (366 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "22" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 8,888.88 litres | 88.88 Lpa          | £22.00 per litre |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
       | Description                                          | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 8,888.88l             | 88.88 Lpa             | £22.00 per litre | Change Remove |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99l             | 89.99 Lpa             | £19.00 per litre | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Beer Page
     When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "" and suffix as "Beer?index=0"
@@ -522,12 +501,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "How Much You Need To Declare Cider Page" with new url
     When I enter "999.99" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "99.99" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "first" input box
-    And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "second" input box
-    And I enter "22.22" for "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "second" input box
-    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fourth" input box
-    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fourth" input box
     And I click save and continue button on "How Much You Need To Declare Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
     And I should see the following text on the page
@@ -564,12 +537,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers Returns Cider Page"
     When I click "Change Cider eligible for Small Producer Relief" on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Single Small Producer Relief Rate Cider Page" with new url
-    When I enter "656.66" for "Non-draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "first" input box
-    And I enter "66.66" for "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "first" input box
-    And I enter "14" for "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "first" input box
-    And I enter "999.99" for "Non-draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "second" input box
-    And I enter "98.99" for "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "second" input box
-    And I enter "12.45" for "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "second" input box
     And I enter "777.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
     And I enter "77.77" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
     And I enter "7.7" for "Draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "third" input box
@@ -870,14 +837,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers Returns Wine Page"
     When I click "Change Wine duty" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page" with new url
-    When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
-    And I enter "35.55" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "first" input box
-    And I enter "3698.52" for "Standard wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "second" input box
-    And I enter "88.88" for "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "second" input box
-    And I enter "8974.23" for "Standard wine between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "third" input box
-    And I enter "22.22" for "Standard wine between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "third" input box
-    And I enter "895.22" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fourth" input box
-    And I enter "22.33" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fourth" input box
     And I enter "555.55" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I enter "55.55" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I click save and continue button on "How Much You Need To Declare Wine Page"
@@ -923,18 +882,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers Returns Wine Page"
     When I click "Change Wine eligible for Small Producer Relief" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Single Small Producer Relief Rate Wine Page" with new url
-    When I enter "888.88" for "Non-draught wine between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page" at "first" input box
-    And I enter "99.45" for "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page" at "first" input box
-    And I enter "15" for "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page" at "first" input box
-    And I enter "776.45" for "Non-draught wine between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page" at "second" input box
-    And I enter "78.9" for "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page" at "second" input box
-    And I enter "18" for "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page" at "second" input box
     And I enter "444.44" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page" at "third" input box
     And I enter "44.44" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page" at "third" input box
     And I enter "15" for "Draught wine between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page" at "third" input box
-    And I enter "889.65" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page" at "fourth" input box
-    And I enter "66.54" for "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page" at "fourth" input box
-    And I enter "20" for "Draught wine between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page" at "fourth" input box
     And I click save and continue button on "Single Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
     And I should see the following text on the page
@@ -1253,16 +1203,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "How Much You Need To Declare Spirits Page" with new url
     When I enter "3636.36" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "36.36" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
-    And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
-    And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
-    And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
-    And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
-    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
-    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
-    And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
-    And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
-    And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
-    And I enter "33.33" for "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     And I should see the following text on the page
@@ -1305,12 +1245,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     When I click "Change Spirits eligible for Small Producer Relief" on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Single Small Producer Relief Rate Spirits Page" with new url
-    When I enter "888.88" for "Non-draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
-    And I enter "99.45" for "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
-    And I enter "15" for "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
-    And I enter "776.45" for "Non-draught spirits between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
-    And I enter "78.9" for "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
-    And I enter "18" for "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "second" input box
     And I enter "888.88" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
     And I enter "88.88" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
     And I enter "8.88" for "Draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "third" input box
@@ -1436,7 +1370,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99 litres | 88.99 Lpa          | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     And I should see the following product details
-      | Description                                         | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Description                                             | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99l               | 88.99 Lpa             | £20.00 per litre | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Spirits Page"
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
@@ -1468,3 +1402,332 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Pure alcohol | 33.33 litres   |
       | Total volume | 789.99 litres  |
       | Pure alcohol | 89.99 litres   |
+
+  Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
+    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products exceeding 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
+    When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I enter "34.55" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page"
+    When I enter "777.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "77.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "15" for "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "888.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "88.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "16" for "Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "667.88" for "Draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I enter "78.77" for "Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I enter "20" for "Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I enter "678.44" for "Draught other fermented product between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "fourth" input box
+    And I enter "99.23" for "Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "fourth" input box
+    And I enter "19" for "Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "fourth" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    And I should see the following text on the page
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
+      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 3322.22 litres |
+      | Pure alcohol  | 22.22 litres   |
+      | Total volume  | 4433.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 2233.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 5544.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7865.12 litres |
+      | Pure alcohol  | 34.55 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 777.77 litres  |
+      | Pure alcohol  | 77.77 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 88.88 litres   |
+      | SPR duty rate | £16.00         |
+      | Total volume  | 667.88 litres  |
+      | Pure alcohol  | 78.77 litres   |
+      | SPR duty rate | £20.00         |
+      | Total volume  | 678.44 litres  |
+      | Pure alcohol  | 99.23 litres   |
+      | SPR duty rate | £19.00         |
+#To verify 'Change' link functionality for Other Fermented Product to declare
+    When I click "Change Other Fermented Product to declare" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page" with new url
+    When I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    When I click "Change Other Fermented Product to declare" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page" with new url
+    When I "select" checkbox "Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
+    When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I enter "34.55" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page"
+    When I enter "777.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "77.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "15" for "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "888.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "88.88" for "Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "16" for "Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "second" input box
+    And I enter "667.88" for "Draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I enter "78.77" for "Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I enter "20" for "Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "third" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    And I should see the following text on the page
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
+      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 3322.22 litres |
+      | Pure alcohol  | 22.22 litres   |
+      | Total volume  | 4433.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 2233.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 5544.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 7865.12 litres |
+      | Pure alcohol  | 34.55 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 777.77 litres  |
+      | Pure alcohol  | 77.77 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 88.88 litres   |
+      | SPR duty rate | £16.00         |
+      | Total volume  | 667.88 litres  |
+      | Pure alcohol  | 78.77 litres   |
+      | SPR duty rate | £20.00         |
+#To verify 'Change' link functionality for Other fermented products duty
+    When I click "Change Other Fermented Product duty" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" with new url
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    When I click "Change Other Fermented Product duty" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" with new url
+    And I enter "9999.99" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I enter "99.99" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 2233.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 3322.22 litres |
+      | Pure alcohol  | 22.22 litres   |
+      | Total volume  | 4433.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 5544.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 9999.99 litres |
+      | Pure alcohol  | 99.99 litres   |
+      | Total volume  | 777.77 litres  |
+      | Pure alcohol  | 77.77 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 88.88 litres   |
+      | SPR duty rate | £16.00         |
+      | Total volume  | 667.88 litres  |
+      | Pure alcohol  | 78.77 litres   |
+      | SPR duty rate | £20.00         |
+#To verify 'Change' link functionality for Other Fermented Product eligible for Small Producer Relief
+    When I click "Change Other Fermented Product eligible for Small Producer Relief" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page" with new url
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    When I click "Change Other Fermented Product eligible for Small Producer Relief" on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page" with new url
+    When I enter "6969.69" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "69.69" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I enter "69" for "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
+    And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    And I check the page source for the following key-value pairs:
+      | key           | value          |
+      | Total volume  | 2233.33 litres |
+      | Pure alcohol  | 33.33 litres   |
+      | Total volume  | 3322.22 litres |
+      | Pure alcohol  | 22.22 litres   |
+      | Total volume  | 4433.44 litres |
+      | Pure alcohol  | 44.44 litres   |
+      | Total volume  | 5544.55 litres |
+      | Pure alcohol  | 55.55 litres   |
+      | Total volume  | 6666.66 litres |
+      | Pure alcohol  | 66.66 litres   |
+      | Total volume  | 9999.99 litres |
+      | Pure alcohol  | 99.99 litres   |
+      | Total volume  | 6969.69 litres |
+      | Pure alcohol  | 69.69 litres   |
+      | SPR duty rate | £69.00         |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 88.88 litres   |
+      | SPR duty rate | £16.00         |
+      | Total volume  | 667.88 litres  |
+      | Pure alcohol  | 78.77 litres   |
+      | SPR duty rate | £20.00         |
+    When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£14,158.64"
+    And I should see the following product details
+      | Description                                                                                                            | Litres of pure alcohol | Duty rate        | Duty due  | Action                                                                                                                        |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33 Lpa              | £9.27 per litre  | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22 Lpa              | £24.77 per litre | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44 Lpa              | £28.50 per litre | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
+      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         | 55.55 Lpa              | £31.64 per litre | £1,757.60 | Change Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66 Lpa              | £8.42 per litre  | £561.27   | Change Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 99.99 Lpa              | £19.08 per litre | £1,907.80 | Change Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 69.69 Lpa              | £69.00 per litre | £4,808.61 | Change Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.88 Lpa              | £16.00 per litre | £1,422.08 | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.77 Lpa              | £20.00 per litre | £1,575.40 | Change Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
+
+  Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
+    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products exceeding 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
+    When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
+    And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
+    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
+    And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I enter "34.55" for "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    When I select radio button "Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR)" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "999.99" for "Total litres" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "99.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "20" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
+    And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
+      | Description                                                                                                            | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.99 Lpa          | £20.00 per litre |
+#To verify 'Change' link functionality at Check Your Answers SPR Other Fermented Product Page. All the links are set to redirect to the same page so checking only one link
+    When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "change-" and suffix as "OtherFermentedProduct#taxType"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
+    When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "change-" and suffix as "OtherFermentedProduct#taxType"
+    When I select radio button "Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
+    And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
+      | Description                                                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99 litres                  | 99.99 Lpa          | £20.00 per litre |
+    When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
+    Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
+    And I should see the following product details
+      | Description                                                                                                        | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99l               | 99.99 Lpa             | £20.00 per litre | Change Remove |
+#To verify 'Change' link functionality at Multiple SPR List Question Other Fermented Product Page
+    When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "" and suffix as "OtherFermentedProduct?index=0"
+    When I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
+    When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "" and suffix as "OtherFermentedProduct?index=0"
+    And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "888.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I enter "88" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page" with url suffix as "OtherFermentedProduct?index=0"
+    And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
+      | Description                                                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88 litres                | 888.88 Lpa         | £88.00 per litre |
+    When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
+    Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
+    And I should see the following product details
+      | Description                                                                                                        | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88l             | 888.88 Lpa            | £88.00 per litre | Change Remove |
+    When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
+    And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
+    Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
+    And I should see the following text on the page
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
+      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
+    And I check the page source for the following key-value pairs:
+      | key          | value          |
+      | Total volume | 2233.33 litres |
+      | Pure alcohol | 33.33 litres   |
+      | Total volume | 3322.22 litres |
+      | Pure alcohol | 22.22 litres   |
+      | Total volume | 4433.44 litres |
+      | Pure alcohol | 44.44 litres   |
+      | Total volume | 5544.55 litres |
+      | Pure alcohol | 55.55 litres   |
+      | Total volume | 6666.66 litres |
+      | Pure alcohol | 66.66 litres   |
+      | Total volume | 7865.12 litres |
+      | Pure alcohol | 34.55 litres   |
+      | Total volume | 8888.88 litres |
+      | Pure alcohol | 888.88 litres  |
