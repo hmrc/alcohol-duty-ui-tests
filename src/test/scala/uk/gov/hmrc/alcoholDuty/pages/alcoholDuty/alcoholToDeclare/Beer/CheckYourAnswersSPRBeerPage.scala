@@ -23,7 +23,7 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Beer"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Beer"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(

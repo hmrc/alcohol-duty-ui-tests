@@ -266,7 +266,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£113,203.47"
 
-
   Scenario: Beer- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -328,6 +327,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "22" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
+    Then I am presented with the "Check Your Answers SPR Beer Page" with url suffix as "Beer?index=0"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                      | Total beer      | Total pure alcohol | Duty rate        |
       | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88 litres | 88.88 Lpa          | £22.00 per litre |
@@ -630,6 +630,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "8.88" for "Duty rate" on "Multiple Small Producer Relief Rate Cider Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
+    Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                       | Total cider     | Total pure alcohol | Duty rate       |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88 litres | 88.88 Lpa          | £8.88 per litre |
@@ -650,6 +651,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "8.88" for "Duty rate" on "Multiple Small Producer Relief Rate Cider Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
+    Then I am presented with the "Check Your Answers SPR Cider Page" with url suffix as "Cider?index=0"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                                                                     | Total cider     | Total pure alcohol | Duty rate       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88 litres | 88.88 Lpa          | £8.88 per litre |
