@@ -21,10 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersReturnsBeerPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Beer"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Beer"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Beer"
-  override val title = "Check your answers"
+  override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
@@ -38,9 +38,9 @@ object CheckYourAnswersReturnsBeerPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Change Beer to declare" =>
+      case "Change Beer to declare"                         =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Beer']")
-      case "Change Beer duty" =>
+      case "Change Beer duty"                               =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Beer']")
       case "Change Beer eligible for Small Producer Relief" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Beer']")

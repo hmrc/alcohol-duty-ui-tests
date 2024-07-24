@@ -38,9 +38,9 @@ object CheckYourAnswersReturnsCiderPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Change Cider to declare" =>
+      case "Change Cider to declare"                         =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Cider']")
-      case "Change Cider duty" =>
+      case "Change Cider duty"                               =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Cider']")
       case "Change Cider eligible for Small Producer Relief" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Cider']")
