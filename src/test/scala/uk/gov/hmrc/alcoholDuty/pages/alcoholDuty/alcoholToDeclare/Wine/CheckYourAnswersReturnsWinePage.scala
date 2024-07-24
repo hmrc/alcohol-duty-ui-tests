@@ -38,9 +38,9 @@ object CheckYourAnswersReturnsWinePage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Change Wine to declare" =>
+      case "Change Wine to declare"                         =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Wine']")
-      case "Change Wine duty" =>
+      case "Change Wine duty"                               =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Wine']")
       case "Change Wine eligible for Small Producer Relief" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Wine']")
