@@ -22,6 +22,8 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object AdjustmentVolumePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-volume"
   override val title       = "How much do you need to adjust?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -22,6 +22,8 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object NewTaxTypeCodePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/new-tax-type-code"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-new-tax-type-code"
   override val title       = "What is the tax type code for the newly repackaged products?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
