@@ -38,13 +38,11 @@ object CheckYourAnswersReturnsBeerPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#taxType']")
-      case "Total beer"         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#totalLitres']")
-      case "Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#pureAlcohol']")
-      case "Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#dutyRate']")
+      case "Change Beer to declare"                         =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Beer']")
+      case "Change Beer duty"                               =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Beer']")
+      case "Change Beer eligible for Small Producer Relief" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Beer']")
     }
 }

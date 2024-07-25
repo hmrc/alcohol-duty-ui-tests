@@ -27,7 +27,7 @@ Feature: Quarterly Spirits Questions
     And I enter "20.67" for "Irish Whiskey" on "Declare Whiskey Page"
     And I click save and continue button on "Declare Whiskey Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page"
-    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other" on "Which Of These Spirits Have You Made Page"
+    When I "select" checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
     Then I am presented with the "Declare Other Spirits Produced Page"
     When I enter "Test Spirits" on "Declare Other Spirits Produced Page"

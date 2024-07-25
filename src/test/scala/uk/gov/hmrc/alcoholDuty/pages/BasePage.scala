@@ -27,11 +27,19 @@ import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
 import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
+import scala.util.matching.Regex
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
-  val newUrl: String = ""
-  val title: String = ""
+  val newUrl: String       = ""
+  val title: String        = ""
+  val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
+
+  def validateUrl(url: String): Boolean =
+    url match {
+      case urlPattern(_, _, _, _, _, _) => true
+      case _                            => false
+    }
 
   /** Fluent Wait config * */
   var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](driver)
@@ -93,6 +101,30 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(newUrl)
     }
 
+  def checkNewURLWithTwoDynamicValues(urlPrefix: String, urlSuffix: String): Unit = {
+    val currentUrl = driver.getCurrentUrl
+    if (newUrl.contains("...")) {
+      val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
+      validateUrl(updatedUrl)
+      currentUrl shouldBe updatedUrl
+    } else {
+      validateUrl(currentUrl)
+      currentUrl shouldBe newUrl
+    }
+  }
+
+  def checkNewURLWithOneDynamicValue(urlSuffix: String): Unit = {
+    val currentUrl = driver.getCurrentUrl
+    if (newUrl.contains("...")) {
+      val updatedUrl = newUrl.replace("preFix-", "").replace("...", urlSuffix)
+      validateUrl(updatedUrl)
+      currentUrl shouldBe updatedUrl
+    } else {
+      validateUrl(currentUrl)
+      currentUrl shouldBe newUrl
+    }
+  }
+
   def checkPageHeader(): Assertion = {
     fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
     expectedPageHeaderList should contain(List(pageHeader.get))
@@ -109,6 +141,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def enterDetails(data: String): Unit = {}
 
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
+
+  def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
 
   def clickRadioButton(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
@@ -133,19 +167,19 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def checkDynamicPageHeader(text: String): Unit =
     text match {
-      case "Under-declaration" =>
+      case "Under-declaration"           =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for under-declared alcohol"
         )
-      case "Over-declaration" =>
+      case "Over-declaration"            =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for over-declared alcohol"
         )
-      case "Spoilt" =>
+      case "Spoilt"                      =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for spoilt alcohol"
         )
-      case "Drawback" =>
+      case "Drawback"                    =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for duty drawback"
         )
@@ -161,7 +195,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -170,16 +204,18 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val Year: Int  = LocalDate.now().getYear()
   val Month: Int = LocalDate.now().getMonthValue()
 
-  def periodKey(): String         = s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+  def periodKey(): String =
+    s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+
   def previousPeriodKey(): String = s"${Year.toString.takeRight(2)}A${((generateMonth(Month: Int) - 1) + 64).toChar}"
-  def generateYear(Year: Int): Int = {
+
+  def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
-     Year - 1
+      Year - 1
     else
       Year
-  }
 
-  def generateMonth(Month: Int): Int = {
+  def generateMonth(Month: Int): Int =
     if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
       3
     else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
@@ -188,15 +224,18 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       9
     else
       12
-  }
 
   val currentDate: LocalDate          = LocalDate.now()
-  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1)withDayOfMonth 1
-  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1
-  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int))withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val lastDayOfCurrentMonth: String   = firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
-  val lastDayOfPreviousMonth: String  = firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
+  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
+  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
+    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfCurrentMonth: String   =
+    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1)
+    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+  val lastDayOfPreviousMonth: String  =
+    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()
@@ -207,19 +246,30 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val getCompletedMonth1: String   = now.minusMonths(5).format(formatter)
   val getCompletedMonth2: String   = now.minusMonths(6).format(formatter)
   val getCompletedMonth3: String   = now.minusMonths(7).format(formatter)
-  def getCompletedMonth1PeriodKey(): String          = s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
 
-  def expectedOutstandingReturns: List[List[String]] = List(List("Period", "Status", "Action"), List(getDueMonth, "Due", "Submit Return"), List(getOverdueMonth1, "Overdue", "Submit Return"),
-    List(getOverdueMonth2, "Overdue", "Submit Return"), List(getOverdueMonth3, "Overdue", "Submit Return"))
+  def getCompletedMonth1PeriodKey(): String =
+    s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
 
-  def expectedCompletedReturns: List[List[String]]   = List(List("Period", "Status", "Action"), List(getCompletedMonth1, "Completed", "View Return"), List(getCompletedMonth2, "Completed", "View Return"),
-    List(getCompletedMonth3, "Completed", "View Return"))
+  def expectedOutstandingReturns: List[List[String]] = List(
+    List("Period", "Status", "Action"),
+    List(getDueMonth, "Due", "Submit Return"),
+    List(getOverdueMonth1, "Overdue", "Submit Return"),
+    List(getOverdueMonth2, "Overdue", "Submit Return"),
+    List(getOverdueMonth3, "Overdue", "Submit Return")
+  )
+
+  def expectedCompletedReturns: List[List[String]] = List(
+    List("Period", "Status", "Action"),
+    List(getCompletedMonth1, "Completed", "View Return"),
+    List(getCompletedMonth2, "Completed", "View Return"),
+    List(getCompletedMonth3, "Completed", "View Return")
+  )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
 
-  def productsList:  Seq[List[String]] = driver
+  def productsList: Seq[List[String]] = driver
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
@@ -287,7 +337,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
     .asScala
     .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
+      val key   = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -297,9 +347,40 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", "")
       Map(key -> value)
     }
     .toMap
+
+  def alcoholToDeclareSectionText: List[String] = driver
+    .findElement(By.xpath("//dd[@class='govuk-summary-list__value']/ul"))
+    .findElements(By.tagName("li"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
+
+  def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
+    case "first"       => 0
+    case "second"      => 1
+    case "third"       => 2
+    case "fourth"      => 3
+    case "fifth"       => 4
+    case "sixth"       => 5
+    case "seventh"     => 6
+    case "eighth"      => 7
+    case "ninth"       => 8
+    case "tenth"       => 9
+    case "eleventh"    => 10
+    case "twelfth"     => 11
+    case "thirteenth"  => 12
+    case "fourteenth"  => 13
+    case "fifteenth"   => 14
+    case "sixteenth"   => 15
+    case "seventeenth" => 16
+    case "eighteenth"  => 17
+    case "nineteenth"  => 18
+    case "twentieth"   => 19
+    case _             => throw new IllegalArgumentException("Invalid ordinal")
+  }
 }

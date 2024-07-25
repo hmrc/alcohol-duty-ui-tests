@@ -1,7 +1,7 @@
 @Test @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Journey - Change Links - CYA Page
 
-  Scenario:  To verify the change link functionality at Check Your Answers page
+  Scenario:  To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
@@ -24,7 +24,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And I enter "333.33" for "Irish Whiskey" on "Declare Whiskey Page"
     And I click save and continue button on "Declare Whiskey Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page"
-    When I select checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer" on "Which Of These Spirits Have You Made Page"
+    When I "select" checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
     Then I am presented with the "How Much Grain Have You Used Page"
     When I enter "444.44" for "Malted barley" on "How Much Grain Have You Used Page"
@@ -65,7 +65,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
 #To verify 'Change' link functionality for Type of spirits
     When I click "Change type of spirits" on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Which Of These Spirits Have You Made Page" with new url
-    When I select checkbox "Grain spirits,Other" on "Which Of These Spirits Have You Made Page"
+    When I "select" checkbox "Grain spirits,Other" on "Which Of These Spirits Have You Made Page"
     And I click save and continue button on "Which Of These Spirits Have You Made Page"
     Then I am presented with the "Declare Other Spirits Produced Page" with new url
     When I enter "Test Spirits" on "Declare Other Spirits Produced Page"

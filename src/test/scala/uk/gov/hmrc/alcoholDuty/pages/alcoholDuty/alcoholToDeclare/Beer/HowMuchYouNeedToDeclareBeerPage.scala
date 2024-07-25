@@ -37,19 +37,33 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
 
   override def expectedPageHeader: Option[String] = Some("Tell us about the beer you need to declare")
 
-  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
+    val modifiedIndex = ordinalToNumber(index)
     text match {
-      case "Standard beer between 1.3% and 3.4% ABV - Total litres" => enterText("volumes_0_totalLitres", textToEnter)
-      case "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" => enterText("volumes_0_pureAlcohol", textToEnter)
-      case "Standard beer between 3.5% and 8.4% ABV - Total litres" => enterText("volumes_1_totalLitres", textToEnter)
-      case "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" => enterText("volumes_1_pureAlcohol", textToEnter)
-      case "Standard beer between 8.5% and 22% ABV - Total litres"  => enterText("volumes_2_totalLitres", textToEnter)
-      case "Standard beer between 8.5% and 22% ABV - Pure alcohol"  => enterText("volumes_2_pureAlcohol", textToEnter)
-      case "Standard beer exceeding 22% ABV - Total litres"         => enterText("volumes_3_totalLitres", textToEnter)
-      case "Standard beer exceeding 22% ABV - Pure alcohol"         => enterText("volumes_3_pureAlcohol", textToEnter)
-      case "Draught beer between 1.3% and 3.4% ABV - Total litres"  => enterText("volumes_4_totalLitres", textToEnter)
-      case "Draught beer between 1.3% and 3.4% ABV - Pure alcohol"  => enterText("volumes_4_pureAlcohol", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Total litres"  => enterText("volumes_5_totalLitres", textToEnter)
-      case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol"  => enterText("volumes_5_pureAlcohol", textToEnter)
+      case "Standard beer between 1.3% and 3.4% ABV - Total litres" =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Standard beer between 3.5% and 8.4% ABV - Total litres" =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Standard beer between 8.5% and 22% ABV - Total litres"  =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Standard beer between 8.5% and 22% ABV - Pure alcohol"  =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Standard beer exceeding 22% ABV - Total litres"         =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Standard beer exceeding 22% ABV - Pure alcohol"         =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Draught beer between 1.3% and 3.4% ABV - Total litres"  =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Draught beer between 1.3% and 3.4% ABV - Pure alcohol"  =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Draught beer between 3.5% and 8.4% ABV - Total litres"  =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol"  =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
     }
+  }
 }

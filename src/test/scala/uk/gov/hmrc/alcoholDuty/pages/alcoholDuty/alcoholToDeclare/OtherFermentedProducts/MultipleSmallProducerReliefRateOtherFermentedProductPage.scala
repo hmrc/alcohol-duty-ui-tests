@@ -24,7 +24,7 @@ object MultipleSmallProducerReliefRateOtherFermentedProductPage extends BasePage
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-rates/OtherFermentedProduct"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-multiple-spr-rates/OtherFermentedProduct"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-multiple-spr-rates/..."
   override val title          = "Tell us about the other fermented products you need to declare that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -47,7 +47,7 @@ object MultipleSmallProducerReliefRateOtherFermentedProductPage extends BasePage
         click on cssSelector("#volumesWithRate_taxType-2")
       case "Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)"                                                   =>
         click on cssSelector("#volumesWithRate_taxType-3")
-      case "Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.5% and 8.4% ABV (379 SPR)"     =>
+      case "Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)"     =>
         click on cssSelector("#volumesWithRate_taxType-4")
     }
 
