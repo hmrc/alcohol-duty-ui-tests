@@ -160,6 +160,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
       case "View Past Returns Page"           =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
+      case "Return Summary Page" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
     }
   }
 
@@ -353,5 +355,11 @@ trait BaseStepDef
         By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/"+alcoholType+"'])[" + changeLinkIndex + "]")
       )
       .click()
+  }
+
+  And("""I should see the following details at the returns summary page""") { data: DataTable =>
+    val expected = data.asScalaListOfLists
+    val actual = declaredProductListAtReturnsSummary
+    actual should be(expected)
   }
 }
