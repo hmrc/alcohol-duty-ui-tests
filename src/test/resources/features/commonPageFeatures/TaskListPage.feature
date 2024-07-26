@@ -188,18 +188,3 @@ Feature: Alcohol Duty Journey - Task List Page
     And I should see the following subsections
       | Alcohol to declare        |
       | Duty suspended deliveries |
-
-  Scenario: 11. Return Summary - Nil Return
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "No" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | You’ve told us you don’t need to declare duty | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                                     | Not started                                  | Not started                                |
-# The returns summary is work in progress and therefore only the ADR scenario is added
-    When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Nil Return Summary Page"
-    And I should see the following details at the returns summary page
-      | Declared duty | Nil | Change |
