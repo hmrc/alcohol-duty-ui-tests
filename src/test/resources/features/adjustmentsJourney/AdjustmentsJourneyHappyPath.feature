@@ -261,3 +261,73 @@ Feature: Adjustments Journey
     And I should see the following product details
       | Adjustment type  | Description                                                          | Duty value   | Action         |
       | Drawback         | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39   | Change Remove  |
+
+  Scenario: Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR - Add Another Adjustment
+    When I select radio button "Drawback" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
+    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
+    When I enter "374" on "Adjustment Tax Type Code Page"
+    And I click save and continue button on "Adjustment Tax Type Code Page"
+    Then I am presented with the "Adjustment Volume With Spr Page"
+    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment      | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value  |
+      | Drawback        | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type  | Description                                                          | Duty value   | Action         |
+      | Drawback         | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39   | Change Remove  |
+    When I select radio button "Yes" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Adjustment Type Page"
+    When I select radio button "Spoilt" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
+    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
+    When I enter "375" on "Adjustment Tax Type Code Page"
+    And I click save and continue button on "Adjustment Tax Type Code Page"
+    Then I am presented with the "Adjustment Volume With Spr Page"
+    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment     | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value  |
+      | Spoilt         | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type  | Description                                         | Duty value   | Action         |
+      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+    When I click "Remove Hyperlink" on "Adjustment List Page"
+    Then I am presented with the "Remove Adjustment Page"
+    When I select radio button "No" on "Remove Adjustment Page"
+    And I click save and continue button on "Remove Adjustment Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type  | Description                                         | Duty value   | Action         |
+      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+    When I click "Remove Hyperlink" on "Adjustment List Page"
+    Then I am presented with the "Remove Adjustment Page"
+    When I select radio button "Yes" on "Remove Adjustment Page"
+    And I click save and continue button on "Remove Adjustment Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type  | Description                                         | Duty value   | Action         |
+      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+
