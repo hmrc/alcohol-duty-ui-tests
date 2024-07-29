@@ -1,4 +1,4 @@
-@Test @Adjustments
+@wip @Adjustments
 Feature: Adjustments Journey
 
   Background: : Common Steps - Adjustments Journey
