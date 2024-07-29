@@ -19,23 +19,25 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AdjustmentAlcoholByVolumePage extends BasePage {
+object AdjustmentReturnDateSpoiltAlcoholPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-adjustment-abv"
-  override val title       = "What is the Alcohol by Volume (ABV) strength for this adjustment?"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-return-date"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-return-date"
+  override val title          = "To the nearest month, when did you pay duty on this?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the Alcohol by Volume (ABV) strength for this adjustment? - Manage your Alcohol Duty - GOV.UK"
+    "Error: To the nearest month, when did you pay duty on this? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the Alcohol by Volume (ABV) strength for this adjustment? - Manage your Alcohol Duty - GOV.UK"
+    "To the nearest month, when did you pay duty on this? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some(
-    "What is the Alcohol by Volume (ABV) strength for this adjustment?"
-  )
+  override def expectedPageHeader: Option[String] = Some("To the nearest month, when did you pay duty on this?")
 
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("alcoholByVolume-input", textToEnter)
+  override def enterDate(month: String, year: String): Unit = {
+    enterText("when-did-you-pay-duty-input.month", month)
+    enterText("when-did-you-pay-duty-input.year", year)
+  }
 }

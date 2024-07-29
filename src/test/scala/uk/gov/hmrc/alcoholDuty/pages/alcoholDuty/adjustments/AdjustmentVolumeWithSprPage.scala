@@ -19,28 +19,29 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DeclareAdjustmentQuestionPage extends BasePage {
+object AdjustmentVolumeWithSprPage extends BasePage {
 
-  override val url: String = TestConfiguration.url(
-    "alcohol-duty-returns-frontend"
-  ) + "/adjust-a-previous-return"
-  override val title       = "Do you need to make an adjustment to a previously submitted return?"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume-with-spr"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-volume-with-spr"
+  override val title          = "How much do you need to adjust?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Do you need to make an adjustment to a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "Error: How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to make an adjustment to a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Do you need to make an adjustment to a previously submitted return?"
+    "How much do you need to adjust?"
   )
 
-  override def clickRadioButton(text: String): Unit =
+  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#declare-adjustment-question-value")
-      case "No"  => click on cssSelector("#declare-adjustment-question-value-no")
+      case "Total Litres"           => enterText("volumes_totalLitresVolume", textToEnter)
+      case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
+      case "SPR Duty Rate"          => enterText("volumes_sprDutyRate", textToEnter)
     }
 }

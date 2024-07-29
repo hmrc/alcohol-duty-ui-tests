@@ -19,23 +19,25 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object DutyDueDateSelectionPage extends BasePage {
+object AdjustmentTaxTypeCodePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/when-did-you-pay-duty"
-  override val title       = "When did you pay duty on this?"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-tax-type-code"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-tax-type-code"
+  override val title          = "What is the tax type code for the alcohol you are adjusting?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: When did you pay duty on this? - Manage your Alcohol Duty - GOV.UK"
+    "Error: What is the tax type code for the alcohol you are adjusting? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "When did you pay duty on this? - Manage your Alcohol Duty - GOV.UK"
+    "What is the tax type code for the alcohol you are adjusting? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("When did you pay duty on this?")
+  override def expectedPageHeader: Option[String] = Some(
+    "What is the tax type code for the alcohol you are adjusting?"
+  )
 
-  override def enterDate(month: String, year: String): Unit = {
-    enterText("when-did-you-pay-duty-input.month", month)
-    enterText("when-did-you-pay-duty-input.year", year)
-  }
+  override def enterDetails(textToEnter: String): Unit =
+    enterText("adjustment-tax-type-input", textToEnter)
 }
