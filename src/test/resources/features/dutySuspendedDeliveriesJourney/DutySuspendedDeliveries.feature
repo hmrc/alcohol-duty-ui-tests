@@ -45,8 +45,8 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Completed                                                    | Completed                                  | Not started                                |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
+      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
 
   Scenario: Alcohol Duty Returns - DSD Journey for a user with only wine regime approval
     Given I cleared the data for the service
@@ -58,10 +58,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare           |
-      | Duty suspended deliveries    |
-      | Your spirits and ingredients |
 #    Your spirits and ingredients subsection will be removed once the related bug is fixed
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
@@ -79,13 +75,13 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-     | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
-     | 7777.77 litres                            | 77.77 litres                                                   | 8888.88 litres                                                | 88.88 litres                                                                       |
+      | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
+      | 7777.77 litres                            | 77.77 litres                                                   | 8888.88 litres                                                | 88.88 litres                                                                       |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Completed                                                    | Completed                                  | Not started                                |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
+      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
     Given I cleared the data for the service
@@ -97,10 +93,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare           |
-      | Duty suspended deliveries    |
-      | Your spirits and ingredients |
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -122,8 +114,8 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Completed                                                    | Completed                                  | Not started                                |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
+      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
     Given I cleared the data for the service

@@ -111,8 +111,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 # The returns summary is work in progress and therefore only the Beer section is added
     When I enter redirect url for "Return Summary Page"
     Then I am presented with the "Return Summary Page" "£14,749.70"
@@ -203,8 +203,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -287,8 +287,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Cider - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -361,8 +361,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Completed                | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Wine - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -457,8 +457,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Wine - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -543,8 +543,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Completed               | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Spirits - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -639,8 +639,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Spirits - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -724,8 +724,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Completed                  | Not started                                 | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'No'
@@ -820,8 +820,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                             | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Other Fermented Products - Alcohol Duty Returns Journey - Happy Path - When Multiple SPR is set to 'Yes'
@@ -906,5 +906,5 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                                  | Not started                                |
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Not started             | Not started              | Not started             | Not started                | Completed                                   | Not started                             | Not started                                  | Not started                                |

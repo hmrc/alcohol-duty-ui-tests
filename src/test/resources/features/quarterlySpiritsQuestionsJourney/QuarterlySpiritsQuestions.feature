@@ -66,8 +66,8 @@ Feature: Quarterly Spirits Questions
     When I click save and continue button on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Tell us about your duty suspended deliveries | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about |
-      | Not started                  | Not started                                  | Completed                                                  | Completed                                               |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about |
+      | Not started                  | Not started                             | Not started                                  | Completed                                                  | Completed                                               |
 
   Scenario: Quarterly Spirits Questions Journey- Happy path - With option 'No'
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"

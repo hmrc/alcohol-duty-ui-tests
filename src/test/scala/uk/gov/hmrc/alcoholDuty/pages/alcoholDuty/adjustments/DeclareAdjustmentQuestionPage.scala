@@ -24,7 +24,11 @@ object DeclareAdjustmentQuestionPage extends BasePage {
   override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/adjust-a-previous-return"
-  override val title       = "Do you need to make an adjustment to a previously submitted return?"
+
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjust-a-previous-return"
+
+  override val title          = "Do you need to make an adjustment to a previously submitted return?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Do you need to make an adjustment to a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
