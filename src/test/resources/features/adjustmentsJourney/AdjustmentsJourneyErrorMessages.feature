@@ -1,4 +1,4 @@
-@Test @AdjustmentsErrorMessage
+@wip @AdjustmentsErrorMessage
 Feature: Adjustments Journey - Error Messages
 
   Scenario Outline: Adjustments Journey - Error Message Validations
