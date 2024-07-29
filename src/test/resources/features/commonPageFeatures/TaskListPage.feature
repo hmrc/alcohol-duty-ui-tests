@@ -195,19 +195,19 @@ Feature: Alcohol Duty Journey - Task List Page
 
   Scenario: 11. Adjustments Journey - To verify different statuses at the Task List page
     When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
-    Then I am presented with the "Adjust Previous Return Page" with new url
-    When I select radio button "No" on "Adjust Previous Return Page"
-    And I click save and continue button on "Adjust Previous Return Page"
+    Then I am presented with the "Declare Adjustment Question Page"
+    When I select radio button "No" on "Declare Adjustment Question Page"
+    And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
 #To verify the status from "Not started' to 'Completed' if the answer was set to 'No' at the Adjust Previous Return Page
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Not started                  | Completed                                        | Not started                                  | Not started                                |
+      | Do you need to declare duty? | You’ve told us you do not need to declare any adjustments | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                                 | Not started                                  | Not started                                |
 #To verify the "Not started' status 'Change the entries you’ve told us about' if the answer is set to 'Yes' at the Adjust Previous Return Page but the journey is incomplete
-    When I click on "You’ve told us you need to declare an adjustment" hyperlink on "Task List Page"
-    Then I am presented with the "Adjust Previous Return Page" with new url
-    When I select radio button "Yes" on "Adjust Previous Return Page"
-    And I click save and continue button on "Adjust Previous Return Page"
+    When I click on "You’ve told us you do not need to declare any adjustments" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Adjustment Question Page" with new url
+    When I select radio button "Yes" on "Declare Adjustment Question Page"
+    And I click save and continue button on "Declare Adjustment Question Page"
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
