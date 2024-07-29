@@ -11,8 +11,6 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
@@ -34,22 +32,16 @@ Feature: Adjustments Journey
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
-#    And I can see below text for "pure alcohol"
-#      | the Alcohol by Volume (ABV) strength of this entry is 5% |
-#      | you need to declare 500 litres of this entry             |
-#    And I can see below text for "duty due"
-#      | the entry having 25 litres of pure alcohol (Lpa)                   |
-#      | the duty rate for this entry being £9.27 per litre of pure alcohol |
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                         | Volume                                                     | Duty value  |
-      | Under-declared  | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,322.59   |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                     | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,322.59  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                       | Duty value   | Action         |
-      | Under-declared   | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.59    | Change Remove  |
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.59  | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Under-declaration - Beer - With SPR
     When I select radio button "Under-declaration" on "Adjustment Type Page"
@@ -69,13 +61,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value  |
-      | Under-declared  | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39   |
+      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                       | Duty value   | Action         |
-      | Under-declared   | Draught beer between 1.3% and 3.4% ABV (371 SPR)  | £2,455.39    | Change Remove  |
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £2,455.39  | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Over-declaration - Cider - Without SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
@@ -94,13 +86,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                          | Volume                                                      | Duty value  |
-      | Over-declared   | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,322.59   |
+      | Adjustment    | Original return period | Tax type                                          | Volume                                                      | Duty value |
+      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                        | Duty value   | Action         |
-      | Over-declared    | Non-draught cider between 1.3% and 3.4% ABV (312)  | −£2,322.59   | Change Remove  |
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | −£2,322.59 | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Over-declaration - Cider - With SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
@@ -120,13 +112,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value  |
-      | Over-declared   | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                       | Duty value   | Action         |
-      | Over-declared    | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£2,455.39 | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Repackaged Draught Products - Wine - With SPR
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
@@ -143,7 +135,7 @@ Feature: Adjustments Journey
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "New Tax Type Code Page"
-    When I enter "366" on "New Tax Type Code Page"
+    When I enter "363" on "New Tax Type Code Page"
     And I click save and continue button on "New Tax Type Code Page"
     Then I am presented with the "New Spr Duty Rate Page"
     When I enter "11.5" on "New Spr Duty Rate Page"
@@ -152,13 +144,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Original tax type                                | New tax type                                         | SPR duty rate |Volume                                                      | Duty value  |
-      | Repackaged      | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | £9.80         | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93     |
+      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £9.80         | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                        | Duty value   | Action         |
-      | Repackaged       | Draught wine between 1.3% and 3.4% ABV (373 SPR)   | £425.93      | Change Remove  |
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | £425.93    | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Spoilt - Spirits - Without SPR
     When I select radio button "Spoilt" on "Adjustment Type Page"
@@ -177,13 +169,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                            | Volume                                                        | Duty value  |
-      | Spoilt          | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,322.59  |
+      | Adjustment | Original return period | Tax type                                            | Volume                                                        | Duty value |
+      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                          | Duty value   | Action         |
-      | Spoilt           | Non-draught spirits between 1.3% and 3.4% ABV (315)  | −£2,322.59   | Change Remove  |
+      | Adjustment type | Description                                         | Duty value | Action        |
+      | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315) | −£2,322.59 | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Spoilt - Spirits - With SPR
     When I select radio button "Spoilt" on "Adjustment Type Page"
@@ -203,13 +195,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value  |
-      | Spoilt         | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value |
+      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                         | Duty value   | Action         |
-      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                         | Duty value | Action        |
+      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39 | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Drawback - Other Fermented Products - Without SPR
     When I select radio button "Drawback" on "Adjustment Type Page"
@@ -228,13 +220,13 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                                             | Volume                                                                         | Duty value   |
-      | Drawback        | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,322.59   |
+      | Adjustment | Original return period | Tax type                                                             | Volume                                                                         | Duty value |
+      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                                           | Duty value   | Action         |
-      | Drawback         | Non-draught other fermented products between 1.3% and 3.4% ABV (314)  | −£2,322.59   | Change Remove  |
+      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | −£2,322.59 | Change Remove |
 
   Scenario: Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR
     When I select radio button "Drawback" on "Adjustment Type Page"
@@ -254,15 +246,15 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value  |
-      | Drawback        | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                                          | Duty value   | Action         |
-      | Drawback         | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39 | Change Remove |
 
-  Scenario: Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR - Add Another Adjustment
+  Scenario: Adjustments Journey - Add Another Adjustment & Remove Adjustment
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
@@ -280,13 +272,14 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value  |
-      | Drawback        | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                                          | Duty value   | Action         |
-      | Drawback         | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39 | Change Remove |
+#    The journey to add new adjustment starts here
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -307,27 +300,30 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value  |
-      | Spoilt         | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value |
+      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                         | Duty value   | Action         |
-      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39 | Change Remove |
+      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR)                  | −£2,455.39 | Change Remove |
+#    The journey to remove adjustment starts here
     When I click "Remove Hyperlink" on "Adjustment List Page"
     Then I am presented with the "Remove Adjustment Page"
     When I select radio button "No" on "Remove Adjustment Page"
     And I click save and continue button on "Remove Adjustment Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                         | Duty value   | Action         |
-      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39 | Change Remove |
+      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR)                  | −£2,455.39 | Change Remove |
     When I click "Remove Hyperlink" on "Adjustment List Page"
     Then I am presented with the "Remove Adjustment Page"
     When I select radio button "Yes" on "Remove Adjustment Page"
     And I click save and continue button on "Remove Adjustment Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                         | Duty value   | Action         |
-      | Spoilt           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39   | Change Remove  |
+      | Adjustment type | Description                                         | Duty value | Action        |
+      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39 | Change Remove |
 

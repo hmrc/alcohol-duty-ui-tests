@@ -24,7 +24,7 @@ object AdjustmentDutyValuePage extends BasePage {
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-duty-value"
   override val title       = "The duty value for this adjustment is £16.00"
 
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: Option[String]  = Some(
     "The duty value for this adjustment is £16.00 - Manage your Alcohol Duty - GOV.UK"
   )
   override def expectedPageHeader: Option[String] = Some("The duty value for this adjustment is £16.00")

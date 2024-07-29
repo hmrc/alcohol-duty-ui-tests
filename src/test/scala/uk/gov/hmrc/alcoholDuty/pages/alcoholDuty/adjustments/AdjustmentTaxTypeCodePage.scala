@@ -21,10 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentTaxTypeCodePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-tax-type-code"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-tax-type-code"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-tax-type-code"
-  override val title       = "What is the tax type code for the alcohol you are adjusting?"
+  override val title          = "What is the tax type code for the alcohol you are adjusting?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: What is the tax type code for the alcohol you are adjusting? - Manage your Alcohol Duty - GOV.UK"

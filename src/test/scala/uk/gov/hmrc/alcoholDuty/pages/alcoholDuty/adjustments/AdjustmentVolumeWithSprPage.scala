@@ -21,9 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentVolumeWithSprPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume-with-spr"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-volume-with-spr"
-  override val title       = "How much do you need to adjust?"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-volume-with-spr"
+  override val newUrl: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-volume-with-spr"
+  override val title          = "How much do you need to adjust?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
@@ -39,8 +40,8 @@ object AdjustmentVolumeWithSprPage extends BasePage {
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Total Litres" => enterText("volumes_totalLitresVolume", textToEnter)
+      case "Total Litres"           => enterText("volumes_totalLitresVolume", textToEnter)
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
-      case "SPR Duty Rate" => enterText("volumes_sprDutyRate", textToEnter)
+      case "SPR Duty Rate"          => enterText("volumes_sprDutyRate", textToEnter)
     }
 }

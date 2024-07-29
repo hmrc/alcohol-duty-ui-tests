@@ -1,5 +1,5 @@
-@wip @AdjustmentsErrorMessage
-Feature: Adjustments Journey - Error Messages
+@Test @AdjustmentsErrorMessage
+Feature: Adjustments Journey - Error Message Validations
 
   Background: : Common Steps - Adjustments Journey
     Given I cleared the data for the service
@@ -11,12 +11,11 @@ Feature: Adjustments Journey - Error Messages
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
     When I enter redirect url for "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page"
 
-  Scenario Outline: Adjustments Journey - Happy path - Under-declaration - Beer - With SPR
+  Scenario Outline: Adjustments Journey - Error Message Validations
+#    Error message validation for Beer - Under-declaration Flow starts here
     When I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
@@ -73,7 +72,7 @@ Feature: Adjustments Journey - Error Messages
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#    Over-declaration journey starts for Cider
+#   Error message validation for Cider - Over-declaration Flow starts here
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Over-declaration"
@@ -103,7 +102,7 @@ Feature: Adjustments Journey - Error Messages
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#    Repackaged draught products journey starts for wine
+#   Error message validation for Wine - Repackaged draught products starts here
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Repackaged draught products"
@@ -123,7 +122,7 @@ Feature: Adjustments Journey - Error Messages
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "New Tax Type Code Page"
-    When I enter "366" on "New Tax Type Code Page"
+    When I enter "363" on "New Tax Type Code Page"
     And I click save and continue button on "New Tax Type Code Page"
     Then I am presented with the "New Spr Duty Rate Page"
     When I enter "11.5" on "New Spr Duty Rate Page"
@@ -133,13 +132,13 @@ Feature: Adjustments Journey - Error Messages
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment      | Original return period | Original tax type                                | New tax type                                         | SPR duty rate |Volume                                                      | Duty value  |
-      | Repackaged      | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | £9.80         | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93     |
+      | Repackaged      | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £9.80         | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93     |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#    Spoilt journey starts for spirits
+#   Error message validation for Spirits - Spoilt starts here
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
@@ -169,7 +168,7 @@ Feature: Adjustments Journey - Error Messages
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-    #    Drawback journey starts for other fermented products
+#    Error message validation for Other Fermented Products - Drawback starts here
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"

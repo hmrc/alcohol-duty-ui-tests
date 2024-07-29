@@ -23,7 +23,7 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-check-your-answers"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Beer"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-check-your-answers?index=0"
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -38,19 +38,19 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Adjustment"        =>
+      case "Adjustment"             =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-the-type-of-adjustment']")
-      case "Original return period"         =>
+      case "Original return period" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-return-date']")
-      case "Tax type" =>
+      case "Tax type"               =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-tax-type-code']")
-      case "Original tax type" =>
+      case "Original tax type"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-tax-type-code']")
       case "SPR duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
-      case "Volume" =>
+      case "Volume"                 =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
-      case "New tax type" =>
+      case "New tax type"           =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-new-tax-type-code']")
     }
 }

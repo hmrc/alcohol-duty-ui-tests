@@ -39,7 +39,7 @@ object AdjustmentListPage extends BasePage {
   override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#adjustment-list-yes-no-value")
-      case "No" => click on cssSelector("#adjustment-list-yes-no-value-no")
+      case "No"  => click on cssSelector("#adjustment-list-yes-no-value-no")
     }
 
   override def clickButton(buttonText: String): Unit =

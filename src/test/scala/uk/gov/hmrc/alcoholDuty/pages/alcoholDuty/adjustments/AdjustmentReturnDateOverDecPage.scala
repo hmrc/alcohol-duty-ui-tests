@@ -21,10 +21,10 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentReturnDateOverDecPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-return-date"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-return-date"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-adjustment-return-date"
-  override val title       = "When did you pay duty on this?"
+  override val title          = "When did you pay duty on this?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: When did you pay duty on this? - Manage your Alcohol Duty - GOV.UK"

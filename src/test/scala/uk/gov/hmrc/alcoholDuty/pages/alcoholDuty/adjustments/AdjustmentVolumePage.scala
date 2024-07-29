@@ -40,7 +40,7 @@ object AdjustmentVolumePage extends BasePage {
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
-      case "Total Litres" => enterText("volumes_totalLitresVolume", textToEnter)
+      case "Total Litres"           => enterText("volumes_totalLitresVolume", textToEnter)
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
     }
 }
