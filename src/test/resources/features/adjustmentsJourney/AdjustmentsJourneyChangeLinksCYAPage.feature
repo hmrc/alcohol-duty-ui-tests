@@ -11,13 +11,12 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
+    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
 
-  @ZAP @a11y
   Scenario: Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"

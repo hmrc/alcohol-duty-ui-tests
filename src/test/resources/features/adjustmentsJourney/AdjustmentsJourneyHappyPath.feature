@@ -1,4 +1,4 @@
-@wip @Adjustments
+@Test @Adjustments
 Feature: Adjustments Journey
 
   Background: : Common Steps - Adjustments Journey
@@ -11,7 +11,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I enter redirect url for "Declare Adjustment Question Page"
+    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -43,6 +43,7 @@ Feature: Adjustments Journey
       | Adjustment type | Description                                      | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.59  | Change Remove |
 
+  @ZAP @a11y
   Scenario: Adjustments Journey - Happy path - Under-declaration - Beer - With SPR
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -120,6 +121,7 @@ Feature: Adjustments Journey
       | Adjustment type | Description                                       | Duty value | Action        |
       | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£2,455.39 | Change Remove |
 
+  @ZAP @a11y
   Scenario: Adjustments Journey - Happy path - Repackaged Draught Products - Wine - With SPR
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -254,6 +256,7 @@ Feature: Adjustments Journey
       | Adjustment type | Description                                                          | Duty value | Action        |
       | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39 | Change Remove |
 
+  @ZAP @a11y
   Scenario: Adjustments Journey - Add Another Adjustment & Remove Adjustment
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"

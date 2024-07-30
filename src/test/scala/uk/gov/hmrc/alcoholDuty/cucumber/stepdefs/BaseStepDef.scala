@@ -150,8 +150,6 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Declare Adjustment Question Page" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjust-a-previous-return")
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
       case "View Past Returns Page"           =>
