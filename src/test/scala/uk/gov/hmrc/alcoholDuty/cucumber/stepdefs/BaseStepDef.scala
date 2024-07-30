@@ -358,4 +358,9 @@ trait BaseStepDef
     val actual = declaredProductListAtReturnsSummary
     actual should be(expected)
   }
+
+  And("""the status of the Send return is marked as {string}""") { (sendReturnStatus: String) =>
+    val expected = driver.findElement(By.xpath("//strong[@class='govuk-tag govuk-tag--grey']")).getText
+    sendReturnStatus should be(expected)
+  }
 }

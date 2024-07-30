@@ -213,3 +213,73 @@ Feature: Alcohol Duty Journey - Task List Page
     And I should see the following status of the submission journey
       | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Not started                             | Not started                                  | Not started                                |
+#To verify the status from "Not started' to 'In progress' if the journey is incomplete
+    When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
+    Then I am presented with the "Adjustment List Page"
+    When I select radio button "Yes" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    When I select radio button "Under-declaration" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    When I enter month "09" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
+    When I enter "311" on "Adjustment Tax Type Code Page"
+    And I click save and continue button on "Adjustment Tax Type Code Page"
+    Then I am presented with the "Adjustment Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
+    And I click save and continue button on "Adjustment Volume Page"
+    Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                     | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,322.59  |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.59  | Change Remove |
+    And I enter redirect url for "Task List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | In progress                             | Not started                                  | Not started                                |
+#To verify the status from "In progress' to 'Completed' when journey is complete
+    When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
+    Then I am presented with the "Adjustment List Page"
+    When I select radio button "No" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Not started                                  | Not started                                |
+
+  Scenario: 12. Send Return - To verify different statuses at the Task List page
+    And the status of the Send return is marked as "Cannot Start"
+  #To verify the status from "Cannot start' to 'Not started' when all the tasks are complete for return
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "No" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Adjustment Question Page"
+    When I select radio button "No" on "Declare Adjustment Question Page"
+    And I click save and continue button on "Declare Adjustment Question Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you don’t need to declare duty | You’ve told us you do not need to declare any adjustments | You don’t need to tell us about any duty suspended deliveries | You don’t need to tell us about any spirits or ingredients | Check how much duty is payable and send return |
+      | Completed                                     | Completed                                                 | Completed                                                     | Completed                                                  | Not started                                    |
+  #Completed status will be captured once the submit and return tasks are completed
