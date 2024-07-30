@@ -17,7 +17,6 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
 
-  @ZAP @a11y
   Scenario: Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
