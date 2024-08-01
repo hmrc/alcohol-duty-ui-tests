@@ -164,7 +164,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £9.80         | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
 #    Change Link Functionality for Volume starts here
     When I click "Volume" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Volume With Spr Page" with new url
@@ -178,12 +178,23 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "New Spr Duty Rate Page" with new url
     When I enter "11.5" on "New Spr Duty Rate Page"
     And I click save and continue button on "New Spr Duty Rate Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£1051.65"
+    Then I am presented with the "Adjustment Duty Value Page" "£1,051.65"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £8.50         | 4000.75 litres of wine,350.55 litres of pure alcohol (Lpa) | £1,051.65  |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 4000.75 litres of wine,350.55 litres of pure alcohol (Lpa) | £1,051.65  |
+#    Change Link Functionality for SPR duty rate in case of Repackaged Journey
+    When I click "New SPR duty rate" on "Adjustment Check Your Answers Page"
+    Then I am presented with the "New Spr Duty Rate Page" with new url
+    When I enter "14.5" on "New Spr Duty Rate Page"
+    And I click save and continue button on "New Spr Duty Rate Page"
+    Then I am presented with the "Adjustment Duty Value Page" "£2,103.30"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £14.50        | 4000.75 litres of wine,350.55 litres of pure alcohol (Lpa) | £2,103.30  |
 #    Change Link Functionality for New Tax type starts here
     When I click "New tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "New Tax Type Code Page" with new url
@@ -196,9 +207,6 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following details
       | Adjustment | Original return period | Original tax type                                | New tax type                                     | SPR duty rate | Volume                                                     | Duty value |
       | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (313) | £8.50         | 4000.75 litres of wine,350.55 litres of pure alcohol (Lpa) | £269.92    |
-#    This flow needs discussion with Dev as it does not seem to work correctly
-#    When I click "SPR duty rate" on "Adjustment Check Your Answers Page"
-#    Then I am presented with the "New Spr Duty Rate Page" with new url
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
