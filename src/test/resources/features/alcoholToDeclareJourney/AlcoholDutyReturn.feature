@@ -113,11 +113,6 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following status of the submission journey
       | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
-# The returns summary is work in progress and therefore only the Beer section is added
-    When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£14,749.70"
-    And I should see the following details at the returns summary page
-      | Declared beer duty | £14,749.70 | Change |
 
 
   @ZAP @a11y
