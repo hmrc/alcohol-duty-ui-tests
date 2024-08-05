@@ -21,11 +21,15 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Beer Page"
-    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    When I enter "2000.7509" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55555" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Beer Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of beer in litres"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | The volume of beer must be up to 2 decimal places       |
+      | The volume of pure alcohol in beer must be up to 4 decimal places |
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Cider Page"
     And I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"

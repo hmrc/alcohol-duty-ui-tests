@@ -228,19 +228,19 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume Page"
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
+    And I enter "50.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                                     | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,322.59  |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                    | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,50.55 litres of pure alcohol (Lpa) | £468.59    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                      | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £468.59    | Change Remove |
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey

@@ -58,13 +58,13 @@ Feature: Adjustments Journey - Error Message Validations
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value  |
-      | Under-declared  | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39   |
+      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type  | Description                                       | Duty value   | Action         |
-      | Under-declared   | Draught beer between 1.3% and 3.4% ABV (371 SPR)  | £2,455.39    | Change Remove  |
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £2,455.39  | Change Remove |
     When I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment List Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
@@ -86,17 +86,24 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of cider             |
-      | Enter the litres of pure alcohol in cider   |
+      | Enter the total litres of cider           |
+      | Enter the litres of pure alcohol in cider |
+    When I enter "3000.7509" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "250.555555" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Volume With Spr Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Litres of cider must be a number to 2 decimal places        |
+      | Litres of pure alcohol must be a number to 4 decimal places |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value  |
-      | Over-declared   | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
@@ -116,8 +123,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of wine             |
-      | Enter the litres of pure alcohol in wine   |
+      | Enter the total litres of wine           |
+      | Enter the litres of pure alcohol in wine |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
@@ -152,8 +159,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of spirits                |
-      | Enter the litres of pure alcohol in spirits      |
+      | Enter the total litres of spirits           |
+      | Enter the litres of pure alcohol in spirits |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
@@ -161,8 +168,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value  |
-      | Spoilt         | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value |
+      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
@@ -182,8 +189,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of other fermented products                |
-      | Enter the litres of pure alcohol in other fermented products      |
+      | Enter the total litres of other fermented products           |
+      | Enter the litres of pure alcohol in other fermented products |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
@@ -191,8 +198,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value  |
-      | Drawback        | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39  |
+      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
 
