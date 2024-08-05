@@ -88,8 +88,15 @@ Feature: Adjustments Journey - Error Message Validations
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter the total litres of cider           |
       | Enter the litres of pure alcohol in cider |
+    When I enter "3000.7509" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "250.555555" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Volume With Spr Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Litres of cider must be a number to 2 decimal places        |
+      | Litres of pure alcohol must be a number to 4 decimal places |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
