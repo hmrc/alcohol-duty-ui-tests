@@ -56,8 +56,15 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
+    And I enter "699.45090" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
+    And I enter "66.8909090" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
+    And I click save and continue button on "How Much You Need To Declare Beer Page"
+    Then I am presented with the "How Much You Need To Declare Beer Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Litres of beer must be a number to 2 decimal places         |
+      | Litres of pure alcohol must be a number to 4 decimal places |
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
-    And I enter "66.89" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
+    And I enter "66.8909" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
