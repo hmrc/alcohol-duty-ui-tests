@@ -197,7 +197,7 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Completed                               | Not started                 | Not started                                  | Not started                                |
     When I click on "Reason for over declaration" hyperlink on "Task List Page"
     Then I am presented with the "Over Declaration Reason Page"
@@ -205,7 +205,7 @@ Feature: Adjustments Journey
     And I click save and continue button on "Over Declaration Reason Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Completed                               | Completed                   | Not started                                  | Not started                                |
     When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment List Page"
