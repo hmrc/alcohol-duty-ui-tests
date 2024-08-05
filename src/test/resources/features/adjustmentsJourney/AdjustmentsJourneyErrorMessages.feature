@@ -138,8 +138,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment      | Original return period | Original tax type                                | New tax type                                         | SPR duty rate |Volume                                                      | Duty value  |
-      | Repackaged      | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93     |
+      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"

@@ -69,6 +69,49 @@ Feature: Adjustments Journey
     And I should see the following product details
       | Adjustment type | Description                                      | Duty value | Action        |
       | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £2,455.39  | Change Remove |
+#    Updating Under-declaration reason page starts here
+    When I select radio button "No" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Not started                  | Not started                                  | Not started                                |
+    When I click on "Reason for under-declaration" hyperlink on "Task List Page"
+    Then I am presented with the "Under Declaration Reason Page"
+    When I enter "Test Under Declaration Reason" on "Under Declaration Reason Page"
+    And I click save and continue button on "Under Declaration Reason Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Completed                    | Not started                                  | Not started                                |
+#    Updating the declared value to be less than £1000
+    When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
+    Then I am presented with the "Adjustment List Page"
+    When I click "Change Hyperlink" on "Adjustment List Page"
+    Then I am presented with the "Adjustment Check Your Answers Page" with new url
+    When I click "Volume" on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment Volume With Spr Page" with new url
+    When I enter "2000.55" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "100.25" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "6.50" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Duty Value Page" "£651.62"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £6.50         | 2000.55 litres of beer,100.25 litres of pure alcohol (Lpa) | £651.62    |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type | Description                                      | Duty value | Action        |
+      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £651.62    | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Not started                                  | Not started                                |
 
   Scenario: Adjustments Journey - Happy path - Over-declaration - Cider - Without SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
@@ -105,21 +148,81 @@ Feature: Adjustments Journey
     When I enter "372" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume With Spr Page"
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
-    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    When I enter "1000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "150.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "4.5" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page" "-£677.47"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value |
-      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £4.50         | 1000.75 litres of cider,150.55 litres of pure alcohol (Lpa) | −£677.47   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                       | Duty value | Action        |
-      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£2,455.39 | Change Remove |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£677.47   | Change Remove |
+#    Adding new over-declaration to test over-declaration reason page
+    When I select radio button "Yes" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Adjustment Type Page"
+    When I select radio button "Over-declaration" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Over-declaration"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
+    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
+    When I enter "372" on "Adjustment Tax Type Code Page"
+    And I click save and continue button on "Adjustment Tax Type Code Page"
+    Then I am presented with the "Adjustment Volume With Spr Page"
+    When I enter "1000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "150.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "4.5" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Duty Value Page" "-£677.47"
+    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £4.50         | 1000.75 litres of cider,150.55 litres of pure alcohol (Lpa) | −£677.47   |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£677.47   | Change Remove |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£677.47   | Change Remove |
+    #    Updating Over-declaration reason page starts here
+    When I select radio button "No" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Not started                 | Not started                                  | Not started                                |
+    When I click on "Reason for over declaration" hyperlink on "Task List Page"
+    Then I am presented with the "Over Declaration Reason Page"
+    When I enter "Test over Declaration Reason" on "Over Declaration Reason Page"
+    And I click save and continue button on "Over Declaration Reason Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Completed                   | Not started                                  | Not started                                |
+    When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
+    Then I am presented with the "Adjustment List Page"
+    When I click "Remove Hyperlink" on "Adjustment List Page"
+    Then I am presented with the "Remove Adjustment Page"
+    When I select radio button "Yes" on "Remove Adjustment Page"
+    And I click save and continue button on "Remove Adjustment Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£677.47   | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Completed                                        | Completed                               | Not started                                  | Not started                                |
 
   @ZAP @a11y
   Scenario: Adjustments Journey - Happy path - Repackaged Draught Products - Wine - With SPR
