@@ -199,7 +199,7 @@ Feature: Adjustments Journey
     And I should see the following status of the submission journey
       | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Completed                               | Not started                 | Not started                                  | Not started                                |
-    When I click on "Reason for over declaration" hyperlink on "Task List Page"
+    When I click on "Reason for over-declaration" hyperlink on "Task List Page"
     Then I am presented with the "Over Declaration Reason Page"
     When I enter "Test over Declaration Reason" on "Over Declaration Reason Page"
     And I click save and continue button on "Over Declaration Reason Page"
