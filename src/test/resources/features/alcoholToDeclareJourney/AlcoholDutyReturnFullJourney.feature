@@ -11,15 +11,15 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
+
+  @ZAP @a11y
+  Scenario:1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission
+#Beer - When Multiple SPR is set to 'No'
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
-
-  @ZAP @a11y
-  Scenario:1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission
-#Beer - When Multiple SPR is set to 'No'
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer exceeding 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
@@ -747,6 +747,11 @@ Feature: Alcohol Duty Returns Journey
 
   @ZAP @a11y
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "Task List Page"
 #Beer - When Multiple SPR is set to 'Yes'
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"

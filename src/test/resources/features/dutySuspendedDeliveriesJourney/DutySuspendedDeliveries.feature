@@ -34,8 +34,8 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about |
+      | Not started                  | Not started                             | Completed                                                    | Completed                                  |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
     Given I cleared the data for the service
