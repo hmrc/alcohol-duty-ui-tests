@@ -37,11 +37,25 @@ object ReturnSummaryPage extends BasePage {
     "The duty due for this return is £14,749.70"
   )
 
-  override def checkPageTitle(amountOnPageTitle: String): Unit = {
+  override def checkPageTitle(amountOnPageTitle: String): Unit =
     driver.findElement(By tagName "h1").getText should equal("The duty due for this return is " + amountOnPageTitle)
-  }
 
-  override def checkPageErrorTitle(amountOnPageTitle: String): Unit = {
+  override def checkPageErrorTitle(amountOnPageTitle: String): Unit =
     driver.findElement(By tagName "h1").getText should equal("The duty due for this return is " + amountOnPageTitle)
-  }
+
+  override def clickButton(text: String): Unit =
+    text match {
+      case "Change Declared spirits duty"                  =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Spirits']")
+      case "Change Declared wine duty"                     =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Wine']")
+      case "Change Declared cider duty"                    =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Cider']")
+      case "Change Declared other fermented products duty" =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/OtherFermentedProduct']")
+      case "Change Declared beer duty"                     =>
+        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Beer']")
+      case "Change Adjustment duty value"                  =>
+        click on cssSelector("a[href='/manage-alcohol-duty/adjustments-to-previous-returns']")
+    }
 }

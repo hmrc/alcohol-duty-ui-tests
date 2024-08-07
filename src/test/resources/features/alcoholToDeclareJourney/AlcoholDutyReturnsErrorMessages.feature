@@ -1,4 +1,4 @@
-@Test @AlcoholToDeclare
+@AllTests @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey - Error Messages
 
   Background: : Common Steps - Alcohol Duty Returns Journey
@@ -14,6 +14,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
 
+  @Test
   Scenario Outline: Beer - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Declare Alcohol Duty Question Page" error page
@@ -107,6 +108,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @Test
   Scenario Outline: Beer - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -150,6 +152,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Cider - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -224,6 +227,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Cider - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -274,6 +278,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -356,6 +361,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -399,6 +405,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Spirits - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -481,6 +488,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Spirits - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -523,6 +531,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -605,6 +614,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
+  @AllTests
   Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"

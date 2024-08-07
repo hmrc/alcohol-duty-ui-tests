@@ -1,4 +1,4 @@
-@Test @ViewPastReturnsPage
+@Test @AllTests @ViewPastReturnsPage
 Feature: View Past Returns Journey
 
   Scenario: 1. ADR Journey - To verify the details on View Past Returns Page when there is 1 Due, multiple Overdue and multiple Completed returns
