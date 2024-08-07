@@ -58,7 +58,14 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-#    Your spirits and ingredients subsection will be removed once the related bug is fixed
+    And I should see the following subsections
+      | Alcohol to declare                       |
+      | Declare adjustments from earlier returns |
+      | Duty suspended deliveries                |
+      | Send return                              |
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries |
+      | Not started                  | Not started                             | Not started                                  |
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -80,8 +87,8 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
+      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about |
+      | Not started                  | Not started                             | Completed                                                    | Completed                                  |
 
   Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
     Given I cleared the data for the service
@@ -93,6 +100,15 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare                       |
+      | Declare adjustments from earlier returns |
+      | Duty suspended deliveries                |
+      | Your spirits and ingredients             |
+      | Send return                              |
+    And I should see the following status of the submission journey
+      | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Not started                  | Not started                             | Not started                                  | Not started                                |
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
