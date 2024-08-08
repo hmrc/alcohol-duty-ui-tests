@@ -1277,6 +1277,9 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
+    And I should see the following status of the submission journey
+      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
+      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Not started                  | Not started                 | Not started                                  | Not started                                |
     When I click on "Reason for under-declaration" hyperlink on "Task List Page"
     Then I am presented with the "Under Declaration Reason Page"
     When I enter "Test Under Declaration Reason" on "Under Declaration Reason Page"
