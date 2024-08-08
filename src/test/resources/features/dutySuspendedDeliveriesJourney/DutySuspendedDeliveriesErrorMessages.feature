@@ -1,4 +1,4 @@
-@Test @DutySuspendedDeliveries
+@Test @AllTests @DutySuspendedDeliveries
 Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messages
 
   Scenario Outline: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - Error message validations
@@ -26,7 +26,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | The volume of beer must be up to 2 decimal places       |
+      | The volume of beer must be up to 2 decimal places                 |
       | The volume of pure alcohol in beer must be up to 4 decimal places |
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
     And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"

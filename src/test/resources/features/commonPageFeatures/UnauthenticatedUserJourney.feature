@@ -1,4 +1,4 @@
-@Test @UnauthenticatedJourney
+@Test @AllTests @UnauthenticatedJourney
 Feature: Unauthenticated User Journey
 
   @ZAP @a11y

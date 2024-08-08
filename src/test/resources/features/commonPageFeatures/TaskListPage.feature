@@ -1,4 +1,4 @@
-@Test @AlcoholToDeclare @TaskListPage
+@Test @AllTests @AlcoholToDeclare @TaskListPage
 Feature: Alcohol Duty Journey - Task List Page
 
   Background: : Common Steps - Alcohol Duty Journey
@@ -256,30 +256,6 @@ Feature: Alcohol Duty Journey - Task List Page
       | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Completed                               | Not started                                  | Not started                                |
 
-  Scenario: 12. Send Return - To verify different statuses at the Task List page
+  Scenario: 12. Send Return - To verify 'Cannot start' status at the Task List page
     And the status of the Send return is marked as "Cannot Start"
-  #To verify the status from "Cannot start' to 'Not started' when all the tasks are complete for return
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "No" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Adjustment Question Page"
-    When I select radio button "No" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Declare Adjustment Question Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
-    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
-    When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
-    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | You’ve told us you don’t need to declare duty | You’ve told us you do not need to declare any adjustments | You don’t need to tell us about any duty suspended deliveries | You don’t need to tell us about any spirits or ingredients | Check how much duty is payable and send return |
-      | Completed                                     | Completed                                                 | Completed                                                     | Completed                                                  | Not started                                    |
-  #Completed status will be captured once the submit and return tasks are completed
+  #'Not started' status is covered under alcohol return full journey scenario

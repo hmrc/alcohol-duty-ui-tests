@@ -361,4 +361,13 @@ trait BaseStepDef
     val expected = driver.findElement(By.xpath("//strong[@class='govuk-tag govuk-tag--grey']")).getText
     sendReturnStatus should be(expected)
   }
+
+  When("""I click on Agree and send return button {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
+  }
+
+  When("""the page source contains {string}""") { (paymentAmount: String) =>
+    driver.getPageSource.contains(paymentAmount)
+  }
 }

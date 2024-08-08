@@ -284,7 +284,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//tbody/tr[@class='govuk-table__row']"))
     .asScala
     .map { declaredProductDetails =>
-      declaredProductDetails.findElements(By.tagName("td")).asScala
+      declaredProductDetails
+        .findElements(By.tagName("td"))
+        .asScala
         .map(_.getText.trim.replaceAll("\n", " "))
         .toList
     }
@@ -393,4 +395,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     case "twentieth"   => 19
     case _             => throw new IllegalArgumentException("Invalid ordinal")
   }
+
+  def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
 }

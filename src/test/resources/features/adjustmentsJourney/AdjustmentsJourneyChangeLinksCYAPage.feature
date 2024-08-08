@@ -1,4 +1,4 @@
-@Test @AdjustmentsChangeLinks
+@Test @AllTests @AdjustmentsChangeLinks
 Feature: Adjustments Journey - Change Links - CYA Page
 
   Background: : Common Steps - Adjustments Journey
