@@ -22,6 +22,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | Select yes if you need to declare any alcohol |
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -112,6 +115,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Beer - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -156,6 +162,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Cider - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
@@ -231,6 +240,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Cider - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
@@ -282,6 +294,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
@@ -365,6 +380,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Wine - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
@@ -409,6 +427,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Spirits - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
@@ -492,6 +513,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Spirits - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
@@ -535,6 +559,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
@@ -618,6 +645,9 @@ Feature: Alcohol Duty Returns Journey - Error Messages
   Scenario Outline: Other Fermented Product - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"

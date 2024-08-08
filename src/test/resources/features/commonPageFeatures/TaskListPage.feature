@@ -37,6 +37,9 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
@@ -48,6 +51,9 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
