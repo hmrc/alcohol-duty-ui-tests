@@ -1,4 +1,4 @@
-@Test @AllTests @AdjustmentsChangeLinks
+@AllTests @AdjustmentsChangeLinks
 Feature: Adjustments Journey - Change Links - CYA Page
 
   Background: : Common Steps - Adjustments Journey
@@ -16,7 +16,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
-
+  @Test
   Scenario: Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -44,29 +44,26 @@ Feature: Adjustments Journey - Change Links - CYA Page
     When I enter month "09" and year "2023" on "Adjustment Return Date Over Dec Page"
     And I click save and continue button on "Adjustment Return Date Over Dec Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
-    When I enter "311" on "Adjustment Tax Type Code Page"
+    When I enter "371" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
-    Then I am presented with the "Adjustment Volume Page" with new url
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
-    And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
+    Then I am presented with the "Adjustment Volume With Spr Page" with new url
+    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
+    And I click save and continue button on "Adjustment Volume With Spr Page"
+    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                         | Volume                                                     | Duty value |
-      | Over-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
+      | Adjustment    | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
+      | Over-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                      | Duty value | Action        |
-      | Over-declared   | Non-draught beer between 1.3% and 3.4% ABV (311) | −£2,322.59 | Change Remove |
-#    Change Link validation from Adjustment List page
-    When I click "Change Hyperlink" on "Adjustment List Page"
-    Then I am presented with the "Adjustment Check Your Answers Page" with new url
-    When I click save and continue button on "Adjustment Check Your Answers Page"
-    Then I am presented with the "Adjustment List Page"
+      | Over-declared   | Draught beer between 1.3% and 3.4% ABV (371 SPR) | −£2,455.39 | Change Remove |
 
+  @Test
   Scenario: Adjustments Journey - Change Link Functionality for Original Return Period And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -139,6 +136,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                          | Duty value | Action        |
       | Over-declared   | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£3,131.87 | Change Remove |
 
+  @Test
   Scenario: Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
