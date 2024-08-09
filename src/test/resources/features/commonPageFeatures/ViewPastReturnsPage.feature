@@ -37,29 +37,29 @@ Feature: View Past Returns Journey
       | Total                |
 #   This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
-      | Description | Litres of pure alcohol (Lpa) | Duty rate (per litre) | Duty value  |
-      | 301         | 443.45 l                     | £1.20 per litre       | £532.14     |
-      | 312         | 7,654.20 l                   | £9.27 per litre       | £70,954.43  |
-      | 313         | 300.00 l                     | £19.08 per litre      | £5,724.00   |
-      | 315         | 43,456.45 l                  | £8.17 per litre       | £355,039.19 |
+      | Description | Litres of pure alcohol (Lpa) | Duty rate (per litre) | Duty value      |
+      | 301         | 443,784.4567 l               | £1.20 per litre       | £236,159,028.82 |
+      | 312         | 7,654.2 l                    | £9.27 per litre       | £70,954.43      |
+      | 313         | 300.0532 l                   | £19.08 per litre      | £5,725.02       |
+      | 315         | 43,456.4584 l                | £8.17 per litre       | £355,039.26     |
 #  This verifies the details of total declared duty value section
     And I should verify the details of the table 2 on "View Specific Return Page"
-      | Total declared duty value | £432,249.76 |
+      | Total declared duty value | £236,590,747.53 |
 #  This verifies the details of total adjustments declared section
     And I should verify the details of the table 3 on "View Specific Return Page"
       | Adjustment     | Description | Litres of pure alcohol (Lpa) | Duty rate (per litre) | Duty value |
-      | Under-declared | 313         | 12.56 l                      | £19.08 per litre      | £239.65    |
-      | Over-declared  | 301         | 34.56 l                      | £1.20 per litre       | −£41.48    |
-      | Repackaged     | 302         | 100.07 l                     | £2.28 per litre       | £64.05     |
-      | Spoilt         | 315         | 1,000.00 l                   | £8.17 per litre       | −£8,170.00 |
+      | Under-declared | 313         | 12.569 l                     | £19.08 per litre      | £239.82    |
+      | Over-declared  | 301         | 34.5625 l                    | £1.20 per litre       | −£41.48    |
+      | Repackaged     | 302         | 100.0681 l                   | £2.28 per litre       | £64.05     |
+      | Spoilt         | 315         | 1,000 l                      | £8.17 per litre       | −£8,170.00 |
       | Drawback       | 300         | 311.51 l                     | £2.20 per litre       | −£685.32   |
-      | Drawback       | 301         | 1,000.00 l                   | £1.20 per litre       | −£1,200.00 |
+      | Drawback       | 301         | 1,000 l                      | £1.20 per litre       | −£1,200.00 |
 #  This verifies the details of total adjustments duty value section
     And I should verify the details of the table 4 on "View Specific Return Page"
-      | Total adjustments duty value | −£9,793.10 |
+      | Total adjustments duty value | −£9,792.93 |
 #  This verifies the details of total duty value section
     And I should verify the details of the table 5 on "View Specific Return Page"
-      | Total duty value | £422,456.66 |
+      | Total duty value | £236,580,913.12 |
 
   Scenario: 2. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service
