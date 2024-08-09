@@ -25,7 +25,7 @@ object WhatAlcoholDoYouNeedToDeclarePage extends BasePage {
   override val title       = "What alcohol do you need to declare on this return?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What alcohol do you need to declare on this return? - GOV.UK"
+    "Error: What alcohol do you need to declare on this return? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
