@@ -29,7 +29,7 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
-    And I enter "55.55" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
+    And I enter "55.5555" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
@@ -71,36 +71,36 @@ Feature: Alcohol Duty Returns Journey
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 999.19 litres |
-      | Pure alcohol  | 99.13 litres  |
-      | Total volume  | 945.55 litres |
-      | Pure alcohol  | 55.55 litres  |
-      | Total volume  | 667.32 litres |
-      | Pure alcohol  | 66.34 litres  |
-      | Total volume  | 898.34 litres |
-      | Pure alcohol  | 77.55 litres  |
-      | Total volume  | 699.45 litres |
-      | Pure alcohol  | 66.89 litres  |
-      | Total volume  | 887.54 litres |
-      | Pure alcohol  | 66.44 litres  |
-      | Total volume  | 888.88 litres |
-      | Pure alcohol  | 99.45 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 776.45 litres |
-      | Pure alcohol  | 78.9 litres   |
-      | SPR duty rate | £18.00        |
-      | Total volume  | 776.89 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 889.65 litres |
-      | Pure alcohol  | 66.54 litres  |
-      | SPR duty rate | £20.00        |
+      | key           | value          |
+      | Total volume  | 999.19 litres  |
+      | Pure alcohol  | 99.13 litres   |
+      | Total volume  | 945.55 litres  |
+      | Pure alcohol  | 55.5555 litres |
+      | Total volume  | 667.32 litres  |
+      | Pure alcohol  | 66.34 litres   |
+      | Total volume  | 898.34 litres  |
+      | Pure alcohol  | 77.55 litres   |
+      | Total volume  | 699.45 litres  |
+      | Pure alcohol  | 66.89 litres   |
+      | Total volume  | 887.54 litres  |
+      | Pure alcohol  | 66.44 litres   |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.45 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9 litres    |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.99 litres   |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 889.65 litres  |
+      | Pure alcohol  | 66.54 litres   |
+      | SPR duty rate | £20.00         |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£14,749.70"
+    Then I am presented with the "Duty Due Beer Page" "£14,749.75"
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
-      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.55                        | £9.27                 | £514.94   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
+      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.5555                      | £9.27                 | £514.99   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change Non-draught beer between 8.5% and 22% ABV (331)      |
       | Non-draught beer exceeding 22.1% ABV (341)           | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer exceeding 22.1% ABV (341)           |
@@ -491,19 +491,19 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume Page"
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
+    And I enter "250.5555" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
+    Then I am presented with the "Adjustment Duty Value Page" "£2,322.64"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                                     | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,322.59  |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                       | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.5555 litres of pure alcohol (Lpa) | £2,322.64  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                      | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £2,322.64  | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -530,7 +530,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                       | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.64  | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | −£2,322.59 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
@@ -565,7 +565,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                       | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.64  | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | −£2,322.59 | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)  | £425.93    | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
@@ -594,7 +594,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                         | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)    | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)    | £2,322.64  | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)   | −£2,322.59 | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)    | £425.93    | Change Remove |
       | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315) | −£2,322.59 | Change Remove |
@@ -624,7 +624,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                                          | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)                     | £2,322.59  | Change Remove |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)                     | £2,322.64  | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)                    | −£2,322.59 | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)                     | £425.93    | Change Remove |
       | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315)                  | −£2,322.59 | Change Remove |
@@ -736,17 +736,17 @@ Feature: Alcohol Duty Returns Journey
       | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send return |
       | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                    | Completed                                  | Completed                                                  | Completed                                               | Not started                                    |
     When I click on "Check how much duty is payable and send return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£51,597.11"
+    Then I am presented with the "Return Summary Page" "£51,597.21"
     And I should see the following details at the returns summary page
       | Declared spirits duty                  | £13,159.65 | Change |
       | Declared wine duty                     | £12,164.82 | Change |
       | Declared cider duty                    | £4,588.83  | Change |
       | Declared other fermented products duty | £11,153.36 | Change |
-      | Declared beer duty                     | £14,749.70 | Change |
-      | Adjustment duty value                  | −£4,219.25 | Change |
+      | Declared beer duty                     | £14,749.75 | Change |
+      | Adjustment duty value                  | −£4,219.20 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £51,597.11"
+    And the page source contains "You need to pay £51,597.21"
 
   @ZAP @a11y
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
@@ -783,18 +783,18 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
     When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "89.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "89.9999" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 Lpa        | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
       | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.99                       | £19.00                    | Change Remove |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
@@ -824,9 +824,9 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 887.54 litres  |
       | Pure alcohol | 66.44 litres   |
       | Total volume | 9999.99 litres |
-      | Pure alcohol | 89.99 litres   |
+      | Pure alcohol | 89.9999 litres |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£10,716.91"
+    Then I am presented with the "Duty Due Beer Page" "£10,717.09"
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
       | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.55                        | £9.27                 | £514.94   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
@@ -835,7 +835,7 @@ Feature: Alcohol Duty Returns Journey
       | Non-draught beer exceeding 22.1% ABV (341)           | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer exceeding 22.1% ABV (341)           |
       | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42   | Change Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26 | Change Draught beer between 3.5% and 8.4% ABV (356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 89.99                        | £19.00                | £1,709.81 | Change Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 89.9999                      | £19.00                | £1,709.99 | Change Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1263,15 +1263,15 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume With Spr Page"
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5599" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.48"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value |
-      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
+      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                           | Duty value |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.5599 litres of pure alcohol (Lpa) | −£2,455.48 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1279,7 +1279,7 @@ Feature: Alcohol Duty Returns Journey
       | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR)                     | £2,455.39      | Change Remove |
       | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR)                    | −£6,991,359.67 | Change Remove |
       | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR)                  | −£2,455.39     | Change Remove |
-      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.39     | Change Remove |
+      | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.48     | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
@@ -1318,17 +1318,17 @@ Feature: Alcohol Duty Returns Journey
       | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You don’t need to tell us about any duty suspended deliveries | You don’t need to tell us about any spirits or ingredients | Check how much duty is payable and send return |
       | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                     | Completed                                                  | Not started                                    |
     When I click on "Check how much duty is payable and send return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£-6,957,273.22"
+    Then I am presented with the "Return Summary Page" "−£6,957,273.13"
     And I should see the following details at the returns summary page
       | Declared spirits duty                  | £8,528.05      | Change |
       | Declared wine duty                     | £7,461.84      | Change |
       | Declared cider duty                    | £2,731.28      | Change |
       | Declared other fermented products duty | £7,103.76      | Change |
-      | Declared beer duty                     | £10,716.91     | Change |
-      | Adjustment duty value                  | −£6,993,815.06 | Change |
+      | Declared beer duty                     | £10,717.09     | Change |
+      | Adjustment duty value                  | −£6,993,815.15 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed -£6,956,847.29"
+    And the page source contains "You are owed −£6,957,273.13"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
