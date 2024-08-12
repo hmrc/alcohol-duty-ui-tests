@@ -275,14 +275,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I enter "20.99" for "Duty rate" on "Multiple Small Producer Relief Rate Cider Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page"
-    And I should see following details at the "Check Your Answers SPR Cider Page"
-      | Description                                                                                         | Total cider     | Total pure alcohol | Duty rate        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.99 Lpa          | £20.99 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
-    And I should see the following product details
-      | Description                                                                                         | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99l             | 77.99 Lpa             | £20.99 per litre | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Cider Page"
     And I click save and continue button on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"

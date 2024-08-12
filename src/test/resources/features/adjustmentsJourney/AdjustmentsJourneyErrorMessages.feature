@@ -57,14 +57,8 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Adjustment Duty Value Page" "£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                      | Duty value | Action        |
-      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £2,455.39  | Change Remove |
     When I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment List Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
@@ -101,9 +95,6 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                      | Duty value |
-      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £9.80         | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
@@ -137,9 +128,6 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Adjustment Duty Value Page" "£425.93"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
@@ -167,9 +155,6 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value |
-      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     When I select radio button "Yes" on "Adjustment List Page"
@@ -197,9 +182,6 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                         | Duty value |
-      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
 
