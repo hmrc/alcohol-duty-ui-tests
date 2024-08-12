@@ -368,7 +368,7 @@ trait BaseStepDef
   }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
-    val actualText = driver.findElement(By.xpath("(//div[@class='govuk-panel govuk-panel--confirmation']//p)[2]")).getText
+    val actualText = driver.findElement(By.xpath("//p[normalize-space()='"+paymentAmountText+"']")).getText
     actualText should be(paymentAmountText)
   }
 
