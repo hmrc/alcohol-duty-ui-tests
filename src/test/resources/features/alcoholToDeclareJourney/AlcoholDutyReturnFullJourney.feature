@@ -1328,7 +1328,7 @@ Feature: Alcohol Duty Returns Journey
       | Adjustment duty value                  | −£6,993,815.15 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed £-6,957,273.13"
+    And the page source contains "You are owed -£6,957,273.13"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
