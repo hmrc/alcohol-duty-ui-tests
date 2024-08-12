@@ -1,4 +1,4 @@
-@Test @AllTests @UnauthenticatedJourney
+@Test @AllTests @AlcoholToDeclare
 Feature: Alcohol To Declare Page
 
   Background: : Common Steps - Alcohol to declare page
