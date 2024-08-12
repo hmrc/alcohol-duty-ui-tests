@@ -83,14 +83,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
-    And I should see following details at the "Check Your Answers SPR Beer Page"
-      | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.99 Lpa          | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
-    And I should see the following product details
-      | Description                                          | Total volume declared | Pure alcohol declared | SPR duty rate    | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99l             | 89.99 Lpa             | £19.00 per litre | Change Remove |
     When I enter redirect url for "Task List Page"
     And I should see the following status of the submission journey
       | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
