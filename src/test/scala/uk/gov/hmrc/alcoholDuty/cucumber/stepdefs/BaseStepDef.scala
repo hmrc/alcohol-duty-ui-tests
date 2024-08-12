@@ -367,7 +367,8 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
 
-  When("""the page source contains {string}""") { (paymentAmount: String) =>
-    driver.getPageSource.contains(paymentAmount)
+  When("""the page source contains {string}""") { (paymentAmountText: String) =>
+    val actualText = driver.findElement(By.xpath("(//div[@class='govuk-panel govuk-panel--confirmation']//p)[2]")).getText
+    actualText should be(paymentAmountText)
   }
 }
