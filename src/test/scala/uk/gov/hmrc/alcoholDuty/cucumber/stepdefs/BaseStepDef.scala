@@ -371,4 +371,9 @@ trait BaseStepDef
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='"+paymentAmountText+"']")).getText
     actualText should be(paymentAmountText)
   }
+
+  And("""I should see the following alcohol types""") { data: DataTable =>
+    val expected = data.asScalaListOfStrings
+    alcoholTypes should be(expected)
+  }
 }

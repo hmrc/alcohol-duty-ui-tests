@@ -397,4 +397,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
+
+  def alcoholTypes: List[String] = driver
+    .findElement(By.cssSelector(".govuk-checkboxes"))
+    .findElements(By.tagName("label"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
 }
