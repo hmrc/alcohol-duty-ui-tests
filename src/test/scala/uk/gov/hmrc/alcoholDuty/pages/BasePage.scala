@@ -257,6 +257,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     List(getOverdueMonth2, "Overdue", "Submit Return"),
     List(getOverdueMonth3, "Overdue", "Submit Return")
   )
+  def expectedOutstandingPayments: List[List[String]] = List(
+    List("Due Date", "Description", "Total Amount", "Remaining Amount", "Status", "Action"),
+    List(getDueMonth, "Due", "Submit Return"),
+    List(getOverdueMonth1, "Overdue", "Submit Return"),
+    List(getOverdueMonth2, "Overdue", "Submit Return"),
+    List(getOverdueMonth3, "Overdue", "Submit Return")
+  )
 
   def expectedCompletedReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
@@ -293,6 +300,17 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .toList
 
   def outstandingReturnsList: Seq[List[String]] = driver
+    .findElement(By.xpath("//div/table[1]"))
+    .findElements(By.tagName("tr"))
+    .asScala
+    .map(
+      _.findElements(By.xpath("td | th")).asScala
+        .map(_.getText.trim.replaceAll("\nsubmit return", "").replaceAll("\n", " "))
+        .toList
+    )
+    .toList
+
+  def outstandingPaymentsList: Seq[List[String]] = driver
     .findElement(By.xpath("//div/table[1]"))
     .findElements(By.tagName("tr"))
     .asScala

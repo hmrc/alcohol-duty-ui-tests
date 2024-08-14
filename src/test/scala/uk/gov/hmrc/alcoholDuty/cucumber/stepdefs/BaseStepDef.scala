@@ -172,6 +172,13 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  And("""I should verify the outstanding payments details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedOutstandingPayments
+    val actual = outstandingPaymentsList
+    actual should be(expected)
+  }
+
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
