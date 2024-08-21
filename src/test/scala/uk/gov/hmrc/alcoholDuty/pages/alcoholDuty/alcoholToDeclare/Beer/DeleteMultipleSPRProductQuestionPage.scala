@@ -19,32 +19,25 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Beer
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object MultipleSPRListQuestionBeerPage extends BasePage {
+object DeleteMultipleSPRProductQuestionPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-list/Beer"
-  override val title       = "Small Producer Reliefs to declare"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/delete-multiple-spr-entry/Beer?index=0"
+  override val title       = "Are you sure you want to remove this product?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Small Producer Reliefs to declare - Manage your Alcohol Duty - GOV.UK"
+    "Error: Are you sure you want to remove this product? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Small Producer Reliefs to declare - Manage your Alcohol Duty - GOV.UK"
+    "Are you sure you want to remove this product? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Small Producer Reliefs to declare")
+  override def expectedPageHeader: Option[String] = Some("Are you sure you want to remove this product?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#multipleSPRList-yesNoValue")
-      case "No"  => click on cssSelector("#multipleSPRList-yesNoValue-no")
-    }
-
-  override def clickButton(text: String): Unit =
-    text match {
-      case "Change hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Beer?index=0']")
-      case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Beer?index=0']")
+      case "Yes" => click on cssSelector("#deleteMultipleSPREntry-yesNoValue")
+      case "No"  => click on cssSelector("#deleteMultipleSPREntry-yesNoValue-no")
     }
 }

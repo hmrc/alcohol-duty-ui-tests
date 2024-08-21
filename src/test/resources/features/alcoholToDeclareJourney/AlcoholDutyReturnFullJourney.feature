@@ -1362,3 +1362,84 @@ Feature: Alcohol Duty Returns Journey
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You have nothing to pay"
+
+  Scenario:4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality
+    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    Then I am presented with the "Declare Alcohol Duty Question Page"
+    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
+    And I click save and continue button on "Declare Alcohol Duty Question Page"
+    Then I am presented with the "What Alcohol Do You Need To Declare Page"
+    When I "select" checkbox "Beer" on "What Alcohol Do You Need To Declare Page"
+    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
+    Then I am presented with the "Task List Page"
+    When I click on "Tell us about your beer" hyperlink on "Task List Page"
+    Then I am presented with the "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    And I click save and continue button on "What Do You Need To Declare Beer Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
+    When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "89.9999" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
+    Then I am presented with the "Check Your Answers SPR Beer Page"
+    And I should see following details at the "Check Your Answers SPR Beer Page"
+      | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 Lpa        | £19.00 per litre |
+    When I click continue button on "Check Your Answers SPR Beer Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
+#Adding one more product to the list
+    When I select radio button "Yes" on "Multiple SPR List Question Beer Page"
+    And I click save and continue button on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer"
+    When I select radio button "Draught beer between 1.3% and 3.4% ABV (371 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "7777.77" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "777.7777" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "77.77" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
+    And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
+    Then I am presented with the "Check Your Answers SPR Beer Page"
+    And I should see following details at the "Check Your Answers SPR Beer Page"
+      | Description                                      | Total beer      | Total pure alcohol | Duty rate        |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77 litres | 777.7777 Lpa       | £77.77 per litre |
+    When I click continue button on "Check Your Answers SPR Beer Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+    When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "Delete Multiple SPR Product Question Page"
+    When I click save and continue button on "Delete Multiple SPR Product Question Page"
+    Then I am presented with the "Delete Multiple SPR Product Question Page" error page
+#Validating the error message
+    And I should see the "There is a problem" and below error messages
+      | Select yes if you want to remove this product |
+#If a user selects NO then none of the products will be removed
+    When I select radio button "No" on "Delete Multiple SPR Product Question Page"
+    And I click save and continue button on "Delete Multiple SPR Product Question Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+    When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "Delete Multiple SPR Product Question Page"
+#If a user selects YES then the selected product will be removed (removing 1 of 2 products)
+    When I select radio button "Yes" on "Delete Multiple SPR Product Question Page"
+    And I click save and continue button on "Delete Multiple SPR Product Question Page"
+    Then I am presented with the "Multiple SPR List Question Beer Page"
+    And I should see the following product details
+      | Description                                      | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+#If all products are removed from the list then the user is presented with 'Do You Have Multiple Small Producer Relief Duty Rate Page' to add products (removing 1 of 1 products)
+    When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "Delete Multiple SPR Product Question Page"
+    When I select radio button "Yes" on "Delete Multiple SPR Product Question Page"
+    And I click save and continue button on "Delete Multiple SPR Product Question Page"
+    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
