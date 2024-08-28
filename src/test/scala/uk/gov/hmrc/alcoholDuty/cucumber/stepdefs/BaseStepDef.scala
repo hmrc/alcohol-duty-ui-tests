@@ -78,12 +78,11 @@ trait BaseStepDef
       PageObjectFinder.page(page).checkPageTitle()
   }
 
-  Then("""I am presented with the {string} with url suffix as {string}""") {
-    (page: String, urlSuffix: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      PageObjectFinder.page(page).checkNewURLWithOneDynamicValue(urlSuffix)
-      PageObjectFinder.page(page).checkPageHeader()
-      PageObjectFinder.page(page).checkPageTitle()
+  Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkNewURLWithOneDynamicValue(urlSuffix)
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
   }
 
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
@@ -93,7 +92,7 @@ trait BaseStepDef
 
   When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
     checkBoxAction match {
-      case "select" | "unselect"  =>
+      case "select" | "unselect" =>
         PageObjectFinder.page(page).waitForPageHeader
         PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
     }
@@ -150,16 +149,22 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Task List Page" =>
+      case "Task List Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
-      case "View Past Returns Page" =>
+      case "View Past Returns Page"    =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
-      case "Return Summary Page" =>
+      case "Return Summary Page"       =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
-      case "Alcohol Duty Service" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey())
+      case "Alcohol Duty Service"      =>
+        driver.get(
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
+        )
       case "Previous Month Period Key" =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + previousPeriodKey())
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/before-you-start-your-return/" + previousPeriodKey()
+        )
     }
   }
 
@@ -346,18 +351,21 @@ trait BaseStepDef
     alcoholToDeclareSectionText should be(expected)
   }
 
-  And("""I click on change link {int} on {string} for alcohol type {string}""") { (changeLinkIndex: Int, page: String, alcoholType: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    driver
-      .findElement(
-        By.xpath("(//a[@href='/manage-alcohol-duty/return-check-your-answers/"+alcoholType+"'])[" + changeLinkIndex + "]")
-      )
-      .click()
+  And("""I click on change link {int} on {string} for alcohol type {string}""") {
+    (changeLinkIndex: Int, page: String, alcoholType: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      driver
+        .findElement(
+          By.xpath(
+            "(//a[@href='/manage-alcohol-duty/return-check-your-answers/" + alcoholType + "'])[" + changeLinkIndex + "]"
+          )
+        )
+        .click()
   }
 
   And("""I should see the following details at the returns summary page""") { data: DataTable =>
     val expected = data.asScalaListOfLists
-    val actual = declaredProductListAtReturnsSummary
+    val actual   = declaredProductListAtReturnsSummary
     actual should be(expected)
   }
 
@@ -372,7 +380,7 @@ trait BaseStepDef
   }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
-    val actualText = driver.findElement(By.xpath("//p[normalize-space()='"+paymentAmountText+"']")).getText
+    val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
     actualText should be(paymentAmountText)
   }
 

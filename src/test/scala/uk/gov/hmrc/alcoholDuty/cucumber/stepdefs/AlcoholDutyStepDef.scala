@@ -39,20 +39,20 @@ class AlcoholDutyStepDef extends BaseStepDef {
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
         )
     }
+  }
 
-    When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") {
-      (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
-        page match {
-          case "Auth Login Stub Page" =>
-            AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
-        }
-    }
-
-    When("""I select Affinity Type as {string} on {string}""") { (value: String, page: String) =>
+  When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") {
+    (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
       page match {
         case "Auth Login Stub Page" =>
-          AuthLoginStubPage.selectAffinityGroup(value)
+          AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
+  }
+
+  When("""I select Affinity Type as {string} on {string}""") { (value: String, page: String) =>
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.selectAffinityGroup(value)
     }
   }
 }
