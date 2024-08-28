@@ -8,6 +8,8 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Alcohol Duty Service"
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"

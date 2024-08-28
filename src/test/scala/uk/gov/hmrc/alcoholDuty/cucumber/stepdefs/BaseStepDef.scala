@@ -156,6 +156,8 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
       case "Return Summary Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
+      case "Alcohol Duty Service" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey())
     }
   }
 
