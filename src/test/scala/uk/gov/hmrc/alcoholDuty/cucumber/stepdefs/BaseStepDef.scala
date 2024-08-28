@@ -152,12 +152,14 @@ trait BaseStepDef
     page match {
       case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
-      case "View Past Returns Page"           =>
+      case "View Past Returns Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
       case "Return Summary Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
       case "Alcohol Duty Service" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey())
+      case "Previous Month Period Key" =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + previousPeriodKey())
     }
   }
 

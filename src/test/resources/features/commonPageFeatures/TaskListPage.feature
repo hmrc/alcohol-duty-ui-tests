@@ -178,24 +178,7 @@ Feature: Alcohol Duty Journey - Task List Page
       | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about |
       | Not started                  | Not started                             | Not started                                  | Completed                                                  | In progress                                             |
 
-  Scenario: 10. QSR Journey - To verify quarterly spirits returns link is not visible for months other than March, June, Sep and Dec
-    Given I cleared the data for the service
-    When I navigate to the "Auth Login Stub Page"
-    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter redirectURL for "Previous Month Period Key"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
-    And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Before You Start Page" with new url
-    And  I verify the return due date for "Previous Month Selected" on "Before You Start Page"
-    When I click continue button on "Before You Start Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare                       |
-      | Declare adjustments from earlier returns |
-      | Duty suspended deliveries                |
-      | Send return                              |
-
-  Scenario: 11. Adjustments Journey - To verify different statuses at the Task List page
+  Scenario: 10. Adjustments Journey - To verify different statuses at the Task List page
     When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "No" on "Declare Adjustment Question Page"
@@ -258,6 +241,6 @@ Feature: Alcohol Duty Journey - Task List Page
       | Do you need to declare duty? | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
       | Not started                  | Completed                                        | Completed                               | Not started                                  | Not started                                |
 
-  Scenario: 12. Send Return - To verify 'Cannot start' status at the Task List page
+  Scenario: 11. Send Return - To verify 'Cannot start' status at the Task List page
     And the status of the Send return is marked as "Cannot Start"
   #'Not started' status is covered under alcohol return full journey scenario
