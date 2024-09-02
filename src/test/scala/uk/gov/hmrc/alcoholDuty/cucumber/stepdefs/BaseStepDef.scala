@@ -179,6 +179,13 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  And("""I should verify the unallocated payments details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedUnallocatedPayments
+    val actual = unallocatedPaymentsList
+    actual should be(expected)
+  }
+
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
@@ -223,6 +230,12 @@ trait BaseStepDef
   When("""I verify the ABV value displayed as {string} on {string}""") { (expectedText: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.cssSelector("ul[class='govuk-list govuk-list--bullet'] li")).getText
+    actualText should be(expectedText)
+  }
+
+  Then("""I verify the due amount displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")
     actualText should be(expectedText)
   }
 
