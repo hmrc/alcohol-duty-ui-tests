@@ -1,13 +1,15 @@
 @Test @AllTests @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Journey - Change Links - CYA Page
 
-  Scenario:  To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey
+  Scenario:1. To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Alcohol Duty Service"
     Then I am presented with the "Before You Start Page"
     And  I verify the return due date for "Latest Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
@@ -115,3 +117,21 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
       | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                              | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain2   | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
       | 111.99 litres        | 222.99 litres          | 333.99 litres          | Grain spirits,Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 444.44 tonnes | 555.55 tonnes | 666.99 tonnes | 777.77 tonnes | 888.88 tonnes  | 100.99 tonnes | 199.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 999.99 tonnes | 969.99 tonnes          |
 
+  Scenario: 2. QSR Journey - To verify quarterly spirits returns link is not visible for months other than March, June, Sep and Dec
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL on "Auth Login Stub Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Previous Month Period Key"
+    Then I am presented with the "Before You Start Page" with new url
+    And  I verify the return due date for "Previous Month Selected" on "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Alcohol to declare                       |
+      | Declare adjustments from earlier returns |
+      | Duty suspended deliveries                |
+      | Send return                              |

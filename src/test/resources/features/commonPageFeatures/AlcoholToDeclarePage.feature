@@ -11,6 +11,8 @@ Feature: Alcohol To Declare Page
   Scenario:1. Alcohol to declare page - user with all regimes approvals
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Alcohol Duty Service"
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
@@ -39,6 +41,8 @@ Feature: Alcohol To Declare Page
   Scenario:2. Alcohol to declare page - user with 'Wine' and 'Other Fermented Product' approvals
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000111208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Alcohol Duty Service"
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
@@ -60,6 +64,8 @@ Feature: Alcohol To Declare Page
   Scenario:3. Alcohol to declare page - user with only one approval should be redirected Task List page
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000014208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "Business Tax Account Page"
+    When I enter redirect url for "Alcohol Duty Service"
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
