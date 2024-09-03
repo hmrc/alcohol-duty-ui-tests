@@ -1,4 +1,4 @@
-@Test @AllTests @ViewPastPaymentsPage
+@Test @AllTests @ViewPastPayments
 Feature: View Past Payments Journey
 
   Scenario: 1. ADR Journey - To verify the status and details of all payments on View Past Payments Page

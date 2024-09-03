@@ -201,8 +201,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
-  val Year: Int  = LocalDate.now().getYear()
-  val Month: Int = LocalDate.now().getMonthValue()
+  val Year: Int  = LocalDate.now().getYear
+  val Month: Int = LocalDate.now().getMonthValue
 
   def periodKey(): String =
     s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
@@ -247,8 +247,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val getCompletedMonth2: String   = now.minusMonths(6).format(formatter)
   val getCompletedMonth3: String   = now.minusMonths(7).format(formatter)
 
-  def getCompletedMonth1PeriodKey(): String =
-    s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
+  def getCompletedMonth1PeriodKey: String =
+    s"""${now.minusMonths(5).getYear.toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue + 64).toChar}"""
 
   def expectedOutstandingReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
@@ -259,7 +259,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   )
 
   val formatterPaymentMonth: DateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)
-  val getpaymentDueMonth: String               = (currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth)
+  val getPaymentDueMonth: String               = (currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth)
   val getLPIDueMonth: String                   = currentDate
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val getPaymentOverdueMonth1: String          = (currentDate.minusMonths(2) withDayOfMonth 25).format(formatterPaymentMonth)
@@ -276,7 +276,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def expectedOutstandingPayments: List[List[String]] = List(
     List("To be paid by", "Description", "Left to pay", "Status", "Action"),
-    List(getpaymentDueMonth, "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now" ),
+    List(getPaymentDueMonth, "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now" ),
     List(getLPIDueMonth, "Late payment interest charge", "£20.56", "Due", "Pay now"),
     List(getPaymentOverdueMonth1, "Payment for Alcohol Duty return", "£4,577.44", "Overdue", "Pay now"),
     List(getPaymentOverdueMonth2, "Payment for Alcohol Duty return", "£2,577.44", "Overdue", "Pay now"),
