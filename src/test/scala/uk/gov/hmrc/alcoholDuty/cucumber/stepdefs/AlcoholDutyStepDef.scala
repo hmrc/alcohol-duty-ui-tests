@@ -35,9 +35,9 @@ class AlcoholDutyStepDef extends BaseStepDef {
   When("""I enter redirectURL for {string}""") { (text: String) =>
     text match {
       case "View Past Returns Page" =>
-        AuthLoginStubPage.enterRedirectURL(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
-        )
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
+      case "View Past Payments Page" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
     }
   }
 

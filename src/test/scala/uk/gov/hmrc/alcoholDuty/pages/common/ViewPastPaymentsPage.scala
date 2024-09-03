@@ -19,20 +19,20 @@ package uk.gov.hmrc.alcoholDuty.pages.common
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ViewSpecificReturnPage extends BasePage {
+object ViewPastPaymentsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + getCompletedMonth1PeriodKey
-  override val title       = "Your Alcohol Duty return"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments"
+  override val title       = "Alcohol Duty payments"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "Error: Alcohol Duty payments - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "Alcohol Duty payments - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Your Alcohol Duty return"
+    "Alcohol Duty payments"
   )
 }

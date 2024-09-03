@@ -151,8 +151,6 @@ trait BaseStepDef
     page match {
       case "Task List Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
-      case "View Past Returns Page"    =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns")
       case "Return Summary Page"       =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
       case "Alcohol Duty Service"      =>
@@ -178,6 +176,20 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedOutstandingReturns
     val actual   = outstandingReturnsList
+    actual should be(expected)
+  }
+
+  And("""I should verify the outstanding payments details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedOutstandingPayments
+    val actual = outstandingPaymentsList
+    actual should be(expected)
+  }
+
+  And("""I should verify the unallocated payments details on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expected = PageObjectFinder.expectedUnallocatedPayments
+    val actual = unallocatedPaymentsList
     actual should be(expected)
   }
 
@@ -228,6 +240,12 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
+  Then("""I verify the due amount displayed as {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")
+    actualText should be(expectedText)
+  }
+
   Then("""I verify the return due date for {string} on {string}""") { (content: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
@@ -273,7 +291,7 @@ trait BaseStepDef
 
   Then("""I should verify the text for the return date on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(getCompletedMonth1)
+    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(now.minusMonths(5).format(formatter))
   }
 
   Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>

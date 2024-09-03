@@ -201,8 +201,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
-  val Year: Int  = LocalDate.now().getYear()
-  val Month: Int = LocalDate.now().getMonthValue()
+  val Year: Int  = LocalDate.now().getYear
+  val Month: Int = LocalDate.now().getMonthValue
 
   def periodKey(): String =
     s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
@@ -239,30 +239,42 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()
-  val getDueMonth: String          = now.minusMonths(1).format(formatter)
-  val getOverdueMonth1: String     = now.minusMonths(2).format(formatter)
-  val getOverdueMonth2: String     = now.minusMonths(3).format(formatter)
-  val getOverdueMonth3: String     = now.minusMonths(4).format(formatter)
-  val getCompletedMonth1: String   = now.minusMonths(5).format(formatter)
-  val getCompletedMonth2: String   = now.minusMonths(6).format(formatter)
-  val getCompletedMonth3: String   = now.minusMonths(7).format(formatter)
 
-  def getCompletedMonth1PeriodKey(): String =
-    s"""${now.minusMonths(5).getYear().toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue() + 64).toChar}"""
+  def getCompletedMonth1PeriodKey: String =
+    s"""${now.minusMonths(5).getYear.toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue + 64).toChar}"""
 
   def expectedOutstandingReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
-    List(getDueMonth, "Due", "Submit Return"),
-    List(getOverdueMonth1, "Overdue", "Submit Return"),
-    List(getOverdueMonth2, "Overdue", "Submit Return"),
-    List(getOverdueMonth3, "Overdue", "Submit Return")
+    List(now.minusMonths(1).format(formatter), "Due", "Submit Return"),
+    List(now.minusMonths(2).format(formatter), "Overdue", "Submit Return"),
+    List(now.minusMonths(3).format(formatter), "Overdue", "Submit Return"),
+    List(now.minusMonths(4).format(formatter), "Overdue", "Submit Return")
   )
 
   def expectedCompletedReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
-    List(getCompletedMonth1, "Completed", "View Return"),
-    List(getCompletedMonth2, "Completed", "View Return"),
-    List(getCompletedMonth3, "Completed", "View Return")
+    List(now.minusMonths(5).format(formatter), "Completed", "View Return"),
+    List(now.minusMonths(6).format(formatter), "Completed", "View Return"),
+    List(now.minusMonths(7).format(formatter), "Completed", "View Return")
+  )
+
+  val formatterPaymentMonth: DateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)
+
+  def expectedOutstandingPayments: List[List[String]] = List(
+    List("To be paid by", "Description", "Left to pay", "Status", "Action"),
+    List((currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now" ),
+    List(currentDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£20.56", "Due", "Pay now"),
+    List((currentDate.minusMonths(2) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£4,577.44", "Overdue", "Pay now"),
+    List((currentDate.minusMonths(3) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£2,577.44", "Overdue", "Pay now"),
+    List((currentDate.minusMonths(4) withDayOfMonth 25).format(formatterPaymentMonth), "Credit for Alcohol Duty return", "−£2,577.44", "Nothing to pay", ""),
+    List((currentDate.minusMonths(5) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Refund payment interest charge", "−£20.56", "Nothing to pay", ""),
+    List((currentDate.minusMonths(6) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£10.56", "Overdue", "Pay now")
+  )
+
+  def expectedUnallocatedPayments: List[List[String]] = List(
+    List("Payment date", "Description", "Amount"),
+    List((currentDate withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£1,000.00"),
+    List((currentDate.minusMonths(1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£500.00")
   )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
@@ -299,6 +311,28 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .map(
       _.findElements(By.xpath("td | th")).asScala
         .map(_.getText.trim.replaceAll("\nsubmit return", "").replaceAll("\n", " "))
+        .toList
+    )
+    .toList
+
+  def outstandingPaymentsList: Seq[List[String]] = driver
+    .findElement(By.xpath("//div/table[1]"))
+    .findElements(By.tagName("tr"))
+    .asScala
+    .map(
+      _.findElements(By.xpath("td | th")).asScala
+        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
+        .toList
+    )
+    .toList
+
+  def unallocatedPaymentsList: Seq[List[String]] = driver
+    .findElement(By.xpath("//div/table[2]"))
+    .findElements(By.tagName("tr"))
+    .asScala
+    .map(
+      _.findElements(By.xpath("td | th")).asScala
+        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
         .toList
     )
     .toList
