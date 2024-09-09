@@ -277,6 +277,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     List((currentDate.minusMonths(1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£500.00")
   )
 
+  def expectedHistoricalPayments: List[List[String]] = List(
+    List("Return period", "Description", "Amount"),
+    List(currentDate.format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared late payment interest charge payments", "£20.56"),
+    List(currentDate.minusMonths(3).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared Alcohol Duty payments", "£4,577.44"),
+    List(currentDate.minusMonths(4).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared Alcohol Duty payments", "£2,000.00"),
+    List(currentDate.minusMonths(6).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared late payment interest charge payments", "£10.00")
+  )
+
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
@@ -311,28 +319,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .map(
       _.findElements(By.xpath("td | th")).asScala
         .map(_.getText.trim.replaceAll("\nsubmit return", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  def outstandingPaymentsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[1]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
-        .toList
-    )
-    .toList
-
-  def unallocatedPaymentsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[2]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
         .toList
     )
     .toList

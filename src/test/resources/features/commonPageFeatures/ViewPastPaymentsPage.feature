@@ -14,8 +14,9 @@ Feature: View Past Payments Journey
       | Unallocated payments     |
       | Cleared payments in 2024 |
     Then I verify the due amount displayed as "You owe £3,325.44" on "View Past Payments Page"
-    And I should verify the outstanding payments details on "View Past Payments Page"
-    And I should verify the unallocated payments details on "View Past Payments Page"
+    And I should verify the "Outstanding" payment details of the table 1 on "View Past Payments Page"
+    And I should verify the "Unallocated" payment details of the table 2 on "View Past Payments Page"
+    And I should verify the "Historical" payment details of the table 3 on "View Past Payments Page"
 
   Scenario: 2. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments
     Given I cleared the data for the service
