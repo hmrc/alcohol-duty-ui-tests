@@ -52,9 +52,9 @@ object HowMuchYouNeedToDeclareSpiritsPage extends BasePage {
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
       case "Standard spirits between 8.5% and 22% ABV - Pure alcohol"  =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
-      case "Standard spirits at or above 22% ABV - Total litres"         =>
+      case "Standard spirits at or above 22.1% ABV - Total litres"     =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Standard spirits at or above 22% ABV - Pure alcohol"         =>
+      case "Standard spirits at or above 22.1% ABV - Pure alcohol"     =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
       case "Draught spirits between 1.3% and 3.4% ABV - Total litres"  =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
