@@ -263,18 +263,26 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def expectedOutstandingPayments: List[List[String]] = List(
     List("To be paid by", "Description", "Left to pay", "Status", "Action"),
     List((currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now" ),
-    List(currentDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£20.56", "Due", "Pay now"),
+    List(currentDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£20.56", "Due", "Pay now"),
     List((currentDate.minusMonths(2) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£4,577.44", "Overdue", "Pay now"),
     List((currentDate.minusMonths(3) withDayOfMonth 25).format(formatterPaymentMonth), "Payment for Alcohol Duty return", "£2,577.44", "Overdue", "Pay now"),
     List((currentDate.minusMonths(4) withDayOfMonth 25).format(formatterPaymentMonth), "Credit for Alcohol Duty return", "−£2,577.44", "Nothing to pay", ""),
-    List((currentDate.minusMonths(5) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Refund payment interest charge", "−£20.56", "Nothing to pay", ""),
-    List((currentDate.minusMonths(6) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£10.56", "Overdue", "Pay now")
+    List((currentDate.minusMonths(5) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Refund payment interest charge", "−£20.56", "Nothing to pay", ""),
+    List((currentDate.minusMonths(6) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Late payment interest charge", "£10.56", "Overdue", "Pay now")
   )
 
   def expectedUnallocatedPayments: List[List[String]] = List(
     List("Payment date", "Description", "Amount"),
-    List((currentDate withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£1,000.00"),
-    List((currentDate.minusMonths(1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£500.00")
+    List((currentDate withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£1,000.00"),
+    List((currentDate.minusMonths(1) withDayOfMonth 1).format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)), "Payment", "−£500.00")
+  )
+
+  def expectedHistoricalPayments: List[List[String]] = List(
+    List("Return period", "Description", "Amount"),
+    List(currentDate.format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared late payment interest charge payments", "£20.56"),
+    List(currentDate.minusMonths(3).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared Alcohol Duty payments", "£4,577.44"),
+    List(currentDate.minusMonths(4).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared Alcohol Duty payments", "£2,000.00"),
+    List(currentDate.minusMonths(6).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)), "Cleared late payment interest charge payments", "£10.00")
   )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
@@ -311,28 +319,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .map(
       _.findElements(By.xpath("td | th")).asScala
         .map(_.getText.trim.replaceAll("\nsubmit return", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  def outstandingPaymentsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[1]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
-        .toList
-    )
-    .toList
-
-  def unallocatedPaymentsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[2]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
         .toList
     )
     .toList

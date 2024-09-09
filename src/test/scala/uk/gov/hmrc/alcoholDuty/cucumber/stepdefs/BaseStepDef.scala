@@ -179,20 +179,6 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-  And("""I should verify the outstanding payments details on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expected = PageObjectFinder.expectedOutstandingPayments
-    val actual = outstandingPaymentsList
-    actual should be(expected)
-  }
-
-  And("""I should verify the unallocated payments details on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val expected = PageObjectFinder.expectedUnallocatedPayments
-    val actual = unallocatedPaymentsList
-    actual should be(expected)
-  }
-
   And("""I should verify the completed returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedCompletedReturns
@@ -217,6 +203,33 @@ trait BaseStepDef
 
     val actual = getResultList(num)
     actual should be(expected)
+  }
+
+  And("""I should verify the {string} payment details of the table {int} on {string}""") { (tableHeader: String, num: Int, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+
+    def getResultList(num: Int): Seq[List[String]] =
+      driver
+        .findElement(By.xpath("//div/table[" + num + "]"))
+        .findElements(By.tagName("tr"))
+        .asScala
+        .map(
+          _.findElements(By.xpath("td | th")).asScala
+            .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
+            .toList
+        )
+        .toList
+
+    val actual = getResultList(num)
+
+    tableHeader match {
+      case "Outstanding" =>
+        actual should be(expectedOutstandingPayments)
+      case "Unallocated" =>
+        actual should be(expectedUnallocatedPayments)
+      case "Historical" =>
+        actual should be(expectedHistoricalPayments)
+    }
   }
 
   And("""^I should see the following product details""") { data: DataTable =>
