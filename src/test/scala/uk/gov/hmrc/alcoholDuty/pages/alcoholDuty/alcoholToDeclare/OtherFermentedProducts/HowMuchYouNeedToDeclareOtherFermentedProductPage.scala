@@ -54,9 +54,9 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
       case "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol"  =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
-      case "Standard other fermented products exceeding 22% ABV - Total litres"         =>
+      case "Standard other fermented products at or above 22% ABV - Total litres"         =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Standard other fermented products exceeding 22% ABV - Pure alcohol"         =>
+      case "Standard other fermented products at or above 22% ABV - Pure alcohol"         =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
       case "Draught other fermented products between 1.3% and 3.4% ABV - Total litres"  =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
