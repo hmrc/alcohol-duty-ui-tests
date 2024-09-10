@@ -26,7 +26,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Beer- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer exceeding 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
@@ -35,8 +35,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
     And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
-    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
+    And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
+    And I enter "99.13" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
@@ -64,7 +64,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer between 1.3% and 3.4% ABV (311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer exceeding 22.1% ABV (341)           |
+      | Non-draught beer at or above 22.1% ABV (341)         |
       | Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
@@ -111,8 +111,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
-    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
+    And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
+    And I enter "99.13" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
     And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
@@ -139,7 +139,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer exceeding 22.1% ABV (341)           |
+      | Non-draught beer at or above 22.1% ABV (341)         |
       | Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
@@ -183,7 +183,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer exceeding 22.1% ABV (341)           |
+      | Non-draught beer at or above 22.1% ABV (341)         |
       | Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
@@ -255,7 +255,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due   | Action                                                      |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     | 99.99                        | £21.01                | £2,100.78  | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69  | Change Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer exceeding 22.1% ABV (341)           | 99.13                        | £31.64                | £3,136.47  | Change Non-draught beer exceeding 22.1% ABV (341)           |
+      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47  | Change Non-draught beer at or above 22.1% ABV (341)         |
       | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42    | Change Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26  | Change Draught beer between 3.5% and 8.4% ABV (356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 999.99                       | £99.99                | £99,989.00 | Change Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
@@ -276,7 +276,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Beer- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer exceeding 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
@@ -285,8 +285,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
     And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
-    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
+    And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
+    And I enter "99.13" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
@@ -350,7 +350,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer between 1.3% and 3.4% ABV (311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer exceeding 22.1% ABV (341)           |
+      | Non-draught beer at or above 22.1% ABV (341)         |
       | Draught beer between 1.3% and 3.4% ABV (351)         |
       | Draught beer between 3.5% and 8.4% ABV (356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
@@ -698,7 +698,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Wine- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Tell us about your wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
-    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine exceeding 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
@@ -707,8 +707,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "88.88" for "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "second" input box
     And I enter "8974.23" for "Standard wine between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "third" input box
     And I enter "22.22" for "Standard wine between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "third" input box
-    And I enter "990.01" for "Standard wine exceeding 22% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fourth" input box
-    And I enter "82.22" for "Standard wine exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fourth" input box
+    And I enter "990.01" for "Standard wine at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fourth" input box
+    And I enter "82.22" for "Standard wine at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fourth" input box
     And I enter "895.22" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I enter "22.33" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I enter "569.33" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "sixth" input box
@@ -736,7 +736,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught wine between 1.3% and 3.4% ABV (313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     |
       | Non-draught wine between 8.5% and 22% ABV (333)      |
-      | Non-draught wine exceeding 22.1% ABV (343)           |
+      | Non-draught wine at or above 22.1% ABV (343)         |
       | Draught wine between 1.3% and 3.4% ABV (353)         |
       | Draught wine between 3.5% and 8.4% ABV (358)         |
       | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) |
@@ -776,7 +776,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers Returns Wine Page"
     When I click "Change Wine to declare" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "What Do You Need To Declare Wine Page" with new url
-    When I "unselect" checkbox "Wine exceeding 22.1% ABV (tax type code 343)" on "What Do You Need To Declare Wine Page"
+    When I "unselect" checkbox "Wine at or above 22.1% ABV (tax type code 343)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
@@ -960,7 +960,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Wine- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
     When I click on "Tell us about your wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
-    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine exceeding 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
@@ -969,8 +969,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "88.88" for "Standard wine between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "second" input box
     And I enter "8974.23" for "Standard wine between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "third" input box
     And I enter "22.22" for "Standard wine between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "third" input box
-    And I enter "990.01" for "Standard wine exceeding 22% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fourth" input box
-    And I enter "82.22" for "Standard wine exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fourth" input box
+    And I enter "990.01" for "Standard wine at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fourth" input box
+    And I enter "82.22" for "Standard wine at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fourth" input box
     And I enter "895.22" for "Draught wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I enter "22.33" for "Draught wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "fifth" input box
     And I enter "569.33" for "Draught wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "sixth" input box
@@ -1038,7 +1038,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught wine between 1.3% and 3.4% ABV (313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     |
       | Non-draught wine between 8.5% and 22% ABV (333)      |
-      | Non-draught wine exceeding 22.1% ABV (343)           |
+      | Non-draught wine at or above 22.1% ABV (343)         |
       | Draught wine between 1.3% and 3.4% ABV (353)         |
       | Draught wine between 3.5% and 8.4% ABV (358)         |
       | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) |
@@ -1066,7 +1066,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Spirits- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Tell us about your spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
-    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits exceeding 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
@@ -1075,8 +1075,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
     And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
     And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
-    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
-    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "5555.55" for "Standard spirits at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
     And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
@@ -1104,7 +1104,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1153,8 +1153,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
     And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
     And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
-    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
-    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "5555.55" for "Standard spirits at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
     And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
@@ -1179,7 +1179,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1223,7 +1223,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1268,7 +1268,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1305,7 +1305,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 36.36                        | £9.27                 | £337.05   | Change Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77                        | £24.77                | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66                        | £28.50                | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           | 55.55                        | £31.64                | £1,757.60 | Change Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         | 55.55                        | £31.64                | £1,757.60 | Change Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.44                        | £8.42                 | £374.18   | Change Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.33                        | £19.08                | £635.93   | Change Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.45                        | £15.00                | £1,491.75 | Change Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1325,7 +1325,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Spirits- Alcohol Duty Returns Journey - When Multiple SPR is set to 'YES' - Change link functionality
     When I click on "Tell us about your spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
-    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits exceeding 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
@@ -1333,8 +1333,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "77.77" for "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "second" input box
     And I enter "6666.66" for "Standard spirits between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "third" input box
     And I enter "66.66" for "Standard spirits between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "third" input box
-    And I enter "5555.55" for "Standard spirits exceeding 22% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
-    And I enter "55.55" for "Standard spirits exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "5555.55" for "Standard spirits at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fourth" input box
+    And I enter "55.55" for "Standard spirits at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fourth" input box
     And I enter "4444.44" for "Draught spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "44.44" for "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "fifth" input box
     And I enter "3333.33" for "Draught spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "sixth" input box
@@ -1394,7 +1394,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits exceeding 22.1% ABV (345)           |
+      | Non-draught spirits at or above 22.1% ABV (345)         |
       | Draught spirits between 1.3% and 3.4% ABV (355)         |
       | Draught spirits between 3.5% and 8.4% ABV (360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
@@ -1422,7 +1422,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products exceeding 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
@@ -1431,8 +1431,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
     And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
     And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
-    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
-    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "5544.55" for "Standard other fermented products at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
     And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
@@ -1460,7 +1460,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
       | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
@@ -1509,8 +1509,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
     And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
     And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
-    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
-    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "5544.55" for "Standard other fermented products at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
     And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
@@ -1535,7 +1535,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
       | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
@@ -1640,7 +1640,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         | 55.55                        | £31.64                | £1,757.60 | Change Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
       | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 99.99                        | £19.08                | £1,907.80 | Change Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 69.69                        | £69.00                | £4,808.61 | Change Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
@@ -1651,7 +1651,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
     When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products exceeding 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
@@ -1660,8 +1660,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I enter "22.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
     And I enter "4433.44" for "Standard other fermented products between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
     And I enter "44.44" for "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "third" input box
-    And I enter "5544.55" for "Standard other fermented products exceeding 22% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
-    And I enter "55.55" for "Standard other fermented products exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "5544.55" for "Standard other fermented products at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
+    And I enter "55.55" for "Standard other fermented products at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fourth" input box
     And I enter "6666.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "66.66" for "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "fifth" input box
     And I enter "7865.12" for "Draught other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "sixth" input box
@@ -1725,7 +1725,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products exceeding 22.1% ABV (344)                                                         |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
       | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
@@ -1754,15 +1754,15 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 #Beer - When Multiple SPR is set to 'No'
     When I click on "Tell us about your beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer exceeding 22.1% ABV (tax type code 341)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer at or above 22.1% ABV (tax type code 341)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
-    And I enter "999.19" for "Standard beer exceeding 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
-    And I enter "99.13" for "Standard beer exceeding 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
+    And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
+    And I enter "99.13" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I should see the following text on the page
-      | Non-draught beer exceeding 22.1% ABV (341) |
+      | Non-draught beer at or above 22.1% ABV (341) |
     And I check the page source for the following key-value pairs:
       | key          | value         |
       | Total volume | 999.19 litres |
@@ -1770,8 +1770,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£3,136.47"
     And I should see the following product details
-      | Description                                | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                            |
-      | Non-draught beer exceeding 22.1% ABV (341) | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer exceeding 22.1% ABV (341) |
+      | Description                                  | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                              |
+      | Non-draught beer at or above 22.1% ABV (341) | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer at or above 22.1% ABV (341) |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
