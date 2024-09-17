@@ -14,7 +14,6 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
 
-  @ZAP @a11y
   Scenario:1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission
 #Beer - When Multiple SPR is set to 'No'
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
@@ -750,7 +749,6 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £51,597.21"
 
-  @ZAP @a11y
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"

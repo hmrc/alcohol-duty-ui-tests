@@ -1,9 +1,8 @@
-@Test @AllTests @UnauthenticatedJourney
-Feature: Unauthenticated User Journey
+@Test @AllTests @ClaimEnrolmentJourney
+Feature: Claim Enrolment Journey
 
-  @ZAP @a11y
-  Scenario: Unauthenticated User Journey - Happy path - When user does not have APPA ID
-    Given I enter the url for Unauthenticated journey
+  Scenario: Claim Enrolment Journey - Happy path - When user does not have APPA ID
+    Given I enter the url for Claim Enrolment journey
     Then I am presented with the "Do You Have Appa Id Page"
     When I select radio button "No" on "Do You Have Appa Id Page"
     And I click continue button on "Do You Have Appa Id Page"
@@ -15,8 +14,8 @@ Feature: Unauthenticated User Journey
 #    Then I am presented with the "Request Access For Manage Alcohol Duty Page"
 #  The above line has been commented currently. Once we have enrolment-management-frontend added to our service manager, will add this page
 
-  Scenario Outline: Unauthenticated User Journey - Error Message Validation
-    Given I enter the url for Unauthenticated journey
+  Scenario Outline: Claim Enrolment Journey - Error Message Validation
+    Given I enter the url for Claim Enrolment journey
     Then I am presented with the "Do You Have Appa Id Page"
     And I click continue button on "Do You Have Appa Id Page"
     Then I am presented with the "Do You Have Appa Id Page" error page

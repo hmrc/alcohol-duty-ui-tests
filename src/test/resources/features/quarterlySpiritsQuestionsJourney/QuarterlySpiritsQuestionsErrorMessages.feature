@@ -16,6 +16,9 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
+    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
+    Then I am presented with the "Quarterly Spirits Returns Guidance Page" error page
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any spirits or ingredients used this quarter"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Total Of All Spirits Page"
@@ -88,33 +91,6 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     When I enter "2045.55" for "Other Ingredients Used Quantity" on "Declare Other Ingredients Page"
     And I click save and continue button on "Declare Other Ingredients Page"
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
-
-    Examples:
-      | errorMessageHeader |
-      | There is a problem |
-
-  @a11y
-  Scenario Outline: Quarterly Spirits Questions - Error Message Validation For Accessibility scan of Error Page
-    Given I cleared the data for the service
-    When I navigate to the "Auth Login Stub Page"
-    And I enter redirectURL on "Auth Login Stub Page"
-    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
-    And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Business Tax Account Page"
-    When I enter redirect url for "Alcohol Duty Service"
-    Then I am presented with the "Before You Start Page"
-    And  I verify the return due date for "Latest Month Selected" on "Before You Start Page"
-    When I click continue button on "Before You Start Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
-    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
-    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
-    Then I am presented with the "Quarterly Spirits Returns Guidance Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any spirits or ingredients used this quarter"
-    When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
-    And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
-    Then I am presented with the "Total Of All Spirits Page"
 
     Examples:
       | errorMessageHeader |

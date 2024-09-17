@@ -28,7 +28,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
     }
   }
 
-  Given("""I enter the url for Unauthenticated journey""") {
+  Given("""I enter the url for Claim Enrolment journey""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id")
   }
 
