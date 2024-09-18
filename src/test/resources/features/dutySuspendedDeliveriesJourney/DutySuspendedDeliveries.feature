@@ -1,7 +1,6 @@
 @Test @AllTests @DutySuspendedDeliveries
 Feature: Alcohol Duty Return - Duty Suspended Deliveries
 
-  @ZAP @a11y
   Scenario: Alcohol Duty Returns - DSD Journey for a user with only wine regime approval
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"

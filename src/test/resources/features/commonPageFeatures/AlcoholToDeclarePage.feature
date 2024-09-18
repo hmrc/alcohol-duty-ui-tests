@@ -7,7 +7,6 @@ Feature: Alcohol To Declare Page
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
 
-  @ZAP @a11y
   Scenario:1. Alcohol to declare page - user with all regimes approvals
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"

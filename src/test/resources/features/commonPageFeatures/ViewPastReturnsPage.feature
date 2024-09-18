@@ -15,6 +15,8 @@ Feature: View Past Returns Journey
     Then I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
 
+#    Need to add a test for validating the page in case of NOT_FOUND error. Will plan to add once the content update is done for this case.
+
   Scenario: 2. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of successful return with multiple regimes
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
