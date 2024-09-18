@@ -200,9 +200,7 @@ Feature: Alcohol Duty Journey - Task List Page
       | Not started                  | Completed                                        | Not started                             | Not started                                  | Not started                                |
 #To verify the status from "Not started' to 'In progress' if the journey is incomplete
     When I click on "Change the entries you’ve told us about" hyperlink on "Task List Page"
-    Then I am presented with the "Adjustment List Page"
-    When I select radio button "Yes" on "Adjustment List Page"
-    And I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"

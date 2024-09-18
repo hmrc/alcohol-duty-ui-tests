@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentListPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustments-to-previous-returns"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustments-to-previous-returns/1"
 
   override val title = "Adjustments to previous returns"
 
