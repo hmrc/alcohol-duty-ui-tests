@@ -1,0 +1,11 @@
+{
+  "add": [
+    {
+      "reason": "PII Disclosure - ZAP mistakenly thinks a credit card number is being leaked by the app",
+      "contextId": 1,
+      "url": "http://localhost:16000/manage-alcohol-duty/.*",
+      "ruleId": 10062,
+      "newLevel": -1
+    }
+  ]
+}
