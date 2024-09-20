@@ -3,10 +3,18 @@ Link: https://github.com/hmrc/alcohol-duty-ui-tests
 
 ### 1. Services
 Start the docker desktop application (and make sure the mongodb is running on the docker)
+
 Start `Alhocol Duty` services as follows:
 sm2 --start ALCOHOL_DUTY_ALL
-To enable test only endpoint for local testing, stop ALCOHOL_DUTY_FRONTEND & ALCOHOL_DUTY_RETURNS from SM2 services and run these services locally with an argument as below:
-sbt "run -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"
+
+To test specific microservices in your local, stop the microservice(s) you'd like to test using service-manager.
+Example: sm2 --start ALCOHOL_DUTY_RETURNS_FRONTEND
+
+Run the microservice(s) you'd like to test using sbt:
+
+- **If running ALCOHOL_DUTY_RETURNS_FRONTEND or ALCOHOL_DUTY_RETURNS:** start using test only routes: `sbt "run -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"`
+- **If running other microservices:** start normally: `sbt run`
+
 
 ### 2. To run all the tests from the UI journey, use below command from the terminal
 ./run_tests.sh
