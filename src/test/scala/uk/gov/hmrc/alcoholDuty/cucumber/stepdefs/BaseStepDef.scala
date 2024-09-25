@@ -302,11 +302,6 @@ trait BaseStepDef
     getBulletPointsTextPureAlcohol should be(expectedText)
   }
 
-  Then("""I should verify the text for the return date on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(now.minusMonths(5).format(formatter))
-  }
-
   Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     entryType match {

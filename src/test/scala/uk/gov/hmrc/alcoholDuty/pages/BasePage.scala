@@ -493,4 +493,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .asScala
     .map(_.getText.trim)
     .toList
+
+  //this method returns a string that contains a date of five months past
+  def getSpecificMonth: String =
+    now.minusMonths(5).format(formatter)
 }
