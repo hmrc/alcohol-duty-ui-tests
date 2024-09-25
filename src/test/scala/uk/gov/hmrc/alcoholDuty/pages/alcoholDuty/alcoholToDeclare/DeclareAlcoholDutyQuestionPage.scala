@@ -22,22 +22,21 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DeclareAlcoholDutyQuestionPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-duty"
-  override val title = "Declaring your alcohol duty"
+  override val title       = "Declaring alcoholic products for duty"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Declaring your alcohol duty - Manage your Alcohol Duty - GOV.UK"
+    "Error: Declaring alcoholic products for duty - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Declaring your alcohol duty - Manage your Alcohol Duty - GOV.UK"
+    "Declaring alcoholic products for duty - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Declaring your alcohol duty")
+  override def expectedPageHeader: Option[String] = Some("Declaring alcoholic products for duty")
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#declareAlcoholDutyQuestion-yesNoValue")
-      case "No" => click on cssSelector("#declareAlcoholDutyQuestion-yesNoValue-no")
+      case "No"  => click on cssSelector("#declareAlcoholDutyQuestion-yesNoValue-no")
     }
-  }
 }

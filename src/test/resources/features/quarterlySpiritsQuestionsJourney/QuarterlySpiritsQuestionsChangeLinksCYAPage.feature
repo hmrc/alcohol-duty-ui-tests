@@ -6,7 +6,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
     When I enter redirect url for "Alcohol Duty Service"
@@ -14,7 +14,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And  I verify the return due date for "Latest Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
@@ -122,7 +122,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
     When I enter redirect url for "Previous Month Period Key"
@@ -131,7 +131,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
-      | Alcohol to declare                       |
-      | Declare adjustments from earlier returns |
-      | Duty suspended deliveries                |
-      | Send return                              |
+      | Declare duty on your alcoholic products   |
+      | Declare adjustments from previous returns |
+      | Report duty suspended alcohol deliveries  |
+      | Send return                               |

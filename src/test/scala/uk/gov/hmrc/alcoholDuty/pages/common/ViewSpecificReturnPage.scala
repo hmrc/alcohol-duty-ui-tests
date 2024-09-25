@@ -21,18 +21,19 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object ViewSpecificReturnPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + getCompletedMonth1PeriodKey
-  override val title       = "Your Alcohol Duty return"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + getCompletedMonth1PeriodKey
+  override val title       = "April 2024 Alcohol Duty Return"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "Error: April 2024 Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "April 2024 Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Your Alcohol Duty return"
+    "April 2024 Alcohol Duty Return"
   )
 }

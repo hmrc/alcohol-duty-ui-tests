@@ -22,13 +22,13 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object ReturnSubmittedPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-submitted"
-  override val title       = "Return submitted"
+  override val title       = "Return sent"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Return submitted - Manage your Alcohol Duty - GOV.UK"
+    "Return sent - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Return submitted"
+    "Return sent"
   )
 }

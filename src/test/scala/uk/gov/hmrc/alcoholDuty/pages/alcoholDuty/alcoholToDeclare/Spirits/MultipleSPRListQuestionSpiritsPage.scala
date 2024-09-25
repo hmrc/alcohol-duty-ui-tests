@@ -22,17 +22,17 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object MultipleSPRListQuestionSpiritsPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-list/Spirits"
-  override val title       = "Small Producer Reliefs to declare"
+  override val title       = "Spirits with Small Producer Relief duty to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Small Producer Reliefs to declare - Manage your Alcohol Duty - GOV.UK"
+    "Error: Spirits with Small Producer Relief duty to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Small Producer Reliefs to declare - Manage your Alcohol Duty - GOV.UK"
+    "Spirits with Small Producer Relief duty to declare - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Small Producer Reliefs to declare")
+  override def expectedPageHeader: Option[String] = Some("Spirits with Small Producer Relief duty to declare")
 
   override def clickRadioButton(text: String): Unit =
     text match {

@@ -21,18 +21,19 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object TaskListPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return"
   override val title       = "Alcohol Duty return"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "Error: Complete your Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
+    "Complete your Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Alcohol Duty return"
+    "Complete your Alcohol Duty Return"
   )
 }

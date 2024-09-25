@@ -22,17 +22,17 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object ViewPastReturnsPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
-  override val title       = "Your Alcohol Duty returns"
+  override val title       = "Your returns"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Your Alcohol Duty returns - Manage your Alcohol Duty - GOV.UK"
+    "Error: Your returns - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Your Alcohol Duty returns - Manage your Alcohol Duty - GOV.UK"
+    "Your returns - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Your Alcohol Duty returns"
+    "Your returns"
   )
 }

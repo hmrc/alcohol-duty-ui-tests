@@ -6,7 +6,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
     When I enter redirect url for "Alcohol Duty Service"
@@ -17,7 +17,7 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to declare any Duty Suspended Deliveries"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you need to tell us about any duty suspended alcohol"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"

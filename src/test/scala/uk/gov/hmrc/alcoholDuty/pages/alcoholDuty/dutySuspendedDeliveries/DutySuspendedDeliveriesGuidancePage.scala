@@ -21,13 +21,14 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DutySuspendedDeliveriesGuidancePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-duty-suspended-deliveries"
-  override val title       = "Tell us about your duty suspended alcohol"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-duty-suspended-deliveries"
+  override val title       = "Calculate your duty suspended alcohol"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your duty suspended alcohol - Manage your Alcohol Duty - GOV.UK"
+  override def expectedPageTitle: Option[String]  = Some(
+    "Calculate your duty suspended alcohol - Manage your Alcohol Duty - GOV.UK"
   )
-  override def expectedPageHeader: Option[String] = Some (
-    "Tell us about your duty suspended alcohol"
+  override def expectedPageHeader: Option[String] = Some(
+    "Calculate your duty suspended alcohol"
   )
 }
