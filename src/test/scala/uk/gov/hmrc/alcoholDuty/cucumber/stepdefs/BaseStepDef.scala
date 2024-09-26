@@ -186,6 +186,12 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  And("""I verify the content {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.className("govuk-heading-l")).getText
+    actualText should be(expectedText)
+  }
+
   And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected                                   = data.asScalaListOfLists
