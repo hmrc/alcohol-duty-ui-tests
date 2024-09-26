@@ -23,17 +23,17 @@ object DeleteMultipleSPRProductQuestionPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/delete-multiple-spr-entry/Beer?index=0"
-  override val title       = "Are you sure you want to remove this product?"
+  override val title       = "Remove this beer entry?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Are you sure you want to remove this product? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Remove this beer entry? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to remove this product? - Manage your Alcohol Duty - GOV.UK"
+    "Remove this beer entry? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Are you sure you want to remove this product?")
+  override def expectedPageHeader: Option[String] = Some("Remove this beer entry?")
 
   override def clickRadioButton(text: String): Unit =
     text match {

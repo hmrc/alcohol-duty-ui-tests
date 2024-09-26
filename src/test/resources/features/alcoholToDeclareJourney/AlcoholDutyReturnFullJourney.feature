@@ -1419,7 +1419,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Delete Multiple SPR Product Question Page" error page
 #Validating the error message
     And I should see the "There is a problem" and below error messages
-      | Select yes if you want to remove this product |
+      | Select yes to remove this entry |
 #If a user selects NO then none of the products will be removed
     When I select radio button "No" on "Delete Multiple SPR Product Question Page"
     And I click save and continue button on "Delete Multiple SPR Product Question Page"

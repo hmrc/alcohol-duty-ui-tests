@@ -229,13 +229,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
   val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
   val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val lastDayOfCurrentMonth: String   =
-    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val lastDayOfPreviousMonth: String  =
-    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("dd MMM yyyy").withLocale(Locale.UK))
+    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()
