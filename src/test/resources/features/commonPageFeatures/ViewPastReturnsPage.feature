@@ -15,9 +15,17 @@ Feature: View Past Returns Journey
     Then I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
 
-#    Need to add a test for validating the page in case of NOT_FOUND error. Will plan to add once the content update is done for this case.
+  Scenario: 2. ADR Journey - To verify the View Past Returns Page when there is no outstanding returns or in case of NOT_FOUND error
+    Given I cleared the data for the service
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL for "View Past Returns Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100206" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "View Past Returns Page"
+    And I verify the content "No outstanding returns" on "View Past Returns Page"
 
-  Scenario: 2. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of successful return with multiple regimes
+  Scenario: 3. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of successful return with multiple regimes
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL for "View Past Returns Page"
@@ -62,7 +70,7 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 5 on "View Specific Return Page"
       | Total duty value | £236,580,913.12 |
 
-  Scenario: 3. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
+  Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL for "View Past Returns Page"
