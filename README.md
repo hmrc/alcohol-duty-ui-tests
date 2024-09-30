@@ -8,7 +8,7 @@ Start `Alhocol Duty` services as follows:
 sm2 --start ALCOHOL_DUTY_ALL
 
 To test specific microservices in your local, stop the microservice(s) you'd like to test using service-manager.
-Example: sm2 --start ALCOHOL_DUTY_RETURNS_FRONTEND
+Example: sm2 --stop ALCOHOL_DUTY_RETURNS_FRONTEND
 
 Run the microservice(s) you'd like to test using sbt:
 
@@ -33,8 +33,7 @@ Then, run the below command to execute tests
 
 ### 5. Accessibility and ZAP tests
 Since the introduction of the ui-test-runner, there is no need to run the Accessibility and ZAP tests separately. They are now part of the test runs. 
-However, make sure to tag the relevant tests accordingly.
-In this repo, we have tagged all ZAP tests with @ZAP and accessibility tests with @a11y. 
+And, no need to tag any tests with @ZAP or @a11y to run ZAP tests or accessibility tests, respectively. 
 
 ### 6. Test inspection and debugging
 Connect to `127.0.0.1:5900` via a VNC client to inspect and debug test execution.

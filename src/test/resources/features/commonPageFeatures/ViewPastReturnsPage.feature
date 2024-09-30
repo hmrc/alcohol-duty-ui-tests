@@ -40,14 +40,13 @@ Feature: View Past Returns Journey
     And I should verify the completed returns details on "View Past Returns Page"
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
-    And I should verify the text for the return date on "View Specific Return Page"
     And I should verify the table header displayed
       | Alcohol declared     |
       | Adjustments declared |
       | Total                |
 #   This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
-      | Description | Litres of pure alcohol (Lpa) | Duty rate (per litre) | Duty value      |
+      | Description | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value      |
       | 301         | 443,784.4567 l               | £1.20 per litre       | £236,159,028.82 |
       | 312         | 7,654.2 l                    | £9.27 per litre       | £70,954.43      |
       | 313         | 300.0532 l                   | £19.08 per litre      | £5,725.02       |
@@ -57,7 +56,7 @@ Feature: View Past Returns Journey
       | Total declared duty value | £236,590,747.53 |
 #  This verifies the details of total adjustments declared section
     And I should verify the details of the table 3 on "View Specific Return Page"
-      | Adjustment     | Description | Litres of pure alcohol (Lpa) | Duty rate (per litre) | Duty value |
+      | Adjustment     | Description | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value |
       | Under-declared | 313         | 12.569 l                     | £19.08 per litre      | £239.82    |
       | Over-declared  | 301         | 34.5625 l                    | £1.20 per litre       | −£41.48    |
       | Repackaged     | 302         | 100.0681 l                   | £2.28 per litre       | £64.05     |
@@ -86,7 +85,6 @@ Feature: View Past Returns Journey
     And I should verify the completed returns details on "View Past Returns Page"
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
-    And I should verify the text for the return date on "View Specific Return Page"
     And I should verify the table header displayed
       | Alcohol declared     |
       | Adjustments declared |

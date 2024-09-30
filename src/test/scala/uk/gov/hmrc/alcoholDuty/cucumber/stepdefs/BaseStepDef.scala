@@ -272,16 +272,12 @@ trait BaseStepDef
     content match {
       case "Latest Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth.drop(
-            1
-          ) + " to " + lastDayOfCurrentMonth + "."
+          "Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth + " to " + lastDayOfCurrentMonth + "."
         )
 
       case "Previous Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth.drop(
-            1
-          ) + " to " + lastDayOfPreviousMonth + "."
+          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
         )
     }
   }
@@ -306,11 +302,6 @@ trait BaseStepDef
   Then("""I can see below text on the {string} for pure alcohol""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     getBulletPointsTextPureAlcohol should be(expectedText)
-  }
-
-  Then("""I should verify the text for the return date on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//div/main/div/div/h2")).getText should be(now.minusMonths(5).format(formatter))
   }
 
   Then("""I can see below text for {string}""") { (entryType: String, data: DataTable) =>

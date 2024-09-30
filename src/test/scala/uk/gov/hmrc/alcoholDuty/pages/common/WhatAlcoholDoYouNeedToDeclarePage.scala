@@ -21,18 +21,19 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object WhatAlcoholDoYouNeedToDeclarePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-types-do-you-need-to-declare"
-  override val title       = "What alcohol do you need to declare on this return?"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/which-types-do-you-need-to-declare"
+  override val title       = "Which types of alcoholic products do you need to declare?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What alcohol do you need to declare on this return? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Which types of alcoholic products do you need to declare? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What alcohol do you need to declare on this return? - Manage your Alcohol Duty - GOV.UK"
+    "Which types of alcoholic products do you need to declare? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "What alcohol do you need to declare on this return?"
+    "Which types of alcoholic products do you need to declare?"
   )
 }

@@ -16,7 +16,7 @@ Feature: Alcohol Duty Returns Journey
 
   Scenario:1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission
 #Beer - When Multiple SPR is set to 'No'
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -24,7 +24,7 @@ Feature: Alcohol Duty Returns Journey
     When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us about your beer" hyperlink on "Task List Page"
+    When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
@@ -100,7 +100,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£14,749.75"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
       | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.5555                      | £9.27                 | £514.99   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change Non-draught beer between 8.5% and 22% ABV (331)      |
@@ -114,10 +114,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Cider - When Multiple SPR is set to 'No'
-    When I click on "Tell us about your cider" hyperlink on "Task List Page"
+    When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
     When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
@@ -183,7 +183,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£4,588.83"
     And I should see the following product details
-      | Description                                                                                         | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
+      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change Draught cider between 1.3% and 3.4% ABV (352)                                                       |
@@ -195,10 +195,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Wine - When Multiple SPR is set to 'No'
-    When I click on "Tell us about your wine" hyperlink on "Task List Page"
+    When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
     When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
@@ -274,7 +274,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£12,164.82"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
       | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change Non-draught wine between 1.3% and 3.4% ABV (313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change Non-draught wine between 3.5% and 8.4% ABV (323)     |
       | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change Non-draught wine between 8.5% and 22% ABV (333)      |
@@ -288,10 +288,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Spirits - When Multiple SPR is set to 'No'
-    When I click on "Tell us about your spirits" hyperlink on "Task List Page"
+    When I click on "Declare spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
     When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
@@ -367,7 +367,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£13,159.65"
     And I should see the following product details
-      | Description                                             | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                         |
+      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                         |
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 88.8                         | £9.27                 | £823.17   | Change Non-draught spirits between 1.3% and 3.4% ABV (315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77                        | £24.77                | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325)     |
       | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66                        | £28.50                | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)      |
@@ -381,10 +381,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Other Fermented Products - When Multiple SPR is set to 'No'
-    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
     When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
@@ -460,7 +460,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£11,153.36"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
+      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
@@ -474,8 +474,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Not yet started                         | Not yet started                              | Not yet started                               |
 #Adjustments Journey - Beer - Under-declaration - Without SPR
     When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
@@ -499,7 +499,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment     | Original return period | Tax type                                         | Volume                                                       | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.5555 litres of pure alcohol (Lpa) | £2,322.64  |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3000.75 litres of beer,250.5555 litres of pure alcohol (LPA) | £2,322.64  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -526,7 +526,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment    | Original return period | Tax type                                          | Volume                                                      | Duty value |
-      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3000.75 litres of cider,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
+      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3000.75 litres of cider,250.55 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -561,7 +561,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (Lpa) | £425.93    |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (LPA) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -590,7 +590,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                            | Volume                                                        | Duty value |
-      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
+      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3000.75 litres of spirits,250.55 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -620,7 +620,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                                             | Volume                                                                         | Duty value |
-      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (Lpa) | −£2,322.59 |
+      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -633,19 +633,19 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
-    When I click on "Reason for under-declaration" hyperlink on "Task List Page"
+    When I click on "Reason for under-declared alcoholic products" hyperlink on "Task List Page"
     Then I am presented with the "Under Declaration Reason Page"
     When I enter "Test Under Declaration Reason" on "Under Declaration Reason Page"
     And I click save and continue button on "Under Declaration Reason Page"
     Then I am presented with the "Task List Page"
-    When I click on "Reason for over-declaration" hyperlink on "Task List Page"
+    When I click on "Reason for over-declared alcoholic products" hyperlink on "Task List Page"
     Then I am presented with the "Over Declaration Reason Page"
     When I enter "Test over Declaration Reason" on "Over Declaration Reason Page"
     And I click save and continue button on "Over Declaration Reason Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Not yet started                              | Not yet started                               |
 # Duty suspended deliveries Journey
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
@@ -675,15 +675,15 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
-      | 2000.75 litres                            | 150.55 litres                                                  | 9999.99 litres                             | 99.19 litres                                                    | 7777.77 litres                            | 77.77 litres                                                   | 2100.75 litres                               | 160.55 litres                                                     | 8888.88 litres                                                | 88.88 litres                                                                       |
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
+      | 2000.75 litres                            | 150.55 litres                                   | 9999.99 litres                             | 99.19 litres                                     | 7777.77 litres                            | 77.77 litres                                    | 2100.75 litres                               | 160.55 litres                                       | 8888.88 litres                                                | 88.88 litres                                                         |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                    | Completed                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                | Completed                               | Not yet started                               |
 #Your spirits and ingredients
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
@@ -734,23 +734,23 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | You’ve told us you need to declare spirits and ingredients | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send return |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                    | Completed                                  | Completed                                                  | Completed                                               | Not started                                    |
-    When I click on "Check how much duty is payable and send return" hyperlink on "Task List Page"
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | You told us you produced spirits this quarter | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send your return |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
+    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£51,597.21"
     And I should see the following details at the returns summary page
-      | Declared spirits duty                  | £13,159.65 | Change |
-      | Declared wine duty                     | £12,164.82 | Change |
-      | Declared cider duty                    | £4,588.83  | Change |
-      | Declared other fermented products duty | £11,153.36 | Change |
-      | Declared beer duty                     | £14,749.75 | Change |
-      | Adjustment duty value                  | −£4,219.20 | Change |
+      | Spirits declared                  | £13,159.65 | Change |
+      | Wine declared                     | £12,164.82 | Change |
+      | Cider declared                    | £4,588.83  | Change |
+      | Other fermented products declared | £11,153.36 | Change |
+      | Beer declared                     | £14,749.75 | Change |
+      | Adjustments to previous returns   | −£4,219.20 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £51,597.21"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -759,7 +759,7 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
 #Beer - When Multiple SPR is set to 'Yes'
-    When I click on "Tell us about your beer" hyperlink on "Task List Page"
+    When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
@@ -789,12 +789,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 Lpa        | £19.00 per litre |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 LPA        | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
-      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
+      | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
@@ -828,7 +828,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£10,717.09"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
       | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.55                        | £9.27                 | £514.94   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
       | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change Non-draught beer between 8.5% and 22% ABV (331)      |
@@ -839,10 +839,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Not started              | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Cider - When Multiple SPR is set to 'Yes'
-    When I click on "Tell us about your cider" hyperlink on "Task List Page"
+    When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
     When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
@@ -868,12 +868,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                                                                         | Total cider     | Total pure alcohol | Duty rate        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.99 Lpa          | £20.99 per litre |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.99 LPA          | £20.99 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     And I should see the following product details
-      | Description                                                                                         | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99                       | 77.99                       | £20.99                    | Change Remove |
+      | Description                                                                                         | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99                       | 77.99                        | £20.99                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Cider Page"
     And I click save and continue button on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
@@ -901,7 +901,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£2,731.28"
     And I should see the following product details
-      | Description                                                                                         | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
+      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change Draught cider between 1.3% and 3.4% ABV (352)                                                       |
@@ -910,10 +910,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Not started             | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Wine - When Multiple SPR is set to 'Yes'
-    When I click on "Tell us about your wine" hyperlink on "Task List Page"
+    When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
     When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
@@ -943,12 +943,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Wine Page"
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                          | Total wine    | Total pure alcohol | Duty rate        |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99 litres | 66.43 Lpa          | £15.65 per litre |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99 litres | 66.43 LPA          | £15.65 per litre |
     When I click continue button on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     And I should see the following product details
-      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99                         | 66.43                       | £15.65                    | Change Remove |
+      | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99                         | 66.43                        | £15.65                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Wine Page"
     And I click save and continue button on "Multiple SPR List Question Wine Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
@@ -982,7 +982,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£7,461.84"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                      |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
       | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change Non-draught wine between 1.3% and 3.4% ABV (313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change Non-draught wine between 3.5% and 8.4% ABV (323)     |
       | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change Non-draught wine between 8.5% and 22% ABV (333)      |
@@ -993,10 +993,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Not started                | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Spirits - When Multiple SPR is set to 'Yes'
-    When I click on "Tell us about your spirits" hyperlink on "Task List Page"
+    When I click on "Declare spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
     When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
@@ -1025,12 +1025,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.55 Lpa          | £20.00 per litre |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.55 LPA          | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     Then I am presented with the "Multiple SPR List Question Spirits Page"
     And I should see the following product details
-      | Description                                         | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99                         | 55.55                       | £20.00                    | Change Remove |
+      | Description                                         | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99                         | 55.55                        | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Spirits Page"
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
@@ -1064,7 +1064,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£8,528.05"
     And I should see the following product details
-      | Description                                         | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                     |
+      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                     |
       | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8                         | £9.27                 | £823.17   | Change Non-draught spirits between 1.3% and 3.4% ABV (315) |
       | Non-draught spirits between 3.5% and 8.4% ABV (325) | 77.77                        | £24.77                | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325) |
       | Non-draught spirits between 8.5% and 22% ABV (335)  | 66.66                        | £28.50                | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)  |
@@ -1075,10 +1075,10 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Not started                                 | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
 #Other Fermented Products - When Multiple SPR is set to 'Yes'
-    When I click on "Tell us about your other fermented products" hyperlink on "Task List Page"
+    When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
     When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
@@ -1108,12 +1108,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                                                            | Total other fermented products | Total pure alcohol | Duty rate        |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.99 Lpa          | £20.00 per litre |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.99 LPA          | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
-      | Description                                                                                                            | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99                         | 99.99                       | £20.00                    | Change Remove |
+      | Description                                                                                                            | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99                         | 99.99                        | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
     And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
@@ -1147,7 +1147,7 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£7,103.76"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (lpa) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
+      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
@@ -1158,8 +1158,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Not started                             | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Not yet started                         | Not yet started                              | Not yet started                               |
 #Adjustments Journey Beer - Under-declaration - With SPR
     When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
@@ -1184,7 +1184,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (Lpa) | £2,455.39  |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3000.75 litres of beer,250.55 litres of pure alcohol (LPA) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1212,7 +1212,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                       | Duty value     |
-      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £898.89       | 9999.99 litres of cider,7777.77 litres of pure alcohol (Lpa) | −£6,991,359.67 |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £898.89       | 9999.99 litres of cider,7777.77 litres of pure alcohol (LPA) | −£6,991,359.67 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1241,7 +1241,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                        | Duty value |
-      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (Lpa) | −£2,455.39 |
+      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3000.75 litres of spirits,250.55 litres of pure alcohol (LPA) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1271,7 +1271,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                           | Duty value |
-      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.5599 litres of pure alcohol (Lpa) | −£2,455.48 |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3000.75 litres of other fermented products,250.5599 litres of pure alcohol (LPA) | −£2,455.48 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1284,21 +1284,21 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Not started                  | Not started                 | Not started                                  | Not started                                |
-    When I click on "Reason for under-declaration" hyperlink on "Task List Page"
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Not yet started                              | Not yet started                             | Not yet started                              | Not yet started                               |
+    When I click on "Reason for under-declared alcoholic products" hyperlink on "Task List Page"
     Then I am presented with the "Under Declaration Reason Page"
     When I enter "Test Under Declaration Reason" on "Under Declaration Reason Page"
     And I click save and continue button on "Under Declaration Reason Page"
     Then I am presented with the "Task List Page"
-    When I click on "Reason for over-declaration" hyperlink on "Task List Page"
+    When I click on "Reason for over-declared alcoholic products" hyperlink on "Task List Page"
     Then I am presented with the "Over Declaration Reason Page"
     When I enter "Test over Declaration Reason" on "Over Declaration Reason Page"
     And I click save and continue button on "Over Declaration Reason Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Not started                                  | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Not yet started                              | Not yet started                               |
 #  DSD- nothing to declare
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
@@ -1306,32 +1306,32 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You don’t need to tell us about any duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                     | Not started                                |
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you do not have any duty suspended deliveries to report | Have you produced spirits from raw materials? |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                           | Not yet started                               |
 # Spirits and ingredients- nothing to declare
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you need to declare duty | Tell us about your beer | Tell us about your cider | Tell us about your wine | Tell us about your spirits | Tell us about your other fermented products | You’ve told us you need to declare an adjustment | Change the entries you’ve told us about | Reason for under-declaration | Reason for over-declaration | You don’t need to tell us about any duty suspended deliveries | You don’t need to tell us about any spirits or ingredients | Check how much duty is payable and send return |
-      | Completed                               | Completed               | Completed                | Completed               | Completed                  | Completed                                   | Completed                                        | Completed                               | Completed                    | Completed                   | Completed                                                     | Completed                                                  | Not started                                    |
-    When I click on "Check how much duty is payable and send return" hyperlink on "Task List Page"
+      | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you do not have any duty suspended deliveries to report | You told us you have not produced spirits this quarter | Check how much duty is payable and send your return |
+      | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                           | Completed                                              | Not yet started                                     |
+    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "−£6,957,273.13"
     And I should see the following details at the returns summary page
-      | Declared spirits duty                  | £8,528.05      | Change |
-      | Declared wine duty                     | £7,461.84      | Change |
-      | Declared cider duty                    | £2,731.28      | Change |
-      | Declared other fermented products duty | £7,103.76      | Change |
-      | Declared beer duty                     | £10,717.09     | Change |
-      | Adjustment duty value                  | −£6,993,815.15 | Change |
+      | Spirits declared                  | £8,528.05      | Change |
+      | Wine declared                     | £7,461.84      | Change |
+      | Cider declared                    | £2,731.28      | Change |
+      | Other fermented products declared | £7,103.76      | Change |
+      | Beer declared                     | £10,717.09     | Change |
+      | Adjustments to previous returns   | −£6,993,815.15 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You are owed −£6,957,273.13"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "No" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -1346,25 +1346,25 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us about your spirits and ingredients" hyperlink on "Task List Page"
+    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You’ve told us you don’t need to declare duty | You’ve told us you do not need to declare any adjustments | You don’t need to tell us about any duty suspended deliveries | You don’t need to tell us about any spirits or ingredients | Check how much duty is payable and send return |
-      | Completed                                     | Completed                                                 | Completed                                                     | Completed                                                  | Not started                                    |
-    When I click on "Check how much duty is payable and send return" hyperlink on "Task List Page"
+      | You told us you do not need to declare duty | You told us you do not need to declare any adjustments | You told us you do not have any duty suspended deliveries to report | You told us you have not produced spirits this quarter | Check how much duty is payable and send your return |
+      | Completed                                   | Completed                                              | Completed                                                           | Completed                                              | Not yet started                                     |
+    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Nil Return Summary Page"
     And I should see the following details at the returns summary page
-      | Declared duty         | Nil | Change |
-      | Adjustment duty value | Nil | Change |
+      | Declared duty                   | Nil | Change |
+      | Adjustments to previous returns | Nil | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You have nothing to pay"
 
   Scenario:4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality
-    When I click on "Do you need to declare duty?" hyperlink on "Task List Page"
+    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -1372,7 +1372,7 @@ Feature: Alcohol Duty Returns Journey
     When I "select" checkbox "Beer" on "What Alcohol Do You Need To Declare Page"
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us about your beer" hyperlink on "Task List Page"
+    When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
@@ -1388,12 +1388,12 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 Lpa        | £19.00 per litre |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9999 LPA        | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
-      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
+      | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
 #Adding one more product to the list
     When I select radio button "Yes" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
@@ -1406,28 +1406,28 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                      | Total beer      | Total pure alcohol | Duty rate        |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77 litres | 777.7777 Lpa       | £77.77 per litre |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77 litres | 777.7777 LPA       | £77.77 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
-      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+      | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                     | £77.77                | Change Remove |
     When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Delete Multiple SPR Product Question Page"
     When I click save and continue button on "Delete Multiple SPR Product Question Page"
     Then I am presented with the "Delete Multiple SPR Product Question Page" error page
 #Validating the error message
     And I should see the "There is a problem" and below error messages
-      | Select yes if you want to remove this product |
+      | Select yes to remove this entry |
 #If a user selects NO then none of the products will be removed
     When I select radio button "No" on "Delete Multiple SPR Product Question Page"
     And I click save and continue button on "Delete Multiple SPR Product Question Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
-      | Description                                          | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                     | £19.00                    | Change Remove |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+      | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 7,777.77                       | 777.7777                     | £77.77                | Change Remove |
     When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Delete Multiple SPR Product Question Page"
 #If a user selects YES then the selected product will be removed (removing 1 of 2 products)
@@ -1435,8 +1435,8 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Delete Multiple SPR Product Question Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
-      | Description                                      | Total volume declared (litres) | Pure alcohol declared (lpa) | SPR duty rate (per litre) | Action        |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77                       | 777.7777                    | £77.77                    | Change Remove |
+      | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 7,777.77                       | 777.7777                     | £77.77                | Change Remove |
 #If all products are removed from the list then the user is presented with 'Do You Have Multiple Small Producer Relief Duty Rate Page' to add products (removing 1 of 1 products)
     When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Delete Multiple SPR Product Question Page"

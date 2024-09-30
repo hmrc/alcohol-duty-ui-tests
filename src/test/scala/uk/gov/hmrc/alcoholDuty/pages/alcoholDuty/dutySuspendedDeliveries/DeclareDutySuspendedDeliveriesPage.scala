@@ -21,23 +21,23 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclareDutySuspendedDeliveriesPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended"
-  override val title       = "Do you need to declare alcohol you delivered or received duty suspended?"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/do-you-need-to-declare-delivered-received-duty-suspended"
+  override val title       = "Do you need to tell us about any duty suspended alcohol?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Do you need to declare alcohol you delivered or received duty suspended? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Do you need to tell us about any duty suspended alcohol? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to declare alcohol you delivered or received duty suspended? - Manage your Alcohol Duty - GOV.UK"
+    "Do you need to tell us about any duty suspended alcohol? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Do you need to declare alcohol you delivered or received duty suspended?")
+  override def expectedPageHeader: Option[String] = Some("Do you need to tell us about any duty suspended alcohol?")
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#declare-duty-suspended-deliveries-input")
-      case "No" => click on cssSelector("#declare-duty-suspended-deliveries-input-no")
+      case "No"  => click on cssSelector("#declare-duty-suspended-deliveries-input-no")
     }
-  }
 }

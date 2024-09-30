@@ -21,19 +21,20 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentListPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustments-to-previous-returns/1"
+  override val url: String =
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustments-to-previous-returns/1"
 
-  override val title = "Adjustments to previous returns"
+  override val title = "Adjustments from previous returns"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Adjustments to previous returns - Manage your Alcohol Duty - GOV.UK"
+    "Error: Adjustments from previous returns - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Adjustments to previous returns - Manage your Alcohol Duty - GOV.UK"
+    "Adjustments from previous returns - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Adjustments to previous returns")
+  override def expectedPageHeader: Option[String] = Some("Adjustments from previous returns")
 
   override def clickRadioButton(text: String): Unit =
     text match {

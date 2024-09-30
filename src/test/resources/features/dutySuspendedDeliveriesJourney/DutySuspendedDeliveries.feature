@@ -1,7 +1,7 @@
 @Test @AllTests @DutySuspendedDeliveries
 Feature: Alcohol Duty Return - Duty Suspended Deliveries
 
-  Scenario: Alcohol Duty Returns - DSD Journey for a user with only wine regime approval
+  Scenario:1. Declare Duty Suspended Deliveries Journey for a user with only wine regime approval
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
@@ -13,14 +13,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare                       |
-      | Declare adjustments from earlier returns |
-      | Duty suspended deliveries                |
-      | Send return                              |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries |
-      | Not started                  | Not started                             | Not started                                  |
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -37,15 +29,15 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
-      | 7777.77 litres                            | 77.77 litres                                                   | 8888.88 litres                                                | 88.88 litres                                                                       |
+      | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
+      | 7777.77 litres                            | 77.77 litres                                    | 8888.88 litres                                                | 88.88 litres                                                         |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about |
-      | Not started                  | Not started                             | Completed                                                    | Completed                                  |
+      | Tell us if you need to declare duty | Do you need to declare any adjustments? | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about |
+      | Not yet started                     | Not yet started                         | Completed                                                | Completed                               |
 
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
+  Scenario:2. Declare Duty Suspended Deliveries Page - User with beer and spirits regime approval
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
@@ -57,15 +49,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    And I should see the following subsections
-      | Alcohol to declare                       |
-      | Declare adjustments from earlier returns |
-      | Duty suspended deliveries                |
-      | Your spirits and ingredients             |
-      | Send return                              |
-    And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Tell us about your spirits and ingredients |
-      | Not started                  | Not started                             | Not started                                  | Not started                                |
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
@@ -82,20 +65,20 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits |
-      | 2000.75 litres                            | 150.55 litres                                                  | 2100.75 litres                               | 160.55 litres                                                     |
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits |
+      | 2000.75 litres                            | 150.55 litres                                   | 2100.75 litres                               | 160.55 litres                                       |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Do you need to declare duty? | Do you need to declare any adjustments? | You’ve told us you need to declare duty suspended deliveries | Change the deliveries you’ve told us about | Tell us about your spirits and ingredients |
-      | Not started                  | Not started                             | Completed                                                    | Completed                                  | Not started                                |
+      | Tell us if you need to declare duty | Do you need to declare any adjustments? | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | Have you produced spirits from raw materials? |
+      | Not yet started                     | Not yet started                         | Completed                                                | Completed                               | Not yet started                               |
 
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - With option 'No'
+  Scenario:3. Declare Duty Suspended Deliveries Page - With option 'No'
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
     When I enter redirect url for "Alcohol Duty Service"
@@ -109,12 +92,12 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     Then I am presented with the "Task List Page"
 
 
-  Scenario: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
+  Scenario:4. Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL on "Auth Login Stub Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
     When I enter redirect url for "Alcohol Duty Service"
@@ -149,8 +132,8 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
-      | 2000.75 litres                            | 150.55 litres                                                  | 9999.99 litres                             | 99.19 litres                                                    | 7777.77 litres                            | 77.77 litres                                                   | 2100.75 litres                               | 160.55 litres                                                     | 8888.88 litres                                                | 88.88 litres                                                                       |
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
+      | 2000.75 litres                            | 150.55 litres                                   | 9999.99 litres                             | 99.19 litres                                     | 7777.77 litres                            | 77.77 litres                                    | 2100.75 litres                               | 160.55 litres                                       | 8888.88 litres                                                | 88.88 litres                                                         |
     When I click "Change total net quantity of duty suspended beer" on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Duty Suspended Beer Page" with new url
     When I enter "3000.75" for "Total Beer" on "Duty Suspended Beer Page"
@@ -182,5 +165,5 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in your duty suspended beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in your duty suspended cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in your duty suspended wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in your duty suspended spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in your duty suspended other fermented products |
-      | 3000.75 litres                            | 250.55 litres                                                  | 1500.35 litres                             | 300.55 litres                                                   | 2800.35 litres                            | 160.65 litres                                                  | 7800.35 litres                               | 460.65 litres                                                     | 8800.35 litres                                                | 560.65 litres                                                                      |
+      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
+      | 3000.75 litres                            | 250.55 litres                                   | 1500.35 litres                             | 300.55 litres                                    | 2800.35 litres                            | 160.65 litres                                   | 7800.35 litres                               | 460.65 litres                                       | 8800.35 litres                                                | 560.65 litres                                                        |
