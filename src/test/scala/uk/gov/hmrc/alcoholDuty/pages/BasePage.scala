@@ -270,7 +270,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       "Pay now"
     ),
     List(
-      currentDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy").withLocale(Locale.UK)),
+      currentDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
       "Late payment interest charge",
       "£20.56",
       "Due",
