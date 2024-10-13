@@ -9,6 +9,3 @@ Feature: Alcohol Duty Returns Redirection to Business Account
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "Business Tax Account Page"
-
-
-
