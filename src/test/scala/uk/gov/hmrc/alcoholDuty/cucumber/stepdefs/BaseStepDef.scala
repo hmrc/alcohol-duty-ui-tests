@@ -272,12 +272,12 @@ trait BaseStepDef
     content match {
       case "Latest Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + firstDayOfCurrentMonth + " to " + lastDayOfCurrentMonth + "."
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfCurrentMonth + " to " + lastDayOfCurrentMonth + "."
         )
 
       case "Previous Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
         )
     }
   }
