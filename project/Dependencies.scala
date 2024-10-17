@@ -1,10 +1,11 @@
-import sbt.*
+import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil.Test
+import sbt.{*, ModuleID}
 
 object Dependencies {
 
   val test: Seq[ModuleID] = Seq(
     "org.scalatest"       %% "scalatest"              % "3.2.19"   % Test,
-    "io.cucumber"         %% "cucumber-scala"         % "8.25.0"   % Test,
+    "io.cucumber"         %% "cucumber-scala"         % "8.25.1"   % Test,
     "io.cucumber"          % "cucumber-junit"         % "7.20.1"   % Test,
     "io.cucumber"          % "cucumber-picocontainer" % "7.20.1"   % Test,
     "junit"                % "junit"                  % "4.13.2"   % Test,
