@@ -1,5 +1,4 @@
-import org.apache.logging.log4j.core.config.plugins.util.ResolverUtil.Test
-import sbt.{*, ModuleID}
+import sbt.*
 
 object Dependencies {
 
