@@ -12,6 +12,7 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
 
+
   Scenario:1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission
 #Beer - When Multiple SPR is set to 'No'
     When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
@@ -98,17 +99,17 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£14,749.75"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
-      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.5555                      | £9.27                 | £514.99   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
-      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
-      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer at or above 22.1% ABV (341)         |
-      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42   | Change Draught beer between 1.3% and 3.4% ABV (351)         |
-      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26 | Change Draught beer between 3.5% and 8.4% ABV (356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 99.45                        | £15.00                | £1,491.75 | Change Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 78.9                         | £18.00                | £1,420.20 | Change Non-draught beer between 3.5% and 8.4% ABV (366 SPR) |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
-      | Draught beer between 3.5% and 8.4% ABV (376 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.5555                      | £9.27                 | £514.99   | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change |
+      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change |
+      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47 | Change |
+      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42   | Change |
+      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26 | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 99.45                        | £15.00                | £1,491.75 | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 78.9                         | £18.00                | £1,420.20 | Change |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change |
+      | Draught beer between 3.5% and 8.4% ABV (376 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -181,15 +182,15 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£4,588.83"
     And I should see the following product details
-      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
-      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
-      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change Draught cider between 1.3% and 3.4% ABV (352)                                                       |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.45                        | £8.78                 | £197.11   | Change Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         |
-      | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               | 66.66                        | £14.00                | £933.24   | Change Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 98.99                        | £12.45                | £1,232.42 | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   | 45.56                        | £16.00                | £728.96   | Change Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     | 33.33                        | £18.00                | £599.94   | Change Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
+      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change |
+      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.45                        | £8.78                 | £197.11   | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               | 66.66                        | £14.00                | £933.24   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 98.99                        | £12.45                | £1,232.42 | Change |
+      | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   | 45.56                        | £16.00                | £728.96   | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     | 33.33                        | £18.00                | £599.94   | Change |
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -272,17 +273,17 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£12,164.82"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
-      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change Non-draught wine between 1.3% and 3.4% ABV (313)     |
-      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change Non-draught wine between 3.5% and 8.4% ABV (323)     |
-      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change Non-draught wine between 8.5% and 22% ABV (333)      |
-      | Non-draught wine at or above 22.1% ABV (343)         | 82.22                        | £31.64                | £2,601.44 | Change Non-draught wine at or above 22.1% ABV (343)         |
-      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.33                        | £8.42                 | £188.01   | Change Draught wine between 1.3% and 3.4% ABV (353)         |
-      | Draught wine between 3.5% and 8.4% ABV (358)         | 24.55                        | £19.08                | £468.41   | Change Draught wine between 3.5% and 8.4% ABV (358)         |
-      | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | 99.45                        | £15.00                | £1,491.75 | Change Non-draught wine between 1.3% and 3.4% ABV (363 SPR) |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 78.9                         | £18.00                | £1,420.20 | Change Non-draught wine between 3.5% and 8.4% ABV (368 SPR) |
-      | Draught wine between 1.3% and 3.4% ABV (373 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
-      | Draught wine between 3.5% and 8.4% ABV (378 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change |
+      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change |
+      | Non-draught wine at or above 22.1% ABV (343)         | 82.22                        | £31.64                | £2,601.44 | Change |
+      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.33                        | £8.42                 | £188.01   | Change |
+      | Draught wine between 3.5% and 8.4% ABV (358)         | 24.55                        | £19.08                | £468.41   | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | 99.45                        | £15.00                | £1,491.75 | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 78.9                         | £18.00                | £1,420.20 | Change |
+      | Draught wine between 1.3% and 3.4% ABV (373 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change |
+      | Draught wine between 3.5% and 8.4% ABV (378 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change |
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -365,17 +366,17 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£13,159.65"
     And I should see the following product details
-      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                         |
-      | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 88.8                         | £9.27                 | £823.17   | Change Non-draught spirits between 1.3% and 3.4% ABV (315)     |
-      | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77                        | £24.77                | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325)     |
-      | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66                        | £28.50                | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)      |
-      | Non-draught spirits at or above 22.1% ABV (345)         | 55.55                        | £31.64                | £1,757.60 | Change Non-draught spirits at or above 22.1% ABV (345)         |
-      | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.44                        | £8.42                 | £374.18   | Change Draught spirits between 1.3% and 3.4% ABV (355)         |
-      | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.33                        | £19.08                | £635.93   | Change Draught spirits between 3.5% and 8.4% ABV (360)         |
-      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.45                        | £15.00                | £1,491.75 | Change Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
-      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 78.9                         | £18.00                | £1,420.20 | Change Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
-      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change Draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
+      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 88.8                         | £9.27                 | £823.17   | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77                        | £24.77                | £1,926.36 | Change |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66                        | £28.50                | £1,899.81 | Change |
+      | Non-draught spirits at or above 22.1% ABV (345)         | 55.55                        | £31.64                | £1,757.60 | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.44                        | £8.42                 | £374.18   | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.33                        | £19.08                | £635.93   | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.45                        | £15.00                | £1,491.75 | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 78.9                         | £18.00                | £1,420.20 | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     | 99.99                        | £15.00                | £1,499.85 | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change |
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -458,17 +459,17 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£11,153.36"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.55                        | £19.08                | £659.21   | Change Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 77.77                        | £15.00                | £1,166.55 | Change Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.88                        | £16.00                | £1,422.08 | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
-      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.77                        | £20.00                | £1,575.40 | Change Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     | 99.23                        | £19.00                | £1,885.37 | Change Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
+      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.55                        | £19.08                | £659.21   | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 77.77                        | £15.00                | £1,166.55 | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.88                        | £16.00                | £1,422.08 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.77                        | £20.00                | £1,575.40 | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     | 99.23                        | £19.00                | £1,885.37 | Change |
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -826,14 +827,14 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£10,717.09"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
-      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.55                        | £9.27                 | £514.94   | Change Non-draught beer between 1.3% and 3.4% ABV (311)     |
-      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change Non-draught beer between 3.5% and 8.4% ABV (321)     |
-      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change Non-draught beer between 8.5% and 22% ABV (331)      |
-      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47 | Change Non-draught beer at or above 22.1% ABV (341)         |
-      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42   | Change Draught beer between 1.3% and 3.4% ABV (351)         |
-      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26 | Change Draught beer between 3.5% and 8.4% ABV (356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 89.9999                      | £19.00                | £1,709.99 | Change Non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.55                        | £9.27                 | £514.94   | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 77.55                        | £21.01                | £1,629.32 | Change |
+      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69 | Change |
+      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47 | Change |
+      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42   | Change |
+      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26 | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 89.9999                      | £19.00                | £1,709.99 | Change |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -899,12 +900,12 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£2,731.28"
     And I should see the following product details
-      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                     |
-      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
-      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change Draught cider between 1.3% and 3.4% ABV (352)                                                       |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.45                        | £8.78                 | £197.11   | Change Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 77.99                        | £20.99                | £1,637.01 | Change Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
+      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.44                        | £9.27                 | £402.68   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change |
+      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.45                        | £8.78                 | £197.11   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 77.99                        | £20.99                | £1,637.01 | Change |
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -980,14 +981,14 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£7,461.84"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                      |
-      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change Non-draught wine between 1.3% and 3.4% ABV (313)     |
-      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change Non-draught wine between 3.5% and 8.4% ABV (323)     |
-      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change Non-draught wine between 8.5% and 22% ABV (333)      |
-      | Non-draught wine at or above 22.1% ABV (343)         | 82.22                        | £31.64                | £2,601.44 | Change Non-draught wine at or above 22.1% ABV (343)         |
-      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.33                        | £8.42                 | £188.01   | Change Draught wine between 1.3% and 3.4% ABV (353)         |
-      | Draught wine between 3.5% and 8.4% ABV (358)         | 24.55                        | £19.08                | £468.41   | Change Draught wine between 3.5% and 8.4% ABV (358)         |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 66.43                        | £15.65                | £1,039.62 | Change Non-draught wine between 3.5% and 8.4% ABV (368 SPR) |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change |
+      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change |
+      | Non-draught wine at or above 22.1% ABV (343)         | 82.22                        | £31.64                | £2,601.44 | Change |
+      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.33                        | £8.42                 | £188.01   | Change |
+      | Draught wine between 3.5% and 8.4% ABV (358)         | 24.55                        | £19.08                | £468.41   | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 66.43                        | £15.65                | £1,039.62 | Change |
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1062,14 +1063,14 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£8,528.05"
     And I should see the following product details
-      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                     |
-      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8                         | £9.27                 | £823.17   | Change Non-draught spirits between 1.3% and 3.4% ABV (315) |
-      | Non-draught spirits between 3.5% and 8.4% ABV (325) | 77.77                        | £24.77                | £1,926.36 | Change Non-draught spirits between 3.5% and 8.4% ABV (325) |
-      | Non-draught spirits between 8.5% and 22% ABV (335)  | 66.66                        | £28.50                | £1,899.81 | Change Non-draught spirits between 8.5% and 22% ABV (335)  |
-      | Non-draught spirits at or above 22.1% ABV (345)     | 55.55                        | £31.64                | £1,757.60 | Change Non-draught spirits at or above 22.1% ABV (345)     |
-      | Draught spirits between 1.3% and 3.4% ABV (355)     | 44.44                        | £8.42                 | £374.18   | Change Draught spirits between 1.3% and 3.4% ABV (355)     |
-      | Draught spirits between 3.5% and 8.4% ABV (360)     | 33.33                        | £19.08                | £635.93   | Change Draught spirits between 3.5% and 8.4% ABV (360)     |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 55.55                        | £20.00                | £1,111.00 | Change Draught spirits between 3.5% and 8.4% ABV (380 SPR) |
+      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8                         | £9.27                 | £823.17   | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325) | 77.77                        | £24.77                | £1,926.36 | Change |
+      | Non-draught spirits between 8.5% and 22% ABV (335)  | 66.66                        | £28.50                | £1,899.81 | Change |
+      | Non-draught spirits at or above 22.1% ABV (345)     | 55.55                        | £31.64                | £1,757.60 | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (355)     | 44.44                        | £8.42                 | £374.18   | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (360)     | 33.33                        | £19.08                | £635.93   | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 55.55                        | £20.00                | £1,111.00 | Change |
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1145,14 +1146,14 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£7,103.76"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action                                                                                                                        |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.55                        | £19.08                | £659.21   | Change Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 99.99                        | £20.00                | £1,999.80 | Change Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
+      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.55                        | £19.08                | £659.21   | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 99.99                        | £20.00                | £1,999.80 | Change |
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
