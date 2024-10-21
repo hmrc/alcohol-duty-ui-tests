@@ -48,7 +48,7 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 1 on "View Specific Return Page"
       | Description | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value      |
       | 301         | 443,784.4567 l               | £1.20 per litre       | £236,159,028.82 |
-      | 312         | 7,654.2 l                    | £9.27 per litre       | £70,954.43      |
+      | 312         | 7,654.2000 l                 | £9.27 per litre       | £70,954.43      |
       | 313         | 300.0532 l                   | £19.08 per litre      | £5,725.02       |
       | 315         | 43,456.4584 l                | £8.17 per litre       | £355,039.26     |
 #  This verifies the details of total declared duty value section
@@ -57,12 +57,12 @@ Feature: View Past Returns Journey
 #  This verifies the details of total adjustments declared section
     And I should verify the details of the table 3 on "View Specific Return Page"
       | Adjustment     | Description | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value |
-      | Under-declared | 313         | 12.569 l                     | £19.08 per litre      | £239.82    |
+      | Under-declared | 313         | 12.5690 l                    | £19.08 per litre      | £239.82    |
       | Over-declared  | 301         | 34.5625 l                    | £1.20 per litre       | −£41.48    |
       | Repackaged     | 302         | 100.0681 l                   | £2.28 per litre       | £64.05     |
-      | Spoilt         | 315         | 1,000 l                      | £8.17 per litre       | −£8,170.00 |
-      | Drawback       | 300         | 311.51 l                     | £2.20 per litre       | −£685.32   |
-      | Drawback       | 301         | 1,000 l                      | £1.20 per litre       | −£1,200.00 |
+      | Spoilt         | 315         | 1,000.0000 l                 | £8.17 per litre       | −£8,170.00 |
+      | Drawback       | 300         | 311.5100 l                   | £2.20 per litre       | −£685.32   |
+      | Drawback       | 301         | 1,000.0000 l                 | £1.20 per litre       | −£1,200.00 |
 #  This verifies the details of total adjustments duty value section
     And I should verify the details of the table 4 on "View Specific Return Page"
       | Total adjustments duty value | −£9,792.93 |
