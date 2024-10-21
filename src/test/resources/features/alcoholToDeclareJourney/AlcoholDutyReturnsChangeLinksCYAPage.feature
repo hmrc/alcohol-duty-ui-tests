@@ -70,31 +70,31 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 999.19 litres |
-      | Pure alcohol  | 99.13 litres  |
-      | Total volume  | 945.55 litres |
-      | Pure alcohol  | 55.55 litres  |
-      | Total volume  | 667.32 litres |
-      | Pure alcohol  | 66.34 litres  |
-      | Total volume  | 898.34 litres |
-      | Pure alcohol  | 77.55 litres  |
-      | Total volume  | 699.45 litres |
-      | Pure alcohol  | 66.89 litres  |
-      | Total volume  | 887.54 litres |
-      | Pure alcohol  | 66.44 litres  |
-      | Total volume  | 888.88 litres |
-      | Pure alcohol  | 99.45 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 776.45 litres |
-      | Pure alcohol  | 78.9 litres   |
-      | SPR duty rate | £18.00        |
-      | Total volume  | 776.89 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 889.65 litres |
-      | Pure alcohol  | 66.54 litres  |
-      | SPR duty rate | £20.00        |
+      | key           | value          |
+      | Total volume  | 999.19 litres  |
+      | Pure alcohol  | 99.1300 litres |
+      | Total volume  | 945.55 litres  |
+      | Pure alcohol  | 55.5500 litres |
+      | Total volume  | 667.32 litres  |
+      | Pure alcohol  | 66.3400 litres |
+      | Total volume  | 898.34 litres  |
+      | Pure alcohol  | 77.5500 litres |
+      | Total volume  | 699.45 litres  |
+      | Pure alcohol  | 66.8900 litres |
+      | Total volume  | 887.54 litres  |
+      | Pure alcohol  | 66.4400 litres |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.4500 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9000 litres |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 889.65 litres  |
+      | Pure alcohol  | 66.5400 litres |
+      | SPR duty rate | £20.00         |
 #To verify 'Change' link functionality for Beer to declare
     When I click "Change Beer to declare" on "Check Your Answers Returns Beer Page"
     Then I am presented with the "What Do You Need To Declare Beer Page" with new url
@@ -145,28 +145,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
     And I check the page source for the following key-value pairs:
-      | Total volume  | 945.55 litres |
-      | Pure alcohol  | 55.55 litres  |
-      | Total volume  | 667.32 litres |
-      | Pure alcohol  | 66.34 litres  |
-      | Total volume  | 898.34 litres |
-      | Pure alcohol  | 77.55 litres  |
-      | Total volume  | 699.45 litres |
-      | Pure alcohol  | 66.89 litres  |
-      | Total volume  | 887.54 litres |
-      | Pure alcohol  | 66.44 litres  |
-      | Total volume  | 888.88 litres |
-      | Pure alcohol  | 99.45 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 776.45 litres |
-      | Pure alcohol  | 78.9 litres   |
-      | SPR duty rate | £18.00        |
-      | Total volume  | 776.89 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 889.65 litres |
-      | Pure alcohol  | 66.54 litres  |
-      | SPR duty rate | £20.00        |
+      | Total volume  | 945.55 litres  |
+      | Pure alcohol  | 55.5500 litres |
+      | Total volume  | 667.32 litres  |
+      | Pure alcohol  | 66.3400 litres |
+      | Total volume  | 898.34 litres  |
+      | Pure alcohol  | 77.5500 litres |
+      | Total volume  | 699.45 litres  |
+      | Pure alcohol  | 66.8900 litres |
+      | Total volume  | 887.54 litres  |
+      | Pure alcohol  | 66.4400 litres |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.4500 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9000 litres |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 889.65 litres  |
+      | Pure alcohol  | 66.5400 litres |
+      | SPR duty rate | £20.00         |
 #To verify 'Change' link functionality for Beer duty
     When I click "Change Beer duty" on "Check Your Answers Returns Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" with new url
@@ -189,28 +189,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
     And I check the page source for the following key-value pairs:
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | Total volume  | 667.32 litres |
-      | Pure alcohol  | 66.34 litres  |
-      | Total volume  | 898.34 litres |
-      | Pure alcohol  | 77.55 litres  |
-      | Total volume  | 699.45 litres |
-      | Pure alcohol  | 66.89 litres  |
-      | Total volume  | 887.54 litres |
-      | Pure alcohol  | 66.44 litres  |
-      | Total volume  | 888.88 litres |
-      | Pure alcohol  | 99.45 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 776.45 litres |
-      | Pure alcohol  | 78.9 litres   |
-      | SPR duty rate | £18.00        |
-      | Total volume  | 776.89 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | SPR duty rate | £15.00        |
-      | Total volume  | 889.65 litres |
-      | Pure alcohol  | 66.54 litres  |
-      | SPR duty rate | £20.00        |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | Total volume  | 667.32 litres  |
+      | Pure alcohol  | 66.3400 litres |
+      | Total volume  | 898.34 litres  |
+      | Pure alcohol  | 77.5500 litres |
+      | Total volume  | 699.45 litres  |
+      | Pure alcohol  | 66.8900 litres |
+      | Total volume  | 887.54 litres  |
+      | Pure alcohol  | 66.4400 litres |
+      | Total volume  | 888.88 litres  |
+      | Pure alcohol  | 99.4500 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 776.45 litres  |
+      | Pure alcohol  | 78.9000 litres |
+      | SPR duty rate | £18.00         |
+      | Total volume  | 776.89 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | SPR duty rate | £15.00         |
+      | Total volume  | 889.65 litres  |
+      | Pure alcohol  | 66.5400 litres |
+      | SPR duty rate | £20.00         |
 #To verify 'Change' link functionality for Beer eligible for Small Producer Relief
     When I click "Change Beer eligible for Small Producer Relief" on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Single Small Producer Relief Rate Beer Page" with new url
@@ -224,42 +224,42 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Single Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I check the page source for the following key-value pairs:
-      | Total volume  | 999.99 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | Total volume  | 667.32 litres  |
-      | Pure alcohol  | 66.34 litres   |
-      | Total volume  | 898.34 litres  |
-      | Pure alcohol  | 77.55 litres   |
-      | Total volume  | 699.45 litres  |
-      | Pure alcohol  | 66.89 litres   |
-      | Total volume  | 887.54 litres  |
-      | Pure alcohol  | 66.44 litres   |
-      | Total volume  | 9999.99 litres |
-      | Pure alcohol  | 999.99 litres  |
-      | SPR duty rate | £99.99         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | Total volume  | 999.99 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | Total volume  | 667.32 litres   |
+      | Pure alcohol  | 66.3400 litres  |
+      | Total volume  | 898.34 litres   |
+      | Pure alcohol  | 77.5500 litres  |
+      | Total volume  | 699.45 litres   |
+      | Pure alcohol  | 66.8900 litres  |
+      | Total volume  | 887.54 litres   |
+      | Pure alcohol  | 66.4400 litres  |
+      | Total volume  | 9,999.99 litres |
+      | Pure alcohol  | 999.9900 litres |
+      | SPR duty rate | £99.99          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£113,203.47"
 #At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due   | Action |
-      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 99.99                        | £21.01                | £2,100.78  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.34                        | £28.50                | £1,890.69  | Change |
-      | Non-draught beer at or above 22.1% ABV (341)         | 99.13                        | £31.64                | £3,136.47  | Change |
-      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.44                        | £8.42                 | £559.42    | Change |
-      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.89                        | £19.08                | £1,276.26  | Change |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 999.99                       | £99.99                | £99,989.00 | Change |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 78.9                         | £18.00                | £1,420.20  | Change |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 99.99                        | £15.00                | £1,499.85  | Change |
-      | Draught beer between 3.5% and 8.4% ABV (376 SPR)     | 66.54                        | £20.00                | £1,330.80  | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (321)     | 99.9900                      | £21.01                | £2,100.78  | Change |
+      | Non-draught beer between 8.5% and 22% ABV (331)      | 66.3400                      | £28.50                | £1,890.69  | Change |
+      | Non-draught beer at or above 22.1% ABV (341)         | 99.1300                      | £31.64                | £3,136.47  | Change |
+      | Draught beer between 1.3% and 3.4% ABV (351)         | 66.4400                      | £8.42                 | £559.42    | Change |
+      | Draught beer between 3.5% and 8.4% ABV (356)         | 66.8900                      | £19.08                | £1,276.26  | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 999.9900                     | £99.99                | £99,989.00 | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 78.9000                      | £18.00                | £1,420.20  | Change |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR)     | 99.9900                      | £15.00                | £1,499.85  | Change |
+      | Draught beer between 3.5% and 8.4% ABV (376 SPR)     | 66.5400                      | £20.00                | £1,330.80  | Change |
 #At Duty due page, all the change links are designed to redirect to Check your answers page so I am checking a couple of random links
     When I click on change link 1 on "Duty Due Beer Page" for alcohol type "Beer"
     Then I am presented with the "Check Your Answers Returns Beer Page"
@@ -302,7 +302,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.99 LPA          | £19.00 per litre |
+      | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9900 LPA        | £19.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Beer Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Description" on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer#taxType"
@@ -315,12 +315,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Beer Page"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                          | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99 litres | 89.99 LPA          | £19.00 per litre |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99 litres | 89.9900 LPA        | £19.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
       | Description                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99                       | 89.99                        | £19.00                | Change Remove |
+      | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99                       | 89.9900                      | £19.00                | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Beer Page
     When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "" and suffix as "Beer?index=0"
@@ -335,12 +335,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Beer Page" with url suffix as "Beer?index=0"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                      | Total beer      | Total pure alcohol | Duty rate        |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88 litres | 88.88 LPA          | £22.00 per litre |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88 litres | 88.8800 LPA        | £22.00 per litre |
     When I click continue button on "Check Your Answers SPR Beer Page"
     Then I am presented with the "Multiple SPR List Question Beer Page"
     And I should see the following product details
       | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88                       | 88.88                        | £22.00                | Change Remove |
+      | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88                       | 88.8800                      | £22.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
@@ -356,21 +356,21 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught beer between 1.3% and 3.4% ABV (371 SPR)     |
       | Draught beer between 3.5% and 8.4% ABV (376 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 945.55 litres  |
-      | Pure alcohol | 55.55 litres   |
-      | Total volume | 898.34 litres  |
-      | Pure alcohol | 77.55 litres   |
-      | Total volume | 667.32 litres  |
-      | Pure alcohol | 66.34 litres   |
-      | Total volume | 999.19 litres  |
-      | Pure alcohol | 99.13 litres   |
-      | Total volume | 887.54 litres  |
-      | Pure alcohol | 66.44 litres   |
-      | Total volume | 699.45 litres  |
-      | Pure alcohol | 66.89 litres   |
-      | Total volume | 8888.88 litres |
-      | Pure alcohol | 88.88 litres   |
+      | key          | value           |
+      | Total volume | 945.55 litres   |
+      | Pure alcohol | 55.5500 litres  |
+      | Total volume | 898.34 litres   |
+      | Pure alcohol | 77.5500 litres  |
+      | Total volume | 667.32 litres   |
+      | Pure alcohol | 66.3400 litres  |
+      | Total volume | 999.19 litres   |
+      | Pure alcohol | 99.1300 litres  |
+      | Total volume | 887.54 litres   |
+      | Pure alcohol | 66.4400 litres  |
+      | Total volume | 699.45 litres   |
+      | Pure alcohol | 66.8900 litres  |
+      | Total volume | 8,888.88 litres |
+      | Pure alcohol | 88.8800 litres  |
 
   @AllTests
   Scenario: Cider- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
@@ -416,27 +416,27 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 789.44 litres |
-      | Pure alcohol  | 43.44 litres  |
-      | Total volume  | 898.12 litres |
-      | Pure alcohol  | 22.22 litres  |
-      | Total volume  | 889.12 litres |
-      | Pure alcohol  | 22.45 litres  |
-      | Total volume  | 787.77 litres |
-      | Pure alcohol  | 33.21 litres  |
-      | Total volume  | 656.66 litres |
-      | Pure alcohol  | 66.66 litres  |
-      | SPR duty rate | £14.00        |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 98.99 litres  |
-      | SPR duty rate | £12.45        |
-      | Total volume  | 887.21 litres |
-      | Pure alcohol  | 45.56 litres  |
-      | SPR duty rate | £16.00        |
-      | Total volume  | 653.11 litres |
-      | Pure alcohol  | 33.33 litres  |
-      | SPR duty rate | £18.00        |
+      | key           | value          |
+      | Total volume  | 789.44 litres  |
+      | Pure alcohol  | 43.4400 litres |
+      | Total volume  | 898.12 litres  |
+      | Pure alcohol  | 22.2200 litres |
+      | Total volume  | 889.12 litres  |
+      | Pure alcohol  | 22.4500 litres |
+      | Total volume  | 787.77 litres  |
+      | Pure alcohol  | 33.2100 litres |
+      | Total volume  | 656.66 litres  |
+      | Pure alcohol  | 66.6600 litres |
+      | SPR duty rate | £14.00         |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 98.9900 litres |
+      | SPR duty rate | £12.45         |
+      | Total volume  | 887.21 litres  |
+      | Pure alcohol  | 45.5600 litres |
+      | SPR duty rate | £16.00         |
+      | Total volume  | 653.11 litres  |
+      | Pure alcohol  | 33.3300 litres |
+      | SPR duty rate | £18.00         |
 #To verify 'Change' link functionality for cider to declare
     When I click "Change Cider to declare" on "Check Your Answers Returns Cider Page"
     Then I am presented with the "What Do You Need To Declare Cider Page" with new url
@@ -480,24 +480,24 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 789.44 litres |
-      | Pure alcohol  | 43.44 litres  |
-      | Total volume  | 898.12 litres |
-      | Pure alcohol  | 22.22 litres  |
-      | Total volume  | 787.77 litres |
-      | Pure alcohol  | 33.21 litres  |
-      | Total volume  | 889.12 litres |
-      | Pure alcohol  | 22.45 litres  |
-      | Total volume  | 656.66 litres |
-      | Pure alcohol  | 66.66 litres  |
-      | SPR duty rate | £14.00        |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 98.99 litres  |
-      | SPR duty rate | £12.45        |
-      | Total volume  | 887.21 litres |
-      | Pure alcohol  | 45.56 litres  |
-      | SPR duty rate | £16.00        |
+      | key           | value          |
+      | Total volume  | 789.44 litres  |
+      | Pure alcohol  | 43.4400 litres |
+      | Total volume  | 898.12 litres  |
+      | Pure alcohol  | 22.2200 litres |
+      | Total volume  | 787.77 litres  |
+      | Pure alcohol  | 33.2100 litres |
+      | Total volume  | 889.12 litres  |
+      | Pure alcohol  | 22.4500 litres |
+      | Total volume  | 656.66 litres  |
+      | Pure alcohol  | 66.6600 litres |
+      | SPR duty rate | £14.00         |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 98.9900 litres |
+      | SPR duty rate | £12.45         |
+      | Total volume  | 887.21 litres  |
+      | Pure alcohol  | 45.5600 litres |
+      | SPR duty rate | £16.00         |
 #To verify 'Change' link functionality for Cider to duty
     When I click "Change Cider duty" on "Check Your Answers Returns Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page" with new url
@@ -518,24 +518,24 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | Total volume  | 898.12 litres |
-      | Pure alcohol  | 22.22 litres  |
-      | Total volume  | 787.77 litres |
-      | Pure alcohol  | 33.21 litres  |
-      | Total volume  | 889.12 litres |
-      | Pure alcohol  | 22.45 litres  |
-      | Total volume  | 656.66 litres |
-      | Pure alcohol  | 66.66 litres  |
-      | SPR duty rate | £14.00        |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 98.99 litres  |
-      | SPR duty rate | £12.45        |
-      | Total volume  | 887.21 litres |
-      | Pure alcohol  | 45.56 litres  |
-      | SPR duty rate | £16.00        |
+      | key           | value          |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | Total volume  | 898.12 litres  |
+      | Pure alcohol  | 22.2200 litres |
+      | Total volume  | 787.77 litres  |
+      | Pure alcohol  | 33.2100 litres |
+      | Total volume  | 889.12 litres  |
+      | Pure alcohol  | 22.4500 litres |
+      | Total volume  | 656.66 litres  |
+      | Pure alcohol  | 66.6600 litres |
+      | SPR duty rate | £14.00         |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 98.9900 litres |
+      | SPR duty rate | £12.45         |
+      | Total volume  | 887.21 litres  |
+      | Pure alcohol  | 45.5600 litres |
+      | SPR duty rate | £16.00         |
 #To verify 'Change' link functionality for Cider eligible for Small Producer Relief
     When I click "Change Cider eligible for Small Producer Relief" on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Single Small Producer Relief Rate Cider Page" with new url
@@ -557,35 +557,35 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
     And I check the page source for the following key-value pairs:
-      | key           | value         |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 99.99 litres  |
-      | Total volume  | 898.12 litres |
-      | Pure alcohol  | 22.22 litres  |
-      | Total volume  | 787.77 litres |
-      | Pure alcohol  | 33.21 litres  |
-      | Total volume  | 889.12 litres |
-      | Pure alcohol  | 22.45 litres  |
-      | Total volume  | 656.66 litres |
-      | Pure alcohol  | 66.66 litres  |
-      | SPR duty rate | £14.00        |
-      | Total volume  | 999.99 litres |
-      | Pure alcohol  | 98.99 litres  |
-      | SPR duty rate | £12.45        |
-      | Total volume  | 777.77 litres |
-      | Pure alcohol  | 77.77 litres  |
-      | SPR duty rate | £7.70         |
+      | key           | value          |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 99.9900 litres |
+      | Total volume  | 898.12 litres  |
+      | Pure alcohol  | 22.2200 litres |
+      | Total volume  | 787.77 litres  |
+      | Pure alcohol  | 33.2100 litres |
+      | Total volume  | 889.12 litres  |
+      | Pure alcohol  | 22.4500 litres |
+      | Total volume  | 656.66 litres  |
+      | Pure alcohol  | 66.6600 litres |
+      | SPR duty rate | £14.00         |
+      | Total volume  | 999.99 litres  |
+      | Pure alcohol  | 98.9900 litres |
+      | SPR duty rate | £12.45         |
+      | Total volume  | 777.77 litres  |
+      | Pure alcohol  | 77.7700 litres |
+      | SPR duty rate | £7.70          |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£4,382.97"
     And I should see the following product details
       | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
-      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 99.99                        | £9.27                 | £926.90   | Change |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.22                        | £9.67                 | £214.86   | Change |
-      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.21                        | £8.42                 | £279.62   | Change |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.45                        | £8.78                 | £197.11   | Change |
-      | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               | 66.66                        | £14.00                | £933.24   | Change |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 98.99                        | £12.45                | £1,232.42 | Change |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   | 77.77                        | £7.70                 | £598.82   | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 99.9900                      | £9.27                 | £926.90   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.2200                      | £9.67                 | £214.86   | Change |
+      | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.2100                      | £8.42                 | £279.62   | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.4500                      | £8.78                 | £197.11   | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               | 66.6600                      | £14.00                | £933.24   | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 98.9900                      | £12.45                | £1,232.42 | Change |
+      | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   | 77.7700                      | £7.70                 | £598.82   | Change |
   #At Duty due page, all the change links are designed to redirect to Check your answers page so I am checking a couple of random links
     When I click on change link 3 on "Duty Due Cider Page" for alcohol type "Cider"
     Then I am presented with the "Check Your Answers Returns Cider Page"
@@ -624,7 +624,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                                                                         | Total cider     | Total pure alcohol | Duty rate        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.99 LPA          | £20.99 per litre |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.9900 LPA        | £20.99 per litre |
   #To verify 'Change' link functionality at Check Your Answers SPR Cider Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total cider" on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "change-" and suffix as "Cider#totalLitres"
@@ -640,12 +640,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                       | Total cider     | Total pure alcohol | Duty rate       |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88 litres | 88.88 LPA          | £8.88 per litre |
+      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     And I should see the following product details
       | Description                                       | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88                       | 88.88                        | £8.88                 | Change Remove |
+      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "" and suffix as "Cider?index=0"
@@ -661,12 +661,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Cider Page" with url suffix as "Cider?index=0"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                                                                     | Total cider     | Total pure alcohol | Duty rate       |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88 litres | 88.88 LPA          | £8.88 per litre |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     And I should see the following product details
       | Description                                                                                     | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88                       | 88.88                        | £8.88                 | Change Remove |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Cider Page"
     And I click save and continue button on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
@@ -680,17 +680,17 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 789.44 litres  |
-      | Pure alcohol | 43.44 litres   |
-      | Total volume | 898.12 litres  |
-      | Pure alcohol | 22.22 litres   |
-      | Total volume | 787.77 litres  |
-      | Pure alcohol | 33.21 litres   |
-      | Total volume | 889.12 litres  |
-      | Pure alcohol | 22.45 litres   |
-      | Total volume | 8888.88 litres |
-      | Pure alcohol | 88.88 litres   |
+      | key          | value           |
+      | Total volume | 789.44 litres   |
+      | Pure alcohol | 43.4400 litres  |
+      | Total volume | 898.12 litres   |
+      | Pure alcohol | 22.2200 litres  |
+      | Total volume | 787.77 litres   |
+      | Pure alcohol | 33.2100 litres  |
+      | Total volume | 889.12 litres   |
+      | Pure alcohol | 22.4500 litres  |
+      | Total volume | 8,888.88 litres |
+      | Pure alcohol | 88.8800 litres  |
 
   @AllTests
   Scenario: Wine- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
@@ -742,31 +742,31 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 3698.52 litres |
-      | Pure alcohol  | 88.88 litres   |
-      | Total volume  | 8974.23 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 1234.55 litres |
-      | Pure alcohol  | 35.55 litres   |
-      | Total volume  | 990.01 litres  |
-      | Pure alcohol  | 82.22 litres   |
-      | Total volume  | 895.22 litres  |
-      | Pure alcohol  | 22.33 litres   |
-      | Total volume  | 569.33 litres  |
-      | Pure alcohol  | 24.55 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 3,698.52 litres |
+      | Pure alcohol  | 88.8800 litres  |
+      | Total volume  | 8,974.23 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 1,234.55 litres |
+      | Pure alcohol  | 35.5500 litres  |
+      | Total volume  | 990.01 litres   |
+      | Pure alcohol  | 82.2200 litres  |
+      | Total volume  | 895.22 litres   |
+      | Pure alcohol  | 22.3300 litres  |
+      | Total volume  | 569.33 litres   |
+      | Pure alcohol  | 24.5500 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for cider to declare
     When I click "Change Wine to declare" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "What Do You Need To Declare Wine Page" with new url
@@ -817,29 +817,29 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 1234.55 litres |
-      | Pure alcohol  | 35.55 litres   |
-      | Total volume  | 3698.52 litres |
-      | Pure alcohol  | 88.88 litres   |
-      | Total volume  | 8974.23 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 895.22 litres  |
-      | Pure alcohol  | 22.33 litres   |
-      | Total volume  | 569.33 litres  |
-      | Pure alcohol  | 24.55 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 1,234.55 litres |
+      | Pure alcohol  | 35.5500 litres  |
+      | Total volume  | 3,698.52 litres |
+      | Pure alcohol  | 88.8800 litres  |
+      | Total volume  | 8,974.23 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 895.22 litres   |
+      | Pure alcohol  | 22.3300 litres  |
+      | Total volume  | 569.33 litres   |
+      | Pure alcohol  | 24.5500 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for Wine to duty
     When I click "Change Wine duty" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page" with new url
@@ -862,29 +862,29 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 1234.55 litres |
-      | Pure alcohol  | 35.55 litres   |
-      | Total volume  | 3698.52 litres |
-      | Pure alcohol  | 88.88 litres   |
-      | Total volume  | 8974.23 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 895.22 litres  |
-      | Pure alcohol  | 22.33 litres   |
-      | Total volume  | 555.55 litres  |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 1,234.55 litres |
+      | Pure alcohol  | 35.5500 litres  |
+      | Total volume  | 3,698.52 litres |
+      | Pure alcohol  | 88.8800 litres  |
+      | Total volume  | 8,974.23 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 895.22 litres   |
+      | Pure alcohol  | 22.3300 litres  |
+      | Total volume  | 555.55 litres   |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for Wine eligible for Small Producer Relief
     When I click "Change Wine eligible for Small Producer Relief" on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Single Small Producer Relief Rate Wine Page" with new url
@@ -908,42 +908,42 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 1234.55 litres |
-      | Pure alcohol  | 35.55 litres   |
-      | Total volume  | 3698.52 litres |
-      | Pure alcohol  | 88.88 litres   |
-      | Total volume  | 8974.23 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 895.22 litres  |
-      | Pure alcohol  | 22.33 litres   |
-      | Total volume  | 555.55 litres  |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 444.44 litres  |
-      | Pure alcohol  | 44.44 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 1,234.55 litres |
+      | Pure alcohol  | 35.5500 litres  |
+      | Total volume  | 3,698.52 litres |
+      | Pure alcohol  | 88.8800 litres  |
+      | Total volume  | 8,974.23 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 895.22 litres   |
+      | Pure alcohol  | 22.3300 litres  |
+      | Total volume  | 555.55 litres   |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 444.44 litres   |
+      | Pure alcohol  | 44.4400 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£9,321.61"
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.55                        | £9.27                 | £329.54   | Change |
-      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.88                        | £24.77                | £2,201.55 | Change |
-      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.22                        | £28.50                | £633.27   | Change |
-      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.33                        | £8.42                 | £188.01   | Change |
-      | Draught wine between 3.5% and 8.4% ABV (358)         | 55.55                        | £19.08                | £1,059.89 | Change |
-      | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | 99.45                        | £15.00                | £1,491.75 | Change |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 78.9                         | £18.00                | £1,420.20 | Change |
-      | Draught wine between 1.3% and 3.4% ABV (373 SPR)     | 44.44                        | £15.00                | £666.60   | Change |
-      | Draught wine between 3.5% and 8.4% ABV (378 SPR)     | 66.54                        | £20.00                | £1,330.80 | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.5500                      | £9.27                 | £329.54   | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.8800                      | £24.77                | £2,201.55 | Change |
+      | Non-draught wine between 8.5% and 22% ABV (333)      | 22.2200                      | £28.50                | £633.27   | Change |
+      | Draught wine between 1.3% and 3.4% ABV (353)         | 22.3300                      | £8.42                 | £188.01   | Change |
+      | Draught wine between 3.5% and 8.4% ABV (358)         | 55.5500                      | £19.08                | £1,059.89 | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | 99.4500                      | £15.00                | £1,491.75 | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 78.9000                      | £18.00                | £1,420.20 | Change |
+      | Draught wine between 1.3% and 3.4% ABV (373 SPR)     | 44.4400                      | £15.00                | £666.60   | Change |
+      | Draught wine between 3.5% and 8.4% ABV (378 SPR)     | 66.5400                      | £20.00                | £1,330.80 | Change |
   #At Duty due page, all the change links are designed to redirect to Check your answers page so I am checking a couple of random links
     When I click on change link 3 on "Duty Due Wine Page" for alcohol type "Wine"
     Then I am presented with the "Check Your Answers Returns Wine Page"
@@ -986,7 +986,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Wine Page"
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                          | Total wine    | Total pure alcohol | Duty rate        |
-      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99 litres | 66.43 LPA          | £15.65 per litre |
+      | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99 litres | 66.4300 LPA        | £15.65 per litre |
   #To verify 'Change' link functionality at Check Your Answers SPR Cider Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Duty rate" on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "change-" and suffix as "Wine#dutyRate"
@@ -1002,12 +1002,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Wine Page"
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                      | Total wine    | Total pure alcohol | Duty rate       |
-      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | 999.99 litres | 88.88 LPA          | £7.77 per litre |
+      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | 999.99 litres | 88.8800 LPA        | £7.77 per litre |
     When I click continue button on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     And I should see the following product details
       | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | 999.99                         | 88.88                        | £7.77                 | Change Remove |
+      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Wine Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "" and suffix as "Wine?index=0"
@@ -1023,12 +1023,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Wine Page" with url suffix as "Wine?index=0"
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                      | Total wine    | Total pure alcohol | Duty rate       |
-      | Draught wine between 3.5% and 8.4% ABV (378 SPR) | 999.99 litres | 88.88 LPA          | £7.77 per litre |
+      | Draught wine between 3.5% and 8.4% ABV (378 SPR) | 999.99 litres | 88.8800 LPA        | £7.77 per litre |
     When I click continue button on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     And I should see the following product details
       | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught wine between 3.5% and 8.4% ABV (378 SPR) | 999.99                         | 88.88                        | £7.77                 | Change Remove |
+      | Draught wine between 3.5% and 8.4% ABV (378 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Wine Page"
     And I click save and continue button on "Multiple SPR List Question Wine Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
@@ -1044,21 +1044,21 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 1234.55 litres |
-      | Pure alcohol | 35.55 litres   |
-      | Total volume | 3698.52 litres |
-      | Pure alcohol | 88.88 litres   |
-      | Total volume | 8974.23 litres |
-      | Pure alcohol | 22.22 litres   |
-      | Total volume | 990.01 litres  |
-      | Pure alcohol | 82.22 litres   |
-      | Total volume | 895.22 litres  |
-      | Pure alcohol | 22.33 litres   |
-      | Total volume | 569.33 litres  |
-      | Pure alcohol | 24.55 litres   |
-      | Total volume | 999.99 litres  |
-      | Pure alcohol | 88.88 litres   |
+      | key          | value           |
+      | Total volume | 1,234.55 litres |
+      | Pure alcohol | 35.5500 litres  |
+      | Total volume | 3,698.52 litres |
+      | Pure alcohol | 88.8800 litres  |
+      | Total volume | 8,974.23 litres |
+      | Pure alcohol | 22.2200 litres  |
+      | Total volume | 990.01 litres   |
+      | Pure alcohol | 82.2200 litres  |
+      | Total volume | 895.22 litres   |
+      | Pure alcohol | 22.3300 litres  |
+      | Total volume | 569.33 litres   |
+      | Pure alcohol | 24.5500 litres  |
+      | Total volume | 999.99 litres   |
+      | Pure alcohol | 88.8800 litres  |
 
   @AllTests
   Scenario: Spirits- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
@@ -1110,31 +1110,31 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
       | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 8888.66 litres |
-      | Pure alcohol  | 88.8 litres    |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 5555.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7777.77 litres |
-      | Pure alcohol  | 77.77 litres   |
-      | Total volume  | 4444.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 3333.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 889.65 litres  |
-      | Pure alcohol  | 66.54 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 8,888.66 litres |
+      | Pure alcohol  | 88.8000 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 5,555.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,777.77 litres |
+      | Pure alcohol  | 77.7700 litres  |
+      | Total volume  | 4,444.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 3,333.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 889.65 litres   |
+      | Pure alcohol  | 66.5400 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for spirits to declare
     When I click "Change Spirits to declare" on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page" with new url
@@ -1184,28 +1184,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
       | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 8888.66 litres |
-      | Pure alcohol  | 88.8 litres    |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 5555.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7777.77 litres |
-      | Pure alcohol  | 77.77 litres   |
-      | Total volume  | 4444.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 3333.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
+      | key           | value           |
+      | Total volume  | 8,888.66 litres |
+      | Pure alcohol  | 88.8000 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 5,555.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,777.77 litres |
+      | Pure alcohol  | 77.7700 litres  |
+      | Total volume  | 4,444.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 3,333.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
   #To verify 'Change' link functionality for Spirits to duty
     When I click "Change Spirits duty" on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page" with new url
@@ -1228,28 +1228,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
       | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 3636.36 litres |
-      | Pure alcohol  | 36.36 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 5555.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7777.77 litres |
-      | Pure alcohol  | 77.77 litres   |
-      | Total volume  | 4444.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 3333.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 776.89 litres  |
-      | Pure alcohol  | 99.99 litres   |
-      | SPR duty rate | £15.00         |
+      | key           | value           |
+      | Total volume  | 3,636.36 litres |
+      | Pure alcohol  | 36.3600 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 5,555.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,777.77 litres |
+      | Pure alcohol  | 77.7700 litres  |
+      | Total volume  | 4,444.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 3,333.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 776.89 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | SPR duty rate | £15.00          |
 #To verify 'Change' link functionality for Spirits eligible for Small Producer Relief
     When I click "Change Spirits eligible for Small Producer Relief" on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Single Small Producer Relief Rate Spirits Page" with new url
@@ -1273,42 +1273,42 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
       | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 3636.36 litres |
-      | Pure alcohol  | 36.36 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 5555.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7777.77 litres |
-      | Pure alcohol  | 77.77 litres   |
-      | Total volume  | 4444.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 3333.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 99.45 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 776.45 litres  |
-      | Pure alcohol  | 78.9 litres    |
-      | SPR duty rate | £18.00         |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 88.88 litres   |
-      | SPR duty rate | £8.88          |
+      | key           | value           |
+      | Total volume  | 3,636.36 litres |
+      | Pure alcohol  | 36.3600 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 5,555.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,777.77 litres |
+      | Pure alcohol  | 77.7700 litres  |
+      | Total volume  | 4,444.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 3,333.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 99.4500 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 776.45 litres   |
+      | Pure alcohol  | 78.9000 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 88.8800 litres  |
+      | SPR duty rate | £8.88           |
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
 #At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
     And I should see the following product details
       | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
-      | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 36.36                        | £9.27                 | £337.05   | Change |
-      | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.77                        | £24.77                | £1,926.36 | Change |
-      | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.66                        | £28.50                | £1,899.81 | Change |
-      | Non-draught spirits at or above 22.1% ABV (345)         | 55.55                        | £31.64                | £1,757.60 | Change |
-      | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.44                        | £8.42                 | £374.18   | Change |
-      | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.33                        | £19.08                | £635.93   | Change |
-      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.45                        | £15.00                | £1,491.75 | Change |
-      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 78.9                         | £18.00                | £1,420.20 | Change |
-      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     | 88.88                        | £8.88                 | £789.25   | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 36.3600                      | £9.27                 | £337.05   | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.7700                      | £24.77                | £1,926.36 | Change |
+      | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.6600                      | £28.50                | £1,899.81 | Change |
+      | Non-draught spirits at or above 22.1% ABV (345)         | 55.5500                      | £31.64                | £1,757.60 | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (355)         | 44.4400                      | £8.42                 | £374.18   | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (360)         | 33.3300                      | £19.08                | £635.93   | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (365 SPR) | 99.4500                      | £15.00                | £1,491.75 | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 78.9000                      | £18.00                | £1,420.20 | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     | 88.8800                      | £8.88                 | £789.25   | Change |
   #At Duty due page, all the change links are designed to redirect to Check your answers page so I am checking a couple of random links
     When I click on change link 2 on "Duty Due Spirits Page" for alcohol type "Spirits"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
@@ -1350,7 +1350,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.55 LPA          | £20.00 per litre |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.5500 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Spirits Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "change-" and suffix as "Spirits#pureAlcohol"
@@ -1363,12 +1363,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 88.99 LPA          | £20.00 per litre |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     Then I am presented with the "Multiple SPR List Question Spirits Page"
     And I should see the following product details
       | Description                                         | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99                         | 88.99                        | £20.00                | Change Remove |
+      | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "" and suffix as "Spirits?index=0"
@@ -1380,11 +1380,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Spirits Page" with url suffix as "Spirits?index=0"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                             | Total spirits | Total pure alcohol | Duty rate        |
-      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99 litres | 88.99 LPA          | £20.00 per litre |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     And I should see the following product details
       | Description                                             | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99                         | 88.99                        | £20.00                | Change Remove |
+      | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Spirits Page"
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
@@ -1400,21 +1400,21 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
       | Draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 8888.66 litres |
-      | Pure alcohol | 88.8 litres    |
-      | Total volume | 6666.66 litres |
-      | Pure alcohol | 66.66 litres   |
-      | Total volume | 5555.55 litres |
-      | Pure alcohol | 55.55 litres   |
-      | Total volume | 7777.77 litres |
-      | Pure alcohol | 77.77 litres   |
-      | Total volume | 4444.44 litres |
-      | Pure alcohol | 44.44 litres   |
-      | Total volume | 3333.33 litres |
-      | Pure alcohol | 33.33 litres   |
-      | Total volume | 789.99 litres  |
-      | Pure alcohol | 89.99 litres   |
+      | key          | value           |
+      | Total volume | 8,888.66 litres |
+      | Pure alcohol | 88.8000 litres  |
+      | Total volume | 6,666.66 litres |
+      | Pure alcohol | 66.6600 litres  |
+      | Total volume | 5,555.55 litres |
+      | Pure alcohol | 55.5500 litres  |
+      | Total volume | 7,777.77 litres |
+      | Pure alcohol | 77.7700 litres  |
+      | Total volume | 4,444.44 litres |
+      | Pure alcohol | 44.4400 litres  |
+      | Total volume | 3,333.33 litres |
+      | Pure alcohol | 33.3300 litres  |
+      | Total volume | 789.99 litres   |
+      | Pure alcohol | 88.9900 litres  |
 
   @AllTests
   Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
@@ -1466,31 +1466,31 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 3322.22 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 4433.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 2233.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 5544.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7865.12 litres |
-      | Pure alcohol  | 34.55 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 777.77 litres  |
-      | Pure alcohol  | 77.77 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 88.88 litres   |
-      | SPR duty rate | £16.00         |
-      | Total volume  | 667.88 litres  |
-      | Pure alcohol  | 78.77 litres   |
-      | SPR duty rate | £20.00         |
-      | Total volume  | 678.44 litres  |
-      | Pure alcohol  | 99.23 litres   |
-      | SPR duty rate | £19.00         |
+      | key           | value           |
+      | Total volume  | 3,322.22 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 4,433.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 2,233.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 5,544.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,865.12 litres |
+      | Pure alcohol  | 34.5500 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 777.77 litres   |
+      | Pure alcohol  | 77.7700 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 88.8800 litres  |
+      | SPR duty rate | £16.00          |
+      | Total volume  | 667.88 litres   |
+      | Pure alcohol  | 78.7700 litres  |
+      | SPR duty rate | £20.00          |
+      | Total volume  | 678.44 litres   |
+      | Pure alcohol  | 99.2300 litres  |
+      | SPR duty rate | £19.00          |
 #To verify 'Change' link functionality for Other Fermented Product to declare
     When I click "Change Other Fermented Product to declare" on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page" with new url
@@ -1540,28 +1540,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
       | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 3322.22 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 4433.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 2233.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 5544.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 7865.12 litres |
-      | Pure alcohol  | 34.55 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 777.77 litres  |
-      | Pure alcohol  | 77.77 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 88.88 litres   |
-      | SPR duty rate | £16.00         |
-      | Total volume  | 667.88 litres  |
-      | Pure alcohol  | 78.77 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 3,322.22 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 4,433.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 2,233.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 5,544.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 7,865.12 litres |
+      | Pure alcohol  | 34.5500 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 777.77 litres   |
+      | Pure alcohol  | 77.7700 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 88.8800 litres  |
+      | SPR duty rate | £16.00          |
+      | Total volume  | 667.88 litres   |
+      | Pure alcohol  | 78.7700 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for Other fermented products duty
     When I click "Change Other Fermented Product duty" on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" with new url
@@ -1574,28 +1574,28 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 2233.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 3322.22 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 4433.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 5544.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 9999.99 litres |
-      | Pure alcohol  | 99.99 litres   |
-      | Total volume  | 777.77 litres  |
-      | Pure alcohol  | 77.77 litres   |
-      | SPR duty rate | £15.00         |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 88.88 litres   |
-      | SPR duty rate | £16.00         |
-      | Total volume  | 667.88 litres  |
-      | Pure alcohol  | 78.77 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 2,233.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 3,322.22 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 4,433.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 5,544.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 9,999.99 litres |
+      | Pure alcohol  | 99.9900 litres  |
+      | Total volume  | 777.77 litres   |
+      | Pure alcohol  | 77.7700 litres  |
+      | SPR duty rate | £15.00          |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 88.8800 litres  |
+      | SPR duty rate | £16.00          |
+      | Total volume  | 667.88 litres   |
+      | Pure alcohol  | 78.7700 litres  |
+      | SPR duty rate | £20.00          |
 #To verify 'Change' link functionality for Other Fermented Product eligible for Small Producer Relief
     When I click "Change Other Fermented Product eligible for Small Producer Relief" on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page" with new url
@@ -1609,41 +1609,41 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 2233.33 litres |
-      | Pure alcohol  | 33.33 litres   |
-      | Total volume  | 3322.22 litres |
-      | Pure alcohol  | 22.22 litres   |
-      | Total volume  | 4433.44 litres |
-      | Pure alcohol  | 44.44 litres   |
-      | Total volume  | 5544.55 litres |
-      | Pure alcohol  | 55.55 litres   |
-      | Total volume  | 6666.66 litres |
-      | Pure alcohol  | 66.66 litres   |
-      | Total volume  | 9999.99 litres |
-      | Pure alcohol  | 99.99 litres   |
-      | Total volume  | 6969.69 litres |
-      | Pure alcohol  | 69.69 litres   |
-      | SPR duty rate | £69.00         |
-      | Total volume  | 888.88 litres  |
-      | Pure alcohol  | 88.88 litres   |
-      | SPR duty rate | £16.00         |
-      | Total volume  | 667.88 litres  |
-      | Pure alcohol  | 78.77 litres   |
-      | SPR duty rate | £20.00         |
+      | key           | value           |
+      | Total volume  | 2,233.33 litres |
+      | Pure alcohol  | 33.3300 litres  |
+      | Total volume  | 3,322.22 litres |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 4,433.44 litres |
+      | Pure alcohol  | 44.4400 litres  |
+      | Total volume  | 5,544.55 litres |
+      | Pure alcohol  | 55.5500 litres  |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 66.6600 litres  |
+      | Total volume  | 9,999.99 litres |
+      | Pure alcohol  | 99.9900 litres  |
+      | Total volume  | 6,969.69 litres |
+      | Pure alcohol  | 69.6900 litres  |
+      | SPR duty rate | £69.00          |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 88.8800 litres  |
+      | SPR duty rate | £16.00          |
+      | Total volume  | 667.88 litres   |
+      | Pure alcohol  | 78.7700 litres  |
+      | SPR duty rate | £20.00          |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£14,158.64"
     And I should see the following product details
       | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.33                        | £9.27                 | £308.96   | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.22                        | £24.77                | £550.38   | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.44                        | £28.50                | £1,266.54 | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.55                        | £31.64                | £1,757.60 | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.66                        | £8.42                 | £561.27   | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 99.99                        | £19.08                | £1,907.80 | Change |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 69.69                        | £69.00                | £4,808.61 | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.88                        | £16.00                | £1,422.08 | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.77                        | £20.00                | £1,575.40 | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.3300                      | £9.27                 | £308.96   | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38   | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.4400                      | £28.50                | £1,266.54 | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.5500                      | £31.64                | £1,757.60 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.6600                      | £8.42                 | £561.27   | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 99.9900                      | £19.08                | £1,907.80 | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 69.6900                      | £69.00                | £4,808.61 | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.8800                      | £16.00                | £1,422.08 | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.7700                      | £20.00                | £1,575.40 | Change |
 
   @AllTests
   Scenario: Other Fermented Products- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
@@ -1677,7 +1677,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                                                            | Total other fermented products | Total pure alcohol | Duty rate        |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.99 LPA          | £20.00 per litre |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Other Fermented Product Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "change-" and suffix as "OtherFermentedProduct#taxType"
@@ -1690,12 +1690,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99 litres                  | 99.99 LPA          | £20.00 per litre |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
       | Description                                                                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99                         | 99.99                        | £20.00                | Change Remove |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99                         | 99.9900                      | £20.00                | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Other Fermented Product Page
     When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "" and suffix as "OtherFermentedProduct?index=0"
@@ -1710,12 +1710,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page" with url suffix as "OtherFermentedProduct?index=0"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88 litres                | 888.88 LPA         | £88.00 per litre |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88 litres                | 888.8800 LPA       | £88.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
       | Description                                                                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88                       | 888.88                       | £88.00                | Change Remove |
+      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88                       | 888.8800                     | £88.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
     And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
@@ -1731,21 +1731,21 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 2233.33 litres |
-      | Pure alcohol | 33.33 litres   |
-      | Total volume | 3322.22 litres |
-      | Pure alcohol | 22.22 litres   |
-      | Total volume | 4433.44 litres |
-      | Pure alcohol | 44.44 litres   |
-      | Total volume | 5544.55 litres |
-      | Pure alcohol | 55.55 litres   |
-      | Total volume | 6666.66 litres |
-      | Pure alcohol | 66.66 litres   |
-      | Total volume | 7865.12 litres |
-      | Pure alcohol | 34.55 litres   |
-      | Total volume | 8888.88 litres |
-      | Pure alcohol | 888.88 litres  |
+      | key          | value           |
+      | Total volume | 2,233.33 litres |
+      | Pure alcohol | 33.3300 litres  |
+      | Total volume | 3,322.22 litres |
+      | Pure alcohol | 22.2200 litres  |
+      | Total volume | 4,433.44 litres |
+      | Pure alcohol | 44.4400 litres  |
+      | Total volume | 5,544.55 litres |
+      | Pure alcohol | 55.5500 litres  |
+      | Total volume | 6,666.66 litres |
+      | Pure alcohol | 66.6600 litres  |
+      | Total volume | 7,865.12 litres |
+      | Pure alcohol | 34.5500 litres  |
+      | Total volume | 8,888.88 litres |
+      | Pure alcohol | 888.8800 litres |
 
   @AllTests
   Scenario: To verify the change link functionalities from the Return Summary Page
@@ -1762,14 +1762,14 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught beer at or above 22.1% ABV (341) |
     And I check the page source for the following key-value pairs:
-      | key          | value         |
-      | Total volume | 999.19 litres |
-      | Pure alcohol | 99.13 litres  |
+      | key          | value          |
+      | Total volume | 999.19 litres  |
+      | Pure alcohol | 99.1300 litres |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£3,136.47"
     And I should see the following product details
       | Description                                  | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
-      | Non-draught beer at or above 22.1% ABV (341) | 99.13                        | £31.64                | £3,136.47 | Change |
+      | Non-draught beer at or above 22.1% ABV (341) | 99.1300                      | £31.64                | £3,136.47 | Change |
     When I click continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1788,14 +1788,14 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught cider between 1.3% and 3.4% ABV (312) |
     And I check the page source for the following key-value pairs:
-      | key          | value         |
-      | Total volume | 789.44 litres |
-      | Pure alcohol | 43.44 litres  |
+      | key          | value          |
+      | Total volume | 789.44 litres  |
+      | Pure alcohol | 43.4400 litres |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£402.68"
     And I should see the following product details
       | Description                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
-      | Non-draught cider between 1.3% and 3.4% ABV (312) | 43.44                        | £9.27                 | £402.68  | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (312) | 43.4400                      | £9.27                 | £402.68  | Change |
     When I click continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1814,14 +1814,14 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught wine between 1.3% and 3.4% ABV (313) |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 1234.55 litres |
-      | Pure alcohol | 35.55 litres   |
+      | key          | value           |
+      | Total volume | 1,234.55 litres |
+      | Pure alcohol | 35.5500 litres  |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£329.54"
     And I should see the following product details
       | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.55                        | £9.27                 | £329.54  | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.27                 | £329.54  | Change |
     When I click continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1840,14 +1840,14 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught spirits between 1.3% and 3.4% ABV (315) |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 8888.66 litres |
-      | Pure alcohol | 88.8 litres    |
+      | key          | value           |
+      | Total volume | 8,888.66 litres |
+      | Pure alcohol | 88.8000 litres  |
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£823.17"
     And I should see the following product details
       | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
-      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8                         | £9.27                 | £823.17  | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8000                      | £9.27                 | £823.17  | Change |
     When I click continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1866,14 +1866,14 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see the following text on the page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314) |
     And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 2233.33 litres |
-      | Pure alcohol | 33.33 litres   |
+      | key          | value           |
+      | Total volume | 2,233.33 litres |
+      | Pure alcohol | 33.3300 litres  |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
     And I should see the following product details
       | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.33                        | £9.27                 | £308.96  | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.27                 | £308.96  | Change |
     When I click continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1901,8 +1901,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                                 | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 123.45 litres of beer,5.5 litres of pure alcohol (LPA) | £50.98     |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                    | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 123.45 litres of beer,5.5000 litres of pure alcohol (LPA) | £50.98     |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1928,8 +1928,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                          | Volume                                                    | Duty value |
-      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 222.22 litres of cider,22.22 litres of pure alcohol (LPA) | −£205.97   |
+      | Adjustment    | Original return period | Tax type                                          | Volume                                                      | Duty value |
+      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 222.22 litres of cider,22.2200 litres of pure alcohol (LPA) | −£205.97   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1963,8 +1963,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                     | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3000.75 litres of wine,250.55 litres of pure alcohol (LPA) | £425.93    |
+      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                        | Duty value |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3,000.75 litres of wine,250.5500 litres of pure alcohol (LPA) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1992,8 +1992,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                            | Volume                                                        | Duty value |
-      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3000.75 litres of spirits,250.55 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Original return period | Tax type                                            | Volume                                                           | Duty value |
+      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2022,8 +2022,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | Volume                                                                         | Duty value |
-      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3000.75 litres of other fermented products,250.55 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Original return period | Tax type                                                             | Volume                                                                            | Duty value |
+      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3,000.75 litres of other fermented products,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2069,7 +2069,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
       | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
-      | 2000.75 litres                            | 150.55 litres                                   | 9999.99 litres                             | 99.19 litres                                     | 7777.77 litres                            | 77.77 litres                                    | 2100.75 litres                               | 160.55 litres                                       | 8888.88 litres                                                | 88.88 litres                                                         |
+      | 2,000.75 litres                           | 150.5500 litres                                 | 9,999.99 litres                            | 99.1900 litres                                   | 7,777.77 litres                           | 77.7700 litres                                  | 2,100.75 litres                              | 160.5500 litres                                     | 8,888.88 litres                                               | 88.8800 litres                                                       |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -2123,7 +2123,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Quarterly Spirits Check Your Answers Page"
     And I should see following details at the "Quarterly Spirits Check Your Answers Page"
       | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain    | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
-      | 99 litres            | 10.55 litres           | 20.67 litres           | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 222.22 tonnes | 333.33 tonnes | 444.44 tonnes | 555.55 tonnes | 666.66 tonnes  | 156.54 tonnes | 555.55 litres | 666.66 litres | 777.77 litres | 888.88 litres | 465.55 tonnes | 745.66 tonnes | 2045.55 tonnes         |
+      | 99.00 litres         | 10.55 litres           | 20.67 litres           | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 222.22 tonnes | 333.33 tonnes | 444.44 tonnes | 555.55 tonnes | 666.66 tonnes  | 156.54 tonnes | 555.55 litres | 666.66 litres | 777.77 litres | 888.88 litres | 465.55 tonnes | 745.66 tonnes | 2,045.55 tonnes        |
     When I click save and continue button on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
