@@ -41,9 +41,10 @@ Feature: View Past Returns Journey
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
     And I should verify the table header displayed
-      | Alcohol declared     |
-      | Adjustments declared |
-      | Total                |
+      | Alcohol declared          |
+      | Adjustments declared      |
+      | Total                     |
+      | Duty suspended deliveries |
 #   This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
       | Description | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value      |
@@ -69,6 +70,14 @@ Feature: View Past Returns Journey
 #  This verifies the details of total duty value section
     And I should verify the details of the table 5 on "View Specific Return Page"
       | Total duty value | £236,580,913.12 |
+#  This verifies the details of duty suspended deliveries section
+    And I should verify the details of the table 6 on "View Specific Return Page"
+      | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
+      | Beer                     | 43,444,444.96         | 454,655.4248                 |
+      | Cider                    | 0.38                  | 43,534.0379                  |
+      | Spirits                  | 0.02                  | 0.2492                       |
+      | Wine                     | 645,465.48            | 0.5965                       |
+      | Other fermented products | 0.02                  | 0.1894                       |
 
   Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service
@@ -86,9 +95,10 @@ Feature: View Past Returns Journey
     When I click on View Return link for one of the completed returns on "View Past Returns Page"
     Then I am presented with the "View Specific Return Page"
     And I should verify the table header displayed
-      | Alcohol declared     |
-      | Adjustments declared |
-      | Total                |
+      | Alcohol declared          |
+      | Adjustments declared      |
+      | Total                     |
+      | Duty suspended deliveries |
 #  This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
       | Description         | Duty value |
@@ -100,3 +110,7 @@ Feature: View Past Returns Journey
 #  This verifies the details of total duty value section
     And I should verify the details of the table 3 on "View Specific Return Page"
       | Total duty value | Nil |
+#  This verifies the details of duty suspended deliveries section
+    And I should verify the details of the table 4 on "View Specific Return Page"
+      | Description      |
+      | Nothing declared |
