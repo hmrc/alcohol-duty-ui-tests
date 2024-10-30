@@ -19,7 +19,7 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select yes if you need to tell us about adjustments to any previous returns |
+      | Select yes if you need to tell us about any adjustments from previous returns |
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
@@ -87,8 +87,8 @@ Feature: Adjustments Journey - Error Message Validations
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Litres of cider must be a number to 2 decimal places        |
-      | Litres of pure alcohol must be a number to 4 decimal places |
+      | Litres of cider must be a number up to 2 decimal places        |
+      | Litres of pure alcohol must be a number up to 4 decimal places |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
