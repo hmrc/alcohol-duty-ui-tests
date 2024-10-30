@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object HowMuchYouNeedToDeclareWinePage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/how-much-do-you-need-to-declare/Wine"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/volumes"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-how-much-do-you-need-to-declare/Wine"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/change/volumes"
   override val title          = "Tell us about the wine you need to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(

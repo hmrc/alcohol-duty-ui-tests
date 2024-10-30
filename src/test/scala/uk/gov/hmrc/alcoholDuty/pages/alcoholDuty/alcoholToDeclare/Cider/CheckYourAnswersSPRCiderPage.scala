@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersSPRCiderPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Cider"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/spr/check-your-answers"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
   override val title          = "Check your answers"
@@ -39,12 +39,12 @@ object CheckYourAnswersSPRCiderPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Cider#taxType']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume#taxType']")
       case "Change Total cider"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Cider#totalLitres']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume#totalLitres']")
       case "Change Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Cider#pureAlcohol']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume#pureAlcohol']")
       case "Change Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Cider#dutyRate']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume#dutyRate']")
     }
 }

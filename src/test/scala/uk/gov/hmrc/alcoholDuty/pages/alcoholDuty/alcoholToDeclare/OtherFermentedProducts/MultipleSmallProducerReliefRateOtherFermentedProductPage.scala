@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object MultipleSmallProducerReliefRateOtherFermentedProductPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-rates/OtherFermentedProduct"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/eligible-volume"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-multiple-spr-rates/..."
   override val title          = "Tell us about the other fermented products you need to declare that are eligible for Small Producer Relief"

@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object MultipleSPRListQuestionSpiritsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/multiple-spr-list/Spirits"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/spr/multiple-duty-rates/eligible-volumes"
   override val title       = "Spirits with Small Producer Relief duty to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -43,8 +43,8 @@ object MultipleSPRListQuestionSpiritsPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/multiple-spr-rates/Spirits?index=0']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/declare/spr/multiple-duty-rates/eligible-volume?index=0']")
       case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/delete-multiple-spr-entry/Spirits?index=0']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/declare/spr/multiple-duty-rates/remove-volume?index=0']")
     }
 }

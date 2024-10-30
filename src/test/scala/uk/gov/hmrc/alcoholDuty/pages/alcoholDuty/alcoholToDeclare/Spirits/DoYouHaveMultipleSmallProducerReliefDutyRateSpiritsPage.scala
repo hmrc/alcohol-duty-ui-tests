@@ -23,10 +23,10 @@ object DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage extends BasePage 
 
   override val url: String    = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
+  ) + "/complete-return/alcoholic-products/Spirits/declare/spr/multiple-duty-rates"
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/change-do-you-have-multiple-small-producer-relief-duty-rates/Spirits"
+  ) + "/complete-return/alcoholic-products/Spirits/change/spr/multiple-duty-rates"
   override val title          = "More than one Small Producer Relief duty rate?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

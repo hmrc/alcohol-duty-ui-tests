@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object WhatDoYouNeedToDeclareOtherFermentedProductPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-do-you-need-to-declare/OtherFermentedProduct"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/products-to-include"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-do-you-need-to-declare/OtherFermentedProduct"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-complete-return/alcoholic-products/OtherFermentedProduct/declare/products-to-include"
   override val title          = "What do you need to declare?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
