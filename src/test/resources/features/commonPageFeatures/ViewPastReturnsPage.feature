@@ -64,7 +64,6 @@ Feature: View Past Returns Journey
       | Spoilt         | Non-draught wine between 3.5% and 8.4% ABV (323)                                                                   | 1,000.0000 l                 | £8.17 per litre       | −£8,170.00 |
       | Drawback       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324) | 1,000.0000 l                 | £1.20 per litre       | −£1,200.00 |
       | Drawback       | Non-draught spirits between 3.5% and 8.4% ABV (325)                                                                | 311.5100 l                   | £2.20 per litre       | −£685.32   |
-
 #  This verifies the details of total adjustments duty value section
     And I should verify the details of the table 4 on "View Specific Return Page"
       | Total adjustments duty value | −£9,792.93 |
@@ -74,10 +73,10 @@ Feature: View Past Returns Journey
 #  This verifies the details of duty suspended deliveries section
     And I should verify the details of the table 6 on "View Specific Return Page"
       | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
-      | Beer                     | 0.15                  | 0.4248                       |
-      | Cider                    | 0.38                  | 0.0379                       |
+      | Beer                     | 43,444,444.96         | 454,655.4248                 |
+      | Cider                    | 0.38                  | 43,534.0379                  |
       | Spirits                  | 0.02                  | 0.2492                       |
-      | Wine                     | 0.44                  | 0.5965                       |
+      | Wine                     | 645,465.48            | 0.5965                       |
       | Other fermented products | 0.02                  | 0.1894                       |
 
   Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
