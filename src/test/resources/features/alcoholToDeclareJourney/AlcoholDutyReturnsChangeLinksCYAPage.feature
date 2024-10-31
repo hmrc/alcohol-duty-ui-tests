@@ -305,11 +305,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer between 1.3% and 3.4% ABV (361 SPR) | 9,999.99 litres | 89.9900 LPA        | £19.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Beer Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Description" on "Check Your Answers SPR Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer#taxType"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with url suffix as "#taxType"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
     When I click "Change Description" on "Check Your Answers SPR Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer#taxType"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with url suffix as "#taxType"
     When I select radio button "Non-draught beer between 3.5% and 8.4% ABV (366 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
@@ -323,16 +323,16 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer between 3.5% and 8.4% ABV (366 SPR) | 9,999.99                       | 89.9900                      | £19.00                | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Beer Page
     When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "" and suffix as "Beer?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with existing url suffix as "?index=0"
     When I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "" and suffix as "Beer?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with existing url suffix as "?index=0"
     When I select radio button "Draught beer between 1.3% and 3.4% ABV (371 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "22" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
-    Then I am presented with the "Check Your Answers SPR Beer Page" with url suffix as "Beer?index=0"
+    Then I am presented with the "Check Your Answers SPR Beer Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Beer Page"
       | Description                                      | Total beer      | Total pure alcohol | Duty rate        |
       | Draught beer between 1.3% and 3.4% ABV (371 SPR) | 8,888.88 litres | 88.8800 LPA        | £22.00 per litre |
@@ -627,11 +627,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.9900 LPA        | £20.99 per litre |
   #To verify 'Change' link functionality at Check Your Answers SPR Cider Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total cider" on "Check Your Answers SPR Cider Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "change-" and suffix as "Cider#totalLitres"
+    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with url suffix as "#totalLitres"
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page"
     When I click "Change Total cider" on "Check Your Answers SPR Cider Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "change-" and suffix as "Cider#totalLitres"
+    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with url suffix as "#totalLitres"
     When I select radio button "Draught cider between 1.3% and 3.4% ABV (372 SPR)" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
@@ -648,17 +648,17 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Cider Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "" and suffix as "Cider?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with existing url suffix as "?index=0"
     When I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     When I click "Change hyperlink" on "Multiple SPR List Question Cider Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with new url containing prefix as "" and suffix as "Cider?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with existing url suffix as "?index=0"
     When I select radio button "Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "8.88" for "Duty rate" on "Multiple Small Producer Relief Rate Cider Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
-    Then I am presented with the "Check Your Answers SPR Cider Page" with url suffix as "Cider?index=0"
+    Then I am presented with the "Check Your Answers SPR Cider Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Cider Page"
       | Description                                                                                     | Total cider     | Total pure alcohol | Duty rate       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
@@ -987,13 +987,13 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                          | Total wine    | Total pure alcohol | Duty rate        |
       | Non-draught wine between 3.5% and 8.4% ABV (368 SPR) | 678.99 litres | 66.4300 LPA        | £15.65 per litre |
-  #To verify 'Change' link functionality at Check Your Answers SPR Cider Page. All the links are set to redirect to the same page so checking only one link
+  #To verify 'Change' link functionality at Check Your Answers SPR Wine Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Duty rate" on "Check Your Answers SPR Wine Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "change-" and suffix as "Wine#dutyRate"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with url suffix as "#dutyRate"
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers SPR Wine Page"
     When I click "Change Duty rate" on "Check Your Answers SPR Wine Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "change-" and suffix as "Wine#dutyRate"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with url suffix as "#dutyRate"
     When I select radio button "Draught wine between 1.3% and 3.4% ABV (373 SPR)" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "999.99" for "Total litres" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Wine Page"
@@ -1010,17 +1010,17 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 1.3% and 3.4% ABV (373 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Wine Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "" and suffix as "Wine?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with existing url suffix as "?index=0"
     When I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     When I click "Change hyperlink" on "Multiple SPR List Question Wine Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with new url containing prefix as "" and suffix as "Wine?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" with existing url suffix as "?index=0"
     When I select radio button "Draught wine between 3.5% and 8.4% ABV (378 SPR)" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "999.99" for "Total litres" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "88.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "7.77" for "Duty rate" on "Multiple Small Producer Relief Rate Wine Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
-    Then I am presented with the "Check Your Answers SPR Wine Page" with url suffix as "Wine?index=0"
+    Then I am presented with the "Check Your Answers SPR Wine Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Wine Page"
       | Description                                      | Total wine    | Total pure alcohol | Duty rate       |
       | Draught wine between 3.5% and 8.4% ABV (378 SPR) | 999.99 litres | 88.8800 LPA        | £7.77 per litre |
@@ -1353,11 +1353,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99 litres | 55.5500 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Spirits Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "change-" and suffix as "Spirits#pureAlcohol"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with url suffix as "#pureAlcohol"
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "change-" and suffix as "Spirits#pureAlcohol"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with url suffix as "#pureAlcohol"
     And I enter "88.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Spirits Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page"
@@ -1371,13 +1371,13 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught spirits between 3.5% and 8.4% ABV (380 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with new url containing prefix as "" and suffix as "Spirits?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" with existing url suffix as "?index=0"
     When I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Multiple SPR List Question Spirits Page"
     When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
     And I select radio button "Non-draught spirits between 3.5% and 8.4% ABV (370 SPR)" on "Multiple Small Producer Relief Rate Spirits Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
-    Then I am presented with the "Check Your Answers SPR Spirits Page" with url suffix as "Spirits?index=0"
+    Then I am presented with the "Check Your Answers SPR Spirits Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
       | Description                                             | Total spirits | Total pure alcohol | Duty rate        |
       | Non-draught spirits between 3.5% and 8.4% ABV (370 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
@@ -1680,11 +1680,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Other Fermented Product Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "change-" and suffix as "OtherFermentedProduct#taxType"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with url suffix as "#taxType"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "change-" and suffix as "OtherFermentedProduct#taxType"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with url suffix as "#taxType"
     When I select radio button "Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
@@ -1698,16 +1698,16 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 999.99                         | 99.9900                      | £20.00                | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Other Fermented Product Page
     When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "" and suffix as "OtherFermentedProduct?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with existing url suffix as "?index=0"
     When I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with new url containing prefix as "" and suffix as "OtherFermentedProduct?index=0"
+    Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" with existing url suffix as "?index=0"
     And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I enter "888.88" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I enter "88" for "Duty rate" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
-    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page" with url suffix as "OtherFermentedProduct?index=0"
+    Then I am presented with the "Check Your Answers SPR Other Fermented Product Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
       | Description                                                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
       | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR) | 8,888.88 litres                | 888.8800 LPA       | £88.00 per litre |

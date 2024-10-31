@@ -40,10 +40,10 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Other Fermented Product to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-complete-return/alcoholic-products/OtherFermentedProduct/declare/products-to-include']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/products-to-include']")
       case "Change Other Fermented Product duty"                               =>
         click on cssSelector(
-          "a[href='/manage-alcohol-duty/change-complete-return/alcoholic-products/OtherFermentedProduct/declare/volumes']"
+          "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/volumes']"
         )
       case "Change Other Fermented Product eligible for Small Producer Relief" =>
         click on cssSelector(

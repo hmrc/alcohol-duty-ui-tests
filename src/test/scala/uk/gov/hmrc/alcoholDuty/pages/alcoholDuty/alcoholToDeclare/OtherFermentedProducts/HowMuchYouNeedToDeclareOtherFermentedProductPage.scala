@@ -26,7 +26,7 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
   override val newUrl: String =
     TestConfiguration.url(
       "alcohol-duty-returns-frontend"
-    ) + "/change-complete-return/alcoholic-products/OtherFermentedProduct/declare/volumes"
+    ) + "/complete-return/alcoholic-products/OtherFermentedProduct/change/volumes"
   override val title          = "Tell us about other fermented products you need to declare"
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -24,7 +24,7 @@ object MultipleSmallProducerReliefRateWinePage extends BasePage {
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/spr/multiple-duty-rates/eligible-volume"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-multiple-spr-rates/..."
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/change/spr/multiple-duty-rates/eligible-volume"
   override val title          = "Tell us about the wine you need to declare that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(

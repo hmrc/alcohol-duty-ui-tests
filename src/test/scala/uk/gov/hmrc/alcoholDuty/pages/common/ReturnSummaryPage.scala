@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 
 object ReturnSummaryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
   override val title       = "The duty due for this return is £14,749.70"
 
   override def expectedPageErrorTitle: Option[String] = Some(

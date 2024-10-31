@@ -80,7 +80,13 @@ trait BaseStepDef
 
   Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkNewURLWithOneDynamicValue(urlSuffix)
+    PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+  Then("""I am presented with the {string} with existing url suffix as {string}""") { (page: String, urlSuffix: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
@@ -152,7 +158,7 @@ trait BaseStepDef
       case "Task List Page"            =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
       case "Return Summary Page"       =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
       case "Alcohol Duty Service"      =>
         driver.get(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
