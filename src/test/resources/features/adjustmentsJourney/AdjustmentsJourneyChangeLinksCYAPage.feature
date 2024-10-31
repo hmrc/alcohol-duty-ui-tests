@@ -212,10 +212,8 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                      | Duty value | Action        |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | £269.92    | Change Remove |
 
-  Scenario: Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
+  Scenario:4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
     When I select radio button "Drawback" on "Adjustment Type Page"
-  Scenario:4- Adjustments Journey - Changing Non SPR to SPR - Spoilt - Spirits
-    When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
     When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
@@ -294,7 +292,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                          | Duty value | Action        |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | −£2,322.59 | Change Remove |
 
-  Scenario: Adjustments Journey - Change Link Functionality - Spoilt - Spirits
+  Scenario:6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the "Spoilt Alcohol Type Page"
