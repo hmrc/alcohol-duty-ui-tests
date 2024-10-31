@@ -56,6 +56,6 @@ object ReturnSummaryPage extends BasePage {
       case "Change Declared beer duty"                     =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/check-your-answers']")
       case "Change Adjustment duty value"                  =>
-        click on cssSelector("a[href='/manage-alcohol-duty/adjustments-to-previous-returns/1']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/1']")
     }
 }

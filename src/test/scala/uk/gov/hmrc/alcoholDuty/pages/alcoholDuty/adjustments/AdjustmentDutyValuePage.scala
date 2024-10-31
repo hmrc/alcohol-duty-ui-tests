@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentDutyValuePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-duty-value"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
   override val title       = "The duty value for this adjustment is £16.00"
 
   override def expectedPageTitle: Option[String]  = Some(

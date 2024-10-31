@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object AdjustmentListPage extends BasePage {
 
   override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustments-to-previous-returns/1"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/1"
 
   override val title = "Adjustments from previous returns"
 
@@ -45,7 +45,7 @@ object AdjustmentListPage extends BasePage {
   override def clickButton(buttonText: String): Unit =
     buttonText match {
       case "Change Hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/adjustment-check-your-answers?index=0']")
-      case "Remove Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/remove-adjustment?index=0']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/check-your-answers?index=0']")
+      case "Remove Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/remove-adjustment?index=0']")
     }
 }
