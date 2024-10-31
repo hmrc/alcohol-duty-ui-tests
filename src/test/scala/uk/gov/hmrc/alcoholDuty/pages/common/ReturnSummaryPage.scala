@@ -22,7 +22,7 @@ import org.openqa.selenium.By
 
 object ReturnSummaryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
   override val title       = "The duty due for this return is £14,749.70"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -46,16 +46,16 @@ object ReturnSummaryPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Declared spirits duty"                  =>
-        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Spirits']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/declare/check-your-answers']")
       case "Change Declared wine duty"                     =>
-        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Wine']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/declare/check-your-answers']")
       case "Change Declared cider duty"                    =>
-        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Cider']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/declare/check-your-answers']")
       case "Change Declared other fermented products duty" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/OtherFermentedProduct']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers']")
       case "Change Declared beer duty"                     =>
-        click on cssSelector("a[href='/manage-alcohol-duty/return-check-your-answers/Beer']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/check-your-answers']")
       case "Change Adjustment duty value"                  =>
-        click on cssSelector("a[href='/manage-alcohol-duty/adjustments-to-previous-returns/1']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/1']")
     }
 }

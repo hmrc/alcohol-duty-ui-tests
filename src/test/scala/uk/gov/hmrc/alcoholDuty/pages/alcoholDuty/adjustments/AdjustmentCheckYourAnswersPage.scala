@@ -21,9 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object AdjustmentCheckYourAnswersPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-check-your-answers"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/check-your-answers"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/adjustment-check-your-answers?index=0"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/check-your-answers?index=0"
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -39,20 +39,20 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Adjustment"             =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-the-type-of-adjustment']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']")
       case "Original return period" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-return-date']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']")
       case "Tax type"               =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-tax-type-code']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
       case "Original tax type"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-tax-type-code']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
       case "SPR duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
       case "New SPR duty rate" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-new-spr-duty-rate']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/repackaged/new-spr-duty-rate']")
       case "Volume"                 =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
       case "New tax type"           =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-new-tax-type-code']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']")
     }
 }

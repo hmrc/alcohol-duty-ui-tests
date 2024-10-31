@@ -21,9 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersSPRSpiritsPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Spirits"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/spr/check-your-answers"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/spr/check-your-answers"
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -39,12 +39,12 @@ object CheckYourAnswersSPRSpiritsPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Description" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#taxType']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/multiple-duty-rates/eligible-volume#taxType']")
       case "Change Total spirits"      =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#totalLitres']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/multiple-duty-rates/eligible-volume#totalLitres']")
       case "Change Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#pureAlcohol']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/multiple-duty-rates/eligible-volume#pureAlcohol']")
       case "Change Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Spirits#dutyRate']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/multiple-duty-rates/eligible-volume#dutyRate']")
     }
 }

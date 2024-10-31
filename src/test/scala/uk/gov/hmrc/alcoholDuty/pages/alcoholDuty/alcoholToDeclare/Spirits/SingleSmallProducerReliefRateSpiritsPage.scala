@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object SingleSmallProducerReliefRateSpiritsPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-single-spr-rate/Spirits"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/spr/eligible-volumes"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-single-spr-rate/Spirits"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes"
   override val title          = "Tell us about the spirits that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(

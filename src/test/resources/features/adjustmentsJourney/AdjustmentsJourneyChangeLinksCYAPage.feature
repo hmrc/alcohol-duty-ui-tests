@@ -18,7 +18,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Type Page"
 
   @Test
-  Scenario: Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
+  Scenario:1- Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
@@ -65,7 +65,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Over-declared   | Draught beer between 1.3% and 3.4% ABV (371 SPR) | −£2,455.39 | Change Remove |
 
   @Test
-  Scenario: Adjustments Journey - Change Link Functionality for Original Return Period And Tax Type and SPR Duty Rate - Over-declaration - Cider
+  Scenario:2- Adjustments Journey - Change Link Functionality for Original Return Period And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Over-declaration"
@@ -138,7 +138,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Over-declared   | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£3,131.87 | Change Remove |
 
   @Test
-  Scenario: Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
+  Scenario:3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Repackaged draught products"
@@ -212,7 +212,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                      | Duty value | Action        |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | £269.92    | Change Remove |
 
-  Scenario: Adjustments Journey - Changing Non SPR to SPR - Spoilt - Spirits
+  Scenario:4- Adjustments Journey - Changing Non SPR to SPR - Spoilt - Spirits
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
@@ -252,7 +252,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                         | Duty value | Action        |
       | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39 | Change Remove |
 
-  Scenario: Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
+  Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"

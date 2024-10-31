@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object NilReturnSummaryPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
   override val title       = "No duty due (nil return)"
 
   override def expectedPageErrorTitle: Option[String] = Some(

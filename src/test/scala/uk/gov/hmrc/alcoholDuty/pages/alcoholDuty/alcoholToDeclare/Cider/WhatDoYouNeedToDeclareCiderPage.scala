@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object WhatDoYouNeedToDeclareCiderPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-do-you-need-to-declare/Cider"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/products-to-include"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-do-you-need-to-declare/Cider"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/change/products-to-include"
   override val title          = "What do you need to declare?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -23,7 +23,7 @@ object UnderDeclarationReasonPage extends BasePage {
 
   override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/adjustment-reason-for-under-declaration"
+  ) + "/complete-return/adjustments/declare/reason-under-declared"
   override val title       = "Why were these alcoholic products not declared until now?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

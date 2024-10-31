@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DeleteMultipleSPRProductQuestionPage extends BasePage {
 
   override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/delete-multiple-spr-entry/Beer?index=0"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/remove-volume?index=0"
   override val title       = "Remove this beer entry?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

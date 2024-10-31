@@ -80,7 +80,13 @@ trait BaseStepDef
 
   Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkNewURLWithOneDynamicValue(urlSuffix)
+    PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+  Then("""I am presented with the {string} with existing url suffix as {string}""") { (page: String, urlSuffix: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
@@ -150,9 +156,9 @@ trait BaseStepDef
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
       case "Task List Page"            =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/task-list/your-alcohol-duty-return")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
       case "Return Summary Page"       =>
-        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-summary")
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
       case "Alcohol Duty Service"      =>
         driver.get(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
@@ -211,31 +217,32 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-  And("""I should verify the {string} payment details of the table {int} on {string}""") { (tableHeader: String, num: Int, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+  And("""I should verify the {string} payment details of the table {int} on {string}""") {
+    (tableHeader: String, num: Int, page: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
 
-    def getResultList(num: Int): Seq[List[String]] =
-      driver
-        .findElement(By.xpath("//div/table[" + num + "]"))
-        .findElements(By.tagName("tr"))
-        .asScala
-        .map(
-          _.findElements(By.xpath("td | th")).asScala
-            .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
-            .toList
-        )
-        .toList
+      def getResultList(num: Int): Seq[List[String]] =
+        driver
+          .findElement(By.xpath("//div/table[" + num + "]"))
+          .findElements(By.tagName("tr"))
+          .asScala
+          .map(
+            _.findElements(By.xpath("td | th")).asScala
+              .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
+              .toList
+          )
+          .toList
 
-    val actual = getResultList(num)
+      val actual = getResultList(num)
 
-    tableHeader match {
-      case "Outstanding" =>
-        actual should be(expectedOutstandingPayments)
-      case "Unallocated" =>
-        actual should be(expectedUnallocatedPayments)
-      case "Historical" =>
-        actual should be(expectedHistoricalPayments)
-    }
+      tableHeader match {
+        case "Outstanding" =>
+          actual should be(expectedOutstandingPayments)
+        case "Unallocated" =>
+          actual should be(expectedUnallocatedPayments)
+        case "Historical"  =>
+          actual should be(expectedHistoricalPayments)
+      }
   }
 
   And("""^I should see the following product details""") { data: DataTable =>
@@ -385,7 +392,7 @@ trait BaseStepDef
       driver
         .findElement(
           By.xpath(
-            "(//a[@href='/manage-alcohol-duty/return-check-your-answers/" + alcoholType + "'])[" + changeLinkIndex + "]"
+            "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
           )
         )
         .click()

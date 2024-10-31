@@ -125,6 +125,24 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
+  def checkNewDynamicURL(urlSuffix: String): Unit = {
+    val expectedUrl = newUrl + urlSuffix
+    if (url.contains("...")) {
+      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
+    } else {
+      driver.getCurrentUrl should equal(expectedUrl)
+    }
+  }
+
+  def checkExistingDynamicURL(urlSuffix: String): Unit = {
+    val expectedUrl = url + urlSuffix
+    if (url.contains("...")) {
+      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
+    } else {
+      driver.getCurrentUrl should equal(expectedUrl)
+    }
+  }
+
   def checkPageHeader(): Assertion = {
     fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
     expectedPageHeaderList should contain(List(pageHeader.get))
@@ -364,7 +382,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("\nthis product", "").replaceAll("""\n.*between.*""", "").replaceAll("""\n.*at or above.*""", "").replaceAll("""\n.*adjustment with duty value.*""", "").replaceAll("\n", " "))
+        .map(
+          _.getText.trim
+            .replaceAll("\nthis product", "")
+            .replaceAll("""\n.*between.*""", "")
+            .replaceAll("""\n.*at or above.*""", "")
+            .replaceAll("""\n.*adjustment with duty value.*""", "")
+            .replaceAll("\n", " ")
+        )
         .toList
     )
     .toList

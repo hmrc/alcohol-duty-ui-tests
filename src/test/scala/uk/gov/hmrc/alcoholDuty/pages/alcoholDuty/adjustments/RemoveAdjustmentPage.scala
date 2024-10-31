@@ -23,7 +23,7 @@ object RemoveAdjustmentPage extends BasePage {
 
   override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
-  ) + "/remove-adjustment?index=0"
+  ) + "/complete-return/adjustments/adjustment/declare/remove-adjustment?index=0"
   override val title       = "Remove this adjustment?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
