@@ -22,11 +22,11 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DutySuspendedOtherFermentedProductsPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-other-fermented-in-duty-suspense"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/OtherFermentedProducts/report"
   override val newUrl: String =
     TestConfiguration.url(
       "alcohol-duty-returns-frontend"
-    ) + "/change-tell-us-about-your-other-fermented-in-duty-suspense"
+    ) + "/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change"
   override val title          = "Tell us about your other fermented products with duty suspended"
 
   override def expectedPageErrorTitle: Option[String] = Some(

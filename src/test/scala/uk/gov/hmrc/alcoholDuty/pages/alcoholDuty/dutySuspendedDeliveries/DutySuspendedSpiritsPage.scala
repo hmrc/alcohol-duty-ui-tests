@@ -21,8 +21,8 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DutySuspendedSpiritsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-spirits-in-duty-suspense"
-  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-your-spirits-in-duty-suspense"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Spirits/report"
+  override val newUrl: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Spirits/change"
   override val title       = "Tell us about your duty suspended spirits"
 
   override def expectedPageErrorTitle: Option[String] = Some(

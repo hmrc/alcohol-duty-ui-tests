@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object CheckYourAnswersReturnsSpiritsPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Spirits"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/check-your-answers"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/return-check-your-answers/Spirits"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/check-your-answers"
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -40,10 +40,10 @@ object CheckYourAnswersReturnsSpiritsPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Spirits to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-what-do-you-need-to-declare/Spirits']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/products-to-include']")
       case "Change Spirits duty"                               =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-how-much-do-you-need-to-declare/Spirits']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/volumes']")
       case "Change Spirits eligible for Small Producer Relief" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-single-spr-rate/Spirits']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes']")
     }
 }

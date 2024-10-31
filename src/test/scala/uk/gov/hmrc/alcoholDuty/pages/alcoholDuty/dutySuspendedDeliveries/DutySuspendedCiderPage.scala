@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DutySuspendedCiderPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-your-cider-in-duty-suspense"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Cider/report"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-your-cider-in-duty-suspense"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Cider/change"
   override val title          = "Tell us about your duty suspended cider"
 
   override def expectedPageErrorTitle: Option[String] = Some(

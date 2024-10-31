@@ -1387,7 +1387,7 @@ Feature: Alcohol Duty Returns Journey
 #Adding one more product to the list
     When I select radio button "Yes" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url containing prefix as "change-" and suffix as "Beer"
+    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url
     When I select radio button "Draught beer between 1.3% and 3.4% ABV (371 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "7777.77" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "777.7777" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"

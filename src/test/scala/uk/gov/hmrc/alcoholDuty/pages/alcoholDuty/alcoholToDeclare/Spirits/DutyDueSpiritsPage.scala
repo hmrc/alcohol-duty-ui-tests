@@ -22,7 +22,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DutyDueSpiritsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/duty-due/Spirits"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/duty-due"
   override val title = "You will owe £4,588.83"
 
   override def expectedPageTitle: Option[String] = Some(

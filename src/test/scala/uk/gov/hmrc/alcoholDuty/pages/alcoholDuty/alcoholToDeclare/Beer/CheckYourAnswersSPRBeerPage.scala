@@ -21,9 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object CheckYourAnswersSPRBeerPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-answers-spr/Beer"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/check-your-answers"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/preFix-check-your-answers-spr/..."
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/check-your-answers"
   override val title          = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -39,12 +39,12 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Description"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#taxType']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/eligible-volume#taxType']")
       case "Change Total beer"         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#totalLitres']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/eligible-volume#totalLitres']")
       case "Change Total pure alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#pureAlcohol']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/eligible-volume#pureAlcohol']")
       case "Change Duty rate"          =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-multiple-spr-rates/Beer#dutyRate']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/eligible-volume#dutyRate']")
     }
 }
