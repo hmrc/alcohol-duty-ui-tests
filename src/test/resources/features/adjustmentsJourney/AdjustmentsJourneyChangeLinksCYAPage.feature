@@ -212,12 +212,12 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                      | Duty value | Action        |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR) | £269.92    | Change Remove |
 
-  Scenario: Adjustments Journey - Changing Non SPR to SPR - Spoilt - Spirits
-    When I select radio button "Spoilt" on "Adjustment Type Page"
+  Scenario: Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
+    When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
-    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
+    And I click save and continue button on "Adjustment Return Date Over Dec Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
     When I enter "315" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
@@ -230,7 +230,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                            | Volume                                                           | Duty value |
-      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Drawback   | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click "Tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
     When I enter "375" on "Adjustment Tax Type Code Page"
@@ -245,12 +245,12 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                           | Duty value |
-      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,455.39 |
+      | Drawback   | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
       | Adjustment type | Description                                         | Duty value | Action        |
-      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39 | Change Remove |
+      | Drawback        | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39 | Change Remove |
 
   Scenario: Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
@@ -291,3 +291,47 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                          | Duty value | Action        |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | −£2,322.59 | Change Remove |
+
+  Scenario: Adjustments Journey - Change Link Functionality - Spoilt - Spirits
+    When I select radio button "Spoilt" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
+    When I select radio button "Spirits" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment | Description | Volume                                                           | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+    When I click "Description" on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Spoilt Alcohol Type Page" with new url
+    When I select radio button "Beer" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Beer Alcohol Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment | Description | Volume                                                        | Duty value |
+      | Spoilt     | Beer        | 3,000.75 litres of beer,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+    When I click "Duty value" on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Spoilt Beer Alcohol Volume Page" with new url
+    When I enter "3222.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "255.55" for "Litres Of Pure Alcohol" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "3200.55" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
+    Then I am presented with the "Adjustment Check Your Answers Page"
+    And I should see the following details
+      | Adjustment | Description | Volume                                                        | Duty value |
+      | Spoilt     | Beer        | 3,222.75 litres of beer,255.5500 litres of pure alcohol (LPA) | −£3,200.55 |
+    When I click save and continue button on "Adjustment Check Your Answers Page"
+    Then I am presented with the "Adjustment List Page"
+    And I should see the following product details
+      | Adjustment type | Description | Duty value | Action        |
+      | Spoilt          | Beer        | −£3,200.55 | Change Remove |

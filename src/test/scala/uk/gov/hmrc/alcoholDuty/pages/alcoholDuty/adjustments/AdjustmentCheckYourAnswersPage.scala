@@ -40,6 +40,8 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
     text match {
       case "Adjustment"             =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-the-type-of-adjustment']")
+      case "Description"            =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-spoilt-alcohol-type']")
       case "Original return period" =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-return-date']")
       case "Tax type"               =>
@@ -48,11 +50,13 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-tax-type-code']")
       case "SPR duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
-      case "New SPR duty rate" =>
+      case "New SPR duty rate"      =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-new-spr-duty-rate']")
       case "Volume"                 =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-adjustment-volume-with-spr']")
       case "New tax type"           =>
         click on cssSelector("a[href='/manage-alcohol-duty/change-new-tax-type-code']")
+      case "Duty value"             =>
+        click on cssSelector("a[href='/manage-alcohol-duty/change-spoilt-alcohol']")
     }
 }

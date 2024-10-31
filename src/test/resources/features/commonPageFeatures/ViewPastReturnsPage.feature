@@ -61,7 +61,7 @@ Feature: View Past Returns Journey
       | Under-declared | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)                    | 12.5690 l                    | £19.08 per litre      | £239.82    |
       | Over-declared  | Non-draught beer between 3.5% and 8.4% ABV (321)                                                                   | 34.5625 l                    | £1.20 per litre       | −£41.48    |
       | Repackaged     | Non-draught wine between 8.5% and 22% ABV (333)                                                                    | 100.0681 l                   | £2.28 per litre       | £64.05     |
-      | Spoilt         | Non-draught wine between 3.5% and 8.4% ABV (323)                                                                   | 1,000.0000 l                 | £8.17 per litre       | −£8,170.00 |
+      | Spoilt         | Other fermented products                                                                                           | 1,000.0000 l                 | £0.01 per litre       | −£8,170.00 |
       | Drawback       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324) | 1,000.0000 l                 | £1.20 per litre       | −£1,200.00 |
       | Drawback       | Non-draught spirits between 3.5% and 8.4% ABV (325)                                                                | 311.5100 l                   | £2.20 per litre       | −£685.32   |
 #  This verifies the details of total adjustments duty value section

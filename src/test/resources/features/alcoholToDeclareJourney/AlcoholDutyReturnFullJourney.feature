@@ -571,33 +571,29 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#Adjustments Journey - Spirits - Spoilt - Without SPR
+#Adjustments Journey - Spirits - Spoilt
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
-    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
-    Then I am presented with the "Adjustment Tax Type Code Page"
-    When I enter "315" on "Adjustment Tax Type Code Page"
-    And I click save and continue button on "Adjustment Tax Type Code Page"
-    Then I am presented with the "Adjustment Volume Page"
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
-    And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,322.59"
-    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
+    When I select radio button "Spirits" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                            | Volume                                                           | Duty value |
-      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Description | Volume                                                           | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                         | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)    | £2,322.64  | Change Remove |
-      | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)   | −£2,322.59 | Change Remove |
-      | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)    | £425.93    | Change Remove |
-      | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315) | −£2,322.59 | Change Remove |
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,322.64  | Change Remove |
+      | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | −£2,322.59 | Change Remove |
+      | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)  | £425.93    | Change Remove |
+      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -627,7 +623,7 @@ Feature: Alcohol Duty Returns Journey
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)                     | £2,322.64  | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)                    | −£2,322.59 | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)                     | £425.93    | Change Remove |
-      | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315)                  | −£2,322.59 | Change Remove |
+      | Spoilt          | Spirits                                                              | −£3,255.55 | Change Remove |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | −£2,322.59 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
@@ -736,17 +732,17 @@ Feature: Alcohol Duty Returns Journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | You told us you produced spirits this quarter | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send your return |
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£51,597.21"
+    Then I am presented with the "Return Summary Page" "£50,664.25"
     And I should see the following details at the returns summary page
       | Spirits declared                  | £13,159.65 | Change |
       | Wine declared                     | £12,164.82 | Change |
       | Cider declared                    | £4,588.83  | Change |
       | Other fermented products declared | £11,153.36 | Change |
       | Beer declared                     | £14,749.75 | Change |
-      | Adjustments to previous returns   | −£4,219.20 | Change |
+      | Adjustments to previous returns   | −£5,152.16 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £51,597.21"
+    And the page source contains "You need to pay £50,664.25"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
@@ -1221,37 +1217,32 @@ Feature: Alcohol Duty Returns Journey
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#Adjustments Journey - Spirits - Spoilt - With SPR
+#Adjustments Journey - Spirits - Spoilt
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
-    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
-    Then I am presented with the "Adjustment Tax Type Code Page"
-    When I enter "375" on "Adjustment Tax Type Code Page"
-    And I click save and continue button on "Adjustment Tax Type Code Page"
-    Then I am presented with the "Adjustment Volume With Spr Page"
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
-    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
-    And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
-    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
+    When I select radio button "Spirits" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                            | SPR duty rate | Volume                                                           | Duty value |
-      | Spoilt     | October 2023           | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | £9.80         | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,455.39 |
+      | Adjustment | Description | Volume                                                           | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                         | Duty value     | Action        |
-      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR)    | £2,455.39      | Change Remove |
-      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR)   | −£6,991,359.67 | Change Remove |
-      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR) | −£2,455.39     | Change Remove |
+      | Adjustment type | Description                                       | Duty value | Action        |
+      | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR)  | £2,455.39      | Change Remove |
+      | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£6,991,359.67 | Change Remove |
+      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR
+#  Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
@@ -1277,7 +1268,7 @@ Feature: Alcohol Duty Returns Journey
       | Adjustment type | Description                                                          | Duty value     | Action        |
       | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR)                     | £2,455.39      | Change Remove |
       | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR)                    | −£6,991,359.67 | Change Remove |
-      | Spoilt          | Draught spirits between 1.3% and 3.4% ABV (375 SPR)                  | −£2,455.39     | Change Remove |
+      | Spoilt          | Spirits                                                              | −£3,255.55     | Change Remove |
       | Drawback        | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | −£2,455.48     | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
@@ -1317,17 +1308,17 @@ Feature: Alcohol Duty Returns Journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you do not have any duty suspended deliveries to report | You told us you have not produced spirits this quarter | Check how much duty is payable and send your return |
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                           | Completed                                              | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "−£6,957,273.13"
+    Then I am presented with the "Return Summary Page" "−£6,958,073.29"
     And I should see the following details at the returns summary page
       | Spirits declared                  | £8,528.05      | Change |
       | Wine declared                     | £7,461.84      | Change |
       | Cider declared                    | £2,731.28      | Change |
       | Other fermented products declared | £7,103.76      | Change |
       | Beer declared                     | £10,717.09     | Change |
-      | Adjustments to previous returns   | −£6,993,815.15 | Change |
+      | Adjustments to previous returns   | −£6,994,615.31 | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed −£6,957,273.13"
+    And the page source contains "You are owed −£6,958,073.29"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
