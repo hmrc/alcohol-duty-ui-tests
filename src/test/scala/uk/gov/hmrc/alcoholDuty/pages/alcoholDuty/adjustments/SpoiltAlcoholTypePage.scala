@@ -21,9 +21,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object SpoiltAlcoholTypePage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/spoilt-alcohol-type"
+  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/spoilt-product/alcohol-type"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-spoilt-alcohol-type"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type"
   override val title          = "Which alcoholic product is spoilt?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
