@@ -1,4 +1,4 @@
-@Test @AllTests @AlcoholToDeclare
+@Test @AllTests @AlcoholToDeclare @check
 Feature: Alcohol Duty Returns Journey
 
   Background: : Common Steps - Alcohol Duty Returns Journey
@@ -737,13 +737,15 @@ Feature: Alcohol Duty Returns Journey
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£51,597.21"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £13,159.65 | Change |
       | Wine declared                     | £12,164.82 | Change |
       | Cider declared                    | £4,588.83  | Change |
       | Other fermented products declared | £11,153.36 | Change |
       | Beer declared                     | £14,749.75 | Change |
       | Adjustments to previous returns   | −£4,219.20 | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol                  | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £51,597.21"
@@ -1318,13 +1320,15 @@ Feature: Alcohol Duty Returns Journey
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                           | Completed                                              | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "−£6,957,273.13"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £8,528.05      | Change |
       | Wine declared                     | £7,461.84      | Change |
       | Cider declared                    | £2,731.28      | Change |
       | Other fermented products declared | £7,103.76      | Change |
       | Beer declared                     | £10,717.09     | Change |
       | Adjustments to previous returns   | −£6,993,815.15 | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol                  | Nothing to declare      | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You are owed −£6,957,273.13"
@@ -1355,9 +1359,11 @@ Feature: Alcohol Duty Returns Journey
       | Completed                                   | Completed                                              | Completed                                                           | Completed                                              | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Nil Return Summary Page"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Declared duty                   | Nil | Change |
       | Adjustments to previous returns | Nil | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol                  | Nothing to declare      | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You have nothing to pay"
