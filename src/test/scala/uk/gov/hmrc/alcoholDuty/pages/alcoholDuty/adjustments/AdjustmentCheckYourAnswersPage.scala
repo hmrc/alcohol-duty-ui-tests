@@ -41,7 +41,7 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
       case "Adjustment" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']")
       case "Description" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-spoilt-alcohol-type']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type']")
       case "Original return period" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']")
       case "Tax type" =>
@@ -57,6 +57,6 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
       case "New tax type" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']")
       case "Duty value" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-spoilt-alcohol']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spoilt-product/volume']")
     }
 }
