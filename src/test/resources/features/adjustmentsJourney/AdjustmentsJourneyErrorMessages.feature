@@ -136,24 +136,24 @@ Feature: Adjustments Journey - Error Message Validations
 #   Error message validation for Spirits - Spoilt starts here
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
-    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
-    Then I am presented with the "Adjustment Tax Type Code Page"
-    When I enter "375" on "Adjustment Tax Type Code Page"
-    And I click save and continue button on "Adjustment Tax Type Code Page"
-    Then I am presented with the "Adjustment Volume With Spr Page"
-    And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
-    When I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Volume With Spr Page" error page
+    Then I am presented with the "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Type Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of spirits           |
-      | Enter the litres of pure alcohol in spirits |
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
-    And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
-    When I click continue button on "Adjustment Duty Value Page"
+      | Select the type of alcoholic product you are declaring spoilt |
+    When I select radio button "Spirits" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of spoilt spirits           |
+      | Enter the litres of pure alcohol in spoilt spirits |
+      | Enter the amount of duty paid                      |
+    When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
