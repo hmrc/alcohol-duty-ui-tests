@@ -1975,25 +1975,21 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
-#Adjustments Journey - Spirits - Spoilt - Without SPR
+#Adjustments Journey - Spirits - Spoilt
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Spoilt Alcohol Page" "Spoilt"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Spoilt Alcohol Page"
-    And I click save and continue button on "Adjustment Return Date Spoilt Alcohol Page"
-    Then I am presented with the "Adjustment Tax Type Code Page"
-    When I enter "315" on "Adjustment Tax Type Code Page"
-    And I click save and continue button on "Adjustment Tax Type Code Page"
-    Then I am presented with the "Adjustment Volume Page"
-    When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
-    And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,322.59"
-    When I click continue button on "Adjustment Duty Value Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
+    When I select radio button "Spirits" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Alcohol Volume Page"
+    When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
+    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                            | Volume                                                           | Duty value |
-      | Spoilt     | October 2023           | Non-draught spirits between 1.3% and 3.4% ABV (315) | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Description | Volume                                                           | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2001,7 +1997,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)    | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)   | −£205.97   | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)    | £425.93    | Change Remove |
-      | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315) | −£2,322.59 | Change Remove |
+      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -2031,7 +2027,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)                     | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312)                    | −£205.97   | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (373 SPR)                     | £425.93    | Change Remove |
-      | Spoilt          | Non-draught spirits between 1.3% and 3.4% ABV (315)                  | −£2,322.59 | Change Remove |
+      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | −£2,322.59 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
@@ -2130,41 +2126,41 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | You told us you produced spirits this quarter | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send your return |
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
     And I should see the following details at the returns summary page
       | Spirits declared                  | £823.17    | Change |
       | Wine declared                     | £329.54    | Change |
       | Cider declared                    | £402.68    | Change |
       | Other fermented products declared | £308.96    | Change |
       | Beer declared                     | £3,136.47  | Change |
-      | Adjustments to previous returns   | −£4,374.24 | Change |
+      | Adjustments to previous returns   | −£5,307.20 | Change |
 #Change link functionality - Declared spirits duty
     When I click "Change Declared spirits duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
 #Change link functionality - Declared wine duty
     When I click "Change Declared wine duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
 #Change link functionality - Declared cider duty
     When I click "Change Declared cider duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
 #Change link functionality - Declared other fermented products duty
     When I click "Change Declared other fermented products duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
 #Change link functionality - Declared beer duty
     When I click "Change Declared beer duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
 #Change link functionality - Declared beer duty
     When I click "Change Adjustment duty value" on "Return Summary Page"
     Then I am presented with the "Adjustment List Page"
     When I enter redirect url for "Return Summary Page"
-    Then I am presented with the "Return Summary Page" "£626.58"
+    Then I am presented with the "Return Summary Page" "−£306.38"
