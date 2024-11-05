@@ -1,7 +1,7 @@
 @Test @AllTests @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
 
-  Background: : Common Steps - Alcohol to declare page
+  Background: : Common Steps - Alcohol Duty Returns Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
