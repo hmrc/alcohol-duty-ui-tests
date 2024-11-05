@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BROWSER=${1:-chrome}
+BROWSER=${1:-firefox}
 JOURNEY=${2:-Alcohol Duty UI Tests}
 
 echo "Running browser tests..."
