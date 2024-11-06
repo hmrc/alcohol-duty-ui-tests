@@ -2127,13 +2127,15 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "−£306.38"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £823.17    | Change |
       | Wine declared                     | £329.54    | Change |
       | Cider declared                    | £402.68    | Change |
       | Other fermented products declared | £308.96    | Change |
       | Beer declared                     | £3,136.47  | Change |
       | Adjustments to previous returns   | −£5,307.20 | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol | Declared | Change |
 #Change link functionality - Declared spirits duty
     When I click "Change Declared spirits duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
@@ -2162,5 +2164,10 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 #Change link functionality - Declared beer duty
     When I click "Change Adjustment duty value" on "Return Summary Page"
     Then I am presented with the "Adjustment List Page"
+    When I enter redirect url for "Return Summary Page"
+    Then I am presented with the "Return Summary Page" "−£306.38"
+#Change link functionality - Duty Suspended Deliveries
+    When I click "Change Duty suspended alcohol" on "Return Summary Page"
+    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     When I enter redirect url for "Return Summary Page"
     Then I am presented with the "Return Summary Page" "−£306.38"

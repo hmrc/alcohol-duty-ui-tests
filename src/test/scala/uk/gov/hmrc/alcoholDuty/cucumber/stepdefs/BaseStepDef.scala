@@ -398,9 +398,22 @@ trait BaseStepDef
         .click()
   }
 
-  And("""I should see the following details at the returns summary page""") { data: DataTable =>
+  And("""I should see the following details of the table {int} at the returns summary page""") { (num: Int, data: DataTable) =>
     val expected = data.asScalaListOfLists
-    val actual   = declaredProductListAtReturnsSummary
+
+    def declaredProductListAtReturnsSummary(num: Int): Seq[List[String]] = driver
+      .findElements(By.xpath("//table[" + num + "]/tbody/tr[@class='govuk-table__row']"))
+      .asScala
+      .map { declaredProductDetails =>
+        declaredProductDetails
+          .findElements(By.tagName("td"))
+          .asScala
+          .map(_.getText.trim.replaceAll("\n", " "))
+          .toList
+      }
+      .toList
+
+    val actual   = declaredProductListAtReturnsSummary(num)
     actual should be(expected)
   }
 
