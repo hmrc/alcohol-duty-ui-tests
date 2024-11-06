@@ -100,10 +100,12 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£638.50"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Wine declared                     | £329.54 | Change |
       | Other fermented products declared | £308.96 | Change |
       | Adjustments to previous returns   | Nil     | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £638.50"
@@ -210,15 +212,16 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£1,338.16"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Beer declared                   | £514.99 | Change |
       | Spirits declared                | £823.17 | Change |
       | Adjustments to previous returns | Nil     | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,338.16"
 
-  @TestRun
   Scenario:3. Alcohol Duty Returns Journey - user with only Beer regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000014208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -282,9 +285,11 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£514.99"
-    And I should see the following details at the returns summary page
+    And I should see the following details of the table 1 at the returns summary page
       | Beer declared                   | £514.99 | Change |
       | Adjustments to previous returns | Nil     | Change |
+    And I should see the following details of the table 2 at the returns summary page
+      | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £514.99"

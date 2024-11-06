@@ -394,18 +394,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
-  def declaredProductListAtReturnsSummary: Seq[List[String]] = driver
-    .findElements(By.xpath("//tbody/tr[@class='govuk-table__row']"))
-    .asScala
-    .map { declaredProductDetails =>
-      declaredProductDetails
-        .findElements(By.tagName("td"))
-        .asScala
-        .map(_.getText.trim.replaceAll("\n", " "))
-        .toList
-    }
-    .toList
-
   def outstandingReturnsList: Seq[List[String]] = driver
     .findElement(By.xpath("//div/table[1]"))
     .findElements(By.tagName("tr"))

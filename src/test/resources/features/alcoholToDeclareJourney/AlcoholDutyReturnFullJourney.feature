@@ -741,7 +741,7 @@ Feature: Alcohol Duty Returns Journey
       | Beer declared                     | £14,749.75 | Change |
       | Adjustments to previous returns   | −£5,152.16 | Change |
     And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol                  | Declared | Change |
+      | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £50,664.25"
@@ -1237,10 +1237,10 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                       | Duty value | Action        |
+      | Adjustment type | Description                                       | Duty value     | Action        |
       | Under-declared  | Draught beer between 1.3% and 3.4% ABV (371 SPR)  | £2,455.39      | Change Remove |
       | Over-declared   | Draught cider between 1.3% and 3.4% ABV (372 SPR) | −£6,991,359.67 | Change Remove |
-      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
+      | Spoilt          | Spirits                                           | −£3,255.55     | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -1319,7 +1319,7 @@ Feature: Alcohol Duty Returns Journey
       | Beer declared                     | £10,717.09     | Change |
       | Adjustments to previous returns   | −£6,994,615.31 | Change |
     And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol                  | Nothing to declare      | Change |
+      | Duty suspended alcohol | Nothing to declare | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You are owed −£6,958,073.29"
@@ -1354,7 +1354,7 @@ Feature: Alcohol Duty Returns Journey
       | Declared duty                   | Nil | Change |
       | Adjustments to previous returns | Nil | Change |
     And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol                  | Nothing to declare      | Change |
+      | Duty suspended alcohol | Nothing to declare | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You have nothing to pay"
