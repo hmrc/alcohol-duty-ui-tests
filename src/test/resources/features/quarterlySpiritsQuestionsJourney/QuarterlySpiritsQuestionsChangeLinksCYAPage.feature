@@ -115,7 +115,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
       | Total of all spirits | Total of Scotch whisky | Total of Irish whiskey | Type of spirits                                                                              | Other spirits produced | Malted barley | Wheat         | Maize         | Rye           | Unmalted Grain | Test Grain2   | Beer          | Wine          | Made-wine     | Cider/perry   | Ethylene gas  | Molasses      | Test Other Ingredients |
       | 111.99 litres        | 222.99 litres          | 333.99 litres          | Grain spirits,Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer | Test Spirits           | 444.44 tonnes | 555.55 tonnes | 666.99 tonnes | 777.77 tonnes | 888.88 tonnes  | 100.99 tonnes | 199.99 litres | 258.99 litres | 369.99 litres | 123.99 litres | 898.88 tonnes | 999.99 tonnes | 969.99 tonnes          |
 
-  Scenario: 2. QSR Journey - To verify quarterly spirits returns link is not visible for months other than March, June, Sep and Dec
+  Scenario: 2. QSR Journey - To verify quarterly spirits returns link is not visible for months other than January, April, July and October
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
