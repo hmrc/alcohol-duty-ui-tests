@@ -7,6 +7,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
 
+#    The below tests need to be updated once OFP(Other Fermented Products) flag is turned on
   Scenario:1. Alcohol Duty Returns Journey - user with Wine & Other Fermented Products regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000111208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
