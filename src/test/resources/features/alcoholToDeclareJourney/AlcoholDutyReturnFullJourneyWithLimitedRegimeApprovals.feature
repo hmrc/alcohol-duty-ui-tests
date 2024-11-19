@@ -217,7 +217,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
       | Spirits declared                | £823.17 | Change |
       | Adjustments to previous returns | Nil     | Change |
     And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared | Change |
+      | Duty suspended alcohol | Declared           | Change |
+      | Spirits production     | Nothing to declare | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,338.16"

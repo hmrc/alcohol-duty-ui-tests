@@ -2136,6 +2136,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Adjustments to previous returns   | −£5,307.20 | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
+      | Spirits production     | Declared | Change |
 #Change link functionality - Declared spirits duty
     When I click "Change Declared spirits duty" on "Return Summary Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
@@ -2169,5 +2170,10 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 #Change link functionality - Duty Suspended Deliveries
     When I click "Change Duty suspended alcohol" on "Return Summary Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
+    When I enter redirect url for "Return Summary Page"
+    Then I am presented with the "Return Summary Page" "−£306.38"
+#Change link functionality - Spirits production
+    When I click "Change Spirits production" on "Return Summary Page"
+    Then I am presented with the "Quarterly Spirits Check Your Answers Page"
     When I enter redirect url for "Return Summary Page"
     Then I am presented with the "Return Summary Page" "−£306.38"
