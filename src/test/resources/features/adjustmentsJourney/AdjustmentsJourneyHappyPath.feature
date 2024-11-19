@@ -209,6 +209,7 @@ Feature: Adjustments Journey
       | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
       | Not yet started                     | Completed                                               | Completed           | Not yet started                              | Not yet started                               |
 
+#  The below test data need to be updated once OFP(Other Fermented Products) flag is turned on
   Scenario: Adjustments Journey - Spoilt Journey for a user with only Beer approval
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
