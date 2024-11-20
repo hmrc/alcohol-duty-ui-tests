@@ -38,13 +38,14 @@ Feature: View Past Returns Journey
       | Completed returns   |
     And I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
-    When I click on View Return link for one of the completed returns on "View Past Returns Page"
-    Then I am presented with the "View Specific Return Page"
+    When I redirect to a URL with Spirits section on "View Past Returns Page"
+    Then The page header is "SpiritsPeriod Alcohol Duty Return"
     And I should verify the table header displayed
-      | Alcohol declared          |
-      | Adjustments declared      |
-      | Total                     |
-      | Duty suspended deliveries |
+      | Alcohol declared                        |
+      | Adjustments declared                    |
+      | Total                                   |
+      | Duty suspended deliveries               |
+      | Spirits production in the last 3 months |
 #   This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
       | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value      |
@@ -78,6 +79,15 @@ Feature: View Past Returns Journey
       | Spirits                  | 0.02                  | 0.2492                       |
       | Wine                     | 645,465.48            | 0.5965                       |
       | Other fermented products | 0.02                  | 0.1894                       |
+#  This verifies the details of spirits section section
+    And I should verify the details of the table 7 on "View Specific Return Page"
+      | Description             | Total volume (LPA) |
+      | Total volume of spirits | 0.05               |
+      | Scotch whisky           | 0.26               |
+      | Irish whiskey           | 0.16               |
+    And I should verify the details of the table 8 on "View Specific Return Page"
+      | Types of spirits produced            |
+      | Neutral spirit (agricultural origin) |
 
   Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service
@@ -92,13 +102,14 @@ Feature: View Past Returns Journey
       | Completed returns   |
     And I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
-    When I click on View Return link for one of the completed returns on "View Past Returns Page"
-    Then I am presented with the "View Specific Return Page"
+    When I redirect to a URL with Spirits section on "View Past Returns Page"
+    Then The page header is "SpiritsPeriod Alcohol Duty Return"
     And I should verify the table header displayed
-      | Alcohol declared          |
-      | Adjustments declared      |
-      | Total                     |
-      | Duty suspended deliveries |
+      | Alcohol declared                        |
+      | Adjustments declared                    |
+      | Total                                   |
+      | Duty suspended deliveries               |
+      | Spirits production in the last 3 months |
 #  This verifies the details of alcohol declared section
     And I should verify the details of the table 1 on "View Specific Return Page"
       | Description         | Duty value |
@@ -112,5 +123,9 @@ Feature: View Past Returns Journey
       | Total duty value | Nil |
 #  This verifies the details of duty suspended deliveries section
     And I should verify the details of the table 4 on "View Specific Return Page"
+      | Description      |
+      | Nothing declared |
+#  This verifies the details of duty spirits production section
+    And I should verify the details of the table 5 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
