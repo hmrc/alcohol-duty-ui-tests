@@ -41,7 +41,7 @@ trait BaseStepDef
     with WebBrowser
     with BasePage {
 
-  val currentYear: Int  = LocalDate.now().getYear
+  val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
