@@ -29,6 +29,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
+import java.time.LocalDate
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -39,6 +40,9 @@ trait BaseStepDef
     with Matchers
     with WebBrowser
     with BasePage {
+
+  val currentYear: Int  = LocalDate.now().getYear
+  val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
     go to PageObjectFinder.page(page)
@@ -260,12 +264,11 @@ trait BaseStepDef
   When("""I redirect to a URL with Spirits section on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
-
-    val periodToUrl = Map(
-      "January 2024" -> "24AA",
-      "April 2024"   -> "24AD",
-      "July 2024"    -> "24AG",
-      "October 2024" -> "24AJ"
+    val periodToUrl    = Map(
+      s"January $currentYear" -> s"${shortYear}AA",
+      s"April $currentYear"   -> s"${shortYear}AD",
+      s"July $currentYear"    -> s"${shortYear}AG",
+      s"October $currentYear" -> s"${shortYear}AJ"
     )
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
@@ -283,10 +286,10 @@ trait BaseStepDef
     val currentURL       = driver.getCurrentUrl
 
     val urlToPeriod = Map(
-      "24AA" -> "January 2024",
-      "24AD" -> "April 2024",
-      "24AG" -> "July 2024",
-      "24AJ" -> "October 2024"
+      s"${shortYear}AA" -> s"January $currentYear",
+      s"${shortYear}AD" -> s"April $currentYear",
+      s"${shortYear}AG" -> s"July $currentYear",
+      s"${shortYear}AJ" -> s"October $currentYear"
     )
 
     urlToPeriod.find { case (suffix, _) => currentURL.contains(suffix) } match {
