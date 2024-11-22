@@ -18,6 +18,7 @@ package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
+import org.junit.Assert
 import org.openqa.selenium.By
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
@@ -28,6 +29,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
+import java.time.LocalDate
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -38,6 +40,9 @@ trait BaseStepDef
     with Matchers
     with WebBrowser
     with BasePage {
+
+  val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
+  val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
     go to PageObjectFinder.page(page)
@@ -84,11 +89,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
-  Then("""I am presented with the {string} with existing url suffix as {string}""") { (page: String, urlSuffix: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
+  Then("""I am presented with the {string} with existing url suffix as {string}""") {
+    (page: String, urlSuffix: String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
+      PageObjectFinder.page(page).checkPageHeader()
+      PageObjectFinder.page(page).checkPageTitle()
   }
 
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
@@ -255,6 +261,46 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//div/table[2]/tbody/tr[1]/td[3]/ul/li/a")).click()
   }
+  When("""I redirect to a URL with Spirits section on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
+    val periodToUrl    = Map(
+      s"January $currentYear" -> s"${shortYear}AA",
+      s"April $currentYear"   -> s"${shortYear}AD",
+      s"July $currentYear"    -> s"${shortYear}AG",
+      s"October $currentYear" -> s"${shortYear}AJ"
+    )
+
+    periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
+      case Some((_, suffix)) =>
+        driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + s"/view-your-return/$suffix")
+      case None              =>
+        logger.warn("No month returned to fit within the quarterly spirits requirement. Please check")
+        Assert.fail()
+    }
+
+  }
+
+  Then("""The page header is {string}""") { (pageHeader: String) =>
+    val actualPageHeader = driver.findElement(By.tagName("h1")).getText
+    val currentURL       = driver.getCurrentUrl
+
+    val urlToPeriod = Map(
+      s"${shortYear}AA" -> s"January $currentYear",
+      s"${shortYear}AD" -> s"April $currentYear",
+      s"${shortYear}AG" -> s"July $currentYear",
+      s"${shortYear}AJ" -> s"October $currentYear"
+    )
+
+    urlToPeriod.find { case (suffix, _) => currentURL.contains(suffix) } match {
+      case Some((_, period)) =>
+        val finalPageHeader = pageHeader.replace("SpiritsPeriod", period)
+        actualPageHeader should be(finalPageHeader)
+      case None              =>
+        logger.warn("No month to return")
+        Assert.fail()
+    }
+  }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
@@ -398,23 +444,24 @@ trait BaseStepDef
         .click()
   }
 
-  And("""I should see the following details of the table {int} at the returns summary page""") { (num: Int, data: DataTable) =>
-    val expected = data.asScalaListOfLists
+  And("""I should see the following details of the table {int} at the returns summary page""") {
+    (num: Int, data: DataTable) =>
+      val expected = data.asScalaListOfLists
 
-    def declaredProductListAtReturnsSummary(num: Int): Seq[List[String]] = driver
-      .findElements(By.xpath("//table[" + num + "]/tbody/tr[@class='govuk-table__row']"))
-      .asScala
-      .map { declaredProductDetails =>
-        declaredProductDetails
-          .findElements(By.tagName("td"))
-          .asScala
-          .map(_.getText.trim.replaceAll("\n", " "))
-          .toList
-      }
-      .toList
+      def declaredProductListAtReturnsSummary(num: Int): Seq[List[String]] = driver
+        .findElements(By.xpath("//table[" + num + "]/tbody/tr[@class='govuk-table__row']"))
+        .asScala
+        .map { declaredProductDetails =>
+          declaredProductDetails
+            .findElements(By.tagName("td"))
+            .asScala
+            .map(_.getText.trim.replaceAll("\n", " "))
+            .toList
+        }
+        .toList
 
-    val actual   = declaredProductListAtReturnsSummary(num)
-    actual should be(expected)
+      val actual = declaredProductListAtReturnsSummary(num)
+      actual should be(expected)
   }
 
   And("""the status of the Send return is marked as {string}""") { (sendReturnStatus: String) =>
