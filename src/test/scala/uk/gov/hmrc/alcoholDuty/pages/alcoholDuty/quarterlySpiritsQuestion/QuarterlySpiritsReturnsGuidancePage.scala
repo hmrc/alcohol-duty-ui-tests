@@ -24,23 +24,26 @@ object QuarterlySpiritsReturnsGuidancePage extends BasePage {
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-spirits-and-ingredients-you-have-used"
-  override val title          = "Tell us about your ingredients and spirits"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/change-tell-us-about-the-spirits-and-ingredients-you-have-used"
+  override val title          = "Tell us about the spirits you have produced from raw ingredients"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your ingredients and spirits - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about the spirits you have produced from raw ingredients - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your ingredients and spirits - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about the spirits you have produced from raw ingredients - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Tell us about your ingredients and spirits")
+  override def expectedPageHeader: Option[String] = Some(
+    "Tell us about the spirits you have produced from raw ingredients"
+  )
 
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click on cssSelector("#declareQuarterlySpirits-yesNoValue")
-      case "No" => click on cssSelector("#declareQuarterlySpirits-yesNoValue-no")
+      case "No"  => click on cssSelector("#declareQuarterlySpirits-yesNoValue-no")
     }
-  }
 }

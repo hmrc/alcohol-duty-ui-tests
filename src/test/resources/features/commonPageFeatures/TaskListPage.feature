@@ -168,8 +168,8 @@ Feature: Alcohol Duty Journey - Task List Page
     When I enter "10.55" for "Scotch Whisky" on "Declare Whiskey Page"
     And I enter "20.67" for "Irish Whiskey" on "Declare Whiskey Page"
     And I click save and continue button on "Declare Whiskey Page"
-    Then I am presented with the "Which Of These Spirits Have You Made Page"
-    When I "select" checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other" on "Which Of These Spirits Have You Made Page"
+    Then I am presented with the "Which Of These Spirits Have You Produced Page"
+    When I "select" checkbox "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits" on "Which Of These Spirits Have You Produced Page"
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
