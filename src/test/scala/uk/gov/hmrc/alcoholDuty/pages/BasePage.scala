@@ -451,7 +451,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim
+      val key   = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim.replaceAll("""\nYou need to tell.*""", "")
       val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
