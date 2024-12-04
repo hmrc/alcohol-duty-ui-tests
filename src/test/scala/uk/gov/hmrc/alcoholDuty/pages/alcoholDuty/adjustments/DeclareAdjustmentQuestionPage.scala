@@ -28,18 +28,18 @@ object DeclareAdjustmentQuestionPage extends BasePage {
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/change-if-you-need-to-declare"
 
-  override val title = "Do you need to declare an adjustment from a previously submitted return?"
+  override val title = "Declare adjustments from earlier returns"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Do you need to declare an adjustment from a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Declare adjustments from earlier returns - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Do you need to declare an adjustment from a previously submitted return? - Manage your Alcohol Duty - GOV.UK"
+    "Declare adjustments from earlier returns - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Do you need to declare an adjustment from a previously submitted return?"
+    "Declare adjustments from earlier returns"
   )
 
   override def clickRadioButton(text: String): Unit =
