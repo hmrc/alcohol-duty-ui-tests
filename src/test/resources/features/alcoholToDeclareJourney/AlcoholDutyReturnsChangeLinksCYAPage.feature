@@ -250,7 +250,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Duty Due Beer Page" "£113,203.47"
 #At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due   | Action |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value   | Action |
       | Non-draught beer between 3.5% and 8.4% ABV (321)     | 99.9900                      | £21.01                | £2,100.78  | Change |
       | Non-draught beer between 8.5% and 22% ABV (331)      | 66.3400                      | £28.50                | £1,890.69  | Change |
       | Non-draught beer at or above 22.1% ABV (341)         | 99.1300                      | £31.64                | £3,136.47  | Change |
@@ -578,7 +578,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£4,382.97"
     And I should see the following product details
-      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value  | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 99.9900                      | £9.27                 | £926.90   | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.2200                      | £9.67                 | £214.86   | Change |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.2100                      | £8.42                 | £279.62   | Change |
@@ -934,7 +934,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£9,321.61"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value  | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.5500                      | £9.27                 | £329.54   | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.8800                      | £24.77                | £2,201.55 | Change |
       | Non-draught wine between 8.5% and 22% ABV (333)      | 22.2200                      | £28.50                | £633.27   | Change |
@@ -1299,7 +1299,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
 #At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
     And I should see the following product details
-      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value  | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (315)     | 36.3600                      | £9.27                 | £337.05   | Change |
       | Non-draught spirits between 3.5% and 8.4% ABV (325)     | 77.7700                      | £24.77                | £1,926.36 | Change |
       | Non-draught spirits between 8.5% and 22% ABV (335)      | 66.6600                      | £28.50                | £1,899.81 | Change |
@@ -1634,7 +1634,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£14,158.64"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value  | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.3300                      | £9.27                 | £308.96   | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38   | Change |
       | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.4400                      | £28.50                | £1,266.54 | Change |
@@ -1768,9 +1768,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£3,136.47"
     And I should see the following product details
-      | Description                                  | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due  | Action |
+      | Description                                  | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value  | Action |
       | Non-draught beer at or above 22.1% ABV (341) | 99.1300                      | £31.64                | £3,136.47 | Change |
-    When I click continue button on "Duty Due Beer Page"
+    When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You told us you need to declare duty | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
@@ -1794,9 +1794,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£402.68"
     And I should see the following product details
-      | Description                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
+      | Description                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (312) | 43.4400                      | £9.27                 | £402.68  | Change |
-    When I click continue button on "Duty Due Cider Page"
+    When I click save and continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
@@ -1820,9 +1820,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£329.54"
     And I should see the following product details
-      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
+      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.27                 | £329.54  | Change |
-    When I click continue button on "Duty Due Wine Page"
+    When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
@@ -1846,9 +1846,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£823.17"
     And I should see the following product details
-      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
+      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8000                      | £9.27                 | £823.17  | Change |
-    When I click continue button on "Duty Due Spirits Page"
+    When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
@@ -1872,9 +1872,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
     And I should see the following product details
-      | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty due | Action |
+      | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.27                 | £308.96  | Change |
-    When I click continue button on "Duty Due Other Fermented Product Page"
+    When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
