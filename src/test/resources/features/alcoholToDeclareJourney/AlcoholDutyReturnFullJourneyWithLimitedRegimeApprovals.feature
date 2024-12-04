@@ -48,7 +48,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Wine Page" "£329.54"
     And I should see the following product details
       | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.27                 | £329.54  | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.27                 | £329.54    | Change |
     When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     #Other Fermented Products - When Multiple SPR is set to 'No'
@@ -71,7 +71,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
     And I should see the following product details
       | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.27                 | £308.96  | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.27                 | £308.96    | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey declared to No
@@ -151,7 +151,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Beer Page" "£514.99"
     And I should see the following product details
       | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught beer between 1.3% and 3.4% ABV (311) | 55.5555                      | £9.27                 | £514.99  | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (311) | 55.5555                      | £9.27                 | £514.99    | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     #Spirits
@@ -174,7 +174,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Spirits Page" "£823.17"
     And I should see the following product details
       | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8000                      | £9.27                 | £823.17  | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8000                      | £9.27                 | £823.17    | Change |
     When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
@@ -258,7 +258,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Beer Page" "£514.99"
     And I should see the following product details
       | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught beer between 1.3% and 3.4% ABV (311) | 55.5555                      | £9.27                 | £514.99  | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (311) | 55.5555                      | £9.27                 | £514.99    | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
