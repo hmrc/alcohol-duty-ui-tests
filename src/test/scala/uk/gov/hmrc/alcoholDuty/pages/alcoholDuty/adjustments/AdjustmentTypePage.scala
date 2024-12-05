@@ -24,17 +24,17 @@ object AdjustmentTypePage extends BasePage {
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/type"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/type"
-  override val title       = "What type of adjustment do you need to make?"
+  override val title       = "What type of adjustment are you declaring?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What type of adjustment do you need to make? - Manage your Alcohol Duty - GOV.UK"
+    "Error: What type of adjustment are you declaring? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What type of adjustment do you need to make? - Manage your Alcohol Duty - GOV.UK"
+    "What type of adjustment are you declaring? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("What type of adjustment do you need to make?")
+  override def expectedPageHeader: Option[String] = Some("What type of adjustment are you declaring?")
 
   override def clickRadioButton(text: String): Unit =
     text match {

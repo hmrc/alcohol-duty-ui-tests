@@ -19,14 +19,14 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Declare Adjustment Question Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select yes if you need to tell us about any adjustments from previous returns |
+      | Select yes if you have adjustments to declare |
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Adjustment Type Page"
     When I click save and continue button on "Adjustment Type Page"
     Then I am presented with the "Adjustment Type Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of adjustment you need to make |
+      | Select the type of adjustment |
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"

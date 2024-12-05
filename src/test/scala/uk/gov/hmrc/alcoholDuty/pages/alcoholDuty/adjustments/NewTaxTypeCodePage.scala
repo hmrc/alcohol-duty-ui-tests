@@ -24,18 +24,18 @@ object NewTaxTypeCodePage extends BasePage {
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/declare/repackaged/new-tax-type-code"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/change/repackaged/new-tax-type-code"
-  override val title       = "What is the tax type code for the newly repackaged products?"
+  override val title       = "What is the original tax type code for the alcohol you are repackaging?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the tax type code for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
+    "Error: What is the original tax type code for the alcohol you are repackaging? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "What is the tax type code for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
+    "What is the original tax type code for the alcohol you are repackaging? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "What is the tax type code for the newly repackaged products?"
+    "What is the original tax type code for the alcohol you are repackaging?"
   )
 
   override def enterDetails(textToEnter: String): Unit =

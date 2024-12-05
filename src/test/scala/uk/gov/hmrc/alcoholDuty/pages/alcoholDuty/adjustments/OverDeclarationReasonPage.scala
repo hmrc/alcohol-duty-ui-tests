@@ -24,18 +24,18 @@ object OverDeclarationReasonPage extends BasePage {
   override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/adjustments/declare/reason-over-declared"
-  override val title       = "Why was too much alcoholic product over-declared previously?"
+  override val title       = "Why were alcoholic products over-declared?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Why was too much alcoholic product over-declared previously? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Why were alcoholic products over-declared? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Why was too much alcoholic product over-declared previously? - Manage your Alcohol Duty - GOV.UK"
+    "Why were alcoholic products over-declared? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Why was too much alcoholic product over-declared previously?"
+    "Why were alcoholic products over-declared?"
   )
 
   override def enterDetails(textToEnter: String): Unit =
