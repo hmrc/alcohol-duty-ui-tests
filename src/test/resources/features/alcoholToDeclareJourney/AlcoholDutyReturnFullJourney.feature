@@ -1324,7 +1324,7 @@ Feature: Alcohol Duty Returns Journey
       | You told us you do not need to declare duty | You told us you do not need to declare any adjustments | You told us you do not have any duty suspended deliveries to report | You told us you have not produced spirits this quarter | Check how much duty is payable and send your return |
       | Completed                                   | Completed                                              | Completed                                                           | Completed                                              | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Nil Return Summary Page"
+    Then I am presented with the "No Duty Due Page"
     And I should see the following details of the table 1 at the returns summary page
       | Declared duty                   | Nil | Change |
       | Adjustments to previous returns | Nil | Change |
