@@ -458,6 +458,10 @@ trait BaseStepDef
             .map(_.getText.trim.replaceAll("\n", " "))
             .toList
         }
+        .map(_.map {
+          case text if text.startsWith("Change") => "Change" // Replace text with "Change" if it starts with "Change"
+          case other => other // Keep all other values as they are
+        })
         .toList
 
       val actual = declaredProductListAtReturnsSummary(num)
