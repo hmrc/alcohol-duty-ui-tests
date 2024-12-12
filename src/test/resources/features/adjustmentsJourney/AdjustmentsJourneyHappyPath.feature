@@ -50,7 +50,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                        | Duty value |
-      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3,000.75 litres of beer,250.5500 litres of pure alcohol (LPA) | £2,455.39  |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -235,7 +235,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
       | Adjustment | Description | Volume                                                        | Duty value |
-      | Spoilt     | Beer        | 3,000.75 litres of beer,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+      | Spoilt     | Beer        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details

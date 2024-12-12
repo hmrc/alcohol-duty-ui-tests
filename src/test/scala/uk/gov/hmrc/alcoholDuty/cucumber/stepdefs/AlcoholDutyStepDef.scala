@@ -25,7 +25,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
     typeOfJourney match {
       case "Business Tax Account Page" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/start")
-      case "Alcohol Duty Service"      =>
+      case "Alcohol Duty Service" =>
         AuthLoginStubPage.enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
         )
@@ -38,7 +38,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
 
   When("""I enter redirectURL for {string}""") { (text: String) =>
     text match {
-      case "View Past Returns Page"  =>
+      case "View Past Returns Page" =>
         AuthLoginStubPage.enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
         )
