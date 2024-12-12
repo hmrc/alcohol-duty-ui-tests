@@ -47,8 +47,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of beer             |
-      | Enter the litres of pure alcohol in beer   |
+      | Enter the total litres                     |
+      | Enter the litres of pure alcohol           |
       | Enter your Small Producer Relief duty rate |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
@@ -80,14 +80,14 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of cider           |
-      | Enter the litres of pure alcohol in cider |
+      | Enter the total litres           |
+      | Enter the litres of pure alcohol |
     When I enter "3000.7509" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.555555" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Litres of cider must be a number up to 2 decimal places        |
+      | Total litres must be a number up to 2 decimal places           |
       | Litres of pure alcohol must be a number up to 4 decimal places |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
@@ -114,8 +114,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of wine           |
-      | Enter the litres of pure alcohol in wine |
+      | Enter the total litres           |
+      | Enter the litres of pure alcohol |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
@@ -174,8 +174,8 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of other fermented products           |
-      | Enter the litres of pure alcohol in other fermented products |
+      | Enter the total litres           |
+      | Enter the litres of pure alcohol |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
