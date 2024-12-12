@@ -118,17 +118,21 @@ Feature: Alcohol Duty Returns Journey
 #Cider - When Multiple SPR is set to 'No'
     When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
+    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page"
     When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "43.44" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "second" input box
     And I enter "22.22" for "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "second" input box
-    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fourth" input box
-    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "999.99" for "Standard sparkling between 5.6% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "third" input box
+    And I enter "99.99" for "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "third" input box
+    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fifth" input box
+    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fifth" input box
+    And I enter "888.88" for "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "sixth" input box
+    And I enter "888.88" for "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Cider Page"
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
     When I select radio button "No" on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
@@ -140,57 +144,81 @@ Feature: Alcohol Duty Returns Journey
     And I enter "999.99" for "Non-draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "second" input box
     And I enter "98.99" for "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "second" input box
     And I enter "12.45" for "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "second" input box
-    And I enter "887.21" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
-    And I enter "45.56" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
-    And I enter "16" for "Draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "third" input box
-    And I enter "653.11" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
-    And I enter "33.33" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
-    And I enter "18" for "Draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
+    And I enter "6666.66" for "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
+    And I enter "666.66" for "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "third" input box
+    And I enter "36" for "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "third" input box
+    And I enter "887.21" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
+    And I enter "45.56" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
+    And I enter "16" for "Draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "fourth" input box
+    And I enter "653.11" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "fifth" input box
+    And I enter "33.33" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "fifth" input box
+    And I enter "18" for "Draught cider between 3.5% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "fifth" input box
+    And I enter "777.77" for "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "sixth" input box
+    And I enter "77.77" for "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "sixth" input box
+    And I enter "17" for "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "sixth" input box
     And I click save and continue button on "Single Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
     And I should see the following text on the page
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                         |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (359)                                             |
       | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                     |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                         |
     And I check the page source for the following key-value pairs:
-      | key           | value          |
-      | Total volume  | 789.44 litres  |
-      | Pure alcohol  | 43.4400 litres |
-      | Total volume  | 898.12 litres  |
-      | Pure alcohol  | 22.2200 litres |
-      | Total volume  | 889.12 litres  |
-      | Pure alcohol  | 22.4500 litres |
-      | Total volume  | 787.77 litres  |
-      | Pure alcohol  | 33.2100 litres |
-      | Total volume  | 656.66 litres  |
-      | Pure alcohol  | 66.6600 litres |
-      | SPR duty rate | £14.00         |
-      | Total volume  | 999.99 litres  |
-      | Pure alcohol  | 98.9900 litres |
-      | SPR duty rate | £12.45         |
-      | Total volume  | 887.21 litres  |
-      | Pure alcohol  | 45.5600 litres |
-      | SPR duty rate | £16.00         |
-      | Total volume  | 653.11 litres  |
-      | Pure alcohol  | 33.3300 litres |
-      | SPR duty rate | £18.00         |
+      | key           | value           |
+      | Total volume  | 789.44 litres   |
+      | Pure alcohol  | 43.4400 litres  |
+      | Total volume  | 898.12 litres   |
+      | Pure alcohol  | 22.2200 litres  |
+      | Total volume  | 999.99 litres   |
+      | Pure alcohol  | 99.9900 litres  |
+      | Total volume  | 889.12 litres   |
+      | Pure alcohol  | 22.4500 litres  |
+      | Total volume  | 888.88 litres   |
+      | Pure alcohol  | 888.8800 litres |
+      | Total volume  | 787.77 litres   |
+      | Pure alcohol  | 33.2100 litres  |
+      | Total volume  | 656.66 litres   |
+      | Pure alcohol  | 66.6600 litres  |
+      | SPR duty rate | £14.00          |
+      | Total volume  | 999.99 litres   |
+      | Pure alcohol  | 98.9900 litres  |
+      | SPR duty rate | £12.45          |
+      | Total volume  | 6,666.66 litres |
+      | Pure alcohol  | 666.6600 litres |
+      | SPR duty rate | £36.00          |
+      | Total volume  | 887.21 litres   |
+      | Pure alcohol  | 45.5600 litres  |
+      | SPR duty rate | £16.00          |
+      | Total volume  | 653.11 litres   |
+      | Pure alcohol  | 33.3300 litres  |
+      | SPR duty rate | £18.00          |
+      | Total volume  | 777.77 litres   |
+      | Pure alcohol  | 77.7700 litres  |
+      | SPR duty rate | £17.00          |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
-    Then I am presented with the "Duty Due Cider Page" "£4,588.83"
+    Then I am presented with the "Duty Due Cider Page" "£49,347.26"
     And I should see the following product details
       | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.4400                      | £9.27                 | £402.68    | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.2200                      | £9.67                 | £214.86    | Change |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                         | 99.9900                      | £24.77                | £2,476.75  | Change |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.2100                      | £8.42                 | £279.62    | Change |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.4500                      | £8.78                 | £197.11    | Change |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (359)                                             | 888.8800                     | £19.08                | £16,959.83 | Change |
       | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               | 66.6600                      | £14.00                | £933.24    | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 98.9900                      | £12.45                | £1,232.42  | Change |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                     | 666.6600                     | £36.00                | £23,999.76 | Change |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   | 45.5600                      | £16.00                | £728.96    | Change |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     | 33.3300                      | £18.00                | £599.94    | Change |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                         | 77.7700                      | £17.00                | £1,322.09  | Change |
     When I click save and continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -385,7 +413,7 @@ Feature: Alcohol Duty Returns Journey
 #Other Fermented Products - When Multiple SPR is set to 'No'
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
@@ -420,16 +448,16 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I should see the following text on the page
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
-      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)      |
+      | Non-draught other fermented products at or above 22.1% ABV (344)         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)         |
+      | Draught other fermented products between 3.5% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR) |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)     |
+      | Draught other fermented products between 3.5% and 8.4% ABV (379 SPR)     |
     And I check the page source for the following key-value pairs:
       | key           | value           |
       | Total volume  | 3,322.22 litres |
@@ -459,17 +487,17 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£11,153.36"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.3300                      | £9.27                 | £308.96    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.4400                      | £28.50                | £1,266.54  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.6600                      | £8.42                 | £561.27    | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.5500                      | £19.08                | £659.21    | Change |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               | 77.7700                      | £15.00                | £1,166.55  | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 88.8800                      | £16.00                | £1,422.08  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   | 78.7700                      | £20.00                | £1,575.40  | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     | 99.2300                      | £19.00                | £1,885.37  | Change |
+      | Description                                                              | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     | 33.3300                      | £9.27                 | £308.96    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38    | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)      | 44.4400                      | £28.50                | £1,266.54  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)         | 55.5500                      | £31.64                | £1,757.60  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)         | 66.6600                      | £8.42                 | £561.27    | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (359)         | 34.5500                      | £19.08                | £659.21    | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR) | 77.7700                      | £15.00                | £1,166.55  | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) | 88.8800                      | £16.00                | £1,422.08  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)     | 78.7700                      | £20.00                | £1,575.40  | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (379 SPR)     | 99.2300                      | £19.00                | £1,885.37  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -497,8 +525,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                                        | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3,000.75 litres of beer,250.5555 litres of pure alcohol (LPA) | £2,322.64  |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                                | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3,000.75 litres,250.5555 litres of pure alcohol (LPA) | £2,322.64  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -524,8 +552,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                          | Volume                                                         | Duty value |
-      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3,000.75 litres of cider,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment    | Original return period | Tax type                                          | Volume                                                | Duty value |
+      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (312) | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -559,8 +587,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                        | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3,000.75 litres of wine,250.5500 litres of pure alcohol (LPA) | £425.93    |
+      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                | Duty value |
+      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (363 SPR) | £11.50        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -584,8 +612,8 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Description | Volume                                                           | Duty value |
-      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+      | Adjustment | Description | Volume                                                | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -614,8 +642,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | Volume                                                                            | Duty value |
-      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3,000.75 litres of other fermented products,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Original return period | Tax type                                                             | Volume                                                | Duty value |
+      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -705,11 +733,11 @@ Feature: Alcohol Duty Returns Journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | You told us you produced spirits this quarter | Change the spirits and ingredients you’ve told us about | Check how much duty is payable and send your return |
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                | Completed                               | Completed                                     | Completed                                               | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£50,664.25"
+    Then I am presented with the "Return Summary Page" "£95,422.68"
     And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £13,159.65 | Change |
       | Wine declared                     | £12,164.82 | Change |
-      | Cider declared                    | £4,588.83  | Change |
+      | Cider declared                    | £49,347.26 | Change |
       | Other fermented products declared | £11,153.36 | Change |
       | Beer declared                     | £14,749.75 | Change |
       | Adjustments to previous returns   | −£5,152.16 | Change |
@@ -718,7 +746,7 @@ Feature: Alcohol Duty Returns Journey
       | Spirits production     | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £50,664.25"
+    And the page source contains "You need to pay £95,422.68"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
@@ -815,17 +843,21 @@ Feature: Alcohol Duty Returns Journey
 #Cider - When Multiple SPR is set to 'Yes'
     When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377)" on "What Do You Need To Declare Cider Page"
+    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page"
     When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "43.44" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "second" input box
     And I enter "22.22" for "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "second" input box
-    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "third" input box
-    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fourth" input box
-    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "999.99" for "Standard sparkling between 5.6% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "third" input box
+    And I enter "99.99" for "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "third" input box
+    And I enter "787.77" for "Draught cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "33.21" for "Draught cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fourth" input box
+    And I enter "889.12" for "Draught cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "fifth" input box
+    And I enter "22.45" for "Draught cider between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "fifth" input box
+    And I enter "888.88" for "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "sixth" input box
+    And I enter "888.88" for "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Cider Page"
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
     When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Cider Page"
@@ -851,32 +883,40 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                         |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (359)                                             |
       | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                     |
       | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                         |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 789.44 litres   |
       | Pure alcohol | 43.4400 litres  |
       | Total volume | 898.12 litres   |
       | Pure alcohol | 22.2200 litres  |
+      | Total volume | 999.99 litres   |
+      | Pure alcohol | 99.9900 litres  |
       | Total volume | 889.12 litres   |
       | Pure alcohol | 22.4500 litres  |
-      | Total volume | 787.77 litres   |
-      | Pure alcohol | 33.2100 litres  |
+      | Total volume | 888.88 litres   |
+      | Pure alcohol | 888.8800 litres |
       | Total volume | 7,999.99 litres |
       | Pure alcohol | 77.9900 litres  |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
-    Then I am presented with the "Duty Due Cider Page" "£2,731.28"
+    Then I am presented with the "Duty Due Cider Page" "£22,167.86"
     And I should see the following product details
       | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.4400                      | £9.27                 | £402.68    | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     | 22.2200                      | £9.67                 | £214.86    | Change |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                         | 99.9900                      | £24.77                | £2,476.75  | Change |
       | Draught cider between 1.3% and 3.4% ABV (352)                                                       | 33.2100                      | £8.42                 | £279.62    | Change |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         | 22.4500                      | £8.78                 | £197.11    | Change |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (359)                                             | 888.8800                     | £19.08                | £16,959.83 | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 77.9900                      | £20.99                | £1,637.01  | Change |
     When I click save and continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
@@ -1051,7 +1091,7 @@ Feature: Alcohol Duty Returns Journey
 #Other Fermented Products - When Multiple SPR is set to 'Yes'
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
@@ -1078,27 +1118,27 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
-      | Description                                                                                                            | Total other fermented products | Total pure alcohol | Duty rate        |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
+      | Description                                                              | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
-      | Description                                                                                                            | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 999.99                         | 99.9900                      | £20.00                | Change Remove |
+      | Description                                                              | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) | 999.99                         | 99.9900                      | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
     And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I should see the following text on the page
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                                               |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) |
-      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                                                   |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (379 SPR)     |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)      |
+      | Non-draught other fermented products at or above 22.1% ABV (344)         |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)         |
+      | Draught other fermented products between 3.5% and 8.4% ABV (359)         |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR) |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) |
+      | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR)     |
+      | Draught other fermented products between 3.5% and 8.4% ABV (379 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 3,322.22 litres |
@@ -1118,14 +1158,14 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£7,103.76"
     And I should see the following product details
-      | Description                                                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)                                                   | 33.3300                      | £9.27                 | £308.96    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)                                                    | 44.4400                      | £28.50                | £1,266.54  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (344)                                                       | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)                                                       | 66.6600                      | £8.42                 | £561.27    | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (359)         | 34.5500                      | £19.08                | £659.21    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR) | 99.9900                      | £20.00                | £1,999.80  | Change |
+      | Description                                                              | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     | 33.3300                      | £9.27                 | £308.96    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     | 22.2200                      | £24.77                | £550.38    | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)      | 44.4400                      | £28.50                | £1,266.54  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)         | 55.5500                      | £31.64                | £1,757.60  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)         | 66.6600                      | £8.42                 | £561.27    | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (359)         | 34.5500                      | £19.08                | £659.21    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) | 99.9900                      | £20.00                | £1,999.80  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -1154,8 +1194,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                        | Duty value |
-      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3,000.75 litres of beer,250.5500 litres of pure alcohol (LPA) | £2,455.39  |
+      | Adjustment     | Original return period | Tax type                                         | SPR duty rate | Volume                                                | Duty value |
+      | Under-declared | September 2023         | Draught beer between 1.3% and 3.4% ABV (371 SPR) | £9.80         | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1182,8 +1222,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                           | Duty value     |
-      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £898.89       | 9,999.99 litres of cider,7,777.7700 litres of pure alcohol (LPA) | −£6,991,359.67 |
+      | Adjustment    | Original return period | Tax type                                          | SPR duty rate | Volume                                                  | Duty value     |
+      | Over-declared | October 2023           | Draught cider between 1.3% and 3.4% ABV (372 SPR) | £898.89       | 9,999.99 litres,7,777.7700 litres of pure alcohol (LPA) | −£6,991,359.67 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1206,8 +1246,8 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Description | Volume                                                           | Duty value |
-      | Spoilt     | Spirits     | 3,000.75 litres of spirits,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+      | Adjustment | Description | Volume                                                | Duty value |
+      | Spoilt     | Spirits     | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1236,8 +1276,8 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                                            | Duty value |
-      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3,000.75 litres of other fermented products,250.5599 litres of pure alcohol (LPA) | −£2,455.48 |
+      | Adjustment | Original return period | Tax type                                                             | SPR duty rate | Volume                                                | Duty value |
+      | Drawback   | October 2023           | Draught other fermented products between 1.3% and 3.4% ABV (374 SPR) | £9.80         | 3,000.75 litres,250.5599 litres of pure alcohol (LPA) | −£2,455.48 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -1284,11 +1324,11 @@ Feature: Alcohol Duty Returns Journey
       | You told us you need to declare duty | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Reason for over-declared alcoholic products | You told us you do not have any duty suspended deliveries to report | You told us you have not produced spirits this quarter | Check how much duty is payable and send your return |
       | Completed                            | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                               | Completed           | Completed                                    | Completed                                   | Completed                                                           | Completed                                              | Not yet started                                     |
     When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "−£6,958,073.29"
+    Then I am presented with the "Return Summary Page" "−£6,938,636.71"
     And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £8,528.05      | Change |
       | Wine declared                     | £7,461.84      | Change |
-      | Cider declared                    | £2,731.28      | Change |
+      | Cider declared                    | £22,167.86     | Change |
       | Other fermented products declared | £7,103.76      | Change |
       | Beer declared                     | £10,717.09     | Change |
       | Adjustments to previous returns   | −£6,994,615.31 | Change |
@@ -1297,7 +1337,7 @@ Feature: Alcohol Duty Returns Journey
       | Spirits production     | Nothing to declare | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed −£6,958,073.29"
+    And the page source contains "You are owed −£6,938,636.71"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"

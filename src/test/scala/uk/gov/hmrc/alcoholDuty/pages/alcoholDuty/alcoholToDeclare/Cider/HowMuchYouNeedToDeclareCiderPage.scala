@@ -40,22 +40,31 @@ object HowMuchYouNeedToDeclareCiderPage extends BasePage {
   override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
     val modifiedIndex = ordinalToNumber(index)
     text match {
-      case "Standard cider between 1.3% and 3.4% ABV - Total litres" =>
+      case "Standard cider between 1.3% and 3.4% ABV - Total litres"          =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" =>
+      case "Standard cider between 1.3% and 3.4% ABV - Pure alcohol"          =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
-      case "Standard cider between 3.5% and 8.4% ABV - Total litres" =>
+      case "Standard cider between 3.5% and 8.4% ABV - Total litres"          =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Standard cider between 3.5% and 8.4% ABV - Pure alcohol" =>
+      case "Standard cider between 3.5% and 8.4% ABV - Pure alcohol"          =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
-      case "Draught cider between 1.3% and 3.4% ABV - Total litres"  =>
+      case "Standard sparkling between 5.6% and 8.4% ABV - Total litres"      =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Draught cider between 1.3% and 3.4% ABV - Pure alcohol"  =>
+      case "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol"      =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
-      case "Draught cider between 3.5% and 8.4% ABV - Total litres"  =>
+      case "Draught cider between 1.3% and 3.4% ABV - Total litres"           =>
         enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
-      case "Draught cider between 3.5% and 8.4% ABV - Pure alcohol"  =>
+      case "Draught cider between 1.3% and 3.4% ABV - Pure alcohol"           =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Draught cider between 3.5% and 8.4% ABV - Total litres"           =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Draught cider between 3.5% and 8.4% ABV - Pure alcohol"           =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres" =>
+        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol" =>
+        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+
     }
   }
 }

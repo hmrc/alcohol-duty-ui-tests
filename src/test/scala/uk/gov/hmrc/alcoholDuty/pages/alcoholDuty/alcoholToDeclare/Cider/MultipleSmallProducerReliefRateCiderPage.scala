@@ -22,9 +22,13 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object MultipleSmallProducerReliefRateCiderPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/spr/multiple-duty-rates/eligible-volume"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Cider/declare/spr/multiple-duty-rates/eligible-volume"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates/eligible-volume"
   override val title          = "Tell us about the cider you need to declare that are eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -44,9 +48,14 @@ object MultipleSmallProducerReliefRateCiderPage extends BasePage {
       case "Non-draught cider between 1.3% and 3.4% ABV (362 SPR)"                                               => click on cssSelector("#volumesWithRate_taxType")
       case "Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR)" =>
         click on cssSelector("#volumesWithRate_taxType-2")
-      case "Draught cider between 1.3% and 3.4% ABV (372 SPR)"                                                   => click on cssSelector("#volumesWithRate_taxType-3")
-      case "Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)"     =>
+      case "Non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)"                                     =>
+        click on cssSelector("#volumesWithRate_taxType-3")
+      case "Draught cider between 1.3% and 3.4% ABV (372 SPR)"                                                   =>
         click on cssSelector("#volumesWithRate_taxType-4")
+      case "Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)"     =>
+        click on cssSelector("#volumesWithRate_taxType-5")
+      case "Draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)"                                         =>
+        click on cssSelector("#volumesWithRate_taxType-5")
     }
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
