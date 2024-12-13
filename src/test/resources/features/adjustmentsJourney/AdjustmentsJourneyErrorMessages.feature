@@ -87,8 +87,8 @@ Feature: Adjustments Journey - Error Message Validations
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Volume With Spr Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Total litres must be a number up to 2 decimal places           |
-      | Litres of pure alcohol must be a number up to 4 decimal places |
+      | Total litres must be a number to 2 decimal places           |
+      | Litres of pure alcohol must be a number to 4 decimal places |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
