@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object QuarterlySpiritsCheckYourAnswersPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/spirits-check-your-answers"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/check-your-answers"
   override val title       = "Check your answers"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -38,15 +38,15 @@ object QuarterlySpiritsCheckYourAnswersPage extends BasePage {
     text match {
       case "Change total of all spirits"   =>
         click on cssSelector(
-          "a[href='/manage-alcohol-duty/change-what-is-the-total-volume-of-spirits-you-made-this-quarter']"
+          "a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/total-volume']"
         )
       case "Change Scotch Whisky"          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/change-how-much-whiskey-have-you-made'])[1]")
+        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[1]")
       case "Change Irish Whiskey"          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/change-how-much-whiskey-have-you-made'])[2]")
+        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[2]")
       case "Change type of spirits"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-which-of-these-spirits-have-you-made']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/spirits-produced']")
       case "Change other spirits produced" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/change-tell-us-about-the-other-spirits-you-have-produced']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/other-spirits-produced']")
     }
 }

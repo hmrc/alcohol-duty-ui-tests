@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object TotalOfAllSpiritsPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/what-is-the-total-volume-of-spirits-you-made-this-quarter"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/total-volume"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-what-is-the-total-volume-of-spirits-you-made-this-quarter"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/total-volume"
   override val title          = "What is the total of all spirits taken this quarter?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
