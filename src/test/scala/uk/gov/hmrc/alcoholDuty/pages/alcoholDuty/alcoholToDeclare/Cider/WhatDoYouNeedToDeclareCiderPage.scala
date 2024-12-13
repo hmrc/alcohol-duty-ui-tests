@@ -22,9 +22,13 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object WhatDoYouNeedToDeclareCiderPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/products-to-include"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Cider/declare/products-to-include"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/change/products-to-include"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Cider/change/products-to-include"
   override val title          = "What do you need to declare?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
@@ -39,19 +43,19 @@ object WhatDoYouNeedToDeclareCiderPage extends BasePage {
 
   override def clickCheckBox(text: String): Unit =
     text match {
-      case "Between 1.3% and 3.4% ABV (tax type code 312)"                                                     => click on cssSelector("#rateBand_312")
+      case "Cider between 1.3% and 3.4% ABV (tax type code 312)"                                               => click on cssSelector("#rateBand_312")
       case "Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)" =>
         click on cssSelector("#rateBand_322")
       case "Sparkling cider between 5.6% and 8.4% ABV (tax type code 324)"                                     => click on cssSelector("#rateBand_324")
-      case "Between 1.3% and 3.4% ABV (tax type code 352)"                                                     => click on cssSelector("#rateBand_352")
+      case "Cider between 1.3% and 3.4% ABV (tax type code 352)"                                               => click on cssSelector("#rateBand_352")
       case "Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)" =>
         click on cssSelector("#rateBand_357")
       case "Sparkling cider between 5.6% and 8.4% ABV (tax type code 359)"                                     => click on cssSelector("#rateBand_359")
-      case "Between 1.3% and 3.4% ABV (tax type code 362)"                                                     => click on cssSelector("#rateBand_32")
+      case "Cider between 1.3% and 3.4% ABV (tax type code 362)"                                               => click on cssSelector("#rateBand_32")
       case "Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367)" =>
         click on cssSelector("#rateBand_367")
       case "Sparkling cider between 5.6% and 8.4% ABV (tax type code 369)"                                     => click on cssSelector("#rateBand_369")
-      case "Between 1.3% and 3.4% ABV (tax type code 372)"                                                     => click on cssSelector("#rateBand_372")
+      case "Cider between 1.3% and 3.4% ABV (tax type code 372)"                                               => click on cssSelector("#rateBand_372")
       case "Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377)" =>
         click on cssSelector("#rateBand_377")
       case "Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)"                                     => click on cssSelector("#rateBand_379")

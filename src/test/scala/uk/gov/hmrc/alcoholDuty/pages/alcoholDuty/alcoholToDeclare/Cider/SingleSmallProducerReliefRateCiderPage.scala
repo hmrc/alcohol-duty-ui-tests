@@ -54,6 +54,12 @@ object SingleSmallProducerReliefRateCiderPage extends BasePage {
         enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
       case "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate"            =>
         enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+      case "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres" =>
+        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres" =>
+        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate" =>
+        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
       case "Draught cider between 1.3% and 3.4% ABV - Total litres"            =>
         enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
       case "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres"     =>
@@ -65,6 +71,12 @@ object SingleSmallProducerReliefRateCiderPage extends BasePage {
       case "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres"     =>
         enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
       case "Draught cider between 3.5% and 8.4% ABV - SPR Rate"                =>
+        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+      case "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres" =>
+        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+      case "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres" =>
+        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+      case "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate" =>
         enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
     }
   }
