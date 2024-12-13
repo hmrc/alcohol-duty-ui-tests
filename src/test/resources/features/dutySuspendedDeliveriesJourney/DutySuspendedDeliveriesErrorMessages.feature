@@ -26,8 +26,8 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | The volume of beer must be up to 2 decimal places                 |
-      | The volume of pure alcohol in beer must be up to 4 decimal places |
+      | Total net quantity of beer must be a number up to 2 decimal places         |
+      | Total net quantity of pure alcohol must be a number up to 4 decimal places |
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
     And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
@@ -35,28 +35,28 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     And I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
     And I click save and continue button on "Duty Suspended Cider Page"
     Then I am presented with the "Duty Suspended Cider Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of pure alcohol in cider in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total net quantity of pure alcohol in cider"
     When I enter "99.19" for "Pure Alcohol In Cider" on "Duty Suspended Cider Page"
     And I click save and continue button on "Duty Suspended Cider Page"
     Then I am presented with the "Duty Suspended Wine Page"
     And I enter "99.19" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
     When I click save and continue button on "Duty Suspended Wine Page"
     Then I am presented with the "Duty Suspended Wine Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of wine in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total net quantity of wine"
     When I enter "9999.99" for "Total Wine" on "Duty Suspended Wine Page"
     And I click save and continue button on "Duty Suspended Wine Page"
     Then I am presented with the "Duty Suspended Spirits Page"
     And I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Spirits Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of pure alcohol in spirits in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total net quantity of pure alcohol in spirits"
     When I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page"
     And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the volume of other fermented products in litres"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter the total net quantity of other fermented products"
     When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
