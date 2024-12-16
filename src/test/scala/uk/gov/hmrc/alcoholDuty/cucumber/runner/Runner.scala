@@ -25,7 +25,7 @@ import org.junit.runner.RunWith
   features = Array("src/test/resources/features"),
   glue = Array("uk.gov.hmrc.alcoholDuty.cucumber.stepdefs"),
   plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/Runner.xml"),
-  tags = "@QuarterlySpiritsQuestions"
+  tags = "@Test"
 )
 class Runner {}
 
