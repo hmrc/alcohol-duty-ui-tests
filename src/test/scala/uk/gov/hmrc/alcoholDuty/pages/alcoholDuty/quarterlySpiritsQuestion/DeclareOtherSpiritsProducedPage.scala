@@ -22,9 +22,9 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DeclareOtherSpiritsProducedPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-other-spirits-you-have-produced"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/other-spirits-produced"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/change-tell-us-about-the-other-spirits-you-have-produced"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/other-spirits-produced"
   override val title          = "Which other types of spirits have you produced?"
 
   override def expectedPageErrorTitle: Option[String] = Some(

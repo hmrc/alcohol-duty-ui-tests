@@ -22,11 +22,11 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object QuarterlySpiritsReturnsGuidancePage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/tell-us-about-the-spirits-and-ingredients-you-have-used"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/have-you-produced-spirits"
   override val newUrl: String =
     TestConfiguration.url(
       "alcohol-duty-returns-frontend"
-    ) + "/change-tell-us-about-the-spirits-and-ingredients-you-have-used"
+    ) + "/complete-return/quarterly-spirits-production/change-if-you-have-produced-spirits"
   override val title          = "Tell us about the spirits you have produced from raw ingredients"
 
   override def expectedPageErrorTitle: Option[String] = Some(
