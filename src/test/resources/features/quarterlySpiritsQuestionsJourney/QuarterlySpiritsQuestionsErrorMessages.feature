@@ -11,7 +11,7 @@ Feature: Quarterly Spirits Questions Journey - Error Messages
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page" error page

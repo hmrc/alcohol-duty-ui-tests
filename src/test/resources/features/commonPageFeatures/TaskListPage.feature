@@ -13,27 +13,27 @@ Feature: Alcohol Duty Journey - Task List Page
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
-      | Declare duty on your alcoholic products            |
-      | Declare adjustments from previous returns          |
-      | Report duty suspended alcohol deliveries           |
-      | Report spirits production in the last three months |
-      | Send return                                        |
+      | Declare alcoholic products for duty       |
+      | Declare adjustments from previous returns |
+      | Report duty suspended alcohol deliveries  |
+      | Report spirits production                 |
+      | Send return                               |
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Not yet started                         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Not yet started                            | Not yet started                              | Not yet started                                         |
 
   Scenario: 1. ADR Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Declare Alcohol Duty Question Page
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "No" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you do not need to declare duty | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Completed                                   | Not yet started                         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Completed                                         | Not yet started                            | Not yet started                              | Not yet started                                         |
 
   Scenario: 2. ADR Journey - To verify the status of the submission changes to 'Not yet started' if the journey is incomplete
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -42,12 +42,12 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you need to declare duty | Declare beer    | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Completed                            | Not yet started | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Completed                                         | Not yet started | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                            | Not yet started                              | Not yet started                                         |
 
 #Only beer scenario added for this - the rest are exactly the same
   Scenario: 3. ADR Journey - To verify the status of the submission to 'In progress' if the user not selects any options at the Product List Page
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -87,8 +87,8 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Multiple SPR List Question Beer Page"
     When I enter redirect url for "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you need to declare duty | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Completed                            | In progress  | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Completed                                         | In progress  | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                            | Not yet started                              | Not yet started                                         |
 
   Scenario: 4. DSD Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Declare Duty Suspended Deliveries Page
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
@@ -97,8 +97,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | You told us you do not have any duty suspended deliveries to report | Have you produced spirits from raw materials? |
-      | Not yet started                     | Not yet started                         | Completed                                                           | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Not yet started                            | Completed                                    | Not yet started                                         |
 
   Scenario: 5. DSD Journey - To verify the status of the submission changes to 'Not yet started' if the journey is incomplete
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
@@ -110,8 +110,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click back button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | You told us you have duty suspended deliveries to report | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Not yet started                         | Completed                                                | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you've told us about | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Not yet started                            | Completed                                    | Not yet started                         | Not yet started                                         |
 
   Scenario: 6. DSD Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
@@ -130,21 +130,21 @@ Feature: Alcohol Duty Journey - Task List Page
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | You told us you have duty suspended deliveries to report | Change the entries you’ve told us about | Have you produced spirits from raw materials? |
-      | Not yet started                     | Not yet started                         | Completed                                                | In progress                             | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you've told us about | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Not yet started                            | Completed                                    | In progress                             | Not yet started                                         |
 
   Scenario: 7. QSR Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Quarterly Spirits Returns Guidance Page
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | You told us you have not produced spirits this quarter |
-      | Not yet started                     | Not yet started                         | Not yet started                              | Completed                                              |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Not yet started                            | Not yet started                              | Completed                                               |
 
   Scenario: 8. QSR Journey - To verify the status of the submission changes to 'Not yet started' if the journey is incomplete
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
@@ -153,11 +153,11 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click back button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | You told us you produced spirits this quarter | Tell us about your spirits and ingredients |
-      | Not yet started                     | Not yet started                         | Not yet started                              | Completed                                     | Not yet started                            |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you've told us about |
+      | Not yet started                                   | Not yet started                            | Not yet started                              | Completed                                               | Not yet started                         |
 
   Scenario: 9. QSR Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
@@ -173,29 +173,29 @@ Feature: Alcohol Duty Journey - Task List Page
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | You told us you produced spirits this quarter | Change the spirits and ingredients you’ve told us about |
-      | Not yet started                     | Not yet started                         | Not yet started                              | Completed                                     | In progress                                             |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you've told us about |
+      | Not yet started                                   | Not yet started                            | Not yet started                              | Completed                                               | In progress                             |
 
   Scenario: 10. Adjustments Journey - To verify different statuses at the Task List page
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "No" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
 #To verify the status from "Not yet started' to 'Completed' if the answer was set to 'No' at the Adjust Previous Return Page
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you do not need to declare any adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                              | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Not yet started                              | Not yet started                                         |
 #To verify the "Not yet started' status of 'Change the entries you’ve told us about' if the answer is set to 'Yes' at the Adjust Previous Return Page but the journey is incomplete
-    When I click on "You told us you do not need to declare any adjustments" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page" with new url
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Not yet started     | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Not yet started     | Not yet started                              | Not yet started                                         |
 #To verify the status from "Not yet started' to 'In progress' if the journey is incomplete
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -207,8 +207,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | In progress         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | In progress         | Not yet started                              | Not yet started                                         |
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -224,7 +224,7 @@ Feature: Alcohol Duty Journey - Task List Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                                       | Duty value |
+      | Adjustment     | Original return period | Tax type                                         | Volume                                               | Duty value |
       | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3,000.75 litres,50.5500 litres of pure alcohol (LPA) | £468.59    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
@@ -234,8 +234,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | In progress         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | In progress         | Not yet started                              | Not yet started                                         |
 #To verify the status from "In progress' to 'Completed' when journey is complete
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment List Page"
@@ -243,8 +243,8 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Not yet started                              | Not yet started                                         |
 
   Scenario: 11. Send Return - To verify 'Cannot start' status at the Task List page
     And the status of the Send return is marked as "Cannot Start"

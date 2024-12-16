@@ -12,7 +12,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And  I verify the return due date for "Latest Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "Yes" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
@@ -84,7 +84,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
-      | Declare duty on your alcoholic products   |
+      | Declare alcoholic products for duty       |
       | Declare adjustments from previous returns |
       | Report duty suspended alcohol deliveries  |
       | Send return                               |

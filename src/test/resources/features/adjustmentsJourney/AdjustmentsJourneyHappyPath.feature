@@ -11,7 +11,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -27,7 +27,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -61,16 +61,16 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Not yet started                              | Not yet started                              | Not yet started                               |
-    When I click on "Reason for under-declared alcoholic products" hyperlink on "Task List Page"
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Not yet started                          | Not yet started                              | Not yet started                                         |
+    When I click on "Tell us why products were under-declared" hyperlink on "Task List Page"
     Then I am presented with the "Under Declaration Reason Page"
     When I enter "Test Under Declaration Reason" on "Under Declaration Reason Page"
     And I click save and continue button on "Under Declaration Reason Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Reason for under-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Completed                                    | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Completed                                | Not yet started                              | Not yet started                                         |
 #    Updating the declared value to be less than £1000
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment List Page"
@@ -97,8 +97,8 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Not yet started                              | Not yet started                                         |
 
   Scenario: Adjustments Journey - Validating over-declaration-reason removal from task List page when amount is changed to less than £1000 after deleting one of the adjustment- Over-declaration - Cider - With SPR
     Given I cleared the data for the service
@@ -110,7 +110,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -173,16 +173,16 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Reason for over-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Not yet started                             | Not yet started                              | Not yet started                               |
-    When I click on "Reason for over-declared alcoholic products" hyperlink on "Task List Page"
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Not yet started                         | Not yet started                              | Not yet started                                         |
+    When I click on "Tell us why products were over-declared" hyperlink on "Task List Page"
     Then I am presented with the "Over Declaration Reason Page"
     When I enter "Test over Declaration Reason" on "Over Declaration Reason Page"
     And I click save and continue button on "Over Declaration Reason Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Reason for over-declared alcoholic products | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Completed                                   | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Completed                               | Not yet started                              | Not yet started                                         |
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment List Page"
     When I click "Remove Hyperlink" on "Adjustment List Page"
@@ -206,8 +206,8 @@ Feature: Adjustments Journey
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you need to declare duty | You told us you need to declare one or more adjustments | Declare adjustments | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Not yet started                     | Completed                                               | Completed           | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Not yet started                                   | Completed                                  | Completed           | Not yet started                              | Not yet started                                         |
 
 #  The below test data need to be updated once OFP(Other Fermented Products) flag is turned on
   Scenario: Adjustments Journey - Spoilt Journey for a user with only Beer approval
@@ -220,7 +220,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"

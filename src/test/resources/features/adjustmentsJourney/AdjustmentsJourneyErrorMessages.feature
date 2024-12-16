@@ -11,7 +11,7 @@ Feature: Adjustments Journey - Error Message Validations
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
 
   Scenario Outline: Adjustments Journey - Error Message Validations
