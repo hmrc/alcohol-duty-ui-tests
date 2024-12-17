@@ -14,7 +14,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -26,8 +26,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you need to declare duty | Declare wine    | Declare other fermented products | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries |
-      | Completed                            | Not yet started | Not yet started                  | Not yet started                         | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare wine    | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
+      | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                              |
     #Wine - When Multiple SPR is set to 'No'
     When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
@@ -75,7 +75,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey declared to No
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "No" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -99,7 +99,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
-    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
+    When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£638.50"
     And I should see the following details of the table 1 at the returns summary page
       | Wine declared                     | £329.54 | Change |
@@ -117,7 +117,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
@@ -129,8 +129,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you need to declare duty | Declare beer    | Declare spirits | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries | Have you produced spirits from raw materials? |
-      | Completed                            | Not yet started | Not yet started | Not yet started                         | Not yet started                              | Not yet started                               |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Declare spirits | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
+      | Completed                                         | Not yet started | Not yet started | Not yet started                            | Not yet started                              | Not yet started                                         |
 #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -178,7 +178,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "No" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -205,13 +205,13 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     # Spirits and ingredients- nothing to declare
-    When I click on "Have you produced spirits from raw materials?" hyperlink on "Task List Page"
+    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
     Then I am presented with the "Quarterly Spirits Returns Guidance Page"
     When I select radio button "No" on "Quarterly Spirits Returns Guidance Page"
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     #Return summary page
-    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
+    When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£1,338.16"
     And I should see the following details of the table 1 at the returns summary page
       | Beer declared                   | £514.99 | Change |
@@ -230,14 +230,14 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | You told us you need to declare duty | Declare beer    | Do you need to declare any adjustments? | Tell us about your duty suspended deliveries |
-      | Completed                            | Not yet started | Not yet started                         | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
+      | Completed                                         | Not yet started | Not yet started                            | Not yet started                              |
     #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -262,7 +262,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
-    When I click on "Do you need to declare any adjustments?" hyperlink on "Task List Page"
+    When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
     When I select radio button "No" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
@@ -285,7 +285,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
-    When I click on "Check how much duty is payable and send your return" hyperlink on "Task List Page"
+    When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£514.99"
     And I should see the following details of the table 1 at the returns summary page
       | Beer declared                   | £514.99 | Change |

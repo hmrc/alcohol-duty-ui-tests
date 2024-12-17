@@ -11,7 +11,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
-    When I click on "Tell us if you need to declare duty" hyperlink on "Task List Page"
+    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
 
   @Test
