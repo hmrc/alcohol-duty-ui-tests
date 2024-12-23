@@ -57,6 +57,21 @@ object PageObjectFinder extends BasePage {
     def asScalaListOfStrings: List[String] = dataTable.cells().asScala.flatMap(_.asScala).toList
 
     def asScalaListOfLists: List[List[String]] = dataTable.rows(0).asLists().asScala.map(_.asScala.toList).toList
+    def updatedTable: Seq[List[String]] = replacePlaceholdersInScenario(asScalaListOfLists)
 
+    def replaceTextInScalaListOfLists(dataTable: List[List[String]]): List[List[String]] = {
+      // Retrieve the month details for replacements
+      val monthDetails = getMonthDetails
+
+      // Replace placeholders like plus9Months in the data table with corresponding values
+      dataTable.map { row =>
+        row.map { cell =>
+          monthDetails.foldLeft(cell) { (updatedCell, replacement) =>
+            val (key, value) = replacement
+            if (updatedCell.contains(key)) updatedCell.replace(key, value) else updatedCell
+          }
+        }
+      }
+    }
   }
 }

@@ -251,6 +251,15 @@ trait BaseStepDef
       }
   }
 
+  And("""I should see the below details at {string} section on {string}""") {
+    (paymentType: String, page: String, data: DataTable) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
+      val updatedTable = replacePlaceholdersInScenario(expectedResults)
+      val actual = paymentDetails(paymentType)
+      actual should be(updatedTable)
+  }
+
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists
     val actual   = productsList
