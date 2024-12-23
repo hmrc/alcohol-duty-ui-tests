@@ -278,99 +278,58 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   val formatterPaymentMonth: DateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
 
-  def expectedOutstandingPayments: List[List[String]] = List(
-    List("To be paid by", "Description", "Left to pay", "Status", "Action"),
-    List(
-      (currentDate.plusMonths(1) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£237.44",
-      "Due",
-      "Pay now"
-    ),
-    List(
-      currentDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Late payment interest charge",
-      "£20.56",
-      "Due",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(2) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£4,577.44",
-      "Overdue",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(3) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Payment for Alcohol Duty return",
-      "£2,577.44",
-      "Overdue",
-      "Pay now"
-    ),
-    List(
-      (currentDate.minusMonths(4) withDayOfMonth 25).format(formatterPaymentMonth),
-      "Credit for Alcohol Duty return",
-      "−£2,577.44",
-      "Nothing to pay",
-      ""
-    ),
-    List(
-      (currentDate.minusMonths(5) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Refund payment interest charge",
-      "−£20.56",
-      "Nothing to pay",
-      ""
-    ),
-    List(
-      (currentDate.minusMonths(6) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Late payment interest charge",
-      "£10.56",
-      "Overdue",
-      "Pay now"
-    )
-  )
+  def expectedOutstandingPayments: List[List[String]] = {
+    val paymentFormatter = formatterPaymentMonth
+    val dateFormatter    = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
 
-  def expectedUnallocatedPayments: List[List[String]] = List(
-    List("Payment date", "Description", "Amount"),
-    List(
-      (currentDate withDayOfMonth 1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Payment",
-      "−£1,000.00"
-    ),
-    List(
-      (currentDate.minusMonths(1) withDayOfMonth 1)
-        .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)),
-      "Payment",
-      "−£500.00"
-    )
-  )
+    def formatDateWithPaymentMonth(monthOffset: Int): String =
+      currentDate.plusMonths(monthOffset).withDayOfMonth(25).format(paymentFormatter)
 
-  def expectedHistoricalPayments: List[List[String]] = List(
-    List("Return period", "Description", "Amount"),
+    def formatDateWithDay1(monthOffset: Int): String =
+      currentDate.minusMonths(monthOffset).withDayOfMonth(1).format(dateFormatter)
+
+    def formatCurrentDate: String =
+      currentDate.format(dateFormatter)
+
     List(
-      currentDate.format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared late payment interest charge payments",
-      "£20.56"
-    ),
-    List(
-      currentDate.minusMonths(3).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared Alcohol Duty payments",
-      "£4,577.44"
-    ),
-    List(
-      currentDate.minusMonths(4).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared Alcohol Duty payments",
-      "£2,000.00"
-    ),
-    List(
-      currentDate.minusMonths(6).format(DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)),
-      "Cleared late payment interest charge payments",
-      "£10.00"
+      List("To be paid by", "Description", "Left to pay", "Status", "Action"),
+      List(formatDateWithPaymentMonth(1), "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now"),
+      List(formatCurrentDate, "Late payment interest charge", "£20.56", "Due", "Pay now"),
+      List(formatDateWithPaymentMonth(-2), "Payment for Alcohol Duty return", "£4,577.44", "Overdue", "Pay now"),
+      List(formatDateWithPaymentMonth(-3), "Payment for Alcohol Duty return", "£2,577.44", "Overdue", "Pay now"),
+      List(formatDateWithPaymentMonth(-4), "Credit for Alcohol Duty return", "−£2,577.44", "Nothing to pay", ""),
+      List(formatDateWithDay1(5), "Refund payment interest charge", "−£20.56", "Nothing to pay", ""),
+      List(formatDateWithDay1(6), "Late payment interest charge", "£10.56", "Overdue", "Pay now")
     )
-  )
+  }
+
+  def expectedUnallocatedPayments: List[List[String]] = {
+    val dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
+
+    def formatDateWithDay1(monthOffset: Int): String =
+      currentDate.minusMonths(monthOffset).withDayOfMonth(1).format(dateFormatter)
+
+    List(
+      List("Payment date", "Description", "Amount"),
+      List(formatDateWithDay1(0), "Payment", "−£1,000.00"),
+      List(formatDateWithDay1(1), "Payment", "−£500.00")
+    )
+  }
+
+  def expectedHistoricalPayments: List[List[String]] = {
+    val dateFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
+
+    def formatMonthYear(monthOffset: Int): String =
+      currentDate.minusMonths(monthOffset).format(dateFormatter)
+
+    List(
+      List("Return period", "Description", "Amount"),
+      List(formatMonthYear(0), "Cleared late payment interest charge payments", "£20.56"),
+      List(formatMonthYear(3), "Cleared Alcohol Duty payments", "£4,577.44"),
+      List(formatMonthYear(4), "Cleared Alcohol Duty payments", "£2,000.00"),
+      List(formatMonthYear(6), "Cleared late payment interest charge payments", "£10.00")
+    )
+  }
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
@@ -451,7 +410,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-task-list__name-and-hint")).getText.trim.replaceAll("""\nEvery three months.*""", "")
+      val key   = row
+        .findElement(By.cssSelector(".govuk-task-list__name-and-hint"))
+        .getText
+        .trim
+        .replaceAll("""\nEvery three months.*""", "")
       val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -510,4 +473,61 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   //this method returns a string that contains a date of five months past
   def getSpecificMonth: String =
     now.minusMonths(5).format(formatter)
+
+  def getPaymentTypeValue(paymentType: String): Int =
+    paymentType match {
+      case "Outstanding" => 1
+      case "Unallocated" => 2
+      case "Historical"  => 3
+      case _             => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
+    }
+
+  def getMonthDetails: Map[String, String] = {
+    val formatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
+    val currentDate = LocalDate.now()
+
+    def formatMonths(offset: Int): String = currentDate.plusMonths(offset).format(formatter)
+
+    val monthOffsets = (-10 to 10).map { offset =>
+      val key = if (offset == 0) "currentMonth"
+      else if (offset < 0) s"minus${-offset}Months"
+      else s"plus${offset}Months"
+      key -> formatMonths(offset)
+    }
+    monthOffsets.toMap
+  }
+
+  def replacePlaceholdersInScenario(dataTable: List[List[String]]): List[List[String]] = {
+    // Retrieve the month details for replacements
+    val monthDetails = getMonthDetails
+
+    // Replace placeholders in the data table
+    dataTable.map { row =>
+      row.map { cell =>
+        monthDetails.foldLeft(cell) { (updatedCell, replacement) =>
+          val (key, value) = replacement
+          if (updatedCell.contains(key)) updatedCell.replace(key, value) else updatedCell
+        }
+      }
+    }
+  }
+
+  def paymentDetails(paymentType: String): Seq[List[String]] = {
+    val tableIndex = getPaymentTypeValue(paymentType)
+    driver
+      .findElement(By.xpath("//div/table[" + tableIndex + "]"))
+      .findElements(By.tagName("tr"))
+      .asScala
+      .map(
+        _.findElements(By.xpath("td | th")).asScala
+          .map(
+            _.getText.trim
+              .replaceAll("""\nPay.*""", "")
+              .replaceAll("""\(ref:.*""", "")
+              .replaceAll("\n", "")
+          )
+          .toList
+      )
+      .toList
+  }
 }
