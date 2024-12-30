@@ -35,7 +35,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
-    And I enter "35.55" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "first" input box
+    And I enter "35.5500" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "first" input box
     And I click save and continue button on "How Much You Need To Declare Wine Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
     And I should see the following text on the page
@@ -58,7 +58,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
-    And I enter "33.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
+    And I enter "33.3300" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
     And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I should see the following text on the page
@@ -89,11 +89,11 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Wine Page"
     When I enter "7777.77" for "Total Wine" on "Duty Suspended Wine Page"
-    And I enter "77.77" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
+    And I enter "77.7700" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
     And I click save and continue button on "Duty Suspended Wine Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page"
     When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I enter "88.8800" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
@@ -162,7 +162,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
-    And I enter "88.8" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
+    And I enter "88.8000" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I click save and continue button on "How Much You Need To Declare Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     And I should see the following text on the page
@@ -193,11 +193,11 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Beer Page"
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
-    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I enter "150.5500" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Spirits Page"
     When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
-    And I enter "160.55" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
+    And I enter "160.5500" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
     And I click save and continue button on "Duty Suspended Spirits Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
@@ -278,7 +278,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Beer Page"
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
-    And I enter "150.55" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I enter "150.5500" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
@@ -350,7 +350,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Other Fermented Products Page"
     When I enter "2000.75" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I enter "150.55" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
+    And I enter "150.5500" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
     And I should see the following details
