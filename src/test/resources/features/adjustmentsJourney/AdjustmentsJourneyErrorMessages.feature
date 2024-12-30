@@ -51,7 +51,7 @@ Feature: Adjustments Journey - Error Message Validations
       | Enter the litres of pure alcohol           |
       | Enter your Small Producer Relief duty rate |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Duty Value Page" "£2,455.39"
@@ -117,7 +117,7 @@ Feature: Adjustments Journey - Error Message Validations
       | Enter the total litres           |
       | Enter the litres of pure alcohol |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "New Tax Type Code Page"
     When I enter "363" on "New Tax Type Code Page"
@@ -151,7 +151,7 @@ Feature: Adjustments Journey - Error Message Validations
       | Enter the litres of pure alcohol in spoilt spirits |
       | Enter the amount of duty paid                      |
     When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
     And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
     And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
@@ -177,7 +177,7 @@ Feature: Adjustments Journey - Error Message Validations
       | Enter the total litres           |
       | Enter the litres of pure alcohol |
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume With Spr Page"
-    And I enter "250.55" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
     Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
     When I click continue button on "Adjustment Duty Value Page"

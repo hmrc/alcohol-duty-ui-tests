@@ -61,17 +61,17 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
-    And I enter "55.55" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
+    And I enter "55.5500" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
-    And I enter "77.55" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
+    And I enter "77.5500" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
     And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
-    And I enter "66.34" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
+    And I enter "66.3400" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
     And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
-    And I enter "99.13" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
+    And I enter "99.1300" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
     And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
-    And I enter "66.44" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
+    And I enter "66.4400" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
-    And I enter "66.89" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
+    And I enter "66.8900" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
     When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
@@ -79,7 +79,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
     When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "89.99" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
+    And I enter "89.9900" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Check Your Answers SPR Beer Page"
@@ -218,7 +218,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click save and continue button on "Adjustment Tax Type Code Page"
     Then I am presented with the "Adjustment Volume Page"
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
-    And I enter "50.55" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
+    And I enter "50.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
     Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
     When I click continue button on "Adjustment Duty Value Page"
