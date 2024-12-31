@@ -464,13 +464,9 @@ trait BaseStepDef
           declaredProductDetails
             .findElements(By.tagName("td"))
             .asScala
-            .map(_.getText.trim.replaceAll("\n", " "))
+            .map(getVisibleTextFromElement)
             .toList
         }
-        .map(_.map {
-          case text if text.startsWith("Change") => "Change" // Replace text with "Change" if it starts with "Change"
-          case other => other // Keep all other values as they are
-        })
         .toList
 
       val actual = declaredProductListAtReturnsSummary(num)
