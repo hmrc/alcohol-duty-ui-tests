@@ -266,16 +266,32 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
+  def getDateRange: String = {
+    // Determine the base month and year for the range
+    val Month: Int = LocalDate.now().getMonthValue
+    val Year: Int = LocalDate.now().getYear
+
+    val (startMonth, startYear) = Month match {
+      case 2 | 3 | 4 => (1, Year) // January
+      case 5 | 6 | 7 => (4, Year) // April
+      case 8 | 9 | 10 => (7, Year) // July
+      case 11 | 12 | 1 => (10, if (Month == 1) Year - 1 else Year) // October
+      case _ => throw new IllegalArgumentException("Invalid month value")
+    }
+
+    val startDate = LocalDate.of(startYear, startMonth, 1)
+    val endDate = startDate.withDayOfMonth(startDate.lengthOfMonth())
+
+    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
+    s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
+  }
+
   val currentDate: LocalDate          = LocalDate.now()
   val year: Int                       = currentDate.getYear
   val currentMonth: Int               = currentDate.getMonthValue
   val generatedMonth: Int             = generateMonth(currentMonth)
   val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
   val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
-  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val lastDayOfCurrentMonth: String   =
-    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val firstDayOfPreviousMonth: String = currentDate
     .withMonth(generatedMonth)
     .withDayOfMonth(1)
