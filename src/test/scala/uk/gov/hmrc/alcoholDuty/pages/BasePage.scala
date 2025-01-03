@@ -385,14 +385,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-        .map(
-          _.getText.trim
-            .replaceAll("\nthis product", "")
-            .replaceAll("""\n.*between.*""", "")
-            .replaceAll("""\n.*at or above.*""", "")
-            .replaceAll("""\n.*adjustment with duty value.*""", "")
-            .replaceAll("\n", " ")
-        )
+        .map(getVisibleTextFromElement)
         .toList
     )
     .toList
@@ -574,5 +567,15 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
           .toList
       )
       .toList
+  }
+
+  def getVisibleTextFromElement(element: WebElement): String = {
+    val htmlContent = element.getAttribute("innerHTML")
+    htmlContent
+      .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
+      .replaceAll("<[^>]+>", "")
+      .replaceAll("\n", " ")
+      .replaceAll("\\s+", " ")
+      .trim
   }
 }
