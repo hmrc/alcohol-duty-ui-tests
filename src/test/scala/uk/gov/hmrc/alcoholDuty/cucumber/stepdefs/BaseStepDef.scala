@@ -464,7 +464,7 @@ trait BaseStepDef
           declaredProductDetails
             .findElements(By.tagName("td"))
             .asScala
-            .map(_.getText.trim.replaceAll("\n", " "))
+            .map(getVisibleTextFromElement)
             .toList
         }
         .map(_.map {
