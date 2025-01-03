@@ -22,6 +22,7 @@ import org.scalatest.exceptions.TestFailedException
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 import java.io.{File, FileNotFoundException}
+import java.time.LocalDate
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 object PageObjectFinder extends BasePage {
@@ -54,7 +55,13 @@ object PageObjectFinder extends BasePage {
   }
 
   implicit class DataTableConverters(dataTable: DataTable) {
-    def asScalaListOfStrings: List[String] = dataTable.cells().asScala.flatMap(_.asScala).toList
+    def asScalaListOfStrings: List[String] = {
+      dataTable.cells()
+        .asScala
+        .flatMap(_.asScala)
+        .map(cell => cell.replace("[currentYear]", LocalDate.now().getYear.toString)) //replacing place holder text with current year
+        .toList
+    }
 
     def asScalaListOfLists: List[List[String]] = dataTable.rows(0).asLists().asScala.map(_.asScala.toList).toList
     def updatedTable: Seq[List[String]] = replacePlaceholdersInScenario(asScalaListOfLists)

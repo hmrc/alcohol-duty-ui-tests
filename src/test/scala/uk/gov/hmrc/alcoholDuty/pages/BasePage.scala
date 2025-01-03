@@ -221,11 +221,34 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   val Year: Int  = LocalDate.now().getYear
   val Month: Int = LocalDate.now().getMonthValue
+  val periodKeyCodes: Seq[String] = Seq("AL", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK")
 
-  def periodKey(): String =
-    s"""${generateYear(Year: Int).toString.takeRight(2)}A${(generateMonth(Month: Int) + 64).toChar}"""
+  def periodKey: String = {
+    val adjustedYear = if (Month == 1) year - 1 else year
+    val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
+    Month match {
+      case 2 | 3 | 4   => s"${yearSuffix}AA"
+      case 5 | 6 | 7   => s"${yearSuffix}AD"
+      case 8 | 9 | 10  => s"${yearSuffix}AG"
+      case 11 | 12 | 1 => s"${yearSuffix}AJ"
+      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+    }
+  }
 
-  def previousPeriodKey(): String = s"${Year.toString.takeRight(2)}A${((generateMonth(Month: Int) - 1) + 64).toChar}"
+  def previousPeriodKey: String = {
+    val currentDate = LocalDate.now()
+    val month = currentDate.getMonthValue
+    val year = currentDate.getYear
+
+    // Determine the base year suffix
+    val yearSuffix = if (month == 1) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+
+    // Shortened letter code mapping
+    val letterCode = periodKeyCodes(month - 1)
+
+    // Return only the year suffix and letter code
+    s"$yearSuffix$letterCode"
+  }
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
@@ -233,24 +256,45 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     else
       Year
 
-  def generateMonth(Month: Int): Int =
-    if ((Month - 1) == 0 || (Month - 1) == 1 || (Month - 1) == 2)
-      1
-    else if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
-      4
-    else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
-      7
-    else
-      10
+  def generateMonth(month: Int): Int = {
+    month match {
+      case m if m >= 1 && m <= 3  => 1
+      case m if m >= 4 && m <= 6  => 4
+      case m if m >= 7 && m <= 9  => 7
+      case m if m >= 10 && m <= 12 => 10
+      case _ => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
+    }
+  }
+
+  def getDateRange: String = {
+    // Determine the base month and year for the range
+    val Month: Int = LocalDate.now().getMonthValue
+
+    val (startMonth, startYear) = Month match {
+      case 2 | 3 | 4 => (1, Year) // January
+      case 5 | 6 | 7 => (4, Year) // April
+      case 8 | 9 | 10 => (7, Year) // July
+      case 11 | 12 | 1 => (10, if (Month == 1) Year - 1 else Year) // October
+      case _ => throw new IllegalArgumentException("Invalid month value")
+    }
+
+    val startDate = LocalDate.of(startYear, startMonth, 1)
+    val endDate = startDate.withDayOfMonth(startDate.lengthOfMonth())
+
+    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
+    s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
+  }
 
   val currentDate: LocalDate          = LocalDate.now()
+  val year: Int                       = currentDate.getYear
+  val currentMonth: Int               = currentDate.getMonthValue
+  val generatedMonth: Int             = generateMonth(currentMonth)
   val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
   val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
-  val firstDayOfCurrentMonth: String  = (currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val lastDayOfCurrentMonth: String   =
-    firstDayOfNextMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-  val firstDayOfPreviousMonth: String = (currentDate.withMonth(generateMonth(Month: Int) - 1) withDayOfMonth 1)
+  val firstDayOfPreviousMonth: String = currentDate
+    .withMonth(generatedMonth)
+    .withDayOfMonth(1)
+    .minusMonths(1)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val lastDayOfPreviousMonth: String  =
     firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
@@ -476,15 +520,16 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
 
   def getMonthDetails: Map[String, String] = {
-    val formatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
+    val formatter   = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
     val currentDate = LocalDate.now()
 
     def formatMonths(offset: Int): String = currentDate.plusMonths(offset).format(formatter)
 
     val monthOffsets = (-10 to 10).map { offset =>
-      val key = if (offset == 0) "currentMonth"
-      else if (offset < 0) s"minus${-offset}Months"
-      else s"plus${offset}Months"
+      val key =
+        if (offset == 0) "currentMonth"
+        else if (offset < 0) s"minus${-offset}Months"
+        else s"plus${offset}Months"
       key -> formatMonths(offset)
     }
     monthOffsets.toMap
