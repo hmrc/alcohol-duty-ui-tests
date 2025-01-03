@@ -12,7 +12,7 @@ Feature: View Past Payments Journey
     And I should verify the table header displayed
       | Outstanding payments     |
       | Unallocated payments     |
-      | Cleared payments in 2024 |
+      | Cleared payments in 2025 |
     Then I verify the due amount displayed as "You owe £3,325.44" on "View Past Payments Page"
     And I should verify the "Outstanding" payment details of the table 1 on "View Past Payments Page"
     And I should verify the "Unallocated" payment details of the table 2 on "View Past Payments Page"
@@ -29,15 +29,15 @@ Feature: View Past Payments Journey
     And I should verify the table header displayed
       | Outstanding payments     |
       | Unallocated payments     |
-      | Cleared payments in 2024 |
+      | Cleared payments in 2025 |
     Then I verify the due amount displayed as "You owe £43,556.88" on "View Past Payments Page"
 #    For the below step, two values under return period are dynamic and the rest of the two values are static
     And I should see the below details at "Historical" section on "View Past Payments Page"
       | Return period  | Description                                   | Amount    |
       | September 2025 | Cleared Alcohol Duty payments                 | £1,234.44 |
       | currentMonth   | Cleared Alcohol Duty payments                 | £237.44   |
-      | minus1Months   | Cleared Alcohol Duty payments                 | £2,307.44 |
-      | November 2024  | Cleared late payment interest charge payments | £20.56    |
+      | minus1Months   | Cleared late payment interest charge payments | £20.56    |
+      | November 2024  | Cleared Alcohol Duty payments                 | £2,307.44 |
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error
     Given I cleared the data for the service

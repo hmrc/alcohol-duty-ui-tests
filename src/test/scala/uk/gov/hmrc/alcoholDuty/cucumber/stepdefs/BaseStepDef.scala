@@ -167,13 +167,13 @@ trait BaseStepDef
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
       case "Alcohol Duty Service"      =>
         driver.get(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey()
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
       case "Previous Month Period Key" =>
         driver.get(
           TestConfiguration.url(
             "alcohol-duty-returns-frontend"
-          ) + "/before-you-start-your-return/" + previousPeriodKey()
+          ) + "/before-you-start-your-return/" + previousPeriodKey
         )
     }
   }
@@ -255,8 +255,8 @@ trait BaseStepDef
     (paymentType: String, page: String, data: DataTable) =>
       PageObjectFinder.page(page).waitForPageHeader
       val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
-      val updatedTable = replacePlaceholdersInScenario(expectedResults)
-      val actual = paymentDetails(paymentType)
+      val updatedTable    = replacePlaceholdersInScenario(expectedResults)
+      val actual          = paymentDetails(paymentType)
       actual should be(updatedTable)
   }
 
@@ -469,7 +469,7 @@ trait BaseStepDef
         }
         .map(_.map {
           case text if text.startsWith("Change") => "Change" // Replace text with "Change" if it starts with "Change"
-          case other => other // Keep all other values as they are
+          case other                             => other // Keep all other values as they are
         })
         .toList
 
