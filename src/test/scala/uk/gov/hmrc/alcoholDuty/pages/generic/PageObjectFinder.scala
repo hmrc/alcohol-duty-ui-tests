@@ -59,7 +59,7 @@ object PageObjectFinder extends BasePage {
       dataTable.cells()
         .asScala
         .flatMap(_.asScala)
-        .map(cell => cell.replace("[currentYear]", LocalDate.now().getYear.toString)) //replacing place older test with current year
+        .map(cell => cell.replace("[currentYear]", LocalDate.now().getYear.toString)) //replacing place holder text with current year
         .toList
     }
 
