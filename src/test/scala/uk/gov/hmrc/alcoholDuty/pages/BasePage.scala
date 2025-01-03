@@ -250,52 +250,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     s"$yearSuffix$letterCode"
   }
 
-  def getDateRange: String = {
-    // Determine the base month and year for the range
-    val Month: Int = LocalDate.now().getMonthValue
-    val Year: Int  = LocalDate.now().getYear
-
-    val (startMonth, startYear) = Month match {
-      case 2 | 3 | 4   => (1, Year) // January
-      case 5 | 6 | 7   => (4, Year) // April
-      case 8 | 9 | 10  => (7, Year) // July
-      case 11 | 12 | 1 => (10, if (Month == 1) Year - 1 else Year) // October
-      case _           => throw new IllegalArgumentException("Invalid month value")
-    }
-
-    val startDate = LocalDate.of(startYear, startMonth, 1)
-    val endDate   = startDate.withDayOfMonth(startDate.lengthOfMonth())
-
-    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-    s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
-  }
-
-  def getDateRangeFromKeyForPreviousMonths: String = {
-    // Use the current date to simulate the key
-    val currentDate = LocalDate.now()
-    val month = currentDate.getMonthValue
-    val year = currentDate.getYear
-
-    // Extract the current year suffix and calculate the current key
-    val yearSuffix = year.toString.takeRight(2)
-    val letterCode = periodKeyCodes(month - 1)
-    val key = s"$yearSuffix$letterCode"
-
-    // Extract year and month from the key
-    val keyYearSuffix = key.take(2).toInt
-    val keyLetterCode = key.takeRight(2)
-    val keyYear = if (keyLetterCode == "AL") 2000 + keyYearSuffix else 2000 + keyYearSuffix
-    val keyMonth = if (keyLetterCode == "AL") 12 else periodKeyCodes.indexOf(keyLetterCode) + 1
-
-    // Construct the start and end dates for the month
-    val startDate = LocalDate.of(keyYear, keyMonth, 1)
-    val endDate = startDate.withDayOfMonth(startDate.lengthOfMonth())
-
-    // Format the dates
-    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-    s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
-  }
-
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
       Year - 1
