@@ -56,11 +56,10 @@ object PageObjectFinder extends BasePage {
 
   implicit class DataTableConverters(dataTable: DataTable) {
     def asScalaListOfStrings: List[String] = {
-      // Replace a string (for example, replacing "oldString" with "newString")
       dataTable.cells()
         .asScala
         .flatMap(_.asScala)
-        .map(cell => cell.replace("[currentYear]", LocalDate.now().getYear.toString)) // Replace "oldString" with "newString"
+        .map(cell => cell.replace("[currentYear]", LocalDate.now().getYear.toString)) //replacing place older test with current year
         .toList
     }
 
