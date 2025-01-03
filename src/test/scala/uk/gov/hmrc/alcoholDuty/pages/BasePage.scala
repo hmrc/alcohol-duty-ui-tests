@@ -269,7 +269,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def getDateRange: String = {
     // Determine the base month and year for the range
     val Month: Int = LocalDate.now().getMonthValue
-    val Year: Int = LocalDate.now().getYear
 
     val (startMonth, startYear) = Month match {
       case 2 | 3 | 4 => (1, Year) // January

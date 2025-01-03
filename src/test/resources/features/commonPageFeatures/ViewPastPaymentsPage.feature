@@ -10,9 +10,9 @@ Feature: View Past Payments Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Payments Page"
     And I should verify the table header displayed
-      | Outstanding payments     |
-      | Unallocated payments     |
-      | Cleared payments in 2025 |
+      | Outstanding payments              |
+      | Unallocated payments              |
+      | Cleared payments in [currentYear] |
     Then I verify the due amount displayed as "You owe £3,325.44" on "View Past Payments Page"
     And I should verify the "Outstanding" payment details of the table 1 on "View Past Payments Page"
     And I should verify the "Unallocated" payment details of the table 2 on "View Past Payments Page"
@@ -27,9 +27,9 @@ Feature: View Past Payments Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Payments Page"
     And I should verify the table header displayed
-      | Outstanding payments     |
-      | Unallocated payments     |
-      | Cleared payments in 2025 |
+      | Outstanding payments              |
+      | Unallocated payments              |
+      | Cleared payments in [currentYear] |
     Then I verify the due amount displayed as "You owe £43,556.88" on "View Past Payments Page"
 #    For the below step, two values under return period are dynamic and the rest of the two values are static
     And I should see the below details at "Historical" section on "View Past Payments Page"
