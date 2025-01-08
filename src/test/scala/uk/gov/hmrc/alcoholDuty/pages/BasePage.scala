@@ -320,61 +320,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     List(now.minusMonths(7).format(formatter), "Completed", "View Return")
   )
 
-  val formatterPaymentMonth: DateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-
-  def expectedOutstandingPayments: List[List[String]] = {
-    val paymentFormatter = formatterPaymentMonth
-    val dateFormatter    = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-
-    def formatDateWithPaymentMonth(monthOffset: Int): String =
-      currentDate.plusMonths(monthOffset).withDayOfMonth(25).format(paymentFormatter)
-
-    def formatDateWithDay1(monthOffset: Int): String =
-      currentDate.minusMonths(monthOffset).withDayOfMonth(1).format(dateFormatter)
-
-    def formatCurrentDate: String =
-      currentDate.format(dateFormatter)
-
-    List(
-      List("To be paid by", "Description", "Left to pay", "Status", "Action"),
-      List(formatDateWithPaymentMonth(1), "Payment for Alcohol Duty return", "£237.44", "Due", "Pay now"),
-      List(formatCurrentDate, "Late payment interest charge", "£20.56", "Due", "Pay now"),
-      List(formatDateWithPaymentMonth(-2), "Payment for Alcohol Duty return", "£4,577.44", "Overdue", "Pay now"),
-      List(formatDateWithPaymentMonth(-3), "Payment for Alcohol Duty return", "£2,577.44", "Overdue", "Pay now"),
-      List(formatDateWithPaymentMonth(-4), "Credit for Alcohol Duty return", "−£2,577.44", "Nothing to pay", ""),
-      List(formatDateWithDay1(5), "Refund payment interest charge", "−£20.56", "Nothing to pay", ""),
-      List(formatDateWithDay1(6), "Late payment interest charge", "£10.56", "Overdue", "Pay now")
-    )
-  }
-
-  def expectedUnallocatedPayments: List[List[String]] = {
-    val dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-
-    def formatDateWithDay1(monthOffset: Int): String =
-      currentDate.minusMonths(monthOffset).withDayOfMonth(1).format(dateFormatter)
-
-    List(
-      List("Payment date", "Description", "Amount"),
-      List(formatDateWithDay1(0), "Payment", "−£1,000.00"),
-      List(formatDateWithDay1(1), "Payment", "−£500.00")
-    )
-  }
-
-  def expectedHistoricalPayments: List[List[String]] = {
-    val dateFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-
-    def formatMonthYear(monthOffset: Int): String =
-      currentDate.minusMonths(monthOffset).format(dateFormatter)
-
-    List(
-      List("Return period", "Description", "Amount"),
-      List(formatMonthYear(0), "Cleared late payment interest charge payments", "£20.56"),
-      List(formatMonthYear(3), "Cleared Alcohol Duty payments", "£4,577.44"),
-      List(formatMonthYear(4), "Cleared Alcohol Duty payments", "£2,000.00"),
-      List(formatMonthYear(6), "Cleared late payment interest charge payments", "£10.00")
-    )
-  }
-
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
 
   def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
@@ -519,30 +464,51 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       case _             => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
     }
 
-  def getMonthDetails: Map[String, String] = {
-    val formatter   = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
+  def getMonthDetails(formatType: String): Map[String, String] = {
     val currentDate = LocalDate.now()
 
-    def formatMonths(offset: Int): String = currentDate.plusMonths(offset).format(formatter)
-
-    val monthOffsets = (-10 to 10).map { offset =>
-      val key =
-        if (offset == 0) "currentMonth"
-        else if (offset < 0) s"minus${-offset}Months"
-        else s"plus${offset}Months"
-      key -> formatMonths(offset)
+    // Define the formatter based on the formatType
+    val formatter = formatType match {
+      case "MonthYear"  => DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
+      case "FullDate"   => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
+      case _            => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
     }
-    monthOffsets.toMap
+
+    // Function to compute dates for a specific day and month offset
+    def computeDate(day: Int, offset: Int): String = {
+      val targetDate = currentDate.plusMonths(offset)
+      val adjustedDay = Math.min(day, targetDate.lengthOfMonth()) // Adjust day to the last valid day of the month
+      targetDate.withDayOfMonth(adjustedDay).format(formatter)
+    }
+
+    // Generate keys for all days (1 to 31) and special cases like "currentMonth"
+    val monthOffsets = (-10 to 10).flatMap { offset =>
+      (1 to 31).map { day =>
+        val key =
+          if (day == currentDate.getDayOfMonth && offset == 0) "CurrentMonth" // Handle "currentMonth" key
+          else if (offset < 0) s"${day}Minus${-offset}Months"
+          else if (offset > 0) s"${day}Plus${offset}Months"
+          else s"${day}CurrentMonth"
+        key -> computeDate(day, offset)
+      }
+    }.toMap
+
+    monthOffsets
   }
 
-  def replacePlaceholdersInScenario(dataTable: List[List[String]]): List[List[String]] = {
+
+  def replacePlaceholdersInScenario(dataTable: List[List[String]], formatType: String): List[List[String]] = {
     // Retrieve the month details for replacements
-    val monthDetails = getMonthDetails
+    val monthDetails = getMonthDetails(formatType)
 
     // Replace placeholders in the data table
     dataTable.map { row =>
       row.map { cell =>
-        monthDetails.foldLeft(cell) { (updatedCell, replacement) =>
+        // Replace "[empty]" with an empty string
+        val withoutEmptyPlaceholder = if (cell == "[empty]") "" else cell
+
+        // Replace dynamic month placeholders
+        monthDetails.foldLeft(withoutEmptyPlaceholder) { (updatedCell, replacement) =>
           val (key, value) = replacement
           if (updatedCell.contains(key)) updatedCell.replace(key, value) else updatedCell
         }

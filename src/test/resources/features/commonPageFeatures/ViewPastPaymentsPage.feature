@@ -14,9 +14,25 @@ Feature: View Past Payments Journey
       | Unallocated payments              |
       | Cleared payments in [currentYear] |
     Then I verify the due amount displayed as "You owe £3,325.44" on "View Past Payments Page"
-    And I should verify the "Outstanding" payment details of the table 1 on "View Past Payments Page"
-    And I should verify the "Unallocated" payment details of the table 2 on "View Past Payments Page"
-    And I should verify the "Historical" payment details of the table 3 on "View Past Payments Page"
+    And I should see the below details at "Unallocated" section on "View Past Payments Page" with "FullDate"
+      | Payment date  | Description | Amount     |
+      | 1CurrentMonth | Payment     | −£1,000.00 |
+      | 1Minus1Months | Payment     | −£500.00   |
+    And I should see the below details at "Outstanding" section on "View Past Payments Page" with "FullDate"
+      | To be paid by  | Description                     | Left to pay | Status         | Action  |
+      | 25Plus1Months  | Payment for Alcohol Duty return | £237.44     | Due            | Pay now |
+      | CurrentMonth   | Late payment interest charge    | £20.56      | Due            | Pay now |
+      | 25Minus2Months | Payment for Alcohol Duty return | £4,577.44   | Overdue        | Pay now |
+      | 25Minus3Months | Payment for Alcohol Duty return | £2,577.44   | Overdue        | Pay now |
+      | 25Minus4Months | Credit for Alcohol Duty return  | −£2,577.44  | Nothing to pay | [empty] |
+      | 1Minus5Months  | Refund payment interest charge  | −£20.56     | Nothing to pay | [empty] |
+      | 1Minus6Months  | Late payment interest charge    | £10.56      | Overdue        | Pay now |
+    And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
+      | Return period | Description                                   | Amount    |
+      | CurrentMonth  | Cleared late payment interest charge payments | £20.56    |
+      | 1Minus3Months | Cleared Alcohol Duty payments                 | £4,577.44 |
+      | 1Minus4Months | Cleared Alcohol Duty payments                 | £2,000.00 |
+      | 1Minus6Months | Cleared late payment interest charge payments | £10.00    |
 
   Scenario: 2. ADR Journey - Verify that year 2025 data is visible under historical payments section
     Given I cleared the data for the service
@@ -32,11 +48,11 @@ Feature: View Past Payments Journey
       | Cleared payments in [currentYear] |
     Then I verify the due amount displayed as "You owe £43,556.88" on "View Past Payments Page"
 #    For the below step, two values under return period are dynamic and the rest of the two values are static
-    And I should see the below details at "Historical" section on "View Past Payments Page"
+    And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
       | Return period  | Description                                   | Amount    |
       | September 2025 | Cleared Alcohol Duty payments                 | £1,234.44 |
-      | currentMonth   | Cleared Alcohol Duty payments                 | £237.44   |
-      | minus1Months   | Cleared late payment interest charge payments | £20.56    |
+      | CurrentMonth   | Cleared Alcohol Duty payments                 | £237.44   |
+      | 1Minus1Months  | Cleared late payment interest charge payments | £20.56    |
       | November 2024  | Cleared Alcohol Duty payments                 | £2,307.44 |
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error

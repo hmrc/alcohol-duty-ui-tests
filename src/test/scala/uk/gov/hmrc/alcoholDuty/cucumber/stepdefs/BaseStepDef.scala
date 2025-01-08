@@ -223,39 +223,11 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-  And("""I should verify the {string} payment details of the table {int} on {string}""") {
-    (tableHeader: String, num: Int, page: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-
-      def getResultList(num: Int): Seq[List[String]] =
-        driver
-          .findElement(By.xpath("//div/table[" + num + "]"))
-          .findElements(By.tagName("tr"))
-          .asScala
-          .map(
-            _.findElements(By.xpath("td | th")).asScala
-              .map(_.getText.trim.replaceAll("""\nPay.*""", "").replaceAll("""\(ref:.*""", "").replaceAll("\n", ""))
-              .toList
-          )
-          .toList
-
-      val actual = getResultList(num)
-
-      tableHeader match {
-        case "Outstanding" =>
-          actual should be(expectedOutstandingPayments)
-        case "Unallocated" =>
-          actual should be(expectedUnallocatedPayments)
-        case "Historical"  =>
-          actual should be(expectedHistoricalPayments)
-      }
-  }
-
-  And("""I should see the below details at {string} section on {string}""") {
-    (paymentType: String, page: String, data: DataTable) =>
+  And("""I should see the below details at {string} section on {string} with {string}""") {
+    (paymentType: String, page: String, dateFormat: String, data: DataTable) =>
       PageObjectFinder.page(page).waitForPageHeader
       val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
-      val updatedTable    = replacePlaceholdersInScenario(expectedResults)
+      val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
       val actual          = paymentDetails(paymentType)
       actual should be(updatedTable)
   }
