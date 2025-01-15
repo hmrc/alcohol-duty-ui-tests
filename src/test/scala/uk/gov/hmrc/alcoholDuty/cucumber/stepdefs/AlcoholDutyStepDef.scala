@@ -22,12 +22,15 @@ import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 class AlcoholDutyStepDef extends BaseStepDef {
 
   When("""I enter redirect URL on Auth Login Stub Page for {string}""") { (typeOfJourney: String) =>
+
     typeOfJourney match {
       case "Business Tax Account Page" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/start")
       case "Alcohol Duty Service" =>
         AuthLoginStubPage.enterRedirectURL(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+         // TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AB"
+
         )
     }
   }
