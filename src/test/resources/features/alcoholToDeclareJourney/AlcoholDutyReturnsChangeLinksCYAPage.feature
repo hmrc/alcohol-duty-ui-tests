@@ -2196,11 +2196,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "−£306.38"
     And I should see the following details of the table 1 at the returns summary page
-      | Spirits declared                  | £823.17    | Change |
-      | Wine declared                     | £329.54    | Change |
-      | Cider declared                    | £402.68    | Change |
-      | Other fermented products declared | £308.96    | Change |
       | Beer declared                     | £3,136.47  | Change |
+      | Cider declared                    | £402.68    | Change |
+      | Wine declared                     | £329.54    | Change |
+      | Spirits declared                  | £823.17    | Change |
+      | Other fermented products declared | £308.96    | Change |
       | Adjustments to previous returns   | −£5,307.20 | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
