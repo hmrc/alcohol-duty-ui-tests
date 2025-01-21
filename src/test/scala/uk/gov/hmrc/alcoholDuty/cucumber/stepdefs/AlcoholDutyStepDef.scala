@@ -29,8 +29,8 @@ class AlcoholDutyStepDef extends BaseStepDef {
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/start")
       case "Alcohol Duty Service" =>
         AuthLoginStubPage.enterRedirectURL(
-         // TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AD"
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+
 
         )
     }
@@ -66,7 +66,4 @@ class AlcoholDutyStepDef extends BaseStepDef {
     }
   }
 
-  Then("""I enter {string} in authorityId column""") { authId: String =>
-    driver.findElement(By.id("authorityId")).sendKeys(authId)
-  }
 }
