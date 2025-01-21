@@ -4,7 +4,6 @@ Feature: Alcohol Duty Returns Journey
   Background: : Common Steps - Alcohol Duty Returns Journey
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter "cred4" in authorityId column
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
