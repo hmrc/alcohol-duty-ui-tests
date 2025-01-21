@@ -48,7 +48,6 @@ trait BaseStepDef
     go to PageObjectFinder.page(page)
   }
 
-
   When("""I click submit button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSubmitButton()

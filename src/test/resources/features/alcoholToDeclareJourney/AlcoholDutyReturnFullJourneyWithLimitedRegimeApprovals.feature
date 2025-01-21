@@ -310,8 +310,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare |Declare other fermented products| Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started                | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
+      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                              |
     #Declare other fermented products
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
@@ -362,8 +362,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£1,821.66"
     And I should see the following details of the table 1 at the returns summary page
-      | Other fermented products declared               | £1,821.66| Change |
-      | Adjustments to previous returns                 | Nil      | Change |
+      | Other fermented products declared | £1,821.66 | Change |
+      | Adjustments to previous returns   | Nil       | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
