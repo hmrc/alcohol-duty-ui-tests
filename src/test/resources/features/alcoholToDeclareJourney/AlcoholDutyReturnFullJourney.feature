@@ -734,13 +734,12 @@ Feature: Alcohol Duty Returns Journey
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£95,924.73"
     And I should see the following details of the table 1 at the returns summary page
-      | Beer declared                     | £14,749.75 | Change |
-      | Cider declared                    | £49,347.26 | Change |
-      | Wine declared                     | £12,164.82 | Change |
-      | Spirits declared                  | £13,159.65 | Change |
-      | Other fermented products declared | £11,153.36 | Change |
-      | Adjustments to previous returns   | −£5,152.16 | Change |
-
+      | Beer declared                     | £14,980.63| Change |
+      | Cider declared                    | £49,167.33 | Change |
+      | Wine declared                     | £12,363.57 | Change |
+      | Spirits declared                  | £13,376.15 | Change |
+      | Other fermented products declared | £11,274.40 | Change |
+      | Adjustments to previous returns   | −£5,237.35 | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
       | Spirits production     | Declared | Change |
@@ -1326,11 +1325,11 @@ Feature: Alcohol Duty Returns Journey
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "−£6,938,049.47"
     And I should see the following details of the table 1 at the returns summary page
-      | Beer declared                     | £10,717.09     | Change |
-      | Cider declared                    | £22,167.86     | Change |
-      | Wine declared                     | £7,461.84      | Change |
-      | Spirits declared                  | £8,528.05      | Change |
-      | Other fermented products declared | £7,103.76      | Change |
+      | Beer declared                     | £10,947.97     | Change |
+      | Cider declared                    | £21,987.93     | Change |
+      | Wine declared                     | £7,660.59      | Change |
+      | Spirits declared                  | £8,744.55      | Change |
+      | Other fermented products declared | £7,224.80      | Change |
       | Adjustments to previous returns   | −£6,994,615.31 | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Nothing to declare | Change |
