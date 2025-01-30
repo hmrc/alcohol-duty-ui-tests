@@ -110,7 +110,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click back button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you've told us about | Tell us about spirits produced in the past three months |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you’ve told us about | Tell us about spirits produced in the past three months |
       | Not yet started                                   | Not yet started                            | Completed                                    | Not yet started                         | Not yet started                                         |
 
   Scenario: 6. DSD Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
@@ -130,7 +130,7 @@ Feature: Alcohol Duty Journey - Task List Page
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you've told us about | Tell us about spirits produced in the past three months |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Change the entries you’ve told us about | Tell us about spirits produced in the past three months |
       | Not yet started                                   | Not yet started                            | Completed                                    | In progress                             | Not yet started                                         |
 
   Scenario: 7. QSR Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Quarterly Spirits Returns Guidance Page
@@ -153,7 +153,7 @@ Feature: Alcohol Duty Journey - Task List Page
     And I click back button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you've told us about |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you’ve told us about |
       | Not yet started                                   | Not yet started                            | Not yet started                              | Completed                                               | Not yet started                         |
 
   Scenario: 9. QSR Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
@@ -173,7 +173,7 @@ Feature: Alcohol Duty Journey - Task List Page
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you've told us about |
+      | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Change the spirits you’ve told us about |
       | Not yet started                                   | Not yet started                            | Not yet started                              | Completed                                               | In progress                             |
 
   Scenario: 10. Adjustments Journey - To verify different statuses at the Task List page
