@@ -341,8 +341,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-//        .map(_.getText.trim.replaceAll("""\nSubmit.*""", "").replaceAll("\n", " "))
-     .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
+           .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
         .toList
     )
     .toList
