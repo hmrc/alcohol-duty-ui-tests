@@ -241,10 +241,12 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val year = currentDate.getYear
 
     // Determine the base year suffix
-    val yearSuffix = if (month == 1) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+    val yearSuffix = if (month == 1) (year - 1).toString.takeRight(2) else if(month == 2) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
 
     // Shortened letter code mapping
-    val letterCode = periodKeyCodes(month - 1)
+    val previousMonth = if (month == 1) 12 else month - 1
+    val letterCode = periodKeyCodes(previousMonth - 1)
+    //val letterCode = periodKeyCodes(month - 1)
 
     // Return only the year suffix and letter code
     s"$yearSuffix$letterCode"
