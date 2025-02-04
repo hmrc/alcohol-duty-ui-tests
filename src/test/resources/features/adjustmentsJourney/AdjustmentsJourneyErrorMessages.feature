@@ -189,3 +189,28 @@ Feature: Adjustments Journey - Error Message Validations
       | errorMessageHeader |
       | There is a problem |
 
+  Scenario Outline: Adjustments Journey - Error Message Validation for Beer in spoilt journey
+    #    Error message validation for Beer - Beer Flow starts here
+    When I select radio button "Yes" on "Declare Adjustment Question Page"
+    And I click save and continue button on "Adjustment Type Page"
+    When I select radio button "Spoilt" on "Adjustment Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    When I select radio button "Beer" on "Spoilt Alcohol Type Page"
+    And I click save and continue button on "Adjustment Type Page"
+    And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
+    Then I am presented with the "Spoilt Beer Alcohol Volume Page" error page
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter the total litres of spoilt beer           |
+      | Enter the litres of pure alcohol in spoilt beer |
+      | Enter the amount of duty paid                   |
+    When I enter "3000.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Spoilt Beer Alcohol Volume Page"
+    And I enter "100000000000" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
+    And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | The amount of duty paid must be less than £100 billion |
+
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
+
