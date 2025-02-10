@@ -68,11 +68,13 @@ trait BaseStepDef
     checkDynamicPageHeader(text)
   }
 
-  Then("""I am presented with the {string} with new url""") { page: String =>
+  Then("""I am presented with the {string} with new url""") {
+    page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
+
   }
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
@@ -174,6 +176,14 @@ trait BaseStepDef
           TestConfiguration.url(
             "alcohol-duty-returns-frontend"
           ) + "/before-you-start-your-return/" + previousPeriodKey
+        )
+      case "December Period Key" =>
+        Thread.sleep(1000)
+        println("Test December")
+        driver.get(
+          TestConfiguration.url(
+            "alcohol-duty-returns-frontend"
+          ) + "/before-you-start-your-return/" + decemberPeriodKey
         )
     }
   }
@@ -312,6 +322,10 @@ trait BaseStepDef
       case "Previous Month Selected" =>
         actualText should be(
           "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
+        )
+      case "December Return Selected" =>
+        actualText should be(
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfJanuary + " to " + lastDayOfJanuary + "."
         )
     }
   }

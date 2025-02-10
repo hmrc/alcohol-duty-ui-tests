@@ -250,7 +250,17 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
     // Return only the year suffix and letter code
     s"$yearSuffix$letterCode"
+
   }
+
+  def decemberPeriodKey: String = {
+
+    val lastYear = LocalDate.now().plusYears(-1).toString.takeRight(2)
+    s"${lastYear}AL"
+
+
+  }
+
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
@@ -260,13 +270,24 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def generateMonth(month: Int): Int = {
     month match {
-      case m if m >= 1 && m <= 3  => 1
-      case m if m >= 4 && m <= 6  => 4
-      case m if m >= 7 && m <= 9  => 7
+     case m if m >= 1 && m <= 3  => 1
+     case m if m >= 4 && m <= 6  => 4
+     case m if m >= 7 && m <= 9  => 7
       case m if m >= 10 && m <= 12 => 10
-      case _ => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
+     case _ => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
+
     }
   }
+
+//  def generateMonth(Month: Int): Int =
+//    if ((Month - 1) == 0 || (Month - 1) == 1 || (Month - 1) == 2)
+//      1
+//    else if ((Month - 1) == 3 || (Month - 1) == 4 || (Month - 1) == 5)
+//      4
+//    else if ((Month - 1) == 6 || (Month - 1) == 7 || (Month - 1) == 8)
+//      7
+//    else
+//      10
 
   def getDateRange: String = {
     // Determine the base month and year for the range
@@ -300,6 +321,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
   val lastDayOfPreviousMonth: String  =
     firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+  val firstDayOfJanuary: String  =
+   LocalDate.of(year-1,1,1)
+     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+  val lastDayOfJanuary: String  =
+    LocalDate.of(year-1,1,31)
+      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()
