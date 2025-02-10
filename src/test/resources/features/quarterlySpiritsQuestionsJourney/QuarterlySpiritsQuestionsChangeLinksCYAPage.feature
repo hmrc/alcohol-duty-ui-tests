@@ -73,12 +73,10 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
 
   Scenario: 2. QSR Journey - To verify quarterly spirits returns link is visible for months January, April, July and October
     Given I cleared the data for the service
-    When I navigate to the "Auth Login Stub Page"
     When I enter redirect url for "December Period Key"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-#    Then I am presented with the "Before You Start Page" with new url
     And  I verify the return due date for "December Return Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
@@ -86,5 +84,5 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
       | Declare alcoholic products for duty       |
       | Declare adjustments from previous returns |
       | Report duty suspended alcohol deliveries  |
-      | Report spirits production|
+      | Report spirits production                 |
       | Send return                               |

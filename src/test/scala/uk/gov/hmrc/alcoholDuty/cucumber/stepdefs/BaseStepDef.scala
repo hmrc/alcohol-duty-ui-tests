@@ -178,13 +178,8 @@ trait BaseStepDef
           ) + "/before-you-start-your-return/" + previousPeriodKey
         )
       case "December Period Key" =>
-        Thread.sleep(1000)
-        println("Test December")
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/before-you-start-your-return/" + decemberPeriodKey
-        )
+        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${decemberPeriodKey}"
+        driver.get(url)
     }
   }
 
@@ -325,7 +320,7 @@ trait BaseStepDef
         )
       case "December Return Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfJanuary + " to " + lastDayOfJanuary + "."
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfDecember + " to " + lastDayOfDecember + "."
         )
     }
   }
@@ -383,6 +378,10 @@ trait BaseStepDef
   }
 
   Given("""I cleared the data for the service""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  Given("""I go to the Before You Start auth page""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
   }
 

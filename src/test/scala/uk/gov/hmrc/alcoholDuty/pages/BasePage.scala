@@ -254,11 +254,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def decemberPeriodKey: String = {
-
-    val lastYear = LocalDate.now().plusYears(-1).toString.takeRight(2)
+    val lastYear = LocalDate.now().plusYears(-1).getYear.toString.takeRight(2)
     s"${lastYear}AL"
-
-
   }
 
 
@@ -310,6 +307,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   val currentDate: LocalDate          = LocalDate.now()
   val year: Int                       = currentDate.getYear
+  val previousYear: Int               = currentDate.getYear - 1
   val currentMonth: Int               = currentDate.getMonthValue
   val generatedMonth: Int             = generateMonth(currentMonth)
   val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
@@ -322,12 +320,12 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val lastDayOfPreviousMonth: String  =
     firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val firstDayOfJanuary: String  =
-   LocalDate.of(year-1,1,1)
+  val firstDayOfDecember: String  =
+   LocalDate.of(previousYear,12,1)
      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val lastDayOfJanuary: String  =
-    LocalDate.of(year-1,1,31)
+  val lastDayOfDecember: String  =
+    LocalDate.of(previousYear,12,31)
       .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
