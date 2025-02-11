@@ -41,7 +41,7 @@ trait BaseStepDef
     with WebBrowser
     with BasePage {
 
-  val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
+  val currentYear: Int  = LocalDate.now().minusMonths(4).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
@@ -68,11 +68,13 @@ trait BaseStepDef
     checkDynamicPageHeader(text)
   }
 
-  Then("""I am presented with the {string} with new url""") { page: String =>
+  Then("""I am presented with the {string} with new url""") {
+    page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
+
   }
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
@@ -170,11 +172,18 @@ trait BaseStepDef
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
       case "Previous Month Period Key" =>
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/before-you-start-your-return/" + previousPeriodKey
-        )
+        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${previousPeriodKey}"
+
+        driver.get(url)
+
+      //        driver.get(
+//          TestConfiguration.url(
+//            "alcohol-duty-returns-frontend"
+//          ) + "/before-you-start-your-return/" + previousPeriodKey
+
+      case "December Period Key" =>
+        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${decemberPeriodKey}"
+        driver.get(url)
     }
   }
 
@@ -246,10 +255,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
     val periodToUrl    = Map(
-      s"January $currentYear" -> s"${shortYear}AA",
-      s"April $currentYear"   -> s"${shortYear}AD",
-      s"July $currentYear"    -> s"${shortYear}AG",
-      s"October $currentYear" -> s"${shortYear}AJ"
+      s"January $currentYear" -> s"${shortYear}AL",
+      s"April $currentYear"   -> s"${shortYear}AC",
+      s"July $currentYear"    -> s"${shortYear}AF",
+      s"October $currentYear" -> s"${shortYear}AI"
     )
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
@@ -267,9 +276,9 @@ trait BaseStepDef
     val currentURL       = driver.getCurrentUrl
 
     val urlToPeriod = Map(
-      s"${shortYear}AA" -> s"January $currentYear",
+      s"${shortYear}AL" -> s"January $currentYear",
       s"${shortYear}AD" -> s"April $currentYear",
-      s"${shortYear}AG" -> s"July $currentYear",
+      s"${shortYear}AF" -> s"June $currentYear",
       s"${shortYear}AJ" -> s"October $currentYear"
     )
 
@@ -312,6 +321,10 @@ trait BaseStepDef
       case "Previous Month Selected" =>
         actualText should be(
           "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
+        )
+      case "December Return Selected" =>
+        actualText should be(
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfDecember + " to " + lastDayOfDecember + "."
         )
     }
   }
@@ -369,6 +382,10 @@ trait BaseStepDef
   }
 
   Given("""I cleared the data for the service""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  Given("""I go to the Before You Start auth page""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
   }
 

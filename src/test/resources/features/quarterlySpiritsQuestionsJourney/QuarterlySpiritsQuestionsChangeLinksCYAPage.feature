@@ -71,15 +71,29 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
       | Total of all spirits          | Scotch Whisky                 | Irish Whiskey                 | Type of spirits                                                                              |
       | 111.99 litres of pure alcohol | 222.99 litres of pure alcohol | 333.99 litres of pure alcohol | Malt spirits,Grain spirits,Neutral spirits of agricultural origin,Spirits produced from beer |
 
-  Scenario: 2. QSR Journey - To verify quarterly spirits returns link is not visible for months other than January, April, July and October
+  Scenario: 2. QSR Journey - To verify quarterly spirits returns link is visible for months January, April, July and October
     Given I cleared the data for the service
-    When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
+#   December return for Jan
+    When I enter redirect url for "December Period Key"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
+   And  I verify the return due date for "December Return Selected" on "Before You Start Page"
+    When I click continue button on "Before You Start Page"
+    Then I am presented with the "Task List Page"
+    And I should see the following subsections
+      | Declare alcoholic products for duty       |
+      | Declare adjustments from previous returns |
+      | Report duty suspended alcohol deliveries  |
+      | Report spirits production                 |
+      | Send return                               |
+
+  Scenario: 3. QSR Journey - To verify quarterly spirits returns link NOT visible other than months January, April, July and October
+    Given I cleared the data for the service
     When I enter redirect url for "Previous Month Period Key"
-    Then I am presented with the "Before You Start Page" with new url
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "ABBCP0000100208" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
     And  I verify the return due date for "Previous Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"

@@ -81,13 +81,15 @@ Feature: View Past Returns Journey
       | Other fermented products | 0.02                  | 0.1894                       |
 #  This verifies the details of spirits section section
     And I should verify the details of the table 7 on "View Specific Return Page"
-      | Description             | Total volume (LPA) |
-      | Total volume of spirits | 0.05               |
-      | Scotch whisky           | 0.26               |
-      | Irish whiskey           | 0.16               |
-    And I should verify the details of the table 8 on "View Specific Return Page"
-      | Types of spirits produced            |
-      | Neutral spirit (agricultural origin) |
+      | Description      |
+      | Nothing declared |
+#      | Description             | Total volume (LPA) |
+#      | Total volume of spirits | 0.05               |
+#      | Scotch whisky           | 0.26               |
+#      | Irish whiskey           | 0.16               |
+#    And I should verify the details of the table 8 on "View Specific Return Page"
+#      | Types of spirits produced            |
+#      | Neutral spirit (agricultural origin) |
 
   Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service

@@ -31,14 +31,14 @@ import scala.util.matching.Regex
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
-  val newUrl: String       = ""
-  val title: String        = ""
-  val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
+  val newUrl: String = ""
+  val title: String = ""
+  val urlPattern: Regex = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
 
   def validateUrl(url: String): Boolean =
     url match {
       case urlPattern(_, _, _, _, _, _) => true
-      case _                            => false
+      case _ => false
     }
 
   /** Fluent Wait config * */
@@ -64,9 +64,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       header
   }
 
-  private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
+  private val expectedPageTitleList = expectedPageTitle.map(_.split(";").toList)
   private val expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
-  private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
+  private val expectedPageHeaderList = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
@@ -185,19 +185,19 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def checkDynamicPageHeader(text: String): Unit =
     text match {
-      case "Under-declaration"           =>
+      case "Under-declaration" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for under-declared alcohol"
         )
-      case "Over-declaration"            =>
+      case "Over-declaration" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for over-declared alcohol"
         )
-      case "Spoilt"                      =>
+      case "Spoilt" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for spoilt alcohol"
         )
-      case "Drawback"                    =>
+      case "Drawback" =>
         driver.findElement(By.xpath("//div/form/h2")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for duty drawback"
         )
@@ -213,26 +213,49 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
     .toMap
 
-  val Year: Int  = LocalDate.now().getYear
+  val Year: Int = LocalDate.now().getYear
   val Month: Int = LocalDate.now().getMonthValue
   val periodKeyCodes: Seq[String] = Seq("AL", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK")
 
   def periodKey: String = {
+
+    val currentMonth = LocalDate.now().getMonthValue
+    val currentYear = LocalDate.now().getYear
     val adjustedYear = if (Month == 1) year - 1 else year
-    val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
-    Month match {
-      case 2 | 3 | 4   => s"${yearSuffix}AA"
-      case 5 | 6 | 7   => s"${yearSuffix}AD"
-      case 8 | 9 | 10  => s"${yearSuffix}AG"
-      case 11 | 12 | 1 => s"${yearSuffix}AJ"
-      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+    val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
+
+    val firstMonthOfQuarter = currentMonth match {
+      case m if m >= 1 && m <= 3 => 1 // Q1 -> January
+      case m if m >= 4 && m <= 6 => 4 // Q2 -> April
+      case m if m >= 7 && m <= 9 => 7 // Q3 -> July
+      case m if m >= 10 && m <= 12 => 10 // Q4 -> October
     }
+
+    // Generate period key based on the first month of the current quarter
+    firstMonthOfQuarter match {
+      case 1 => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // First month of Q1 -> AL
+      case 4 => s"${yearSuffix}AA" // First month of Q2 -> AA
+      case 7 => s"${yearSuffix}AD" // First month of Q3 -> AD
+      case 10 => s"${yearSuffix}AG" // First month of Q4 -> AG
+    }
+
+
+
+
+    //      case 2 | 3 | 4   => s"${yearSuffix}AA"
+    //      case 5 | 6 | 7   => s"${yearSuffix}AD"
+    //      case 8 | 9 | 10  => s"${yearSuffix}AG"
+    ////      case 11 | 12 | 1 => s"${yearSuffix}AJ"
+    //      case 11 | 12    => s"${yearSuffix}AK"  // November, December -> AK
+    //      case 1           => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // January -> AL, but with previous year's suffix
+    //      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+
   }
 
   def previousPeriodKey: String = {
@@ -241,16 +264,38 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val year = currentDate.getYear
 
     // Determine the base year suffix
-    val yearSuffix = if (month == 1) (year - 1).toString.takeRight(2) else if(month == 2) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+    val yearSuffix = if (month == 12||month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
 
-    // Shortened letter code mapping
-    val previousMonth = if (month == 1) 12 else month - 1
-    val letterCode = periodKeyCodes(previousMonth - 1)
-    //val letterCode = periodKeyCodes(month - 1)
+    // Determine the previous period key based on the month
+    val previousPeriodKey = month match {
+      // Quarter 1 (Jan-Mar) -> Previous period is December
+      case 1 | 2| 3=> s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
 
-    // Return only the year suffix and letter code
-    s"$yearSuffix$letterCode"
+      // Quarter 2 (Apr-Jun) -> Previous period is March
+      case 4 |5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
+
+
+      // Quarter 3 (Jul-Sep) -> Previous period is June
+      case 7 |8 | 9=> s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
+
+
+      // Quarter 4 (Oct-Dec) -> Previous period is September
+      case 10| 11| 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
+
+
+      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+    }
+
+
+    previousPeriodKey
   }
+
+
+  def decemberPeriodKey: String = {
+    val lastYear = LocalDate.now().plusYears(-1).getYear.toString.takeRight(2)
+    s"${lastYear}AL"
+  }
+
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
@@ -260,23 +305,31 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def generateMonth(month: Int): Int = {
     month match {
-      case m if m >= 1 && m <= 3  => 1
-      case m if m >= 4 && m <= 6  => 4
-      case m if m >= 7 && m <= 9  => 7
+      case m if m >= 1 && m <= 3 => 1
+      case m if m >= 4 && m <= 6 => 4
+      case m if m >= 7 && m <= 9 => 7
       case m if m >= 10 && m <= 12 => 10
       case _ => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
+
     }
   }
 
   def getDateRange: String = {
     // Determine the base month and year for the range
+    //val currentMonth = LocalDate.now().getMonthValue
+    // val currentYear = LocalDate.now().getYear
+
+    // Adjust the year if it's January (January should be treated as the previous year)
+    //val adjustedYear = if (currentMonth == 1) currentYear - 1 else currentYear
+    //val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
     val Month: Int = LocalDate.now().getMonthValue
 
+
     val (startMonth, startYear) = Month match {
-      case 2 | 3 | 4 => (1, Year) // January
-      case 5 | 6 | 7 => (4, Year) // April
-      case 8 | 9 | 10 => (7, Year) // July
-      case 11 | 12 | 1 => (10, if (Month == 1) Year - 1 else Year) // October
+      case 1 | 2 | 3 => (12, Year - 1) // If in January, take December of the previous year
+      case 4 | 5 | 6 => (3, Year) // If in April, take March of the current year
+      case 7 | 8 | 9 => (6, Year) // If in July, take June of the current year
+      case 10 | 11 | 12 => (9, Year) // If in October, take September of the
       case _ => throw new IllegalArgumentException("Invalid month value")
     }
 
@@ -287,19 +340,31 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
   }
 
-  val currentDate: LocalDate          = LocalDate.now()
-  val year: Int                       = currentDate.getYear
-  val currentMonth: Int               = currentDate.getMonthValue
-  val generatedMonth: Int             = generateMonth(currentMonth)
-  val firstDayOfNextMonth: LocalDate  = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
+
+  val currentDate: LocalDate = LocalDate.now()
+  val year: Int = currentDate.getYear
+  val previousYear: Int = currentDate.getYear - 1
+  val currentMonth: Int = currentDate.getMonthValue
+  val generatedMonth: Int = generateMonth(currentMonth)
+  val firstDayOfNextMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
   val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
-  val firstDayOfPreviousMonth: String = currentDate
-    .withMonth(generatedMonth)
-    .withDayOfMonth(1)
-    .minusMonths(1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+    val firstDayOfPreviousMonth: String = currentDate
+      .withMonth(generatedMonth)
+      .withDayOfMonth(1)
+      .minusMonths(2)
+      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
   val lastDayOfPreviousMonth: String  =
-    firstDayCurrentMonth.minusDays(1).format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+    firstDayCurrentMonth.minusDays(1).minusMonths(1)format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+  val firstDayOfDecember: String  =
+   LocalDate.of(previousYear,12,1)
+     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+  val lastDayOfDecember: String  =
+    LocalDate.of(previousYear,12,31)
+      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()
