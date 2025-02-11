@@ -41,7 +41,7 @@ trait BaseStepDef
     with WebBrowser
     with BasePage {
 
-  val currentYear: Int  = LocalDate.now().minusMonths(5).getYear
+  val currentYear: Int  = LocalDate.now().minusMonths(4).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
@@ -255,10 +255,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
     val periodToUrl    = Map(
-      s"January $currentYear" -> s"${shortYear}AA",
-      s"April $currentYear"   -> s"${shortYear}AD",
-      s"July $currentYear"    -> s"${shortYear}AG",
-      s"October $currentYear" -> s"${shortYear}AJ"
+      s"January $currentYear" -> s"${shortYear}AL",
+      s"April $currentYear"   -> s"${shortYear}AC",
+      s"July $currentYear"    -> s"${shortYear}AF",
+      s"October $currentYear" -> s"${shortYear}AI"
     )
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
@@ -276,9 +276,9 @@ trait BaseStepDef
     val currentURL       = driver.getCurrentUrl
 
     val urlToPeriod = Map(
-      s"${shortYear}AA" -> s"January $currentYear",
+      s"${shortYear}AL" -> s"January $currentYear",
       s"${shortYear}AD" -> s"April $currentYear",
-      s"${shortYear}AG" -> s"July $currentYear",
+      s"${shortYear}AF" -> s"June $currentYear",
       s"${shortYear}AJ" -> s"October $currentYear"
     )
 
