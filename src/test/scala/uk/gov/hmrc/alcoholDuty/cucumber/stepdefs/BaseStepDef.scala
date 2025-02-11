@@ -172,11 +172,15 @@ trait BaseStepDef
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
       case "Previous Month Period Key" =>
-        driver.get(
-          TestConfiguration.url(
-            "alcohol-duty-returns-frontend"
-          ) + "/before-you-start-your-return/" + previousPeriodKey
-        )
+        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${previousPeriodKey}"
+
+        driver.get(url)
+
+      //        driver.get(
+//          TestConfiguration.url(
+//            "alcohol-duty-returns-frontend"
+//          ) + "/before-you-start-your-return/" + previousPeriodKey
+
       case "December Period Key" =>
         val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${decemberPeriodKey}"
         driver.get(url)
