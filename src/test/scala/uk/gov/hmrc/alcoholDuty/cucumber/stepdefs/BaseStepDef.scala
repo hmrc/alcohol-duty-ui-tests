@@ -481,6 +481,16 @@ trait BaseStepDef
     actualText should be(paymentAmountText)
   }
 
+  When("""the view returns page contains duty {string}""") { (paymentAmountText: String) =>
+    val actualText = driver.findElement(By.xpath("//dd[normalize-space()='" + paymentAmountText + "']")).getText
+    actualText should be(paymentAmountText)
+  }
+
+  When("""the view returns page contains summary list text {string} {string} {string}""") { (alcoholType: String, status: String, link : String) =>
+    val actualText = driver.findElement(By.xpath("(//dl[@class='govuk-summary-list'])[2]")).getText
+    actualText should be(alcoholType)
+  }
+
   And("""I should see the following alcohol types""") { data: DataTable =>
     val expected = data.asScalaListOfStrings
     alcoholTypes should be(expected)

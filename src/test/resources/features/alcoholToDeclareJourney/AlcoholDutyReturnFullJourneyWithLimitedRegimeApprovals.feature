@@ -101,12 +101,9 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£638.50"
-    And I should see the following details of the table 1 at the returns summary page
-      | Wine declared                     | £329.54 | Change |
-      | Other fermented products declared | £308.96 | Change |
-      | Adjustments to previous returns   | Nil     | Change |
-    And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared | Change |
+    And I should see the following details
+      | Wine declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol |
+      | £329.54       | £308.96                           | Nil                             | Declared               |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £638.50"
@@ -214,13 +211,9 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£1,338.16"
-    And I should see the following details of the table 1 at the returns summary page
-      | Beer declared                   | £514.99 | Change |
-      | Spirits declared                | £823.17 | Change |
-      | Adjustments to previous returns | Nil     | Change |
-    And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared           | Change |
-      | Spirits production     | Nothing to declare | Change |
+    And I should see the following details
+      | Beer declared | Spirits declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
+      | £514.99       | £823.17          | Nil                             | Declared               | Nothing to declare |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,338.16"
@@ -289,11 +282,9 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£514.99"
-    And I should see the following details of the table 1 at the returns summary page
-      | Beer declared                   | £514.99 | Change |
-      | Adjustments to previous returns | Nil     | Change |
-    And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared | Change |
+    And I should see the following details
+      | Beer declared | Adjustments to previous returns | Duty suspended alcohol |
+      | £514.99       | Nil                             | Declared               |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £514.99"
@@ -310,8 +301,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare |Declare other fermented products| Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started                | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
+      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                              |
     #Declare other fermented products
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
@@ -361,11 +352,9 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
     Then I am presented with the "Return Summary Page" "£1,757.77"
-    And I should see the following details of the table 1 at the returns summary page
-      | Other fermented products declared               | £1,757.77| Change |
-      | Adjustments to previous returns                 | Nil      | Change |
-    And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared | Change |
+    And I should see the following details
+      | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol |
+      | £1,757.77                         | Nil                             | Declared               |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,757.77"

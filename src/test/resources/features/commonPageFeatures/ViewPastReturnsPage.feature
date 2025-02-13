@@ -43,7 +43,6 @@ Feature: View Past Returns Journey
     And I should verify the table header displayed
       | Alcohol declared                        |
       | Adjustments declared                    |
-      | Total                                   |
       | Duty suspended deliveries               |
       | Spirits production in the last 3 months |
 #   This verifies the details of alcohol declared section
@@ -54,10 +53,9 @@ Feature: View Past Returns Journey
       | Non-draught wine between 1.3% and 3.4% ABV (313)    | 300.0532                     | £19.08                | £5,725.02       |
       | Non-draught spirits between 1.3% and 3.4% ABV (315) | 43,456.4584                  | £8.17                 | £355,039.26     |
 #  This verifies the details of total declared duty value section
-    And I should verify the details of the table 2 on "View Specific Return Page"
-      | Total declared duty value | £236,590,747.53 |
+    And the view returns page contains duty "£236,590,747.53"
 #  This verifies the details of total adjustments declared section
-    And I should verify the details of the table 3 on "View Specific Return Page"
+    And I should verify the details of the table 2 on "View Specific Return Page"
       | Adjustment     | Description                                                                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value |
       | Under-declared | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)                    | 12.5690                      | £19.08                | £239.82    |
       | Over-declared  | Non-draught beer between 3.5% and 8.4% ABV (321)                                                                   | 34.5625                      | £1.20                 | −£41.48    |
@@ -66,13 +64,11 @@ Feature: View Past Returns Journey
       | Drawback       | Non-draught sparkling cider between 5.6% and 8.4% ABV and other fermented products between 3.5% and 8.4% ABV (324) | 1,000.0000                   | £1.20                 | −£1,200.00 |
       | Drawback       | Non-draught spirits between 3.5% and 8.4% ABV (325)                                                                | 311.5100                     | £2.20                 | −£685.32   |
 #  This verifies the details of total adjustments duty value section
-    And I should verify the details of the table 4 on "View Specific Return Page"
-      | Total adjustments duty value | −£9,792.93 |
+    And the view returns page contains duty "−£9,792.93"
 #  This verifies the details of total duty value section
-    And I should verify the details of the table 5 on "View Specific Return Page"
-      | Total duty value | £236,580,913.12 |
+    And the view returns page contains duty "£236,580,913.12"
 #  This verifies the details of duty suspended deliveries section
-    And I should verify the details of the table 6 on "View Specific Return Page"
+    And I should verify the details of the table 3 on "View Specific Return Page"
       | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
       | Beer                     | 43,444,444.96         | 454,655.4248                 |
       | Cider                    | 0.38                  | 43,534.0379                  |
@@ -80,16 +76,14 @@ Feature: View Past Returns Journey
       | Wine                     | 645,465.48            | 0.5965                       |
       | Other fermented products | 0.02                  | 0.1894                       |
 #  This verifies the details of spirits section section
-    And I should verify the details of the table 7 on "View Specific Return Page"
-      | Description      |
-      | Nothing declared |
-#      | Description             | Total volume (LPA) |
-#      | Total volume of spirits | 0.05               |
-#      | Scotch whisky           | 0.26               |
-#      | Irish whiskey           | 0.16               |
-#    And I should verify the details of the table 8 on "View Specific Return Page"
-#      | Types of spirits produced            |
-#      | Neutral spirit (agricultural origin) |
+    And I should verify the details of the table 4 on "View Specific Return Page"
+      | Description             | Total volume (LPA) |
+      | Total volume of spirits | 0.05               |
+      | Scotch whisky           | 0.26               |
+      | Irish whiskey           | 0.16               |
+    And I should verify the details of the table 5 on "View Specific Return Page"
+      | Types of spirits produced            |
+      | Neutral spirit (agricultural origin) |
 
   Scenario: 4. ADR Journey - To verify the details of a specific return on View Specific Return Page in case of Nil return
     Given I cleared the data for the service
@@ -109,7 +103,6 @@ Feature: View Past Returns Journey
     And I should verify the table header displayed
       | Alcohol declared                        |
       | Adjustments declared                    |
-      | Total                                   |
       | Duty suspended deliveries               |
       | Spirits production in the last 3 months |
 #  This verifies the details of alcohol declared section
@@ -121,13 +114,12 @@ Feature: View Past Returns Journey
       | Description             | Duty value |
       | No adjustments declared | Nil        |
 #  This verifies the details of total duty value section
-    And I should verify the details of the table 3 on "View Specific Return Page"
-      | Total duty value | Nil |
+    And the view returns page contains duty "Nil"
 #  This verifies the details of duty suspended deliveries section
-    And I should verify the details of the table 4 on "View Specific Return Page"
+    And I should verify the details of the table 3 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
 #  This verifies the details of duty spirits production section
-    And I should verify the details of the table 5 on "View Specific Return Page"
+    And I should verify the details of the table 4 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
