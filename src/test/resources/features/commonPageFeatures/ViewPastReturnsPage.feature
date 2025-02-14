@@ -53,10 +53,9 @@ Feature: View Past Returns Journey
       | Non-draught wine between 1.3% and 3.4% ABV (313)    | 300.0532                     | £19.08                | £5,725.02       |
       | Non-draught spirits between 1.3% and 3.4% ABV (315) | 43,456.4584                  | £8.17                 | £355,039.26     |
 #  This verifies the details of total declared duty value section
-# Added axtra comment to pick up changes in branch
     And the view returns page contains duty "£236,590,747.53"
 #  This verifies the details of total adjustments declared section
-    And I should verify the details of the table 3 on "View Specific Return Page"
+    And I should verify the details of the table 2 on "View Specific Return Page"
       | Adjustment     | Description                                                                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value |
       | Under-declared | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)                    | 12.5690                      | £19.08                | £239.82    |
       | Over-declared  | Non-draught beer between 3.5% and 8.4% ABV (321)                                                                   | 34.5625                      | £1.20                 | −£41.48    |
@@ -67,7 +66,7 @@ Feature: View Past Returns Journey
 #  This verifies the details of total adjustments duty value section
     And the view returns page contains duty "−£9,792.93"
 #  This verifies the details of total duty value section
-    And the view returns page contains duty for adjustment "£236,580,913.12"
+    And the view returns page contains duty "£236,580,913.12"
 #  This verifies the details of duty suspended deliveries section
     And I should verify the details of the table 3 on "View Specific Return Page"
       | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
