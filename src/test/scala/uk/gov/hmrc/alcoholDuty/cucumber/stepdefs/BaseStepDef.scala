@@ -487,7 +487,7 @@ trait BaseStepDef
   }
 
   When("""the view returns page contains duty for adjustment {string}""") { (paymentAmountText: String) =>
-    val actualText = driver.findElement(By.xpath("//dl[@class='govuk-summary-list']//div//dd")).getText
+    val actualText = driver.findElement(By.xpath("//dl[@class='govuk-summary-list']//div//dd  ")).getText
     actualText should be(paymentAmountText)
   }
 
