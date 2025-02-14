@@ -186,23 +186,23 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def checkDynamicPageHeader(text: String): Unit =
     text match {
       case "Under-declaration" =>
-        driver.findElement(By.xpath("//div/form/span")).getText.trim.replaceAll("This section is:\n", "") should equal(
+        driver.findElement(By.xpath("//div/form//span/..")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for under-declared alcohol"
         )
       case "Over-declaration" =>
-        driver.findElement(By.xpath("//div/form/span")).getText.trim.replaceAll("This section is:\n", "") should equal(
+        driver.findElement(By.xpath("//div/form//span/..")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for over-declared alcohol"
         )
       case "Spoilt" =>
-        driver.findElement(By.xpath("//div/form/span")).getText.trim.replaceAll("This section is:\n", "") should equal(
+        driver.findElement(By.xpath("//div/form//span/..")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for spoilt alcohol"
         )
       case "Drawback" =>
-        driver.findElement(By.xpath("//div/form/span")).getText.trim.replaceAll("This section is:\n", "") should equal(
+        driver.findElement(By.xpath("//div/form//span/..")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for duty drawback"
         )
       case "Repackaged draught products" =>
-        driver.findElement(By.xpath("//div/form/span")).getText.trim.replaceAll("This section is:\n", "") should equal(
+        driver.findElement(By.xpath("//div/form//span/..")).getText.trim.replaceAll("This section is:\n", "") should equal(
           "Adjust for repackaged draught products"
         )
     }
