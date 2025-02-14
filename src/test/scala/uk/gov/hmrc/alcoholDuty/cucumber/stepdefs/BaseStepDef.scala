@@ -482,7 +482,12 @@ trait BaseStepDef
   }
 
   When("""the view returns page contains duty {string}""") { (paymentAmountText: String) =>
-    val actualText = driver.findElement(By.xpath("//dd[normalize-space()='" + paymentAmountText + "']")).getText
+    val actualText = driver.findElement(By.xpath("//th[normalize-space()='" + paymentAmountText + "']")).getText
+    actualText should be(paymentAmountText)
+  }
+
+  When("""the view returns page contains duty for adjustment {string}""") { (paymentAmountText: String) =>
+    val actualText = driver.findElement(By.xpath("//dl[@class='govuk-summary-list']//div//dd")).getText
     actualText should be(paymentAmountText)
   }
 
