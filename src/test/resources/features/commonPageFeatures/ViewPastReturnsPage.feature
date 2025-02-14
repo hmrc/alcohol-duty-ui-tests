@@ -69,7 +69,7 @@ Feature: View Past Returns Journey
 #  This verifies the details of total duty value section
     And the view returns page contains duty for adjustment "£236,580,913.12"
 #  This verifies the details of duty suspended deliveries section
-    And I should verify the details of the table 5 on "View Specific Return Page"
+    And I should verify the details of the table 3 on "View Specific Return Page"
       | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
       | Beer                     | 43,444,444.96         | 454,655.4248                 |
       | Cider                    | 0.38                  | 43,534.0379                  |
@@ -77,12 +77,12 @@ Feature: View Past Returns Journey
       | Wine                     | 645,465.48            | 0.5965                       |
       | Other fermented products | 0.02                  | 0.1894                       |
 #  This verifies the details of spirits section section
-    And I should verify the details of the table 6 on "View Specific Return Page"
+    And I should verify the details of the table 4 on "View Specific Return Page"
       | Description             | Total volume (LPA) |
       | Total volume of spirits | 0.05               |
       | Scotch whisky           | 0.26               |
       | Irish whiskey           | 0.16               |
-    And I should verify the details of the table 7 on "View Specific Return Page"
+    And I should verify the details of the table 5 on "View Specific Return Page"
       | Types of spirits produced            |
       | Neutral spirit (agricultural origin) |
 
@@ -104,6 +104,7 @@ Feature: View Past Returns Journey
     And I should verify the table header displayed
       | Alcohol declared                        |
       | Adjustments declared                    |
+      | Total                                   |
       | Duty suspended deliveries               |
       | Spirits production in the last 3 months |
 #  This verifies the details of alcohol declared section
@@ -115,12 +116,13 @@ Feature: View Past Returns Journey
       | Description             | Duty value |
       | No adjustments declared | Nil        |
 #  This verifies the details of total duty value section
-    And the view returns page contains duty "Nil"
-#  This verifies the details of duty suspended deliveries section
     And I should verify the details of the table 3 on "View Specific Return Page"
+      | Total duty value | Nil |
+#  This verifies the details of duty suspended deliveries section
+    And I should verify the details of the table 4 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
 #  This verifies the details of duty spirits production section
-    And I should verify the details of the table 4 on "View Specific Return Page"
+    And I should verify the details of the table 5 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
