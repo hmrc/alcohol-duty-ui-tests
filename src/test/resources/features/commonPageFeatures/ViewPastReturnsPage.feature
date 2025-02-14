@@ -103,7 +103,6 @@ Feature: View Past Returns Journey
     And I should verify the table header displayed
       | Alcohol declared                        |
       | Adjustments declared                    |
-      | Total                                   |
       | Duty suspended deliveries               |
       | Spirits production in the last 3 months |
 #  This verifies the details of alcohol declared section
@@ -114,14 +113,14 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 2 on "View Specific Return Page"
       | Description             | Duty value |
       | No adjustments declared | Nil        |
-#  This verifies the details of total duty value section
-    And I should verify the details of the table 3 on "View Specific Return Page"
-      | Total duty value | Nil |
+    And I should see the following details
+      | Total duty value |
+      | Nil              |
 #  This verifies the details of duty suspended deliveries section
-    And I should verify the details of the table 4 on "View Specific Return Page"
+    And I should verify the details of the table 3 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
 #  This verifies the details of duty spirits production section
-    And I should verify the details of the table 5 on "View Specific Return Page"
+    And I should verify the details of the table 4 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
