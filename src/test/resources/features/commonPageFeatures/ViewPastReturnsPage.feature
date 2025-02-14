@@ -113,8 +113,9 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 2 on "View Specific Return Page"
       | Description             | Duty value |
       | No adjustments declared | Nil        |
-#  This verifies the details of total duty value section
-    And the view returns page contains duty "Nil"
+    And I should see the following details
+      | Total duty value |
+      | Nil              |
 #  This verifies the details of duty suspended deliveries section
     And I should verify the details of the table 3 on "View Specific Return Page"
       | Description      |
