@@ -104,6 +104,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I should see the following details
       | Wine declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol |
       | £329.54       | £308.96                           | Nil                             | Declared               |
+    And I verify 4 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £638.50"
@@ -214,6 +215,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I should see the following details
       | Beer declared | Spirits declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
       | £514.99       | £823.17          | Nil                             | Declared               | Nothing to declare |
+    And I verify 5 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,338.16"
@@ -285,6 +287,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I should see the following details
       | Beer declared | Adjustments to previous returns | Duty suspended alcohol |
       | £514.99       | Nil                             | Declared               |
+    And I verify 3 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £514.99"
@@ -355,6 +358,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I should see the following details
       | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol |
       | £1,757.77                         | Nil                             | Declared               |
+    And I verify 3 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,757.77"
