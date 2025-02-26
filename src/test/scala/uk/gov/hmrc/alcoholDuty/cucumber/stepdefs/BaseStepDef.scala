@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
 import org.junit.Assert
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, WebElement}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.WebBrowser
@@ -30,6 +30,7 @@ import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
 import java.time.LocalDate
+import scala.collection.mutable
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -440,6 +441,13 @@ trait BaseStepDef
           )
         )
         .click()
+  }
+
+  And("""I verify {int} change links present on {string}""") {
+    (expectedCount : Int, page:String) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      val changeHrefs: List[WebElement] = driver.findElements(By.xpath("//a[text()='Change']")).asScala.toList
+      changeHrefs.size shouldBe expectedCount
   }
 
   And("""I should see the following details of the table {int} at the returns summary page""") {

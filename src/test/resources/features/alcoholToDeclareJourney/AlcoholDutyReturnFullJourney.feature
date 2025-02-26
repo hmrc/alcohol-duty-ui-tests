@@ -736,6 +736,7 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Beer declared | Cider declared | Wine declared | Spirits declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
       | £14,749.75    | £49,347.26     | £12,164.82    | £13,159.65       | £11,153.36                        | −£5,152.16                      | Declared               | Declared           |
+    And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £95,422.68"
@@ -1320,6 +1321,7 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Beer declared | Cider declared | Wine declared | Spirits declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
       | £10,717.09    | £22,167.86     | £7,461.84     | £8,528.05        | £7,103.76                         | −£6,994,615.31                  | Nothing to declare     | Nothing to declare |
+    And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You are owed −£6,938,636.71"
@@ -1353,6 +1355,7 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following details
       | Declared duty | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
       | Nil           | Nil                             | Nothing to declare     | Nothing to declare |
+    And I verify 4 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You have nothing to pay"
