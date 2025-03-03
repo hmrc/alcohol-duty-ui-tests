@@ -277,13 +277,15 @@ trait BaseStepDef
     val currentURL       = driver.getCurrentUrl
 
     val urlToPeriod = Map(
-      s"${shortYear}AL" -> s"January $currentYear",
-      s"${shortYear}AD" -> s"April $currentYear",
+      s"${shortYear}AL" -> s"December $currentYear",
+      s"${shortYear}AC" -> s"March $currentYear",
       s"${shortYear}AF" -> s"June $currentYear",
-      s"${shortYear}AJ" -> s"October $currentYear"
+      s"${shortYear}AI" -> s"September $currentYear"
     )
 
-    urlToPeriod.find { case (suffix, _) => currentURL.contains(suffix) } match {
+    urlToPeriod.find {
+      case (suffix, _) => currentURL.contains(suffix) }
+    match {
       case Some((_, period)) =>
         val finalPageHeader = pageHeader.replace("SpiritsPeriod", period)
         actualPageHeader should be(finalPageHeader)
