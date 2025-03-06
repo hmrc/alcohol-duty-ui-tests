@@ -240,9 +240,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     // Generate period key based on the first month of the current quarter
     firstMonthOfQuarter match {
       case 1 => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // First month of Q1 -> AL
-      case 4 => s"${yearSuffix}AA" // First month of Q2 -> AA
-      case 7 => s"${yearSuffix}AD" // First month of Q3 -> AD
-      case 10 => s"${yearSuffix}AG" // First month of Q4 -> AG
+      case 4 => s"${yearSuffix}AC" // First month of Q2 -> AC
+      case 7 => s"${yearSuffix}AF" // First month of Q3 -> AF
+      case 10 => s"${yearSuffix}AI" // First month of Q4 -> AI
     }
 
 
