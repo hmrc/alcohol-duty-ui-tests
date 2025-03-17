@@ -72,8 +72,8 @@ Feature: View Past Returns Journey
       | Description              | Total volume (litres) | Litres of pure alcohol (LPA) |
       | Beer                     | 43,444,444.96         | 454,655.4248                 |
       | Cider                    | 0.38                  | 43,534.0379                  |
-      | Spirits                  | 0.02                  | 0.2492                       |
       | Wine                     | 645,465.48            | 0.5965                       |
+      | Spirits                  | 0.02                  | 0.2492                       |
       | Other fermented products | 0.02                  | 0.1894                       |
 #  This verifies the details of spirits section section
     And I should verify the details of the table 4 on "View Specific Return Page"
