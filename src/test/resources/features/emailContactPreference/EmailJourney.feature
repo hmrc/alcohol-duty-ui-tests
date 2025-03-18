@@ -32,7 +32,8 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I click submit button on "Check your answers Page"
     Then I am presented with the "confirmation Page"
     And the page source contains "Your contact preference has been updated"
-    Then I am presented with "We will email you at test@gmail.com when you have a new message in your account."
+    Then I am presented with the "We will email you at test@gmail.com when you have a new message in your account"
+
 
 
   Scenario:2. Email Contact preference Journey - Happy Path - Change to Post
@@ -47,7 +48,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I click submit button on "Check your answers Page"
     Then I am presented with the "confirmation Page"
     And the page source contains "Your contact preference has been updated"
-    Then I am presented with "We will send you letters about you Alcohol Duty returns by post."
+    Then I am presented with the "We will send you letters about you Alcohol Duty returns by post."
 
   Scenario:3. Email Contact preference Journey - Happy Path - Change to Update to email address
     #Yes - Existing email page
@@ -63,7 +64,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       | Email address| 	test@gmail.com | Change |
     Then I click submit button on "Check your answers Page"
     Then I am presented with the "confirmation Page"
-    Then I am presented with "We will email you when you have a new message in your account"
+    Then I am presented with the "We will email you when you have a new message in your account"
 
   Scenario:4. Email Contact preference Journey - Happy Path - Change to Update to email address
      #No - Existing email page
@@ -85,7 +86,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I click submit button on "Check your answers Page"
     Then I am presented with the "confirmation Page"
     And the page source contains "Your contact preference has been updated"
-    Then I am presented with "We will email you at test12@gmail.com when you have a new message in your account."
+    Then I am presented with the "We will email you at test12@gmail.com when you have a new message in your account."
 
 
 

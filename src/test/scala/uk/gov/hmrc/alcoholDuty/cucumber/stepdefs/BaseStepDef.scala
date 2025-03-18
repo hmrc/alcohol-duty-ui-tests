@@ -128,6 +128,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickBackButton()
   }
 
+  When("""I click confirm button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickBackButton()
+  }
+  
+
   Then("""I am presented with the {string} error page""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
