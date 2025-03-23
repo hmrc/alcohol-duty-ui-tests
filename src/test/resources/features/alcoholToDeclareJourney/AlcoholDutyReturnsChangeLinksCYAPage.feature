@@ -683,7 +683,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
   Scenario: Cider- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality
     When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
+    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page"
     When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
@@ -710,8 +710,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
-      | Description                                                                                         | Total cider     | Total pure alcohol | Duty rate        |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) | 7,999.99 litres | 77.9900 LPA        | £20.99 per litre |
+      | Description                                                                                                       | Total cider     | Total pure alcohol | Duty rate        |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) | 7,999.99 litres | 77.9900 LPA        | £20.99 per litre |
   #To verify 'Change' link functionality at Check Your Answers SPR Cider Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total cider" on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with url suffix as "#totalLitres"
@@ -726,13 +726,13 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page"
     And I should see following details at the "Check Your Answers SPR Cider Page"
-      | Description                                       | Total cider     | Total pure alcohol | Duty rate       |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
+      | Description                                                     | Total cider     | Total pure alcohol | Duty rate       |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     And I should see the following product details
-      | Description                                       | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
+      | Description                                                     | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" with existing url suffix as "?index=0"
@@ -747,29 +747,29 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Cider Page"
-      | Description                                                                                     | Total cider     | Total pure alcohol | Duty rate       |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
+      | Description                                                                                                   | Total cider     | Total pure alcohol | Duty rate       |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR) | 8,888.88 litres | 88.8800 LPA        | £8.88 per litre |
     When I click continue button on "Check Your Answers SPR Cider Page"
     Then I am presented with the "Multiple SPR List Question Cider Page"
     And I should see the following product details
-      | Description                                                                                     | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
+      | Description                                                                                                   | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Cider Page"
     And I click save and continue button on "Multiple SPR List Question Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
     And I should see the following text on the page
-      | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)     |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                         |
-      | Draught cider between 1.3% and 3.4% ABV (352)                                                       |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)         |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (359)                                             |
-      | Non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                     |
-      | Draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                         |
+      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)     |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                         |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             |
+      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)     |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 789.44 litres   |
@@ -1029,7 +1029,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£9,321.61"
     And I should see the following product details
-      | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.27                 | £329.54    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £24.77                | £2,201.55  | Change |
       | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £28.50                | £633.27    | Change |
@@ -1080,7 +1080,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers SPR Wine Page"
     And I should see following details at the "Check Your Answers SPR Wine Page"
-      | Description                                          | Total wine    | Total pure alcohol | Duty rate        |
+      | Description                                                        | Total wine    | Total pure alcohol | Duty rate        |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) | 678.99 litres | 66.4300 LPA        | £15.65 per litre |
   #To verify 'Change' link functionality at Check Your Answers SPR Wine Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Duty rate" on "Check Your Answers SPR Wine Page"
@@ -1096,12 +1096,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers SPR Wine Page"
     And I should see following details at the "Check Your Answers SPR Wine Page"
-      | Description                                      | Total wine    | Total pure alcohol | Duty rate       |
+      | Description                                                    | Total wine    | Total pure alcohol | Duty rate       |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | 999.99 litres | 88.8800 LPA        | £7.77 per litre |
     When I click continue button on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     And I should see the following product details
-      | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                    | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Wine Page"
@@ -1117,12 +1117,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Check Your Answers SPR Wine Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Wine Page"
-      | Description                                      | Total wine    | Total pure alcohol | Duty rate       |
+      | Description                                                    | Total wine    | Total pure alcohol | Duty rate       |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR) | 999.99 litres | 88.8800 LPA        | £7.77 per litre |
     When I click continue button on "Check Your Answers SPR Wine Page"
     Then I am presented with the "Multiple SPR List Question Wine Page"
     And I should see the following product details
-      | Description                                      | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                    | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Wine Page"
     And I click save and continue button on "Multiple SPR List Question Wine Page"
@@ -1394,7 +1394,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "Duty Due Spirits Page" "£10,632.13"
 #At the 'Action' section, currently the UI tests are pulling hidden text too. This method will be improved at later stage
     And I should see the following product details
-      | Description                                             | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                           | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     | 36.3600                      | £9.27                 | £337.05    | Change |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     | 77.7700                      | £24.77                | £1,926.36  | Change |
       | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      | 66.6600                      | £28.50                | £1,899.81  | Change |
@@ -1444,7 +1444,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
-      | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
+      | Description                                                       | Total spirits | Total pure alcohol | Duty rate        |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) | 789.99 litres | 55.5500 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Spirits Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Total pure alcohol" on "Check Your Answers SPR Spirits Page"
@@ -1457,12 +1457,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
-      | Description                                         | Total spirits | Total pure alcohol | Duty rate        |
+      | Description                                                       | Total spirits | Total pure alcohol | Duty rate        |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     Then I am presented with the "Multiple SPR List Question Spirits Page"
     And I should see the following product details
-      | Description                                         | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                       | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
  #To verify 'Change' link functionality at Multiple SPR List Question Cider Page
     When I click "Change hyperlink" on "Multiple SPR List Question Spirits Page"
@@ -1474,11 +1474,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Check Your Answers SPR Spirits Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Spirits Page"
-      | Description                                             | Total spirits | Total pure alcohol | Duty rate        |
+      | Description                                                           | Total spirits | Total pure alcohol | Duty rate        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
     And I should see the following product details
-      | Description                                             | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                           | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Spirits Page"
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
@@ -1729,7 +1729,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£14,158.64"
     And I should see the following product details
-      | Description                                                              | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.27                 | £308.96    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £24.77                | £550.38    | Change |
       | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £28.50                | £1,266.54  | Change |
@@ -1771,7 +1771,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
-      | Description                                                              | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Description                                                                            | Total other fermented products | Total pure alcohol | Duty rate        |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
 #To verify 'Change' link functionality at Check Your Answers SPR Other Fermented Product Page. All the links are set to redirect to the same page so checking only one link
     When I click "Change Description" on "Check Your Answers SPR Other Fermented Product Page"
@@ -1784,12 +1784,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
-      | Description                                                          | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Description                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) | 999.99 litres                  | 99.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
-      | Description                                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) | 999.99                         | 99.9900                      | £20.00                | Change Remove |
 #To verify 'Change' link functionality at Multiple SPR List Question Other Fermented Product Page
     When I click "Change hyperlink" on "Multiple SPR List Question Other Fermented Product Page"
@@ -1804,12 +1804,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Check Your Answers SPR Other Fermented Product Page" with url suffix as "?index=0"
     And I should see following details at the "Check Your Answers SPR Other Fermented Product Page"
-      | Description                                                          | Total other fermented products | Total pure alcohol | Duty rate        |
+      | Description                                                                        | Total other fermented products | Total pure alcohol | Duty rate        |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) | 8,888.88 litres                | 888.8800 LPA       | £88.00 per litre |
     When I click continue button on "Check Your Answers SPR Other Fermented Product Page"
     Then I am presented with the "Multiple SPR List Question Other Fermented Product Page"
     And I should see the following product details
-      | Description                                                          | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
+      | Description                                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) | 8,888.88                       | 888.8800                     | £88.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
     And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
@@ -1863,7 +1863,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£3,136.47"
     And I should see the following product details
-      | Description                                  | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer at or above 22.1% ABV (tax type code 341) | 99.1300                      | £31.64                | £3,136.47  | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
@@ -1889,7 +1889,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Cider Page"
     Then I am presented with the "Duty Due Cider Page" "£402.68"
     And I should see the following product details
-      | Description                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                     | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | 43.4400                      | £9.27                 | £402.68    | Change |
     When I click save and continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
@@ -1915,7 +1915,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£329.54"
     And I should see the following product details
-      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313) | 35.5500                      | £9.27                 | £329.54    | Change |
     When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
@@ -1941,7 +1941,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£823.17"
     And I should see the following product details
-      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 88.8000                      | £9.27                 | £823.17    | Change |
     When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
@@ -1967,7 +1967,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
     And I should see the following product details
-      | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 33.3300                      | £9.27                 | £308.96    | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
@@ -1996,12 +1996,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                            | Duty value |
+      | Adjustment     | Original return period | Tax type                                                       | Volume                                            | Duty value |
       | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 123.45 litres,5.5000 litres of pure alcohol (LPA) | £50.98     |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                      | Duty value | Action        |
+      | Adjustment type | Description                                                    | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | £50.98     | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
@@ -2023,12 +2023,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                          | Volume                                             | Duty value |
+      | Adjustment    | Original return period | Tax type                                                        | Volume                                             | Duty value |
       | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | 222.22 litres,22.2200 litres of pure alcohol (LPA) | −£205.97   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                       | Duty value | Action        |
+      | Adjustment type | Description                                                     | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)  | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | −£205.97   | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
@@ -2058,12 +2058,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Original tax type                                | New tax type                                         | SPR duty rate | Volume                                                | Duty value |
+      | Adjustment | Original return period | Original tax type                                              | New tax type                                                       | SPR duty rate | Volume                                                | Duty value |
       | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | £11.50        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                       | Duty value | Action        |
+      | Adjustment type | Description                                                     | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)  | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | −£205.97   | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)  | £425.93    | Change Remove |
@@ -2088,11 +2088,11 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                       | Duty value | Action        |
+      | Adjustment type | Description                                                     | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)  | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | −£205.97   | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)  | £425.93    | Change Remove |
-      | Spoilt          | Spirits                                           | −£3,255.55 | Change Remove |
+      | Spoilt          | Spirits                                                         | −£3,255.55 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -2113,16 +2113,16 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                             | Volume                                                | Duty value |
+      | Adjustment | Original return period | Tax type                                                                           | Volume                                                | Duty value |
       | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                                          | Duty value | Action        |
+      | Adjustment type | Description                                                                        | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)                     | £50.98     | Change Remove |
       | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                    | −£205.97   | Change Remove |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)                     | £425.93    | Change Remove |
-      | Spoilt          | Spirits                                                              | −£3,255.55 | Change Remove |
+      | Spoilt          | Spirits                                                                            | −£3,255.55 | Change Remove |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | −£2,322.59 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"

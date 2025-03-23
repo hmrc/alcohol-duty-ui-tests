@@ -47,7 +47,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Wine Page"
     Then I am presented with the "Duty Due Wine Page" "£329.54"
     And I should see the following product details
-      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313) | 35.5500                      | £9.27                 | £329.54    | Change |
     When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
@@ -70,7 +70,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
     And I should see the following product details
-      | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 33.3300                      | £9.27                 | £308.96    | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
@@ -149,7 +149,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£514.99"
     And I should see the following product details
-      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 55.5555                      | £9.27                 | £514.99    | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
@@ -172,7 +172,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
     Then I am presented with the "Duty Due Spirits Page" "£823.17"
     And I should see the following product details
-      | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 88.8000                      | £9.27                 | £823.17    | Change |
     When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
@@ -254,7 +254,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Beer Page"
     Then I am presented with the "Duty Due Beer Page" "£514.99"
     And I should see the following product details
-      | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 55.5555                      | £9.27                 | £514.99    | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
@@ -325,7 +325,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
     Then I am presented with the "Duty Due Other Fermented Product Page" "£1,757.77"
     And I should see the following product details
-      | Description                                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
+      | Description                                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products at or above 22.1% ABV (tax type code 344) | 55.5555                      | £31.64                | £1,757.77  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
