@@ -121,7 +121,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
@@ -172,24 +172,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Cider Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select the ciders you need to declare |
-    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
+    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page"
     And I click save and continue button on "How Much You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught cider between 1.3% and 3.4% ABV (312)                                                             |
-      | Enter the litres of pure alcohol in the non-draught cider between 1.3% and 3.4% ABV (312)                                               |
-      | Enter the total litres of non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322)               |
-      | Enter the litres of pure alcohol in the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (322) |
-      | Enter the total litres of non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                                   |
-      | Enter the litres of pure alcohol in the non-draught sparkling cider between 5.6% and 8.4% ABV (324)                                     |
-      | Enter the total litres of draught cider between 1.3% and 3.4% ABV (352)                                                                 |
-      | Enter the litres of pure alcohol in the draught cider between 1.3% and 3.4% ABV (352)                                                   |
-      | Enter the total litres of draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)                   |
-      | Enter the litres of pure alcohol in the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (357)     |
-      | Enter the total litres of draught sparkling cider between 5.6% and 8.4% ABV (359)                                                       |
-      | Enter the litres of pure alcohol in the draught sparkling cider between 5.6% and 8.4% ABV (359)                                         |
+      | Enter the total litres of non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                             |
+      | Enter the litres of pure alcohol in the non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                               |
+      | Enter the total litres of non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)               |
+      | Enter the litres of pure alcohol in the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322) |
+      | Enter the total litres of non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                                   |
+      | Enter the litres of pure alcohol in the non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                     |
+      | Enter the total litres of draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                                 |
+      | Enter the litres of pure alcohol in the draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                   |
+      | Enter the total litres of draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)                   |
+      | Enter the litres of pure alcohol in the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)     |
+      | Enter the total litres of draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                                       |
+      | Enter the litres of pure alcohol in the draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                         |
     When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "43.4400" for "Standard cider between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Cider Page" at "first" input box
     And I enter "898.12" for "Standard cider between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "second" input box
@@ -214,24 +214,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click save and continue button on "Single Small Producer Relief Rate Cider Page"
     Then I am presented with the "Single Small Producer Relief Rate Cider Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                                                        |
-      | Enter the litres of pure alcohol in the non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                                          |
-      | Enter your Small Producer Relief duty rate for the non-draught cider between 1.3% and 3.4% ABV (362 SPR)                                               |
-      | Enter the total litres of non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR) |
-      | Enter the total litres of non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                                              |
-      | Enter the litres of pure alcohol in the non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                                |
-      | Enter your Small Producer Relief duty rate for the non-draught sparkling cider between 5.6% and 8.4% ABV (369 SPR)                                     |
-      | Enter the total litres of draught cider between 1.3% and 3.4% ABV (372 SPR)                                                                            |
-      | Enter the litres of pure alcohol in the draught cider between 1.3% and 3.4% ABV (372 SPR)                                                              |
-      | Enter your Small Producer Relief duty rate for the draught cider between 1.3% and 3.4% ABV (372 SPR)                                                   |
-      | Enter the total litres of draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)                              |
-      | Enter the litres of pure alcohol in the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (377 SPR)     |
-      | Enter the total litres of draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                                                  |
-      | Enter the litres of pure alcohol in the draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                                    |
-      | Enter your Small Producer Relief duty rate for the draught sparkling cider between 5.6% and 8.4% ABV (379 SPR)                                         |
+      | Enter the total litres of non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                                                        |
+      | Enter the litres of pure alcohol in the non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                                          |
+      | Enter your Small Producer Relief duty rate for the non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
+      | Enter the total litres of non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
+      | Enter the total litres of non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                                              |
+      | Enter the litres of pure alcohol in the non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                                |
+      | Enter your Small Producer Relief duty rate for the non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
+      | Enter the total litres of draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                                            |
+      | Enter the litres of pure alcohol in the draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                              |
+      | Enter your Small Producer Relief duty rate for the draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
+      | Enter the total litres of draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)                              |
+      | Enter the litres of pure alcohol in the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)     |
+      | Enter the total litres of draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                                                  |
+      | Enter the litres of pure alcohol in the draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                                    |
+      | Enter your Small Producer Relief duty rate for the draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
     When I enter "656.66" for "Non-draught cider between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Cider Page" at "first" input box
     And I enter "66.6600" for "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Cider Page" at "first" input box
     And I enter "14" for "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Cider Page" at "first" input box
@@ -266,7 +266,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Declare cider" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Cider Page"
-    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369),Cider between 1.3% and 3.4% ABV (tax type code 372),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Cider Page"
+    When I "select" checkbox "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)" on "What Do You Need To Declare Cider Page"
     And I click save and continue button on "What Do You Need To Declare Cider Page"
     Then I am presented with the "How Much You Need To Declare Cider Page"
     When I enter "789.44" for "Standard cider between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Cider Page" at "first" input box
@@ -322,24 +322,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Wine Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select the wines you need to declare |
-    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     And I click save and continue button on "How Much You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught wine between 1.3% and 3.4% ABV (313)               |
-      | Enter the litres of pure alcohol in the non-draught wine between 1.3% and 3.4% ABV (313) |
-      | Enter the total litres of non-draught wine between 3.5% and 8.4% ABV (323)               |
-      | Enter the litres of pure alcohol in the non-draught wine between 3.5% and 8.4% ABV (323) |
-      | Enter the total litres of non-draught wine between 8.5% and 22% ABV (333)                |
-      | Enter the litres of pure alcohol in the non-draught wine between 8.5% and 22% ABV (333)  |
-      | Enter the total litres of non-draught wine at or above 22.1% ABV (343)                   |
-      | Enter the litres of pure alcohol in the non-draught wine at or above 22.1% ABV (343)     |
-      | Enter the total litres of draught wine between 1.3% and 3.4% ABV (353)                   |
-      | Enter the litres of pure alcohol in the draught wine between 1.3% and 3.4% ABV (353)     |
-      | Enter the total litres of draught wine between 3.5% and 8.4% ABV (358)                   |
-      | Enter the litres of pure alcohol in the draught wine between 3.5% and 8.4% ABV (358)     |
+      | Enter the total litres of non-draught wine between 1.3% and 3.4% ABV (tax type code 313)               |
+      | Enter the litres of pure alcohol in the non-draught wine between 1.3% and 3.4% ABV (tax type code 313) |
+      | Enter the total litres of non-draught wine between 3.5% and 8.4% ABV (tax type code 323)               |
+      | Enter the litres of pure alcohol in the non-draught wine between 3.5% and 8.4% ABV (tax type code 323) |
+      | Enter the total litres of non-draught wine between 8.5% and 22% ABV (tax type code 333)                |
+      | Enter the litres of pure alcohol in the non-draught wine between 8.5% and 22% ABV (tax type code 333)  |
+      | Enter the total litres of non-draught wine at or above 22.1% ABV (tax type code 343)                   |
+      | Enter the litres of pure alcohol in the non-draught wine at or above 22.1% ABV (tax type code 343)     |
+      | Enter the total litres of draught wine between 1.3% and 3.4% ABV (tax type code 353)                   |
+      | Enter the litres of pure alcohol in the draught wine between 1.3% and 3.4% ABV (tax type code 353)     |
+      | Enter the total litres of draught wine between 3.5% and 8.4% ABV (tax type code 358)                   |
+      | Enter the litres of pure alcohol in the draught wine between 3.5% and 8.4% ABV (tax type code 358)     |
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
     And I enter "35.5500" for "Standard wine between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Wine Page" at "first" input box
     And I enter "3698.52" for "Standard wine between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "second" input box
@@ -364,18 +364,18 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Single Small Producer Relief Rate Wine Page"
     Then I am presented with the "Single Small Producer Relief Rate Wine Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught wine between 1.3% and 3.4% ABV (363 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught wine between 1.3% and 3.4% ABV (363 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught wine between 1.3% and 3.4% ABV (363 SPR) |
-      | Enter the total litres of non-draught wine between 3.5% and 8.4% ABV (368 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught wine between 3.5% and 8.4% ABV (368 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught wine between 3.5% and 8.4% ABV (368 SPR) |
-      | Enter the total litres of draught wine between 1.3% and 3.4% ABV (373 SPR)                              |
-      | Enter the litres of pure alcohol in the draught wine between 1.3% and 3.4% ABV (373 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught wine between 1.3% and 3.4% ABV (373 SPR)     |
-      | Enter the total litres of draught wine between 3.5% and 8.4% ABV (378 SPR)                              |
-      | Enter the litres of pure alcohol in the draught wine between 3.5% and 8.4% ABV (378 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught wine between 3.5% and 8.4% ABV (378 SPR)     |
+      | Enter the total litres of non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
+      | Enter the total litres of non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) |
+      | Enter the total litres of draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)                              |
+      | Enter the litres of pure alcohol in the draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     |
+      | Enter the total litres of draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR)                              |
+      | Enter the litres of pure alcohol in the draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR)     |
     When I enter "888.88" for "Non-draught wine between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Wine Page" at "first" input box
     And I enter "99.4500" for "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Wine Page" at "first" input box
     And I enter "15" for "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Wine Page" at "first" input box
@@ -404,7 +404,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
-    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363),Wine between 3.5% and 8.4% ABV (tax type code 368),Wine between 1.3% and 3.4% ABV (tax type code 373),Wine between 3.5% and 8.4% ABV (tax type code 378)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page"
     When I enter "1234.55" for "Standard wine between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Wine Page" at "first" input box
@@ -455,24 +455,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Spirits Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select the spirits you need to declare |
-    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page"
     And I click save and continue button on "How Much You Need To Declare Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught spirits between 1.3% and 3.4% ABV (315)               |
-      | Enter the litres of pure alcohol in the non-draught spirits between 1.3% and 3.4% ABV (315) |
-      | Enter the total litres of non-draught spirits between 3.5% and 8.4% ABV (325)               |
-      | Enter the litres of pure alcohol in the non-draught spirits between 3.5% and 8.4% ABV (325) |
-      | Enter the total litres of non-draught spirits between 8.5% and 22% ABV (335)                |
-      | Enter the litres of pure alcohol in the non-draught spirits between 8.5% and 22% ABV (335)  |
-      | Enter the total litres of non-draught spirits at or above 22.1% ABV (345)                   |
-      | Enter the litres of pure alcohol in the non-draught spirits at or above 22.1% ABV (345)     |
-      | Enter the total litres of draught spirits between 1.3% and 3.4% ABV (355)                   |
-      | Enter the litres of pure alcohol in the draught spirits between 1.3% and 3.4% ABV (355)     |
-      | Enter the total litres of draught spirits between 3.5% and 8.4% ABV (360)                   |
-      | Enter the litres of pure alcohol in the draught spirits between 3.5% and 8.4% ABV (360)     |
+      | Enter the total litres of non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)               |
+      | Enter the litres of pure alcohol in the non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) |
+      | Enter the total litres of non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)               |
+      | Enter the litres of pure alcohol in the non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) |
+      | Enter the total litres of non-draught spirits between 8.5% and 22% ABV (tax type code 335)                |
+      | Enter the litres of pure alcohol in the non-draught spirits between 8.5% and 22% ABV (tax type code 335)  |
+      | Enter the total litres of non-draught spirits at or above 22.1% ABV (tax type code 345)                   |
+      | Enter the litres of pure alcohol in the non-draught spirits at or above 22.1% ABV (tax type code 345)     |
+      | Enter the total litres of draught spirits between 1.3% and 3.4% ABV (tax type code 355)                   |
+      | Enter the litres of pure alcohol in the draught spirits between 1.3% and 3.4% ABV (tax type code 355)     |
+      | Enter the total litres of draught spirits between 3.5% and 8.4% ABV (tax type code 360)                   |
+      | Enter the litres of pure alcohol in the draught spirits between 3.5% and 8.4% ABV (tax type code 360)     |
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "88.8000" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
@@ -497,18 +497,18 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Single Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Single Small Producer Relief Rate Spirits Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught spirits between 1.3% and 3.4% ABV (365 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught spirits between 1.3% and 3.4% ABV (365 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught spirits between 1.3% and 3.4% ABV (365 SPR) |
-      | Enter the total litres of non-draught spirits between 3.5% and 8.4% ABV (370 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught spirits between 3.5% and 8.4% ABV (370 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught spirits between 3.5% and 8.4% ABV (370 SPR) |
-      | Enter the total litres of draught spirits between 1.3% and 3.4% ABV (375 SPR)                              |
-      | Enter the litres of pure alcohol in the draught spirits between 1.3% and 3.4% ABV (375 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught spirits between 1.3% and 3.4% ABV (375 SPR)     |
-      | Enter the total litres of draught spirits between 3.5% and 8.4% ABV (380 SPR)                              |
-      | Enter the litres of pure alcohol in the draught spirits between 3.5% and 8.4% ABV (380 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught spirits between 3.5% and 8.4% ABV (380 SPR)     |
+      | Enter the total litres of non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
+      | Enter the total litres of non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) |
+      | Enter the total litres of draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)                              |
+      | Enter the litres of pure alcohol in the draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
+      | Enter the total litres of draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)                              |
+      | Enter the litres of pure alcohol in the draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
     When I enter "888.88" for "Non-draught spirits between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
     And I enter "99.4500" for "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
     And I enter "15" for "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Spirits Page" at "first" input box
@@ -537,7 +537,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Declare spirits" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Spirits Page"
-    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365),Spirits between 3.5% and 8.4% ABV (tax type code 370),Spirits between 1.3% and 3.4% ABV (tax type code 375),Spirits between 3.5% and 8.4% ABV (tax type code 380)" on "What Do You Need To Declare Spirits Page"
+    When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "88.8000" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
@@ -587,24 +587,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select the other fermented products you need to declare |
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught other fermented products between 1.3% and 3.4% ABV (314)               |
-      | Enter the litres of pure alcohol in the non-draught other fermented products between 1.3% and 3.4% ABV (314) |
-      | Enter the total litres of non-draught other fermented products between 3.5% and 8.4% ABV (324)               |
-      | Enter the litres of pure alcohol in the non-draught other fermented products between 3.5% and 8.4% ABV (324) |
-      | Enter the total litres of non-draught other fermented products between 8.5% and 22% ABV (334)                |
-      | Enter the litres of pure alcohol in the non-draught other fermented products between 8.5% and 22% ABV (334)  |
-      | Enter the total litres of non-draught other fermented products at or above 22.1% ABV (344)                   |
-      | Enter the litres of pure alcohol in the non-draught other fermented products at or above 22.1% ABV (344)     |
-      | Enter the total litres of draught other fermented products between 1.3% and 3.4% ABV (354)                   |
-      | Enter the litres of pure alcohol in the draught other fermented products between 1.3% and 3.4% ABV (354)     |
-      | Enter the total litres of draught other fermented products between 3.5% and 8.4% ABV (359)                   |
-      | Enter the litres of pure alcohol in the draught other fermented products between 3.5% and 8.4% ABV (359)     |
+      | Enter the total litres of non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)               |
+      | Enter the litres of pure alcohol in the non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) |
+      | Enter the total litres of non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)               |
+      | Enter the litres of pure alcohol in the non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324) |
+      | Enter the total litres of non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)                |
+      | Enter the litres of pure alcohol in the non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)  |
+      | Enter the total litres of non-draught other fermented products at or above 22.1% ABV (tax type code 344)                   |
+      | Enter the litres of pure alcohol in the non-draught other fermented products at or above 22.1% ABV (tax type code 344)     |
+      | Enter the total litres of draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)                   |
+      | Enter the litres of pure alcohol in the draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)     |
+      | Enter the total litres of draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)                   |
+      | Enter the litres of pure alcohol in the draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)     |
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
     And I enter "33.3300" for "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
     And I enter "3322.22" for "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "second" input box
@@ -629,18 +629,18 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Single Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Single Small Producer Relief Rate Other Fermented Product Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught other fermented products between 1.3% and 3.4% ABV (364 SPR) |
-      | Enter the total litres of non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) |
-      | Enter the total litres of draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                              |
-      | Enter the litres of pure alcohol in the draught other fermented products between 1.3% and 3.4% ABV (374 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught other fermented products between 1.3% and 3.4% ABV (374 SPR)     |
-      | Enter the total litres of draught other fermented products between 3.5% and 8.4% ABV (379 SPR)                              |
-      | Enter the litres of pure alcohol in the draught other fermented products between 3.5% and 8.4% ABV (379 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught other fermented products between 3.5% and 8.4% ABV (379 SPR)     |
+      | Enter the total litres of non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
+      | Enter the total litres of non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) |
+      | Enter the total litres of draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)                              |
+      | Enter the litres of pure alcohol in the draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     |
+      | Enter the total litres of draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)                              |
+      | Enter the litres of pure alcohol in the draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)     |
     When I enter "777.77" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
     And I enter "77.7700" for "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
     And I enter "15" for "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Other Fermented Product Page" at "first" input box
@@ -669,7 +669,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "Task List Page"
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
-    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364),Other fermented products between 3.5% and 8.4% ABV (tax type code 369),Other fermented products between 1.3% and 3.4% ABV (tax type code 374),Other fermented products between 3.5% and 8.4% ABV (tax type code 379)" on "What Do You Need To Declare Wine Page"
+    When I "select" checkbox "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page"
     When I enter "2233.33" for "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Other Fermented Product Page" at "first" input box
