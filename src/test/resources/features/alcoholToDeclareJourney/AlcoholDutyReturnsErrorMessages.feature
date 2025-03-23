@@ -32,24 +32,24 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     Then I am presented with the "What Do You Need To Declare Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select the beers you need to declare |
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught beer between 1.3% and 3.4% ABV (311)               |
-      | Enter the litres of pure alcohol in the non-draught beer between 1.3% and 3.4% ABV (311) |
-      | Enter the total litres of non-draught beer between 3.5% and 8.4% ABV (321)               |
-      | Enter the litres of pure alcohol in the non-draught beer between 3.5% and 8.4% ABV (321) |
-      | Enter the total litres of non-draught beer between 8.5% and 22% ABV (331)                |
-      | Enter the litres of pure alcohol in the non-draught beer between 8.5% and 22% ABV (331)  |
-      | Enter the total litres of non-draught beer at or above 22.1% ABV (341)                   |
-      | Enter the litres of pure alcohol in the non-draught beer at or above 22.1% ABV (341)     |
-      | Enter the total litres of draught beer between 1.3% and 3.4% ABV (351)                   |
-      | Enter the litres of pure alcohol in the draught beer between 1.3% and 3.4% ABV (351)     |
-      | Enter the total litres of draught beer between 3.5% and 8.4% ABV (356)                   |
-      | Enter the litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (356)     |
+      | Enter the total litres of non-draught beer between 1.3% and 3.4% ABV (tax type code 311)               |
+      | Enter the litres of pure alcohol in the non-draught beer between 1.3% and 3.4% ABV (tax type code 311) |
+      | Enter the total litres of non-draught beer between 3.5% and 8.4% ABV (tax type code 321)               |
+      | Enter the litres of pure alcohol in the non-draught beer between 3.5% and 8.4% ABV (tax type code 321) |
+      | Enter the total litres of non-draught beer between 8.5% and 22% ABV (tax type code 331)                |
+      | Enter the litres of pure alcohol in the non-draught beer between 8.5% and 22% ABV (tax type code 331)  |
+      | Enter the total litres of non-draught beer at or above 22.1% ABV (tax type code 341)                   |
+      | Enter the litres of pure alcohol in the non-draught beer at or above 22.1% ABV (tax type code 341)     |
+      | Enter the total litres of draught beer between 1.3% and 3.4% ABV (tax type code 351)                   |
+      | Enter the litres of pure alcohol in the draught beer between 1.3% and 3.4% ABV (tax type code 351)     |
+      | Enter the total litres of draught beer between 3.5% and 8.4% ABV (tax type code 356)                   |
+      | Enter the litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (tax type code 356)     |
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "55.5500" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
@@ -65,8 +65,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Total litres of draught beer between 3.5% and 8.4% ABV (356) must be a number to 2 decimal places               |
-      | Litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (356) must be a number to 4 decimal places |
+      | Total litres of draught beer between 3.5% and 8.4% ABV (tax type code 356) must be a number to 2 decimal places               |
+      | Litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (tax type code 356) must be a number to 4 decimal places |
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
     And I enter "66.8909" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
@@ -81,18 +81,18 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Single Small Producer Relief Rate Beer Page"
     Then I am presented with the "Single Small Producer Relief Rate Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of non-draught beer between 1.3% and 3.4% ABV (361 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught beer between 1.3% and 3.4% ABV (361 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught beer between 1.3% and 3.4% ABV (361 SPR) |
-      | Enter the total litres of non-draught beer between 3.5% and 8.4% ABV (366 SPR)                          |
-      | Enter the litres of pure alcohol in the non-draught beer between 3.5% and 8.4% ABV (366 SPR)            |
-      | Enter your Small Producer Relief duty rate for the non-draught beer between 3.5% and 8.4% ABV (366 SPR) |
-      | Enter the total litres of draught beer between 1.3% and 3.4% ABV (371 SPR)                              |
-      | Enter the litres of pure alcohol in the draught beer between 1.3% and 3.4% ABV (371 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught beer between 1.3% and 3.4% ABV (371 SPR)     |
-      | Enter the total litres of draught beer between 3.5% and 8.4% ABV (376 SPR)                              |
-      | Enter the litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (376 SPR)                |
-      | Enter your Small Producer Relief duty rate for the draught beer between 3.5% and 8.4% ABV (376 SPR)     |
+      | Enter the total litres of non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
+      | Enter the total litres of non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR)                          |
+      | Enter the litres of pure alcohol in the non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR)            |
+      | Enter your Small Producer Relief duty rate for the non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR) |
+      | Enter the total litres of draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)                              |
+      | Enter the litres of pure alcohol in the draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     |
+      | Enter the total litres of draught beer between 3.5% and 8.4% ABV (tax type code 376 SPR)                              |
+      | Enter the litres of pure alcohol in the draught beer between 3.5% and 8.4% ABV (tax type code 376 SPR)                |
+      | Enter your Small Producer Relief duty rate for the draught beer between 3.5% and 8.4% ABV (tax type code 376 SPR)     |
     When I enter "888.88" for "Non-draught beer between 1.3% and 3.4% ABV - Total litres" on "Single Small Producer Relief Rate Beer Page" at "first" input box
     And I enter "99.4500" for "Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres" on "Single Small Producer Relief Rate Beer Page" at "first" input box
     And I enter "15" for "Non-draught beer between 1.3% and 3.4% ABV - SPR Rate" on "Single Small Producer Relief Rate Beer Page" at "first" input box
