@@ -374,7 +374,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def expectedOutstandingReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
-    List(now.minusMonths(1).format(formatter), "Overdue", "Complete return"),
+    List(now.minusMonths(1).format(formatter), "Due", "Complete return"),
     List(now.minusMonths(2).format(formatter), "Overdue", "Complete return"),
     List(now.minusMonths(3).format(formatter), "Overdue", "Complete return"),
     List(now.minusMonths(4).format(formatter), "Overdue", "Complete return")
