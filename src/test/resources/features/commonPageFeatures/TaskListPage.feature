@@ -57,7 +57,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Task List Page"
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361),Beer between 3.5% and 8.4% ABV (tax type code 366),Beer between 1.3% and 3.4% ABV (tax type code 371),Beer between 3.5% and 8.4% ABV (tax type code 376)" on "What Do You Need To Declare Beer Page"
+    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page"
     When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
@@ -224,13 +224,13 @@ Feature: Alcohol Duty Journey - Task List Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                         | Volume                                               | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (311) | 3,000.75 litres,50.5500 litres of pure alcohol (LPA) | £468.59    |
+      | Adjustment     | Original return period | Tax type                                                       | Volume                                               | Duty value |
+      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 3,000.75 litres,50.5500 litres of pure alcohol (LPA) | £468.59    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
-      | Adjustment type | Description                                      | Duty value | Action        |
-      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311) | £468.59    | Change Remove |
+      | Adjustment type | Description                                                    | Duty value | Action        |
+      | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | £468.59    | Change Remove |
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
