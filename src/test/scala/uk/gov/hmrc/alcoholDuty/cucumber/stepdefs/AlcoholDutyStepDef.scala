@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
+import org.openqa.selenium.By
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 
@@ -29,7 +30,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
       case "Alcohol Duty Service" =>
         AuthLoginStubPage.enterRedirectURL(
          // TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AB"
+            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AC"
 
         )
     }
@@ -63,5 +64,9 @@ class AlcoholDutyStepDef extends BaseStepDef {
       case "Auth Login Stub Page" =>
         AuthLoginStubPage.selectAffinityGroup(value)
     }
+  }
+
+  Then("""I enter {string} in authorityId column""") { authId: String =>
+    driver.findElement(By.id("authorityId")).sendKeys(authId)
   }
 }
