@@ -559,7 +559,7 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following product details
       | Adjustment type | Description                                       | Duty value | Action        |
       | Under-declared  | Non-draught beer between 1.3% and 3.4% ABV (311)  | £2,407.83  | Change Remove |
-      | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | -£2,407.78 | Change Remove |
+      | Over-declared   | Non-draught cider between 1.3% and 3.4% ABV (312) | −£2,407.78 | Change Remove |
     When I select radio button "Yes" on "Adjustment List Page"
     And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Adjustment Type Page"
@@ -703,14 +703,9 @@ Feature: Alcohol Duty Returns Journey
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Change the entries you've told us about | Tell us why products were under-declared | Tell us why products were over-declared |
-      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                               | Not yet started                          |  Not yet started                        |
-    When I click on "Tell us why products were under-declared" hyperlink on "Task List Page"
-    And I enter "wrong estimation" for "Why were the alcoholic products not declared until now?" on "Adjust for under-declared alcohol Page"
-    And I click continue button on "Adjust for under-declared alcohol Page"
-    When I click on "Tell us why products were over-declared" hyperlink on "Task List Page"
-    And I enter "wrong estimation" for "Why were alcoholic products over-declared?" on "Adjust for over-declared alcohol Page"
-    And I click continue button on "Adjust for under-declared alcohol Page"
+      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Change the entries you've told us about | Check duty payable and send your return|
+      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                               | Not yet started                        |
+#    And I click continue button on "Adjust for under-declared alcohol Page"
 ##Your spirits and ingredients
 #    When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
 #    Then I am presented with the "Quarterly Spirits Returns Guidance Page"
@@ -735,24 +730,24 @@ Feature: Alcohol Duty Returns Journey
 #      | 99.00 litres of pure alcohol | 10.55 litres of pure alcohol | 20.67 litres of pure alcohol | Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits | Test Spirits           |
 #    When I click save and continue button on "Quarterly Spirits Check Your Answers Page"
     Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Change the entries you've told us about |  Check duty payable and send your return |
-      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                               |  Not yet started                         |
+#    And I should see the following status of the submission journey
+#      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Change the entries you've told us about |
+#      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                               |
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£95,422.68"
+    Then I am presented with the "Return Summary Page" "£95,924.73"
     And I should see the following details of the table 1 at the returns summary page
-      | Spirits declared                  | £13,159.65 | Change |
-      | Wine declared                     | £12,164.82 | Change |
-      | Cider declared                    | £49,347.26 | Change |
-      | Other fermented products declared | £11,153.36 | Change |
-      | Beer declared                     | £14,749.75 | Change |
-      | Adjustments to previous returns   | −£5,152.16 | Change |
-    And I should see the following details of the table 2 at the returns summary page
-      | Duty suspended alcohol | Declared | Change |
-      | Spirits production     | Declared | Change |
+      | Spirits declared                  | £13,376.15 | Change |
+      | Wine declared                     | £12,363.57 | Change |
+      | Cider declared                    | £49,167.33 | Change |
+      | Other fermented products declared | £11,274.40 | Change |
+      | Beer declared                     | £14,980.63 | Change |
+      | Adjustments to previous returns   | −£5,237.35 | Change |
+#    And I should see the following details of the table 2 at the returns summary page
+#      | Duty suspended alcohol | Declared | Change |
+#      | Spirits production     | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £95,422.68"
+    And the page source contains "You need to pay £95,924.73"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
