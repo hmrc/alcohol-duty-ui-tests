@@ -45,10 +45,10 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
       | Total volume | 1,234.55 litres |
       | Pure alcohol | 35.5500 litres  |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
-    Then I am presented with the "Duty Due Wine Page" "£329.54"
+    Then I am presented with the "Duty Due Wine Page" "£341.63"
     And I should see the following product details
       | Description                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.27                 | £329.54    | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (313) | 35.5500                      | £9.61                 | £341.63    | Change |
     When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
     #Other Fermented Products - When Multiple SPR is set to 'No'
@@ -68,10 +68,10 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
       | Total volume | 2,233.33 litres |
       | Pure alcohol | 33.3300 litres  |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
-    Then I am presented with the "Duty Due Other Fermented Product Page" "£308.96"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£320.30"
     And I should see the following product details
       | Description                                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.27                 | £308.96    | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314) | 33.3300                      | £9.61                 | £320.30    | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey declared to No
@@ -100,16 +100,16 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£638.50"
+    Then I am presented with the "Return Summary Page" "£661.93"
     And I should see the following details of the table 1 at the returns summary page
-      | Wine declared                     | £329.54 | Change |
-      | Other fermented products declared | £308.96 | Change |
+      | Wine declared                     | £341.63 | Change |
+      | Other fermented products declared | £320.30 | Change |
       | Adjustments to previous returns   | Nil     | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £638.50"
+    And the page source contains "You need to pay £661.93"
 
   @Test
   Scenario:2. Alcohol Duty Returns Journey - user with Beer & Spirits regime approval
