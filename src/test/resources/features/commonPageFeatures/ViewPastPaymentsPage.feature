@@ -16,7 +16,7 @@ Feature: View Past Payments Journey
     Then I verify the due amount displayed as "You owe £3,325.44" on "View Past Payments Page"
     And I should see the below details at "Unallocated" section on "View Past Payments Page" with "FullDate"
       | Payment date  | Description | Amount     | Action       |
-      | 1CurrentMonth | Payment     | −£1,000.00 | Claim refund |
+      | CurrentMonth | Payment     | −£1,000.00 | Claim refund |
       | 1Minus1Months | Payment     | −£500.00   | Claim refund |
     And I should see the below details at "Outstanding" section on "View Past Payments Page" with "FullDate"
       | To be paid by  | Description                     | Left to pay | Status         | Action       |
