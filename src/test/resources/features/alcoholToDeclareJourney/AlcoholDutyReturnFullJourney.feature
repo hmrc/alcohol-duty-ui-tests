@@ -548,7 +548,7 @@ Feature: Alcohol Duty Returns Journey
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-−£6,431.61"
+    Then I am presented with the "Adjustment Duty Value Page" "-£2,407.78"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
