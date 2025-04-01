@@ -329,10 +329,10 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
       | Total volume | 945.55 litres  |
       | Pure alcohol | 55.5555 litres |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
-    Then I am presented with the "Duty Due Other Fermented Product Page" "£1,757.77"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£1,821.66"
     And I should see the following product details
       | Description                                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products at or above 22.1% ABV (344) | 55.5555                      | £31.64                | £1,757.77  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344) | 55.5555                      | £32.79                | £1,821.66  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
@@ -360,12 +360,12 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£1,757.77"
+    Then I am presented with the "Return Summary Page" "£1,821.66"
     And I should see the following details of the table 1 at the returns summary page
-      | Other fermented products declared               | £1,757.77| Change |
+      | Other fermented products declared               | £1,821.66| Change |
       | Adjustments to previous returns                 | Nil      | Change |
     And I should see the following details of the table 2 at the returns summary page
       | Duty suspended alcohol | Declared | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £1,757.77"
+    And the page source contains "You need to pay £1,821.66"
