@@ -96,15 +96,15 @@ Feature: Alcohol Duty Returns Journey
       | Pure alcohol  | 66.5400 litres |
       | SPR duty rate | £20.00         |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£14,749.75"
+    Then I am presented with the "Duty Due Beer Page" "£14,980.63"
     And I should see the following product details
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5555                      | £9.27                 | £514.99    | Change |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.01                | £1,629.32  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £28.50                | £1,890.69  | Change |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £31.64                | £3,136.47  | Change |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.42                 | £559.42    | Change |
-      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £19.08                | £1,276.26  | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5555                      | £9.61                 | £533.88    | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
+      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
+      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
+      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
+      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR) | 78.9000                      | £18.00                | £1,420.20  | Change |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     | 99.9900                      | £15.00                | £1,499.85  | Change |
@@ -203,15 +203,15 @@ Feature: Alcohol Duty Returns Journey
       | Pure alcohol  | 77.7700 litres  |
       | SPR duty rate | £17.00          |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
-    Then I am presented with the "Duty Due Cider Page" "£49,347.26"
+    Then I am presented with the "Duty Due Cider Page" "£49,167.33"
     And I should see the following product details
       | Description                                                                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   | 43.4400                      | £9.27                 | £402.68    | Change |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)     | 22.2200                      | £9.67                 | £214.86    | Change |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                         | 99.9900                      | £24.77                | £2,476.75  | Change |
-      | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       | 33.2100                      | £8.42                 | £279.62    | Change |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         | 22.4500                      | £8.78                 | £197.11    | Change |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             | 888.8800                     | £19.08                | £16,959.83 | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   | 43.4400                      | £9.61                 | £417.45    | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)     | 22.2200                      | £10.02                | £222.64    | Change |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                         | 99.9900                      | £25.67                | £2,566.74  | Change |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       | 33.2100                      | £8.28                 | £274.97    | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         | 22.4500                      | £8.63                 | £193.74    | Change |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             | 888.8800                     | £18.76                | £16,675.38 | Change |
       | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               | 66.6600                      | £14.00                | £933.24    | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) | 98.9900                      | £12.45                | £1,232.42  | Change |
       | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     | 666.6600                     | £36.00                | £23,999.76 | Change |
@@ -298,15 +298,15 @@ Feature: Alcohol Duty Returns Journey
       | Pure alcohol  | 66.5400 litres  |
       | SPR duty rate | £20.00          |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
-    Then I am presented with the "Duty Due Wine Page" "£12,164.82"
+    Then I am presented with the "Duty Due Wine Page" "£12,363.57"
     And I should see the following product details
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.27                 | £329.54    | Change |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £24.77                | £2,201.55  | Change |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £28.50                | £633.27    | Change |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £31.64                | £2,601.44  | Change |
-      | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.42                 | £188.01    | Change |
-      | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £19.08                | £468.41    | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.61                 | £341.63    | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £25.67                | £2,281.54  | Change |
+      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £29.54                | £656.37    | Change |
+      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £32.79                | £2,695.99  | Change |
+      | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.28                 | £184.89    | Change |
+      | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £18.76                | £460.55    | Change |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) | 78.9000                      | £18.00                | £1,420.20  | Change |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     | 99.9900                      | £15.00                | £1,499.85  | Change |
@@ -391,15 +391,15 @@ Feature: Alcohol Duty Returns Journey
       | Pure alcohol  | 66.5400 litres  |
       | SPR duty rate | £20.00          |
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
-    Then I am presented with the "Duty Due Spirits Page" "£13,159.65"
+    Then I am presented with the "Duty Due Spirits Page" "£13,376.15"
     And I should see the following product details
       | Description                                                           | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     | 88.8000                      | £9.27                 | £823.17    | Change |
-      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     | 77.7700                      | £24.77                | £1,926.36  | Change |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      | 66.6600                      | £28.50                | £1,899.81  | Change |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)         | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         | 44.4400                      | £8.42                 | £374.18    | Change |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         | 33.3300                      | £19.08                | £635.93    | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     | 88.8000                      | £9.61                 | £853.36    | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     | 77.7700                      | £25.67                | £1,996.35  | Change |
+      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      | 66.6600                      | £29.54                | £1,969.13  | Change |
+      | Non-draught spirits at or above 22.1% ABV (tax type code 345)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         | 44.4400                      | £8.28                 | £367.96    | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         | 33.3300                      | £18.76                | £625.27    | Change |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 78.9000                      | £18.00                | £1,420.20  | Change |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     | 99.9900                      | £15.00                | £1,499.85  | Change |
@@ -484,15 +484,15 @@ Feature: Alcohol Duty Returns Journey
       | Pure alcohol  | 99.2300 litres  |
       | SPR duty rate | £19.00          |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
-    Then I am presented with the "Duty Due Other Fermented Product Page" "£11,153.36"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£11,274.40"
     And I should see the following product details
       | Description                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.27                 | £308.96    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £24.77                | £550.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £28.50                | £1,266.54  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.42                 | £561.27    | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £19.08                | £659.21    | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.61                 | £320.30    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £25.67                | £570.38    | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £29.54                | £1,312.75  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.28                 | £551.94    | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £18.76                | £648.15    | Change |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) | 77.7700                      | £15.00                | £1,166.55  | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) | 88.8800                      | £16.00                | £1,422.08  | Change |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     | 78.7700                      | £20.00                | £1,575.40  | Change |
@@ -732,14 +732,14 @@ Feature: Alcohol Duty Returns Journey
       | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Change the entries you’ve told us about | Tell us about spirits produced in the past three months | Change the spirits you’ve told us about | Check duty payable and send your return |
       | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                               | Completed                                               | Completed                               | Not yet started                         |
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£95,422.68"
+    Then I am presented with the "Return Summary Page" "£96,009.92"
     And I should see the following details
       | Beer declared | Cider declared | Wine declared | Spirits declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
-      | £14,749.75    | £49,347.26     | £12,164.82    | £13,159.65       | £11,153.36                        | −£5,152.16                      | Declared               | Declared           |
+      | £14,980.63    | £49,167.33     | £12,363.57    | £13,376.15       | £11,274.40                        | −£5,152.16                      | Declared               | Declared           |
     And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £95,422.68"
+    And the page source contains "You need to pay £96,009.92"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
@@ -818,15 +818,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 9,999.99 litres |
       | Pure alcohol | 89.9999 litres  |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£10,717.09"
+    Then I am presented with the "Duty Due Beer Page" "£10,947.97"
     And I should see the following product details
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.27                 | £514.94    | Change |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.01                | £1,629.32  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £28.50                | £1,890.69  | Change |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £31.64                | £3,136.47  | Change |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.42                 | £559.42    | Change |
-      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £19.08                | £1,276.26  | Change |
+      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.61                 | £533.83    | Change |
+      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
+      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
+      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
+      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
+      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 89.9999                      | £19.00                | £1,709.99  | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
@@ -901,15 +901,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 7,999.99 litres |
       | Pure alcohol | 77.9900 litres  |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
-    Then I am presented with the "Duty Due Cider Page" "£22,167.86"
+    Then I am presented with the "Duty Due Cider Page" "£21,987.93"
     And I should see the following product details
       | Description                                                                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   | 43.4400                      | £9.27                 | £402.68    | Change |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)     | 22.2200                      | £9.67                 | £214.86    | Change |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                         | 99.9900                      | £24.77                | £2,476.75  | Change |
-      | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       | 33.2100                      | £8.42                 | £279.62    | Change |
-      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         | 22.4500                      | £8.78                 | £197.11    | Change |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             | 888.8800                     | £19.08                | £16,959.83 | Change |
+      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   | 43.4400                      | £9.61                 | £417.45    | Change |
+      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)     | 22.2200                      | £10.02                | £222.64    | Change |
+      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 324)                                         | 99.9900                      | £25.67                | £2,566.74  | Change |
+      | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       | 33.2100                      | £8.28                 | £274.97    | Change |
+      | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         | 22.4500                      | £8.63                 | £193.74    | Change |
+      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             | 888.8800                     | £18.76                | £16,675.38 | Change |
       | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) | 77.9900                      | £20.99                | £1,637.01  | Change |
     When I click save and continue button on "Duty Due Cider Page"
     Then I am presented with the "Task List Page"
@@ -984,15 +984,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 678.99 litres   |
       | Pure alcohol | 66.4300 litres  |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
-    Then I am presented with the "Duty Due Wine Page" "£7,461.84"
+    Then I am presented with the "Duty Due Wine Page" "£7,660.59"
     And I should see the following product details
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.27                 | £329.54    | Change |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £24.77                | £2,201.55  | Change |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £28.50                | £633.27    | Change |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £31.64                | £2,601.44  | Change |
-      | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.42                 | £188.01    | Change |
-      | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £19.08                | £468.41    | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.61                 | £341.63    | Change |
+      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £25.67                | £2,281.54  | Change |
+      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £29.54                | £656.37    | Change |
+      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £32.79                | £2,695.99  | Change |
+      | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.28                 | £184.89    | Change |
+      | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £18.76                | £460.55    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) | 66.4300                      | £15.65                | £1,039.62  | Change |
     When I click save and continue button on "Duty Due Wine Page"
     Then I am presented with the "Task List Page"
@@ -1066,15 +1066,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 789.99 litres   |
       | Pure alcohol | 55.5500 litres  |
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
-    Then I am presented with the "Duty Due Spirits Page" "£8,528.05"
+    Then I am presented with the "Duty Due Spirits Page" "£8,744.55"
     And I should see the following product details
       | Description                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 88.8000                      | £9.27                 | £823.17    | Change |
-      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) | 77.7700                      | £24.77                | £1,926.36  | Change |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)  | 66.6600                      | £28.50                | £1,899.81  | Change |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)     | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)     | 44.4400                      | £8.42                 | £374.18    | Change |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)     | 33.3300                      | £19.08                | £635.93    | Change |
+      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 88.8000                      | £9.61                 | £853.36    | Change |
+      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) | 77.7700                      | £25.67                | £1,996.35  | Change |
+      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)  | 66.6600                      | £29.54                | £1,969.13  | Change |
+      | Non-draught spirits at or above 22.1% ABV (tax type code 345)     | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)     | 44.4400                      | £8.28                 | £367.96    | Change |
+      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)     | 33.3300                      | £18.76                | £625.27    | Change |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) | 55.5500                      | £20.00                | £1,111.00  | Change |
     When I click save and continue button on "Duty Due Spirits Page"
     Then I am presented with the "Task List Page"
@@ -1149,15 +1149,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 999.99 litres   |
       | Pure alcohol | 99.9900 litres  |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
-    Then I am presented with the "Duty Due Other Fermented Product Page" "£7,103.76"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£7,224.80"
     And I should see the following product details
       | Description                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.27                 | £308.96    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £24.77                | £550.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £28.50                | £1,266.54  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £31.64                | £1,757.60  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.42                 | £561.27    | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £19.08                | £659.21    | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.61                 | £320.30    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £25.67                | £570.38    | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £29.54                | £1,312.75  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.28                 | £551.94    | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £18.76                | £648.15    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) | 99.9900                      | £20.00                | £1,999.80  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
@@ -1211,7 +1211,7 @@ Feature: Alcohol Duty Returns Journey
     And I enter "7777.7700" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "898.89" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "−£6,991,359.67"
+    Then I am presented with the "Adjustment Duty Value Page" "−£6,991,3510.02"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
@@ -1317,14 +1317,14 @@ Feature: Alcohol Duty Returns Journey
       | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Check duty payable and send your return |
       | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                                               | Not yet started                         |
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "−£6,938,636.71"
+    Then I am presented with the "Return Summary Page" "−£6,938,049.47"
     And I should see the following details
       | Beer declared | Cider declared | Wine declared | Spirits declared | Other fermented products declared | Adjustments to previous returns | Duty suspended alcohol | Spirits production |
-      | £10,717.09    | £22,167.86     | £7,461.84     | £8,528.05        | £7,103.76                         | −£6,994,615.31                  | Nothing to declare     | Nothing to declare |
+      | £10,947.97    | £21,987.93     | £7,660.59     | £8,744.55        | £7,224.80                         | −£6,994,615.31                  | Nothing to declare     | Nothing to declare |
     And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed −£6,938,636.71"
+    And the page source contains "You are owed −£6,938,049.47"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
