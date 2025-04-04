@@ -28,15 +28,15 @@ object MultipleSmallProducerReliefRateSpiritsPage extends BasePage {
   override val title = "Tell us about the spirits that is eligible for Small Producer Relief"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the spirits that is eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
+    "Error: Tell us about the spirits that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the spirits that is eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
+    "Tell us about the spirits that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Tell us about the spirits that is eligible for Small Producer Relief"
+    "Tell us about the spirits that are eligible for Small Producer Relief"
   )
 
   override def clickRadioButton(text: String): Unit =
