@@ -79,8 +79,8 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 4 on "View Specific Return Page"
       | Description             | Total volume (LPA) |
       | Total volume of spirits | 0.05               |
-      | Scotch whisky           | 0.26               |
-      | Irish whiskey           | 0.16               |
+      | Scotch Whisky           | 0.26               |
+      | Irish Whiskey           | 0.16               |
     And I should verify the details of the table 5 on "View Specific Return Page"
       | Types of spirits produced            |
       | Neutral spirit (agricultural origin) |
