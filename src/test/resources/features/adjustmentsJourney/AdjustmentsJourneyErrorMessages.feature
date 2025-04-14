@@ -147,8 +147,8 @@ Feature: Adjustments Journey - Error Message Validations
     And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Spoilt Alcohol Volume Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of spoilt spirits           |
-      | Enter the litres of pure alcohol in spoilt spirits |
+      | Enter the total litres of spoilt alcoholic product          |
+      | Enter the litres of pure alcohol |
       | Enter the amount of duty paid                      |
     When I enter "3000.75" for "Total Litres" on "Spoilt Alcohol Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Spoilt Alcohol Volume Page"
@@ -200,8 +200,8 @@ Feature: Adjustments Journey - Error Message Validations
     And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
     Then I am presented with the "Spoilt Beer Alcohol Volume Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the total litres of spoilt beer           |
-      | Enter the litres of pure alcohol in spoilt beer |
+      | Enter the total litres of spoilt alcoholic product           |
+      | Enter the litres of pure alcohol  |
       | Enter the amount of duty paid                   |
     When I enter "3000.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Spoilt Beer Alcohol Volume Page"
