@@ -144,10 +144,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of alcoholic product                           |
-      | Enter the total litres of alcoholic product                    |
-      | Enter the litres of pure alcohol           |
-      | Enter your Small Producer Relief duty rate |
+      | Select the type of alcoholic product        |
+      | Enter the total litres of alcoholic product |
+      | Enter the litres of pure alcohol            |
+      | Enter your Small Producer Relief duty rate  |
     When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "89.9900" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
@@ -289,10 +289,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Cider Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of alcoholic product                           |
-      | Enter the total litres of alcoholic product                    |
-      | Enter the litres of pure alcohol           |
-      | Enter your Small Producer Relief duty rate |
+      | Select the type of alcoholic product        |
+      | Enter the total litres of alcoholic product |
+      | Enter the litres of pure alcohol            |
+      | Enter your Small Producer Relief duty rate  |
     When I select radio button "Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (367 SPR)" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "7999.99" for "Total litres" on "Multiple Small Producer Relief Rate Cider Page"
     And I enter "77.9900" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Cider Page"
@@ -427,10 +427,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Multiple Small Producer Relief Rate Wine Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Wine Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of alcoholic product                           |
-      | Enter the total litres of alcoholic product                    |
-      | Enter the litres of pure alcohol           |
-      | Enter your Small Producer Relief duty rate |
+      | Select the type of alcoholic product        |
+      | Enter the total litres of alcoholic product |
+      | Enter the litres of pure alcohol            |
+      | Enter your Small Producer Relief duty rate  |
     When I select radio button "Non-draught wine between 3.5% and 8.4% ABV (368 SPR)" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "678.99" for "Total litres" on "Multiple Small Producer Relief Rate Wine Page"
     And I enter "66.4300" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Wine Page"
@@ -559,10 +559,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Multiple Small Producer Relief Rate Spirits Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Spirits Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of alcoholic product                           |
-      | Enter the total litres of alcoholic product                    |
-      | Enter the litres of pure alcohol           |
-      | Enter your Small Producer Relief duty rate |
+      | Select the type of alcoholic product        |
+      | Enter the total litres of alcoholic product |
+      | Enter the litres of pure alcohol            |
+      | Enter your Small Producer Relief duty rate  |
     When I select radio button "Draught spirits between 3.5% and 8.4% ABV (380 SPR)" on "Multiple Small Producer Relief Rate Spirits Page"
     And I enter "789.99" for "Total litres" on "Multiple Small Producer Relief Rate Spirits Page"
     And I enter "55.5500" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Spirits Page"
@@ -692,10 +692,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Other Fermented Product Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Select the type of alcoholic product                           |
-      | Enter the total litres of alcoholic product                    |
-      | Enter the litres of pure alcohol           |
-      | Enter your Small Producer Relief duty rate |
+      | Select the type of alcoholic product        |
+      | Enter the total litres of alcoholic product |
+      | Enter the litres of pure alcohol            |
+      | Enter your Small Producer Relief duty rate  |
     When I select radio button "Non-draught other fermented products between 3.5% and 8.4% ABV and sparkling cider between 5.6% and 8.4% ABV (369 SPR)" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I enter "999.99" for "Total litres" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
     And I enter "99.9900" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Other Fermented Product Page"
