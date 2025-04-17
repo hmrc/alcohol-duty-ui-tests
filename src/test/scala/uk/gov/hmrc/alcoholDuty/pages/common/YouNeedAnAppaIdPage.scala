@@ -22,17 +22,17 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object YouNeedAnAppaIdPage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/no-approval-id"
-  override val title          = "You need an Alcoholic Products Producer approval ID to access Alcohol Duty"
+  override val title          = "You need an alcoholic products producer approval (APPA) ID to access this service"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: You need an Alcoholic Products Producer approval ID to access Alcohol Duty - Manage your Alcohol Duty - GOV.UK"
+    "Error: You need an alcoholic products producer approval (APPA) ID to access this service - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "You need an Alcoholic Products Producer approval ID to access Alcohol Duty - Manage your Alcohol Duty - GOV.UK"
+    "You need an alcoholic products producer approval (APPA) ID to access this service - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "You need an Alcoholic Products Producer approval ID to access Alcohol Duty"
+    "You need an alcoholic products producer approval (APPA) ID to access this service"
   )
 }
