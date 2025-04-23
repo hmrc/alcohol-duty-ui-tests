@@ -27,14 +27,14 @@ object DoYouHaveMultipleSmallProducerReliefDutyRateCiderPage extends BasePage {
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/alcoholic-products/Cider/change/spr/multiple-duty-rates"
-  override val title          = "More than one Small Producer Relief duty rate?"
+  override val title          = "If you have more than one Small Producer Relief duty rate"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: More than one Small Producer Relief duty rate? - Manage your Alcohol Duty - GOV.UK"
+    "Error: If you have more than one Small Producer Relief duty rate - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "More than one Small Producer Relief duty rate? - Manage your Alcohol Duty - GOV.UK"
+    "If you have more than one Small Producer Relief duty rate - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("If you have more than one Small Producer Relief duty rate")
