@@ -13,6 +13,7 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
     Then I am presented with the "Task List Page"
     When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
+   Then I am presented with the "Report Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Duty Suspended Deliveries Guidance Page"
