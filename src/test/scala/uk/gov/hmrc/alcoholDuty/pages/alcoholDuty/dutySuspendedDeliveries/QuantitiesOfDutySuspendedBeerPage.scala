@@ -44,7 +44,7 @@ object QuantitiesOfDutySuspendedBeerPage extends BasePage {
       case "Total Litres Delivered Outside UK" => enterText("totalLitresDeliveredOutsideUK", textToEnter)
       case "Pure Alcohol Delivered Outside UK" => enterText("pureAlcoholDeliveredOutsideUK", textToEnter)
       case "Total Litres Received"             => enterText("totalLitresReceived", textToEnter)
-      case "Pure Alcohol Received" => enterText("pureAlcoholReceived", textToEnter)
+      case "Pure Alcohol Received"             => enterText("pureAlcoholReceived", textToEnter)
     }
 
 }

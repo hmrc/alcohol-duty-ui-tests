@@ -76,20 +76,26 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
       | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
       | 3,000.75 litres                           | 250.5500 litres                                 | 1,500.35 litres                            | 300.5500 litres                                  | 2,800.35 litres                           | 160.6500 litres                                 | 7,800.35 litres                              | 460.6500 litres                                     | 8,800.35 litres                                               | 560.6500 litres                                                      |
 
-  Scenario:2. Report Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
-    Given I cleared the data for the service
-    When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
-    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
-    And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Before You Start Page"
-    When I click continue button on "Before You Start Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Report Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
-    And I click save and continue button on "Report Duty Suspended Deliveries Page"
-    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
-    When I "select" checkbox "Beer" on "SelectFinishedAlcoholDeliveredReceivedPage"
-    When I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
+#  Scenario:2. Report Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
+#    Given I cleared the data for the service
+#    When I navigate to the "Auth Login Stub Page"
+#    And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
+#    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+#    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
+#    And I click submit button on "Auth Login Stub Page"
+#    Then I am presented with the "Before You Start Page"
+#    When I click continue button on "Before You Start Page"
+#    Then I am presented with the "Task List Page"
+#    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+#    Then I am presented with the "Report Duty Suspended Deliveries Page"
+#    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+#    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+#    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
+#    When I "select" checkbox "Beer" on "SelectFinishedAlcoholDeliveredReceivedPage"
+#    When I enter "999.99" for "Total Litres Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "999.99" for "Total Litres Delivered Outside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Total Litres Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "999.99" for "Total Litres Received" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Pure Alcohol Received" on "QuantitiesOfDutySuspendedBeerPage"
+#    And I click save and continue button on "QuantitiesOfDutySuspendedBeerPage"

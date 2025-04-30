@@ -64,3 +64,48 @@ Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messag
     Examples:
       | errorMessageHeader |
       | There is a problem |
+
+#  Scenario Outline: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - Error message validations
+#    Given I cleared the data for the service
+#    When I navigate to the "Auth Login Stub Page"
+#    And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
+#    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+#    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
+#    And I click submit button on "Auth Login Stub Page"
+#    Then I am presented with the "Before You Start Page"
+#    When I click continue button on "Before You Start Page"
+#    Then I am presented with the "Task List Page"
+#    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+#    Then I am presented with the "Report Duty Suspended Deliveries Page"
+#    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+#    Then I am presented with the "Report Duty Suspended Deliveries Page" error page
+#    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you have delivered or received finished alcoholic products under duty suspense"
+#    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+#    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+#    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
+#    And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
+#    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage" error page
+#    And I should see the "<errorMessageHeader>" and below error messages
+#      | Select the finished alcoholic products you delivered or received under duty suspense       |
+#    When I "select" checkbox "Beer" on "SelectFinishedAlcoholDeliveredReceivedPage"
+#    And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
+#    Then I am presented with the "QuantitiesOfDutySuspendedBeerPage"
+#    And I click save and continue button on "QuantitiesOfDutySuspendedBeerPage"
+#    Then I am presented with the "QuantitiesOfDutySuspendedBeerPage" error page
+#    And I should see the "<errorMessageHeader>" and below error messages
+#      | Enter the total litres of finished beer delivered inside the UK. Enter 0 if none.      |
+#      | Enter the litres of pure alcohol delivered inside the UK. Enter 0 if none.             |
+#      | Enter the total litres of finished beer delivered outside the UK. Enter 0 if none.     |
+#      | Enter the litres of pure alcohol delivered outside the UK. Enter 0 if none.            |
+#      | Enter the total litres of finished beer received under duty suspense. Enter 0 if none. |
+#      | Enter the litres of pure alcohol received under duty suspense. Enter 0 if none.        |
+#    When I enter "999.99" for "Total Litres Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "999.99" for "Total Litres Delivered Outside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Total Litres Delivered Inside UK" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "999.99" for "Total Litres Received" on "QuantitiesOfDutySuspendedBeerPage"
+#    When I enter "88.1234" for "Pure Alcohol Received" on "QuantitiesOfDutySuspendedBeerPage"
+#    And I click save and continue button on "QuantitiesOfDutySuspendedBeerPage"
+#    Examples:
+#      | errorMessageHeader |
+#      | There is a problem |
