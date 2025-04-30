@@ -90,7 +90,7 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
     Then I am presented with the "Report Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
     And I click save and continue button on "Report Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
+    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
     When I click continue button on "Duty Suspended Deliveries Guidance Page"
     Then I am presented with the "Duty Suspended Beer Page"
     When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
