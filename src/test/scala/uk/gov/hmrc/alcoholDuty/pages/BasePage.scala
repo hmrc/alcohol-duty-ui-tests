@@ -290,11 +290,42 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     previousPeriodKey
   }
 
+  def previousSpiritsPeriodKey: String = {
+    val currentDate = LocalDate.now()
+    val month = currentDate.getMonthValue
+    val year = currentDate.getYear
 
-  def decemberPeriodKey: String = {
-    val lastYear = LocalDate.now().plusYears(-1).getYear.toString.takeRight(2)
-    s"${lastYear}AL"
+    // Determine the base year suffix
+    val yearSuffix = if (month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+
+    // Determine the previous spirits period key based on the month
+    val previousSpiritsPeriodKey = month match {
+      // Quarter 1 (Jan-Mar) -> Previous spirits period is December
+      case 1 | 2| 3=> s"${yearSuffix}AL"
+
+      // Quarter 2 (Apr-Jun) -> Previous spirits period is March
+      case 4 |5 | 6 => s"${yearSuffix}AC"
+
+
+      // Quarter 3 (Jul-Sep) -> Previous spirits period is June
+      case 7 |8 | 9=> s"${yearSuffix}AF"
+
+
+      // Quarter 4 (Oct-Dec) -> Previous spirits period is September
+      case 10| 11| 12 => s"${yearSuffix}AI"
+
+
+      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+    }
+
+    previousSpiritsPeriodKey
   }
+
+
+//  def decemberPeriodKey: String = {
+//    val lastYear = LocalDate.now().plusYears(-1).getYear.toString.takeRight(2)
+//    s"${lastYear}AL"
+//  }
 
 
   def generateYear(Year: Int): Int =
@@ -358,13 +389,25 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val lastDayOfPreviousMonth: String  =
     firstDayCurrentMonth.minusDays(1).minusMonths(1)format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val firstDayOfDecember: String  =
-   LocalDate.of(previousYear,12,1)
-     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+//  val firstDayOfDecember: String  =
+//   LocalDate.of(previousYear,12,1)
+//     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+//
+//  val lastDayOfDecember: String  =
+//    LocalDate.of(previousYear,12,31)
+//      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val lastDayOfDecember: String  =
-    LocalDate.of(previousYear,12,31)
-      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+  val firstDayOfPreviousSpiritsMonth: String = currentDate
+    .withMonth(generatedMonth)
+    .withDayOfMonth(1)
+    .minusMonths(1)
+    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
+
+  val lastDayOfPreviousSpiritsMonth: String = currentDate
+    .withMonth(generatedMonth)
+    .withDayOfMonth(1)
+    .minusDays(1)
+    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate               = LocalDate.now()

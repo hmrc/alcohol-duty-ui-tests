@@ -42,7 +42,16 @@ trait BaseStepDef
     with WebBrowser
     with BasePage {
 
-  val currentYear: Int  = LocalDate.now().minusMonths(4).getYear
+  // The Check Your Returns page has the previous 4 months under Outstanding returns
+  // and the 3 months before that under Completed returns
+  // So the month with quarterly spirits under Completed returns is as follows:
+  // Current Month = Feb/Mar/Apr -> the previous September
+  // Current Month = May/Jun/Jul -> the previous December
+  // Current Month = Aug/Sep/Oct -> the previous March
+  // Current Month = Nov/Dec/Jan -> the previous June
+  // Which means the year of the spirits return we want to access is
+  // that of 7 months in the past
+  val currentYear: Int  = LocalDate.now().minusMonths(7).getYear
   val shortYear: String = currentYear.toString.substring(2)
 
   Then("""I navigate to the {string}""") { page: String =>
@@ -69,8 +78,7 @@ trait BaseStepDef
     checkDynamicPageHeader(text)
   }
 
-  Then("""I am presented with the {string} with new url""") {
-    page: String =>
+  Then("""I am presented with the {string} with new url""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
@@ -132,7 +140,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickBackButton()
   }
-  
 
   Then("""I am presented with the {string} error page""") { page: String =>
     PageObjectFinder.page(page).waitForPageHeader
@@ -179,8 +186,8 @@ trait BaseStepDef
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
       case "Previous Month Period Key" =>
-        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${previousPeriodKey}"
-
+        val url =
+          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$previousPeriodKey"
         driver.get(url)
 
       //        driver.get(
@@ -188,8 +195,14 @@ trait BaseStepDef
 //            "alcohol-duty-returns-frontend"
 //          ) + "/before-you-start-your-return/" + previousPeriodKey
 
-      case "December Period Key" =>
-        val url = s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F${decemberPeriodKey}"
+//      case "December Period Key" =>
+//        val url =
+//          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$decemberPeriodKey"
+//        driver.get(url)
+
+      case "Previous Spirits Period Key" =>
+        val url =
+          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$previousSpiritsPeriodKey"
         driver.get(url)
     }
   }
@@ -289,9 +302,9 @@ trait BaseStepDef
       s"${shortYear}AI" -> s"September $currentYear"
     )
 
-    urlToPeriod.find {
-      case (suffix, _) => currentURL.contains(suffix) }
-    match {
+    urlToPeriod.find { case (suffix, _) =>
+      currentURL.contains(suffix)
+    } match {
       case Some((_, period)) =>
         val finalPageHeader = pageHeader.replace("SpiritsPeriod", period)
         actualPageHeader should be(finalPageHeader)
@@ -327,13 +340,17 @@ trait BaseStepDef
           "Use this service to submit your Alcohol Duty Return for " + getDateRange + "."
         )
 
-      case "Previous Month Selected" =>
+      case "Previous Month Selected"         =>
         actualText should be(
           "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
         )
-      case "December Return Selected" =>
+//      case "December Return Selected" =>
+//        actualText should be(
+//          "Use this service to submit your Alcohol Duty Return for " + firstDayOfDecember + " to " + lastDayOfDecember + "."
+//        )
+      case "Previous Spirits Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfDecember + " to " + lastDayOfDecember + "."
+          "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousSpiritsMonth + " to " + lastDayOfPreviousSpiritsMonth + "."
         )
     }
   }
@@ -451,11 +468,10 @@ trait BaseStepDef
         .click()
   }
 
-  And("""I verify {int} change links present on {string}""") {
-    (expectedCount : Int, page:String) =>
-      PageObjectFinder.page(page).waitForPageHeader
-      val changeHrefs: List[WebElement] = driver.findElements(By.xpath("//a[text()='Change']")).asScala.toList
-      changeHrefs.size shouldBe expectedCount
+  And("""I verify {int} change links present on {string}""") { (expectedCount: Int, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val changeHrefs: List[WebElement] = driver.findElements(By.xpath("//a[text()='Change']")).asScala.toList
+    changeHrefs.size shouldBe expectedCount
   }
 
   And("""I should see the following details of the table {int} at the returns summary page""") {
@@ -502,9 +518,10 @@ trait BaseStepDef
     actualText should be(paymentAmountText)
   }
 
-  When("""the view returns page contains summary list text {string} {string} {string}""") { (alcoholType: String, status: String, link : String) =>
-    val actualText = driver.findElement(By.xpath("(//dl[@class='govuk-summary-list'])[2]")).getText
-    actualText should be(alcoholType)
+  When("""the view returns page contains summary list text {string} {string} {string}""") {
+    (alcoholType: String, status: String, link: String) =>
+      val actualText = driver.findElement(By.xpath("(//dl[@class='govuk-summary-list'])[2]")).getText
+      actualText should be(alcoholType)
   }
 
   And("""I should see the following alcohol types""") { data: DataTable =>
