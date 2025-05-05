@@ -35,7 +35,7 @@ object ReportDutySuspendedDeliveriesPage extends BasePage {
     "Have you delivered or received finished alcoholic products under duty suspense? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("// Have you delivered or received finished alcoholic products under duty suspense?")
+  override def expectedPageHeader: Option[String] = Some("Have you delivered or received finished alcoholic products under duty suspense?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
