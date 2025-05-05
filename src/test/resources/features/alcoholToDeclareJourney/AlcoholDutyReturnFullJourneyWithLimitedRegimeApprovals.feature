@@ -26,8 +26,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare wine    | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare wine    | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                                                              |
     #Wine - When Multiple SPR is set to 'No'
     When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
@@ -81,7 +81,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
@@ -128,8 +128,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer    | Declare spirits | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
-      | Completed                                         | Not yet started | Not yet started | Not yet started                            | Not yet started                              | Not yet started                                         |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Declare spirits | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
+      | Completed                                         | Not yet started | Not yet started | Not yet started                            | Not yet started                                                              | Not yet started                                         |
 #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -183,7 +183,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
@@ -233,8 +233,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started | Not yet started                            | Not yet started                                                              |
     #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -265,7 +265,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
@@ -304,8 +304,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                                                              |
     #Declare other fermented products
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
@@ -336,7 +336,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
     Then I am presented with the "Declare Duty Suspended Deliveries Page"
     When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
