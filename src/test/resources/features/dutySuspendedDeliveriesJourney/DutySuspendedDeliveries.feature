@@ -100,4 +100,7 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
     And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
     And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
     And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
-    Then I am presented with the <param>
+    Then I am presented with the "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of beer is 999.99 litres" on "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of pure alcohol is 88.1234 litres" of pure alcohol on "Duty Suspended Deliveries Calculation Page"
+    And I click save and continue button on "Duty Suspended Deliveries Calculation Page"

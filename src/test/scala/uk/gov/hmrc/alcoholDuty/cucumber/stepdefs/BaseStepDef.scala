@@ -233,6 +233,18 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
+  And("""I verify {string} on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//h2[normalize-space()='Your total net volume of beer is 999.99 litres']")).getText
+    actualText should be(expectedText)
+  }
+
+  And("""I verify {string} of pure alcohol on {string}""") { (expectedText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//h2[contains(text(),'Your total net volume of pure alcohol is 88.1234 l')]")).getText
+    actualText should be(expectedText)
+  }
+
   And("""I should verify the details of the table {int} on {string}""") { (num: Int, page: String, data: DataTable) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected                                   = data.asScalaListOfLists
