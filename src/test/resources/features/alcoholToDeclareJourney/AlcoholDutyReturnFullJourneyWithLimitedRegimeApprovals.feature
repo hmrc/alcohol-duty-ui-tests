@@ -88,21 +88,21 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
     When I "select" checkbox "Wine" on "SelectFinishedAlcoholDeliveredReceivedPage"
     And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
-    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Wine Page"
     And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
     And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
     And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
-    Then I am presented with the "Duty Suspended Deliveries Calculation Page"
-    And I verify "Your total net volume of beer is 999.99 litres" on "Duty Suspended Deliveries Calculation Page"
-    And I verify "Your total net volume of pure alcohol is 88.1234 litres" of pure alcohol on "Duty Suspended Deliveries Calculation Page"
-    And I click save and continue button on "Duty Suspended Deliveries Calculation Page"
+    Then I am presented with the "Duty Suspense Wine Calculation Page"
+    And I verify "Your total net volume of beer is 999.99 litres" on "Duty Suspense Wine Calculation Page"
+    And I verify "Your total net volume of pure alcohol is 88.1234 litres" of pure alcohol on "Duty Suspense Wine Calculation Page"
+    And I click save and continue button on "Duty Suspense Wine Calculation Page"
     Then I am presented with the "Duty Suspense Deliveries Check Your Answers Page"
     And I should see the following details
-      | Type of alcohol | Beer                                                          |
-      | Beer            | 999.99 litres of total product,88.1234 litres of pure alcohol |
+      | Type of alcohol | Wine                                                          |
+      | Wine            | 999.99 litres of total product,88.1234 litres of pure alcohol |
     And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
