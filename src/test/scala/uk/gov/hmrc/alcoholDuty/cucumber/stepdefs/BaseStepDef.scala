@@ -468,6 +468,11 @@ trait BaseStepDef
     alcoholToDeclareSectionText should be(expected)
   }
 
+  And("""I should see the following text on CYA page""") { data: DataTable =>
+    val expected = data.asScalaListOfStrings
+    alcoholDeclaredSectionTextCYA should be(expected)
+  }
+
   And("""I click on change link {int} on {string} for alcohol type {string}""") {
     (changeLinkIndex: Int, page: String, alcoholType: String) =>
       PageObjectFinder.page(page).waitForPageHeader

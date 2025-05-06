@@ -24,7 +24,7 @@ object DutySuspenseDeliveriesCheckYourAnswersPage extends BasePage {
   override val url: String =
     TestConfiguration.url(
       "alcohol-duty-returns-frontend"
-    ) + "/complete-return/duty-suspended-deliveries/check-your-answers"
+    ) + "/complete-return/duty-suspended-deliveries/check-your-answers-duty-suspense"
   override val title       = "Check your answers"
 
   override def expectedPageTitle: Option[String]  = Some(
@@ -36,33 +36,16 @@ object DutySuspenseDeliveriesCheckYourAnswersPage extends BasePage {
 
   override def clickButton(text: String): Unit =
     text match {
-      case "Change total net quantity of duty suspended beer"                                          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[1]")
-      case "Change total net quantity of pure alcohol in your duty suspended beer"                     =>
+      case "Type of Alcohol"                                          =>
+        click on xpath("(//dt[normalize-space()='Type of alcohol']")
+      case "Beer"                     =>
         click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[2]")
-      case "Change total net quantity of duty suspended cider"                                         =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[1]")
-      case "Change total net quantity of pure alcohol in your duty suspended cider"                    =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[2]")
-      case "Change total net quantity of duty suspended wine"                                          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[1]")
-      case "Change total net quantity of pure alcohol in your duty suspended wine"                     =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[2]")
-      case "Change total net quantity of duty suspended spirits"                                       =>
-        click on xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Spirits/change'])[1]"
-        )
-      case "Change total net quantity of pure alcohol in your duty suspended spirits"                  =>
-        click on xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Spirits/change'])[2]"
-        )
-      case "Change total net quantity of duty suspended other fermented products"                      =>
-        click on xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change'])[1]"
-        )
-      case "Change total net quantity of pure alcohol in your duty suspended other fermented products" =>
-        click on xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change'])[2]"
-        )
+      case "Change"                                         =>
+        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/change-which-duty-suspended-alcohol']")
+      case "Beer"                    =>
+        click on xpath("(//dt[normalize-space()='Beer']")
+      case "Change"                                          =>
+        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change-duty-suspense']")
+
     }
 }

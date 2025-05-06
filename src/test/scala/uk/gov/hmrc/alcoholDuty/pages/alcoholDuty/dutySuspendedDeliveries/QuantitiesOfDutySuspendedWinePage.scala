@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.dutySuspendedDeliveries
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object QuantitiesOfDutySuspendedBeerPage extends BasePage {
+object QuantitiesOfDutySuspendedWinePage extends BasePage {
 
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Beer/report-duty-suspense"
