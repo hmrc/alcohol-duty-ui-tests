@@ -592,18 +592,17 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
 
     // Generate keys for all days (1 to 31) and special cases like "currentMonth"
-    val monthOffsets = (-10 to 10).flatMap { offset =>
+    val monthOffsets: Seq[(String, String)] = (-10 to 10).flatMap { offset =>
       (1 to 31).map { day =>
         val key =
-          if (day == currentDate.getDayOfMonth && offset == 0) "CurrentMonth" // Handle "currentMonth" key
-          else if (offset < 0) s"${day}Minus${-offset}Months"
+          if (offset < 0) s"${day}Minus${-offset}Months"
           else if (offset > 0) s"${day}Plus${offset}Months"
           else s"${day}CurrentMonth"
         key -> computeDate(day, offset)
       }
-    }.toMap
+    } ++ Seq("CurrentMonth" -> computeDate(currentDate.getDayOfMonth, 0)) // Handle "CurrentMonth" key
 
-    monthOffsets
+    monthOffsets.toMap
   }
 
 
