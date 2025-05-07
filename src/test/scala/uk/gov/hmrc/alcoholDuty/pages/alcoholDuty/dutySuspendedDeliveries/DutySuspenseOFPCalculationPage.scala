@@ -22,24 +22,13 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object DutySuspenseOFPCalculationPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Wine/calculation/"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Wine/change"
-  override val title          = "Tell us about your duty suspended wine"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/OtherFermentedProduct/calculation/"
+  override val title       = "We’ve calculated your duty suspended alcohol"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your duty suspended wine - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
+  override def expectedPageTitle: Option[String]  = Some(
     "We’ve calculated your duty suspended alcohol - Manage your Alcohol Duty - GOV.UK"
   )
-
-  override def expectedPageHeader: Option[String] = Some("We’ve calculated your duty suspended alcohol")
-
-  override def enterMultipleDetails(textToEnter: String, text: String): Unit =
-    text match {
-      case "Total Wine"           => enterText("totalWine", textToEnter)
-      case "Pure Alcohol In Wine" => enterText("pureAlcoholInWine", textToEnter)
-    }
+  override def expectedPageHeader: Option[String] = Some(
+    "We’ve calculated your duty suspended alcohol"
+  )
 }
