@@ -78,7 +78,7 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-   And  I verify the return due date for "Previous Spirits Month Selected" on "Before You Start Page"
+    And I verify the return due date for "Latest Month Selected" on "Before You Start Page"
     When I click continue button on "Before You Start Page"
     Then I am presented with the "Task List Page"
     And I should see the following subsections
