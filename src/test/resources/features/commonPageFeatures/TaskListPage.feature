@@ -133,7 +133,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Change the entries you’ve told us about | Tell us about spirits produced in the past three months |
-      | Not yet started                                   | Not yet started                            | Completed                                                                    | Completed                             | Not yet started                                         |
+      | Not yet started                                   | Not yet started                            | Completed                                                                    | Completed                               | Not yet started                                         |
 
   Scenario: 7. QSR Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Quarterly Spirits Returns Guidance Page
     When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
