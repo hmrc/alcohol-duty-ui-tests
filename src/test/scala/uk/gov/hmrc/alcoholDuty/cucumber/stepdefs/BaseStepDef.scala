@@ -281,10 +281,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
     val periodToUrl    = Map(
-      s"January $currentYear" -> s"${shortYear}AL",
-      s"April $currentYear"   -> s"${shortYear}AC",
-      s"July $currentYear"    -> s"${shortYear}AF",
-      s"October $currentYear" -> s"${shortYear}AI"
+      s"December $currentYear" -> s"${shortYear}AL",
+      s"March $currentYear"   -> s"${shortYear}AC",
+      s"June $currentYear"    -> s"${shortYear}AF",
+      s"September $currentYear" -> s"${shortYear}AI"
     )
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
