@@ -20,7 +20,7 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import org.openqa.selenium.By
 
-object ReturnSummaryPage extends BasePage {
+object  ReturnSummaryPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
   override val title       = "The duty due for this return is £14,749.70"
@@ -58,7 +58,7 @@ object ReturnSummaryPage extends BasePage {
       case "Change Adjustment duty value"                  =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/1']")
       case "Change Duty suspended alcohol" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/check-your-answers']")
+        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/check-your-answers-duty-suspense']")
       case "Change Spirits production" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/check-your-answers']")
     }
