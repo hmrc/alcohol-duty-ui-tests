@@ -471,6 +471,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .map(_.getText.trim)
     .toList
 
+  def alcoholDeclaredSectionTextCYA: List[String] = driver
+    .findElement(By.xpath("//dl"))
+    .findElements(By.tagName("dl"))
+    .asScala
+    .map(_.getText.trim)
+    .toList
+
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
     case "first"       => 0
     case "second"      => 1

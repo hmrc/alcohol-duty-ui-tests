@@ -26,8 +26,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare wine    | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare wine    | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                                                              |
     #Wine - When Multiple SPR is set to 'No'
     When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Wine Page"
@@ -81,22 +81,27 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
-    When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Duty Suspended Wine Page"
-    When I enter "7777.77" for "Total Wine" on "Duty Suspended Wine Page"
-    And I enter "77.7700" for "Pure Alcohol In Wine" on "Duty Suspended Wine Page"
-    And I click save and continue button on "Duty Suspended Wine Page"
-    Then I am presented with the "Duty Suspended Other Fermented Products Page"
-    When I enter "8888.88" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I enter "88.8800" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I click save and continue button on "Duty Suspended Other Fermented Products Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
+    Then I am presented with the "Report Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
+    When I "select" checkbox "Wine" on "SelectFinishedAlcoholDeliveredReceivedPage"
+    And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
+    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Wine Page"
+    And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
+    And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspense Wine Calculation Page"
+    And I click save and continue button on "Duty Suspense Wine Calculation Page"
+    Then I am presented with the "Duty Suspense Deliveries Check Your Answers Page"
+    And I should see the following details
+      | Type of alcohol | Wine                                                          |
+      | Wine            | 999.99 litres of total product,88.1234 litres of pure alcohol |
+    And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
@@ -128,8 +133,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer    | Declare spirits | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months |
-      | Completed                                         | Not yet started | Not yet started | Not yet started                            | Not yet started                              | Not yet started                                         |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Declare spirits | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
+      | Completed                                         | Not yet started | Not yet started | Not yet started                            | Not yet started                                                              | Not yet started                                         |
 #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -183,25 +188,29 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
-    When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Duty Suspended Beer Page"
-    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
-    And I enter "150.5500" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
-    And I click save and continue button on "Duty Suspended Beer Page"
-    Then I am presented with the "Duty Suspended Spirits Page"
-    When I enter "2100.75" for "Total Spirits" on "Duty Suspended Spirits Page"
-    And I enter "160.5500" for "Pure Alcohol In Spirits" on "Duty Suspended Spirits Page"
-    And I click save and continue button on "Duty Suspended Spirits Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
+    Then I am presented with the "Report Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
+    When I "select" checkbox "Beer" on "SelectFinishedAlcoholDeliveredReceivedPage"
+    And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
+    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
+    And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of beer is 999.99 litres" on "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of pure alcohol is 88.1234 litres" of pure alcohol on "Duty Suspended Deliveries Calculation Page"
+    And I click save and continue button on "Duty Suspended Deliveries Calculation Page"
+    Then I am presented with the "Duty Suspense Deliveries Check Your Answers Page"
     And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits |
-      | 2,000.75 litres                           | 150.5500 litres                                 | 2,100.75 litres                              | 160.5500 litres                                     |
-    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+      | Type of alcohol | Beer                                                          |
+      | Beer            | 999.99 litres of total product,88.1234 litres of pure alcohol |
+    And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     # Spirits and ingredients- nothing to declare
     When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
@@ -233,8 +242,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started | Not yet started                            | Not yet started                                                              |
     #Beer
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -265,21 +274,23 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
-    When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Duty Suspended Beer Page"
-    When I enter "2000.75" for "Total Beer" on "Duty Suspended Beer Page"
-    And I enter "150.5500" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
-    And I click save and continue button on "Duty Suspended Beer Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer |
-      | 2,000.75 litres                           | 150.5500 litres                                 |
-    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
+    Then I am presented with the "Report Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
+    And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of beer is 999.99 litres" on "Duty Suspended Deliveries Calculation Page"
+    And I verify "Your total net volume of pure alcohol is 88.1234 litres" of pure alcohol on "Duty Suspended Deliveries Calculation Page"
+    And I click save and continue button on "Duty Suspended Deliveries Calculation Page"
+    Then I am presented with the "Duty Suspense Deliveries Check Your Answers Page"
+    And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
@@ -304,8 +315,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us about your duty suspended deliveries |
-      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                              |
+      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
+      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                                                              |
     #Declare other fermented products
     When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
@@ -336,21 +347,21 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "Declare Adjustment Question Page"
     Then I am presented with the "Task List Page"
     #Duty suspended journey
-    When I click on "Tell us about your duty suspended deliveries" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
-    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
-    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
-    When I click continue button on "Duty Suspended Deliveries Guidance Page"
-    Then I am presented with the "Duty Suspended Other Fermented Products Page"
-    When I enter "2000.75" for "Total Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I enter "150.5500" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
-    And I click save and continue button on "Duty Suspended Other Fermented Products Page"
-    Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
-      | 2,000.75 litres                                               | 150.5500 litres                                                      |
-    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
+    When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
+    Then I am presented with the "Report Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
+    And I click save and continue button on "Report Duty Suspended Deliveries Page"
+    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
+    And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
+    And I click save and continue button on "QuantitiesOfDutySuspendedOFPPage"
+    Then I am presented with the "Duty Suspense OFP Calculation Page"
+    And I click save and continue button on "Duty Suspense OFP Calculation Page"
+    Then I am presented with the "Duty Suspense Deliveries Check Your Answers Page"
+    And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
