@@ -226,7 +226,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def periodKey: String = {
 
     val currentMonth = LocalDate.now().getMonthValue
-    val currentYear = LocalDate.now().getYear
     val adjustedYear = if (Month == 1) year - 1 else year
     val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
 
@@ -238,15 +237,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
 
     // Generate period key based on the first month of the current quarter
+    // This is the most recent month with quarterly spirits
     firstMonthOfQuarter match {
       case 1 => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // First month of Q1 -> AL
       case 4 => s"${yearSuffix}AC" // First month of Q2 -> AC
       case 7 => s"${yearSuffix}AF" // First month of Q3 -> AF
       case 10 => s"${yearSuffix}AI" // First month of Q4 -> AI
     }
-
-
-
 
     //      case 2 | 3 | 4   => s"${yearSuffix}AA"
     //      case 5 | 6 | 7   => s"${yearSuffix}AD"
@@ -264,7 +261,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val year = currentDate.getYear
 
     // Determine the base year suffix
-    val yearSuffix = if (month == 12||month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+    val yearSuffix = if (month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
 
     // Determine the previous period key based on the month
     val previousPeriodKey = month match {
@@ -289,43 +286,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
     previousPeriodKey
   }
-
-  def previousSpiritsPeriodKey: String = {
-    val currentDate = LocalDate.now()
-    val month = currentDate.getMonthValue
-    val year = currentDate.getYear
-
-    // Determine the base year suffix
-    val yearSuffix = if (month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
-
-    // Determine the previous spirits period key based on the month
-    val previousSpiritsPeriodKey = month match {
-      // Quarter 1 (Jan-Mar) -> Previous spirits period is December
-      case 1 | 2| 3=> s"${yearSuffix}AL"
-
-      // Quarter 2 (Apr-Jun) -> Previous spirits period is March
-      case 4 |5 | 6 => s"${yearSuffix}AC"
-
-
-      // Quarter 3 (Jul-Sep) -> Previous spirits period is June
-      case 7 |8 | 9=> s"${yearSuffix}AF"
-
-
-      // Quarter 4 (Oct-Dec) -> Previous spirits period is September
-      case 10| 11| 12 => s"${yearSuffix}AI"
-
-
-      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
-    }
-
-    previousSpiritsPeriodKey
-  }
-
-
-//  def decemberPeriodKey: String = {
-//    val lastYear = LocalDate.now().plusYears(-1).getYear.toString.takeRight(2)
-//    s"${lastYear}AL"
-//  }
 
 
   def generateYear(Year: Int): Int =
@@ -380,33 +340,15 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val firstDayOfNextMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
   val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
 
-    val firstDayOfPreviousMonth: String = currentDate
-      .withMonth(generatedMonth)
-      .withDayOfMonth(1)
-      .minusMonths(2)
-      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-
-  val lastDayOfPreviousMonth: String  =
-    firstDayCurrentMonth.minusDays(1).minusMonths(1)format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-
-//  val firstDayOfDecember: String  =
-//   LocalDate.of(previousYear,12,1)
-//     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-//
-//  val lastDayOfDecember: String  =
-//    LocalDate.of(previousYear,12,31)
-//      .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-
-  val firstDayOfPreviousSpiritsMonth: String = currentDate
+  val firstDayOfPreviousMonth: String = currentDate
     .withMonth(generatedMonth)
     .withDayOfMonth(1)
-    .minusMonths(1)
+    .minusMonths(2)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val lastDayOfPreviousSpiritsMonth: String = currentDate
-    .withMonth(generatedMonth)
-    .withDayOfMonth(1)
+  val lastDayOfPreviousMonth: String  = firstDayCurrentMonth
     .minusDays(1)
+    .minusMonths(1)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
@@ -598,19 +540,18 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       targetDate.withDayOfMonth(adjustedDay).format(formatter)
     }
 
-    // Generate keys for all days (1 to 31) and special cases like "currentMonth"
-    val monthOffsets = (-10 to 10).flatMap { offset =>
+    // Generate keys for all days (1 to 31) and special cases like "CurrentDateAndMonth"
+    val monthOffsets: Seq[(String, String)] = (-10 to 10).flatMap { offset =>
       (1 to 31).map { day =>
         val key =
-          if (day == currentDate.getDayOfMonth && offset == 0) "CurrentMonth" // Handle "currentMonth" key
-          else if (offset < 0) s"${day}Minus${-offset}Months"
+          if (offset < 0) s"${day}Minus${-offset}Months"
           else if (offset > 0) s"${day}Plus${offset}Months"
           else s"${day}CurrentMonth"
         key -> computeDate(day, offset)
       }
-    }.toMap
+    } ++ Seq("CurrentDateAndMonth" -> computeDate(currentDate.getDayOfMonth, 0))
 
-    monthOffsets
+    monthOffsets.toMap
   }
 
 

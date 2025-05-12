@@ -30,7 +30,6 @@ import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
 import java.time.LocalDate
-import scala.collection.mutable
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -177,11 +176,11 @@ trait BaseStepDef
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
-      case "Task List Page"            =>
+      case "Task List Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
-      case "Return Summary Page"       =>
+      case "Return Summary Page" =>
         driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
-      case "Alcohol Duty Service"      =>
+      case "Alcohol Duty Service" =>
         driver.get(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
@@ -195,14 +194,9 @@ trait BaseStepDef
 //            "alcohol-duty-returns-frontend"
 //          ) + "/before-you-start-your-return/" + previousPeriodKey
 
-//      case "December Period Key" =>
-//        val url =
-//          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$decemberPeriodKey"
-//        driver.get(url)
-
       case "Previous Spirits Period Key" =>
         val url =
-          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$previousSpiritsPeriodKey"
+          s"http://localhost:9949/auth-login-stub/gg-sign-in?continue=http%3A%2F%2Flocalhost%3A16000%2Fmanage-alcohol-duty%2Fbefore-you-start-your-return%2F$periodKey"
         driver.get(url)
     }
   }
@@ -287,10 +281,10 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
     val periodToUrl    = Map(
-      s"January $currentYear" -> s"${shortYear}AL",
-      s"April $currentYear"   -> s"${shortYear}AC",
-      s"July $currentYear"    -> s"${shortYear}AF",
-      s"October $currentYear" -> s"${shortYear}AI"
+      s"December $currentYear" -> s"${shortYear}AL",
+      s"March $currentYear"   -> s"${shortYear}AC",
+      s"June $currentYear"    -> s"${shortYear}AF",
+      s"September $currentYear" -> s"${shortYear}AI"
     )
 
     periodToUrl.find { case (period, _) => expectedPeriod.contains(period) } match {
@@ -347,6 +341,7 @@ trait BaseStepDef
     val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
 
     content match {
+      // This is the most recent month with quarterly spirits
       case "Latest Month Selected" =>
         actualText should be(
           "Use this service to submit your Alcohol Duty Return for " + getDateRange + "."
@@ -355,14 +350,6 @@ trait BaseStepDef
       case "Previous Month Selected"         =>
         actualText should be(
           "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
-        )
-//      case "December Return Selected" =>
-//        actualText should be(
-//          "Use this service to submit your Alcohol Duty Return for " + firstDayOfDecember + " to " + lastDayOfDecember + "."
-//        )
-      case "Previous Spirits Month Selected" =>
-        actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousSpiritsMonth + " to " + lastDayOfPreviousSpiritsMonth + "."
         )
     }
   }
