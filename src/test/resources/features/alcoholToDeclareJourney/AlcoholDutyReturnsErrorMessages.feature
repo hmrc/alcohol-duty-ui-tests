@@ -65,7 +65,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Draught beer between 3.5% and 8.4% ABV (tax type code 356) - Total litres must be a number up to 2 decimal places        |
+      | Draught beer between 3.5% and 8.4% ABV (tax type code 356) - Total litres must be a number to 2 decimal places     |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356) - Litres of pure alcohol must be a number to 4 decimal places |
     And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
     And I enter "66.8909" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
