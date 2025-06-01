@@ -825,7 +825,7 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 9,999.99 litres |
       | Pure alcohol | 89.9999 litres  |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£10,717.09"
+    Then I am presented with the "Duty Due Beer Page" "£10,947.97"
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (311)     | 55.5500                      | £9.61                 | £533.83    | Change |
@@ -908,7 +908,7 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 7,999.99 litres |
       | Pure alcohol | 77.9900 litres  |
     When I click save and continue button on "Check Your Answers Returns Cider Page"
-    Then I am presented with the "Duty Due Cider Page" "£22,167.86"
+    Then I am presented with the "Duty Due Cider Page" "£21,987.93"
     And I should see the following product details
       | Description                                                                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught cider between 1.3% and 3.4% ABV (312)                                                   | 43.4400                      | £9.61                 | £417.45    | Change |
@@ -991,10 +991,10 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 678.99 litres   |
       | Pure alcohol | 66.4300 litres  |
     When I click save and continue button on "Check Your Answers Returns Wine Page"
-    Then I am presented with the "Duty Due Wine Page" "£7,461.84"
+    Then I am presented with the "Duty Due Wine Page" "£7,660.59"
     And I should see the following product details
       | Description                                          | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.5500                      | £9.61                 | £322.41    | Change |
+      | Non-draught wine between 1.3% and 3.4% ABV (313)     | 35.5500                      | £9.61                 | £341.63    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (323)     | 88.8800                      | £25.67                | £2,281.54  | Change |
       | Non-draught wine between 8.5% and 22% ABV (333)      | 22.2200                      | £29.54                | £656.37    | Change |
       | Non-draught wine at or above 22.1% ABV (343)         | 82.2200                      | £32.79                | £2,695.99  | Change |
@@ -1073,7 +1073,7 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 789.99 litres   |
       | Pure alcohol | 55.5500 litres  |
     When I click save and continue button on "Check Your Answers Returns Spirits Page"
-    Then I am presented with the "Duty Due Spirits Page" "£8,528.05"
+    Then I am presented with the "Duty Due Spirits Page" "£8,744.55"
     And I should see the following product details
       | Description                                         | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (315) | 88.8000                      | £9.61                 | £853.36    | Change |
@@ -1156,15 +1156,15 @@ Feature: Alcohol Duty Returns Journey
       | Total volume | 999.99 litres   |
       | Pure alcohol | 99.9900 litres  |
     When I click save and continue button on "Check Your Answers Returns Other Fermented Product Page"
-    Then I am presented with the "Duty Due Other Fermented Product Page" "£7,103.76"
+    Then I am presented with the "Duty Due Other Fermented Product Page" "£7,224.80"
     And I should see the following product details
       | Description                                                              | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     | 33.3300                      | £9.61                 | £308.96    | Change |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     | 22.2200                      | £25.67                | £550.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (334)      | 44.4400                      | £29.54                | £1,266.54  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (344)         | 55.5500                      | £32.79                | £1,757.60  | Change |
-      | Draught other fermented products between 1.3% and 3.4% ABV (354)         | 66.6600                      | £8.28                 | £561.27    | Change |
-      | Draught other fermented products between 3.5% and 8.4% ABV (359)         | 34.5500                      | £18.76                | £659.21    | Change |
+      | Non-draught other fermented products between 1.3% and 3.4% ABV (314)     | 33.3300                      | £9.61                 | £320.30    | Change |
+      | Non-draught other fermented products between 3.5% and 8.4% ABV (324)     | 22.2200                      | £25.67                | £570.38    | Change |
+      | Non-draught other fermented products between 8.5% and 22% ABV (334)      | 44.4400                      | £29.54                | £1,312.75  | Change |
+      | Non-draught other fermented products at or above 22.1% ABV (344)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Draught other fermented products between 1.3% and 3.4% ABV (354)         | 66.6600                      | £8.28                 | £551.94    | Change |
+      | Draught other fermented products between 3.5% and 8.4% ABV (359)         | 34.5500                      | £18.76                | £648.15    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (369 SPR) | 99.9900                      | £20.00                | £1,999.80  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
@@ -1321,10 +1321,10 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Quarterly Spirits Returns Guidance Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Check duty payable and send your return | Change the spirits you've told us about |
-      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                                               | Not yet started                         | Completed                               |
+      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider | Declare wine | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Declare adjustments | Tell us why products were under-declared | Tell us why products were over-declared | Tell us about your duty suspended deliveries | Tell us about spirits produced in the past three months | Check duty payable and send your return |
+      | Completed                                         | Completed    | Completed     | Completed    | Completed       | Completed                        | Completed                                  | Completed           | Completed                                | Completed                               | Completed                                    | Completed                                               | Not yet started                         |
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "−£6,938,636.71"
+    Then I am presented with the "Return Summary Page" "−£6,938,049.47"
     And I should see the following details of the table 1 at the returns summary page
       | Spirits declared                  | £8,528.05      | Change |
       | Wine declared                     | £7,461.84      | Change |
@@ -1337,7 +1337,7 @@ Feature: Alcohol Duty Returns Journey
       | Spirits production     | Nothing to declare | Change |
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed −£6,938,636.71"
+    And the page source contains "You are owed −£6,938,049.47"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
