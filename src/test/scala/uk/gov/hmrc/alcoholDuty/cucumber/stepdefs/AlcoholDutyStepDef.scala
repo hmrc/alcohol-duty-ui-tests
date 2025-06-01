@@ -30,7 +30,7 @@ class AlcoholDutyStepDef extends BaseStepDef {
       case "Alcohol Duty Service" =>
         AuthLoginStubPage.enterRedirectURL(
          // TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AC"
+            TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AD"
 
         )
     }
