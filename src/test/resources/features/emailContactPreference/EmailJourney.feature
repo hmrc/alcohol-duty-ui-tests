@@ -5,26 +5,27 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
   Background: : Common Steps - Alcohol duty journey is redirected to Business Tax Account
     Given I cleared the data for the service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Business Tax Account Page"
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "AABCP0000100208" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP9002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "Business Tax Account Page"
+    Then I am presented with the "How Would You Like To Be Contacted"
 
 
   Scenario:1. Email Contact preference Journey - Happy Path - Change to Email
 #Change to Email
-    When I am presented with the "Business Tax Account Page"
-    And I click on "Change to email" hyperlink on "Business Tax Account Page"
-    Then I am presented with the "How would you like to be contacted Page"
-    When I select radio button "Email me when I have a message in my account" on "How would you like to be contacted"
-    And I click continue button on "How would you like to be contacted"
-    Then I am presented with the "What is the email address we should use to contact you about your Alcohol Duty"
-    When I enter "test@gmail.com" on "What is the email address we should use to contact you about your Alcohol Duty page"
-    And I click continue button on "What is the email address we should use to contact you about your Alcohol Duty"
-    Then I am presented with the "Enter code to confirm your email address"
-    When I enter "DNCLRK" on "Enter code to confirm your email address page"
-    And I click confirm button on "Enter code to confirm your email address page"
+#    When I am presented with the "Business Tax Account Page"
+#    And I click on "Change to email" hyperlink on "Business Tax Account Page"
+#    Then I am presented with the "How would you like to be contacted Page"
+    When I am presented with the "How Would You Like To Be Contacted"
+    And I select radio button "Email me when I have a message in my account" on "How Would You Like To Be Contacted"
+    And I click continue button on "How Would You Like To Be Contacted"
+    Then I am presented with the "Enter Email Address Page"
+    When I enter "test@gmail.com" on "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    Then I am presented with the External "Email Verification Page"
+    When I enter "DNCLRK" on "Email Verification Page"
+    And I click confirm button on "Email Verification Page"
     Then I am presented with the "Contact Preference Check Your Answers Page"
     And I should see the following details
       | How would you like to be contacted?| Email me when I have a message in my account   | Change |
