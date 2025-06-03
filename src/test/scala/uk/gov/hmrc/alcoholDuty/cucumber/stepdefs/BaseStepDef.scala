@@ -69,6 +69,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
+  Then("""I am presented with the External {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
   Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL

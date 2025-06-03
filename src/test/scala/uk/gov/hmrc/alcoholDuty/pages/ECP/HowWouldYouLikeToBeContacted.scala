@@ -19,9 +19,9 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ECPWhatEmailAddress extends BasePage {
+object HowWouldYouLikeToBeContacted extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/method"
   override val title       = "How would you like to be contacted?"
 
   override def expectedPageTitle: Option[String]  = Some(

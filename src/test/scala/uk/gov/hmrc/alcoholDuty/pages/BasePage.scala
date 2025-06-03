@@ -254,39 +254,38 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     //      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
 
   }
+    def previousPeriodKey: String = {
+      val currentDate = LocalDate.now()
+      val month = currentDate.getMonthValue
+      val year = currentDate.getYear
 
-  def previousPeriodKey: String = {
-    val currentDate = LocalDate.now()
-    val month = currentDate.getMonthValue
-    val year = currentDate.getYear
+      // Determine the base year suffix
+      val yearSuffix = if (month == 1 || month == 2 || month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
 
-    // Determine the base year suffix
-    val yearSuffix = if (month == 1||month == 2||month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+      // Determine the previous period key based on the month
+      val previousPeriodKey = month match {
+        // Quarter 1 (Jan-Mar) -> Previous period is December
+        case 1 | 2 | 3 => s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
 
-    // Determine the previous period key based on the month
-    val previousPeriodKey = month match {
-      // Quarter 1 (Jan-Mar) -> Previous period is December
-      case 1 | 2| 3=> s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
-
-      // Quarter 2 (Apr-Jun) -> Previous period is March
-      case 4 |5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
-
-
-      // Quarter 3 (Jul-Sep) -> Previous period is June
-      case 7 |8 | 9=> s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
+        // Quarter 2 (Apr-Jun) -> Previous period is March
+        case 4 | 5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
 
 
-      // Quarter 4 (Oct-Dec) -> Previous period is September
-      case 10| 11| 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
+        // Quarter 3 (Jul-Sep) -> Previous period is June
+        case 7 | 8 | 9 => s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
 
 
-      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+        // Quarter 4 (Oct-Dec) -> Previous period is September
+        case 10 | 11 | 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
+
+
+        case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+      }
+
+
+      previousPeriodKey
     }
-
-
-    previousPeriodKey
-  }
-
+  
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)
