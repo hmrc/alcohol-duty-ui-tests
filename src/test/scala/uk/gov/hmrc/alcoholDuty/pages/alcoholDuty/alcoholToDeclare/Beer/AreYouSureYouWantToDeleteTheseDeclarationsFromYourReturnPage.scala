@@ -34,7 +34,7 @@ object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnPage extends Base
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to delete these declarations from your return - Manage your Alcohol Duty - GOV.UK"
+    "Are you sure you want to delete these declarations from your return? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("Are you sure you want to delete these declarations from your return?")
