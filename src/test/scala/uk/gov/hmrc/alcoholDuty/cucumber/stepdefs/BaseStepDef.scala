@@ -130,6 +130,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSaveAndContinueButton()
   }
+  
+  When("""I click confirm and continue button on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickConfirmAndContinueButton()
+  }
 
   When("""I click continue button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader

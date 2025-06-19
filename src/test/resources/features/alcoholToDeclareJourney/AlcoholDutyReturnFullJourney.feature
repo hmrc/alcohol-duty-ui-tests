@@ -1477,11 +1477,12 @@ Feature: Alcohol Duty Returns Journey
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "You have some missing details Page"
-    And I select radio button "Delete these declarations from this return" on "You have some missing details Page"
-    When I click save and continue button on "You have some missing details Page"
-    Then I am presented with the "Are you sure you want to delete these declarations from your return Page"
-    And  I select radio button "Yes, delete these declarations" on "Are you sure you want to delete these declarations from your return Page"
+    Then I am presented with the "You Have Some Missing Details Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Page"
+    When I click save and continue button on "You Have Some Missing Details Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I should see the following text on the page
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |

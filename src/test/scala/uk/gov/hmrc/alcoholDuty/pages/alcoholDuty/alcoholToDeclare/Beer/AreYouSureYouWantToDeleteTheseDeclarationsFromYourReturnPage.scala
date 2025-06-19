@@ -30,7 +30,7 @@ object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnPage extends Base
   override val title          = "Are you sure you want to delete these declarations from your return?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Are you sure you want to delete these declarations from your return - Manage your Alcohol Duty - GOV.UK"
+    "Error: Are you sure you want to delete these declarations from your return? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
