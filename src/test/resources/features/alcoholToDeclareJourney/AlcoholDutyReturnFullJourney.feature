@@ -1603,8 +1603,6 @@ Feature: Alcohol Duty Returns Journey
     And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Page"
     When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
-    And I click save and continue button on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "Check Your Answers Returns Beer Page"
     And I should see the following text on the page
 #      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
 #      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     |
