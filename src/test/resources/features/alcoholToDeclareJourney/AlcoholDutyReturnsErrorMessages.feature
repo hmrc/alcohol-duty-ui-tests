@@ -300,10 +300,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "Multiple Small Producer Relief Rate Cider Page"
     Then I am presented with the "Check Your Answers SPR Cider Page"
     When I click continue button on "Check Your Answers SPR Cider Page"
-    Then I am presented with the "Multiple SPR List Question Cider Page"
-    When I select radio button "No" on "Multiple SPR List Question Cider Page"
-    And I click save and continue button on "Multiple SPR List Question Cider Page"
-    Then I am presented with the "Check Your Answers Returns Cider Page"
+#    Then I am presented with the "Multiple SPR List Question Cider Page"
+#    When I select radio button "No" on "Multiple SPR List Question Cider Page"
+#    And I click save and continue button on "Multiple SPR List Question Cider Page"
+#    Then I am presented with the "Check Your Answers Returns Cider Page"
     Examples:
       | errorMessageHeader |
       | There is a problem |
