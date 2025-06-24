@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.OtherFermente
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object YouHaveSomeMissingDetailsOtherFermentedPage extends BasePage {
+object YouHaveSomeMissingDetailsOtherFermentedProductPage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/missing-details"
   override val newUrl: String =

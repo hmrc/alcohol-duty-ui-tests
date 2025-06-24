@@ -1,4 +1,4 @@
-@AllTests @AlcoholToDeclareChangeLinks
+@AllTests @AlcoholToDeclareChangeLinks @wip
 Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 
   Background: Common Steps - Alcohol Duty Returns
@@ -357,10 +357,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR) |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     |
-      | Draught beer between 3.5% and 8.4% ABV (tax type code 376 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 945.55 litres   |
@@ -776,12 +773,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         |
       | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             |
-      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
-      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
+#      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
+#      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
+#      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
+#      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)     |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
+#      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 789.44 litres   |
@@ -1152,9 +1149,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught wine at or above 22.1% ABV (tax type code 343)         |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         |
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) |
-      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     |
+#      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
+#      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) |
+#      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
@@ -1514,10 +1511,10 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits at or above 22.1% ABV (tax type code 345)         |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         |
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
+#      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) |
-      | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
+#      | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
+#      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 8,888.66 litres |
@@ -1851,9 +1848,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) |
-      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     |
+#      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
+#      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) |
+#      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |

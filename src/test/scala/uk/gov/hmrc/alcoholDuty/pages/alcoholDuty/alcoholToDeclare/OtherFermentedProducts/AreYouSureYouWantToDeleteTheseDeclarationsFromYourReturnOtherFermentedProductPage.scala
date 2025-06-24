@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.OtherFermente
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnOtherFermentedProductsPage extends BasePage {
+object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnOtherFermentedProductPage extends BasePage {
 
   override val url: String    = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
