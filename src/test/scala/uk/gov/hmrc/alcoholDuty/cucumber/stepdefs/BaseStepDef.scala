@@ -116,7 +116,9 @@ trait BaseStepDef
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
+    
   }
+  
 
   When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
     checkBoxAction match {
