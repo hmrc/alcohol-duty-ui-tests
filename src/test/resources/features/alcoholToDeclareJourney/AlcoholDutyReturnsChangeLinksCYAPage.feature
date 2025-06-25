@@ -1,4 +1,4 @@
-@AllTests @AlcoholToDeclareChangeLinks
+@AllTests @AlcoholToDeclareChangeLinks @wip
 Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 
   Background: Common Steps - Alcohol Duty Returns
@@ -343,6 +343,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | 8,888.88                       | 88.8800                      | £22.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Beer Page"
     And I click save and continue button on "Multiple SPR List Question Beer Page"
+    Then I am presented with the "You Have Some Missing Details Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Page"
+    When I click save and continue button on "You Have Some Missing Details Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
     And I should see the following text on the page
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
@@ -351,10 +357,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 366 SPR) |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     |
-      | Draught beer between 3.5% and 8.4% ABV (tax type code 376 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 945.55 litres   |
@@ -756,6 +759,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR) | 8,888.88                       | 88.8800                      | £8.88                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Cider Page"
     And I click save and continue button on "Multiple SPR List Question Cider Page"
+    Then I am presented with the "You Have Some Missing Details Cider Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Cider Page"
+    When I click save and continue button on "You Have Some Missing Details Cider Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Cider Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Cider Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Cider Page"
     Then I am presented with the "Check Your Answers Returns Cider Page"
     And I should see the following text on the page
       | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312)                                                   |
@@ -764,12 +773,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught cider between 1.3% and 3.4% ABV (tax type code 352)                                                       |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357)         |
       | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 359)                                             |
-      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
-      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
-      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
-      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
+#      | Non-draught cider between 1.3% and 3.4% ABV (tax type code 362 SPR)                                               |
+#      | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) |
+#      | Non-draught sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR)                                     |
+#      | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR)                                                   |
       | Draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR)     |
-      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
+#      | Draught sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)                                         |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 789.44 litres   |
@@ -1126,6 +1135,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR) | 999.99                         | 88.8800                      | £7.77                 | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Wine Page"
     And I click save and continue button on "Multiple SPR List Question Wine Page"
+    Then I am presented with the "You Have Some Missing Details Wine Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Wine Page"
+    When I click save and continue button on "You Have Some Missing Details Wine Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Wine Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Wine Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Wine Page"
     Then I am presented with the "Check Your Answers Returns Wine Page"
     And I should see the following text on the page
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     |
@@ -1134,9 +1149,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught wine at or above 22.1% ABV (tax type code 343)         |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         |
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) |
-      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     |
+#      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
+#      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) |
+#      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR)     |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 378 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
@@ -1482,6 +1497,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Spirits Page"
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
+    Then I am presented with the "You Have Some Missing Details Spirits Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Spirits Page"
+    When I click save and continue button on "You Have Some Missing Details Spirits Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Spirits Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Spirits Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     And I should see the following text on the page
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     |
@@ -1490,10 +1511,10 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught spirits at or above 22.1% ABV (tax type code 345)         |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         |
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
+#      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) |
-      | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
+#      | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
+#      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 8,888.66 litres |
@@ -1813,6 +1834,12 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) | 8,888.88                       | 888.8800                     | £88.00                | Change Remove |
     When I select radio button "No" on "Multiple SPR List Question Other Fermented Product Page"
     And I click save and continue button on "Multiple SPR List Question Other Fermented Product Page"
+    Then I am presented with the "You Have Some Missing Details Other Fermented Product Page"
+    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Other Fermented Product Page"
+    When I click save and continue button on "You Have Some Missing Details Other Fermented Product Page"
+    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Other Fermented Product Page"
+    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Other Fermented Product Page"
+    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I should see the following text on the page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     |
@@ -1821,9 +1848,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) |
-      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     |
+#      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
+#      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) |
+#      | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR)     |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)     |
     And I check the page source for the following key-value pairs:
       | key          | value           |

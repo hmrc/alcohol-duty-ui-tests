@@ -47,6 +47,9 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
       case "Draught beer between 3.5% and 8.4% ABV (376 SPR)"     => click on cssSelector("#volumesWithRate_taxType-4")
     }
 
+
+
+
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
       case "Total litres"           => enterText("volumesWithRate_totalLitres", textToEnter)
