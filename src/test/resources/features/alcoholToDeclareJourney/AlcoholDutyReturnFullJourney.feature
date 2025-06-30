@@ -1036,16 +1036,16 @@ Feature: Alcohol Duty Returns Journey
     And I click save and continue button on "Multiple SPR List Question Spirits Page"
     Then I am presented with the "Check Your Answers Returns Spirits Page"
     And I should see the following text on the page
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     |
-      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)         |
-      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         |
+      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) |
+      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) |
+      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)  |
+      | Non-draught spirits at or above 22.1% ABV (tax type code 345)     |
+      | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)     |
+      | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)     |
 #      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
 #      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) |
 #      | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR)     |
-      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)     |
+      | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) |
     And I check the page source for the following key-value pairs:
       | key          | value           |
       | Total volume | 8,888.66 litres |
@@ -1532,8 +1532,8 @@ Feature: Alcohol Duty Returns Journey
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
-     | Tell us if you have alcoholic products to declare | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
-    | Completed                                         | Completed    | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                            |Not yet started |Not yet started |
+      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
+      | Completed                                         | Completed    | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                            | Not yet started                                                              | Not yet started                                         |
 
   Scenario:6. Alcohol Duty Returns Journey - Happy Path - Add Missing Details
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
@@ -1636,10 +1636,10 @@ Feature: Alcohol Duty Returns Journey
 #      | Pure alcohol | 66.4400 litres  |
       | Total volume | 9,999.99 litres |
       | Pure alcohol | 89.9999 litres  |
-      | Total volume | 7777.77 litres   |
+      | Total volume | 7777.77 litres  |
       | Pure alcohol | 777.7777 litres |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-   Then I am presented with the "Duty Due Beer Page" "£62,197.76"
+    Then I am presented with the "Duty Due Beer Page" "£62,197.76"
     And I should see the following product details
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
 #      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.61                 | £533.83    | Change |
