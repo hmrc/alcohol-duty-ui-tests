@@ -92,8 +92,8 @@ Feature: Alcohol Duty Journey - Task List Page
 
   Scenario: 4. DSD Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Declare Duty Suspended Deliveries Page
     When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
-    Then I am presented with the "Report Duty Suspended Deliveries Page"
-    When I select radio button "No" on "Report Duty Suspended Deliveries Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "No" on "Declare Duty Suspended Deliveries Page"
     And I click save and continue button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -102,10 +102,10 @@ Feature: Alcohol Duty Journey - Task List Page
 
   Scenario: 5. DSD Journey - To verify the status of the submission changes to 'Not yet started' if the journey is incomplete
     When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
-    Then I am presented with the "Report Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
-    And I click save and continue button on "Report Duty Suspended Deliveries Page"
-    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
     When I click back button on "Duty Suspended Deliveries Guidance Page"
     And I click back button on "Declare Duty Suspended Deliveries Page"
     Then I am presented with the "Task List Page"
@@ -115,25 +115,23 @@ Feature: Alcohol Duty Journey - Task List Page
 
   Scenario: 6. DSD Journey - To verify the status of the submission to 'In progress' if the journey stops at midway
     When I click on "Tell us if you have delivered or received finished products in duty suspense" hyperlink on "Task List Page"
-    Then I am presented with the "Report Duty Suspended Deliveries Page"
-    When I select radio button "Yes" on "Report Duty Suspended Deliveries Page"
-    And I click save and continue button on "Report Duty Suspended Deliveries Page"
-    Then I am presented with the "SelectFinishedAlcoholDeliveredReceivedPage"
-    When I "select" checkbox "Beer" on "SelectFinishedAlcoholDeliveredReceivedPage"
-    And I click save and continue button on "SelectFinishedAlcoholDeliveredReceivedPage"
-    And I enter "999.99" for "Total Litres Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "88.1234" for "Pure Alcohol Delivered Inside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "999.99" for "Total Litres Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "88.1234" for "Pure Alcohol Delivered Outside UK" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "999.99" for "Total Litres Received" on "Quantities Of Duty Suspended Beer Page"
-    And I enter "88.1234" for "Pure Alcohol Received" on "Quantities Of Duty Suspended Beer Page"
-    And I click save and continue button on "Quantities Of Duty Suspended Beer Page"
-    Then I am presented with the "Duty Suspended Deliveries Calculation Page"
+    Then I am presented with the "Declare Duty Suspended Deliveries Page"
+    When I select radio button "Yes" on "Declare Duty Suspended Deliveries Page"
+    And I click save and continue button on "Declare Duty Suspended Deliveries Page"
+    Then I am presented with the "Duty Suspended Deliveries Guidance Page"
+    When I click continue button on "Duty Suspended Deliveries Guidance Page"
+    Then I am presented with the "Duty Suspended Beer Page"
+    When I enter "8888.88" for "Total Beer" on "Duty Suspended Beer Page"
+    And I enter "88.88" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
+    And I click save and continue button on "Duty Suspended Beer Page"
+    Then I am presented with the "Duty Suspended Cider Page"
+    When I enter "9999.99" for "Total Cider" on "Duty Suspended Cider Page"
+    And I enter "99.99" for "Pure Alcohol In Cider" on "Duty Suspended Cider Page"
     When I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
       | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Change the entries you’ve told us about | Tell us about spirits produced in the past three months |
-      | Not yet started                                   | Not yet started                            | Completed                                                                    | Completed                               | Not yet started                                         |
+      | Not yet started                                   | Not yet started                            | Completed                                                                    | In progress                             | Not yet started                                         |
 
   Scenario: 7. QSR Journey - To verify the status of the submission changes from 'Not yet started' to 'Completed' if the answer is set to 'No' at the Quarterly Spirits Returns Guidance Page
     When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
