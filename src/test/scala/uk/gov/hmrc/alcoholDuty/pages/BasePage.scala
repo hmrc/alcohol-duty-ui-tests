@@ -348,8 +348,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val lastDayOfPreviousMonth: String  = firstDayCurrentMonth
-    .minusDays(1)
     .minusMonths(1)
+    .minusDays(1)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
