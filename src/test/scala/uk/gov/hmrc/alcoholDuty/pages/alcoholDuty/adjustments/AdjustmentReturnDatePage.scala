@@ -24,20 +24,20 @@ object AdjustmentReturnDatePage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/return-period"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/return-period"
-  override val title          = "When should you have paid duty?"
+  override val title          = "What return period do you need to adjust?"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: When should you have paid duty? - Manage your Alcohol Duty - GOV.UK"
+    "Error: What return period do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "When should you have paid duty? - Manage your Alcohol Duty - GOV.UK"
+    "What return period do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("When should you have paid duty?")
+  override def expectedPageHeader: Option[String] = Some("What return period do you need to adjust?")
 
   override def enterDate(month: String, year: String): Unit = {
-    enterText("when-did-you-pay-duty-input.month", month)
-    enterText("when-did-you-pay-duty-input.year", year)
+    enterText("adjustment-return-period-input.month", month)
+    enterText("adjustment-return-period-input.year", year)
   }
 }
