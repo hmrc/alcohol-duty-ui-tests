@@ -42,7 +42,7 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']")
       case "Description" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type']")
-      case "Original return period" =>
+      case "Return period being adjusted" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']")
       case "Tax type" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")

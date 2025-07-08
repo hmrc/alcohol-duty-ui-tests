@@ -65,7 +65,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Over-declared   | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | −£2,455.39 | Change Remove |
 
   @Test
-  Scenario:2- Adjustments Journey - Change Link Functionality for Original Return Period And Tax Type and SPR Duty Rate - Over-declaration - Cider
+  Scenario:2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
     Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Over-declaration"
@@ -85,8 +85,8 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following details
       | Adjustment    | Return period being adjusted| Tax type                                                        | SPR duty rate | Volume                                                | Duty value |
       | Over-declared | October 2023                | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | £9.80         | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,455.39 |
-#    Change Link Functionality for Original return period starts here
-    When I click "Original return period" on "Adjustment Check Your Answers Page"
+#    Change Link Functionality for Return period being adjusted starts here
+    When I click "Return period being adjusted" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Return Date Over Dec Page" with new url
     When I enter month "12" and year "2023" on "Adjustment Return Date Over Dec Page"
     And I click save and continue button on "Adjustment Return Date Over Dec Page"
