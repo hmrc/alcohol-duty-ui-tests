@@ -33,7 +33,7 @@ Feature: Adjustments Journey - Error Message Validations
     When I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Return Date Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Enter the date you paid duty |
+      | Enter the return period you need to adjust |
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"

@@ -2023,8 +2023,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Original return period | Tax type                                                       | Volume                                            | Duty value |
-      | Under-declared | September 2023         | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 123.45 litres,5.5000 litres of pure alcohol (LPA) | £50.98     |
+      | Adjustment     | Return period being adjusted | Tax type                                                       | Volume                                            | Duty value |
+      | Under-declared | September 2023               | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 123.45 litres,5.5000 litres of pure alcohol (LPA) | £50.98     |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2050,8 +2050,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Original return period | Tax type                                                        | Volume                                             | Duty value |
-      | Over-declared | October 2023           | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | 222.22 litres,22.2200 litres of pure alcohol (LPA) | −£205.97   |
+      | Adjustment    | Return period being adjusted | Tax type                                                        | Volume                                             | Duty value |
+      | Over-declared | October 2023                 | Non-draught cider between 1.3% and 3.4% ABV (tax type code 312) | 222.22 litres,22.2200 litres of pure alcohol (LPA) | −£205.97   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2085,8 +2085,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Original tax type                                              | New tax type                                                       | SPR duty rate | Volume                                                | Duty value |
-      | Repackaged | November 2023          | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | £11.50        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £425.93    |
+      | Adjustment | Return period being adjusted | Original tax type                                              | New tax type                                                       | SPR duty rate | Volume                                                | Duty value |
+      | Repackaged | November 2023                | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | £11.50        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £425.93    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -2140,8 +2140,8 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Original return period | Tax type                                                                           | Volume                                                | Duty value |
-      | Drawback   | October 2023           | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
+      | Adjustment | Return period being adjusted | Tax type                                                                           | Volume                                                | Duty value |
+      | Drawback   | October 2023                 | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
