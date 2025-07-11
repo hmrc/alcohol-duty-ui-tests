@@ -317,6 +317,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Declare wine" hyperlink on "Task List Page"
+    Then I am presented with the "Declaring Your Wine For Duty"
+    And I click continue button on "Declaring Your Wine For Duty"
     Then I am presented with the "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
     Then I am presented with the "What Do You Need To Declare Wine Page" error page
@@ -403,6 +405,8 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
     When I click on "Declare wine" hyperlink on "Task List Page"
+    Then I am presented with the "Declaring Your Wine For Duty"
+    And I click continue button on "Declaring Your Wine For Duty"
     Then I am presented with the "What Do You Need To Declare Wine Page"
     When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
