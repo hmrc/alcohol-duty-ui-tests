@@ -30,6 +30,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
       | Completed                                         | Not yet started | Not yet started                  | Not yet started                            | Not yet started                                                              |
     #Wine - When Multiple SPR is set to 'No'
     When I click on "Declare wine" hyperlink on "Task List Page"
+    Then I am presented with the "Declaring Your Wine For Duty"
+    And I click continue button on "Declaring Your Wine For Duty"
     Then I am presented with the "What Do You Need To Declare Wine Page"
     When I "select" checkbox "Wine between 1.3% and 3.4% ABV (tax type code 313)" on "What Do You Need To Declare Wine Page"
     And I click save and continue button on "What Do You Need To Declare Wine Page"
