@@ -450,6 +450,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         .findElement(By.cssSelector(".govuk-task-list__name-and-hint"))
         .getText
         .trim
+        .replaceAll("""\nYou can adjust declared.*""", "")
         .replaceAll("""\nEvery three months.*""", "")
       val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
       Map(key -> value)
