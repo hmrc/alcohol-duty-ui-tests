@@ -26,14 +26,14 @@ object TaskListPage extends BasePage {
   override val title       = "Alcohol Duty return"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Complete your Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
+    "Error: Complete your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Complete your Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
+    "Complete your Alcohol Duty return - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some(
-    "Complete your Alcohol Duty Return"
+    "Complete your Alcohol Duty return"
   )
 }

@@ -246,6 +246,6 @@ Feature: Alcohol Duty Journey - Task List Page
       | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
       | Not yet started                                   | Completed                                  | Completed           | Not yet started                                                              | Not yet started                                         |
 
-  Scenario: 11. Send Return - To verify 'Cannot start' status at the Task List page
-    And the status of the Send return is marked as "Cannot Start"
+  Scenario: 11. Send Return - To verify 'Cannot start yet' status at the Task List page
+    And the status of the Send return is marked as "Cannot start yet"
   #'Not yet started' status is covered under alcohol return full journey scenario

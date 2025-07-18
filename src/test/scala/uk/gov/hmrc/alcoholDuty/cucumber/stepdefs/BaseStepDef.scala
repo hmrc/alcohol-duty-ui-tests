@@ -357,12 +357,12 @@ trait BaseStepDef
       // This is the most recent month with quarterly spirits
       case "Latest Month Selected" =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + getDateRange + "."
+          "Use this service to submit your Alcohol Duty return for " + getDateRange + "."
         )
 
       case "Previous Month Selected"         =>
         actualText should be(
-          "Use this service to submit your Alcohol Duty Return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
+          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
         )
     }
   }
@@ -516,7 +516,7 @@ trait BaseStepDef
   }
 
   And("""the status of the Send return is marked as {string}""") { (sendReturnStatus: String) =>
-    val expected = driver.findElement(By.xpath("//strong[@class='govuk-tag govuk-tag--grey']")).getText
+    val expected = driver.findElement(By.xpath("//div[@id='checkAndSubmit-1-status']")).getText ////strong[@class='govuk-tag govuk-tag--grey
     sendReturnStatus should be(expected)
   }
 
