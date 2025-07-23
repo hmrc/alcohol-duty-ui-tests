@@ -61,8 +61,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
+      | Beer between 8.5% and 22% ABV (tax type code 331)                  |
+      | Beer at or above 22.1% ABV (tax type code 341)                     |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
@@ -101,8 +101,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5555                      | £9.61                 | £533.88    | Change |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
+      | Beer between 8.5% and 22% ABV (tax type code 331)                  | 66.3400                      | £29.54                | £1,959.68  | Change |
+      | Beer at or above 22.1% ABV (tax type code 341)                     | 99.1300                      | £32.79                | £3,250.47  | Change |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
@@ -265,8 +265,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         |
+      | Wine between 8.5% and 22% ABV (tax type code 333)                  |
+      | Wine at or above 22.1% ABV (tax type code 343)                     |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
@@ -305,8 +305,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.61                 | £341.63    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £25.67                | £2,281.54  | Change |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £29.54                | £656.37    | Change |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £32.79                | £2,695.99  | Change |
+      | Wine between 8.5% and 22% ABV (tax type code 333)                  | 22.2200                      | £29.54                | £656.37    | Change |
+      | Wine at or above 22.1% ABV (tax type code 343)                     | 82.2200                      | £32.79                | £2,695.99  | Change |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.28                 | £184.89    | Change |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £18.76                | £460.55    | Change |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
@@ -358,8 +358,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)         |
+      | Spirits between 8.5% and 22% ABV (tax type code 335)                  |
+      | Spirits at or above 22.1% ABV (tax type code 345)                     |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
@@ -398,8 +398,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                           | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315)     | 88.8000                      | £9.61                 | £853.36    | Change |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)     | 77.7700                      | £25.67                | £1,996.35  | Change |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)      | 66.6600                      | £29.54                | £1,969.13  | Change |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Spirits between 8.5% and 22% ABV (tax type code 335)                  | 66.6600                      | £29.54                | £1,969.13  | Change |
+      | Spirits at or above 22.1% ABV (tax type code 345)                     | 55.5500                      | £32.79                | £1,821.48  | Change |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)         | 44.4400                      | £8.28                 | £367.96    | Change |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)         | 33.3300                      | £18.76                | £625.27    | Change |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) | 99.4500                      | £15.00                | £1,491.75  | Change |
@@ -451,8 +451,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         |
+      | Other fermented products between 8.5% and 22% ABV (tax type code 334)                  |
+      | Other fermented products at or above 22.1% ABV (tax type code 344)                     |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
@@ -491,8 +491,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.61                 | £320.30    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £25.67                | £570.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £29.54                | £1,312.75  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Other fermented products between 8.5% and 22% ABV (tax type code 334)                  | 44.4400                      | £29.54                | £1,312.75  | Change |
+      | Other fermented products at or above 22.1% ABV (tax type code 344)                     | 55.5500                      | £32.79                | £1,821.48  | Change |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.28                 | £551.94    | Change |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £18.76                | £648.15    | Change |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) | 77.7700                      | £15.00                | £1,166.55  | Change |
@@ -792,8 +792,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
+      | Beer between 8.5% and 22% ABV (tax type code 331)                  |
+      | Beer at or above 22.1% ABV (tax type code 341)                     |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
@@ -819,8 +819,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.61                 | £533.83    | Change |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
+      | Beer between 8.5% and 22% ABV (tax type code 331)                  | 66.3400                      | £29.54                | £1,959.68  | Change |
+      | Beer at or above 22.1% ABV (tax type code 341)                     | 99.1300                      | £32.79                | £3,250.47  | Change |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 89.9999                      | £19.00                | £1,709.99  | Change |
@@ -959,8 +959,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         |
+      | Wine between 8.5% and 22% ABV (tax type code 333)                  |
+      | Wine at or above 22.1% ABV (tax type code 343)                     |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         |
 #      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) |
@@ -989,8 +989,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313)     | 35.5500                      | £9.61                 | £341.63    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323)     | 88.8800                      | £25.67                | £2,281.54  | Change |
-      | Non-draught wine between 8.5% and 22% ABV (tax type code 333)      | 22.2200                      | £29.54                | £656.37    | Change |
-      | Non-draught wine at or above 22.1% ABV (tax type code 343)         | 82.2200                      | £32.79                | £2,695.99  | Change |
+      | Wine between 8.5% and 22% ABV (tax type code 333)                  | 22.2200                      | £29.54                | £656.37    | Change |
+      | Wine at or above 22.1% ABV (tax type code 343)                     | 82.2200                      | £32.79                | £2,695.99  | Change |
       | Draught wine between 1.3% and 3.4% ABV (tax type code 353)         | 22.3300                      | £8.28                 | £184.89    | Change |
       | Draught wine between 3.5% and 8.4% ABV (tax type code 358)         | 24.5500                      | £18.76                | £460.55    | Change |
       | Non-draught wine between 3.5% and 8.4% ABV (tax type code 368 SPR) | 66.4300                      | £15.65                | £1,039.62  | Change |
@@ -1042,8 +1042,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)  |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)     |
+      | Spirits between 8.5% and 22% ABV (tax type code 335)              |
+      | Spirits at or above 22.1% ABV (tax type code 345)                 |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)     |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)     |
 #      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 365 SPR) |
@@ -1072,8 +1072,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                       | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 88.8000                      | £9.61                 | £853.36    | Change |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) | 77.7700                      | £25.67                | £1,996.35  | Change |
-      | Non-draught spirits between 8.5% and 22% ABV (tax type code 335)  | 66.6600                      | £29.54                | £1,969.13  | Change |
-      | Non-draught spirits at or above 22.1% ABV (tax type code 345)     | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Spirits between 8.5% and 22% ABV (tax type code 335)              | 66.6600                      | £29.54                | £1,969.13  | Change |
+      | Spirits at or above 22.1% ABV (tax type code 345)                 | 55.5500                      | £32.79                | £1,821.48  | Change |
       | Draught spirits between 1.3% and 3.4% ABV (tax type code 355)     | 44.4400                      | £8.28                 | £367.96    | Change |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 360)     | 33.3300                      | £18.76                | £625.27    | Change |
       | Draught spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) | 55.5500                      | £20.00                | £1,111.00  | Change |
@@ -1126,8 +1126,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         |
+      | Other fermented products between 8.5% and 22% ABV (tax type code 334)                  |
+      | Other fermented products at or above 22.1% ABV (tax type code 344)                     |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         |
 #      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR) |
@@ -1156,8 +1156,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                                            | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314)     | 33.3300                      | £9.61                 | £320.30    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324)     | 22.2200                      | £25.67                | £570.38    | Change |
-      | Non-draught other fermented products between 8.5% and 22% ABV (tax type code 334)      | 44.4400                      | £29.54                | £1,312.75  | Change |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344)         | 55.5500                      | £32.79                | £1,821.48  | Change |
+      | Other fermented products between 8.5% and 22% ABV (tax type code 334)                  | 44.4400                      | £29.54                | £1,312.75  | Change |
+      | Other fermented products at or above 22.1% ABV (tax type code 344)                     | 55.5500                      | £32.79                | £1,821.48  | Change |
       | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 354)         | 66.6600                      | £8.28                 | £551.94    | Change |
       | Draught other fermented products between 3.5% and 8.4% ABV (tax type code 359)         | 34.5500                      | £18.76                | £648.15    | Change |
       | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) | 99.9900                      | £20.00                | £1,999.80  | Change |
@@ -1501,8 +1501,8 @@ Feature: Alcohol Duty Returns Journey
     And I should see the following text on the page
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
+      | Beer between 8.5% and 22% ABV (tax type code 331)      |
+      | Beer at or above 22.1% ABV (tax type code 341)         |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
@@ -1528,8 +1528,8 @@ Feature: Alcohol Duty Returns Journey
       | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.61                 | £533.83    | Change |
       | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
-      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
-      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
+      | Beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
+      | Beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 89.9999                      | £19.00                | £1,709.99  | Change |

@@ -319,7 +319,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I click save and continue button on "How Much You Need To Declare Other Fermented Product Page"
     Then I am presented with the "Check Your Answers Returns Other Fermented Product Page"
     And I should see the following text on the page
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344) |
+      | Other fermented products at or above 22.1% ABV (tax type code 344) |
     And I check the page source for the following key-value pairs:
       | key          | value          |
       | Total volume | 945.55 litres  |
@@ -328,7 +328,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Duty Due Other Fermented Product Page" "£1,821.66"
     And I should see the following product details
       | Description                                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught other fermented products at or above 22.1% ABV (tax type code 344) | 55.5555                      | £32.79                | £1,821.66  | Change |
+      |Other fermented products at or above 22.1% ABV (tax type code 344)              | 55.5555                      | £32.79                | £1,821.66  | Change |
     When I click save and continue button on "Duty Due Other Fermented Product Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
