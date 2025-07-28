@@ -38,14 +38,14 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "How Much You Need To Declare Beer Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) - Enter the total litres           |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) - Enter the litres of pure alcohol |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321) - Enter the total litres           |
-      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321) - Enter the litres of pure alcohol |
-      | Beer between 8.5% and 22% ABV (tax type code 331) - Enter the total litres            |
-      | Beer between 8.5% and 22% ABV (tax type code 331) - Enter the litres of pure alcohol  |
-      | Beer at or above 22.1% ABV (tax type code 341) - Enter the total litres               |
-      | Beer at or above 22.1% ABV (tax type code 341) - Enter the litres of pure alcohol     |
+      | Beer between 1.3% and 3.4% ABV (tax type code 311) - Enter the total litres                       |
+      | Beer between 1.3% and 3.4% ABV (tax type code 311) - Enter the litres of pure alcohol             |
+      | Beer between 3.5% and 8.4% ABV (tax type code 321) - Enter the total litres                       |
+      | Beer between 3.5% and 8.4% ABV (tax type code 321) - Enter the litres of pure alcohol             |
+      | Beer between 8.5% and 22% ABV (tax type code 331) - Enter the total litres                        |
+      | Beer between 8.5% and 22% ABV (tax type code 331) - Enter the litres of pure alcohol              |
+      | Beer at or above 22.1% ABV (tax type code 341) - Enter the total litres                           |
+      | Beer at or above 22.1% ABV (tax type code 341) - Enter the litres of pure alcohol                 |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351) - Enter the total litres               |
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351) - Enter the litres of pure alcohol     |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356) - Enter the total litres               |
@@ -330,10 +330,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "How Much You Need To Declare Wine Page"
     Then I am presented with the "How Much You Need To Declare Wine Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313) - Enter the total litres           |
-      | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313) - Enter the litres of pure alcohol |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323) - Enter the total litres           |
-      | Non-draught wine between 3.5% and 8.4% ABV (tax type code 323) - Enter the litres of pure alcohol |
+      | Wine between 1.3% and 3.4% ABV (tax type code 313) - Enter the total litres                       |
+      | Wine between 1.3% and 3.4% ABV (tax type code 313) - Enter the litres of pure alcohol             |
+      | Wine between 3.5% and 8.4% ABV (tax type code 323) - Enter the total litres                       |
+      | Wine between 3.5% and 8.4% ABV (tax type code 323) - Enter the litres of pure alcohol             |
       | Wine between 8.5% and 22% ABV (tax type code 333) - Enter the total litres                        |
       | Wine between 8.5% and 22% ABV (tax type code 333) - Enter the litres of pure alcohol              |
       | Wine at or above 22.1% ABV (tax type code 343) - Enter the total litres                           |
@@ -465,10 +465,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     And I click save and continue button on "How Much You Need To Declare Spirits Page"
     Then I am presented with the "How Much You Need To Declare Spirits Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) - Enter the total litres           |
-      | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) - Enter the litres of pure alcohol |
-      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) - Enter the total litres           |
-      | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325) - Enter the litres of pure alcohol |
+      | Spirits between 1.3% and 3.4% ABV (tax type code 315) - Enter the total litres                       |
+      | Spirits between 1.3% and 3.4% ABV (tax type code 315) - Enter the litres of pure alcohol             |
+      | Spirits between 3.5% and 8.4% ABV (tax type code 325) - Enter the total litres                       |
+      | Spirits between 3.5% and 8.4% ABV (tax type code 325) - Enter the litres of pure alcohol             |
       | Spirits between 8.5% and 22% ABV (tax type code 335) - Enter the total litres                        |
       | Spirits between 8.5% and 22% ABV (tax type code 335) - Enter the litres of pure alcohol              |
       | Spirits at or above 22.1% ABV (tax type code 345) - Enter the total litres                           |
@@ -597,10 +597,10 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
     Then I am presented with the "How Much You Need To Declare Other Fermented Product Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) - Enter the total litres           |
-      | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) - Enter the litres of pure alcohol |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324) - Enter the total litres           |
-      | Non-draught other fermented products between 3.5% and 8.4% ABV (tax type code 324) - Enter the litres of pure alcohol |
+      | Other fermented products between 1.3% and 3.4% ABV (tax type code 314) - Enter the total litres                       |
+      | Other fermented products between 1.3% and 3.4% ABV (tax type code 314) - Enter the litres of pure alcohol             |
+      | Other fermented products between 3.5% and 8.4% ABV (tax type code 324) - Enter the total litres                       |
+      | Other fermented products between 3.5% and 8.4% ABV (tax type code 324) - Enter the litres of pure alcohol             |
       | Other fermented products between 8.5% and 22% ABV (tax type code 334) - Enter the total litres                        |
       | Other fermented products between 8.5% and 22% ABV (tax type code 334) - Enter the litres of pure alcohol              |
       | Other fermented products at or above 22.1% ABV (tax type code 344) - Enter the total litres                           |
