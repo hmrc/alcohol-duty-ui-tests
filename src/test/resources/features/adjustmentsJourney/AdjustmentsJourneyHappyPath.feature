@@ -35,8 +35,8 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Return period being adjusted | Tax type                                                       | SPR duty rate | Volume                                                | Duty value |
-      | Under-declared | September 2023               | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | £9.80         | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | £2,455.39  |
+      | Adjustment     | Return period being adjusted | Tax type                                                       | Volume                                          | Duty rate | Duty value |
+      | Under-declared | September 2023               | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.80     | £2,455.39  |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -72,8 +72,8 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment     | Return period being adjusted | Tax type                                                       | SPR duty rate | Volume                                                | Duty value |
-      | Under-declared | September 2023               | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | £6.50         | 2,000.55 litres,100.2500 litres of pure alcohol (LPA) | £651.62    |
+      | Adjustment     | Return period being adjusted | Tax type                                                       | Volume                                          | Duty rate | Duty value |
+      | Under-declared | September 2023               | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | 2,000.55 litres,100.2500 litres of pure alcohol | £6.50     | £651.62    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -104,8 +104,8 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Return period being adjusted  | Tax type                                                        | SPR duty rate | Volume                                                | Duty value |
-      | Over-declared | October 2023                  | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | £4.50         | 1,000.75 litres,150.5500 litres of pure alcohol (LPA) | −£677.47   |
+      | Adjustment    | Return period being adjusted  | Tax type                                                        | Volume                                          | Duty rate | Duty value |
+      | Over-declared | October 2023                  | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 1,000.75 litres,150.5500 litres of pure alcohol | £4.50     | −£677.47   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -132,8 +132,8 @@ Feature: Adjustments Journey
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment    | Return period being adjusted  | Tax type                                                        | SPR duty rate | Volume                                                | Duty value |
-      | Over-declared | October 2023                  | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | £4.50         | 1,000.75 litres,150.5500 litres of pure alcohol (LPA) | −£677.47   |
+      | Adjustment    | Return period being adjusted  | Tax type                                                        | Volume                                          | Duty rate | Duty value |
+      | Over-declared | October 2023                  | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 1,000.75 litres,150.5500 litres of pure alcohol | £4.50     | −£677.47   |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
@@ -194,8 +194,8 @@ Feature: Adjustments Journey
     And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
     And I should see the following details
-      | Adjustment | Description | Volume                                                | Duty value |
-      | Spoilt     | Beer        | 3,000.75 litres,250.5500 litres of pure alcohol (LPA) | −£3,255.55 |
+      | Adjustment | Description | Volume                                          | Duty value |
+      | Spoilt     | Beer        | 3,000.75 litres,250.5500 litres of pure alcohol | −£3,255.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
     And I should see the following product details
