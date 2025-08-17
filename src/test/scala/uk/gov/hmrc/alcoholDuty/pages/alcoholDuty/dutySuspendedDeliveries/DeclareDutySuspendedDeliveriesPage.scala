@@ -23,18 +23,18 @@ object DeclareDutySuspendedDeliveriesPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/do-you-need-to-report"
-  override val title       = "Have you delivered or received any duty suspended finished alcoholic product?"
+  override val title       = "Have you delivered or received finished alcoholic products under duty suspense?"
 
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Have you delivered or received any duty suspended finished alcoholic product? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Have you delivered or received finished alcoholic products under duty suspense? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Have you delivered or received any duty suspended finished alcoholic product? - Manage your Alcohol Duty - GOV.UK"
+    "Have you delivered or received finished alcoholic products under duty suspense? - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Have you delivered or received any duty suspended finished alcoholic product?")
+  override def expectedPageHeader: Option[String] = Some("Have you delivered or received finished alcoholic products under duty suspense?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
