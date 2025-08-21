@@ -233,12 +233,6 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer    | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
-      | Completed                                         | Not yet started | Not yet started                            | Not yet started                                                              |
-    #Beer
-    When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 311)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
@@ -304,12 +298,6 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Declare Alcohol Duty Question Page"
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense |
-      | Completed                                         | Not yet started                  | Not yet started                            | Not yet started                                                              |
-    #Declare other fermented products
-    When I click on "Declare other fermented products" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Other Fermented Product Page"
     When I "select" checkbox "Other fermented products at or above 22.1% ABV (tax type code 344)" on "What Do You Need To Declare Other Fermented Product Page"
     And I click save and continue button on "What Do You Need To Declare Other Fermented Product Page"
