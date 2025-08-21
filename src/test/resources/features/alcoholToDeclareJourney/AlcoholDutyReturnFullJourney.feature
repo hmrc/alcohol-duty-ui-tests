@@ -1370,8 +1370,6 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "What Alcohol Do You Need To Declare Page"
     When I "select" checkbox "Beer" on "What Alcohol Do You Need To Declare Page"
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
-    Then I am presented with the "Task List Page"
-    When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
     When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)" on "What Do You Need To Declare Beer Page"
     And I click save and continue button on "What Do You Need To Declare Beer Page"
