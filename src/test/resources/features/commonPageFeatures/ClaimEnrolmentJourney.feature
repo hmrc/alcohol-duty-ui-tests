@@ -19,7 +19,7 @@ Feature: Claim Enrolment Journey
     Then I am presented with the "Do You Have Appa Id Page"
     And I click continue button on "Do You Have Appa Id Page"
     Then I am presented with the "Do You Have Appa Id Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you have an Alcoholic Products Producer approval ID"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you have an alcoholic products producer approval ID"
 
     Examples:
       | errorMessageHeader |
