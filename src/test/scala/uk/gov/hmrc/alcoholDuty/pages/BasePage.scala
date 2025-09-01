@@ -192,6 +192,16 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     assert(actualErrorMessage.contains(errorMessage))
   }
 
+  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit = {
+    fluentWait.until(
+      ExpectedConditions.textToBePresentInElementLocated(
+        By.cssSelector(".govuk-error-summary__body"),
+        expectedErrorMessages.mkString("\n")
+      )
+    )
+    driver.findElement(By.cssSelector(".govuk-error-summary__body"))
+  }
+
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 
   def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
@@ -296,10 +306,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
       }
 
-
       previousPeriodKey
     }
-  
+
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)

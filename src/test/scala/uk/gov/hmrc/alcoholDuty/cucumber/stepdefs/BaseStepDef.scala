@@ -435,8 +435,8 @@ trait BaseStepDef
   And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
     val expectedErrorMessages = data.asScalaListOfStrings
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-//    PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
-    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
+    PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
+//    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
