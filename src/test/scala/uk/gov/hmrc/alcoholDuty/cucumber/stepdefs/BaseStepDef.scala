@@ -88,7 +88,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
-
   }
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
@@ -116,7 +115,6 @@ trait BaseStepDef
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
-    
   }
   
 
@@ -435,9 +433,10 @@ trait BaseStepDef
   }
 
   And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
-    val expectedErrorMessage = data.asScalaListOfStrings
+    val expectedErrorMessages = data.asScalaListOfStrings
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
+//    PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
+    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim

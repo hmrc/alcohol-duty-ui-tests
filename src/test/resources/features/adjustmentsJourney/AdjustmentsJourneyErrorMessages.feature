@@ -1,4 +1,4 @@
-@Test @AllTests @AdjustmentsErrorMessage
+@Test @AllTests @AdjustmentsErrorMessage @wip
 Feature: Adjustments Journey - Error Message Validations
 
   Background: : Common Steps - Adjustments Journey
@@ -192,11 +192,14 @@ Feature: Adjustments Journey - Error Message Validations
   Scenario Outline: Adjustments Journey - Error Message Validation for Beer in spoilt journey
     #    Error message validation for Beer - Beer Flow starts here
     When I select radio button "Yes" on "Declare Adjustment Question Page"
-    And I click save and continue button on "Adjustment Type Page"
+    And I click save and continue button on "Declare Adjustment Question Page"
+    Then I am presented with the "Adjustment Type Page"
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
     When I select radio button "Beer" on "Spoilt Alcohol Type Page"
-    And I click save and continue button on "Adjustment Type Page"
+    And I click save and continue button on "Spoilt Alcohol Type Page"
+    Then I am presented with the "Spoilt Beer Alcohol Volume Page"
     And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
     Then I am presented with the "Spoilt Beer Alcohol Volume Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
