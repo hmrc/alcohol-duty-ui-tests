@@ -185,6 +185,7 @@ Feature: Adjustments Journey
   Scenario: Adjustments Journey - Spoilt Journey for a user with only Beer approval
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the "Spoilt Alcohol Type Page"
     When I select radio button "Beer" on "Spoilt Alcohol Type Page"
     And I click save and continue button on "Spoilt Alcohol Type Page"
     Then I am presented with the "Spoilt Beer Alcohol Volume Page"
