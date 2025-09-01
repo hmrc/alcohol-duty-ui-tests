@@ -192,15 +192,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     assert(actualErrorMessage.contains(errorMessage))
   }
 
-  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit = {
+  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit =
     fluentWait.until(
       ExpectedConditions.textToBePresentInElementLocated(
         By.cssSelector(".govuk-error-summary__body"),
         expectedErrorMessages.mkString("\n")
       )
     )
-    driver.findElement(By.cssSelector(".govuk-error-summary__body"))
-  }
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 

@@ -1494,6 +1494,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Description                                                           | Total spirits | Total pure alcohol | Duty rate        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple SPR List Question Spirits Page"
     And I should see the following product details
       | Description                                                           | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |
