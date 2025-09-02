@@ -63,6 +63,7 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the {string}""") { (page: String) =>
+    //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
