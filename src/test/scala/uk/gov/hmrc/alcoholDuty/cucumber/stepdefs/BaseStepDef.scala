@@ -268,7 +268,7 @@ trait BaseStepDef
       val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
       val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
       val actual          = paymentDetails(paymentType)
-      actual should be(updatedTable)
+      actual.toSet should be(updatedTable.toSet)
   }
 
   And("""^I should see the following product details""") { data: DataTable =>

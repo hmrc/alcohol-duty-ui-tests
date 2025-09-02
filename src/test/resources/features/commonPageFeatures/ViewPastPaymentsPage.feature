@@ -20,13 +20,13 @@ Feature: View Past Payments Journey
       | 1Minus1Months | Payment     | −£500.00   | Claim refund |
     And I should see the below details at "Outstanding" section on "View Past Payments Page" with "FullDate"
       | To be paid by       | Description                     | Left to pay | Status         | Action       |
-      | 25Plus1Months       | Payment for Alcohol Duty return | £237.44     | Due            | Pay now|
-      | CurrentDateAndMonth | Late payment interest charge    | £20.56      | Due            | Pay now|
-      | 25Minus2Months      | Payment for Alcohol Duty return | £4,577.44   | Overdue        | Pay now|
-      | 25Minus3Months      | Payment for Alcohol Duty return | £2,577.44   | Overdue        | Pay now|
-      | 25Minus4Months      | Credit for Alcohol Duty return  | −£2,577.44  | Nothing to pay | Claim refund|
-      | 1Minus5Months       | Refund payment interest charge  | −£20.56     | Nothing to pay | Claim refund|
-      | 1Minus6Months       | Late payment interest charge    | £10.56      | Overdue        | Pay now|
+      | 25Plus1Months       | Payment for Alcohol Duty return | £237.44     | Due            | Pay now      |
+      | CurrentDateAndMonth | Late payment interest charge    | £20.56      | Due            | Pay now      |
+      | 25Minus2Months      | Payment for Alcohol Duty return | £4,577.44   | Overdue        | Pay now      |
+      | 25Minus3Months      | Payment for Alcohol Duty return | £2,577.44   | Overdue        | Pay now      |
+      | 25Minus4Months      | Credit for Alcohol Duty return  | −£2,577.44  | Nothing to pay | Claim refund |
+      | 1Minus5Months       | Refund payment interest charge  | −£20.56     | Nothing to pay | Claim refund |
+      | 1Minus6Months       | Late payment interest charge    | £10.56      | Overdue        | Pay now      |
 #      | To be paid by       | Description                     | Left to pay | Status         | Action       |
 #      | 25Plus1Months       | Payment for Alcohol Duty return | £237.44     | Due            | Pay nowamount of £237.44 due 25Plus1Months|
 #      | CurrentDateAndMonth | Late payment interest charge    | £20.56      | Due            | Pay nowamount of £20.56 due CurrentDateAndMonth|
