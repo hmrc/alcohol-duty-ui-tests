@@ -74,7 +74,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def checkPageErrorTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
+//    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
+    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.className("govuk-error-summary__title")))
     expectedPageErrorTitleList should contain(List(pageTitle))
   }
 
@@ -89,47 +90,55 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def checkURL: Assertion =
     if (url.contains("...")) {
+      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
       driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
+      fluentWait.until(ExpectedConditions.urlToBe(url))
       driver.getCurrentUrl should equal(url)
     }
 
   def checkNewURL: Assertion =
     if (newUrl.contains("...")) {
+      fluentWait.until(ExpectedConditions.urlMatches(newUrl.replace("...", "") + ".*"))
       driver.getCurrentUrl should fullyMatch regex (newUrl.replace("...", "") + ".*").r
     } else {
+      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
       driver.getCurrentUrl should equal(newUrl)
     }
 
   def checkNewURLWithTwoDynamicValues(urlPrefix: String, urlSuffix: String): Unit = {
-    val currentUrl = driver.getCurrentUrl
     if (newUrl.contains("...")) {
       val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
+      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
       validateUrl(updatedUrl)
-      currentUrl shouldBe updatedUrl
+      driver.getCurrentUrl shouldBe updatedUrl
     } else {
-      validateUrl(currentUrl)
-      currentUrl shouldBe newUrl
+      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
+      validateUrl(driver.getCurrentUrl)
+      driver.getCurrentUrl shouldBe newUrl
     }
   }
 
   def checkNewURLWithOneDynamicValue(urlSuffix: String): Unit = {
-    val currentUrl = driver.getCurrentUrl
     if (newUrl.contains("...")) {
       val updatedUrl = newUrl.replace("preFix-", "").replace("...", urlSuffix)
+      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
       validateUrl(updatedUrl)
-      currentUrl shouldBe updatedUrl
+      driver.getCurrentUrl shouldBe updatedUrl
     } else {
-      validateUrl(currentUrl)
-      currentUrl shouldBe newUrl
+      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
+      validateUrl(driver.getCurrentUrl)
+      driver.getCurrentUrl shouldBe newUrl
     }
   }
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = newUrl + urlSuffix
     if (url.contains("...")) {
+      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
       driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
+      fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
       driver.getCurrentUrl should equal(expectedUrl)
     }
   }
@@ -137,8 +146,10 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def checkExistingDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = url + urlSuffix
     if (url.contains("...")) {
+      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
       driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
+      fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
       driver.getCurrentUrl should equal(expectedUrl)
     }
   }
@@ -180,6 +191,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
     assert(actualErrorMessage.contains(errorMessage))
   }
+
+  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit =
+    fluentWait.until(
+      ExpectedConditions.textToBePresentInElementLocated(
+        By.cssSelector(".govuk-error-summary__body"),
+        expectedErrorMessages.mkString("\n")
+      )
+    )
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 
@@ -285,10 +304,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
       }
 
-
       previousPeriodKey
     }
-  
+
 
   def generateYear(Year: Int): Int =
     if (generateMonth(Month: Int) == 12)

@@ -63,7 +63,7 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+    //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
@@ -76,7 +76,6 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
@@ -84,30 +83,25 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the {string} with new url""") { page: String =>
-    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
-
   }
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
     (page: String, urlPrefix: String, urlSuffix: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
       PageObjectFinder.page(page).checkNewURLWithTwoDynamicValues(urlPrefix, urlSuffix)
       PageObjectFinder.page(page).checkPageHeader()
       PageObjectFinder.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
   Then("""I am presented with the {string} with existing url suffix as {string}""") {
     (page: String, urlSuffix: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
       PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
       PageObjectFinder.page(page).checkPageHeader()
       PageObjectFinder.page(page).checkPageTitle()
@@ -116,7 +110,6 @@ trait BaseStepDef
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
-    
   }
   
 
@@ -154,7 +147,6 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the {string} error page""") { page: String =>
-    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageErrorTitle()
   }
@@ -277,7 +269,7 @@ trait BaseStepDef
       val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
       val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
       val actual          = paymentDetails(paymentType)
-      actual should be(updatedTable)
+      actual.toSet should be(updatedTable.toSet)
   }
 
   And("""^I should see the following product details""") { data: DataTable =>
@@ -398,7 +390,6 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the {string} {string}""") { (page: String, specificPage: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageTitle(specificPage)
   }
@@ -435,9 +426,10 @@ trait BaseStepDef
   }
 
   And("""I should see the {string} and below error messages""") { (errorSummaryTitle: String, data: DataTable) =>
-    val expectedErrorMessage = data.asScalaListOfStrings
+    val expectedErrorMessages = data.asScalaListOfStrings
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
-    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessage)
+    PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
+//    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim

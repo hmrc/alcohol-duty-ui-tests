@@ -324,9 +324,6 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
 #To verify 'Change' link functionality at Multiple SPR List Question Beer Page
     When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with existing url suffix as "?index=0"
-    When I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
-    When I click "Change hyperlink" on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with existing url suffix as "?index=0"
     When I select radio button "Draught beer between 1.3% and 3.4% ABV (371 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "8888.88" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
     And I enter "88.8800" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
@@ -1439,6 +1436,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "What Do You Need To Declare Spirits Page"
     When I "select" checkbox "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)" on "What Do You Need To Declare Spirits Page"
     And I click save and continue button on "What Do You Need To Declare Spirits Page"
+    Then I am presented with the "How Much You Need To Declare Spirits Page"
     When I enter "8888.66" for "Standard spirits between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "88.8000" for "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Spirits Page" at "first" input box
     And I enter "7777.77" for "Standard spirits between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Spirits Page" at "second" input box
@@ -1496,6 +1494,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Description                                                           | Total spirits | Total pure alcohol | Duty rate        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99 litres | 88.9900 LPA        | £20.00 per litre |
     When I click continue button on "Check Your Answers SPR Spirits Page"
+    Then I am presented with the "Multiple SPR List Question Spirits Page"
     And I should see the following product details
       | Description                                                           | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 370 SPR) | 789.99                         | 88.9900                      | £20.00                | Change Remove |

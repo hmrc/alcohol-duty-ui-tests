@@ -191,6 +191,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the "Declare Adjustment Question Page" with new url
     When I select radio button "Yes" on "Declare Adjustment Question Page"
     And I click save and continue button on "Declare Adjustment Question Page"
+    Then I am presented with the "Adjustment Type Page"
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -204,6 +205,7 @@ Feature: Alcohol Duty Journey - Task List Page
     Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
+    Then I am presented with the "Adjustment Tax Type Code Page"
     And I enter redirect url for "Task List Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey
@@ -212,6 +214,7 @@ Feature: Alcohol Duty Journey - Task List Page
     When I click on "Declare adjustments" hyperlink on "Task List Page"
     Then I am presented with the "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
+    Then I am presented with the "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
     When I enter "311" on "Adjustment Tax Type Code Page"
