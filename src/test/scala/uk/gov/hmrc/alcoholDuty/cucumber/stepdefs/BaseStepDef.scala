@@ -295,6 +295,19 @@ trait BaseStepDef
 //        case (row, _) => row
 //      }
 
+      And ("""I should see the following details on {string}""") {(page:String, data: DataTable) =>
+        PageObjectFinder.page(page).waitForPageHeader
+        val expectedTable = data.asLists(classOf[String])
+          .asScala
+          .map(_.asScala.toList)
+          .toList
+          .drop(1)
+
+        val actualTable= pastPaymentDetails("Past Payments")
+
+        actualTable.toSet should be(expectedTable.toSet)
+      }
+
       // Replace placeholder "currentMonth" with actual month/year
       val updatedTable = tableWithoutHeader.map { row =>
         row.map { cell =>

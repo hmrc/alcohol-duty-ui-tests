@@ -64,10 +64,15 @@ Feature: View Past Payments Journey
 #      | November 2024       | Cleared Alcohol Duty payments                 | £2,307.44 |
 # Only current month will be verified each time as the rest is stubbed data
     And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
-      | Return period       | Description                                   | Amount    |
-      | currentMonth      | Cleared Alcohol Duty payments                 | £237.44   |
+      | Return period | Description                   | Amount  |
+      | currentMonth  | Cleared Alcohol Duty payments | £237.44 |
     When I click on "View 2024 payments" hyperlink on "View Past Payments Page"
     Then I am presented with the "Past Payments Page"
+    And I should see the following details on "Past Payments Page"
+      | Return period | Description                   | Amount    |
+      | November 2024 | Cleared Alcohol Duty payments | £2,307.44 |
+      | June 2024     | Cleared Alcohol Duty payments | £1,111.11 |
+
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error
     Given I cleared the data for the service
