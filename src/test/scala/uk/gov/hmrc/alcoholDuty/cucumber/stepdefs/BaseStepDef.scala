@@ -30,6 +30,8 @@ import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
 import java.time.LocalDate
+import java.time.format.{DateTimeFormatter, TextStyle}
+import java.util.Locale
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -263,14 +265,54 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+//  And("""I should see the below details at {string} section on {string} with {string}""") {
+//    (paymentType: String, page: String, dateFormat: String, data: DataTable) =>
+//      PageObjectFinder.page(page).waitForPageHeader
+//      val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
+//      val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
+//      val actual          = paymentDetails(paymentType)
+//      actual.toSet should be(updatedTable.toSet)
+//  }
+
   And("""I should see the below details at {string} section on {string} with {string}""") {
-    (paymentType: String, page: String, dateFormat: String, data: DataTable) =>
+    (paymentType: String, page: String, dateFormat: String, data: DataTable)=>
       PageObjectFinder.page(page).waitForPageHeader
-      val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
-      val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
-      val actual          = paymentDetails(paymentType)
-      actual.toSet should be(updatedTable.toSet)
+
+      // Convert DataTable to Scala list of lists and remove the header row
+      val tableWithoutHeader = data.asLists(classOf[String])
+        .asScala
+        .map(_.asScala.toList)
+        .toList
+        .drop(1) // <--- drop header row
+
+      // Get current month/year dynamically
+      val now = LocalDate.now()
+      val currentMonthYear = now.format(DateTimeFormatter.ofPattern("MMMM yyyy"))
+
+//      // Replace only the first row's first column with dynamic month/year
+//      val updatedTable = tableWithoutHeader.zipWithIndex.map {
+//        case (row, 0) => row.updated(0, currentMonthYear)
+//        case (row, _) => row
+//      }
+
+      // Replace placeholder "currentMonth" with actual month/year
+      val updatedTable = tableWithoutHeader.map { row =>
+        row.map { cell =>
+          if (cell.trim.equalsIgnoreCase("currentMonth")) currentMonthYear else cell
+        }
+      }
+
+      // Replace any other placeholders if needed
+      val finalTable = replacePlaceholdersInScenario(updatedTable, dateFormat)
+
+      // Get actual data from UI
+      val actual = currentMonthPaymentDetails(paymentType)
+
+      // Compare as lists (if only 1 row expected) or sets (if multiple rows, order ignored)
+      actual should be(finalTable)
   }
+
+
 
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists

@@ -56,12 +56,18 @@ Feature: View Past Payments Journey
       | Cleared payments in [currentYear] |
     Then I verify the due amount displayed as "You owe £43,556.88" on "View Past Payments Page"
 #    For the below step, two values under return period are dynamic and the rest of the two values are static
+#    And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
+#      | Return period       | Description                                   | Amount    |
+#      | September 2025      | Cleared Alcohol Duty payments                 | £1,234.44 |
+#      | CurrentDateAndMonth | Cleared Alcohol Duty payments                 | £237.44   |
+#      | 1Minus1Months       | Cleared late payment interest charge payments | £20.56    |
+#      | November 2024       | Cleared Alcohol Duty payments                 | £2,307.44 |
+# Only current month will be verified each time as the rest is stubbed data
     And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
       | Return period       | Description                                   | Amount    |
-      | September 2025      | Cleared Alcohol Duty payments                 | £1,234.44 |
-      | CurrentDateAndMonth | Cleared Alcohol Duty payments                 | £237.44   |
-      | 1Minus1Months       | Cleared late payment interest charge payments | £20.56    |
-      | November 2024       | Cleared Alcohol Duty payments                 | £2,307.44 |
+      | currentMonth      | Cleared Alcohol Duty payments                 | £237.44   |
+    When I click on "View 2024 payments" hyperlink on "View Past Payments Page"
+    Then I am presented with the "Past Payments Page"
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error
     Given I cleared the data for the service

@@ -74,7 +74,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def checkPageErrorTitle(): Assertion = {
-//    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
+    //    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.className("govuk-error-summary__title")))
     expectedPageErrorTitleList should contain(List(pageTitle))
   }
@@ -276,36 +276,37 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     //      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
 
   }
-    def previousPeriodKey: String = {
-      val currentDate = LocalDate.now()
-      val month = currentDate.getMonthValue
-      val year = currentDate.getYear
 
-      // Determine the base year suffix
-      val yearSuffix = if (month == 1 || month == 2 || month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
+  def previousPeriodKey: String = {
+    val currentDate = LocalDate.now()
+    val month = currentDate.getMonthValue
+    val year = currentDate.getYear
 
-      // Determine the previous period key based on the month
-      val previousPeriodKey = month match {
-        // Quarter 1 (Jan-Mar) -> Previous period is December
-        case 1 | 2 | 3 => s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
+    // Determine the base year suffix
+    val yearSuffix = if (month == 1 || month == 2 || month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
 
-        // Quarter 2 (Apr-Jun) -> Previous period is March
-        case 4 | 5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
+    // Determine the previous period key based on the month
+    val previousPeriodKey = month match {
+      // Quarter 1 (Jan-Mar) -> Previous period is December
+      case 1 | 2 | 3 => s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
 
-
-        // Quarter 3 (Jul-Sep) -> Previous period is June
-        case 7 | 8 | 9 => s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
+      // Quarter 2 (Apr-Jun) -> Previous period is March
+      case 4 | 5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
 
 
-        // Quarter 4 (Oct-Dec) -> Previous period is September
-        case 10 | 11 | 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
+      // Quarter 3 (Jul-Sep) -> Previous period is June
+      case 7 | 8 | 9 => s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
 
 
-        case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
-      }
+      // Quarter 4 (Oct-Dec) -> Previous period is September
+      case 10 | 11 | 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
 
-      previousPeriodKey
+
+      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
     }
+
+    previousPeriodKey
+  }
 
 
   def generateYear(Year: Int): Int =
@@ -366,13 +367,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .minusMonths(2)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
-  val lastDayOfPreviousMonth: String  = firstDayCurrentMonth
+  val lastDayOfPreviousMonth: String = firstDayCurrentMonth
     .minusMonths(1)
     .minusDays(1)
     .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-  val now: LocalDate               = LocalDate.now()
+  val now: LocalDate = LocalDate.now()
 
   def getCompletedMonth1PeriodKey: String =
     s"""${now.minusMonths(5).getYear.toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue + 64).toChar}"""
@@ -413,7 +414,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .asScala
     .map(
       _.findElements(By.xpath("td | th")).asScala
-           .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
+        .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
         .toList
     )
     .toList
@@ -464,7 +465,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
     .asScala
     .flatMap { row =>
-      val key   = row
+      val key = row
         .findElement(By.cssSelector(".govuk-task-list__name-and-hint"))
         .getText
         .trim
@@ -479,7 +480,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", "")
       Map(key -> value)
     }
@@ -500,27 +501,27 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     .toList
 
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
-    case "first"       => 0
-    case "second"      => 1
-    case "third"       => 2
-    case "fourth"      => 3
-    case "fifth"       => 4
-    case "sixth"       => 5
-    case "seventh"     => 6
-    case "eighth"      => 7
-    case "ninth"       => 8
-    case "tenth"       => 9
-    case "eleventh"    => 10
-    case "twelfth"     => 11
-    case "thirteenth"  => 12
-    case "fourteenth"  => 13
-    case "fifteenth"   => 14
-    case "sixteenth"   => 15
+    case "first" => 0
+    case "second" => 1
+    case "third" => 2
+    case "fourth" => 3
+    case "fifth" => 4
+    case "sixth" => 5
+    case "seventh" => 6
+    case "eighth" => 7
+    case "ninth" => 8
+    case "tenth" => 9
+    case "eleventh" => 10
+    case "twelfth" => 11
+    case "thirteenth" => 12
+    case "fourteenth" => 13
+    case "fifteenth" => 14
+    case "sixteenth" => 15
     case "seventeenth" => 16
-    case "eighteenth"  => 17
-    case "nineteenth"  => 18
-    case "twentieth"   => 19
-    case _             => throw new IllegalArgumentException("Invalid ordinal")
+    case "eighteenth" => 17
+    case "nineteenth" => 18
+    case "twentieth" => 19
+    case _ => throw new IllegalArgumentException("Invalid ordinal")
   }
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
@@ -540,8 +541,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     paymentType match {
       case "Outstanding" => 1
       case "Unallocated" => 2
-      case "Historical"  => 3
-      case _             => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
+      case "Historical" => 3
+      case _ => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
     }
 
   def getMonthDetails(formatType: String): Map[String, String] = {
@@ -549,9 +550,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
     // Define the formatter based on the formatType
     val formatter = formatType match {
-      case "MonthYear"  => DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
-      case "FullDate"   => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
-      case _            => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
+      case "MonthYear" => DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
+      case "FullDate" => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
+      case _ => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
     }
 
     // Function to compute dates for a specific day and month offset
@@ -614,13 +615,36 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       .toList
   }
 
-  def getVisibleTextFromElement(element: WebElement): String = {
-    val htmlContent = element.getAttribute("innerHTML")
-    htmlContent
-      .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
-      .replaceAll("<[^>]+>", "")
-      .replaceAll("\n", " ")
-      .replaceAll("\\s+", " ")
-      .trim
+  def currentMonthPaymentDetails(paymentType: String): Seq[List[String]] = {
+    val tableIndex = getPaymentTypeValue(paymentType)
+
+    driver
+      .findElement(By.xpath(s"//div/table[$tableIndex]"))
+      .findElements(By.tagName("tr"))
+      .asScala
+      .drop(1) // skip the header row
+      .headOption // take only the first data row
+      .map { row =>
+        row.findElements(By.tagName("td")).asScala
+          .map(
+            _.getText.trim
+              .replaceAll("""\nPay.*""", "")
+              .replaceAll("""\(ref:.*""", "")
+              .replaceAll("\n", "")
+          )
+          .toList
+      }
+      .toList
   }
-}
+
+    def getVisibleTextFromElement(element: WebElement): String = {
+      val htmlContent = element.getAttribute("innerHTML")
+      htmlContent
+        .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
+        .replaceAll("<[^>]+>", "")
+        .replaceAll("\n", " ")
+        .replaceAll("\\s+", " ")
+        .trim
+    }
+  }
+
