@@ -30,8 +30,6 @@ import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
 
 import java.time.LocalDate
-import java.time.format.{DateTimeFormatter, TextStyle}
-import java.util.Locale
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -315,8 +313,6 @@ trait BaseStepDef
 
   And("""I should see the following details on {string}""") {(page: String, data: DataTable)=>
     PageObjectFinder.page(page).waitForPageHeader
-    // Get table index for "Historical" section
-    val tableIndex = getPaymentTypeValue("Historical")
 
     // Collect only data rows (skip header rows with <th>)
     val actualDataRows: List[List[String]] =

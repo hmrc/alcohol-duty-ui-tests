@@ -615,25 +615,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       .toList
   }
 
-  def pastPaymentDetails(paymentType: String): Seq[List[String]] = {
-    val tableIndex = getPaymentTypeValue(paymentType)
-    driver
-      .findElement(By.xpath("//div//tbody"))
-      .findElements(By.tagName("tr"))
-      .asScala
-      .map(
-        _.findElements(By.xpath("td | th")).asScala
-          .map(
-            _.getText.trim
-              .replaceAll("""\nPay.*""", "")
-              .replaceAll("""\(ref:.*""", "")
-              .replaceAll("\n", "")
-          )
-          .toList
-      )
-      .toList
-  }
-
   def currentMonthPaymentDetails(paymentType: String): Seq[List[String]] = {
     val tableIndex = getPaymentTypeValue(paymentType)
 
