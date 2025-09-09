@@ -28,6 +28,7 @@ import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
+import java.time.format.DateTimeFormatter
 
 import java.time.LocalDate
 import scala.jdk.CollectionConverters._
@@ -482,6 +483,10 @@ trait BaseStepDef
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  And("""I clear the data to view Past Payments""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments")
   }
 
   Given("""I go to the Before You Start auth page""") {
