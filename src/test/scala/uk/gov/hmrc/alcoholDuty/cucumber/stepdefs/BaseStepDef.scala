@@ -28,6 +28,7 @@ import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
+import java.time.format.DateTimeFormatter
 
 import java.time.LocalDate
 import scala.jdk.CollectionConverters._
@@ -272,6 +273,76 @@ trait BaseStepDef
       actual.toSet should be(updatedTable.toSet)
   }
 
+  And("""I should see the following details at {string} section on {string} with {string}""") {
+    (paymentType: String, page: String, dateFormat: String, data: DataTable)=>
+      PageObjectFinder.page(page).waitForPageHeader
+
+      // Convert DataTable to Scala list of lists and remove the header row
+      val tableWithoutHeader = data.asLists(classOf[String])
+        .asScala
+        .map(_.asScala.toList)
+        .toList
+        .drop(1) // <--- drop header row
+
+      // Get current month/year dynamically
+      val now = LocalDate.now()
+      val currentMonthYear = now.format(DateTimeFormatter.ofPattern("MMMM yyyy"))
+
+//      // Replace only the first row's first column with dynamic month/year
+//      val updatedTable = tableWithoutHeader.zipWithIndex.map {
+//        case (row, 0) => row.updated(0, currentMonthYear)
+//        case (row, _) => row
+//      }
+
+      // Replace placeholder "currentMonth" with actual month/year
+      val updatedTable = tableWithoutHeader.map { row =>
+        row.map { cell =>
+          if (cell.trim.equalsIgnoreCase("currentMonth")) currentMonthYear else cell
+        }
+      }
+
+      // Replace any other placeholders if needed
+      val finalTable = replacePlaceholdersInScenario(updatedTable, dateFormat)
+
+      // Get actual data from UI
+      val actual = currentMonthPaymentDetails(paymentType)
+
+      // Compare as lists (if only 1 row expected) or sets (if multiple rows, order ignored)
+      actual should be(finalTable)
+  }
+
+
+  And("""I should see the following details on {string}""") {(page: String, data: DataTable)=>
+    PageObjectFinder.page(page).waitForPageHeader
+
+    // Collect only data rows (skip header rows with <th>)
+    val actualDataRows: List[List[String]] =
+      driver
+        .findElement(By.xpath("//div//tbody"))
+        .findElements(By.tagName("tr")).asScala
+        .flatMap { row =>
+          val tdCells = row.findElements(By.tagName("td")).asScala
+          if (tdCells.isEmpty) None // skip header row
+          else {
+            val cleaned = tdCells.map(_.getText
+              .trim
+              .replaceAll("""\(ref:.*""", "") // remove "(ref: ...)"
+              .replaceAll("\n", "")           // remove newlines
+              .replace("\u00A0", " ")         // replace non-breaking space
+            ).toList
+            Some(cleaned)
+          }
+        }
+        .toList
+
+    // Convert feature file DataTable into Scala List[List[String]] and drop header
+    val expectedDataRows: List[List[String]] =
+      data.asLists(classOf[String]).asScala.map(_.asScala.toList).toList.drop(1)
+
+    // Compare only data rows
+    actualDataRows should be(expectedDataRows)
+  }
+
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists
     val actual   = productsList
@@ -412,6 +483,10 @@ trait BaseStepDef
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  And("""I clear the data to view Past Payments""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments")
   }
 
   Given("""I go to the Before You Start auth page""") {
