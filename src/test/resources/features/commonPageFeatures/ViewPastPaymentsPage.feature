@@ -3,6 +3,7 @@ Feature: View Past Payments Journey
 
   Scenario: 1. ADR Journey - To verify the status and details of all payments on View Past Payments Page
     Given I cleared the data for the service
+    And I clear the data to view Past Payments
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL for "View Past Payments Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
@@ -77,6 +78,7 @@ Feature: View Past Payments Journey
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error
     Given I cleared the data for the service
+    And I clear the data to view Past Payments
     When I navigate to the "Auth Login Stub Page"
     And I enter redirectURL for "View Past Payments Page"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
