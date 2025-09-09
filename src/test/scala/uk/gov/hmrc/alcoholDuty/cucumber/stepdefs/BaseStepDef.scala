@@ -295,19 +295,6 @@ trait BaseStepDef
 //        case (row, _) => row
 //      }
 
-      And ("""I should see the following details on {string}""") {(page:String, data: DataTable) =>
-        PageObjectFinder.page(page).waitForPageHeader
-        val expectedTable = data.asLists(classOf[String])
-          .asScala
-          .map(_.asScala.toList)
-          .toList
-          .drop(1)
-
-        val actualTable= pastPaymentDetails("Past Payments")
-
-        actualTable.toSet should be(expectedTable.toSet)
-      }
-
       // Replace placeholder "currentMonth" with actual month/year
       val updatedTable = tableWithoutHeader.map { row =>
         row.map { cell =>
@@ -326,6 +313,38 @@ trait BaseStepDef
   }
 
 
+  And("""I should see the following details on {string}""") {(page: String, data: DataTable)=>
+    PageObjectFinder.page(page).waitForPageHeader
+    // Get table index for "Historical" section
+    val tableIndex = getPaymentTypeValue("Historical")
+
+    // Collect only data rows (skip header rows with <th>)
+    val actualDataRows: List[List[String]] =
+      driver
+        .findElement(By.xpath("//div//tbody"))
+        .findElements(By.tagName("tr")).asScala
+        .flatMap { row =>
+          val tdCells = row.findElements(By.tagName("td")).asScala
+          if (tdCells.isEmpty) None // skip header row
+          else {
+            val cleaned = tdCells.map(_.getText
+              .trim
+              .replaceAll("""\(ref:.*""", "") // remove "(ref: ...)"
+              .replaceAll("\n", "")           // remove newlines
+              .replace("\u00A0", " ")         // replace non-breaking space
+            ).toList
+            Some(cleaned)
+          }
+        }
+        .toList
+
+    // Convert feature file DataTable into Scala List[List[String]] and drop header
+    val expectedDataRows: List[List[String]] =
+      data.asLists(classOf[String]).asScala.map(_.asScala.toList).toList.drop(1)
+
+    // Compare only data rows
+    actualDataRows should be(expectedDataRows)
+  }
 
   And("""^I should see the following product details""") { data: DataTable =>
     val expected = data.asScalaListOfLists

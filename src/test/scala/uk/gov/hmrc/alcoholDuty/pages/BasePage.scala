@@ -618,7 +618,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def pastPaymentDetails(paymentType: String): Seq[List[String]] = {
     val tableIndex = getPaymentTypeValue(paymentType)
     driver
-      .findElement(By.xpath("//tbody"))
+      .findElement(By.xpath("//div//tbody"))
       .findElements(By.tagName("tr"))
       .asScala
       .map(
