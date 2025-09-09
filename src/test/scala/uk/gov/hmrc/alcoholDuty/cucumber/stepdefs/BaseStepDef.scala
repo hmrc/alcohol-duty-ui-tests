@@ -265,16 +265,16 @@ trait BaseStepDef
     actual should be(expected)
   }
 
-//  And("""I should see the below details at {string} section on {string} with {string}""") {
-//    (paymentType: String, page: String, dateFormat: String, data: DataTable) =>
-//      PageObjectFinder.page(page).waitForPageHeader
-//      val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
-//      val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
-//      val actual          = paymentDetails(paymentType)
-//      actual.toSet should be(updatedTable.toSet)
-//  }
-
   And("""I should see the below details at {string} section on {string} with {string}""") {
+    (paymentType: String, page: String, dateFormat: String, data: DataTable) =>
+      PageObjectFinder.page(page).waitForPageHeader
+      val expectedResults = data.rows(0).asLists().asScala.map(_.asScala.toList).toList
+      val updatedTable    = replacePlaceholdersInScenario(expectedResults, dateFormat)
+      val actual          = paymentDetails(paymentType)
+      actual.toSet should be(updatedTable.toSet)
+  }
+
+  And("""I should see the following details at {string} section on {string} with {string}""") {
     (paymentType: String, page: String, dateFormat: String, data: DataTable)=>
       PageObjectFinder.page(page).waitForPageHeader
 

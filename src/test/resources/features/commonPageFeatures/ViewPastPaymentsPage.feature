@@ -63,7 +63,7 @@ Feature: View Past Payments Journey
 #      | 1Minus1Months       | Cleared late payment interest charge payments | £20.56    |
 #      | November 2024       | Cleared Alcohol Duty payments                 | £2,307.44 |
 # Only current month will be verified each time as the rest is stubbed data
-    And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
+    And I should see the following details at "Historical" section on "View Past Payments Page" with "MonthYear"
       | Return period | Description                   | Amount  |
       | currentMonth  | Cleared Alcohol Duty payments | £237.44 |
     When I click on "View 2024 payments" hyperlink on "View Past Payments Page"
