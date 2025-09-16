@@ -43,7 +43,7 @@ Feature: View Past Payments Journey
       | 1Minus4Months       | Cleared Alcohol Duty payments                 | £2,000.00 |
       | 1Minus6Months       | Cleared late payment interest charge payments | £10.00    |
 
-  Scenario: 2. ADR Journey - Verify that year 2025 data is visible under historical payments section
+  Scenario: 2. ADR Journey - Verify that past year payments can be accessed under cleared payments section
     Given I cleared the data for the service
     And I clear the data to view Past Payments
     When I navigate to the "Auth Login Stub Page"
@@ -74,7 +74,8 @@ Feature: View Past Payments Journey
       | Return period | Description                   | Amount    |
       | November 2024 | Cleared Alcohol Duty payments | £2,307.44 |
       | June 2024     | Cleared Alcohol Duty payments | £1,111.11 |
-
+    When I click on "Back to payments" hyperlink on "Past Payments Page"
+    Then I am presented with the "View Past Payments Page"
 
   Scenario: 3. ADR Journey - To verify the View Past Payments Page in case of no outstanding payments or NOT_FOUND error
     Given I cleared the data for the service
