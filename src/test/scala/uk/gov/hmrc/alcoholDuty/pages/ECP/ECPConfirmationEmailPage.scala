@@ -19,7 +19,7 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ECPCheckAnswers extends BasePage {
+object ECPConfirmationEmailPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
   override val title = "How would you like to be contacted?"

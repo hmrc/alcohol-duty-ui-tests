@@ -62,10 +62,22 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSubmitButton()
   }
+  When("""I click ECPSubmit on {string}""") { (page: String) =>
+   PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickECPSubmitButton()
+ }
+
+
 
   Then("""I am presented with the {string}""") { (page: String) =>
     //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  Then("""I am presented with the ECP {string}""") { (page: String) =>
+    //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
@@ -88,6 +100,8 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
+
+
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
     (page: String, urlPrefix: String, urlSuffix: String) =>
@@ -152,6 +166,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageErrorTitle()
   }
 
+  Then("""I am presented with the {string} """) { page: String =>
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
   Then("""The error summary title is {string} and the error message is {string}""") {
     (errorSummaryTitle: String, errorMessage: String) =>
       PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
@@ -213,7 +232,13 @@ trait BaseStepDef
     actualData should be(expectedData)
   }
 
-  And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
+  And("""^I should see the following Preference details""") { data: DataTable =>
+    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
+   val actualData = PageObjectFinder.pageData
+   actualData should be(expectedData)
+  }
+   
+   And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedOutstandingReturns
     val actual   = outstandingReturnsList
@@ -348,6 +373,18 @@ trait BaseStepDef
     val actual   = productsList
     actual should be(expected)
   }
+
+//  And("""^I should see the following product details""") { data: DataTable =>
+//    val expected = data.asScalaListOfLists
+//    val actual   = productsList
+//    actual should be(expected)
+//  }
+
+//  And("""^I should see the following Correspondence Address on CYA page""") { data: DataTable =>
+//    val expected = data.asScalaListOfLists
+//    val actual   = productsList
+//    actual should be(expected)
+//  }
 
   And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
@@ -591,6 +628,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
+//
+//  When("""the page has Paragraph {string}""") { (paymentAmountText: String) =>
+//    val actualText = driver.findElement(By.xpath("//p[contains(text(), "We will send messages about your Alcohol Duty return to your correspondence address.")]
+//    actualText should be("We will send messages about your Alcohol Duty return to your correspondence address.")
+//  }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
