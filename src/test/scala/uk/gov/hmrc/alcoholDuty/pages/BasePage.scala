@@ -184,7 +184,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
-    val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-message")).getText
+    val actualErrorSummaryTitle = driver.findElement(By.xpath("//h2[normalize-space()='There is a problem']")).getText
     actualErrorSummaryTitle should be(errorSummaryTitle)
   }
 
@@ -206,7 +206,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def checkListOfECPErrorMessages(expectedErrorMessages: List[String]): Unit =
     fluentWait.until(
       ExpectedConditions.textToBePresentInElementLocated(
-        By.cssSelector(".govuk-error-summary__body"),
+        By.cssSelector("a[href='#contactPreferenceEmail']"),
         expectedErrorMessages.mkString("\n")
       )
     )

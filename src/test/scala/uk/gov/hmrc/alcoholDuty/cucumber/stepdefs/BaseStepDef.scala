@@ -639,6 +639,11 @@ trait BaseStepDef
     actualText should be(paymentAmountText)
   }
 
+  When("""the page source for ECP contains {string}""") { (confirmationText: String) =>
+    val actualText = driver.findElement(By.xpath("//h1[normalize-space()='Your contact preference has been updated']")).getText
+    actualText should be(confirmationText)
+  }
+
   When("""the view returns page contains duty {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//dd[normalize-space()='" + paymentAmountText + "']")).getText
     actualText should be(paymentAmountText)

@@ -29,7 +29,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       | Email me when I have a digital message  | john.doe@example.com |
     Then I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
-   And I am presented with the ECP "Your contact preference has been updated"
+   And the page source for ECP contains "Your contact preference has been updated"
 #    And I am presented with the "We will email you at john.doe@example.com when you have a new message in your account"
 
   Scenario:2. Email Contact preference Journey - Happy Path
@@ -85,13 +85,22 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
 
-  Scenario:5. Email Contact preference Journey - Error Message
+ Scenario Outline:5. Email Contact preference Journey - Error Message
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP9002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     And I should see the "<errorMessageHeader>" and below error messages
-      |Select how you would like to be contacted |
+      | Select how you would like to be contacted |
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter an email address |
+    Examples:
+      | errorMessageHeader |
+      |There is a problem  |
 
 
 
