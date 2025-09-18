@@ -91,7 +91,20 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I am presented with the "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     And I should see the "<errorMessageHeader>" and below error messages
-      |Select how you would like to be contacted |
+      | Select how you would like to be contacted |
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter an email address |
+
+    Examples:
+      | errorMessageHeader |
+      | There is a problem |
+
+
+
 
 
 
