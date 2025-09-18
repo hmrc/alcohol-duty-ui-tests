@@ -19,14 +19,14 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ECPExistingEmail extends BasePage {
+object ECPEnrolledLettersPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
-  override val title = "How would you like to be contacted?"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/enrolled-letters"
+  override val title = "We will continue to send you letters by post"
 
   override def expectedPageTitle: Option[String] = Some(
-    "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "We will continue to send you letters by post - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
 
-  override def expectedPageHeader: Option[String] = Some("How would you like to be contacted?")
+  override def expectedPageHeader: Option[String] = Some("We will continue to send you letters by post")
 }
