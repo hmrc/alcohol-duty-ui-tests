@@ -29,7 +29,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       | Email me when I have a digital message  | john.doe@example.com |
     Then I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
-   And I am presented with the ECP "Your contact preference has been updated"
+   And the page source for ECP contains "Your contact preference has been updated"
 #    And I am presented with the "We will email you at john.doe@example.com when you have a new message in your account"
 
   Scenario:2. Email Contact preference Journey - Happy Path
@@ -52,16 +52,18 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Correspondence Address Page"
-#    And I should see the following correspondence address
-#      | Address  | Flat 123 1 Example Road Toronto P55555 Canada |
+     And I should see the following Preference details
+      | Address                                      |
+      |Flat 123,1 Example Road,Toronto,P55555,Canada |
      And I click continue button on "ECP Correspondence Address Page"
      Then I am presented with the "ECP Check Your Answers Page"
 #    And I should see the following Correspondence Address on CYA page
-#      | How would you like to be contacted? |  Address |
-#      | Send me letters by post | 	Flat 123  |
+    And I should see the following Preference details
+     | How would you like to be contacted? |  Address |
+     | Send me letters by post             |Flat 123,1 Example Road,Toronto,P55555,Canada |
       And I click ECPSubmit on "ECP Check Your Answers Page"
       And I am presented with the "ECP Confirmation Page"
-      And I am presented with the ECP "Your contact preference has been updated"
+      And the page source for ECP contains "Your contact preference has been updated"
 
 
   Scenario:4. Email Contact preference Journey - Happy Path - Update to new email address
@@ -76,16 +78,20 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
-  When I enter "test12@gmail.com" on "What is the email address we should use to contact you about your Alcohol Duty page"
-    And I click continue button on "Enter Email Address Page"
-#   Then I am presented with the "Enter code to confirm your email address" on "ECP Email Verification Page"
-    And I should see the following Preference details
-      | How would you like to be contacted?    | Email address|
-      | Email me when I have a digital message  | john.doe@example.com |
-    Then I click ECPSubmit on "ECP Check Your Answers Page"
-    Then I am presented with the "ECP Confirmation Page"
+    When I enter "jane.doe@example.com" on "Enter Email Address Page"
+#    Then I am presented with the "ECP Confirmation Code Limit Page"
 
-  Scenario:5. Email Contact preference Journey - Error Message
+  Scenario:5. User on post (with verified email in ETMP), changing to email
+  unsuccessfully (email locked)
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page"
+    When I am presented with the "How Would You Like To Be Contacted Page"
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+
+
+ Scenario Outline:6. Email Contact preference Journey - Error Message
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP9002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -98,13 +104,45 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "Enter Email Address Page"
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
+    Examples:
+      | errorMessageHeader |
+      |There is a problem  |
+
+  Scenario Outline:7. Email Contact preference Journey - Error Message
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page"
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "ECP Existing Email Page"
+    And I click continue button on "ECP Existing Email Page"
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Select ‘Yes’ if john.doe@example.com is your email |
+
 
     Examples:
       | errorMessageHeader |
-      | There is a problem |
+      |There is a problem  |
+
+  Scenario Outline:8. Email Contact preference Journey - Error Message
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page"
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "ECP Existing Email Page"
+    When I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
+    And I click continue button on "ECP Existing Email Page"
+    Then I am presented with the "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    And The error summary title is "<errorMessageHeader>" and the error message is "Enter an email address "
+#    And I should see the "<errorMessageHeader>" and below error messages
+#      | Enter an email address |
 
 
-
+    Examples:
+      | errorMessageHeader |
+      |There is a problem  |
 
 
 

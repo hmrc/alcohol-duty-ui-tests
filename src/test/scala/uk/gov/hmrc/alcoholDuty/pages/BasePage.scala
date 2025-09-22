@@ -187,8 +187,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-message")).getText
     actualErrorSummaryTitle should be(errorSummaryTitle)
   }
-
-
+ 
   def checkPageErrorMessage(errorMessage: String): Unit = {
     val actualErrorMessage =
       driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
@@ -203,13 +202,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       )
     )
 
-  def checkListOfECPErrorMessages(expectedErrorMessages: List[String]): Unit =
-    fluentWait.until(
-      ExpectedConditions.textToBePresentInElementLocated(
-        By.cssSelector(".govuk-error-summary__body"),
-        expectedErrorMessages.mkString("\n")
-      )
-    )
+//  def checkListOfECPErrorMessages(expectedErrorMessages: List[String]): Unit =
+//    fluentWait.until(
+//      ExpectedConditions.textToBePresentInElementLocated(
+//        By.cssSelector(".govuk-error-summary__body"),
+//        expectedErrorMessages.mkString("\n")
+//      )
+//    )
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 

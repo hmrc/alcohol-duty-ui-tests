@@ -237,7 +237,7 @@ trait BaseStepDef
    val actualData = PageObjectFinder.pageData
    actualData should be(expectedData)
   }
-   
+
    And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val expected = PageObjectFinder.expectedOutstandingReturns
@@ -541,7 +541,7 @@ trait BaseStepDef
     val expectedErrorMessages = data.asScalaListOfStrings
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
     PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
-//    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
+    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
   }
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
@@ -637,6 +637,11 @@ trait BaseStepDef
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
     actualText should be(paymentAmountText)
+  }
+
+  When("""the page source for ECP contains {string}""") { (confirmationText: String) =>
+    val actualText = driver.findElement(By.xpath("//h1[normalize-space()='Your contact preference has been updated']")).getText
+    actualText should be(confirmationText)
   }
 
   When("""the view returns page contains duty {string}""") { (paymentAmountText: String) =>
