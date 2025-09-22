@@ -76,6 +76,13 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
+  Then("""I am presented with the message {string} on {string} """) { (expectedText: String,page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")
+    actualText should be(expectedText)
+    
+  }
+
   Then("""I am presented with the ECP {string}""") { (page: String) =>
     //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkPageHeader()

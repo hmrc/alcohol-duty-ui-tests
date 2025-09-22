@@ -30,7 +30,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
    And the page source for ECP contains "Your contact preference has been updated"
-#    And I am presented with the "We will email you at john.doe@example.com when you have a new message in your account"
+
 
   Scenario:2. Email Contact preference Journey - Happy Path
 #User on post with email in system-- stay in post
@@ -41,7 +41,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Enrolled Letters Page"
-#    Then I am presented with the "We will send messages about your Alcohol Duty return to your correspondence address.
+#     And I am presented with the message  "We will send messages about your Alcohol Duty return to your correspondence address" on "ECP Enrolled Letters Page"
 
   Scenario:3. Email Contact preference Journey
 ##User is on email and Change to Post
@@ -57,7 +57,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       |Flat 123,1 Example Road,Toronto,P55555,Canada |
      And I click continue button on "ECP Correspondence Address Page"
      Then I am presented with the "ECP Check Your Answers Page"
-#    And I should see the following Correspondence Address on CYA page
     And I should see the following Preference details
      | How would you like to be contacted? |  Address |
      | Send me letters by post             |Flat 123,1 Example Road,Toronto,P55555,Canada |
@@ -102,7 +101,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
-    And I should see the "<errorMessageHeader>" and below error messages
+   And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
     Examples:
       | errorMessageHeader |
@@ -135,9 +134,8 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
-    And The error summary title is "<errorMessageHeader>" and the error message is "Enter an email address "
-#    And I should see the "<errorMessageHeader>" and below error messages
-#      | Enter an email address |
+    And I should see the "<errorMessageHeader>" and below error messages
+      | Enter an email address |
 
 
     Examples:
