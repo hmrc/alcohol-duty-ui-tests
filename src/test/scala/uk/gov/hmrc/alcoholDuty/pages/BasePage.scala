@@ -183,10 +183,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-//  def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
-//    val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-message")).getText
-//    actualErrorSummaryTitle should be(errorSummaryTitle)
-//  }
+
 
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
     val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
@@ -206,14 +203,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         expectedErrorMessages.mkString("\n")
       )
     )
-
-//  def checkListOfECPErrorMessages(expectedErrorMessages: List[String]): Unit =
-//    fluentWait.until(
-//      ExpectedConditions.textToBePresentInElementLocated(
-//        By.cssSelector(".govuk-error-summary__body"),
-//        expectedErrorMessages.mkString("\n")
-//      )
-//    )
+  
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 

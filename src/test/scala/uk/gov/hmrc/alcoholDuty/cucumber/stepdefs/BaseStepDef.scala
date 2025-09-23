@@ -380,18 +380,7 @@ trait BaseStepDef
     val actual   = productsList
     actual should be(expected)
   }
-
-//  And("""^I should see the following product details""") { data: DataTable =>
-//    val expected = data.asScalaListOfLists
-//    val actual   = productsList
-//    actual should be(expected)
-//  }
-
-//  And("""^I should see the following Correspondence Address on CYA page""") { data: DataTable =>
-//    val expected = data.asScalaListOfLists
-//    val actual   = productsList
-//    actual should be(expected)
-//  }
+  
 
   And("""I click on View Return link for one of the completed returns on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
