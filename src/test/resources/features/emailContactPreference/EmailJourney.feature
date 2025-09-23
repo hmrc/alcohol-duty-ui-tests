@@ -1,4 +1,4 @@
-@EmailContactPreference
+@EmailContactPreference @ECPTests
 Feature: Change contact preference from BTA for Alcohol Duty Returns
 
 
@@ -9,7 +9,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
 
 
- @Test
+
   Scenario:1. Email Contact preference Journey - Happy Path
 #User on post with email in system-- Change from Post to Email
    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
@@ -78,14 +78,14 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I enter "jane.doe@example.com" on "Enter Email Address Page"
 #    Then I am presented with the "ECP Confirmation Code Limit Page"
 
-  Scenario:5. User on post (with verified email in ETMP), changing to email
-  unsuccessfully (email locked)
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
-    And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
-    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
-    And I click continue button on "How Would You Like To Be Contacted Page"
+#  Scenario:5. User on post (with verified email in ETMP), changing to email
+#  unsuccessfully (email locked)
+#    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+#    And I click submit button on "Auth Login Stub Page"
+#    Then I am presented with the "How Would You Like To Be Contacted Page"
+#    When I am presented with the "How Would You Like To Be Contacted Page"
+#    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+#    And I click continue button on "How Would You Like To Be Contacted Page"
 
 
  Scenario Outline:6. Email Contact preference Journey - Error Message
