@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BROWSER=${1:-chrome}
-JOURNEY=${2:-Alcohol Duty UI Tests}
+JOURNEY=${2:-Alcohol Duty ECP UI Tests}
 
 echo "Running browser tests..."
 echo "=========================================="
