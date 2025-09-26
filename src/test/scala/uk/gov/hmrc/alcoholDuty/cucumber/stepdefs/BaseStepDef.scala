@@ -80,6 +80,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
+  And("""I verify the button {string} is displayed on {string}""") { (buttonText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).verifyButtonDisplayed(buttonText)
+  }
+
   Then("""I am presented with the message {string} on {string} """) { (expectedText: String,page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")

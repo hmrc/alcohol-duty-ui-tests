@@ -106,6 +106,9 @@ Feature: View Past Payments Journey
     When I click on "Manage" link on "View Past Payments Page"
     Then I am presented with the dynamic url "Manage Central Assessment Page"
     When I select radio button "Pay central assessment charge" on "Manage Central Assessment Page"
+    When I click continue button on "Manage Central Assessment Page"
     Then I am presented with the dynamic url "Pay Central Assessment Charge Page"
+    And I verify the button "Pay now" is displayed on "Pay Central Assessment Charge Page"
+
 
 

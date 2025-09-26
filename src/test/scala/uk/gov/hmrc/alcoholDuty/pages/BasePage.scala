@@ -103,6 +103,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     driver.getCurrentUrl should startWith (Url)
   }
 
+  def verifyButtonDisplayed(buttonText: String): Assertion = {
+    val button = driver.findElement(By.xpath("//a[@id='payNowButton']"))
+    button.isDisplayed shouldBe true
+  }
+
   def checkDynamicURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
