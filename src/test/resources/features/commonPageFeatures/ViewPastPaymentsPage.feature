@@ -104,3 +104,4 @@ Feature: View Past Payments Journey
       | 25Minus3Months | Central assessment charge          | £2,345.67   | Overdue        | Manage       |
       | 1Minus2Months  | Central assessment interest charge | £22.22      | Overdue        | Pay now      |
     When I click on "Manage" link on "View Past Payments Page"
+    Then I am presented with the "Manage Central Assessment Page"
