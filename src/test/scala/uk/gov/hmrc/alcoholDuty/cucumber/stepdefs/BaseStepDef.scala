@@ -75,7 +75,7 @@ trait BaseStepDef
   }
 
   Then("""I am presented with the dynamic url {string}""") { (page: String) =>
-    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkCentralAssessmentURL()
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }

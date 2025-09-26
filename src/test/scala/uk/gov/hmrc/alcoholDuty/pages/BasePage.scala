@@ -97,6 +97,12 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(url)
     }
 
+  def checkCentralAssessmentURL(): Assertion = {
+    val Url = url.replace("...", "")
+    fluentWait.until(ExpectedConditions.urlContains(Url))
+    driver.getCurrentUrl should startWith (Url)
+  }
+
   def checkDynamicURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
