@@ -67,10 +67,14 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickECPSubmitButton()
  }
 
-
-
   Then("""I am presented with the {string}""") { (page: String) =>
     //waitForPageHeaderRemoved in necessary places
+    PageObjectFinder.page(page).checkURL
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  Then("""I am presented with the dynamic url {string}""") { (page: String) =>
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
@@ -505,7 +509,7 @@ trait BaseStepDef
 
   When("""I click on {string} link on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/table[1]/tbody/tr[3]/td[5]/ul/li/a")).click()
+    driver.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
   }
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
