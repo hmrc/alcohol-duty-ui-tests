@@ -503,6 +503,11 @@ trait BaseStepDef
     driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
   }
 
+  When("""I click on {string} link on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div/table[1]/tbody/tr[3]/td[5]/ul/li/a")).click()
+  }
+
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
     val actualData   = PageObjectFinder.taskListPageContentView
