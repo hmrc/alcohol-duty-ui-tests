@@ -56,7 +56,7 @@ Feature: View Past Payments Journey
       | Outstanding payments              |
       | Unallocated payments              |
       | Cleared payments in [currentYear] |
-    Then I verify the due amount displayed as "You owe £43,556.88" on "View Past Payments Page"
+    Then I verify the due amount displayed as "You owe £45,924.77" on "View Past Payments Page"
 #    For the below step, two values under return period are dynamic and the rest of the two values are static
 #    And I should see the below details at "Historical" section on "View Past Payments Page" with "MonthYear"
 #      | Return period       | Description                                   | Amount    |
@@ -87,3 +87,28 @@ Feature: View Past Payments Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Payments Page"
     Then I verify the due amount displayed as "You have nothing to pay." on "View Past Payments Page"
+
+  Scenario: 4. ADR Central Assessment - Manage central assessment charge and pay central assessment charge
+    Given I cleared the data for the service
+    And I clear the data to view Past Payments
+    When I navigate to the "Auth Login Stub Page"
+    And I enter redirectURL for "View Past Payments Page"
+    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0002900211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "View Past Payments Page"
+    And I should see the below details at "Outstanding" section on "View Past Payments Page" with "FullDate"
+      | To be paid by  | Description                        | Left to pay | Status         | Action       |
+      | 1Minus5Months  | Refund payment interest charge     | −£20.56     | Nothing to pay | Claim refund |
+      | 25Minus2Months | Payment for Alcohol Duty return    | £45,077.44  | Overdue        | Pay now      |
+      | 25Minus3Months | Central assessment charge          | £2,345.67   | Overdue        | Manage       |
+      | 1Minus2Months  | Central assessment interest charge | £22.22      | Overdue        | Pay now      |
+    When I click on "Manage" link on "View Past Payments Page"
+    Then I am presented with the dynamic url "Manage Central Assessment Page"
+    When I select radio button "Pay central assessment charge" on "Manage Central Assessment Page"
+    When I click continue button on "Manage Central Assessment Page"
+    Then I am presented with the dynamic url "Pay Central Assessment Charge Page"
+    And I verify the button "Pay now" is displayed on "Pay Central Assessment Charge Page"
+
+
+

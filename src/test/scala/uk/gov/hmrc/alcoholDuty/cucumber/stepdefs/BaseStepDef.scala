@@ -67,13 +67,22 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickECPSubmitButton()
  }
 
-
-
   Then("""I am presented with the {string}""") { (page: String) =>
     //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  Then("""I am presented with the dynamic url {string}""") { (page: String) =>
+    PageObjectFinder.page(page).checkCentralAssessmentURL()
+    PageObjectFinder.page(page).checkPageHeader()
+    PageObjectFinder.page(page).checkPageTitle()
+  }
+
+  And("""I verify the button {string} is displayed on {string}""") { (buttonText: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).verifyButtonDisplayed(buttonText)
   }
 
   Then("""I am presented with the message {string} on {string} """) { (expectedText: String,page: String) =>
@@ -501,6 +510,11 @@ trait BaseStepDef
   When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
+  }
+
+  When("""I click on {string} link on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
   }
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
