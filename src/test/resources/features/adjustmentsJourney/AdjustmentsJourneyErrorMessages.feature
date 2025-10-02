@@ -189,6 +189,7 @@ Feature: Adjustments Journey - Error Message Validations
       | errorMessageHeader |
       | There is a problem |
 
+  @UITests
   Scenario Outline: Adjustments Journey - Error Message Validation for Beer in spoilt journey
     #    Error message validation for Beer - Beer Flow starts here
     When I select radio button "Yes" on "Declare Adjustment Question Page"

@@ -137,7 +137,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                                        | Duty value | Action        |
       | Over-declared   | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | −£3,131.87 | Change Remove |
 
-  @Test
+  @Test @UITests
   Scenario:3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -252,6 +252,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                       | Duty value | Action        |
       | Drawback        | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR) | −£2,455.39 | Change Remove |
 
+  @UITests
   Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"

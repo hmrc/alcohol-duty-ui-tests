@@ -1,4 +1,4 @@
-@Test @AllTests @QuarterlySpiritsQuestions
+@Test @AllTests @QuarterlySpiritsQuestions @UITests
 Feature: Quarterly Spirits Journey - Change Links - CYA Page
 
   Scenario:1. To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey

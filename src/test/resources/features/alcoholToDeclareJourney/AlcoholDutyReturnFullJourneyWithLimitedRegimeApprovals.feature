@@ -1,4 +1,4 @@
-@AllTests @AlcoholToDeclare
+@AllTests @AlcoholToDeclare @UITests
 Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
 
   Background: : Common Steps - Alcohol Duty Returns Journey

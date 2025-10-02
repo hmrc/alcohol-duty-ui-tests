@@ -1,4 +1,4 @@
-@Test @AllTests @AlcoholToDeclare @TaskListPage
+@Test @AllTests @UITests @AlcoholToDeclare @TaskListPage
 Feature: Alcohol Duty Journey - Task List Page
 
   Background: : Common Steps - Alcohol Duty Journey
