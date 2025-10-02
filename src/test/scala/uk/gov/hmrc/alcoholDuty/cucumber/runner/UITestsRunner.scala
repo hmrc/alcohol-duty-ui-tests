@@ -23,10 +23,10 @@ import org.junit.runner.RunWith
 @CucumberOptions(
   features = Array("src/test/resources/features"),
   glue = Array("uk.gov.hmrc.alcoholDuty.cucumber.stepdefs"),
-  plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/AllTestsRunner.xml"),
+  plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json", "junit:target/test-reports/UITestsRunner.xml"),
   tags = "@UITests"
 )
-class AllTestsRunner {}
+class UITestsRunner {}
 
-object AllTestsRunner extends AllTestsRunner
+object UITestsRunner extends UITestsRunner
 

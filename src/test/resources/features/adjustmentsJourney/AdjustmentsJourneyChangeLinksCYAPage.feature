@@ -64,7 +64,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                    | Duty value | Action        |
       | Over-declared   | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | −£2,455.39 | Change Remove |
 
-  @Test
+  @Test @UITests
   Scenario:2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -252,6 +252,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                       | Duty value | Action        |
       | Drawback        | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR) | −£2,455.39 | Change Remove |
 
+  @UITests
   Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -292,6 +293,8 @@ Feature: Adjustments Journey - Change Links - CYA Page
       | Adjustment type | Description                                                                        | Duty value | Action        |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | −£2,322.59 | Change Remove |
 
+
+  @UITests
   Scenario:6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"

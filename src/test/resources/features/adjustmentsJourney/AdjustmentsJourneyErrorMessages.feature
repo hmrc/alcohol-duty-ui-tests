@@ -14,6 +14,7 @@ Feature: Adjustments Journey - Error Message Validations
     When I click on "Tell us if you have adjustments to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Adjustment Question Page"
 
+  @UITests
   Scenario Outline: Adjustments Journey - Error Message Validations
 #    Error message validation for Beer - Under-declaration Flow starts here
     When I click save and continue button on "Declare Adjustment Question Page"
@@ -188,6 +189,7 @@ Feature: Adjustments Journey - Error Message Validations
     Examples:
       | errorMessageHeader |
       | There is a problem |
+
 
   Scenario Outline: Adjustments Journey - Error Message Validation for Beer in spoilt journey
     #    Error message validation for Beer - Beer Flow starts here

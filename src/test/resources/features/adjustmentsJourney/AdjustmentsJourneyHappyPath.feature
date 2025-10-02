@@ -1,4 +1,4 @@
-@Test @AllTests @Adjustments
+@Test @AllTests @UITests @Adjustments
 Feature: Adjustments Journey
 
   Background: : Common Steps - Adjustments Journey

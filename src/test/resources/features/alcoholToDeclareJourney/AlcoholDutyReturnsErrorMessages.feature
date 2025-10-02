@@ -14,7 +14,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
     Then I am presented with the "Declare Alcohol Duty Question Page"
 
-  @Test
+  @Test @UITests
   Scenario Outline: Beer - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'No'
     When I click save and continue button on "Declare Alcohol Duty Question Page"
     Then I am presented with the "Declare Alcohol Duty Question Page" error page
@@ -256,7 +256,7 @@ Feature: Alcohol Duty Returns Journey - Error Messages
       | errorMessageHeader |
       | There is a problem |
 
-  @AllTests
+  @AllTests @UITests
   Scenario Outline: Cider - Alcohol Duty Returns Journey - Error Message Validations - When Multiple SPR is set to 'Yes'
     When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
     And I click save and continue button on "Declare Alcohol Duty Question Page"

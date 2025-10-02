@@ -20,7 +20,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     And I click save and continue button on "What Alcohol Do You Need To Declare Page"
     Then I am presented with the "Task List Page"
 
-  @Test
+  @Test @UITests
   Scenario: Beer- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Declare beer" hyperlink on "Task List Page"
     Then I am presented with the "What Do You Need To Declare Beer Page"
@@ -793,7 +793,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Total volume | 8,888.88 litres |
       | Pure alcohol | 88.8800 litres  |
 
-  @AllTests
+  @AllTests @UITests
   Scenario: Wine- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality
     When I click on "Declare wine" hyperlink on "Task List Page"
     Then I am presented with the "Declaring Your Wine For Duty"
@@ -1872,7 +1872,7 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
       | Total volume | 8,888.88 litres |
       | Pure alcohol | 888.8800 litres |
 
-  @AllTests
+  @AllTests @UITests
   Scenario: To verify the change link functionalities from the Return Summary Page
 #Beer - When Multiple SPR is set to 'No'
     When I click on "Declare beer" hyperlink on "Task List Page"
