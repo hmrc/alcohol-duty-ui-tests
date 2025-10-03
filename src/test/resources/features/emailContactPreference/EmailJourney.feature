@@ -3,7 +3,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
 
   Background: : Common Steps - Alcohol duty journey is redirected to Business Tax Account
-    Given I cleared the data for the service
+    Given I cleared the data for ECP service
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
@@ -12,6 +12,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
   Scenario:1. Email Contact preference Journey - Happy Path
 #User on post with email in system-- Change from Post to Email
+
    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
    And I click submit button on "Auth Login Stub Page"
    Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -65,18 +66,22 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
   Scenario:4. Email Contact preference Journey - Happy Path - Update to new email address
     #Yes - Existing email page
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+    And I enter CredID "cred0" on "Auth Login Stub Page"
+#    And I enter redirect URL on Auth Login Stub Page for "Update Email"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
     When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
-    Then I am presented with the "ECP Existing Email Page"
-    When I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
-    And I click continue button on "ECP Existing Email Page"
+    Then I am presented with the "ECP Enrolled Email Page"
+    And I click update email address link on "ECP Enrolled Email Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter "jane.doe@example.com" on "Enter Email Address Page"
-#    Then I am presented with the "ECP Confirmation Code Limit Page"
+    And I enter Email Address "john.doe@example.com" on "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+#   Then I am presented with the "ECP Check Your Answers Page"
+#   When I click ECPSubmit on "ECP Check Your Answers Page"
+#  Then I am presented with the "ECP Confirmation Email Page"
 
 #  Scenario:5. User on post (with verified email in ETMP), changing to email
 #  unsuccessfully (email locked)

@@ -30,6 +30,8 @@ class AlcoholDutyStepDef extends BaseStepDef {
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey)
       case "Email Contact Preference" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference")
+      case "Email Update" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email")
     }
   }
 
@@ -48,6 +50,14 @@ class AlcoholDutyStepDef extends BaseStepDef {
     }
   }
 
+  When("""I enter CredID {string} on {string}""") {
+    (CredID: String, page: String) =>
+      page match {
+        case "Auth Login Stub Page" =>
+          AuthLoginStubPage.authorityId(CredID)
+      }
+  }
+
   When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") {
     (enrollmentKey: String, IdentifierName: String, IdentifierValue: String, page: String) =>
       page match {
@@ -55,6 +65,8 @@ class AlcoholDutyStepDef extends BaseStepDef {
           AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
   }
+
+
 
   When("""I select Affinity Type as {string} on {string}""") { (value: String, page: String) =>
     page match {

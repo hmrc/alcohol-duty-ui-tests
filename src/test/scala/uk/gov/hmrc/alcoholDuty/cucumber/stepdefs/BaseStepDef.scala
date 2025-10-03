@@ -167,6 +167,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).clickContinueButton()
   }
 
+  When("""I click update email address link on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickUpdateLink()
+  }
+
   When("""I click back button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickBackButton()
@@ -199,6 +204,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter Email Address {string} on {string}""") { (data: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).enterEmail(data)
+  }
+  
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
@@ -214,6 +224,11 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
   }
+
+//  When("""I enter Email Address {string} on {string}""") { (texttoenter: String, page: String) =>
+//    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).enteremail(texttoenter)
+//  }
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
@@ -530,6 +545,10 @@ trait BaseStepDef
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  Given("""I cleared the data for ECP service""") {
+    driver.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
   }
 
   And("""I clear the data to view Past Payments""") {

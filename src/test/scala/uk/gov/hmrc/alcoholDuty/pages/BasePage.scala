@@ -189,9 +189,14 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickContinueButton(): Unit = click on id("continueButton")
 
+  def clickUpdateLink(): Unit = click on id("update-email-address-link")
+
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def enterDetails(data: String): Unit = {}
+
+  def enterEmail(text: String): Unit =
+    driver.findElement(By.xpath("//input[@id='emailAddress']"))
 
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
 

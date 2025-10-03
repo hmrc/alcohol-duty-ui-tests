@@ -19,13 +19,13 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ECPConfirmationEmailPage extends BasePage {
+object ECPEnrolledEmailPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "confirmation-digital-message"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/enrolled-emails"
   override val title = "We will email you when you have a digital message"
 
   override def expectedPageTitle: Option[String] = Some(
-    "We will email you when you have a digital message - Manage your Alcohol Duty - GOV.UK"
+    "We will email you when you have a digital message - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
 
   override def expectedPageHeader: Option[String] = Some("We will email you at john.doe@example.com when you have a digital message")
