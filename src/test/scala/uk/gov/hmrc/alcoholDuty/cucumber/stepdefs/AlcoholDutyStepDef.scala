@@ -32,6 +32,8 @@ class AlcoholDutyStepDef extends BaseStepDef {
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference")
       case "Email Update" =>
         AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email")
+      case "Email Bounce" =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/bounced-email")
     }
   }
 

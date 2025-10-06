@@ -5,15 +5,14 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
   Background: : Common Steps - Alcohol duty journey is redirected to Business Tax Account
     Given I cleared the data for ECP service
     When I navigate to the "Auth Login Stub Page"
-    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
 
 
 
   Scenario:1. Email Contact preference Journey - Happy Path
-#User on post with email in system-- Change from Post to Email
-
-   And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
+#User on post with email in system-- Change from Post to EmailAnd I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
    And I click submit button on "Auth Login Stub Page"
    Then I am presented with the "How Would You Like To Be Contacted Page"
     When I am presented with the "How Would You Like To Be Contacted Page"
@@ -33,6 +32,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
   Scenario:2. Email Contact preference Journey - Happy Path
 #User on post with email in system-- stay in post
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -44,6 +44,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
   Scenario:3. Email Contact preference Journey
 ##User is on email and Change to Post
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP5000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -66,8 +67,8 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
   Scenario:4. Email Contact preference Journey - Happy Path - Update to new email address
     #Yes - Existing email page
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter CredID "cred0" on "Auth Login Stub Page"
-#    And I enter redirect URL on Auth Login Stub Page for "Update Email"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -77,23 +78,57 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I am presented with the "ECP Enrolled Email Page"
     And I click update email address link on "ECP Enrolled Email Page"
     Then I am presented with the "Enter Email Address Page"
-    And I enter Email Address "john.doe@example.com" on "Enter Email Address Page"
+    When I enter email address "john.doe@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
-#   Then I am presented with the "ECP Check Your Answers Page"
-#   When I click ECPSubmit on "ECP Check Your Answers Page"
-#  Then I am presented with the "ECP Confirmation Email Page"
+    Then I am presented with the "ECP Check Your Answers Page"
+    When I click ECPSubmit on "ECP Check Your Answers Page"
+    Then I am presented with the "ECP Confirmation Email Page"
 
-#  Scenario:5. User on post (with verified email in ETMP), changing to email
-#  unsuccessfully (email locked)
-#    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
-#    And I click submit button on "Auth Login Stub Page"
-#    Then I am presented with the "How Would You Like To Be Contacted Page"
-#    When I am presented with the "How Would You Like To Be Contacted Page"
-#    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
-#    And I click continue button on "How Would You Like To Be Contacted Page"
+  Scenario:5. User on post (with verified email in ETMP), changing to email
+  unsuccessfully (email locked)
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
+    And I enter CredID "cred0" on "Auth Login Stub Page"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1002100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page"
+    When I am presented with the "How Would You Like To Be Contacted Page"
+    And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
+    And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "ECP Existing Email Page"
+    And I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
+    And I click continue button on "ECP Existing Email Page"
+    And I enter email address "jane.doe@example.com" on "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "ECP Confirmation Code Limit Page"
 
 
- Scenario Outline:6. Email Contact preference Journey - Error Message
+
+  Scenario:6. User on email, updating email (enters same email as existing one)
+    And I enter CredID "cred0" on "Auth Login Stub Page"
+    And I enter redirect URL on Auth Login Stub Page for "Email Update"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0002100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "ECP Existing Email Page"
+    And I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
+    And I click continue button on "ECP Existing Email Page"
+    And I enter email address "john.doe@example.com" on "Enter Email Address Page"
+    And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "ECP Check Your Answers Page"
+    When I click ECPSubmit on "ECP Check Your Answers Page"
+    Then I am presented with the "ECP Confirmation Email Page"
+
+
+  Scenario:7. Bounced email
+    And I enter CredID "cred0" on "Auth Login Stub Page"
+    And I enter redirect URL on Auth Login Stub Page for "Email Bounce"
+    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP3002100211" on "Auth Login Stub Page"
+    And I click submit button on "Auth Login Stub Page"
+    Then I am presented with the "ECP Email Error Page"
+
+
+
+ Scenario Outline:8. Email Contact preference Journey - Error Message
+   And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP9002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -110,7 +145,8 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       | errorMessageHeader |
       |There is a problem  |
 
-  Scenario Outline:7. Email Contact preference Journey - Error Message
+  Scenario Outline:9. Email Contact preference Journey - Error Message
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
@@ -126,7 +162,8 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
       | errorMessageHeader |
       |There is a problem  |
 
-  Scenario Outline:8. Email Contact preference Journey - Error Message
+  Scenario Outline:10. Email Contact preference Journey - Error Message
+    And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"

@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object ECPConfirmationEmailPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "confirmation-digital-message"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation-digital-message"
   override val title = "We will email you when you have a digital message"
 
   override def expectedPageTitle: Option[String] = Some(

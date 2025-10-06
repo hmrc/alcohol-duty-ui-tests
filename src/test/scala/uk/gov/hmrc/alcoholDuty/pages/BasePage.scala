@@ -188,6 +188,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickConfirmAndContinueButton(): Unit = click on id("confirmAndContinueButton")
 
   def clickContinueButton(): Unit = click on id("continueButton")
+  
 
   def clickUpdateLink(): Unit = click on id("update-email-address-link")
 

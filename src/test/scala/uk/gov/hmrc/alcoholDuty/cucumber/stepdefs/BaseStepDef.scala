@@ -166,6 +166,7 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
   }
+  
 
   When("""I click update email address link on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
@@ -204,11 +205,13 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
-  When("""I enter Email Address {string} on {string}""") { (data: String, page: String) =>
+  When("""I enter email address {string} on {string}""") { (email: String,page: String ) =>
     PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterEmail(data)
+    val emailField = driver.findElement(By.xpath("//input[@id='emailAddress']"))
+    emailField.clear()
+    emailField.sendKeys(email)
   }
-  
+
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
