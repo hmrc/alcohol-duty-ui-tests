@@ -227,11 +227,7 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
   }
-
-//  When("""I enter Email Address {string} on {string}""") { (texttoenter: String, page: String) =>
-//    PageObjectFinder.page(page).waitForPageHeader
-//    PageObjectFinder.page(page).enteremail(texttoenter)
-//  }
+  
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
@@ -660,11 +656,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
-//
-//  When("""the page has Paragraph {string}""") { (paymentAmountText: String) =>
-//    val actualText = driver.findElement(By.xpath("//p[contains(text(), "We will send messages about your Alcohol Duty return to your correspondence address.")]
-//    actualText should be("We will send messages about your Alcohol Duty return to your correspondence address.")
-//  }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
