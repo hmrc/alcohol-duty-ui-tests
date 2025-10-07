@@ -1,4 +1,4 @@
-@AllTests @Test @UITests @BusinessTaxAccount
+@AllTests @Test @BusinessTaxAccount
 Feature: Alcohol Duty Returns Redirection to Business Account
 
   Scenario: To verify that the alcohol duty journey is redirected to Business Tax Account

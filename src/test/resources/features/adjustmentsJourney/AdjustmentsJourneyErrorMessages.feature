@@ -1,4 +1,4 @@
-@Test @AllTests @AdjustmentsErrorMessage
+@Test  @AdjustmentsErrorMessage
 Feature: Adjustments Journey - Error Message Validations
 
   Background: : Common Steps - Adjustments Journey

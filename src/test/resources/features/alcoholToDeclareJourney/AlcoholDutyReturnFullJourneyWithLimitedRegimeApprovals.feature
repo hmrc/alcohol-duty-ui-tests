@@ -7,7 +7,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
 
-  @Test @UITests
+  @Test
   Scenario:1. Alcohol Duty Returns Journey - user with Wine & Other Fermented Products regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000111208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -111,7 +111,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £661.93"
 
-  @Test @UITests
+  @Test
   Scenario:2. Alcohol Duty Returns Journey - user with Beer & Spirits regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000170208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -222,7 +222,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     Then I am presented with the "Return Submitted Page"
     And the page source contains "You need to pay £1,387.24"
 
-  @Test @UITests
+  @Test
   Scenario:3. Alcohol Duty Returns Journey - user with only Beer regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000178208" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
