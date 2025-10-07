@@ -1,4 +1,4 @@
-@EmailContactPreference @ECPTests
+@ECPTests
 Feature: Change contact preference from BTA for Alcohol Duty Returns
 
 
