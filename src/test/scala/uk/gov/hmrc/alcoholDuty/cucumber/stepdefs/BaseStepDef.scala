@@ -62,8 +62,9 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSubmitButton()
   }
+
   When("""I click ECPSubmit on {string}""") { (page: String) =>
-   PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickECPSubmitButton()
  }
 
@@ -92,12 +93,6 @@ trait BaseStepDef
     
   }
 
-  Then("""I am presented with the ECP {string}""") { (page: String) =>
-    //waitForPageHeaderRemoved in necessary places
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-  }
-
   Then("""I am presented with the External {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).checkPageHeader()
@@ -116,8 +111,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
-
-
 
   Then("""I am presented with the {string} with new url containing prefix as {string} and suffix as {string}""") {
     (page: String, urlPrefix: String, urlSuffix: String) =>
@@ -188,11 +181,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageErrorTitle()
   }
 
-  Then("""I am presented with the {string} """) { page: String =>
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageTitle()
-  }
-
   Then("""The error summary title is {string} and the error message is {string}""") {
     (errorSummaryTitle: String, errorMessage: String) =>
       PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
@@ -260,12 +248,6 @@ trait BaseStepDef
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
     val actualData   = PageObjectFinder.pageData
     actualData should be(expectedData)
-  }
-
-  And("""^I should see the following Preference details""") { data: DataTable =>
-    val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
-   val actualData = PageObjectFinder.pageData
-   actualData should be(expectedData)
   }
 
    And("""I should verify the outstanding returns details on {string}""") { (page: String) =>
@@ -569,8 +551,8 @@ trait BaseStepDef
     val expectedErrorMessages = data.asScalaListOfStrings
     PageObjectFinder.checkPageErrorSummaryTitle(errorSummaryTitle)
     PageObjectFinder.checkListOfErrorMessages(expectedErrorMessages)
-    PageObjectFinder.listOfErrorMessages() should be(expectedErrorMessages)
   }
+
   And("""I check the page source for the following key-value pairs:""") { (data: DataTable) =>
     val pageSource: String = driver.getPageSource.trim
     val keyValuePairs      = data.asMaps(classOf[String], classOf[String]).asScala

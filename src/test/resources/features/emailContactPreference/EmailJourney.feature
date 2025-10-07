@@ -20,7 +20,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "Yes" on "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "ECP Check Your Answers Page"
-    And I should see the following Preference details
+    And I should see the following details
       | How would you like to be contacted?    | Email address        |
       | Email me when I have a digital message | john.doe@example.com |
     Then I click ECPSubmit on "ECP Check Your Answers Page"
@@ -47,12 +47,12 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Correspondence Address Page"
-    And I should see the following Preference details
+    And I should see the following details
       | Address                                       |
       | Flat 123,1 Example Road,Toronto,P55555,Canada |
     And I click continue button on "ECP Correspondence Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
-    And I should see the following Preference details
+    And I should see the following details
       | How would you like to be contacted? | Address                                       |
       | Send me letters by post             | Flat 123,1 Example Road,Toronto,P55555,Canada |
     And I click ECPSubmit on "ECP Check Your Answers Page"

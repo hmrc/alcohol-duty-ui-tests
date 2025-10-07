@@ -188,7 +188,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickConfirmAndContinueButton(): Unit = click on id("confirmAndContinueButton")
 
   def clickContinueButton(): Unit = click on id("continueButton")
-  
 
   def clickUpdateLink(): Unit = click on id("update-email-address-link")
 
@@ -209,8 +208,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-
-
   def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
     val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
     actualErrorSummaryTitle should be(errorSummaryTitle)
@@ -229,7 +226,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         expectedErrorMessages.mkString("\n")
       )
     )
-  
 
   private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
 

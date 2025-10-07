@@ -18,7 +18,6 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
-import uk.gov.hmrc.alcoholDuty.pages.ECP.HowWouldYouLikeToBeContactedPage.cssSelector
 
 object ECPExistingEmailPage extends BasePage {
 
