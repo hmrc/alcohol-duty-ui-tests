@@ -9,7 +9,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
 
 
   Scenario:1. Email Contact preference Journey - Happy Path
-#User on post with email in system-- Change from Post to EmailAnd I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
+#User on post with email in system-- Change from Post to Email
     And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
@@ -38,7 +38,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Enrolled Letters Page"
-#    And I am presented with the message  "We will send messages about your Alcohol Duty return to your correspondence address" on "ECP Enrolled Letters Page"
 
   Scenario:3. Email Contact preference Journey
 #User is on email and Change to Post
@@ -147,7 +146,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I am presented with the "ECP Check Your Answers Page"
     When I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
-
 
 
   Scenario Outline:9. Email Contact preference Journey - Error Message
