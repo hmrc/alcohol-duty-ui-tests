@@ -29,6 +29,10 @@ object ECPExistingEmailPage extends BasePage {
     "Is this your email? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
 
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: Is this your email? - Manage your Alcohol Duty - GOV.UK"
+  )
+
   override def expectedPageHeader: Option[String] = Some("Is john.doe@example.com your email?")
 
   override def clickRadioButton(text: String): Unit =

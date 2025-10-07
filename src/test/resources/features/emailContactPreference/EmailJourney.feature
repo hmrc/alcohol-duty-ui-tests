@@ -34,7 +34,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Enrolled Letters Page"
@@ -45,7 +44,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP5000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Correspondence Address Page"
@@ -69,7 +67,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Enrolled Email Page"
@@ -88,7 +85,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Existing Email Page"
@@ -122,7 +118,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP9002100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "Enter Email Address Page"
@@ -154,12 +149,14 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select how you would like to be contacted |
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "Enter Email Address Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
     Examples:
@@ -175,6 +172,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
+    Then I am presented with the "ECP Existing Email Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select ‘Yes’ if john.doe@example.com is your email |
 
@@ -195,6 +193,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "Enter Email Address Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
 
