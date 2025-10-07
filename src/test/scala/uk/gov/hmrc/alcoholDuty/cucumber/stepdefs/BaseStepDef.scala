@@ -166,6 +166,12 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
   }
+  
+
+  When("""I click update email address link on {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    PageObjectFinder.page(page).clickUpdateLink()
+  }
 
   When("""I click back button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
@@ -199,6 +205,13 @@ trait BaseStepDef
     PageObjectFinder.page(page).enterDetails(data)
   }
 
+  When("""I enter email address {string} on {string}""") { (email: String,page: String ) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    val emailField = driver.findElement(By.xpath("//input[@id='emailAddress']"))
+    emailField.clear()
+    emailField.sendKeys(email)
+  }
+
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
@@ -214,6 +227,7 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
   }
+  
 
   When("""I enter redirect url for {string}""") { (page: String) =>
     page match {
@@ -532,6 +546,10 @@ trait BaseStepDef
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
   }
 
+  Given("""I cleared the data for ECP service""") {
+    driver.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
+  }
+
   And("""I clear the data to view Past Payments""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments")
   }
@@ -638,11 +656,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
-//
-//  When("""the page has Paragraph {string}""") { (paymentAmountText: String) =>
-//    val actualText = driver.findElement(By.xpath("//p[contains(text(), "We will send messages about your Alcohol Duty return to your correspondence address.")]
-//    actualText should be("We will send messages about your Alcohol Duty return to your correspondence address.")
-//  }
 
   When("""the page source contains {string}""") { (paymentAmountText: String) =>
     val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText

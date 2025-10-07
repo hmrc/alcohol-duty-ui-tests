@@ -19,13 +19,14 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object ECPConfirmationCodeLimitPage extends BasePage {
+object ECPEnrolledEmailPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation-code-limit"
-  override val title       = "You cannot request another confirmation code"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/enrolled-emails"
+  override val title = "We will email you when you have a digital message"
 
-  override def expectedPageTitle: Option[String]  = Some(
-    "You cannot request another confirmation code - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+  override def expectedPageTitle: Option[String] = Some(
+    "We will email you when you have a digital message - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
-  override def expectedPageHeader: Option[String] = Some("You cannot request another confirmation code")
+
+  override def expectedPageHeader: Option[String] = Some("We will email you at john.doe@example.com when you have a digital message")
 }

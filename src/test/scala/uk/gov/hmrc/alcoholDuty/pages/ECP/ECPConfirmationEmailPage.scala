@@ -21,12 +21,12 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object ECPConfirmationEmailPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
-  override val title = "How would you like to be contacted?"
+  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation-digital-message"
+  override val title = "We will email you when you have a digital message"
 
   override def expectedPageTitle: Option[String] = Some(
-    "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "We will email you when you have a digital message - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("How would you like to be contacted?")
+  override def expectedPageHeader: Option[String] = Some("We will email you at john.doe@example.com when you have a digital message")
 }
