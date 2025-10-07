@@ -14,7 +14,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
-    When I am presented with the "How Would You Like To Be Contacted Page"
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Existing Email Page"
