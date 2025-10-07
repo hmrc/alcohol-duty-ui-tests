@@ -1,4 +1,4 @@
-@Test @AllTests @UITests @AlcoholToDeclare
+@Test @AllTests @AlcoholToDeclare
 Feature: Alcohol Duty Returns Journey
 
   Background: : Common Steps - Alcohol Duty Returns Journey

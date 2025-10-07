@@ -1,4 +1,4 @@
-@Test @AllTests @UITests @ClaimEnrolmentJourney
+@Test @AllTests @ClaimEnrolmentJourney
 Feature: Claim Enrolment Journey
 
   Scenario: Claim Enrolment Journey - Happy path - When user does not have APPA ID

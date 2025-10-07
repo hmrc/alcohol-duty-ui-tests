@@ -1,4 +1,4 @@
-@Test @AllTests @QuarterlySpiritsQuestions @UITests
+@Test @AllTests @QuarterlySpiritsQuestions
 Feature: Quarterly Spirits Questions Journey - Error Messages
 
   Scenario Outline: Quarterly Spirits Questions - Error Message Validations

@@ -1,4 +1,4 @@
-@Test @AllTests @DutySuspendedDeliveries @UITests
+@Test @AllTests @DutySuspendedDeliveries
 Feature: Alcohol Duty Returns - Declare Duty Suspended Deliveries - Error Messages
 
   Scenario Outline: Alcohol Duty Returns - Declare Duty Suspended Deliveries Page - Error message validations

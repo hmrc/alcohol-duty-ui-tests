@@ -1,4 +1,4 @@
-@Test @AllTests @DutySuspendedDeliveries @UITests
+@Test @AllTests @DutySuspendedDeliveries
 Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functionality
 
   Scenario:1. Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answer page
