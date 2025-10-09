@@ -1,4 +1,4 @@
-@AlcoholToDeclare
+@AlcoholToDeclare @AllTests
 Feature: Alcohol Duty Returns Journey - Error Messages
 
   Background: : Common Steps - Alcohol Duty Returns Journey
