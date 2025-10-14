@@ -531,10 +531,24 @@ trait BaseStepDef
     driver.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
   }
 
+  And("""I click on link {string} on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//a[@id='back-to-returns-link']")).click()
+  }
+
+  When("""I click on the first {string} link on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
+  }
+
+  And("""I navigate back to {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//a[normalize-space()='Back']")).click()
+  }
+
   When("""I click on {string} link to view completed returns from previous years on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")).click()
-    Thread.sleep(10000)
   }
 
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
