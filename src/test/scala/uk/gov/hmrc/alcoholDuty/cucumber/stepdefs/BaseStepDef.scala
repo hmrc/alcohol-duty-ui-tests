@@ -411,7 +411,7 @@ trait BaseStepDef
   }
   When("""I redirect to a URL with Spirits section on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
+    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[1]")).getText
     val periodToUrl    = Map(
       s"December $currentYear" -> s"${shortYear}AL",
       s"March $currentYear"   -> s"${shortYear}AC",
@@ -531,6 +531,12 @@ trait BaseStepDef
     driver.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
   }
 
+  When("""I click on {string} link to view completed returns from previous years on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")).click()
+    Thread.sleep(10000)
+  }
+
   And("""^I should see the following status of the submission journey""") { data: DataTable =>
     val expectedData = data.asMaps().asScala.toList.flatMap(_.asScala.toMap).toMap
     val actualData   = PageObjectFinder.taskListPageContentView
@@ -544,6 +550,10 @@ trait BaseStepDef
 
   Given("""I cleared the data for the service""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
+  }
+
+  Given("""I cleared the data to view completed returns from previous years""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations")
   }
 
   Given("""I cleared the data for ECP service""") {
