@@ -201,14 +201,3 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Examples:
       | errorMessageHeader |
       | There is a problem |
-
-
-
-
-
-
-
-
-
-
-

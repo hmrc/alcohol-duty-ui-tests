@@ -195,9 +195,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def enterDetails(data: String): Unit = {}
 
-  def enterEmail(text: String): Unit =
-    driver.findElement(By.xpath("//input[@id='emailAddress']"))
-
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
 
   def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
@@ -674,4 +671,3 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
         .trim
     }
   }
-

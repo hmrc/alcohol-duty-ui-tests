@@ -86,19 +86,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).verifyButtonDisplayed(buttonText)
   }
 
-  Then("""I am presented with the message {string} on {string} """) { (expectedText: String,page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.xpath("//main/div/div/p[1]")).getText.trim.replaceAll("\n", " ")
-    actualText should be(expectedText)
-    
-  }
-
-  Then("""I am presented with the External {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-  }
-
   Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
@@ -135,7 +122,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
   }
-  
 
   When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
     checkBoxAction match {
@@ -159,7 +145,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
   }
-  
 
   When("""I click update email address link on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
