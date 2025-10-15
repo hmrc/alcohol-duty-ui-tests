@@ -18,7 +18,6 @@ package uk.gov.hmrc.alcoholDuty.pages.ECP
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
-import uk.gov.hmrc.alcoholDuty.pages.ECP.HowWouldYouLikeToBeContactedPage.cssSelector
 
 object ECPExistingEmailPage extends BasePage {
 
@@ -27,6 +26,10 @@ object ECPExistingEmailPage extends BasePage {
 
   override def expectedPageTitle: Option[String] = Some(
     "Is this your email? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+  )
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: Is this your email? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("Is john.doe@example.com your email?")

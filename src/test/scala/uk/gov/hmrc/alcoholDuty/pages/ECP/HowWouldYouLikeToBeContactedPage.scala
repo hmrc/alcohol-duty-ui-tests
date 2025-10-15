@@ -28,6 +28,10 @@ object HowWouldYouLikeToBeContactedPage extends BasePage {
     "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
 
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK"
+  )
+
   override def expectedPageHeader: Option[String] = Some("How would you like to be contacted?")
 
   override def clickRadioButton(text: String): Unit =

@@ -1,4 +1,4 @@
-@EmailContactPreference @ECPTests
+@ECPTests
 Feature: Change contact preference from BTA for Alcohol Duty Returns
 
 
@@ -20,7 +20,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "Yes" on "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "ECP Check Your Answers Page"
-    And I should see the following Preference details
+    And I should see the following details
       | How would you like to be contacted?    | Email address        |
       | Email me when I have a digital message | john.doe@example.com |
     Then I click ECPSubmit on "ECP Check Your Answers Page"
@@ -47,12 +47,12 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I select radio button "Send me letters by post" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Correspondence Address Page"
-    And I should see the following Preference details
+    And I should see the following details
       | Address                                       |
       | Flat 123,1 Example Road,Toronto,P55555,Canada |
     And I click continue button on "ECP Correspondence Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
-    And I should see the following Preference details
+    And I should see the following details
       | How would you like to be contacted? | Address                                       |
       | Send me letters by post             | Flat 123,1 Example Road,Toronto,P55555,Canada |
     And I click ECPSubmit on "ECP Check Your Answers Page"
@@ -149,12 +149,14 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
+    Then I am presented with the "How Would You Like To Be Contacted Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select how you would like to be contacted |
     And I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "Enter Email Address Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
     Examples:
@@ -170,6 +172,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
+    Then I am presented with the "ECP Existing Email Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Select ‘Yes’ if john.doe@example.com is your email |
 
@@ -190,6 +193,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
+    Then I am presented with the "Enter Email Address Page" error page
     And I should see the "<errorMessageHeader>" and below error messages
       | Enter an email address |
 
@@ -197,14 +201,3 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Examples:
       | errorMessageHeader |
       | There is a problem |
-
-
-
-
-
-
-
-
-
-
-
