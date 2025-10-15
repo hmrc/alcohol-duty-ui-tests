@@ -249,6 +249,30 @@ trait BaseStepDef
     actual should be(expected)
   }
 
+  Given("""I cleared the data to view completed returns from previous years""") {
+    driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations")
+  }
+
+  When("""I click on {string} link to view completed returns from previous years on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")).click()
+  }
+
+  When("""I click on the first {string} link on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
+  }
+
+  And("""I navigate back to {string}""") { (page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//a[normalize-space()='Back']")).click()
+  }
+
+  And("""I click on link {string} on {string}""") { (hyperlink: String, page: String) =>
+    PageObjectFinder.page(page).waitForPageHeader
+    driver.findElement(By.xpath("//a[@id='back-to-returns-link']")).click()
+  }
+
   And("""I verify the content {string} on {string}""") { (expectedText: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     val actualText = driver.findElement(By.className("govuk-heading-l")).getText
@@ -378,7 +402,7 @@ trait BaseStepDef
   }
   When("""I redirect to a URL with Spirits section on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
-    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[2]")).getText
+    val expectedPeriod = driver.findElement(By.xpath("(//tbody[@class='govuk-table__body'])[1]")).getText
     val periodToUrl    = Map(
       s"December $currentYear" -> s"${shortYear}AL",
       s"March $currentYear"   -> s"${shortYear}AC",

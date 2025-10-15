@@ -413,8 +413,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def expectedCompletedReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
     List(now.minusMonths(5).format(formatter), "Completed", "View return"),
-    List(now.minusMonths(6).format(formatter), "Completed", "View return"),
-    List(now.minusMonths(7).format(formatter), "Completed", "View return")
+    List(now.minusMonths(6).format(formatter), "Completed", "View return")
   )
 
   private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
