@@ -27,5 +27,10 @@ object EnterEmailAddressPage extends BasePage {
   override def expectedPageTitle: Option[String]  = Some(
     "What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
   )
+
+  override def expectedPageErrorTitle: Option[String] = Some(
+    "Error: What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK"
+  )
+
   override def expectedPageHeader: Option[String] = Some("What is the email address we should use to contact you about your Alcohol Duty?")
 }
