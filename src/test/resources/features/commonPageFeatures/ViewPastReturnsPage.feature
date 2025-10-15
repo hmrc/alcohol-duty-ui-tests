@@ -10,8 +10,8 @@ Feature: View Past Returns Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Returns Page"
     And I should verify the table header displayed
-      | Outstanding returns       |
-      | Completed returns in 2025 |
+      | Outstanding returns |
+      | Completed returns   |
     Then I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
 
@@ -34,8 +34,8 @@ Feature: View Past Returns Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Returns Page"
     And I should verify the table header displayed
-      | Outstanding returns       |
-      | Completed returns in 2025 |
+      | Outstanding returns |
+      | Completed returns   |
     And I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
     When I redirect to a URL with Spirits section on "View Past Returns Page"
@@ -59,7 +59,7 @@ Feature: View Past Returns Journey
       | Adjustment     | Description                                                                                                                      | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value |
       | Under-declared | Non-draught cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322)                    | 12.5690                      | £19.08                | £239.82    |
       | Over-declared  | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)                                                                   | 34.5625                      | £1.20                 | −£41.48    |
-      | Repackaged     | Wine between 8.5% and 22% ABV (tax type code 333)                                                                                | 100.0681                     | £2.28                 | £64.05     |
+      | Repackaged     | Wine between 8.5% and 22% ABV (tax type code 333)                                                                    | 100.0681                     | £2.28                 | £64.05     |
       | Spoilt         | Other fermented products                                                                                                         | 1,000.0000                   | not applicable        | −£8,170.00 |
       | Drawback       | Non-draught sparkling cider between 5.6% and 8.4% ABV and other fermented products between 3.5% and 8.4% ABV (tax type code 324) | 1,000.0000                   | £1.20                 | −£1,200.00 |
       | Drawback       | Non-draught spirits between 3.5% and 8.4% ABV (tax type code 325)                                                                | 311.5100                     | £2.20                 | −£685.32   |
@@ -94,8 +94,8 @@ Feature: View Past Returns Journey
     And I click submit button on "Auth Login Stub Page"
     Then I am presented with the "View Past Returns Page"
     And I should verify the table header displayed
-      | Outstanding returns       |
-      | Completed returns in 2025 |
+      | Outstanding returns |
+      | Completed returns   |
     And I should verify the outstanding returns details on "View Past Returns Page"
     And I should verify the completed returns details on "View Past Returns Page"
     When I redirect to a URL with Spirits section on "View Past Returns Page"
@@ -124,13 +124,3 @@ Feature: View Past Returns Journey
     And I should verify the details of the table 4 on "View Specific Return Page"
       | Description      |
       | Nothing declared |
-
-  Scenario: 5. ADR Journey - Verify Completed Returns from previous years when there is 1 Due, multiple Overdue and multiple Completed returns
-    Given I cleared the data to view completed returns from previous years
-    When I navigate to the "Auth Login Stub Page"
-    And I enter redirectURL for "View Past Returns Page"
-    And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-    And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000100211" on "Auth Login Stub Page"
-    And I click submit button on "Auth Login Stub Page"
-    Then I am presented with the "View Past Returns Page"
-    When I click on "View 2024 returns" link to view completed returns from previous years on "View Past Returns Page"
