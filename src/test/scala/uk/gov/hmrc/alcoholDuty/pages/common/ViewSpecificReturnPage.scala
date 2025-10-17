@@ -17,6 +17,7 @@
 package uk.gov.hmrc.alcoholDuty.pages.common
 
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.Assertion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
@@ -24,8 +25,8 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object ViewSpecificReturnPage extends BasePage {
 
   override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + getCompletedMonth1PeriodKey
-  override val title       = "April 2024 Alcohol Duty Return"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + get12MonthsAgoPeriodKey
+  override val title = "April 2024 Alcohol Duty Return"
 
   override def expectedPageErrorTitle: Option[String] = Some(
     "Error: Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
@@ -42,9 +43,8 @@ object ViewSpecificReturnPage extends BasePage {
   override def checkPageTitle(): Assertion =
     driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
 
-  override def checkPageErrorTitle(): Assertion =
-    driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
-
   override def checkPageHeader(): Assertion =
     driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
+
 }
+

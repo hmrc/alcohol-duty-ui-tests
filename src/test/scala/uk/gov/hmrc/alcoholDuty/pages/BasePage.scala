@@ -399,8 +399,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
   val now: LocalDate = LocalDate.now()
 
-  def getCompletedMonth1PeriodKey: String =
-    s"""${now.minusMonths(5).getYear.toString.takeRight(2)}A${(now.minusMonths(5).getMonthValue + 64).toChar}"""
+  def get12MonthsAgoPeriodKey: String =
+    s"""${now.minusMonths(12).getYear.toString.takeRight(2)}A${(now.minusMonths(12).getMonthValue + 64).toChar}"""
 
   def expectedOutstandingReturns: List[List[String]] = List(
     List("Period", "Status", "Action"),
@@ -558,7 +558,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   //this method returns a string that contains a date of five months past
   def getSpecificMonth: String =
-    now.minusMonths(5).format(formatter)
+    now.minusMonths(12).format(formatter)
 
   def getPaymentTypeValue(paymentType: String): Int =
     paymentType match {

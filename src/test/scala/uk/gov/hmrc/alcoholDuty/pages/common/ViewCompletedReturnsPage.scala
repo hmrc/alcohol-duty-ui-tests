@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object ViewCompletedReturnsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/completed-returns/2024"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + s"/completed-returns/${year-1}"
   override val title       = "Completed returns"
 
   override def expectedPageTitle: Option[String] = Some(

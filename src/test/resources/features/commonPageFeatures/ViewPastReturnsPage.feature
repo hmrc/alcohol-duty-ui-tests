@@ -137,6 +137,7 @@ Feature: View Past Returns Journey
     When I click on "View 2024 returns" link to view completed returns from previous years on "View Past Returns Page"
     Then I am presented with the "View Completed Returns Page"
     And I click on the first "View return" link on "View Completed Returns Page"
+    Then I am presented with the "View Specific Return Page"
     And I navigate back to "View Completed Returns Page"
     Then I am presented with the "View Completed Returns Page"
     And I click on link "Back to current returns" on "View Completed Returns Page"

@@ -443,6 +443,30 @@ trait BaseStepDef
     }
   }
 
+  Then("""I verify the page header on {string}""") { (pageHeader: String) =>
+    val actualPageHeader = driver.findElement(By.tagName("h1")).getText
+    val currentURL       = driver.getCurrentUrl
+
+    val urlToPeriod = Map(
+      s"${shortYear}AL" -> s"December $currentYear",
+      s"${shortYear}AC" -> s"March $currentYear",
+      s"${shortYear}AF" -> s"June $currentYear",
+      s"${shortYear}AI" -> s"September $currentYear"
+    )
+
+    urlToPeriod.find { case (suffix, _) =>
+      currentURL.contains(suffix)
+    } match {
+      case Some((_, period)) =>
+        val finalPageHeader = pageHeader.replace("October 2024", period)
+        actualPageHeader should be(finalPageHeader)
+      case None              =>
+        logger.warn("No month to return")
+        Assert.fail()
+    }
+  }
+
+
   When("""I click {string} on {string}""") { (button: String, page: String) =>
     PageObjectFinder.page(page).clickButton(button)
   }
