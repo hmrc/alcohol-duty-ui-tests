@@ -17,7 +17,6 @@
 package uk.gov.hmrc.alcoholDuty.pages.common
 
 import org.openqa.selenium.By
-import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.Assertion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
