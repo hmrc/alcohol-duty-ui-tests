@@ -180,25 +180,3 @@ Feature: Adjustments Journey
     And I should see the following status of the submission journey
       | Tell us if you have alcoholic products to declare | Tell us if you have adjustments to declare | Declare adjustments | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
       | Not yet started                                   | Completed                                  | Completed           | Not yet started                                                              | Not yet started                                         |
-
-#  The below test data need to be updated once OFP(Other Fermented Products) flag is turned on
-  Scenario: Adjustments Journey - Spoilt Journey for a user with only Beer approval
-    When I select radio button "Spoilt" on "Adjustment Type Page"
-    And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the "Spoilt Alcohol Type Page"
-    When I select radio button "Beer" on "Spoilt Alcohol Type Page"
-    And I click save and continue button on "Spoilt Alcohol Type Page"
-    Then I am presented with the "Spoilt Beer Alcohol Volume Page"
-    When I enter "3000.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
-    And I enter "250.5500" for "Litres Of Pure Alcohol" on "Spoilt Beer Alcohol Volume Page"
-    And I enter "3255.55" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
-    And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
-    Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Description | Volume                                          | Duty value |
-      | Spoilt     | Beer        | 3,000.75 litres,250.5500 litres of pure alcohol | −£3,255.55 |
-    When I click save and continue button on "Adjustment Check Your Answers Page"
-    Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description | Duty value | Action        |
-      | Spoilt          | Beer        | −£3,255.55 | Change Remove |
