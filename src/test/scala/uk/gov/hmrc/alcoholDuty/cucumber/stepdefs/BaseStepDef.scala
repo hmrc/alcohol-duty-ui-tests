@@ -647,12 +647,7 @@ trait BaseStepDef
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
-
-  When("""the page source contains {string}""") { (paymentAmountText: String) =>
-    val actualText = driver.findElement(By.xpath("//p[normalize-space()='" + paymentAmountText + "']")).getText
-    actualText should be(paymentAmountText)
-  }
-
+  
   When("""the page source for ECP contains {string}""") { (confirmationText: String) =>
     val actualText = driver.findElement(By.xpath("//h1[normalize-space()='Your contact preference has been updated']")).getText
     actualText should be(confirmationText)

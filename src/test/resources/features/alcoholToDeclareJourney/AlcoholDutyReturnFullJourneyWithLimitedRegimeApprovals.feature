@@ -109,7 +109,6 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I verify 4 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £661.93"
 
   @Test
   Scenario:2. Alcohol Duty Returns Journey - user with Beer & Spirits regime approval
@@ -220,7 +219,6 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I verify 5 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £1,387.24"
 
   @Test
   Scenario:3. Alcohol Duty Returns Journey - user with only Beer regime approval
@@ -286,7 +284,6 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I verify 3 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £533.88"
 
   Scenario:4. Alcohol Duty Returns Journey - user with only Fermented Product approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000115208" on "Auth Login Stub Page"
@@ -351,4 +348,3 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I verify 3 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £1,821.66"

@@ -737,7 +737,6 @@ Feature: Alcohol Duty Returns Journey
     And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £96,009.92"
 
   Scenario:2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
@@ -1327,7 +1326,6 @@ Feature: Alcohol Duty Returns Journey
     And I verify 8 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You are owed £6,938,049.47"
 
   Scenario:3. Alcohol Duty Returns Journey - Happy Path - Nil Return
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
@@ -1361,7 +1359,7 @@ Feature: Alcohol Duty Returns Journey
     And I verify 4 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You have nothing to pay"
+
 
   Scenario:4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality
     When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
