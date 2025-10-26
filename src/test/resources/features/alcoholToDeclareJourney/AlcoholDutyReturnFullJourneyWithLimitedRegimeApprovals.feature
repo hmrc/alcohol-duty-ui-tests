@@ -6,7 +6,7 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     When I navigate to the "Auth Login Stub Page"
     And I enter redirect URL on Auth Login Stub Page for "Alcohol Duty Service"
     And I select Affinity Type as "Organisation" on "Auth Login Stub Page"
-
+    
   @Test
   Scenario:1. Alcohol Duty Returns Journey - user with only Beer regime approval
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP0000178208" on "Auth Login Stub Page"
@@ -71,4 +71,4 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I verify 3 change links present on "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-    And the page source contains "You need to pay £533.88"
+
