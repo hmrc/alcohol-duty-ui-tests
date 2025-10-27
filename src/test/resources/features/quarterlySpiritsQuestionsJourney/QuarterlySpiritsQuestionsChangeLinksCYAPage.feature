@@ -70,6 +70,8 @@ Feature: Quarterly Spirits Journey - Change Links - CYA Page
     And I should see following details at the "Quarterly Spirits Check Your Answers Page"
       | Total of all spirits          | Scotch Whisky                 | Irish Whiskey                 | Type of spirits                                                                              |
       | 111.99 litres of pure alcohol | 222.99 litres of pure alcohol | 333.99 litres of pure alcohol | Malt spirits,Grain spirits,Neutral spirits of agricultural origin,Spirits produced from beer |
+    And I click save and continue button on "Quarterly Spirits Check Your Answers Page"
+    Then I am presented with the "Task List Page"
 
   Scenario: 2. QSR Journey - To verify quarterly spirits returns link is visible for months January, April, July and October
     Given I cleared the data for the service

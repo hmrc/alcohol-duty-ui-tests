@@ -63,8 +63,12 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                    | Duty value | Action        |
       | Over-declared   | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | −£2,455.39 | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
 
-  @Test @UITests
+
+  @Test
   Scenario:2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -136,6 +140,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                                        | Duty value | Action        |
       | Over-declared   | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | −£3,131.87 | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
 
   @Test
   Scenario:3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
@@ -211,7 +218,11 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                    | Duty value | Action        |
       | Repackaged      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | £269.92    | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
 
+  @Test
   Scenario:4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -251,8 +262,11 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                       | Duty value | Action        |
       | Drawback        | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR) | −£2,455.39 | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
 
-  @UITests
+  @Test
   Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -292,9 +306,12 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description                                                                        | Duty value | Action        |
       | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | −£2,322.59 | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"
 
 
-  @UITests
+  @Test
   Scenario:6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits
     When I select radio button "Spoilt" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
@@ -338,3 +355,6 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I should see the following product details
       | Adjustment type | Description | Duty value | Action        |
       | Spoilt          | Beer        | −£3,200.55 | Change Remove |
+    When I select radio button "No" on "Adjustment List Page"
+    When I click save and continue button on "Adjustment List Page"
+    Then I am presented with the "Task List Page"

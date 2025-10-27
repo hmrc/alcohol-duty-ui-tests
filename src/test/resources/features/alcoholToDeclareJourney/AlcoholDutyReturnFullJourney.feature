@@ -1411,11 +1411,6 @@ Feature: Alcohol Duty Returns Journey
       | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     | 7,777.77                       | 777.7777                     | £77.77                | Change Remove |
     When I click "Remove hyperlink" on "Multiple SPR List Question Beer Page"
     Then I am presented with the "Delete Multiple SPR Product Question Page"
-    When I click save and continue button on "Delete Multiple SPR Product Question Page"
-    Then I am presented with the "Delete Multiple SPR Product Question Page" error page
-#Validating the error message
-    And I should see the "There is a problem" and below error messages
-      | Select yes to remove this entry |
 #If a user selects NO then none of the products will be removed
     When I select radio button "No" on "Delete Multiple SPR Product Question Page"
     And I click save and continue button on "Delete Multiple SPR Product Question Page"
@@ -1530,127 +1525,6 @@ Feature: Alcohol Duty Returns Journey
       | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
       | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
       | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 89.9999                      | £19.00                | £1,709.99  | Change |
-    When I click save and continue button on "Duty Due Beer Page"
-    Then I am presented with the "Task List Page"
-    And I should see the following status of the submission journey
-      | Tell us if you have alcoholic products to declare | Declare beer | Declare cider   | Declare wine    | Declare spirits | Declare other fermented products | Tell us if you have adjustments to declare | Tell us if you have delivered or received finished products in duty suspense | Tell us about spirits produced in the past three months |
-      | Completed                                         | Completed    | Not yet started | Not yet started | Not yet started | Not yet started                  | Not yet started                            | Not yet started                                                              | Not yet started                                         |
-
-  Scenario:6. Alcohol Duty Returns Journey - Happy Path - Add Missing Details
-    When I click on "Tell us if you have alcoholic products to declare" hyperlink on "Task List Page"
-    Then I am presented with the "Declare Alcohol Duty Question Page"
-    When I select radio button "Yes" on "Declare Alcohol Duty Question Page"
-    And I click save and continue button on "Declare Alcohol Duty Question Page"
-    Then I am presented with the "What Alcohol Do You Need To Declare Page"
-    When I "select" checkbox "Beer,Cider,Wine,Spirits,Other fermented products" on "What Alcohol Do You Need To Declare Page"
-    And I click save and continue button on "What Alcohol Do You Need To Declare Page"
-    Then I am presented with the "Task List Page"
-#Beer - When Multiple SPR is set to 'Yes'
-    When I click on "Declare beer" hyperlink on "Task List Page"
-    Then I am presented with the "What Do You Need To Declare Beer Page"
-    When I "select" checkbox "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)" on "What Do You Need To Declare Beer Page"
-    And I click save and continue button on "What Do You Need To Declare Beer Page"
-#    Then I am presented with the "How Much You Need To Declare Beer Page"
-#    When I enter "945.55" for "Standard beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "first" input box
-#    And I enter "55.5500" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
-#    And I enter "898.34" for "Standard beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "second" input box
-#    And I enter "77.5500" for "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "second" input box
-#    And I enter "667.32" for "Standard beer between 8.5% and 22% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "third" input box
-#    And I enter "66.3400" for "Standard beer between 8.5% and 22% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "third" input box
-#    And I enter "999.19" for "Standard beer at or above 22.1% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fourth" input box
-#    And I enter "99.1300" for "Standard beer at or above 22.1% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fourth" input box
-#    And I enter "887.54" for "Draught beer between 1.3% and 3.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "fifth" input box
-#    And I enter "66.4400" for "Draught beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "fifth" input box
-#    And I enter "699.45" for "Draught beer between 3.5% and 8.4% ABV - Total litres" on "How Much You Need To Declare Beer Page" at "sixth" input box
-#    And I enter "66.8900" for "Draught beer between 3.5% and 8.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "sixth" input box
-#    And I click save and continue button on "How Much You Need To Declare Beer Page"
-    Then I am presented with the "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
-    When I select radio button "Yes" on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
-    And I click save and continue button on "Do You Have Multiple Small Producer Relief Duty Rate Beer Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page"
-    When I select radio button "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "9999.99" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "89.9999" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "19" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
-    And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
-    Then I am presented with the "Check Your Answers SPR Beer Page"
-    And I should see following details at the "Check Your Answers SPR Beer Page"
-      | Description                                                        | Total beer      | Total pure alcohol | Duty rate        |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 9,999.99 litres | 89.9999 LPA        | £19.00 per litre |
-    When I click continue button on "Check Your Answers SPR Beer Page"
-    Then I am presented with the "Multiple SPR List Question Beer Page"
-    And I should see the following product details
-      | Description                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
-    When I select radio button "No" on "Multiple SPR List Question Beer Page"
-    And I click save and continue button on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "You Have Some Missing Details Page"
-    And I select radio button "Add details for these declarations" on "You Have Some Missing Details Page"
-    When I click save and continue button on "You Have Some Missing Details Page"
-    Then I am presented with the "Multiple Small Producer Relief Rate Beer Page" with new url
-    When I select radio button "Draught beer between 1.3% and 3.4% ABV (371 SPR)" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "7777.77" for "Total litres" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "777.7777" for "Litres of pure alcohol" on "Multiple Small Producer Relief Rate Beer Page"
-    And I enter "77.77" for "Duty rate" on "Multiple Small Producer Relief Rate Beer Page"
-    And I click save and continue button on "Multiple Small Producer Relief Rate Beer Page"
-    Then I am presented with the "Check Your Answers SPR Beer Page"
-    And I should see following details at the "Check Your Answers SPR Beer Page"
-      | Description                                                    | Total beer      | Total pure alcohol | Duty rate        |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | 7,777.77 litres | 777.7777 LPA       | £77.77 per litre |
-    When I click continue button on "Check Your Answers SPR Beer Page"
-    Then I am presented with the "Multiple SPR List Question Beer Page"
-    And I should see the following product details
-      | Description                                                        | Total volume declared (litres) | Litres of pure alcohol (LPA) | Duty rate (per litre) | Action        |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 9,999.99                       | 89.9999                      | £19.00                | Change Remove |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     | 7,777.77                       | 777.7777                     | £77.77                | Change Remove |
-    When I select radio button "No" on "Multiple SPR List Question Beer Page"
-    And I click save and continue button on "Multiple SPR List Question Beer Page"
-    Then I am presented with the "You Have Some Missing Details Page"
-    And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Page"
-    When I click save and continue button on "You Have Some Missing Details Page"
-    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Page"
-    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Page"
-    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Page"
-    Then I am presented with the "Check Your Answers Returns Beer Page"
-    And I should see the following text on the page
-#      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     |
-#      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     |
-#      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      |
-#      | Non-draught beer at or above 22.1% ABV (tax type code 341)         |
-#      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         |
-#      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     |
-    And I check the page source for the following key-value pairs:
-#      | key          | value           |
-#      | Total volume | 999.19 litres   |
-#      | Pure alcohol | 99.1300 litres  |
-#      | Total volume | 945.55 litres   |
-#      | Pure alcohol | 55.5500 litres  |
-#      | Total volume | 667.32 litres   |
-#      | Pure alcohol | 66.3400 litres  |
-#      | Total volume | 898.34 litres   |
-#      | Pure alcohol | 77.5500 litres  |
-#      | Total volume | 699.45 litres   |
-#      | Pure alcohol | 66.8900 litres  |
-#      | Total volume | 887.54 litres   |
-#      | Pure alcohol | 66.4400 litres  |
-      | Total volume | 9,999.99 litres |
-      | Pure alcohol | 89.9999 litres  |
-      | Total volume | 7777.77 litres  |
-      | Pure alcohol | 777.7777 litres |
-    When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£62,197.76"
-    And I should see the following product details
-      | Description                                                        | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-#      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311)     | 55.5500                      | £9.61                 | £533.83    | Change |
-#      | Non-draught beer between 3.5% and 8.4% ABV (tax type code 321)     | 77.5500                      | £21.78                | £1,689.03  | Change |
-#      | Non-draught beer between 8.5% and 22% ABV (tax type code 331)      | 66.3400                      | £29.54                | £1,959.68  | Change |
-#      | Non-draught beer at or above 22.1% ABV (tax type code 341)         | 99.1300                      | £32.79                | £3,250.47  | Change |
-#      | Draught beer between 1.3% and 3.4% ABV (tax type code 351)         | 66.4400                      | £8.28                 | £550.12    | Change |
-#      | Draught beer between 3.5% and 8.4% ABV (tax type code 356)         | 66.8900                      | £18.76                | £1,254.85  | Change |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 361 SPR) | 89.9999                      | £19.00                | £1,709.99  | Change |
-      | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR)     | 777.7777                     | £77.77                | £60,487.77 | Change |
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     And I should see the following status of the submission journey

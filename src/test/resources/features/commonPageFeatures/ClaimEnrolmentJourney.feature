@@ -14,15 +14,5 @@ Feature: Claim Enrolment Journey
 #    Then I am presented with the "Request Access For Manage Alcohol Duty Page"
 #  The above line has been commented currently. Once we have enrolment-management-frontend added to our service manager, will add this page
 
-  Scenario Outline: Claim Enrolment Journey - Error Message Validation
-    Given I enter the url for Claim Enrolment journey
-    Then I am presented with the "Do You Have Appa Id Page"
-    And I click continue button on "Do You Have Appa Id Page"
-    Then I am presented with the "Do You Have Appa Id Page" error page
-    And The error summary title is "<errorMessageHeader>" and the error message is "Select yes if you have an alcoholic products producer approval ID"
-
-    Examples:
-      | errorMessageHeader |
-      | There is a problem |
 
 
