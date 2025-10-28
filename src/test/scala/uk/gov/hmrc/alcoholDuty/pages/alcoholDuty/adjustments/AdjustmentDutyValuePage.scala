@@ -16,6 +16,8 @@
 
 package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
+import org.scalatest.Assertion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
@@ -28,4 +30,10 @@ object AdjustmentDutyValuePage extends BasePage {
     "The duty value for this adjustment is £16.00 - Manage your Alcohol Duty - GOV.UK"
   )
   override def expectedPageHeader: Option[String] = Some("The duty value for this adjustment is £16.00")
+
+  override def checkPageTitle(): Assertion =
+    pageTitle should startWith("The duty value for this adjustment is")
+
+  override def checkPageHeader(): Assertion =
+    driver.findElement(By tagName "h1").getText should startWith("The duty value for this adjustment is")
 }

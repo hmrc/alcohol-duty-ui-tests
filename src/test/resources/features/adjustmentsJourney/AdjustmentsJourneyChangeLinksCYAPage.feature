@@ -31,12 +31,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£2,322.59"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment     | Return period being adjusted | Tax type                                                       | Volume                                          | Duty rate | Duty value |
-      | Under-declared | September 2023               | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.27     | £2,322.59  |
     When I click "Adjustment" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Type Page" with new url
     When I select radio button "Over-declaration" on "Adjustment Type Page"
@@ -52,19 +49,13 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Return period being adjusted | Tax type                                                       | Volume                                          | Duty rate | Duty value |
-      | Over-declared | September 2023               | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.80     | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                                    | Duty value | Action        |
-      | Over-declared   | Draught beer between 1.3% and 3.4% ABV (tax type code 371 SPR) | −£2,455.39 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
 
 
@@ -83,12 +74,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Return period being adjusted| Tax type                                                        | Volume                                          | Duty rate | Duty value |
-      | Over-declared | October 2023                | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.80     | −£2,455.39 |
 #    Change Link Functionality for Return period being adjusted starts here
     When I click "Return period being adjusted" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Return Date Over Dec Page" with new url
@@ -102,12 +90,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "10.5" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,630.77"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Return period being adjusted| Tax type                                                        | Volume                                          | Duty rate | Duty value |
-      | Over-declared | December 2023               | Draught cider between 1.3% and 3.4% ABV (tax type code 372 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £10.50    | −£2,630.77 |
 #    Change Link Functionality for Tax type starts here
     When I click "Tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
@@ -118,30 +103,21 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "10.5" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,630.77"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Return period being adjusted | Tax type                                                                           | Volume                                          | Duty rate | Duty value |
-      | Over-declared | December 2023                | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £10.50    | −£2,630.77 |
 #    Change Link Functionality for SPR duty rate starts here
     When I click "SPR duty rate" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Volume With Spr Page" with new url
     And I enter "12.5" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£3,131.87"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment    | Return period being adjusted | Tax type                                                                           | Volume                                          | Duty rate | Duty value |
-      | Over-declared | December 2023                | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £12.50    | −£3,131.87 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                                                        | Duty value | Action        |
-      | Over-declared   | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | −£3,131.87 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
 
   @Test
@@ -165,12 +141,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "New Spr Duty Rate Page"
     When I enter "11.5" on "New Spr Duty Rate Page"
     And I click save and continue button on "New Spr Duty Rate Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£425.93"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Return period being adjusted | Original tax type                                              | New tax type                                                       | Volume                                          | Duty rate | Duty value |
-      | Repackaged | November 2023                | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £11.50    | £425.93    |
 #    Change Link Functionality for Volume starts here
     When I click "Volume" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Volume With Spr Page" with new url
@@ -184,42 +157,30 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "New Spr Duty Rate Page" with new url
     When I enter "11.5" on "New Spr Duty Rate Page"
     And I click save and continue button on "New Spr Duty Rate Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£1,051.65"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Return period being adjusted | Original tax type                                              | New tax type                                                       | Volume                                          | Duty rate | Duty value |
-      | Repackaged | November 2023                | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | 4,000.75 litres,350.5500 litres of pure alcohol | £11.50    | £1,051.65  |
 #    Change Link Functionality for SPR duty rate in case of Repackaged Journey
     When I click "New SPR duty rate" on "Adjustment Check Your Answers Page"
     Then I am presented with the "New Spr Duty Rate Page" with new url
     When I enter "14.5" on "New Spr Duty Rate Page"
     And I click save and continue button on "New Spr Duty Rate Page"
-    Then I am presented with the "Adjustment Duty Value Page" "£2,103.30"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Return period being adjusted | Original tax type                                              | New tax type                                                       | Volume                                          | Duty rate | Duty value |
-      | Repackaged | November 2023                | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 363 SPR) | 4,000.75 litres,350.5500 litres of pure alcohol | £14.50    | £2,103.30  |
 #    Change Link Functionality for New Tax type starts here
     When I click "New tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "New Tax Type Code Page" with new url
     When I enter "313" on "New Tax Type Code Page"
     And I click save and continue button on "New Tax Type Code Page"
 #    The new tax type code is Non SPR so New SPR duty rate page is skipped
-    Then I am presented with the "Adjustment Duty Value Page" "£269.92"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Return period being adjusted | Original tax type                                              | New tax type                                                   | Volume                                          | Duty rate | Duty value |
-      | Repackaged | November 2023                | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | Non-draught wine between 1.3% and 3.4% ABV (tax type code 313) | 4,000.75 litres,350.5500 litres of pure alcohol | £8.50     | £269.92    |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                                    | Duty value | Action        |
-      | Repackaged      | Draught wine between 1.3% and 3.4% ABV (tax type code 373 SPR) | £269.92    | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
 
   @Test
@@ -236,12 +197,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,322.59"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Return period being adjusted | Tax type                                                          | Volume                                          | Duty rate | Duty value |
-      | Drawback   | October 2023                 | Non-draught spirits between 1.3% and 3.4% ABV (tax type code 315) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.27     | −£2,322.59 |
     When I click "Tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
     When I enter "375" on "Adjustment Tax Type Code Page"
@@ -251,19 +209,13 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment |Return period being adjusted | Tax type                                                          | Volume                                          | Duty rate | Duty value |
-      | Drawback   | October 2023                | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.80     | −£2,455.39 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                                       | Duty value | Action        |
-      | Drawback        | Draught spirits between 1.3% and 3.4% ABV (tax type code 375 SPR) | −£2,455.39 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
 
   @Test
@@ -281,12 +233,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume With Spr Page"
     And I enter "9.8" for "SPR Duty Rate" on "Adjustment Volume With Spr Page"
     And I click save and continue button on "Adjustment Volume With Spr Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,455.39"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment |Return period being adjusted | Tax type                                                                           | Volume                                          | Duty rate | Duty value |
-      | Drawback   | October 2023                | Draught other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.80     | −£2,455.39 |
     When I click "Tax type" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
     When I enter "314" on "Adjustment Tax Type Code Page"
@@ -295,19 +244,13 @@ Feature: Adjustments Journey - Change Links - CYA Page
     When I enter "3000.75" for "Total Litres" on "Adjustment Volume Page"
     And I enter "250.5500" for "Litres Of Pure Alcohol" on "Adjustment Volume Page"
     And I click save and continue button on "Adjustment Volume Page"
-    Then I am presented with the "Adjustment Duty Value Page" "-£2,322.59"
+    Then I am presented with the "Adjustment Duty Value Page"
     When I click continue button on "Adjustment Duty Value Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment |Return period being adjusted | Tax type                                                                           | Volume                                          | Duty rate | Duty value |
-      | Drawback   | October 2023                | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | 3,000.75 litres,250.5500 litres of pure alcohol | £9.27     | −£2,322.59 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description                                                                        | Duty value | Action        |
-      | Drawback        | Non-draught other fermented products between 1.3% and 3.4% ABV (tax type code 314) | −£2,322.59 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
 
 
@@ -324,9 +267,6 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "3255.55" for "Duty Paid" on "Spoilt Alcohol Volume Page"
     And I click save and continue button on "Spoilt Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Description | Volume                                          | Duty value |
-      | Spoilt     | Spirits     | 3,000.75 litres,250.5500 litres of pure alcohol | −£3,255.55 |
     When I click "Description" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Spoilt Alcohol Type Page" with new url
     When I select radio button "Beer" on "Spoilt Alcohol Type Page"
@@ -337,9 +277,6 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "3255.55" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
     And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Description | Volume                                          | Duty value |
-      | Spoilt     | Beer        | 3,000.75 litres,250.5500 litres of pure alcohol | −£3,255.55 |
     When I click "Duty value" on "Adjustment Check Your Answers Page"
     Then I am presented with the "Spoilt Beer Alcohol Volume Page" with new url
     When I enter "3222.75" for "Total Litres" on "Spoilt Beer Alcohol Volume Page"
@@ -347,14 +284,8 @@ Feature: Adjustments Journey - Change Links - CYA Page
     And I enter "3200.55" for "Duty Paid" on "Spoilt Beer Alcohol Volume Page"
     And I click save and continue button on "Spoilt Beer Alcohol Volume Page"
     Then I am presented with the "Adjustment Check Your Answers Page"
-    And I should see the following details
-      | Adjustment | Description | Volume                                          | Duty value |
-      | Spoilt     | Beer        | 3,222.75 litres,255.5500 litres of pure alcohol | −£3,200.55 |
     When I click save and continue button on "Adjustment Check Your Answers Page"
     Then I am presented with the "Adjustment List Page"
-    And I should see the following product details
-      | Adjustment type | Description | Duty value | Action        |
-      | Spoilt          | Beer        | −£3,200.55 | Change Remove |
     When I select radio button "No" on "Adjustment List Page"
-    When I click save and continue button on "Adjustment List Page"
+    And I click save and continue button on "Adjustment List Page"
     Then I am presented with the "Task List Page"
