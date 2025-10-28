@@ -22,7 +22,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
 
-
   Scenario:2. Email Contact preference Journey - User on post stays on post
     And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
     And I enter Enrollment Key "HMRC-AD-ORG", Identifier Name "APPAID" and Identifier Value "XMADP1000100211" on "Auth Login Stub Page"
@@ -45,7 +44,6 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
 
-
   Scenario:4. Email Contact preference Journey - User already on email and Updating to new email address
     #with verified email in ETMP
     And I enter redirect URL on Auth Login Stub Page for "Email Contact Preference"
@@ -58,7 +56,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I am presented with the "ECP Enrolled Email Page"
     When I click update email address link on "ECP Enrolled Email Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter email address "jane.doe2@example.com" on "Enter Email Address Page"
+    When I enter "jane.doe2@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
     When I click ECPSubmit on "ECP Check Your Answers Page"
@@ -76,7 +74,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter email address "jane.doe@example.com" on "Enter Email Address Page"
+    When I enter "jane.doe@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
     Then I am presented with the "ECP Confirmation Code Limit Page"
 
@@ -89,7 +87,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "No, I want to use a different email" on "ECP Existing Email Page"
     And I click continue button on "ECP Existing Email Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter email address "john.doe@example.com" on "Enter Email Address Page"
+    When I enter "john.doe@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
     When I click ECPSubmit on "ECP Check Your Answers Page"
@@ -105,12 +103,11 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter email address "john.doe@example.com" on "Enter Email Address Page"
+    When I enter "john.doe@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
     When I click ECPSubmit on "ECP Check Your Answers Page"
     Then I am presented with the "ECP Confirmation Page"
-
 
   Scenario:8. Bounced email
     And I enter CredID "cred0" on "Auth Login Stub Page"
@@ -120,7 +117,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     Then I am presented with the "ECP Email Error Page"
     When I click continue button on "ECP Email Error Page"
     Then I am presented with the "Enter Email Address Page"
-    When I enter email address "jane.doe2@example.com" on "Enter Email Address Page"
+    When I enter "jane.doe2@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
     Then I am presented with the "ECP Check Your Answers Page"
     When I click ECPSubmit on "ECP Check Your Answers Page"

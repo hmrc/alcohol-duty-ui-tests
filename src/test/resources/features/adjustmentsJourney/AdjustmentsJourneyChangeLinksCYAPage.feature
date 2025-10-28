@@ -38,9 +38,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Type Page" with new url
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the "Adjustment Return Date Over Dec Page" with new url
-    When I enter month "09" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the "Adjustment Return Date Page" with new url
+    When I enter month "09" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
     When I enter "371" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
@@ -63,9 +63,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Over-declaration"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
     When I enter "372" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
@@ -79,9 +79,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
     Then I am presented with the "Adjustment Check Your Answers Page"
 #    Change Link Functionality for Return period being adjusted starts here
     When I click "Return period being adjusted" on "Adjustment Check Your Answers Page"
-    Then I am presented with the "Adjustment Return Date Over Dec Page" with new url
-    When I enter month "12" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the "Adjustment Return Date Page" with new url
+    When I enter month "12" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page" with new url
     When I enter "372" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
@@ -124,9 +124,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Repackaged draught products"
-    When I enter month "11" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Repackaged draught products"
+    When I enter month "11" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code For Repackaged Page"
     When I enter "373" on "Adjustment Tax Type Code For Repackaged Page"
     And I click save and continue button on "Adjustment Tax Type Code For Repackaged Page"
@@ -187,9 +187,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
     When I enter "315" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
@@ -222,9 +222,9 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Over Dec Page" "Drawback"
-    When I enter month "10" and year "2023" on "Adjustment Return Date Over Dec Page"
-    And I click save and continue button on "Adjustment Return Date Over Dec Page"
+    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    When I enter month "10" and year "2023" on "Adjustment Return Date Page"
+    And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
     When I enter "374" on "Adjustment Tax Type Code Page"
     And I click save and continue button on "Adjustment Tax Type Code Page"
