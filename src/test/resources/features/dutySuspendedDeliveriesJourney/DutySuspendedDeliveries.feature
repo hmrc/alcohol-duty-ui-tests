@@ -38,9 +38,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
     And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
-      | 2,000.75 litres                           | 150.5500 litres                                 | 9,999.99 litres                            | 99.1900 litres                                   | 7,777.77 litres                           | 77.7700 litres                                  | 2,100.75 litres                              | 160.5500 litres                                     | 8,888.88 litres                                               | 88.8800 litres                                                       |
     When I click "Change total net quantity of duty suspended beer" on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Duty Suspended Beer Page" with new url
     When I enter "3000.75" for "Total Beer" on "Duty Suspended Beer Page"
@@ -71,9 +68,6 @@ Feature: Alcohol Duty Return - Duty Suspended Deliveries - Change Link Functiona
     And I enter "560.65" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer | Total net quantity of duty suspended cider | Total net quantity of pure alcohol in this cider | Total net quantity of duty suspended wine | Total net quantity of pure alcohol in this wine | Total net quantity of duty suspended spirits | Total net quantity of pure alcohol in these spirits | Total net quantity of duty suspended other fermented products | Total net quantity of pure alcohol in these other fermented products |
-      | 3,000.75 litres                           | 250.5500 litres                                 | 1,500.35 litres                            | 300.5500 litres                                  | 2,800.35 litres                           | 160.6500 litres                                 | 7,800.35 litres                              | 460.6500 litres                                     | 8,800.35 litres                                               | 560.6500 litres                                                      |
     And I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     

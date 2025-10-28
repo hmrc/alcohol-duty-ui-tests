@@ -459,24 +459,6 @@ trait BaseStepDef
     actualText should be(expectedText)
   }
 
-  Then("""I verify the return due date for {string} on {string}""") { (content: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    val actualText = driver.findElement(By.xpath("//div/div/form/p[1]")).getText
-
-    content match {
-      // This is the most recent month with quarterly spirits
-      case "Latest Month Selected" =>
-        actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + getDateRange + "."
-        )
-
-      case "Previous Month Selected"         =>
-        actualText should be(
-          "Use this service to submit your Alcohol Duty return for " + firstDayOfPreviousMonth + " to " + lastDayOfPreviousMonth + "."
-        )
-    }
-  }
-
   And("""I should verify the table header displayed""") { (data: DataTable) =>
     val expectedText = data.asScalaListOfStrings
     tableHeaderText should be(expectedText)
