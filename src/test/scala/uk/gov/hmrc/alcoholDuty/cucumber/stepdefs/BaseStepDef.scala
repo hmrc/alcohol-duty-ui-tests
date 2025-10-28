@@ -253,7 +253,7 @@ trait BaseStepDef
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations")
   }
 
-  When("""I click on {string} link to view completed returns from previous years on {string}""") { (hyperlink: String, page: String) =>
+  When("""I click the link to view completed returns from the previous year on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")).click()
   }
@@ -523,7 +523,7 @@ trait BaseStepDef
     driver.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
   }
 
-  And("""I clear the data to view Past Payments""") {
+  Given("""I clear the data to view Past Payments""") {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments")
   }
 
