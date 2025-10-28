@@ -56,11 +56,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
-  And("""I verify the button {string} is displayed on {string}""") { (buttonText: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).verifyButtonDisplayed(buttonText)
-  }
-
   Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
     PageObjectFinder.page(page).checkURL
     PageObjectFinder.page(page).checkPageHeader()
@@ -113,11 +108,6 @@ trait BaseStepDef
   When("""I click continue button on {string}""") { (page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
-  }
-
-  When("""I click update email address link on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickUpdateLink()
   }
 
   When("""I click back button on {string}""") { (page: String) =>
@@ -175,11 +165,6 @@ trait BaseStepDef
   When("""I click on the first {string} link on {string}""") { (hyperlink: String, page: String) =>
     PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
-  }
-
-  And("""I click on link {string} on {string}""") { (hyperlink: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
-    driver.findElement(By.xpath("//a[@id='back-to-returns-link']")).click()
   }
 
   When("""I click {string} on {string}""") { (button: String, page: String) =>

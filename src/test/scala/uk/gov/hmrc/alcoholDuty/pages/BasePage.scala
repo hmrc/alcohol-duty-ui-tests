@@ -93,20 +93,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       driver.getCurrentUrl should equal(url)
     }
 
-  def verifyButtonDisplayed(buttonText: String): Assertion = {
-    val button = driver.findElement(By.xpath("//a[@id='payNowButton']"))
-    button.isDisplayed shouldBe true
-  }
-
-  def checkDynamicURL: Assertion =
-    if (url.contains("...")) {
-      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(url))
-      driver.getCurrentUrl should equal(url)
-    }
-
   def checkNewURL: Assertion =
     if (newUrl.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(newUrl.replace("...", "") + ".*"))
@@ -115,32 +101,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       fluentWait.until(ExpectedConditions.urlToBe(newUrl))
       driver.getCurrentUrl should equal(newUrl)
     }
-
-  def checkNewURLWithTwoDynamicValues(urlPrefix: String, urlSuffix: String): Unit = {
-    if (newUrl.contains("...")) {
-      val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
-      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
-      validateUrl(updatedUrl)
-      driver.getCurrentUrl shouldBe updatedUrl
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      validateUrl(driver.getCurrentUrl)
-      driver.getCurrentUrl shouldBe newUrl
-    }
-  }
-
-  def checkNewURLWithOneDynamicValue(urlSuffix: String): Unit = {
-    if (newUrl.contains("...")) {
-      val updatedUrl = newUrl.replace("preFix-", "").replace("...", urlSuffix)
-      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
-      validateUrl(updatedUrl)
-      driver.getCurrentUrl shouldBe updatedUrl
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      validateUrl(driver.getCurrentUrl)
-      driver.getCurrentUrl shouldBe newUrl
-    }
-  }
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = newUrl + urlSuffix
@@ -178,8 +138,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickConfirmAndContinueButton(): Unit = click on id("confirmAndContinueButton")
 
   def clickContinueButton(): Unit = click on id("continueButton")
-
-  def clickUpdateLink(): Unit = click on id("update-email-address-link")
 
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 

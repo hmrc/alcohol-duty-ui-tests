@@ -15,5 +15,5 @@ Feature: View Past Returns Journey
     Then I am presented with the "View Specific Return Page"
     And I click back button on "View Completed Returns Page"
     Then I am presented with the "View Completed Returns Page"
-    And I click on link "Back to current returns" on "View Completed Returns Page"
+    When I click on "Back to current returns" hyperlink on "View Completed Returns Page"
     Then I am presented with the "View Past Returns Page"

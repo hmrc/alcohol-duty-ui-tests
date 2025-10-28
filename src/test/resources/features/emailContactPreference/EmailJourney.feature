@@ -54,7 +54,7 @@ Feature: Change contact preference from BTA for Alcohol Duty Returns
     When I select radio button "Email me when I have a digital message" on "How Would You Like To Be Contacted Page"
     And I click continue button on "How Would You Like To Be Contacted Page"
     Then I am presented with the "ECP Enrolled Email Page"
-    When I click update email address link on "ECP Enrolled Email Page"
+    When I click on "If this is not the correct address, you can update it" hyperlink on "ECP Enrolled Email Page"
     Then I am presented with the "Enter Email Address Page"
     When I enter "jane.doe2@example.com" on "Enter Email Address Page"
     And I click continue button on "Enter Email Address Page"
