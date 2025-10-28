@@ -24,10 +24,6 @@ object NoDutyDuePage extends BasePage {
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
   override val title       = "No duty due"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: No duty due - Manage your Alcohol Duty - GOV.UK"
-  )
-
   override def expectedPageTitle: Option[String] = Some(
     "No duty due - Manage your Alcohol Duty - GOV.UK"
   )
