@@ -18,7 +18,6 @@ package uk.gov.hmrc.alcoholDuty.cucumber.stepdefs
 
 import io.cucumber.datatable.DataTable
 import io.cucumber.scala.{EN, ScalaDsl}
-import org.junit.Assert
 import org.openqa.selenium.{By, WebElement}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
@@ -28,9 +27,7 @@ import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder.DataTableConverters
-import java.time.format.DateTimeFormatter
 
-import java.time.LocalDate
 import scala.jdk.CollectionConverters._
 
 trait BaseStepDef
@@ -59,12 +56,6 @@ trait BaseStepDef
   Then("""I am presented with the {string}""") { (page: String) =>
     //waitForPageHeaderRemoved in necessary places
     PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-  }
-
-  Then("""I am presented with the dynamic url {string}""") { (page: String) =>
-    PageObjectFinder.page(page).checkCentralAssessmentURL()
     PageObjectFinder.page(page).checkPageHeader()
     PageObjectFinder.page(page).checkPageTitle()
   }
