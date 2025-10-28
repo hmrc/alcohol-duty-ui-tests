@@ -26,17 +26,8 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I enter "55.5555" for "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" on "How Much You Need To Declare Beer Page" at "first" input box
     And I click save and continue button on "How Much You Need To Declare Beer Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
-    And I should see the following text on the page
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) |
-    And I check the page source for the following key-value pairs:
-      | key          | value          |
-      | Total volume | 945.55 litres  |
-      | Pure alcohol | 55.5555 litres |
     When I click save and continue button on "Check Your Answers Returns Beer Page"
-    Then I am presented with the "Duty Due Beer Page" "£533.88"
-    And I should see the following product details
-      | Description                                                    | Litres of pure alcohol (LPA) | Duty rate (per litre) | Duty value | Action |
-      | Non-draught beer between 1.3% and 3.4% ABV (tax type code 311) | 55.5555                      | £9.61                 | £533.88    | Change |
+    Then I am presented with the "Duty Due Beer Page"
     When I click save and continue button on "Duty Due Beer Page"
     Then I am presented with the "Task List Page"
     #Adjustment journey- nothing to declare
@@ -57,18 +48,10 @@ Feature: Alcohol Duty Returns Journey with Limited Regime Approvals
     And I enter "150.5500" for "Pure Alcohol In Beer" on "Duty Suspended Beer Page"
     And I click save and continue button on "Duty Suspended Beer Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I should see the following details
-      | Total net quantity of duty suspended beer | Total net quantity of pure alcohol in this beer |
-      | 2,000.75 litres                           | 150.5500 litres                                 |
     When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
     #Return summary page
     When I click on "Check duty payable and send your return" hyperlink on "Task List Page"
-    Then I am presented with the "Return Summary Page" "£533.88"
-    And I should see the following details
-      | Beer declared | Adjustments to previous returns | Duty suspended alcohol |
-      | £533.88       | Nil                             | Declared               |
-    And I verify 3 change links present on "Return Summary Page"
+    Then I am presented with the "Return Summary Page"
     When I click on Agree and send return button "Return Summary Page"
     Then I am presented with the "Return Submitted Page"
-

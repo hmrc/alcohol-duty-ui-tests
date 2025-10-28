@@ -24,7 +24,7 @@ import uk.gov.hmrc.alcoholDuty.pages.BasePage
 object AdjustmentDutyValuePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/duty-value"
-  override val title       = "The duty value for this adjustment is £16.00"
+  override val title       = "The duty value for this adjustment is"
 
   override def expectedPageTitle: Option[String]  = Some(
     "The duty value for this adjustment is £16.00 - Manage your Alcohol Duty - GOV.UK"
@@ -32,8 +32,8 @@ object AdjustmentDutyValuePage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("The duty value for this adjustment is £16.00")
 
   override def checkPageTitle(): Assertion =
-    pageTitle should startWith("The duty value for this adjustment is")
+    pageTitle should startWith(title)
 
   override def checkPageHeader(): Assertion =
-    driver.findElement(By tagName "h1").getText should startWith("The duty value for this adjustment is")
+    driver.findElement(By tagName "h1").getText should startWith(title)
 }
