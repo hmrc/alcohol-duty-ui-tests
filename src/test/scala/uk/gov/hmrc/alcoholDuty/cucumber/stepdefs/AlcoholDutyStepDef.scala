@@ -23,17 +23,28 @@ class AlcoholDutyStepDef extends BaseStepDef {
 
   When("""I enter redirect URL on Auth Login Stub Page for {string}""") { (typeOfJourney: String) =>
     typeOfJourney match {
-      case "Business Tax Account Page" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/start")
-      case "Alcohol Duty Service" =>
+      case "Alcohol Duty Service"     =>
         AuthLoginStubPage.enterRedirectURL(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey)
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+        )
+      case "View Past Returns Page"   =>
+        AuthLoginStubPage.enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
+        )
+      case "View Past Payments Page"  =>
+        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
       case "Email Contact Preference" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference")
-      case "Email Update" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email")
-      case "Email Bounce" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/bounced-email")
+        AuthLoginStubPage.enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference"
+        )
+      case "Email Update"             =>
+        AuthLoginStubPage.enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email"
+        )
+      case "Email Bounce"             =>
+        AuthLoginStubPage.enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/bounced-email"
+        )
     }
   }
 
@@ -41,23 +52,11 @@ class AlcoholDutyStepDef extends BaseStepDef {
     driver.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id")
   }
 
-  When("""I enter redirectURL for {string}""") { (text: String) =>
-    text match {
-      case "View Past Returns Page" =>
-        AuthLoginStubPage.enterRedirectURL(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
-        )
-      case "View Past Payments Page" =>
-        AuthLoginStubPage.enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
+  When("""I enter CredID {string} on {string}""") { (CredID: String, page: String) =>
+    page match {
+      case "Auth Login Stub Page" =>
+        AuthLoginStubPage.authorityId(CredID)
     }
-  }
-
-  When("""I enter CredID {string} on {string}""") {
-    (CredID: String, page: String) =>
-      page match {
-        case "Auth Login Stub Page" =>
-          AuthLoginStubPage.authorityId(CredID)
-      }
   }
 
   When("""I enter Enrollment Key {string}, Identifier Name {string} and Identifier Value {string} on {string}""") {
@@ -67,8 +66,6 @@ class AlcoholDutyStepDef extends BaseStepDef {
           AuthLoginStubPage.enrolments(enrollmentKey, IdentifierName, IdentifierValue)
       }
   }
-
-
 
   When("""I select Affinity Type as {string} on {string}""") { (value: String, page: String) =>
     page match {
