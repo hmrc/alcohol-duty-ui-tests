@@ -21,7 +21,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:1- Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -63,7 +63,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -124,7 +124,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Repackaged draught products"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "11" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code For Repackaged Page"
@@ -187,7 +187,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -222,7 +222,7 @@ Feature: Adjustments Journey - Change Links - CYA Page
   Scenario:5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"

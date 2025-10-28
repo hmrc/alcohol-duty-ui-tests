@@ -153,54 +153,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-  def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
-    val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
-    actualErrorSummaryTitle should be(errorSummaryTitle)
-  }
-
-  def checkPageErrorMessage(errorMessage: String): Unit = {
-    val actualErrorMessage =
-      driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
-    assert(actualErrorMessage.contains(errorMessage))
-  }
-
-  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit =
-    fluentWait.until(
-      ExpectedConditions.textToBePresentInElementLocated(
-        By.cssSelector(".govuk-error-summary__body"),
-        expectedErrorMessages.mkString("\n")
-      )
-    )
-
-  private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
-
-  def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
-
-  def checkDynamicPageHeader(text: String): Unit =
-    text match {
-      case "Under-declaration" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for under-declared alcohol"
-        )
-      case "Over-declaration" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for over-declared alcohol"
-        )
-      case "Spoilt" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for spoilt alcohol"
-        )
-      case "Drawback" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for duty drawback"
-          //(By.xpath("//span[@id='when-did-you-pay-duty-section']"))
-        )
-      case "Repackaged draught products" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for repackaged draught products"
-        )
-    }
-
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 
   def pageData: Map[String, String] = driver
@@ -279,10 +231,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def get12MonthsAgoPeriodKey: String =
     s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate.minusMonths(12).getMonthValue + 64).toChar}"""
 
-  private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
-
-  def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
-
   def productsList: Seq[List[String]] = driver
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
@@ -294,97 +242,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
-  def outstandingReturnsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[1]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  def completedReturnsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[2]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nView.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  //To get the pure alcohol text
-  private def bulletPointsTextPureAlcohol() =
-    driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))
-
-  def getBulletPointsTextPureAlcohol: Seq[String] = bulletPointsTextPureAlcohol().getText.split("\n").toList
-
-  //To get the duty due text
-  private def bulletPointsTextDutyDue() =
-    driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
-
-  def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
-
   def enterDate(month: String, year: String): Unit = {}
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
       click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
-
-  def subSectionsHeaderText: List[String] = driver
-    .findElement(By.cssSelector("main[id='main-content'] div[class='govuk-grid-column-two-thirds']"))
-    .findElements(By.tagName("h2"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def tableHeaderText: List[String] = driver
-    .findElements(By.cssSelector("caption[class='govuk-table__caption govuk-table__caption--m']"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def taskListPageContentView: Map[String, String] = driver
-    .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
-    .asScala
-    .flatMap { row =>
-      val key = row
-        .findElement(By.cssSelector(".govuk-task-list__name-and-hint"))
-        .getText
-        .trim
-        .replaceAll("""\nYou can adjust declared.*""", "")
-        .replaceAll("""\nEvery three months.*""", "")
-      val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
-      Map(key -> value)
-    }
-    .toMap
-
-  def dataAtCheckYourAnswersPage: Map[String, String] = driver
-    .findElements(By.cssSelector(".govuk-summary-list__row"))
-    .asScala
-    .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
-      val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", "")
-      Map(key -> value)
-    }
-    .toMap
-
-  def alcoholToDeclareSectionText: List[String] = driver
-    .findElement(By.xpath("//dd[@class='govuk-summary-list__value']/ul"))
-    .findElements(By.tagName("li"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def alcoholDeclaredSectionTextCYA: List[String] = driver
-    .findElement(By.xpath("//dl"))
-    .findElements(By.tagName("dl"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
 
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
     case "first" => 0
@@ -412,23 +274,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
 
-  def alcoholTypes: List[String] = driver
-    .findElement(By.cssSelector(".govuk-checkboxes"))
-    .findElements(By.tagName("label"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
   def getSpecificMonth: String =
     currentDate.minusMonths(12).format(formatter)
-
-  def getPaymentTypeValue(paymentType: String): Int =
-    paymentType match {
-      case "Outstanding" => 1
-      case "Unallocated" => 2
-      case "Historical" => 3
-      case _ => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
-    }
 
   def getMonthDetails(formatType: String): Map[String, String] = {
     val currentDate = LocalDate.now()
@@ -481,54 +328,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
-  def paymentDetails(paymentType: String): Seq[List[String]] = {
-    val tableIndex = getPaymentTypeValue(paymentType)
-    driver
-      .findElement(By.xpath("//div/table[" + tableIndex + "]"))
-      .findElements(By.tagName("tr"))
-      .asScala
-      .map(
-        _.findElements(By.xpath("td | th")).asScala
-          .map(
-            _.getText.trim
-              .replaceAll("""\nPay.*""", "")
-              .replaceAll("""\(ref:.*""", "")
-              .replaceAll("\n", "")
-          )
-          .toList
-      )
-      .toList
+  def getVisibleTextFromElement(element: WebElement): String = {
+    val htmlContent = element.getAttribute("innerHTML")
+    htmlContent
+      .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
+      .replaceAll("<[^>]+>", "")
+      .replaceAll("\n", " ")
+      .replaceAll("\\s+", " ")
+      .trim
   }
-
-  def currentMonthPaymentDetails(paymentType: String): Seq[List[String]] = {
-    val tableIndex = getPaymentTypeValue(paymentType)
-
-    driver
-      .findElement(By.xpath(s"//div/table[$tableIndex]"))
-      .findElements(By.tagName("tr"))
-      .asScala
-      .drop(1) // skip the header row
-      .headOption // take only the first data row
-      .map { row =>
-        row.findElements(By.tagName("td")).asScala
-          .map(
-            _.getText.trim
-              .replaceAll("""\nPay.*""", "")
-              .replaceAll("""\(ref:.*""", "")
-              .replaceAll("\n", "")
-          )
-          .toList
-      }
-      .toList
-  }
-
-    def getVisibleTextFromElement(element: WebElement): String = {
-      val htmlContent = element.getAttribute("innerHTML")
-      htmlContent
-        .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
-        .replaceAll("<[^>]+>", "")
-        .replaceAll("\n", " ")
-        .replaceAll("\\s+", " ")
-        .trim
-    }
-  }
+}

@@ -56,13 +56,6 @@ trait BaseStepDef
     PageObjectFinder.page(page).checkPageTitle()
   }
 
-  Then("""I am presented with the dynamic header page {string} {string}""") { (page: String, text: String) =>
-    PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
-    checkDynamicPageHeader(text)
-  }
-
   Then("""I am presented with the {string} with new url""") { page: String =>
     PageObjectFinder.page(page).checkNewURL
     PageObjectFinder.page(page).checkPageHeader()

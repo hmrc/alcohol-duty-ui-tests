@@ -20,7 +20,7 @@ Feature: Adjustments Journey
   Scenario: Adjustments Journey - Validating under-declaration-reason removal from task List page when amount is changed to less than £1000 - Under-declaration - Beer - With SPR
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -68,7 +68,7 @@ Feature: Adjustments Journey
   Scenario: Adjustments Journey - Validating over-declaration-reason removal from task List page when amount is changed to less than £1000 after deleting one of the adjustment- Over-declaration - Cider - With SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -90,7 +90,7 @@ Feature: Adjustments Journey
     Then I am presented with the "Adjustment Type Page"
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"

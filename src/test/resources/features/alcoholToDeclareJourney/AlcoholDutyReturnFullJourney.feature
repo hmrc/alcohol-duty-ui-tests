@@ -242,7 +242,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Type Page"
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -263,7 +263,7 @@ Feature: Alcohol Duty Returns Journey
 #Adjustments Journey - Cider - Over-declaration - Without SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -284,7 +284,7 @@ Feature: Alcohol Duty Returns Journey
 #Adjustments Journey - Wine - Repackaged Draught Products - With SPR
     When I select radio button "Repackaged draught products" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Repackaged draught products"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "11" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code For Repackaged Page"
@@ -329,7 +329,7 @@ Feature: Alcohol Duty Returns Journey
 #Adjustments Journey - Other Fermented Products - Drawback - Without SPR
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -628,7 +628,7 @@ Feature: Alcohol Duty Returns Journey
     Then I am presented with the "Adjustment Type Page"
     When I select radio button "Under-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Under-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "09" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -650,7 +650,7 @@ Feature: Alcohol Duty Returns Journey
 #Adjustments Journey - Cider - Over-declaration - With SPR
     When I select radio button "Over-declaration" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Over-declaration"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
@@ -689,7 +689,7 @@ Feature: Alcohol Duty Returns Journey
 #  Adjustments Journey - Happy path - Drawback - Other Fermented Products - With SPR
     When I select radio button "Drawback" on "Adjustment Type Page"
     And I click save and continue button on "Adjustment Type Page"
-    Then I am presented with the dynamic header page "Adjustment Return Date Page" "Drawback"
+    Then I am presented with the "Adjustment Return Date Page"
     When I enter month "10" and year "2023" on "Adjustment Return Date Page"
     And I click save and continue button on "Adjustment Return Date Page"
     Then I am presented with the "Adjustment Tax Type Code Page"
