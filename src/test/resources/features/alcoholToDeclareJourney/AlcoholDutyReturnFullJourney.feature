@@ -385,7 +385,7 @@ Feature: Alcohol Duty Returns Journey
     And I enter "88.88" for "Pure Alcohol In Other Fermented Products" on "Duty Suspended Other Fermented Products Page"
     And I click save and continue button on "Duty Suspended Other Fermented Products Page"
     Then I am presented with the "Duty Suspended Deliveries Check Your Answers Page"
-    And I click continue button on "Duty Suspense Deliveries Check Your Answers Page"
+    When I click continue button on "Duty Suspended Deliveries Check Your Answers Page"
     Then I am presented with the "Task List Page"
 #Your spirits and ingredients
     When I click on "Tell us about spirits produced in the past three months" hyperlink on "Task List Page"
