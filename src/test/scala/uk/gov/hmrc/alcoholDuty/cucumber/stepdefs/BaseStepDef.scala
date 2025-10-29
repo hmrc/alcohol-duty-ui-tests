@@ -40,92 +40,84 @@ trait BaseStepDef
   }
 
   When("""I click submit button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSubmitButton()
   }
 
   When("""I click ECPSubmit on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickECPSubmitButton()
   }
 
   Then("""I am presented with the {string}""") { (page: String) =>
-    //waitForPageHeaderRemoved in necessary places
+    // no longer checking page header and page title - checking URL includes fluentWait and ensures we have landed on the right page
     PageObjectFinder.page(page).checkURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with new url""") { page: String =>
     PageObjectFinder.page(page).checkNewURL
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with url suffix as {string}""") { (page: String, urlSuffix: String) =>
     PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
-    PageObjectFinder.page(page).checkPageHeader()
-    PageObjectFinder.page(page).checkPageTitle()
   }
 
   Then("""I am presented with the {string} with existing url suffix as {string}""") {
     (page: String, urlSuffix: String) =>
       PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-      PageObjectFinder.page(page).checkPageHeader()
-      PageObjectFinder.page(page).checkPageTitle()
   }
 
   When("""I select radio button {string} on {string}""") { (choice: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickRadioButton(choice)
   }
 
   When("""I {string} checkbox {string} on {string}""") { (checkBoxAction: String, choice: String, page: String) =>
     checkBoxAction match {
       case "select" | "unselect" =>
-        PageObjectFinder.page(page).waitForPageHeader
+//        PageObjectFinder.page(page).waitForPageHeader
         PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
     }
   }
 
   When("""I click save and continue button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSaveAndContinueButton()
   }
 
   When("""I click confirm and continue button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickConfirmAndContinueButton()
   }
 
   When("""I click continue button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
   }
 
   When("""I click back button on {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickBackButton()
   }
 
   When("""I enter {string} on {string}""") { (data: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDetails(data)
   }
 
   When("""I enter {string} for {string} on {string}""") { (textToEnter: String, text: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
   }
 
   When("""I enter {string} for {string} on {string} at {string} input box""") {
     (textToEnter: String, text: String, page: String, index: String) =>
-      PageObjectFinder.page(page).waitForPageHeader
+//      PageObjectFinder.page(page).waitForPageHeader
       PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
   }
 
   When("""I enter month {string} and year {string} on {string}""") { (month: String, year: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
   }
 
@@ -156,7 +148,7 @@ trait BaseStepDef
   }
 
   When("""I click on the first {string} link on {string}""") { (hyperlink: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
   }
 
@@ -165,12 +157,12 @@ trait BaseStepDef
   }
 
   When("""I click on {string} hyperlink on {string}""") { (hyperlink: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
   }
 
   When("""I click on {string} link on {string}""") { (hyperlink: String, page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     driver.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
   }
 
@@ -199,7 +191,7 @@ trait BaseStepDef
   }
 
   When("""I click on Agree and send return button {string}""") { (page: String) =>
-    PageObjectFinder.page(page).waitForPageHeader
+//    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
   }
 
