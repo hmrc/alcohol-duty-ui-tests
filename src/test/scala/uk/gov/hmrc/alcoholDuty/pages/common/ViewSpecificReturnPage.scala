@@ -27,10 +27,6 @@ object ViewSpecificReturnPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + get12MonthsAgoPeriodKey
   override val title = "April 2024 Alcohol Duty Return"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
-  )
-
   override def expectedPageTitle: Option[String] = Some(
     "Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
   )
@@ -40,7 +36,7 @@ object ViewSpecificReturnPage extends BasePage {
   )
 
   override def checkPageTitle(): Assertion =
-    driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
+    pageTitle should equal(getSpecificMonth + " Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK")
 
   override def checkPageHeader(): Assertion =
     driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")

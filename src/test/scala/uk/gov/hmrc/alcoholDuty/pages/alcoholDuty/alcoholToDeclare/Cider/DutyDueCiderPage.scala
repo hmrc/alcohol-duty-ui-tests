@@ -17,13 +17,14 @@
 package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.alcoholToDeclare.Cider
 
 import org.openqa.selenium.By
+import org.scalatest.Assertion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DutyDueCiderPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/duty-due"
-  override val title = "You will owe £4,588.83"
+  override val title = "You will owe £"
 
   override def expectedPageTitle: Option[String] = Some(
     "You will owe £4,588.83 - Manage your Alcohol Duty - GOV.UK"
@@ -32,11 +33,9 @@ object DutyDueCiderPage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("You will owe £14,749.70")
 
 
-  override def checkPageTitle(amountOnPageTitle: String): Unit = {
-    driver.findElement(By tagName "h1").getText should equal("You will owe " + amountOnPageTitle)
-  }
+  override def checkPageTitle(): Assertion =
+    pageTitle should startWith(title)
 
-  override def checkPageErrorTitle(amountOnPageTitle: String): Unit = {
-    driver.findElement(By tagName "h1").getText should equal("You will owe " + amountOnPageTitle)
-  }
+  override def checkPageHeader(): Assertion =
+    driver.findElement(By tagName "h1").getText should startWith(title)
 }

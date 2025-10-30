@@ -33,4 +33,7 @@ object EnterEmailAddressPage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("What is the email address we should use to contact you about your Alcohol Duty?")
+
+  override def enterDetails(textToEnter: String): Unit =
+    enterText("emailAddress", textToEnter)
 }

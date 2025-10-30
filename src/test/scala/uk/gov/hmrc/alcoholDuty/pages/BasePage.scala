@@ -84,31 +84,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     driver.findElement(By.id(id)).sendKeys(textToEnter)
   }
 
-  def checkPageTitle(page: String): Unit = {}
-
-  def checkPageErrorTitle(page: String): Unit = {}
-
   def checkURL: Assertion =
-    if (url.contains("...")) {
-      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(url))
-      driver.getCurrentUrl should equal(url)
-    }
-
-  def checkCentralAssessmentURL(): Assertion = {
-    val Url = url.replace("...", "")
-    fluentWait.until(ExpectedConditions.urlContains(Url))
-    driver.getCurrentUrl should startWith (Url)
-  }
-
-  def verifyButtonDisplayed(buttonText: String): Assertion = {
-    val button = driver.findElement(By.xpath("//a[@id='payNowButton']"))
-    button.isDisplayed shouldBe true
-  }
-
-  def checkDynamicURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
       driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
@@ -125,32 +101,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       fluentWait.until(ExpectedConditions.urlToBe(newUrl))
       driver.getCurrentUrl should equal(newUrl)
     }
-
-  def checkNewURLWithTwoDynamicValues(urlPrefix: String, urlSuffix: String): Unit = {
-    if (newUrl.contains("...")) {
-      val updatedUrl = newUrl.replace("...", urlSuffix).replace("preFix-", urlPrefix)
-      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
-      validateUrl(updatedUrl)
-      driver.getCurrentUrl shouldBe updatedUrl
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      validateUrl(driver.getCurrentUrl)
-      driver.getCurrentUrl shouldBe newUrl
-    }
-  }
-
-  def checkNewURLWithOneDynamicValue(urlSuffix: String): Unit = {
-    if (newUrl.contains("...")) {
-      val updatedUrl = newUrl.replace("preFix-", "").replace("...", urlSuffix)
-      fluentWait.until(ExpectedConditions.urlToBe(updatedUrl))
-      validateUrl(updatedUrl)
-      driver.getCurrentUrl shouldBe updatedUrl
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      validateUrl(driver.getCurrentUrl)
-      driver.getCurrentUrl shouldBe newUrl
-    }
-  }
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = newUrl + urlSuffix
@@ -189,8 +139,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickContinueButton(): Unit = click on id("continueButton")
 
-  def clickUpdateLink(): Unit = click on id("update-email-address-link")
-
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
   def enterDetails(data: String): Unit = {}
@@ -205,54 +153,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def clickCheckBox(text: String): Unit =
     driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-  def checkPageErrorSummaryTitle(errorSummaryTitle: String): Unit = {
-    val actualErrorSummaryTitle = driver.findElement(By.className("govuk-error-summary__title")).getText
-    actualErrorSummaryTitle should be(errorSummaryTitle)
-  }
- 
-  def checkPageErrorMessage(errorMessage: String): Unit = {
-    val actualErrorMessage =
-      driver.findElement(By.cssSelector(".govuk-error-summary__body")).getText.trim.replaceAll("\n", ",")
-    assert(actualErrorMessage.contains(errorMessage))
-  }
-
-  def checkListOfErrorMessages(expectedErrorMessages: List[String]): Unit =
-    fluentWait.until(
-      ExpectedConditions.textToBePresentInElementLocated(
-        By.cssSelector(".govuk-error-summary__body"),
-        expectedErrorMessages.mkString("\n")
-      )
-    )
-
-  private def errorMessage() = driver.findElement(By.cssSelector(".govuk-error-summary__body"))
-
-  def listOfErrorMessages(): List[String] = errorMessage().getText.split("\n").toList
-
-  def checkDynamicPageHeader(text: String): Unit =
-    text match {
-      case "Under-declaration" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for under-declared alcohol"
-        )
-      case "Over-declaration" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for over-declared alcohol"
-        )
-      case "Spoilt" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for spoilt alcohol"
-        )
-      case "Drawback" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for duty drawback"
-          //(By.xpath("//span[@id='when-did-you-pay-duty-section']"))
-        )
-      case "Repackaged draught products" =>
-        driver.findElement(By.xpath("//span[@id='adjustment-return-period-section']")).getText.trim.replaceAll("This section is:\n", "") should equal(
-          "Adjust for repackaged draught products"
-        )
-    }
-
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 
   def pageData: Map[String, String] = driver
@@ -265,79 +165,32 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
     .toMap
 
-  val Year: Int = LocalDate.now().getYear
-  val Month: Int = LocalDate.now().getMonthValue
-  val periodKeyCodes: Seq[String] = Seq("AL", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK")
-
   def periodKey: String = {
-
-    val currentMonth = LocalDate.now().getMonthValue
-    val adjustedYear = if (Month == 1) year - 1 else year
+    val adjustedYear = if (currentMonth <= 3) previousYear else year
     val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
-
-    val firstMonthOfQuarter = currentMonth match {
-      case m if m >= 1 && m <= 3 => 1 // Q1 -> January
-      case m if m >= 4 && m <= 6 => 4 // Q2 -> April
-      case m if m >= 7 && m <= 9 => 7 // Q3 -> July
-      case m if m >= 10 && m <= 12 => 10 // Q4 -> October
-    }
 
     // Generate period key based on the first month of the current quarter
     // This is the most recent month with quarterly spirits
-    firstMonthOfQuarter match {
-      case 1 => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // First month of Q1 -> AL
+    generateMonth(currentMonth) match {
+      case 1 => s"${yearSuffix}AL" // First month of Q1 -> AL
       case 4 => s"${yearSuffix}AC" // First month of Q2 -> AC
       case 7 => s"${yearSuffix}AF" // First month of Q3 -> AF
       case 10 => s"${yearSuffix}AI" // First month of Q4 -> AI
     }
-
-    //      case 2 | 3 | 4   => s"${yearSuffix}AA"
-    //      case 5 | 6 | 7   => s"${yearSuffix}AD"
-    //      case 8 | 9 | 10  => s"${yearSuffix}AG"
-    ////      case 11 | 12 | 1 => s"${yearSuffix}AJ"
-    //      case 11 | 12    => s"${yearSuffix}AK"  // November, December -> AK
-    //      case 1           => s"${(adjustedYear - 1).toString.takeRight(2)}AL" // January -> AL, but with previous year's suffix
-    //      case _           => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
-
   }
 
   def previousPeriodKey: String = {
-    val currentDate = LocalDate.now()
-    val month = currentDate.getMonthValue
-    val year = currentDate.getYear
+    val adjustedYear = if (currentMonth <= 3) previousYear else year
+    val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
 
-    // Determine the base year suffix
-    val yearSuffix = if (month == 1 || month == 2 || month == 3) (year - 1).toString.takeRight(2) else year.toString.takeRight(2)
-
-    // Determine the previous period key based on the month
-    val previousPeriodKey = month match {
-      // Quarter 1 (Jan-Mar) -> Previous period is December
-      case 1 | 2 | 3 => s"${yearSuffix}AK" // January -> Previous period is December (previous quarter)
-
-      // Quarter 2 (Apr-Jun) -> Previous period is March
-      case 4 | 5 | 6 => s"${yearSuffix}AB" // April -> Previous period is March (previous quarter)
-
-
-      // Quarter 3 (Jul-Sep) -> Previous period is June
-      case 7 | 8 | 9 => s"${yearSuffix}AE" // July -> Previous period is June (previous quarter)
-
-
-      // Quarter 4 (Oct-Dec) -> Previous period is September
-      case 10 | 11 | 12 => s"${yearSuffix}AH" // October -> Previous period is September (previous quarter)
-
-
-      case _ => throw new IllegalArgumentException("Invalid month value. Valid values are 1 to 12.")
+    // Get the month before the most recent month with quarterly spirits
+    generateMonth(currentMonth) match {
+      case 1 => s"${yearSuffix}AK" // First month of Q1 -> AL
+      case 4 => s"${yearSuffix}AB" // First month of Q2 -> AC
+      case 7 => s"${yearSuffix}AE" // First month of Q3 -> AF
+      case 10 => s"${yearSuffix}AH" // First month of Q4 -> AI
     }
-
-    previousPeriodKey
   }
-
-
-  def generateYear(Year: Int): Int =
-    if (generateMonth(Month: Int) == 12)
-      Year - 1
-    else
-      Year
 
   def generateMonth(month: Int): Int = {
     month match {
@@ -351,21 +204,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def getDateRange: String = {
-    // Determine the base month and year for the range
-    //val currentMonth = LocalDate.now().getMonthValue
-    // val currentYear = LocalDate.now().getYear
-
-    // Adjust the year if it's January (January should be treated as the previous year)
-    //val adjustedYear = if (currentMonth == 1) currentYear - 1 else currentYear
-    //val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
     val Month: Int = LocalDate.now().getMonthValue
 
-
     val (startMonth, startYear) = Month match {
-      case 1 | 2 | 3 => (12, Year - 1) // If in January, take December of the previous year
-      case 4 | 5 | 6 => (3, Year) // If in April, take March of the current year
-      case 7 | 8 | 9 => (6, Year) // If in July, take June of the current year
-      case 10 | 11 | 12 => (9, Year) // If in October, take September of the
+      case 1 | 2 | 3 => (12, previousYear) // If in January, take December of the previous year
+      case 4 | 5 | 6 => (3, year) // If in April, take March of the current year
+      case 7 | 8 | 9 => (6, year) // If in July, take June of the current year
+      case 10 | 11 | 12 => (9, year) // If in October, take September of the
       case _ => throw new IllegalArgumentException("Invalid month value")
     }
 
@@ -376,49 +221,15 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
   }
 
-
   val currentDate: LocalDate = LocalDate.now()
   val year: Int = currentDate.getYear
-  val previousYear: Int = currentDate.getYear - 1
+  val previousYear: Int = year - 1
   val currentMonth: Int = currentDate.getMonthValue
-  val generatedMonth: Int = generateMonth(currentMonth)
-  val firstDayOfNextMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int) + 1) withDayOfMonth 1
-  val firstDayCurrentMonth: LocalDate = currentDate.withMonth(generateMonth(Month: Int)) withDayOfMonth 1
-
-  val firstDayOfPreviousMonth: String = currentDate
-    .withMonth(generatedMonth)
-    .withDayOfMonth(1)
-    .minusMonths(2)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
-
-  val lastDayOfPreviousMonth: String = firstDayCurrentMonth
-    .minusMonths(1)
-    .minusDays(1)
-    .format(DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK))
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-  val now: LocalDate = LocalDate.now()
 
   def get12MonthsAgoPeriodKey: String =
-    s"""${now.minusMonths(12).getYear.toString.takeRight(2)}A${(now.minusMonths(12).getMonthValue + 64).toChar}"""
-
-  def expectedOutstandingReturns: List[List[String]] = List(
-    List("Period", "Status", "Action"),
-    List(now.minusMonths(1).format(formatter), "Due", "Complete return"),
-    List(now.minusMonths(2).format(formatter), "Overdue", "Complete return"),
-    List(now.minusMonths(3).format(formatter), "Overdue", "Complete return"),
-    List(now.minusMonths(4).format(formatter), "Overdue", "Complete return")
-  )
-
-  def expectedCompletedReturns: List[List[String]] = List(
-    List("Period", "Status", "Action"),
-    List(now.minusMonths(5).format(formatter), "Completed", "View return"),
-    List(now.minusMonths(6).format(formatter), "Completed", "View return")
-  )
-
-  private def taxTypeCodeText() = driver.findElement(By.cssSelector(".govuk-radios"))
-
-  def allTaxTypeCodeText(): Seq[String] = taxTypeCodeText().getText.split("\n").toList
+    s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate.minusMonths(12).getMonthValue + 64).toChar}"""
 
   def productsList: Seq[List[String]] = driver
     .findElement(By.tagName("table"))
@@ -431,97 +242,11 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     )
     .toList
 
-  def outstandingReturnsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[1]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nComplete.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  def completedReturnsList: Seq[List[String]] = driver
-    .findElement(By.xpath("//div/table[2]"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(_.getText.trim.replaceAll("""\nView.*""", "").replaceAll("\n", " "))
-        .toList
-    )
-    .toList
-
-  //To get the pure alcohol text
-  private def bulletPointsTextPureAlcohol() =
-    driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[1]"))
-
-  def getBulletPointsTextPureAlcohol: Seq[String] = bulletPointsTextPureAlcohol().getText.split("\n").toList
-
-  //To get the duty due text
-  private def bulletPointsTextDutyDue() =
-    driver.findElement(By.xpath("(//ul[@class='govuk-list govuk-list--bullet'])[2]"))
-
-  def getBulletPointsTextDutyDue: Seq[String] = bulletPointsTextDutyDue().getText.split("\n").toList
-
   def enterDate(month: String, year: String): Unit = {}
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
       click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
-
-  def subSectionsHeaderText: List[String] = driver
-    .findElement(By.cssSelector("main[id='main-content'] div[class='govuk-grid-column-two-thirds']"))
-    .findElements(By.tagName("h2"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def tableHeaderText: List[String] = driver
-    .findElements(By.cssSelector("caption[class='govuk-table__caption govuk-table__caption--m']"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def taskListPageContentView: Map[String, String] = driver
-    .findElements(By.xpath("//li[@class='govuk-task-list__item govuk-task-list__item--with-link']"))
-    .asScala
-    .flatMap { row =>
-      val key = row
-        .findElement(By.cssSelector(".govuk-task-list__name-and-hint"))
-        .getText
-        .trim
-        .replaceAll("""\nYou can adjust declared.*""", "")
-        .replaceAll("""\nEvery three months.*""", "")
-      val value = row.findElement(By.cssSelector(".govuk-task-list__status")).getText.trim.replace("\n", ",")
-      Map(key -> value)
-    }
-    .toMap
-
-  def dataAtCheckYourAnswersPage: Map[String, String] = driver
-    .findElements(By.cssSelector(".govuk-summary-list__row"))
-    .asScala
-    .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
-      val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", "")
-      Map(key -> value)
-    }
-    .toMap
-
-  def alcoholToDeclareSectionText: List[String] = driver
-    .findElement(By.xpath("//dd[@class='govuk-summary-list__value']/ul"))
-    .findElements(By.tagName("li"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  def alcoholDeclaredSectionTextCYA: List[String] = driver
-    .findElement(By.xpath("//dl"))
-    .findElements(By.tagName("dl"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
 
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
     case "first" => 0
@@ -549,24 +274,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
 
-  def alcoholTypes: List[String] = driver
-    .findElement(By.cssSelector(".govuk-checkboxes"))
-    .findElements(By.tagName("label"))
-    .asScala
-    .map(_.getText.trim)
-    .toList
-
-  //this method returns a string that contains a date of five months past
   def getSpecificMonth: String =
-    now.minusMonths(12).format(formatter)
-
-  def getPaymentTypeValue(paymentType: String): Int =
-    paymentType match {
-      case "Outstanding" => 1
-      case "Unallocated" => 2
-      case "Historical" => 3
-      case _ => throw new IllegalArgumentException(s"Unknown payment type: $paymentType")
-    }
+    currentDate.minusMonths(12).format(formatter)
 
   def getMonthDetails(formatType: String): Map[String, String] = {
     val currentDate = LocalDate.now()
@@ -619,54 +328,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
   }
 
-  def paymentDetails(paymentType: String): Seq[List[String]] = {
-    val tableIndex = getPaymentTypeValue(paymentType)
-    driver
-      .findElement(By.xpath("//div/table[" + tableIndex + "]"))
-      .findElements(By.tagName("tr"))
-      .asScala
-      .map(
-        _.findElements(By.xpath("td | th")).asScala
-          .map(
-            _.getText.trim
-              .replaceAll("""\nPay.*""", "")
-              .replaceAll("""\(ref:.*""", "")
-              .replaceAll("\n", "")
-          )
-          .toList
-      )
-      .toList
+  def getVisibleTextFromElement(element: WebElement): String = {
+    val htmlContent = element.getAttribute("innerHTML")
+    htmlContent
+      .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
+      .replaceAll("<[^>]+>", "")
+      .replaceAll("\n", " ")
+      .replaceAll("\\s+", " ")
+      .trim
   }
-
-  def currentMonthPaymentDetails(paymentType: String): Seq[List[String]] = {
-    val tableIndex = getPaymentTypeValue(paymentType)
-
-    driver
-      .findElement(By.xpath(s"//div/table[$tableIndex]"))
-      .findElements(By.tagName("tr"))
-      .asScala
-      .drop(1) // skip the header row
-      .headOption // take only the first data row
-      .map { row =>
-        row.findElements(By.tagName("td")).asScala
-          .map(
-            _.getText.trim
-              .replaceAll("""\nPay.*""", "")
-              .replaceAll("""\(ref:.*""", "")
-              .replaceAll("\n", "")
-          )
-          .toList
-      }
-      .toList
-  }
-
-    def getVisibleTextFromElement(element: WebElement): String = {
-      val htmlContent = element.getAttribute("innerHTML")
-      htmlContent
-        .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
-        .replaceAll("<[^>]+>", "")
-        .replaceAll("\n", " ")
-        .replaceAll("\\s+", " ")
-        .trim
-    }
-  }
+}

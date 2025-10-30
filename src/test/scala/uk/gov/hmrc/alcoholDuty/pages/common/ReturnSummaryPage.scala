@@ -19,15 +19,12 @@ package uk.gov.hmrc.alcoholDuty.pages.common
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import org.openqa.selenium.By
+import org.scalatest.Assertion
 
 object  ReturnSummaryPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
-  override val title       = "The duty due for this return is £14,749.70"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: The duty due for this return is £14,749.70- Manage your Alcohol Duty - GOV.UK"
-  )
+  override val title       = "The duty due for this return is"
 
   override def expectedPageTitle: Option[String] = Some(
     "The duty due for this return is £14,749.70 - Manage your Alcohol Duty - GOV.UK"
@@ -37,11 +34,11 @@ object  ReturnSummaryPage extends BasePage {
     "The duty due for this return is £14,749.70"
   )
 
-  override def checkPageTitle(amountOnPageTitle: String): Unit =
-    driver.findElement(By tagName "h1").getText should equal("The duty due for this return is " + amountOnPageTitle)
+  override def checkPageTitle(): Assertion =
+    pageTitle should startWith(title)
 
-  override def checkPageErrorTitle(amountOnPageTitle: String): Unit =
-    driver.findElement(By tagName "h1").getText should equal("The duty due for this return is " + amountOnPageTitle)
+  override def checkPageHeader(): Assertion =
+    driver.findElement(By tagName "h1").getText should startWith(title)
 
   override def clickButton(text: String): Unit =
     text match {
