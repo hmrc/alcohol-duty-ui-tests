@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.alcoholDuty.pages.alcoholDuty.adjustments
+package specpage.alcoholDuty.adjustments
 
 import org.openqa.selenium.By
 import org.scalatest.Assertion
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.pages.BasePage
-import uk.gov.hmrc.selenium.webdriver.Driver
 
 object AdjustmentDutyValuePage extends BasePage {
 
@@ -36,5 +35,5 @@ object AdjustmentDutyValuePage extends BasePage {
     pageTitle should startWith(title)
 
   override def checkPageHeader(): Assertion =
-    Driver.instance.findElement(By tagName "h1").getText should startWith(title)
+    driver.findElement(By tagName "h1").getText should startWith(title)
 }
