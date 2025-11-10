@@ -3,11 +3,12 @@ import org.openqa.selenium.By
 import org.scalatestplus.selenium.Edge.go
 import specs.BaseSpec
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.alcoholDuty.pages.common.TaskListPage.periodKey
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-object BaseStepDefSteps extends BaseSpec {
+object BaseStepDefSteps extends BrowserDriver {
 
   // I navigate to the {string}
   def thenINavigateToThe(): Unit = {
