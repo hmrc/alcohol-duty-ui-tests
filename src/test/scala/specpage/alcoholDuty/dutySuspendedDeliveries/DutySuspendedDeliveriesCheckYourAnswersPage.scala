@@ -16,8 +16,8 @@
 
 package specpage.alcoholDuty.dutySuspendedDeliveries
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
 

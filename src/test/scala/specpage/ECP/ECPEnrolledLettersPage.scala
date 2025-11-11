@@ -16,8 +16,8 @@
 
 package specpage.ECP
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object ECPEnrolledLettersPage extends BasePage {
 

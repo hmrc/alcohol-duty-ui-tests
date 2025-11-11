@@ -16,9 +16,9 @@
 
 package specsteps
 
-import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import specpage.BasePage
-import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
+import specpage.auth.AuthLoginStubPage
+import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 object AlcoholDutyStepDefSteps extends BasePage {
