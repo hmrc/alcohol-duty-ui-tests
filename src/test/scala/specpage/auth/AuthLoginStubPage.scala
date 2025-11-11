@@ -17,8 +17,9 @@
 package specpage.auth
 
 import org.openqa.selenium.By
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 object AuthLoginStubPage extends BasePage {
 
@@ -32,22 +33,22 @@ object AuthLoginStubPage extends BasePage {
   override def expectedPageHeader: Option[String] = Some("Authority Wizard")
 
   def enterRedirectURL(url: String): Unit = {
-    driver.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
+    Driver.instance.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
   }
 
   def authorityId(CredID: String): Unit = {
-    driver.findElement(By.id("authorityId")).sendKeys(CredID)
+    Driver.instance.findElement(By.id("authorityId")).sendKeys(CredID)
 
   }
 
   def enrolments(enrollmentKey: String, IdentifierName: String, IdentifierValue: String): Unit = {
-    driver.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
-    driver.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
-    driver.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
+    Driver.instance.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
+    Driver.instance.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
+    Driver.instance.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
   }
 
   def selectAffinityGroup(value: String): Unit = {
-    driver.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)
+    Driver.instance.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)
   }
 
 }

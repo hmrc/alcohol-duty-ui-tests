@@ -18,13 +18,12 @@ package specsteps
 
 import org.openqa.selenium.By
 import specpage.BasePage
+import specpage.generic.PageObjectFinder
 import specsteps.AlcoholDutyStepDefSteps._
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
-import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-object BaseStepDefSteps extends BrowserDriver with BasePage {
+object BaseStepDefSteps extends BasePage {
 
   // I navigate to the {string}
   def thenINavigateToThe(page: String): Unit =
@@ -132,7 +131,7 @@ object BaseStepDefSteps extends BrowserDriver with BasePage {
   // I click the link to view completed returns from the previous year on {string}
   def whenIClickTheLinkToViewCompletedReturnsFromThePreviousYearOn(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
-    driver
+    Driver.instance
       .findElement(
         By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")
       )
@@ -175,7 +174,7 @@ object BaseStepDefSteps extends BrowserDriver with BasePage {
   // I click on change link {int} on {string} for alcohol type {string}
   def andIClickOnChangeLinkOnForAlcoholType(changeLinkIndex: Int, page: String, alcoholType: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
-    driver
+    Driver.instance
       .findElement(
         By.xpath(
           "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"

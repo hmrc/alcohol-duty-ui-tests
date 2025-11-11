@@ -16,10 +16,11 @@
 
 package specpage.common
 
-import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import org.openqa.selenium.By
 import org.scalatest.Assertion
+import specpage.BasePage
+import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 object  ReturnSummaryPage extends BasePage {
 
@@ -38,7 +39,7 @@ object  ReturnSummaryPage extends BasePage {
     pageTitle should startWith(title)
 
   override def checkPageHeader(): Assertion =
-    driver.findElement(By tagName "h1").getText should startWith(title)
+    Driver.instance.findElement(By tagName "h1").getText should startWith(title)
 
   override def clickButton(text: String): Unit =
     text match {

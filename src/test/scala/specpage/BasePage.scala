@@ -15,7 +15,6 @@
  */
 
 package specpage
-
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.scalatest.Assertion
@@ -23,6 +22,7 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
@@ -32,18 +32,18 @@ import scala.util.matching.Regex
 
 trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
-  val newUrl: String = ""
-  val title: String = ""
-  val urlPattern: Regex = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
+  val newUrl: String       = ""
+  val title: String        = ""
+  val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
 
   def validateUrl(url: String): Boolean =
     url match {
       case urlPattern(_, _, _, _, _, _) => true
-      case _ => false
+      case _                            => false
     }
 
   /** Fluent Wait config * */
-  var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](driver)
+  var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(20))
     .pollingEvery(Duration.ofMillis(500))
 
@@ -65,9 +65,9 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       header
   }
 
-  private val expectedPageTitleList = expectedPageTitle.map(_.split(";").toList)
+  private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
   private val expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
-  private val expectedPageHeaderList = expectedPageHeader.map(_.split(";").toList)
+  private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
@@ -81,36 +81,36 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   }
 
   def enterText(id: String, textToEnter: String): Unit = {
-    driver.findElement(By.id(id)).clear()
-    driver.findElement(By.id(id)).sendKeys(textToEnter)
+    Driver.instance.findElement(By.id(id)).clear()
+    Driver.instance.findElement(By.id(id)).sendKeys(textToEnter)
   }
 
   def checkURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
+      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(url))
-      driver.getCurrentUrl should equal(url)
+      Driver.instance.getCurrentUrl should equal(url)
     }
 
   def checkNewURL: Assertion =
     if (newUrl.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(newUrl.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (newUrl.replace("...", "") + ".*").r
+      Driver.instance.getCurrentUrl should fullyMatch regex (newUrl.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      driver.getCurrentUrl should equal(newUrl)
+      Driver.instance.getCurrentUrl should equal(newUrl)
     }
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = newUrl + urlSuffix
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
+      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
-      driver.getCurrentUrl should equal(expectedUrl)
+      Driver.instance.getCurrentUrl should equal(expectedUrl)
     }
   }
 
@@ -118,10 +118,10 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     val expectedUrl = url + urlSuffix
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      driver.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
+      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
-      driver.getCurrentUrl should equal(expectedUrl)
+      Driver.instance.getCurrentUrl should equal(expectedUrl)
     }
   }
 
@@ -149,18 +149,18 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
   def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
 
   def clickRadioButton(text: String): Unit =
-    driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
+    Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def clickCheckBox(text: String): Unit =
-    driver.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
+    Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
 
-  def pageData: Map[String, String] = driver
+  def pageData: Map[String, String] = Driver.instance
     .findElements(By.cssSelector(".govuk-summary-list__row"))
     .asScala
     .flatMap { row =>
-      val key = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
+      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
       val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
       Map(key -> value)
     }
@@ -168,71 +168,72 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
   def periodKey: String = {
     val adjustedYear = if (currentMonth <= 3) previousYear else year
-    val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
+    val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
 
     // Generate period key based on the first month of the current quarter
     // This is the most recent month with quarterly spirits
     generateMonth(currentMonth) match {
-      case 1 => s"${yearSuffix}AL" // First month of Q1 -> AL
-      case 4 => s"${yearSuffix}AC" // First month of Q2 -> AC
-      case 7 => s"${yearSuffix}AF" // First month of Q3 -> AF
+      case 1  => s"${yearSuffix}AL" // First month of Q1 -> AL
+      case 4  => s"${yearSuffix}AC" // First month of Q2 -> AC
+      case 7  => s"${yearSuffix}AF" // First month of Q3 -> AF
       case 10 => s"${yearSuffix}AI" // First month of Q4 -> AI
     }
   }
 
   def previousPeriodKey: String = {
     val adjustedYear = if (currentMonth <= 3) previousYear else year
-    val yearSuffix = adjustedYear.toString.takeRight(2) // Last two digits of the year
+    val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
 
     // Get the month before the most recent month with quarterly spirits
     generateMonth(currentMonth) match {
-      case 1 => s"${yearSuffix}AK" // First month of Q1 -> AL
-      case 4 => s"${yearSuffix}AB" // First month of Q2 -> AC
-      case 7 => s"${yearSuffix}AE" // First month of Q3 -> AF
+      case 1  => s"${yearSuffix}AK" // First month of Q1 -> AL
+      case 4  => s"${yearSuffix}AB" // First month of Q2 -> AC
+      case 7  => s"${yearSuffix}AE" // First month of Q3 -> AF
       case 10 => s"${yearSuffix}AH" // First month of Q4 -> AI
     }
   }
 
-  def generateMonth(month: Int): Int = {
+  def generateMonth(month: Int): Int =
     month match {
-      case m if m >= 1 && m <= 3 => 1
-      case m if m >= 4 && m <= 6 => 4
-      case m if m >= 7 && m <= 9 => 7
+      case m if m >= 1 && m <= 3   => 1
+      case m if m >= 4 && m <= 6   => 4
+      case m if m >= 7 && m <= 9   => 7
       case m if m >= 10 && m <= 12 => 10
-      case _ => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
+      case _                       => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
 
     }
-  }
 
   def getDateRange: String = {
     val Month: Int = LocalDate.now().getMonthValue
 
     val (startMonth, startYear) = Month match {
-      case 1 | 2 | 3 => (12, previousYear) // If in January, take December of the previous year
-      case 4 | 5 | 6 => (3, year) // If in April, take March of the current year
-      case 7 | 8 | 9 => (6, year) // If in July, take June of the current year
+      case 1 | 2 | 3    => (12, previousYear) // If in January, take December of the previous year
+      case 4 | 5 | 6    => (3, year) // If in April, take March of the current year
+      case 7 | 8 | 9    => (6, year) // If in July, take June of the current year
       case 10 | 11 | 12 => (9, year) // If in October, take September of the
-      case _ => throw new IllegalArgumentException("Invalid month value")
+      case _            => throw new IllegalArgumentException("Invalid month value")
     }
 
     val startDate = LocalDate.of(startYear, startMonth, 1)
-    val endDate = startDate.withDayOfMonth(startDate.lengthOfMonth())
+    val endDate   = startDate.withDayOfMonth(startDate.lengthOfMonth())
 
     val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
     s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
   }
 
   val currentDate: LocalDate = LocalDate.now()
-  val year: Int = currentDate.getYear
-  val previousYear: Int = year - 1
-  val currentMonth: Int = currentDate.getMonthValue
+  val year: Int              = currentDate.getYear
+  val previousYear: Int      = year - 1
+  val currentMonth: Int      = currentDate.getMonthValue
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
 
   def get12MonthsAgoPeriodKey: String =
-    s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate.minusMonths(12).getMonthValue + 64).toChar}"""
+    s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate
+      .minusMonths(12)
+      .getMonthValue + 64).toChar}"""
 
-  def productsList: Seq[List[String]] = driver
+  def productsList: Seq[List[String]]                         = Driver.instance
     .findElement(By.tagName("table"))
     .findElements(By.tagName("tr"))
     .asScala
@@ -250,27 +251,27 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
       click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
 
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
-    case "first" => 0
-    case "second" => 1
-    case "third" => 2
-    case "fourth" => 3
-    case "fifth" => 4
-    case "sixth" => 5
-    case "seventh" => 6
-    case "eighth" => 7
-    case "ninth" => 8
-    case "tenth" => 9
-    case "eleventh" => 10
-    case "twelfth" => 11
-    case "thirteenth" => 12
-    case "fourteenth" => 13
-    case "fifteenth" => 14
-    case "sixteenth" => 15
+    case "first"       => 0
+    case "second"      => 1
+    case "third"       => 2
+    case "fourth"      => 3
+    case "fifth"       => 4
+    case "sixth"       => 5
+    case "seventh"     => 6
+    case "eighth"      => 7
+    case "ninth"       => 8
+    case "tenth"       => 9
+    case "eleventh"    => 10
+    case "twelfth"     => 11
+    case "thirteenth"  => 12
+    case "fourteenth"  => 13
+    case "fifteenth"   => 14
+    case "sixteenth"   => 15
     case "seventeenth" => 16
-    case "eighteenth" => 17
-    case "nineteenth" => 18
-    case "twentieth" => 19
-    case _ => throw new IllegalArgumentException("Invalid ordinal")
+    case "eighteenth"  => 17
+    case "nineteenth"  => 18
+    case "twentieth"   => 19
+    case _             => throw new IllegalArgumentException("Invalid ordinal")
   }
 
   def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
@@ -284,13 +285,13 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     // Define the formatter based on the formatType
     val formatter = formatType match {
       case "MonthYear" => DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
-      case "FullDate" => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
-      case _ => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
+      case "FullDate"  => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
+      case _           => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
     }
 
     // Function to compute dates for a specific day and month offset
     def computeDate(day: Int, offset: Int): String = {
-      val targetDate = currentDate.plusMonths(offset)
+      val targetDate  = currentDate.plusMonths(offset)
       val adjustedDay = Math.min(day, targetDate.lengthOfMonth()) // Adjust day to the last valid day of the month
       targetDate.withDayOfMonth(adjustedDay).format(formatter)
     }
@@ -308,7 +309,6 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
 
     monthOffsets.toMap
   }
-
 
   def replacePlaceholdersInScenario(dataTable: List[List[String]], formatType: String): List[List[String]] = {
     // Retrieve the month details for replacements

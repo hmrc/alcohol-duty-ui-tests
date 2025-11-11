@@ -17,7 +17,7 @@
 package specsteps
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 import uk.gov.hmrc.selenium.webdriver.Driver
 

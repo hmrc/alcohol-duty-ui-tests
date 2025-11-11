@@ -18,8 +18,9 @@ package specpage.common
 
 import org.openqa.selenium.By
 import org.scalatest.Assertion
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 object ViewSpecificReturnPage extends BasePage {
 
@@ -39,7 +40,6 @@ object ViewSpecificReturnPage extends BasePage {
     pageTitle should equal(getSpecificMonth + " Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK")
 
   override def checkPageHeader(): Assertion =
-    driver.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
+    Driver.instance.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
 
 }
-

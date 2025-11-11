@@ -18,7 +18,6 @@ package specs.commonPageFeatures
 
 import specs.BaseSpec
 import specs.tags.AllTests
-import specsteps.AlcoholDutyStepDefSteps._
 import specsteps.BaseStepDefSteps._
 
 class ViewPastPaymentsPageSpec extends BaseSpec {
