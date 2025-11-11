@@ -24,1279 +24,686 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
   Feature("Adjustments Journey - Change Links - CYA Page") {
 
-    Scenario("1- Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer") {
+    Scenario(
+      "1- Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer",
+      AllTests
+    ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn()
       navigateToAdjustmentTypePage()
 
       When("I select radio button Under-declaration on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("Under-declaration", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
       whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
 
       Then("I am presented with the Adjustment Return Date Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
       whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 311 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 311 on Adjustment Tax Type Code Page
+      whenIEnterOn("311", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Volume Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Adjustment on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Adjustment on Adjustment Check Your Answers Page
+      whenIClickOn("Adjustment", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Type Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Type Page")
 
       When("I select radio button Over-declaration on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
 
       Then("I am presented with the Adjustment Return Date Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Return Date Page")
 
       When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Tax Type Code Page")
 
       When("I enter 371 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 371 on Adjustment Tax Type Code Page
+      whenIEnterOn("371", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment List Page")
 
       When("I select radio button No on Adjustment List Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
     Scenario(
-      "2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider"
+      "2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider",
+      AllTests
     ) {
+      Given("I start a return and navigate to the Adjustment Type Page")
+      loginAndStartReturn()
+      navigateToAdjustmentTypePage()
+
       When("I select radio button Over-declaration on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
 
       Then("I am presented with the Adjustment Return Date Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 372 on Adjustment Tax Type Code Page
+      whenIEnterOn("372", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Return period being adjusted on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Return period being adjusted on Adjustment Check Your Answers Page
+      whenIClickOn("Return period being adjusted", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Return Date Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Return Date Page")
 
       When("I enter month 12 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("12", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Tax Type Code Page")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 372 on Adjustment Tax Type Code Page
+      whenIEnterOn("372", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 10.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 10.5 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("10.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Tax type on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Tax type on Adjustment Check Your Answers Page
+      whenIClickOn("Tax type", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Tax Type Code Page")
 
       When("I enter 374 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 374 on Adjustment Tax Type Code Page
+      whenIEnterOn("374", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 10.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 10.5 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("10.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click SPR duty rate on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click SPR duty rate on Adjustment Check Your Answers Page
+      whenIClickOn("SPR duty rate", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       And("I enter 12.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 12.5 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("12.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment List Page")
 
       When("I select radio button No on Adjustment List Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
     Scenario(
-      "3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine"
+      "3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine",
+      AllTests
     ) {
+      Given("I start a return and navigate to the Adjustment Type Page")
+      loginAndStartReturn()
+      navigateToAdjustmentTypePage()
+
       When("I select radio button Repackaged draught products on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("Repackaged draught products", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
 
       Then("I am presented with the Adjustment Return Date Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 11 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("11", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code For Repackaged Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Tax Type Code For Repackaged Page")
 
       When("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
-      // ⚠️ No step-def match found for: I enter 373 on Adjustment Tax Type Code For Repackaged Page
+      whenIEnterOn("373", "Adjustment Tax Type Code For Repackaged Page")
 
       And("I click save and continue button on Adjustment Tax Type Code For Repackaged Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code For Repackaged Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the New Tax Type Code Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.54] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("New Tax Type Code Page")
 
       When("I enter 363 on New Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 363 on New Tax Type Code Page
+      whenIEnterOn("363", "New Tax Type Code Page")
 
       And("I click save and continue button on New Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
 
       Then("I am presented with the New Spr Duty Rate Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.54] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("New Spr Duty Rate Page")
 
       When("I enter 11.5 on New Spr Duty Rate Page")
-      // ⚠️ No step-def match found for: I enter 11.5 on New Spr Duty Rate Page
+      whenIEnterOn("11.5", "New Spr Duty Rate Page")
 
       And("I click save and continue button on New Spr Duty Rate Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Volume on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Volume on Adjustment Check Your Answers Page
+      whenIClickOn("Volume", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       When("I enter 4000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 4000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("4000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 350.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 350.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("350.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 8.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 8.5 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("8.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the New Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("New Tax Type Code Page")
 
       When("I enter 363 on New Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 363 on New Tax Type Code Page
+      whenIEnterOn("363", "New Tax Type Code Page")
 
       And("I click save and continue button on New Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
 
       Then("I am presented with the New Spr Duty Rate Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("New Spr Duty Rate Page")
 
       When("I enter 11.5 on New Spr Duty Rate Page")
-      // ⚠️ No step-def match found for: I enter 11.5 on New Spr Duty Rate Page
+      whenIEnterOn("11.5", "New Spr Duty Rate Page")
 
       And("I click save and continue button on New Spr Duty Rate Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click New SPR duty rate on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click New SPR duty rate on Adjustment Check Your Answers Page
+      whenIClickOn("New SPR duty rate", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the New Spr Duty Rate Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("New Spr Duty Rate Page")
 
       When("I enter 14.5 on New Spr Duty Rate Page")
-      // ⚠️ No step-def match found for: I enter 14.5 on New Spr Duty Rate Page
+      whenIEnterOn("14.5", "New Spr Duty Rate Page")
 
       And("I click save and continue button on New Spr Duty Rate Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click New tax type on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click New tax type on Adjustment Check Your Answers Page
+      whenIClickOn("New tax type", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the New Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("New Tax Type Code Page")
 
       When("I enter 313 on New Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 313 on New Tax Type Code Page
+      whenIEnterOn("313", "New Tax Type Code Page")
 
       And("I click save and continue button on New Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment List Page")
 
       When("I select radio button No on Adjustment List Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
-    Scenario("4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits") {
+    Scenario("4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits", AllTests) {
+      Given("I start a return and navigate to the Adjustment Type Page")
+      loginAndStartReturn()
+      navigateToAdjustmentTypePage()
+
       When("I select radio button Drawback on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
-      // --- Other possible matches ---
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenISelectRadioButtonOn("Drawback", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
 
       Then("I am presented with the Adjustment Return Date Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 315 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 315 on Adjustment Tax Type Code Page
+      whenIEnterOn("315", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Volume Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Tax type on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Tax type on Adjustment Check Your Answers Page
+      whenIClickOn("Tax type", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Tax Type Code Page")
 
       When("I enter 375 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 375 on Adjustment Tax Type Code Page
+      whenIEnterOn("375", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment List Page")
 
       When("I select radio button No on Adjustment List Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
     }
 
-    Scenario("5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products") {
+    Scenario("5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products", AllTests) {
+      Given("I start a return and navigate to the Adjustment Type Page")
+      loginAndStartReturn()
+      navigateToAdjustmentTypePage()
+
       When("I select radio button Drawback on Adjustment Type Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
-      // --- Other possible matches ---
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenISelectRadioButtonOn("Drawback", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
 
       Then("I am presented with the Adjustment Return Date Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      // Possible match (best=0.47)
-      whenIEnterMonthAndYearOn("", "", "")
+      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 374 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 374 on Adjustment Tax Type Code Page
+      whenIEnterOn("374", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume With Spr Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click Tax type on Adjustment Check Your Answers Page")
-      // ⚠️ No step-def match found for: I click Tax type on Adjustment Check Your Answers Page
+      whenIClickOn("Tax type", "Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment Tax Type Code Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Tax Type Code Page")
 
       When("I enter 314 on Adjustment Tax Type Code Page")
-      // ⚠️ No step-def match found for: I enter 314 on Adjustment Tax Type Code Page
+      whenIEnterOn("314", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
 
       Then("I am presented with the Adjustment Volume Page with new url")
-      // Possible match (best=0.62)
-      thenIAmPresentedWithTheWithNewUrl("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
+      thenIAmPresentedWithTheWithNewUrl("Adjustment Volume Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
       Then("I am presented with the Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      // Possible match (best=0.58)
-      whenIClickContinueButtonO("")
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Adjustment List Page")
 
       When("I select radio button No on Adjustment List Page")
-      // Possible match (best=0.50)
-      whenISelectRadioButtonOn("", "")
+      whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
-      // Possible match (best=0.61)
-      whenIClickSaveAndContinueButtonOn("")
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      // Possible match (best=0.58)
-      thenIAmPresentedWithThe("")
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
-
+      thenIAmPresentedWithThe("Task List Page")
     }
 
     Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests) {
