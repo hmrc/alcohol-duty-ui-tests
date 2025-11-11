@@ -29,7 +29,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AllTests
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Under-declaration on Adjustment Type Page")
@@ -153,7 +153,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AllTests
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Over-declaration on Adjustment Type Page")
@@ -328,7 +328,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AllTests
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Repackaged draught products on Adjustment Type Page")
@@ -503,7 +503,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario("4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits", AllTests) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Drawback on Adjustment Type Page")
@@ -606,7 +606,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario("5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products", AllTests) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Drawback on Adjustment Type Page")
@@ -708,7 +708,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Spoilt on Adjustment Type Page")

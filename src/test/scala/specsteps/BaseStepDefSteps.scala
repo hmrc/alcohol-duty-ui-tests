@@ -189,18 +189,13 @@ object BaseStepDefSteps extends BrowserDriver with BasePage {
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
 
-  // Background steps 1 for most declaration and adjustment scenarios
-  def loginAndStartReturn(): Unit = {
+  // Background steps 1 for declaration and adjustment scenarios
+  def loginAndStartReturn(appaId: String): Unit = {
     givenIClearedTheDataForTheService()
     thenINavigateToThe("Auth Login Stub Page")
     whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
-      "HMRC-AD-ORG",
-      "APPAID",
-      "AABCP0000100208",
-      "Auth Login Stub Page"
-    )
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
     whenIClickSubmitButtonOn("Auth Login Stub Page")
     thenIAmPresentedWithThe("Before You Start Page")
     whenIClickContinueButtonO("Before You Start Page")
@@ -232,19 +227,28 @@ object BaseStepDefSteps extends BrowserDriver with BasePage {
     thenIAmPresentedWithThe("Adjustment Type Page")
   }
 
-  // Background steps for AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovals.feature
-  def startLoginForAdr(): Unit = {
-    givenIClearedTheDataForTheService()
+  def loginForPayments(): Unit = {
+    givenIClearTheDataToViewPastPayments()
     thenINavigateToThe("Auth Login Stub Page")
-    whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
+    whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Payments Page")
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
+      "HMRC-AD-ORG",
+      "APPAID",
+      "XMADP0002900211",
+      "Auth Login Stub Page"
+    )
+    whenIClickSubmitButtonOn("Auth Login Stub Page")
   }
 
   // Background steps for ECP
-  def startLoginForEcp(): Unit = {
+  def loginForEcp(typeOfJourney: String, appaId: String): Unit = {
     givenIClearedTheDataForECPService()
     thenINavigateToThe("Auth Login Stub Page")
+    whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney)
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
+    whenIClickSubmitButtonOn("Auth Login Stub Page")
   }
 
 }

@@ -29,30 +29,8 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
       "1. ADR Journey - Verify that past year payments can be accessed under cleared payments section",
       AllTests
     ) {
-      Given("I clear the data to view Past Payments")
-      givenIClearTheDataToViewPastPayments()
-
-      When("I navigate to the Auth Login Stub Page")
-      thenINavigateToThe("Auth Login Stub Page")
-
-      And("I enter redirect URL on Auth Login Stub Page for View Past Payments Page")
-      whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Payments Page")
-
-      And("I select Affinity Type as Organisation on Auth Login Stub Page")
-      whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-
-      And(
-        "I enter Enrollment Key HMRC-AD-ORG, Identifier Name APPAID and Identifier Value XMADP0002900211 on Auth Login Stub Page"
-      )
-      whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
-        "HMRC-AD-ORG",
-        "APPAID",
-        "XMADP0002900211",
-        "Auth Login Stub Page"
-      )
-
-      And("I click submit button on Auth Login Stub Page")
-      whenIClickSubmitButtonOn("Auth Login Stub Page")
+      Given("I log in to view payments")
+      loginForPayments()
 
       Then("I am presented with the View Past Payments Page")
       thenIAmPresentedWithThe("View Past Payments Page")
@@ -75,30 +53,8 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
       "2. ADR Central Assessment - Manage central assessment charge and pay central assessment charge",
       AllTests
     ) {
-      Given("I clear the data to view Past Payments")
-      givenIClearTheDataToViewPastPayments()
-
-      When("I navigate to the Auth Login Stub Page")
-      thenINavigateToThe("Auth Login Stub Page")
-
-      And("I enter redirect URL on Auth Login Stub Page for View Past Payments Page")
-      whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Payments Page")
-
-      And("I select Affinity Type as Organisation on Auth Login Stub Page")
-      whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-
-      And(
-        "I enter Enrollment Key HMRC-AD-ORG, Identifier Name APPAID and Identifier Value XMADP0002900211 on Auth Login Stub Page"
-      )
-      whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
-        "HMRC-AD-ORG",
-        "APPAID",
-        "XMADP0002900211",
-        "Auth Login Stub Page"
-      )
-
-      And("I click submit button on Auth Login Stub Page")
-      whenIClickSubmitButtonOn("Auth Login Stub Page")
+      Given("I log in to view payments")
+      loginForPayments()
 
       Then("I am presented with the View Past Payments Page")
       thenIAmPresentedWithThe("View Past Payments Page")

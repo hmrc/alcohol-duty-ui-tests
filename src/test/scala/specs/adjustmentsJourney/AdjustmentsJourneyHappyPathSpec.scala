@@ -29,7 +29,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AllTests
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Under-declaration on Adjustment Type Page")
@@ -171,7 +171,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AllTests
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
-      loginAndStartReturn()
+      loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
       When("I select radio button Over-declaration on Adjustment Type Page")
