@@ -17,14 +17,14 @@
 package specsteps
 
 import org.openqa.selenium.By
-import org.scalatestplus.selenium.Chrome.go
+import specpage.BasePage
+import specsteps.AlcoholDutyStepDefSteps._
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
-import uk.gov.hmrc.alcoholDuty.pages.common.TaskListPage.periodKey
 import uk.gov.hmrc.alcoholDuty.pages.generic.PageObjectFinder
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-object BaseStepDefSteps extends BrowserDriver {
+object BaseStepDefSteps extends BrowserDriver with BasePage {
 
   // I navigate to the {string}
   def thenINavigateToThe(page: String): Unit = {
@@ -210,6 +210,26 @@ object BaseStepDefSteps extends BrowserDriver {
   def whenIClickOnAgreeAndSendReturnButton(page: String): Unit = {
     //    PageObjectFinder.page(page).waitForPageHeader
         PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
+  }
+
+  def loginAndStartReturn(): Unit = {
+    givenIClearedTheDataForTheService()
+    thenINavigateToThe("Auth Login Stub Page")
+    whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
+    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", "AABCP0000100208", "Auth Login Stub Page")
+    whenIClickSubmitButtonOn("Auth Login Stub Page")
+    thenIAmPresentedWithThe("Before You Start Page")
+    whenIClickContinueButtonO("Before You Start Page")
+    thenIAmPresentedWithThe("Task List Page")
+  }
+
+  def navigateToAdjustmentTypePage(): Unit = {
+    whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+    thenIAmPresentedWithThe("Declare Adjustment Question Page")
+    whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
+    whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+    thenIAmPresentedWithThe("Adjustment Type Page")
   }
 
 }

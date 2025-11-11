@@ -17,6 +17,7 @@
 package specs.adjustmentsJourney
 
 import specs.BaseSpec
+import specs.tags.AllTests
 import specsteps.BaseStepDefSteps._
 
 class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
@@ -1290,14 +1291,18 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits") {
+    Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests) {
+      Given("I start a return and navigate to the Adjustment Type Page")
+        loginAndStartReturn()
+        navigateToAdjustmentTypePage()
+
       When("I select radio button Spoilt on Adjustment Type Page")
         // Possible match (best=0.50)
-        whenISelectRadioButtonOn("", "")
+        whenISelectRadioButtonOn("Spoilt", "Adjustment Type Page")
 
       And("I click save and continue button on Adjustment Type Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1306,17 +1311,17 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Spoilt Alcohol Type Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I select radio button Spirits on Spoilt Alcohol Type Page")
         // Possible match (best=0.50)
-        whenISelectRadioButtonOn("", "")
+        whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
 
       And("I click save and continue button on Spoilt Alcohol Type Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1325,22 +1330,25 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Spoilt Alcohol Volume Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
+        whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
+        whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page
 
       And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
+        whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page
 
       And("I click save and continue button on Spoilt Alcohol Volume Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1349,26 +1357,27 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Adjustment Check Your Answers Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I click Description on Adjustment Check Your Answers Page")
+        whenIClickOn("Description", "Adjustment Check Your Answers Page")
         // ⚠️ No step-def match found for: I click Description on Adjustment Check Your Answers Page
 
       Then("I am presented with the Spoilt Alcohol Type Page with new url")
         // Possible match (best=0.62)
-        thenIAmPresentedWithTheWithNewUrl("")
+        thenIAmPresentedWithTheWithNewUrl("Spoilt Alcohol Type Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
 
       When("I select radio button Beer on Spoilt Alcohol Type Page")
         // Possible match (best=0.50)
-        whenISelectRadioButtonOn("", "")
+        whenISelectRadioButtonOn("Beer", "Spoilt Alcohol Type Page")
 
       And("I click save and continue button on Spoilt Alcohol Type Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1377,22 +1386,25 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Spoilt Beer Alcohol Volume Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Spoilt Beer Alcohol Volume Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I enter 3000.75 for Total Litres on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("3000.75", "Total Litres", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Spoilt Beer Alcohol Volume Page
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page
 
       And("I enter 3255.55 for Duty Paid on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3255.55 for Duty Paid on Spoilt Beer Alcohol Volume Page
 
       And("I click save and continue button on Spoilt Beer Alcohol Volume Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Spoilt Beer Alcohol Volume Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1401,31 +1413,35 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Adjustment Check Your Answers Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I click Duty value on Adjustment Check Your Answers Page")
+        whenIClickOn("Duty value", "Adjustment Check Your Answers Page")
         // ⚠️ No step-def match found for: I click Duty value on Adjustment Check Your Answers Page
 
       Then("I am presented with the Spoilt Beer Alcohol Volume Page with new url")
         // Possible match (best=0.62)
-        thenIAmPresentedWithTheWithNewUrl("")
+        thenIAmPresentedWithTheWithNewUrl("Spoilt Beer Alcohol Volume Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
 
       When("I enter 3222.75 for Total Litres on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("3222.75", "Total Litres", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3222.75 for Total Litres on Spoilt Beer Alcohol Volume Page
 
       And("I enter 255.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("255.5500", "Litres Of Pure Alcohol", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 255.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page
 
       And("I enter 3200.55 for Duty Paid on Spoilt Beer Alcohol Volume Page")
+        whenIEnterForOn("3200.55", "Duty Paid", "Spoilt Beer Alcohol Volume Page")
         // ⚠️ No step-def match found for: I enter 3200.55 for Duty Paid on Spoilt Beer Alcohol Volume Page
 
       And("I click save and continue button on Spoilt Beer Alcohol Volume Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Spoilt Beer Alcohol Volume Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1434,13 +1450,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Adjustment Check Your Answers Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1449,17 +1465,17 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Adjustment List Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Adjustment List Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 
       When("I select radio button No on Adjustment List Page")
         // Possible match (best=0.50)
-        whenISelectRadioButtonOn("", "")
+        whenISelectRadioButtonOn("No", "Adjustment List Page")
 
       And("I click save and continue button on Adjustment List Page")
         // Possible match (best=0.61)
-        whenIClickSaveAndContinueButtonOn("")
+        whenIClickSaveAndContinueButtonOn("Adjustment List Page")
         // --- Other possible matches ---
         // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
         // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
@@ -1468,7 +1484,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
       Then("I am presented with the Task List Page")
         // Possible match (best=0.58)
-        thenIAmPresentedWithThe("")
+        thenIAmPresentedWithThe("Task List Page")
         // --- Other possible matches ---
         // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
 

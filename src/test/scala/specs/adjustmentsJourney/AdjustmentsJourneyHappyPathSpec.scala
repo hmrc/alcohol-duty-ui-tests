@@ -17,7 +17,6 @@
 package specs.adjustmentsJourney
 
 import specs.BaseSpec
-import specsteps.AlcoholDutyStepDefSteps._
 import specsteps.BaseStepDefSteps._
 
 class AdjustmentsJourneyHappyPathSpec extends BaseSpec {

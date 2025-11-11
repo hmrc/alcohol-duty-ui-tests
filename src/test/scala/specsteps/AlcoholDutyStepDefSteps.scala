@@ -17,17 +17,18 @@
 package specsteps
 
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.alcoholDuty.pages.BasePage
 import uk.gov.hmrc.alcoholDuty.pages.auth.AuthLoginStubPage
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-object AlcoholDutyStepDefSteps {
+object AlcoholDutyStepDefSteps extends BasePage {
 
   // I enter redirect URL on Auth Login Stub Page for {string}
   def whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney: String): Unit = {
     typeOfJourney match {
           case "Alcohol Duty Service"     =>
             AuthLoginStubPage.enterRedirectURL(
-              TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/25AD"
+              TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
             )
           case "View Past Returns Page"   =>
             AuthLoginStubPage.enterRedirectURL(
