@@ -27,48 +27,31 @@ class ClaimEnrolmentJourneySpec extends BaseSpec {
 
     Scenario("Claim Enrolment Journey - Happy path - When user does not have APPA ID", AllTests) {
       Given("I enter the url for Claim Enrolment journey")
-        givenIEnterTheUrlForClaimEnrolmentJourney()  // auto-chosen (score=1.00, AlcoholDutyStepDefSteps.scala)
-        // --- Other possible matches ---
-        // whenIEnterRedirectUrlFor() [0.47] (BaseStepDefSteps.scala) pattern: I enter redirect url for {string}
+      givenIEnterTheUrlForClaimEnrolmentJourney()
 
       Then("I am presented with the Do You Have Appa Id Page")
-        thenIAmPresentedWithThe("Do You Have Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Do You Have Appa Id Page")
 
       When("I select radio button No on Do You Have Appa Id Page")
-        whenISelectRadioButtonOn("No", "Do You Have Appa Id Page")  // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("No", "Do You Have Appa Id Page")
 
       And("I click continue button on Do You Have Appa Id Page")
-        whenIClickContinueButtonO("Do You Have Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-        // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Do You Have Appa Id Page")
 
       Then("I am presented with the You Need An Appa Id Page")
-        thenIAmPresentedWithThe("You Need An Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("You Need An Appa Id Page")
 
       When("I click back button on You Need An Appa Id Page")
-        whenIClickBackButtonOn("You Need An Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-        // whenIClickContinueButtonO() [0.47] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      whenIClickBackButtonOn("You Need An Appa Id Page")
 
       Then("I am presented with the Do You Have Appa Id Page")
-        thenIAmPresentedWithThe("Do You Have Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Do You Have Appa Id Page")
 
       When("I select radio button Yes on Do You Have Appa Id Page")
-        whenISelectRadioButtonOn("Yes", "Do You Have Appa Id Page")  // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("Yes", "Do You Have Appa Id Page")
 
       And("I click continue button on Do You Have Appa Id Page")
-        whenIClickContinueButtonO("Do You Have Appa Id Page")  // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-        // --- Other possible matches ---
-        // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-        // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Do You Have Appa Id Page")
 
     }
   }
