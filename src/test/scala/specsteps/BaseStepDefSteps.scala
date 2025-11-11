@@ -27,209 +27,224 @@ import uk.gov.hmrc.selenium.webdriver.Driver
 object BaseStepDefSteps extends BrowserDriver with BasePage {
 
   // I navigate to the {string}
-  def thenINavigateToThe(page: String): Unit = {
+  def thenINavigateToThe(page: String): Unit =
     go to PageObjectFinder.page(page)
-  }
 
   // I click submit button on {string}
-  def whenIClickSubmitButtonOn(page: String): Unit = {
+  def whenIClickSubmitButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickSubmitButton()
-  }
+    PageObjectFinder.page(page).clickSubmitButton()
 
   // I click ECPSubmit on {string}
-  def whenIClickECPSubmitOn(page: String): Unit = {
+  def whenIClickECPSubmitOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickECPSubmitButton()
-  }
+    PageObjectFinder.page(page).clickECPSubmitButton()
 
   // I am presented with the {string}
-  def thenIAmPresentedWithThe(page: String): Unit = {
+  def thenIAmPresentedWithThe(page: String): Unit =
     // no longer checking page header and page title - checking URL includes fluentWait and ensures we have landed on the right page
-        PageObjectFinder.page(page).checkURL
-  }
+    PageObjectFinder.page(page).checkURL
 
   // I am presented with the {string} with new url
-  def thenIAmPresentedWithTheWithNewUrl(page: String): Unit = {
+  def thenIAmPresentedWithTheWithNewUrl(page: String): Unit =
     PageObjectFinder.page(page).checkNewURL
-  }
 
   // I am presented with the {string} with url suffix as {string}
-  def thenIAmPresentedWithTheWithUrlSuffixAs(page: String, urlSuffix: String): Unit = {
+  def thenIAmPresentedWithTheWithUrlSuffixAs(page: String, urlSuffix: String): Unit =
     PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
-  }
 
   // I am presented with the {string} with existing url suffix as {string}
-  def thenIAmPresentedWithTheWithExistingUrlSuffixAs(page: String, urlSuffix: String): Unit = {
+  def thenIAmPresentedWithTheWithExistingUrlSuffixAs(page: String, urlSuffix: String): Unit =
     PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-  }
 
   // I select radio button {string} on {string}
-  def whenISelectRadioButtonOn(choice: String, page: String): Unit = {
+  def whenISelectRadioButtonOn(choice: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickRadioButton(choice)
-  }
+    PageObjectFinder.page(page).clickRadioButton(choice)
 
   // I {string} checkbox {string} on {string}
-  def whenICheckboxOn(checkBoxAction: String, choice: String, page: String): Unit = {
+  def whenICheckboxOn(checkBoxAction: String, choice: String, page: String): Unit =
     checkBoxAction match {
-          case "select" | "unselect" =>
-    //        PageObjectFinder.page(page).waitForPageHeader
-            PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
-        }
-  }
+      case "select" | "unselect" =>
+        //        PageObjectFinder.page(page).waitForPageHeader
+        PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
+    }
 
   // I click save and continue button on {string}
-  def whenIClickSaveAndContinueButtonOn(page: String): Unit = {
+  def whenIClickSaveAndContinueButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickSaveAndContinueButton()
-  }
+    PageObjectFinder.page(page).clickSaveAndContinueButton()
 
   // I click confirm and continue button on {string}
-  def whenIClickConfirmAndContinueButtonOn(page: String): Unit = {
+  def whenIClickConfirmAndContinueButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickConfirmAndContinueButton()
-  }
+    PageObjectFinder.page(page).clickConfirmAndContinueButton()
 
   // I click continue button on {string}
-  def whenIClickContinueButtonO(page: String): Unit = {
+  def whenIClickContinueButtonO(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickContinueButton()
-  }
+    PageObjectFinder.page(page).clickContinueButton()
 
   // I click back button on {string}
-  def whenIClickBackButtonOn(page: String): Unit = {
+  def whenIClickBackButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickBackButton()
-  }
+    PageObjectFinder.page(page).clickBackButton()
 
   // I enter {string} on {string}
-  def whenIEnterOn(data: String, page: String): Unit = {
+  def whenIEnterOn(data: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).enterDetails(data)
-  }
+    PageObjectFinder.page(page).enterDetails(data)
 
   // I enter {string} for {string} on {string}
-  def whenIEnterForOn(textToEnter: String, text: String, page: String): Unit = {
+  def whenIEnterForOn(textToEnter: String, text: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
-  }
+    PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
 
   // I enter {string} for {string} on {string} at {string} input box
-  def whenIEnterForOnAtInputBox(textToEnter: String, text: String, page: String, index: String): Unit = {
+  def whenIEnterForOnAtInputBox(textToEnter: String, text: String, page: String, index: String): Unit =
     //      PageObjectFinder.page(page).waitForPageHeader
-          PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
-  }
+    PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
 
   // I enter month {string} and year {string} on {string}
-  def whenIEnterMonthAndYearOn(month: String, year: String, page: String): Unit = {
+  def whenIEnterMonthAndYearOn(month: String, year: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).enterDate(month, year)
-  }
+    PageObjectFinder.page(page).enterDate(month, year)
 
   // I enter redirect url for {string}
-  def whenIEnterRedirectUrlFor(page: String): Unit = {
+  def whenIEnterRedirectUrlFor(page: String): Unit =
     page match {
-          case "Task List Page"       =>
-            Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
-          case "Return Summary Page"  =>
-            Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
-          case "Alcohol Duty Service" =>
-            Driver.instance.get(
-              TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-            )
-        }
-  }
+      case "Task List Page"       =>
+        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
+      case "Return Summary Page"  =>
+        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
+      case "Alcohol Duty Service" =>
+        Driver.instance.get(
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+        )
+    }
 
   // I cleared the data to view completed returns from previous years
-  def givenIClearedTheDataToViewCompletedReturnsFromPreviousYears(): Unit = {
-    Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations")
-  }
+  def givenIClearedTheDataToViewCompletedReturnsFromPreviousYears(): Unit =
+    Driver.instance.get(
+      TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations"
+    )
 
   // I click the link to view completed returns from the previous year on {string}
   def whenIClickTheLinkToViewCompletedReturnsFromThePreviousYearOn(page: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
-        driver
-          .findElement(
-            By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")
-          )
-          .click()
+    driver
+      .findElement(
+        By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")
+      )
+      .click()
   }
 
   // I click on the first {string} link on {string}
-  def whenIClickOnTheFirstLinkOn(hyperlink: String, page: String): Unit = {
+  def whenIClickOnTheFirstLinkOn(hyperlink: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        Driver.instance.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
-  }
+    Driver.instance.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
 
   // I click {string} on {string}
-  def whenIClickOn(button: String, page: String): Unit = {
+  def whenIClickOn(button: String, page: String): Unit =
     PageObjectFinder.page(page).clickButton(button)
-  }
 
   // I click on {string} hyperlink on {string}
-  def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit = {
+  def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        Driver.instance.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
-  }
+    Driver.instance.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
 
   // I click on {string} link on {string}
-  def whenIClickOnLinkOn(hyperlink: String, page: String): Unit = {
+  def whenIClickOnLinkOn(hyperlink: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        Driver.instance.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
-  }
+    Driver.instance.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
 
   // I cleared the data for the service
-  def givenIClearedTheDataForTheService(): Unit = {
+  def givenIClearedTheDataForTheService(): Unit =
     Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
-  }
 
   // I cleared the data for ECP service
-  def givenIClearedTheDataForECPService(): Unit = {
+  def givenIClearedTheDataForECPService(): Unit =
     Driver.instance.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
-  }
 
   // I clear the data to view Past Payments
-  def givenIClearTheDataToViewPastPayments(): Unit = {
-    Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments")
-  }
+  def givenIClearTheDataToViewPastPayments(): Unit =
+    Driver.instance.get(
+      TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments"
+    )
 
   // I click on change link {int} on {string} for alcohol type {string}
   def andIClickOnChangeLinkOnForAlcoholType(changeLinkIndex: Int, page: String, alcoholType: String): Unit = {
     PageObjectFinder.page(page).waitForPageHeader
-          driver
-            .findElement(
-              By.xpath(
-                "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
-              )
-            )
-            .click()
+    driver
+      .findElement(
+        By.xpath(
+          "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
+        )
+      )
+      .click()
   }
 
   // I click on Agree and send return button {string}
-  def whenIClickOnAgreeAndSendReturnButton(page: String): Unit = {
+  def whenIClickOnAgreeAndSendReturnButton(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
-  }
+    PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
 
+  // Background steps 1 for most declaration and adjustment scenarios
   def loginAndStartReturn(): Unit = {
     givenIClearedTheDataForTheService()
     thenINavigateToThe("Auth Login Stub Page")
     whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", "AABCP0000100208", "Auth Login Stub Page")
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
+      "HMRC-AD-ORG",
+      "APPAID",
+      "AABCP0000100208",
+      "Auth Login Stub Page"
+    )
     whenIClickSubmitButtonOn("Auth Login Stub Page")
     thenIAmPresentedWithThe("Before You Start Page")
     whenIClickContinueButtonO("Before You Start Page")
     thenIAmPresentedWithThe("Task List Page")
   }
 
+  // Background steps 2 for AlcoholDutyReturnsChangeLinksCYAPage.feature
+  def selectAllRegimes(): Unit = {
+    whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+    thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+    whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+    whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+    thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
+    whenICheckboxOn(
+      "select",
+      "Beer,Cider,Wine,Spirits,Other fermented products",
+      "What Alcohol Do You Need To Declare Page"
+    )
+    whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+    thenIAmPresentedWithThe("Task List Page")
+  }
+
+  // Background steps 2 for adjustments
   def navigateToAdjustmentTypePage(): Unit = {
     whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
     thenIAmPresentedWithThe("Declare Adjustment Question Page")
     whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
     whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
     thenIAmPresentedWithThe("Adjustment Type Page")
+  }
+
+  // Background steps for AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovals.feature
+  def startLoginForAdr(): Unit = {
+    givenIClearedTheDataForTheService()
+    thenINavigateToThe("Auth Login Stub Page")
+    whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
+    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
+  }
+
+  // Background steps for ECP
+  def startLoginForEcp(): Unit = {
+    givenIClearedTheDataForECPService()
+    thenINavigateToThe("Auth Login Stub Page")
+    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
   }
 
 }
