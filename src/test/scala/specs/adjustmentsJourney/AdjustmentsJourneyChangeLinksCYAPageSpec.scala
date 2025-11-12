@@ -17,7 +17,7 @@
 package specs.adjustmentsJourney
 
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{Adjustments, AllTests}
 import specsteps.BaseStepDefSteps._
 
 class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
@@ -26,7 +26,8 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario(
       "1- Adjustments Journey - Change Link Functionality for Adjustment Type - Under-declaration - Beer",
-      AllTests
+      AllTests,
+      Adjustments
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
@@ -150,7 +151,8 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario(
       "2- Adjustments Journey - Change Link Functionality for Return period being adjusted And Tax Type and SPR Duty Rate - Over-declaration - Cider",
-      AllTests
+      AllTests,
+      Adjustments
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
@@ -325,7 +327,8 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     Scenario(
       "3- Adjustments Journey - Change Link Functionality for Volume And New Tax Type - Repackaged Draught Products - Wine",
-      AllTests
+      AllTests,
+      Adjustments
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
@@ -501,7 +504,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits", AllTests) {
+    Scenario("4 Adjustments Journey - Changing Non SPR to SPR - Drawback - Spirits", AllTests, Adjustments) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
@@ -604,7 +607,11 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products", AllTests) {
+    Scenario(
+      "5- Adjustments Journey - Change SPR to Non SPR - Drawback - Other Fermented Products",
+      AllTests,
+      Adjustments
+    ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
@@ -706,7 +713,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Task List Page")
     }
 
-    Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests) {
+    Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests, Adjustments) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()

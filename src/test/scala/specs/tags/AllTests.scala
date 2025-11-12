@@ -19,3 +19,15 @@ package specs.tags
 import org.scalatest.Tag
 
 object AllTests extends Tag("AllTests")
+
+object AlcoholToDeclare extends Tag("AlcoholToDeclare")
+
+object Adjustments extends Tag("Adjustments")
+
+object CommonPages extends Tag("CommonPages")
+
+object DutySuspendedDeliveries extends Tag("DutySuspendedDeliveries")
+
+object QuarterlySpirits extends Tag("QuarterlySpirits")
+
+object ECP extends Tag("ECP")

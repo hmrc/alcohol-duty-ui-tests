@@ -226,25 +226,21 @@ object BaseStepDefSteps extends BasePage {
     thenIAmPresentedWithThe("Adjustment Type Page")
   }
 
-  def loginForPayments(): Unit = {
+  // Background steps for payments
+  def loginForPayments(appaId: String = "XMADP0002900211"): Unit = {
     givenIClearTheDataToViewPastPayments()
     thenINavigateToThe("Auth Login Stub Page")
     whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Payments Page")
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
-      "HMRC-AD-ORG",
-      "APPAID",
-      "XMADP0002900211",
-      "Auth Login Stub Page"
-    )
+    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
     whenIClickSubmitButtonOn("Auth Login Stub Page")
   }
 
   // Background steps for ECP
-  def loginForEcp(typeOfJourney: String, appaId: String): Unit = {
+  def loginForEcp(appaId: String, typeOfJourney: String = "Email Contact Preference"): Unit = {
     givenIClearedTheDataForECPService()
     thenINavigateToThe("Auth Login Stub Page")
-    whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney)
+    whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney) // specify if "Email Update" or "Email Bounce"
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
     whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
     whenIClickSubmitButtonOn("Auth Login Stub Page")

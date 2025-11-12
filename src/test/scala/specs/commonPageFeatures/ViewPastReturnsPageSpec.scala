@@ -17,7 +17,7 @@
 package specs.commonPageFeatures
 
 import specs.BaseSpec
-import specs.tags.AllTests
+import specs.tags.{AllTests, CommonPages}
 import specsteps.AlcoholDutyStepDefSteps._
 import specsteps.BaseStepDefSteps._
 
@@ -25,7 +25,7 @@ class ViewPastReturnsPageSpec extends BaseSpec {
 
   Feature("View Past Returns Journey") {
 
-    Scenario("1. ADR Journey - View Completed Returns from previous years", AllTests) {
+    Scenario("1. ADR Journey - View Completed Returns from previous years", AllTests, CommonPages) {
       Given("I cleared the data to view completed returns from previous years")
       givenIClearedTheDataToViewCompletedReturnsFromPreviousYears()
 
