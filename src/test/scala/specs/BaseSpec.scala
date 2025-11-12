@@ -18,21 +18,21 @@ package specs
 
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import org.scalatest.{BeforeAndAfterAll, GivenWhenThen}
+import org.scalatest.{BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
 
 trait BaseSpec
     extends AnyFeatureSpec
     with GivenWhenThen
     with Matchers
-    with BeforeAndAfterAll
+    with BeforeAndAfterEach
     with Browser
     with ScreenshotOnFailure {
 
-  override def beforeAll(): Unit =
+  override def beforeEach(): Unit =
     startBrowser()
 
-  override def afterAll(): Unit =
+  override def afterEach(): Unit =
     quitBrowser()
 
 }

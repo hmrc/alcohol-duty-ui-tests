@@ -43,7 +43,7 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     }
 
   /** Fluent Wait config * */
-  var fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
+  def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(20))
     .pollingEvery(Duration.ofMillis(500))
 
