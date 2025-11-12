@@ -78,9 +78,9 @@ Feature: Alcohol Duty Returns Journey - Change Links - CYA Page
     Then I am presented with the "You Have Some Missing Details Page"
     And I select radio button "Delete these declarations from this return" on "You Have Some Missing Details Page"
     When I click save and continue button on "You Have Some Missing Details Page"
-    Then I am presented with the "Are You Sure You Want To Delete These Declarations From Your Return Page"
-    And  I select radio button "Yes, delete these declarations" on "Are You Sure You Want To Delete These Declarations From Your Return Page"
-    When I click confirm and continue button on "Are You Sure You Want To Delete These Declarations From Your Return Page"
+    Then I am presented with the "Delete Alcohol Page"
+    And  I select radio button "Yes" on "Delete Alcohol Page"
+    When I click confirm and continue button on "Delete Alcohol Page"
     Then I am presented with the "Check Your Answers Returns Beer Page"
 
   @AllTests
