@@ -16,8 +16,8 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Spirits
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object YouHaveSomeMissingDetailsSpiritsPage extends BasePage {
 

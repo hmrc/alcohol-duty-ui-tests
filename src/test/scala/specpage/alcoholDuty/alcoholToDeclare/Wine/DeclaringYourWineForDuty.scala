@@ -16,8 +16,8 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Wine
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeclaringYourWineForDuty extends BasePage {
 
@@ -29,15 +29,9 @@ object DeclaringYourWineForDuty extends BasePage {
   ) + "/complete-return/alcoholic-products/Wine/change/declaring-wine-duty"
   override val title          = "Declaring your wine for duty"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Declaring your wine for duty - Manage your Alcohol Duty - GOV.UK"
-  )
-
   override def expectedPageTitle: Option[String] = Some(
     "Declaring your wine for duty - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("Declaring your wine for duty")
-
-
 }

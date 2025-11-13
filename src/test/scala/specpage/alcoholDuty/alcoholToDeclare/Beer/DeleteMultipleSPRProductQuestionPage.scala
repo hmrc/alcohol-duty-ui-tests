@@ -16,8 +16,8 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Beer
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
 object DeleteMultipleSPRProductQuestionPage extends BasePage {
 

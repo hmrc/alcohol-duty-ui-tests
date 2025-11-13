@@ -16,10 +16,10 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Beer
 
+import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.alcoholDuty.pages.BasePage
 
-object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnPage extends BasePage {
+object DeleteAlcoholPage extends BasePage {
 
   override val url: String    = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
@@ -27,21 +27,21 @@ object AreYouSureYouWantToDeleteTheseDeclarationsFromYourReturnPage extends Base
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/missing-details/confirmation"
-  override val title          = "Are you sure you want to delete these declarations from your return?"
+  override val title          = "Delete alcohol"
 
   override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Are you sure you want to delete these declarations from your return? - Manage your Alcohol Duty - GOV.UK"
+    "Error: Delete alcohol - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageTitle: Option[String] = Some(
-    "Are you sure you want to delete these declarations from your return? - Manage your Alcohol Duty - GOV.UK"
+    "Delete alcohol - Manage your Alcohol Duty - GOV.UK"
   )
 
-  override def expectedPageHeader: Option[String] = Some("Are you sure you want to delete these declarations from your return?")
+  override def expectedPageHeader: Option[String] = Some("Delete alcohol")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes, delete these declarations" => click on cssSelector("#deleteMissingDeclarations")
-      case "No, I want to go back and add details for these declarations"  => click on cssSelector("#deleteMissingDeclarations-no")
+      case "Yes" => click on cssSelector("#deleteMissingDeclarations")
+      case "No"  => click on cssSelector("#deleteMissingDeclarations-no")
     }
 }

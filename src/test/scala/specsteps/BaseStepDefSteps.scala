@@ -243,6 +243,7 @@ object BaseStepDefSteps extends BasePage {
     whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney) // specify if "Email Update" or "Email Bounce"
     whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
     whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
+    whenIEnterCredIDOn("cred0", "Auth Login Stub Page")
     whenIClickSubmitButtonOn("Auth Login Stub Page")
   }
 
