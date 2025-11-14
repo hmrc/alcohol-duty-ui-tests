@@ -16,22 +16,6 @@
 
 package specs.alcoholToDeclareJourney
 
-/*
- * Copyright 2025 HM Revenue & Customs
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import specs.BaseSpec
 import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
@@ -1842,311 +1826,196 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
 
       Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Under Declaration Reason Page")
 
       When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      // ⚠️ No step-def match found for: I enter Test Under Declaration Reason on Under Declaration Reason Page
+      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
 
       And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
 
       Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Over Declaration Reason Page")
 
-      When("I enter Test over Declaration Reason on Over Declaration Reason Page")
-      // ⚠️ No step-def match found for: I enter Test over Declaration Reason on Over Declaration Reason Page
+      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
 
       And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn(
+        "Tell us if you have delivered or received finished products in duty suspense",
+        "Task List Page"
+      )
 
       Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
 
       When("I select radio button Yes on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("Yes", "Declare Duty Suspended Deliveries Page")
 
       And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
 
       Then("I am presented with the Duty Suspended Deliveries Guidance Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Deliveries Guidance Page")
 
       When("I click continue button on Duty Suspended Deliveries Guidance Page")
-      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickContinueButtonO("Duty Suspended Deliveries Guidance Page")
 
       Then("I am presented with the Duty Suspended Beer Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Beer Page")
 
       When("I enter 2000.75 for Total Beer on Duty Suspended Beer Page")
-      // ⚠️ No step-def match found for: I enter 2000.75 for Total Beer on Duty Suspended Beer Page
+      whenIEnterForOn("2000.75", "Total Beer", "Duty Suspended Beer Page")
 
       And("I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page")
-      // ⚠️ No step-def match found for: I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page
+      whenIEnterForOn("150.55", "Pure Alcohol In Beer", "Duty Suspended Beer Page")
 
       And("I click save and continue button on Duty Suspended Beer Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Duty Suspended Beer Page")
 
       Then("I am presented with the Duty Suspended Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Cider Page")
 
       When("I enter 9999.99 for Total Cider on Duty Suspended Cider Page")
-      // ⚠️ No step-def match found for: I enter 9999.99 for Total Cider on Duty Suspended Cider Page
+      whenIEnterForOn("9999.99", "Total Cider", "Duty Suspended Cider Page")
 
       And("I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page")
-      // ⚠️ No step-def match found for: I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page
+      whenIEnterForOn("99.19", "Pure Alcohol In Cider", "Duty Suspended Cider Page")
 
       And("I click save and continue button on Duty Suspended Cider Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Duty Suspended Cider Page")
 
       Then("I am presented with the Duty Suspended Wine Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Wine Page")
 
       When("I enter 7777.77 for Total Wine on Duty Suspended Wine Page")
-      // ⚠️ No step-def match found for: I enter 7777.77 for Total Wine on Duty Suspended Wine Page
+      whenIEnterForOn("7777.77", "Total Wine", "Duty Suspended Wine Page")
 
       And("I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page")
-      // ⚠️ No step-def match found for: I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page
+      whenIEnterForOn("77.77", "Pure Alcohol In Wine", "Duty Suspended Wine Page")
 
       And("I click save and continue button on Duty Suspended Wine Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Duty Suspended Wine Page")
 
       Then("I am presented with the Duty Suspended Spirits Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Spirits Page")
 
       When("I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page")
-      // ⚠️ No step-def match found for: I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page
+      whenIEnterForOn("2100.75", "Total Spirits", "Duty Suspended Spirits Page")
 
       And("I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page")
-      // ⚠️ No step-def match found for: I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page
+      whenIEnterForOn("160.55", "Pure Alcohol In Spirits", "Duty Suspended Spirits Page")
 
       And("I click save and continue button on Duty Suspended Spirits Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Duty Suspended Spirits Page")
 
       Then("I am presented with the Duty Suspended Other Fermented Products Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Other Fermented Products Page")
 
       When("I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      // ⚠️ No step-def match found for: I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page
+      whenIEnterForOn("8888.88", "Total Other Fermented Products", "Duty Suspended Other Fermented Products Page")
 
       And("I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      // ⚠️ No step-def match found for: I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page
+      whenIEnterForOn(
+        "88.88",
+        "Pure Alcohol In Other Fermented Products",
+        "Duty Suspended Other Fermented Products Page"
+      )
 
       And("I click save and continue button on Duty Suspended Other Fermented Products Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Duty Suspended Other Fermented Products Page")
 
       Then("I am presented with the Duty Suspended Deliveries Check Your Answers Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
 
-      When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
-      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
+      whenIClickContinueButtonO("Duty Suspended Deliveries Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
-      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
 
       Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
 
       When("I select radio button Yes on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("Yes", "Quarterly Spirits Returns Guidance Page")
 
       And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
 
       Then("I am presented with the Total Of All Spirits Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Total Of All Spirits Page")
 
       When("I enter 99 on Total Of All Spirits Page")
-      // ⚠️ No step-def match found for: I enter 99 on Total Of All Spirits Page
+      whenIEnterOn("99", "Total Of All Spirits Page")
 
       And("I click save and continue button on Total Of All Spirits Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Total Of All Spirits Page")
 
       Then("I am presented with the Declare Whiskey Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Declare Whiskey Page")
 
       When("I enter 10.55 for Scotch Whisky on Declare Whiskey Page")
-      // ⚠️ No step-def match found for: I enter 10.55 for Scotch Whisky on Declare Whiskey Page
+      whenIEnterForOn("10.55", "Scotch Whisky", "Declare Whiskey Page")
 
       And("I enter 20.67 for Irish Whiskey on Declare Whiskey Page")
-      // ⚠️ No step-def match found for: I enter 20.67 for Irish Whiskey on Declare Whiskey Page
+      whenIEnterForOn("20.67", "Irish Whiskey", "Declare Whiskey Page")
 
       And("I click save and continue button on Declare Whiskey Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Declare Whiskey Page")
 
       Then("I am presented with the Which Of These Spirits Have You Produced Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Which Of These Spirits Have You Produced Page")
 
       When(
         "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
       )
-      // ⚠️ No step-def match found for: I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page
+      whenICheckboxOn(
+        "select",
+        "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits",
+        "Which Of These Spirits Have You Produced Page"
+      )
 
       And("I click save and continue button on Which Of These Spirits Have You Produced Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Which Of These Spirits Have You Produced Page")
 
       Then("I am presented with the Declare Other Spirits Produced Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Declare Other Spirits Produced Page")
 
       When("I enter Test Spirits on Declare Other Spirits Produced Page")
-      // ⚠️ No step-def match found for: I enter Test Spirits on Declare Other Spirits Produced Page
+      whenIEnterOn("Test Spirits", "Declare Other Spirits Produced Page")
 
       And("I click save and continue button on Declare Other Spirits Produced Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Declare Other Spirits Produced Page")
 
       Then("I am presented with the Quarterly Spirits Check Your Answers Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Quarterly Spirits Check Your Answers Page")
 
-      When("I click save and continue button on Quarterly Spirits Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      And("I click save and continue button on Quarterly Spirits Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
@@ -3616,112 +3485,69 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
 
       Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Under Declaration Reason Page")
 
       When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      // ⚠️ No step-def match found for: I enter Test Under Declaration Reason on Under Declaration Reason Page
+      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
 
       And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
 
       Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Over Declaration Reason Page")
 
-      When("I enter Test over Declaration Reason on Over Declaration Reason Page")
-      // ⚠️ No step-def match found for: I enter Test over Declaration Reason on Over Declaration Reason Page
+      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
 
       And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn(
+        "Tell us if you have delivered or received finished products in duty suspense",
+        "Task List Page"
+      )
 
       Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
 
       When("I select radio button No on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("No", "Declare Duty Suspended Deliveries Page")
 
       And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Task List Page")
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
-      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
 
       Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
 
       When("I select radio button No on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("No", "Quarterly Spirits Returns Guidance Page")
 
       And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
-      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
