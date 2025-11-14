@@ -188,7 +188,7 @@ object BaseStepDefSteps extends BasePage {
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
 
-  // Background steps 1 for declaration and adjustment scenarios
+  // Background steps 1 for starting a return
   def loginAndStartReturn(appaId: String): Unit = {
     givenIClearedTheDataForTheService()
     thenINavigateToThe("Auth Login Stub Page")

@@ -20,6 +20,8 @@ import org.scalatest.Tag
 
 object AllTests extends Tag("AllTests")
 
+object Tests extends Tag("Tests")
+
 object AlcoholToDeclare extends Tag("AlcoholToDeclare")
 
 object Adjustments extends Tag("Adjustments")
