@@ -1,0 +1,4252 @@
+/*
+ * Copyright 2025 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package specs.alcoholToDeclareJourney
+
+/*
+ * Copyright 2025 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import specs.BaseSpec
+import specs.tags.{AlcoholToDeclare, AllTests}
+import specsteps.BaseStepDefSteps._
+
+class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
+
+  Feature("Alcohol Duty Returns Journey") {
+
+    // TODO: Scenarios 1 and 2
+
+    Scenario("1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission") {
+      Given("I start a return")
+      loginAndStartReturn("AABCP0000100208")
+
+      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+
+      Then("I am presented with the Declare Alcohol Duty Question Page")
+      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+
+      When("I select radio button Yes on Declare Alcohol Duty Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+
+      And("I click save and continue button on Declare Alcohol Duty Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+
+      Then("I am presented with the What Alcohol Do You Need To Declare Page")
+      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
+
+      When(
+        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer,Cider,Wine,Spirits,Other fermented products",
+        "What Alcohol Do You Need To Declare Page"
+      )
+
+      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
+      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Declare beer hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+
+      Then("I am presented with the What Do You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
+
+      When(
+        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
+        "What Do You Need To Declare Beer Page"
+      )
+
+      And("I click save and continue button on What Do You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+
+      Then("I am presented with the How Much You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+
+      When(
+        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "945.55",
+        "Standard beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 55.5555 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "55.5555",
+        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "898.34",
+        "Standard beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "77.5500",
+        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "667.32",
+        "Standard beer between 8.5% and 22% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.3400",
+        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "999.19",
+        "Standard beer at or above 22.1% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "99.1300",
+        "Standard beer at or above 22.1% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "887.54",
+        "Draught beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.4400",
+        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "699.45",
+        "Draught beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And(
+        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.8900",
+        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And("I click save and continue button on How Much You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      Then("I am presented with the Single Small Producer Relief Rate Beer Page")
+      thenIAmPresentedWithThe("Single Small Producer Relief Rate Beer Page")
+
+      When(
+        "I enter 888.88 for Non-draught beer between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "888.88",
+        "Non-draught beer between 1.3% and 3.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 99.4500 for Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "99.4500",
+        "Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 15 for Non-draught beer between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "15",
+        "Non-draught beer between 1.3% and 3.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 776.45 for Non-draught beer between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "776.45",
+        "Non-draught beer between 3.5% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 78.9000 for Non-draught beer between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "78.9000",
+        "Non-draught beer between 3.5% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 18 for Non-draught beer between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "18",
+        "Non-draught beer between 3.5% and 8.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 776.89 for Draught beer between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "776.89",
+        "Draught beer between 1.3% and 3.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 99.9900 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "99.9900",
+        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 15 for Draught beer between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "15",
+        "Draught beer between 1.3% and 3.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 889.65 for Draught beer between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "889.65",
+        "Draught beer between 3.5% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 66.5400 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.5400",
+        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 20 for Draught beer between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "20",
+        "Draught beer between 3.5% and 8.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Beer Page",
+        "fourth"
+      )
+
+      And("I click save and continue button on Single Small Producer Relief Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Beer Page")
+
+      Then("I am presented with the Check Your Answers Returns Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
+
+      When("I click save and continue button on Check Your Answers Returns Beer Page")
+      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
+
+      Then("I am presented with the Duty Due Beer Page")
+      thenIAmPresentedWithThe("Duty Due Beer Page")
+
+      When("I click save and continue button on Duty Due Beer Page")
+      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Declare cider hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
+
+      Then("I am presented with the What Do You Need To Declare Cider Page")
+      thenIAmPresentedWithThe("What Do You Need To Declare Cider Page")
+
+      When(
+        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)",
+        "What Do You Need To Declare Cider Page"
+      )
+
+      And("I click save and continue button on What Do You Need To Declare Cider Page")
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Cider Page")
+
+      Then("I am presented with the How Much You Need To Declare Cider Page")
+      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page")
+
+      When(
+        "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box
+
+      And(
+        "I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box
+
+      And(
+        "I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box
+
+      And(
+        "I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box
+
+      And(
+        "I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box
+
+      And(
+        "I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box
+
+      And(
+        "I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box
+
+      And(
+        "I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box
+
+      And(
+        "I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box
+
+      And(
+        "I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box
+
+      And(
+        "I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box
+
+      And(
+        "I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Single Small Producer Relief Rate Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 656.66 for Non-draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 656.66 for Non-draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at first input box
+
+      And(
+        "I enter 66.6600 for Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.6600 for Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at first input box
+
+      And(
+        "I enter 14 for Non-draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 14 for Non-draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at first input box
+
+      And(
+        "I enter 999.99 for Non-draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 999.99 for Non-draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at second input box
+
+      And(
+        "I enter 98.9900 for Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 98.9900 for Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at second input box
+
+      And(
+        "I enter 12.45 for Non-draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 12.45 for Non-draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at second input box
+
+      And(
+        "I enter 6666.66 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 6666.66 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at third input box
+
+      And(
+        "I enter 666.6600 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 666.6600 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at third input box
+
+      And(
+        "I enter 36 for Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 36 for Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at third input box
+
+      And(
+        "I enter 887.21 for Draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 887.21 for Draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fourth input box
+
+      And(
+        "I enter 45.5600 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 45.5600 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fourth input box
+
+      And(
+        "I enter 16 for Draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 16 for Draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fourth input box
+
+      And(
+        "I enter 653.11 for Draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 653.11 for Draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fifth input box
+
+      And(
+        "I enter 33.3300 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.3300 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fifth input box
+
+      And(
+        "I enter 18 for Draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 18 for Draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fifth input box
+
+      And(
+        "I enter 777.77 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 777.77 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at sixth input box
+
+      And(
+        "I enter 77.7700 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 77.7700 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at sixth input box
+
+      And(
+        "I enter 17 for Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 17 for Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at sixth input box
+
+      And("I click save and continue button on Single Small Producer Relief Rate Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare wine hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Declaring Your Wine For Duty")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I click continue button on Declaring Your Wine For Duty")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the What Do You Need To Declare Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR) on What Do You Need To Declare Wine Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR) on What Do You Need To Declare Wine Page
+
+      And("I click save and continue button on What Do You Need To Declare Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box
+
+      And(
+        "I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box
+
+      And(
+        "I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box
+
+      And(
+        "I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box
+
+      And(
+        "I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box
+
+      And(
+        "I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box
+
+      And(
+        "I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box
+
+      And(
+        "I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box
+
+      And(
+        "I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box
+
+      And(
+        "I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box
+
+      And(
+        "I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box
+
+      And(
+        "I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Single Small Producer Relief Rate Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 888.88 for Non-draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.88 for Non-draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at first input box
+
+      And(
+        "I enter 99.4500 for Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.4500 for Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at first input box
+
+      And(
+        "I enter 15 for Non-draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 15 for Non-draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at first input box
+
+      And(
+        "I enter 776.45 for Non-draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 776.45 for Non-draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at second input box
+
+      And(
+        "I enter 78.9000 for Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 78.9000 for Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at second input box
+
+      And(
+        "I enter 18 for Non-draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 18 for Non-draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at second input box
+
+      And(
+        "I enter 776.89 for Draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 776.89 for Draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at third input box
+
+      And(
+        "I enter 99.9900 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.9900 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at third input box
+
+      And(
+        "I enter 15 for Draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 15 for Draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at third input box
+
+      And(
+        "I enter 889.65 for Draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 889.65 for Draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at fourth input box
+
+      And(
+        "I enter 66.5400 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.5400 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at fourth input box
+
+      And(
+        "I enter 20 for Draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 20 for Draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at fourth input box
+
+      And("I click save and continue button on Single Small Producer Relief Rate Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare spirits hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the What Do You Need To Declare Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page
+
+      And("I click save and continue button on What Do You Need To Declare Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box
+
+      And(
+        "I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box
+
+      And(
+        "I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box
+
+      And(
+        "I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box
+
+      And(
+        "I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box
+
+      And(
+        "I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box
+
+      And(
+        "I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box
+
+      And(
+        "I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box
+
+      And(
+        "I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box
+
+      And(
+        "I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box
+
+      And(
+        "I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box
+
+      And(
+        "I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Single Small Producer Relief Rate Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 888.88 for Non-draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.88 for Non-draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at first input box
+
+      And(
+        "I enter 99.4500 for Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.4500 for Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at first input box
+
+      And(
+        "I enter 15 for Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 15 for Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at first input box
+
+      And(
+        "I enter 776.45 for Non-draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 776.45 for Non-draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at second input box
+
+      And(
+        "I enter 78.9000 for Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 78.9000 for Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at second input box
+
+      And(
+        "I enter 18 for Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 18 for Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at second input box
+
+      And(
+        "I enter 776.89 for Draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 776.89 for Draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at third input box
+
+      And(
+        "I enter 99.9900 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.9900 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at third input box
+
+      And(
+        "I enter 15 for Draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 15 for Draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at third input box
+
+      And(
+        "I enter 889.65 for Draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 889.65 for Draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at fourth input box
+
+      And(
+        "I enter 66.5400 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.5400 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at fourth input box
+
+      And(
+        "I enter 20 for Draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 20 for Draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at fourth input box
+
+      And("I click save and continue button on Single Small Producer Relief Rate Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare other fermented products hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+
+      Then("I am presented with the What Do You Need To Declare Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Wine Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Wine Page
+
+      And("I click save and continue button on What Do You Need To Declare Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box
+
+      And(
+        "I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box
+
+      And(
+        "I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box
+
+      And(
+        "I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box
+
+      And(
+        "I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box
+
+      And(
+        "I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box
+
+      And(
+        "I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box
+
+      And(
+        "I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box
+
+      And(
+        "I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box
+
+      And(
+        "I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+      )
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And(
+        "I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+      )
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Single Small Producer Relief Rate Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 777.77 for Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 777.77 for Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box
+
+      And(
+        "I enter 77.7700 for Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 77.7700 for Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box
+
+      And(
+        "I enter 15 for Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 15 for Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at first input box
+
+      And(
+        "I enter 888.88 for Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.88 for Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box
+
+      And(
+        "I enter 88.8800 for Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 88.8800 for Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box
+
+      And(
+        "I enter 16 for Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 16 for Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at second input box
+
+      And(
+        "I enter 667.88 for Draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 667.88 for Draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box
+
+      And(
+        "I enter 78.7700 for Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 78.7700 for Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box
+
+      And(
+        "I enter 20 for Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 20 for Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at third input box
+
+      And(
+        "I enter 678.44 for Draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 678.44 for Draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 99.2300 for Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.2300 for Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 19 for Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 19 for Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box
+
+      And("I click save and continue button on Single Small Producer Relief Rate Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+
+      Then("I am presented with the Declare Adjustment Question Page")
+      thenIAmPresentedWithThe("Declare Adjustment Question Page")
+
+      When("I select radio button Yes on Declare Adjustment Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
+
+      And("I click save and continue button on Declare Adjustment Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Under-declaration on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 311 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 311 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+
+      And("I enter 250.5555 for Litres Of Pure Alcohol on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 250.5555 for Litres Of Pure Alcohol on Adjustment Volume Page
+
+      And("I click save and continue button on Adjustment Volume Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Over-declaration on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 312 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 312 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page
+
+      And("I click save and continue button on Adjustment Volume Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Repackaged draught products on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 11 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code For Repackaged Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
+      // ⚠️ No step-def match found for: I enter 373 on Adjustment Tax Type Code For Repackaged Page
+
+      And("I click save and continue button on Adjustment Tax Type Code For Repackaged Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume With Spr Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+
+      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+
+      And("I click save and continue button on Adjustment Volume With Spr Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the New Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.54] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 363 on New Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 363 on New Tax Type Code Page
+
+      And("I click save and continue button on New Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the New Spr Duty Rate Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.54] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 11.5 on New Spr Duty Rate Page")
+      // ⚠️ No step-def match found for: I enter 11.5 on New Spr Duty Rate Page
+
+      And("I click save and continue button on New Spr Duty Rate Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Spoilt on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Spoilt Alcohol Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Spirits on Spoilt Alcohol Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Spoilt Alcohol Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Spoilt Alcohol Volume Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page
+
+      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page
+
+      And("I click save and continue button on Spoilt Alcohol Volume Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Drawback on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 314 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 314 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page
+
+      And("I click save and continue button on Adjustment Volume Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us why products were under-declared hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Under Declaration Reason Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      // ⚠️ No step-def match found for: I enter Test Under Declaration Reason on Under Declaration Reason Page
+
+      And("I click save and continue button on Under Declaration Reason Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us why products were over-declared hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Over Declaration Reason Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter Test over Declaration Reason on Over Declaration Reason Page")
+      // ⚠️ No step-def match found for: I enter Test over Declaration Reason on Over Declaration Reason Page
+
+      And("I click save and continue button on Over Declaration Reason Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
+      )
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Declare Duty Suspended Deliveries Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Declare Duty Suspended Deliveries Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Deliveries Guidance Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Duty Suspended Deliveries Guidance Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Beer Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 2000.75 for Total Beer on Duty Suspended Beer Page")
+      // ⚠️ No step-def match found for: I enter 2000.75 for Total Beer on Duty Suspended Beer Page
+
+      And("I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page")
+      // ⚠️ No step-def match found for: I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page
+
+      And("I click save and continue button on Duty Suspended Beer Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 9999.99 for Total Cider on Duty Suspended Cider Page")
+      // ⚠️ No step-def match found for: I enter 9999.99 for Total Cider on Duty Suspended Cider Page
+
+      And("I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page")
+      // ⚠️ No step-def match found for: I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page
+
+      And("I click save and continue button on Duty Suspended Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 7777.77 for Total Wine on Duty Suspended Wine Page")
+      // ⚠️ No step-def match found for: I enter 7777.77 for Total Wine on Duty Suspended Wine Page
+
+      And("I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page")
+      // ⚠️ No step-def match found for: I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page
+
+      And("I click save and continue button on Duty Suspended Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page")
+      // ⚠️ No step-def match found for: I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page
+
+      And("I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page")
+      // ⚠️ No step-def match found for: I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page
+
+      And("I click save and continue button on Duty Suspended Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Other Fermented Products Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page")
+      // ⚠️ No step-def match found for: I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page
+
+      And("I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page")
+      // ⚠️ No step-def match found for: I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page
+
+      And("I click save and continue button on Duty Suspended Other Fermented Products Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Duty Suspended Deliveries Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+
+      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Quarterly Spirits Returns Guidance Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Total Of All Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 99 on Total Of All Spirits Page")
+      // ⚠️ No step-def match found for: I enter 99 on Total Of All Spirits Page
+
+      And("I click save and continue button on Total Of All Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Declare Whiskey Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 10.55 for Scotch Whisky on Declare Whiskey Page")
+      // ⚠️ No step-def match found for: I enter 10.55 for Scotch Whisky on Declare Whiskey Page
+
+      And("I enter 20.67 for Irish Whiskey on Declare Whiskey Page")
+      // ⚠️ No step-def match found for: I enter 20.67 for Irish Whiskey on Declare Whiskey Page
+
+      And("I click save and continue button on Declare Whiskey Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Which Of These Spirits Have You Produced Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page
+
+      And("I click save and continue button on Which Of These Spirits Have You Produced Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Declare Other Spirits Produced Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter Test Spirits on Declare Other Spirits Produced Page")
+      // ⚠️ No step-def match found for: I enter Test Spirits on Declare Other Spirits Produced Page
+
+      And("I click save and continue button on Declare Other Spirits Produced Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Quarterly Spirits Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Quarterly Spirits Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+
+      Then("I am presented with the Return Summary Page")
+      thenIAmPresentedWithThe("Return Summary Page")
+
+      When("I click on Agree and send return button Return Summary Page")
+      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+
+      Then("I am presented with the Return Submitted Page")
+      thenIAmPresentedWithThe("Return Submitted Page")
+
+    }
+
+    Scenario("2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission") {
+      Given("I start a return")
+      loginAndStartReturn("AABCP0000100208")
+
+      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+
+      Then("I am presented with the Declare Alcohol Duty Question Page")
+      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+
+      When("I select radio button Yes on Declare Alcohol Duty Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+
+      And("I click save and continue button on Declare Alcohol Duty Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+
+      Then("I am presented with the What Alcohol Do You Need To Declare Page")
+      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
+
+      When(
+        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer,Cider,Wine,Spirits,Other fermented products",
+        "What Alcohol Do You Need To Declare Page"
+      )
+
+      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
+      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Declare beer hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+
+      Then("I am presented with the What Do You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
+
+      When(
+        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR) on What Do You Need To Declare Beer Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR)",
+        "What Do You Need To Declare Beer Page"
+      )
+
+      And("I click save and continue button on What Do You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+
+      Then("I am presented with the How Much You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+
+      When(
+        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "945.55",
+        "Standard beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 55.5500 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "55.5500",
+        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "898.34",
+        "Standard beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "77.5500",
+        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "667.32",
+        "Standard beer between 8.5% and 22% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.3400",
+        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "999.19",
+        "Standard beer at or above 22.1% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "99.1300",
+        "Standard beer at or above 22.1% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "887.54",
+        "Draught beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.4400",
+        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "699.45",
+        "Draught beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And(
+        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.8900",
+        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And("I click save and continue button on How Much You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
+      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
+
+      Then("I am presented with the Check Your Answers SPR Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
+
+      When("I click continue button on Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I select radio button No on Multiple SPR List Question Beer Page")
+      whenISelectRadioButtonOn("No", "Multiple SPR List Question Beer Page")
+
+      And("I click save and continue button on Multiple SPR List Question Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the Check Your Answers Returns Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
+
+      When("I click save and continue button on Check Your Answers Returns Beer Page")
+      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
+
+      Then("I am presented with the Duty Due Beer Page")
+      thenIAmPresentedWithThe("Duty Due Beer Page")
+
+      When("I click save and continue button on Duty Due Beer Page")
+      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Declare cider hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
+
+      Then("I am presented with the What Do You Need To Declare Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) on What Do You Need To Declare Cider Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) on What Do You Need To Declare Cider Page
+
+      And("I click save and continue button on What Do You Need To Declare Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box
+
+      And(
+        "I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box
+
+      And(
+        "I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box
+
+      And(
+        "I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box
+
+      And(
+        "I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box
+
+      And(
+        "I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box
+
+      And(
+        "I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box
+
+      And(
+        "I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box
+
+      And(
+        "I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box
+
+      And(
+        "I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box
+
+      And(
+        "I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box
+
+      And(
+        "I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I enter 7999.99 for Total litres on Multiple Small Producer Relief Rate Cider Page")
+      // ⚠️ No step-def match found for: I enter 7999.99 for Total litres on Multiple Small Producer Relief Rate Cider Page
+
+      And("I enter 77.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Cider Page")
+      // ⚠️ No step-def match found for: I enter 77.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Cider Page
+
+      And("I enter 20.99 for Duty rate on Multiple Small Producer Relief Rate Cider Page")
+      // ⚠️ No step-def match found for: I enter 20.99 for Duty rate on Multiple Small Producer Relief Rate Cider Page
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers SPR Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Check Your Answers SPR Cider Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple SPR List Question Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Multiple SPR List Question Cider Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Multiple SPR List Question Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Cider Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Cider Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare wine hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Declaring Your Wine For Duty")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I click continue button on Declaring Your Wine For Duty")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the What Do You Need To Declare Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR) on What Do You Need To Declare Wine Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR) on What Do You Need To Declare Wine Page
+
+      And("I click save and continue button on What Do You Need To Declare Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box
+
+      And(
+        "I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box
+
+      And(
+        "I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box
+
+      And(
+        "I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box
+
+      And(
+        "I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box
+
+      And(
+        "I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box
+
+      And(
+        "I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box
+
+      And(
+        "I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box
+
+      And(
+        "I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box
+
+      And(
+        "I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box
+
+      And(
+        "I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box
+
+      And(
+        "I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I enter 678.99 for Total litres on Multiple Small Producer Relief Rate Wine Page")
+      // ⚠️ No step-def match found for: I enter 678.99 for Total litres on Multiple Small Producer Relief Rate Wine Page
+
+      And("I enter 66.4300 for Litres of pure alcohol on Multiple Small Producer Relief Rate Wine Page")
+      // ⚠️ No step-def match found for: I enter 66.4300 for Litres of pure alcohol on Multiple Small Producer Relief Rate Wine Page
+
+      And("I enter 15.65 for Duty rate on Multiple Small Producer Relief Rate Wine Page")
+      // ⚠️ No step-def match found for: I enter 15.65 for Duty rate on Multiple Small Producer Relief Rate Wine Page
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers SPR Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Check Your Answers SPR Wine Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple SPR List Question Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Multiple SPR List Question Wine Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Multiple SPR List Question Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Wine Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Wine Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare spirits hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the What Do You Need To Declare Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page
+
+      And("I click save and continue button on What Do You Need To Declare Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box
+
+      And(
+        "I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box
+
+      And(
+        "I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box
+
+      And(
+        "I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box
+
+      And(
+        "I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box
+
+      And(
+        "I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box
+
+      And(
+        "I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box
+
+      And(
+        "I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box
+
+      And(
+        "I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box
+
+      And(
+        "I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box
+
+      And(
+        "I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box
+
+      And(
+        "I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I enter 789.99 for Total litres on Multiple Small Producer Relief Rate Spirits Page")
+      // ⚠️ No step-def match found for: I enter 789.99 for Total litres on Multiple Small Producer Relief Rate Spirits Page
+
+      And("I enter 55.5500 for Litres of pure alcohol on Multiple Small Producer Relief Rate Spirits Page")
+      // ⚠️ No step-def match found for: I enter 55.5500 for Litres of pure alcohol on Multiple Small Producer Relief Rate Spirits Page
+
+      And("I enter 20 for Duty rate on Multiple Small Producer Relief Rate Spirits Page")
+      // ⚠️ No step-def match found for: I enter 20 for Duty rate on Multiple Small Producer Relief Rate Spirits Page
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers SPR Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Check Your Answers SPR Spirits Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple SPR List Question Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Multiple SPR List Question Spirits Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Multiple SPR List Question Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Spirits Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Spirits Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Declare other fermented products hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+
+      Then("I am presented with the What Do You Need To Declare Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) on What Do You Need To Declare Wine Page"
+      )
+      // ⚠️ No step-def match found for: I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) on What Do You Need To Declare Wine Page
+
+      And("I click save and continue button on What Do You Need To Declare Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the How Much You Need To Declare Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box
+
+      And(
+        "I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box"
+      )
+      // ⚠️ No step-def match found for: I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box
+
+      And(
+        "I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box
+
+      And(
+        "I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box"
+      )
+      // ⚠️ No step-def match found for: I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box
+
+      And(
+        "I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box
+
+      And(
+        "I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box"
+      )
+      // ⚠️ No step-def match found for: I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box
+
+      And(
+        "I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box
+
+      And(
+        "I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box
+
+      And(
+        "I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box
+
+      And(
+        "I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box
+
+      And(
+        "I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box"
+      )
+      // ⚠️ No step-def match found for: I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box
+
+      And("I click save and continue button on How Much You Need To Declare Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+      )
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And(
+        "I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
+      )
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      And("I enter 999.99 for Total litres on Multiple Small Producer Relief Rate Other Fermented Product Page")
+      // ⚠️ No step-def match found for: I enter 999.99 for Total litres on Multiple Small Producer Relief Rate Other Fermented Product Page
+
+      And(
+        "I enter 99.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Other Fermented Product Page"
+      )
+      // ⚠️ No step-def match found for: I enter 99.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Other Fermented Product Page
+
+      And("I enter 20 for Duty rate on Multiple Small Producer Relief Rate Other Fermented Product Page")
+      // ⚠️ No step-def match found for: I enter 20 for Duty rate on Multiple Small Producer Relief Rate Other Fermented Product Page
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers SPR Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Check Your Answers SPR Other Fermented Product Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Multiple SPR List Question Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Multiple SPR List Question Other Fermented Product Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Multiple SPR List Question Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Check Your Answers Returns Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Duty Due Other Fermented Product Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Duty Due Other Fermented Product Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+
+      Then("I am presented with the Declare Adjustment Question Page")
+      thenIAmPresentedWithThe("Declare Adjustment Question Page")
+
+      When("I select radio button Yes on Declare Adjustment Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
+
+      And("I click save and continue button on Declare Adjustment Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Under-declaration on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 371 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 371 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume With Spr Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+
+      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+
+      And("I click save and continue button on Adjustment Volume With Spr Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Over-declaration on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 372 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 372 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume With Spr Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 9999.99 for Total Litres on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 9999.99 for Total Litres on Adjustment Volume With Spr Page
+
+      And("I enter 7777.7700 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 7777.7700 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+
+      And("I enter 898.89 for SPR Duty Rate on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 898.89 for SPR Duty Rate on Adjustment Volume With Spr Page
+
+      And("I click save and continue button on Adjustment Volume With Spr Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Spoilt on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Spoilt Alcohol Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Spirits on Spoilt Alcohol Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Spoilt Alcohol Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Spoilt Alcohol Volume Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page
+
+      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page
+
+      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
+      // ⚠️ No step-def match found for: I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page
+
+      And("I click save and continue button on Spoilt Alcohol Volume Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Yes on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Type Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button Drawback on Adjustment Type Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      And("I click save and continue button on Adjustment Type Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Return Date Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      whenIEnterMonthAndYearOn("", "", "") // auto-chosen (score=0.47, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment Return Date Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Adjustment Tax Type Code Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 374 on Adjustment Tax Type Code Page")
+      // ⚠️ No step-def match found for: I enter 374 on Adjustment Tax Type Code Page
+
+      And("I click save and continue button on Adjustment Tax Type Code Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Volume With Spr Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page
+
+      And("I enter 250.5599 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 250.5599 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page
+
+      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
+      // ⚠️ No step-def match found for: I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page
+
+      And("I click save and continue button on Adjustment Volume With Spr Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Duty Value Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click continue button on Adjustment Duty Value Page")
+      whenIClickContinueButtonO("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment Check Your Answers Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click save and continue button on Adjustment Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Adjustment List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Adjustment List Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Adjustment List Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us why products were under-declared hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Under Declaration Reason Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      // ⚠️ No step-def match found for: I enter Test Under Declaration Reason on Under Declaration Reason Page
+
+      And("I click save and continue button on Under Declaration Reason Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us why products were over-declared hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Over Declaration Reason Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I enter Test over Declaration Reason on Over Declaration Reason Page")
+      // ⚠️ No step-def match found for: I enter Test over Declaration Reason on Over Declaration Reason Page
+
+      And("I click save and continue button on Over Declaration Reason Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When(
+        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
+      )
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+
+      Then("I am presented with the Declare Duty Suspended Deliveries Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Declare Duty Suspended Deliveries Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      // whenIClickOnTheFirstLinkOn() [0.47] (BaseStepDefSteps.scala) pattern: I click on the first {string} link on {string}
+
+      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
+      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+
+      When("I select radio button No on Quarterly Spirits Returns Guidance Page")
+      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+
+      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
+      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
+      // --- Other possible matches ---
+      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
+      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
+      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
+      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      // whenIClickOnAgreeAndSendReturnButton() [0.47] (BaseStepDefSteps.scala) pattern: I click on Agree and send return button {string}
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+
+      Then("I am presented with the Return Summary Page")
+      thenIAmPresentedWithThe("Return Summary Page")
+
+      When("I click on Agree and send return button Return Summary Page")
+      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+
+      Then("I am presented with the Return Submitted Page")
+      thenIAmPresentedWithThe("Return Submitted Page")
+
+    }
+
+    Scenario("3. Alcohol Duty Returns Journey - Happy Path - Nil Return", AllTests, AlcoholToDeclare) {
+      Given("I start a return")
+      loginAndStartReturn("AABCP0000100208")
+
+      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+
+      Then("I am presented with the Declare Alcohol Duty Question Page")
+      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+
+      When("I select radio button No on Declare Alcohol Duty Question Page")
+      whenISelectRadioButtonOn("No", "Declare Alcohol Duty Question Page")
+
+      And("I click save and continue button on Declare Alcohol Duty Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+
+      Then("I am presented with the Declare Adjustment Question Page")
+      thenIAmPresentedWithThe("Declare Adjustment Question Page")
+
+      When("I select radio button No on Declare Adjustment Question Page")
+      whenISelectRadioButtonOn("No", "Declare Adjustment Question Page")
+
+      And("I click save and continue button on Declare Adjustment Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When(
+        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
+      )
+      whenIClickOnHyperlinkOn(
+        "Tell us if you have delivered or received finished products in duty suspense",
+        "Task List Page"
+      )
+
+      Then("I am presented with the Declare Duty Suspended Deliveries Page")
+      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
+
+      When("I select radio button No on Declare Duty Suspended Deliveries Page")
+      whenISelectRadioButtonOn("No", "Declare Duty Suspended Deliveries Page")
+
+      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
+      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+
+      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
+      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
+
+      When("I select radio button No on Quarterly Spirits Returns Guidance Page")
+      whenISelectRadioButtonOn("No", "Quarterly Spirits Returns Guidance Page")
+
+      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
+      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+
+      Then("I am presented with the No Duty Due Page")
+      thenIAmPresentedWithThe("No Duty Due Page")
+
+      When("I click on Agree and send return button No Duty Due Page")
+      whenIClickOnAgreeAndSendReturnButton("No Duty Due Page")
+
+      Then("I am presented with the Return Submitted Page")
+      thenIAmPresentedWithThe("Return Submitted Page")
+
+    }
+
+    Scenario("4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality", AllTests, AlcoholToDeclare) {
+      Given("I start a return")
+      loginAndStartReturn("AABCP0000100208")
+
+      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+
+      Then("I am presented with the Declare Alcohol Duty Question Page")
+      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+
+      When("I select radio button Yes on Declare Alcohol Duty Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+
+      And("I click save and continue button on Declare Alcohol Duty Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+
+      Then("I am presented with the What Alcohol Do You Need To Declare Page")
+      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
+
+      When("I select checkbox Beer on What Alcohol Do You Need To Declare Page")
+      whenICheckboxOn("select", "Beer", "What Alcohol Do You Need To Declare Page")
+
+      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
+      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+
+      Then("I am presented with the What Do You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
+
+      When(
+        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
+        "What Do You Need To Declare Beer Page"
+      )
+
+      And("I click save and continue button on What Do You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
+      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
+
+      When(
+        "I select radio button Non-draught beer between 1.3% and 3.4% ABV (361 SPR) on Multiple Small Producer Relief Rate Beer Page"
+      )
+      whenISelectRadioButtonOn(
+        "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)",
+        "Multiple Small Producer Relief Rate Beer Page"
+      )
+
+      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
+
+      Then("I am presented with the Check Your Answers SPR Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
+
+      When("I click continue button on Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I select radio button Yes on Multiple SPR List Question Beer Page")
+      whenISelectRadioButtonOn("Yes", "Multiple SPR List Question Beer Page")
+
+      And("I click save and continue button on Multiple SPR List Question Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page with new url")
+      thenIAmPresentedWithTheWithNewUrl("Multiple Small Producer Relief Rate Beer Page")
+
+      When(
+        "I select radio button Draught beer between 1.3% and 3.4% ABV (371 SPR) on Multiple Small Producer Relief Rate Beer Page"
+      )
+      whenISelectRadioButtonOn(
+        "Draught beer between 1.3% and 3.4% ABV (371 SPR)",
+        "Multiple Small Producer Relief Rate Beer Page"
+      )
+
+      And("I enter 7777.77 for Total litres on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("7777.77", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 777.7777 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("777.7777", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 77.77 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("77.77", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
+
+      Then("I am presented with the Check Your Answers SPR Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
+
+      When("I click continue button on Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the Delete Multiple SPR Product Question Page")
+      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
+
+      When("I select radio button No on Delete Multiple SPR Product Question Page")
+      whenISelectRadioButtonOn("No", "Delete Multiple SPR Product Question Page")
+
+      And("I click save and continue button on Delete Multiple SPR Product Question Page")
+      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the Delete Multiple SPR Product Question Page")
+      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
+
+      When("I select radio button Yes on Delete Multiple SPR Product Question Page")
+      whenISelectRadioButtonOn("Yes", "Delete Multiple SPR Product Question Page")
+
+      And("I click save and continue button on Delete Multiple SPR Product Question Page")
+      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the Delete Multiple SPR Product Question Page")
+      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
+
+      When("I select radio button Yes on Delete Multiple SPR Product Question Page")
+      whenISelectRadioButtonOn("Yes", "Delete Multiple SPR Product Question Page")
+
+      And("I click save and continue button on Delete Multiple SPR Product Question Page")
+      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+    }
+
+    Scenario("5. Alcohol Duty Returns Journey - Happy Path - Delete Missing Details", AllTests, AlcoholToDeclare) {
+      Given("I start a return")
+      loginAndStartReturn("AABCP0000100208")
+
+      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+
+      Then("I am presented with the Declare Alcohol Duty Question Page")
+      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+
+      When("I select radio button Yes on Declare Alcohol Duty Question Page")
+      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+
+      And("I click save and continue button on Declare Alcohol Duty Question Page")
+      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+
+      Then("I am presented with the What Alcohol Do You Need To Declare Page")
+      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
+
+      When(
+        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer,Cider,Wine,Spirits,Other fermented products",
+        "What Alcohol Do You Need To Declare Page"
+      )
+
+      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
+      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+      When("I click on Declare beer hyperlink on Task List Page")
+      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+
+      Then("I am presented with the What Do You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
+
+      When(
+        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
+      )
+      whenICheckboxOn(
+        "select",
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
+        "What Do You Need To Declare Beer Page"
+      )
+
+      And("I click save and continue button on What Do You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+
+      Then("I am presented with the How Much You Need To Declare Beer Page")
+      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+
+      When(
+        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "945.55",
+        "Standard beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 55.5500 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "55.5500",
+        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "first"
+      )
+
+      And(
+        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "898.34",
+        "Standard beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "77.5500",
+        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "second"
+      )
+
+      And(
+        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "667.32",
+        "Standard beer between 8.5% and 22% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.3400",
+        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "third"
+      )
+
+      And(
+        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "999.19",
+        "Standard beer at or above 22.1% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "99.1300",
+        "Standard beer at or above 22.1% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fourth"
+      )
+
+      And(
+        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "887.54",
+        "Draught beer between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.4400",
+        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "fifth"
+      )
+
+      And(
+        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "699.45",
+        "Draught beer between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And(
+        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
+      )
+      whenIEnterForOnAtInputBox(
+        "66.8900",
+        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Beer Page",
+        "sixth"
+      )
+
+      And("I click save and continue button on How Much You Need To Declare Beer Page")
+      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
+
+      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+
+      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
+      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
+
+      When(
+        "I select radio button Non-draught beer between 1.3% and 3.4% ABV (361 SPR) on Multiple Small Producer Relief Rate Beer Page"
+      )
+      whenISelectRadioButtonOn(
+        "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)",
+        "Multiple Small Producer Relief Rate Beer Page"
+      )
+
+      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
+      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
+
+      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
+
+      Then("I am presented with the Check Your Answers SPR Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
+
+      When("I click continue button on Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+
+      Then("I am presented with the Multiple SPR List Question Beer Page")
+      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+
+      When("I select radio button No on Multiple SPR List Question Beer Page")
+      whenISelectRadioButtonOn("No", "Multiple SPR List Question Beer Page")
+
+      And("I click save and continue button on Multiple SPR List Question Beer Page")
+      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
+
+      Then("I am presented with the You Have Some Missing Details Page")
+      thenIAmPresentedWithThe("You Have Some Missing Details Page")
+
+      And("I select radio button Delete these declarations from this return on You Have Some Missing Details Page")
+      whenISelectRadioButtonOn("Delete these declarations from this return", "You Have Some Missing Details Page")
+
+      When("I click save and continue button on You Have Some Missing Details Page")
+      whenIClickSaveAndContinueButtonOn("You Have Some Missing Details Page")
+
+      Then("I am presented with the Delete Alcohol Page")
+      thenIAmPresentedWithThe("Delete Alcohol Page")
+
+      And("I select radio button Yes on Delete Alcohol Page")
+      whenISelectRadioButtonOn("Yes", "Delete Alcohol Page")
+
+      When("I click confirm and continue button on Delete Alcohol Page")
+      whenIClickConfirmAndContinueButtonOn("Delete Alcohol Page")
+
+      Then("I am presented with the Check Your Answers Returns Beer Page")
+      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
+
+      When("I click save and continue button on Check Your Answers Returns Beer Page")
+      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
+
+      Then("I am presented with the Duty Due Beer Page")
+      thenIAmPresentedWithThe("Duty Due Beer Page")
+
+      When("I click save and continue button on Duty Due Beer Page")
+      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+
+      Then("I am presented with the Task List Page")
+      thenIAmPresentedWithThe("Task List Page")
+
+    }
+  }
+}
