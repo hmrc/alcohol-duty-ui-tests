@@ -171,7 +171,7 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
       Then("I am presented with the Quarterly Spirits Check Your Answers Page")
       thenIAmPresentedWithThe("Quarterly Spirits Check Your Answers Page")
 
-      And("I click save and continue button on Quarterly Spirits Check Your Answers Page")
+      When("I click save and continue button on Quarterly Spirits Check Your Answers Page")
       whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
 
       Then("I am presented with the Task List Page")

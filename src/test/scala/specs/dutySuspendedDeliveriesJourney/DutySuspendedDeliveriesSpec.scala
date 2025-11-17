@@ -241,7 +241,7 @@ class DutySuspendedDeliveriesSpec extends BaseSpec {
       Then("I am presented with the Duty Suspended Deliveries Check Your Answers Page")
       thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
 
-      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
+      When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
       whenIClickContinueButtonO("Duty Suspended Deliveries Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
