@@ -41,7 +41,6 @@ object BaseStepDefSteps extends BasePage {
 
   // I am presented with the {string}
   def thenIAmPresentedWithThe(page: String): Unit =
-    // no longer checking page header and page title - checking URL includes fluentWait and ensures we have landed on the right page
     PageObjectFinder.page(page).checkURL
 
   // I am presented with the {string} with new url
@@ -71,7 +70,6 @@ object BaseStepDefSteps extends BasePage {
 
   // I click save and continue button on {string}
   def whenIClickSaveAndContinueButtonOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickSaveAndContinueButton()
 
   // I click confirm and continue button on {string}
@@ -149,7 +147,6 @@ object BaseStepDefSteps extends BasePage {
 
   // I click on {string} hyperlink on {string}
   def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
     Driver.instance.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
 
   // I click on {string} link on {string}

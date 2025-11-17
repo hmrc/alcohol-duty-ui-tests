@@ -322,230 +322,350 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       selectAllRegimes()
 
       When("I click on Declare cider hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickOnLinkOn() [0.50] (BaseStepDefSteps.scala) pattern: I click on {string} link on {string}
+      whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
 
       Then("I am presented with the What Do You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("What Do You Need To Declare Cider Page")
 
-      When(
-        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page"
+      When( "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page")
+      whenICheckboxOn(
+        "select",
+        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)",
+        "What Do You Need To Declare Cider Page"
       )
-      // ⚠️ No step-def match found for: I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page
 
       And("I click save and continue button on What Do You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Cider Page")
 
       Then("I am presented with the How Much You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page")
 
       When(
         "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
       )
-      // ⚠️ No step-def match found for: I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box
+      whenIEnterForOnAtInputBox(
+        "789.44",
+        "Standard cider between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "first"
+      )
 
       And(
         "I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box"
       )
-      // ⚠️ No step-def match found for: I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box
+      whenIEnterForOnAtInputBox(
+        "43.4400",
+        "Standard cider between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "first"
+      )
 
       And(
         "I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box"
       )
-      // ⚠️ No step-def match found for: I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box
+      whenIEnterForOnAtInputBox(
+        "898.12",
+        "Standard cider between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "second"
+      )
 
       And(
         "I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box"
       )
-      // ⚠️ No step-def match found for: I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box
+      whenIEnterForOnAtInputBox(
+        "22.2200",
+        "Standard cider between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "second"
+      )
 
       And(
         "I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box"
       )
-      // ⚠️ No step-def match found for: I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box
+      whenIEnterForOnAtInputBox(
+        "999.99",
+        "Standard sparkling between 5.6% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "third"
+      )
 
       And(
         "I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box"
       )
-      // ⚠️ No step-def match found for: I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box
+      whenIEnterForOnAtInputBox(
+        "99.9900",
+        "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "third"
+      )
 
       And(
         "I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box"
       )
-      // ⚠️ No step-def match found for: I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box
+      whenIEnterForOnAtInputBox(
+        "787.77",
+        "Draught cider between 1.3% and 3.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "fourth"
+      )
 
       And(
         "I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box"
       )
-      // ⚠️ No step-def match found for: I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box
+      whenIEnterForOnAtInputBox(
+        "33.2100",
+        "Draught cider between 1.3% and 3.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "fourth"
+      )
 
       And(
         "I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box"
       )
-      // ⚠️ No step-def match found for: I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box
+      whenIEnterForOnAtInputBox(
+        "889.12",
+        "Draught cider between 3.5% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "fifth"
+      )
 
       And(
         "I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box"
       )
-      // ⚠️ No step-def match found for: I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box
+      whenIEnterForOnAtInputBox(
+        "22.4500",
+        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "fifth"
+      )
 
       And(
         "I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box"
       )
-      // ⚠️ No step-def match found for: I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box
+      whenIEnterForOnAtInputBox(
+        "888.88",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
+        "How Much You Need To Declare Cider Page",
+        "sixth"
+      )
 
       And(
         "I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box"
       )
-      // ⚠️ No step-def match found for: I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box
+      whenIEnterForOnAtInputBox(
+        "888.8800",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol",
+        "How Much You Need To Declare Cider Page",
+        "sixth"
+      )
 
       And("I click save and continue button on How Much You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Cider Page")
 
       Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
 
       When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenISelectRadioButtonOn("", "") // auto-chosen (score=0.50, BaseStepDefSteps.scala)
+      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
 
       And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
 
       Then("I am presented with the Single Small Producer Relief Rate Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Single Small Producer Relief Rate Cider Page")
 
       When(
         "I enter 656.66 for Non-draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at first input box"
       )
-      // ⚠️ No step-def match found for: I enter 656.66 for Non-draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at first input box
+      whenIEnterForOnAtInputBox(
+        "656.66",
+        "Non-draught cider between 1.3% and 3.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "first"
+      )
 
       And(
         "I enter 66.6600 for Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at first input box"
       )
-      // ⚠️ No step-def match found for: I enter 66.6600 for Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at first input box
+      whenIEnterForOnAtInputBox(
+        "66.6600",
+        "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "first"
+      )
 
       And(
         "I enter 14 for Non-draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at first input box"
       )
-      // ⚠️ No step-def match found for: I enter 14 for Non-draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at first input box
+      whenIEnterForOnAtInputBox(
+        "14",
+        "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Cider Page",
+        "first"
+      )
 
       And(
         "I enter 999.99 for Non-draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at second input box"
       )
-      // ⚠️ No step-def match found for: I enter 999.99 for Non-draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at second input box
+      whenIEnterForOnAtInputBox(
+        "999.99",
+        "Non-draught cider between 3.5% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "second"
+      )
 
       And(
         "I enter 98.9900 for Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at second input box"
       )
-      // ⚠️ No step-def match found for: I enter 98.9900 for Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at second input box
+      whenIEnterForOnAtInputBox(
+        "98.9900",
+        "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "second"
+      )
 
       And(
         "I enter 12.45 for Non-draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at second input box"
       )
-      // ⚠️ No step-def match found for: I enter 12.45 for Non-draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at second input box
+      whenIEnterForOnAtInputBox(
+        "12.45",
+        "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Cider Page",
+        "second"
+      )
 
       And(
         "I enter 6666.66 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at third input box"
       )
-      // ⚠️ No step-def match found for: I enter 6666.66 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at third input box
+      whenIEnterForOnAtInputBox(
+        "6666.66",
+        "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "third"
+      )
 
       And(
         "I enter 666.6600 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at third input box"
       )
-      // ⚠️ No step-def match found for: I enter 666.6600 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at third input box
+      whenIEnterForOnAtInputBox(
+        "666.6600",
+        "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "third"
+      )
 
       And(
         "I enter 36 for Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at third input box"
       )
-      // ⚠️ No step-def match found for: I enter 36 for Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at third input box
+      whenIEnterForOnAtInputBox(
+        "36",
+        "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Cider Page",
+        "third"
+      )
 
       And(
         "I enter 887.21 for Draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fourth input box"
       )
-      // ⚠️ No step-def match found for: I enter 887.21 for Draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fourth input box
+      whenIEnterForOnAtInputBox(
+        "887.21",
+        "Draught cider between 1.3% and 3.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "fourth"
+      )
 
       And(
         "I enter 45.5600 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fourth input box"
       )
-      // ⚠️ No step-def match found for: I enter 45.5600 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fourth input box
+      whenIEnterForOnAtInputBox(
+        "45.5600",
+        "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "fourth"
+      )
 
       And(
         "I enter 16 for Draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fourth input box"
       )
-      // ⚠️ No step-def match found for: I enter 16 for Draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fourth input box
+      whenIEnterForOnAtInputBox(
+        "16",
+        "Draught cider between 1.3% and 3.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Cider Page",
+        "fourth"
+      )
 
       And(
         "I enter 653.11 for Draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fifth input box"
       )
-      // ⚠️ No step-def match found for: I enter 653.11 for Draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fifth input box
+      whenIEnterForOnAtInputBox(
+        "653.11",
+        "Draught cider between 3.5% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "fifth"
+      )
 
       And(
         "I enter 33.3300 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fifth input box"
       )
-      // ⚠️ No step-def match found for: I enter 33.3300 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fifth input box
+      whenIEnterForOnAtInputBox(
+        "33.3300",
+        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "fifth"
+      )
 
       And(
         "I enter 18 for Draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fifth input box"
       )
-      // ⚠️ No step-def match found for: I enter 18 for Draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fifth input box
+      whenIEnterForOnAtInputBox(
+        "33.3300",
+        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "fifth"
+      )
 
       And(
         "I enter 777.77 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at sixth input box"
       )
-      // ⚠️ No step-def match found for: I enter 777.77 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at sixth input box
+      whenIEnterForOnAtInputBox(
+        "777.77",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "sixth"
+      )
 
       And(
         "I enter 77.7700 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at sixth input box"
       )
-      // ⚠️ No step-def match found for: I enter 77.7700 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at sixth input box
+      whenIEnterForOnAtInputBox(
+        "77.7700",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
+        "Single Small Producer Relief Rate Cider Page",
+        "sixth"
+      )
 
       And(
         "I enter 17 for Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at sixth input box"
       )
-      // ⚠️ No step-def match found for: I enter 17 for Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at sixth input box
+      whenIEnterForOnAtInputBox(
+        "17",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate",
+        "Single Small Producer Relief Rate Cider Page",
+        "sixth"
+      )
 
       And("I click save and continue button on Single Small Producer Relief Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("") // auto-chosen (score=0.61, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // whenIClickContinueButtonO() [0.58] (BaseStepDefSteps.scala) pattern: I click continue button on {string}
-      // whenIClickConfirmAndContinueButtonOn() [0.52] (BaseStepDefSteps.scala) pattern: I click confirm and continue button on {string}
-      // whenIClickSubmitButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click submit button on {string}
-      // whenIClickBackButtonOn() [0.47] (BaseStepDefSteps.scala) pattern: I click back button on {string}
+      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Cider Page")
 
       Then("I am presented with the Check Your Answers Returns Cider Page")
-      thenIAmPresentedWithThe("") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
-      // --- Other possible matches ---
-      // thenIAmPresentedWithTheWithNewUrl() [0.47] (BaseStepDefSteps.scala) pattern: I am presented with the {string} with new url
+      thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click Change Cider to declare on Check Your Answers Returns Cider Page")
-      // ⚠️ No step-def match found for: I click Change Cider to declare on Check Your Answers Returns Cider Page
+      whenIClickOn("Change Cider to declare", "Check Your Answers Returns Cider Page")
 
       Then("I am presented with the What Do You Need To Declare Cider Page with new url")
-      thenIAmPresentedWithTheWithNewUrl("") // auto-chosen (score=0.62, BaseStepDefSteps.scala)
+      thenIAmPresentedWithTheWithNewUrl("What Do You Need To Declare Cider Page") // auto-chosen (score=0.62, BaseStepDefSteps.scala)
       // --- Other possible matches ---
       // thenIAmPresentedWithThe() [0.58] (BaseStepDefSteps.scala) pattern: I am presented with the {string}
 
