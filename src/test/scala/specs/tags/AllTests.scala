@@ -32,4 +32,6 @@ object QuarterlySpirits extends Tag("QuarterlySpirits")
 
 object ECP extends Tag("ECP")
 
+object WIP extends Tag("WIP")
+
 object BrowserStack extends Tag("BrowserStack")
