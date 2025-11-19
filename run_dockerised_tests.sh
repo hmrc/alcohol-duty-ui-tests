@@ -14,4 +14,4 @@ fi
 
 ./run_browser_with_docker.sh $DEFAULT_BROWSER
 
-sbt clean -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment=local "testOnly uk.gov.hmrc.alcoholDuty.cucumber.runner.Runner" testReport
+sbt clean -Dbrowser="${BROWSER_TYPE:=$DEFAULT_BROWSER}" -Denvironment=local "testOnly specs.* -- -n AllTests" testReport
