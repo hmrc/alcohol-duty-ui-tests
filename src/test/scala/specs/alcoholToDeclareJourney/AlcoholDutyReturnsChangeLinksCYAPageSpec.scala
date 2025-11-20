@@ -22,8 +22,6 @@ import specsteps.BaseStepDefSteps._
 
 class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
 
-  // TODO: Scenarios 2 and 3
-
   Feature("Alcohol Duty Returns Journey - Change Links - CYA Page") {
 
     Scenario(
@@ -316,9 +314,11 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("Cider- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality",
-    AllTests,
-    AlcoholToDeclare){
+    Scenario(
+      "Cider- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality",
+      AllTests,
+      AlcoholToDeclare
+    ) {
       Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()
@@ -329,7 +329,9 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       Then("I am presented with the What Do You Need To Declare Cider Page")
       thenIAmPresentedWithThe("What Do You Need To Declare Cider Page")
 
-      When( "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page")
+      When(
+        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page"
+      )
       whenICheckboxOn(
         "select",
         "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)",
@@ -694,7 +696,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Cider Page")
 
       Then("I am presented with the How Much You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page") // auto-chosen (score=0.58, BaseStepDefSteps.scala)
+      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page")
 
       When(
         "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
@@ -998,7 +1000,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click Change Cider duty on Check Your Answers Returns Cider Page")
-      whenIClickOn("Change Cider duty","Check Your Answers Returns Cider Page")
+      whenIClickOn("Change Cider duty", "Check Your Answers Returns Cider Page")
 
       Then("I am presented with the How Much You Need To Declare Cider Page with new url")
       thenIAmPresentedWithTheWithNewUrl("How Much You Need To Declare Cider Page")
@@ -1010,7 +1012,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click Change Cider duty on Check Your Answers Returns Cider Page")
-      whenIClickOn("Change Cider duty","Check Your Answers Returns Cider Page")
+      whenIClickOn("Change Cider duty", "Check Your Answers Returns Cider Page")
 
       Then("I am presented with the How Much You Need To Declare Cider Page with new url")
       thenIAmPresentedWithTheWithNewUrl("How Much You Need To Declare Cider Page")
@@ -1042,7 +1044,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click Change Cider eligible for Small Producer Relief on Check Your Answers Returns Cider Page")
-      whenIClickOn("Change Cider eligible for Small Producer Relief","Check Your Answers Returns Cider Page")
+      whenIClickOn("Change Cider eligible for Small Producer Relief", "Check Your Answers Returns Cider Page")
 
       Then("I am presented with the Single Small Producer Relief Rate Cider Page with new url")
       thenIAmPresentedWithTheWithNewUrl("Single Small Producer Relief Rate Cider Page")
@@ -1054,7 +1056,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click Change Cider eligible for Small Producer Relief on Check Your Answers Returns Cider Page")
-      whenIClickOn("Change Cider eligible for Small Producer Relief","Check Your Answers Returns Cider Page")
+      whenIClickOn("Change Cider eligible for Small Producer Relief", "Check Your Answers Returns Cider Page")
 
       Then("I am presented with the Single Small Producer Relief Rate Cider Page with new url")
       thenIAmPresentedWithTheWithNewUrl("Single Small Producer Relief Rate Cider Page")
@@ -1092,7 +1094,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       And("I click save and continue button on Single Small Producer Relief Rate Cider Page")
       whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Cider Page")
 
-       Then("I am presented with the Check Your Answers Returns Cider Page")
+      Then("I am presented with the Check Your Answers Returns Cider Page")
       thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
 
       When("I click save and continue button on Check Your Answers Returns Cider Page")
@@ -1127,8 +1129,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("To verify the change link functionalities from the Return Summary Page", AllTests,
-      AlcoholToDeclare) {
+    Scenario("To verify the change link functionalities from the Return Summary Page", AllTests, AlcoholToDeclare) {
       Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()
@@ -1466,7 +1467,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 311 on Adjustment Tax Type Code Page")
-      whenIEnterOn("311","Adjustment Tax Type Code Page")
+      whenIEnterOn("311", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
@@ -1475,10 +1476,10 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Volume Page")
 
       When("I enter 123.45 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("123.45","Total Litres","Adjustment Volume Page")
+      whenIEnterForOn("123.45", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 5.5000 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("5.5000","Litres Of Pure Alcohol","Adjustment Volume Page")
+      whenIEnterForOn("5.5000", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
@@ -1526,7 +1527,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 312 on Adjustment Tax Type Code Page")
-      whenIEnterOn("312","Adjustment Tax Type Code Page")
+      whenIEnterOn("312", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
@@ -1535,10 +1536,10 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Volume Page")
 
       When("I enter 222.22 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("222.22","Total Litres","Adjustment Volume Page")
+      whenIEnterForOn("222.22", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 22.2200 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("22.2200","Litres Of Pure Alcohol","Adjustment Volume Page")
+      whenIEnterForOn("22.2200", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
@@ -1586,7 +1587,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Tax Type Code For Repackaged Page")
 
       When("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
-      whenIEnterOn("373","Adjustment Tax Type Code For Repackaged Page")
+      whenIEnterOn("373", "Adjustment Tax Type Code For Repackaged Page")
 
       And("I click save and continue button on Adjustment Tax Type Code For Repackaged Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code For Repackaged Page")
@@ -1595,13 +1596,13 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75","Total Litres", "Adjustment Volume With Spr Page")
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5500","Litres Of Pure Alcohol","Adjustment Volume With Spr Page")
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
 
       And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8","SPR Duty Rate","Adjustment Volume With Spr Page")
+      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
 
       And("I click save and continue button on Adjustment Volume With Spr Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
@@ -1610,7 +1611,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("New Tax Type Code Page")
 
       When("I enter 363 on New Tax Type Code Page")
-      whenIEnterOn("363","New Tax Type Code Page")
+      whenIEnterOn("363", "New Tax Type Code Page")
 
       And("I click save and continue button on New Tax Type Code Page")
       whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
@@ -1619,7 +1620,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("New Spr Duty Rate Page")
 
       When("I enter 11.5 on New Spr Duty Rate Page")
-      whenIEnterOn("11.5","New Spr Duty Rate Page")
+      whenIEnterOn("11.5", "New Spr Duty Rate Page")
 
       And("I click save and continue button on New Spr Duty Rate Page")
       whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
@@ -1667,13 +1668,13 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
 
       When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75","Total Litres","Spoilt Alcohol Volume Page")
+      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500","Litres Of Pure Alcohol","Spoilt Alcohol Volume Page")
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
 
       And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55","Duty Paid","Spoilt Alcohol Volume Page")
+      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
 
       And("I click save and continue button on Spoilt Alcohol Volume Page")
       whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
@@ -1715,7 +1716,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
 
       When("I enter 314 on Adjustment Tax Type Code Page")
-      whenIEnterOn("314","Adjustment Tax Type Code Page")
+      whenIEnterOn("314", "Adjustment Tax Type Code Page")
 
       And("I click save and continue button on Adjustment Tax Type Code Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
@@ -1724,10 +1725,10 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Volume Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75","Total Litres","Adjustment Volume Page")
+      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500","Litres Of Pure Alcohol","Adjustment Volume Page")
+      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
 
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")

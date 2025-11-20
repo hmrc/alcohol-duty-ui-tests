@@ -25,7 +25,7 @@ object ECPConfirmationPage extends BasePage {
   override val title       = "Your contact preference has been updated"
 
   override def expectedPageTitle: Option[String]  = Some(
-    "Your contact preference has been updated - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "Your contact preference has been updated - Manage your Alcohol Duty - GOV.UK"
   )
   override def expectedPageHeader: Option[String] = Some("Your contact preference has been updated")
 }

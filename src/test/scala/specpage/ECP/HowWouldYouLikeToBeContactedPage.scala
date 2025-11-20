@@ -25,7 +25,7 @@ object HowWouldYouLikeToBeContactedPage extends BasePage {
   override val title = "How would you like to be contacted?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageErrorTitle: Option[String] = Some(

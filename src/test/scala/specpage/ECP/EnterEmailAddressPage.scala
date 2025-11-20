@@ -25,7 +25,7 @@ object EnterEmailAddressPage extends BasePage {
   override val title       = "What is the email address we should use to contact you about your Alcohol Duty?"
 
   override def expectedPageTitle: Option[String]  = Some(
-    "What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageErrorTitle: Option[String] = Some(

@@ -25,7 +25,7 @@ object ECPConfirmationCodeLimitPage extends BasePage {
   override val title       = "You cannot request another confirmation code"
 
   override def expectedPageTitle: Option[String]  = Some(
-    "You cannot request another confirmation code - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "You cannot request another confirmation code - Manage your Alcohol Duty - GOV.UK"
   )
   override def expectedPageHeader: Option[String] = Some("You cannot request another confirmation code")
 }

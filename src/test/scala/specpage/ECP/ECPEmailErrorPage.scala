@@ -25,7 +25,7 @@ object ECPEmailErrorPage extends BasePage {
   override val title = "You need to update your email"
 
   override def expectedPageTitle: Option[String] = Some(
-    "You need to update your email - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "You need to update your email - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("You need to update your email")

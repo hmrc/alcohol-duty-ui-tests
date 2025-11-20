@@ -25,7 +25,7 @@ object ECPCheckYourAnswersPage extends BasePage {
   override val title = "Check your answers"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "Check your answers - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("Check your answers")

@@ -25,7 +25,7 @@ object ECPCorrespondenceAddressPage extends BasePage {
   override val title = "Your correspondence address"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Your correspondence address - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "Your correspondence address - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageHeader: Option[String] = Some("Your correspondence address")

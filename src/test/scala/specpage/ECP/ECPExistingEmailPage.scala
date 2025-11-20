@@ -25,7 +25,7 @@ object ECPExistingEmailPage extends BasePage {
   override val title = "Is this your email?"
 
   override def expectedPageTitle: Option[String] = Some(
-    "Is this your email? - Manage your Alcohol Duty - GOV.UK" //Add title when page is ready
+    "Is this your email? - Manage your Alcohol Duty - GOV.UK"
   )
 
   override def expectedPageErrorTitle: Option[String] = Some(
