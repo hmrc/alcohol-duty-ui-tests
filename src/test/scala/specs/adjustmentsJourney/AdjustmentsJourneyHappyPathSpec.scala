@@ -76,7 +76,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -145,7 +145,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -219,7 +219,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -282,7 +282,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")

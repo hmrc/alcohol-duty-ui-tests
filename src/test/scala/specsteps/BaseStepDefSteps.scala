@@ -194,7 +194,7 @@ object BaseStepDefSteps extends BasePage {
     whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
     whenIClickSubmitButtonOn("Auth Login Stub Page")
     thenIAmPresentedWithThe("Before You Start Page")
-    whenIClickContinueButtonO("Before You Start Page")
+    whenIClickContinueButtonOn("Before You Start Page")
     thenIAmPresentedWithThe("Task List Page")
   }
 

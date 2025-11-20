@@ -247,7 +247,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
@@ -282,7 +282,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithTheWithUrlSuffixAs("Check Your Answers SPR Beer Page", "?index=0")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
