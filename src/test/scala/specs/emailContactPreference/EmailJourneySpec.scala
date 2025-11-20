@@ -35,7 +35,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the ECP Existing Email Page")
       thenIAmPresentedWithThe("ECP Existing Email Page")
@@ -44,7 +44,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Yes", "ECP Existing Email Page")
 
       And("I click continue button on ECP Existing Email Page")
-      whenIClickContinueButtonO("ECP Existing Email Page")
+      whenIClickContinueButtonOn("ECP Existing Email Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -68,7 +68,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the ECP Enrolled Letters Page")
       thenIAmPresentedWithThe("ECP Enrolled Letters Page")
@@ -86,13 +86,13 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the ECP Correspondence Address Page")
       thenIAmPresentedWithThe("ECP Correspondence Address Page")
 
       When("I click continue button on ECP Correspondence Address Page")
-      whenIClickContinueButtonO("ECP Correspondence Address Page")
+      whenIClickContinueButtonOn("ECP Correspondence Address Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -116,7 +116,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the ECP Enrolled Email Page")
       thenIAmPresentedWithThe("ECP Enrolled Email Page")
@@ -131,7 +131,7 @@ class EmailJourneySpec extends BaseSpec {
       whenIEnterOn("jane.doe2@example.com", "Enter Email Address Page")
 
       And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonO("Enter Email Address Page")
+      whenIClickContinueButtonOn("Enter Email Address Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -158,7 +158,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the ECP Existing Email Page")
       thenIAmPresentedWithThe("ECP Existing Email Page")
@@ -167,7 +167,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
 
       And("I click continue button on ECP Existing Email Page")
-      whenIClickContinueButtonO("ECP Existing Email Page")
+      whenIClickContinueButtonOn("ECP Existing Email Page")
 
       Then("I am presented with the Enter Email Address Page")
       thenIAmPresentedWithThe("Enter Email Address Page")
@@ -176,7 +176,7 @@ class EmailJourneySpec extends BaseSpec {
       whenIEnterOn("jane.doe@example.com", "Enter Email Address Page")
 
       And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonO("Enter Email Address Page")
+      whenIClickContinueButtonOn("Enter Email Address Page")
 
       Then("I am presented with the ECP Confirmation Code Limit Page")
       thenIAmPresentedWithThe("ECP Confirmation Code Limit Page")
@@ -194,7 +194,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
 
       And("I click continue button on ECP Existing Email Page")
-      whenIClickContinueButtonO("ECP Existing Email Page")
+      whenIClickContinueButtonOn("ECP Existing Email Page")
 
       Then("I am presented with the Enter Email Address Page")
       thenIAmPresentedWithThe("Enter Email Address Page")
@@ -203,7 +203,7 @@ class EmailJourneySpec extends BaseSpec {
       whenIEnterOn("john.doe@example.com", "Enter Email Address Page")
 
       And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonO("Enter Email Address Page")
+      whenIClickContinueButtonOn("Enter Email Address Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -227,7 +227,7 @@ class EmailJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
 
       And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonO("How Would You Like To Be Contacted Page")
+      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
       Then("I am presented with the Enter Email Address Page")
       thenIAmPresentedWithThe("Enter Email Address Page")
@@ -236,7 +236,7 @@ class EmailJourneySpec extends BaseSpec {
       whenIEnterOn("john.doe@example.com", "Enter Email Address Page")
 
       And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonO("Enter Email Address Page")
+      whenIClickContinueButtonOn("Enter Email Address Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -257,7 +257,7 @@ class EmailJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("ECP Email Error Page")
 
       When("I click continue button on ECP Email Error Page")
-      whenIClickContinueButtonO("ECP Email Error Page")
+      whenIClickContinueButtonOn("ECP Email Error Page")
 
       Then("I am presented with the Enter Email Address Page")
       thenIAmPresentedWithThe("Enter Email Address Page")
@@ -266,7 +266,7 @@ class EmailJourneySpec extends BaseSpec {
       whenIEnterOn("jane.doe2@example.com", "Enter Email Address Page")
 
       And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonO("Enter Email Address Page")
+      whenIClickContinueButtonOn("Enter Email Address Page")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")

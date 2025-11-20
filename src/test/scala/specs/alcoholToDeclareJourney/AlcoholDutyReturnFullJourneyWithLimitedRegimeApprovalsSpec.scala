@@ -132,7 +132,7 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       thenIAmPresentedWithThe("Duty Suspended Deliveries Guidance Page")
 
       When("I click continue button on Duty Suspended Deliveries Guidance Page")
-      whenIClickContinueButtonO("Duty Suspended Deliveries Guidance Page")
+      whenIClickContinueButtonOn("Duty Suspended Deliveries Guidance Page")
 
       Then("I am presented with the Duty Suspended Beer Page")
       thenIAmPresentedWithThe("Duty Suspended Beer Page")
@@ -150,7 +150,7 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
 
       When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
-      whenIClickContinueButtonO("Duty Suspended Deliveries Check Your Answers Page")
+      whenIClickContinueButtonOn("Duty Suspended Deliveries Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")

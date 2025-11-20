@@ -70,7 +70,7 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
       whenISelectRadioButtonOn("Pay central assessment charge", "Manage Central Assessment Page")
 
       And("I click continue button on Manage Central Assessment Page")
-      whenIClickContinueButtonO("Manage Central Assessment Page")
+      whenIClickContinueButtonOn("Manage Central Assessment Page")
 
       Then("I am presented with the Pay Central Assessment Charge Page")
       thenIAmPresentedWithThe("Pay Central Assessment Charge Page")

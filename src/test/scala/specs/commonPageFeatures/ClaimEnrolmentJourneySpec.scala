@@ -36,7 +36,7 @@ class ClaimEnrolmentJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("No", "Do You Have Appa Id Page")
 
       And("I click continue button on Do You Have Appa Id Page")
-      whenIClickContinueButtonO("Do You Have Appa Id Page")
+      whenIClickContinueButtonOn("Do You Have Appa Id Page")
 
       Then("I am presented with the You Need An Appa Id Page")
       thenIAmPresentedWithThe("You Need An Appa Id Page")
@@ -51,7 +51,7 @@ class ClaimEnrolmentJourneySpec extends BaseSpec {
       whenISelectRadioButtonOn("Yes", "Do You Have Appa Id Page")
 
       And("I click continue button on Do You Have Appa Id Page")
-      whenIClickContinueButtonO("Do You Have Appa Id Page")
+      whenIClickContinueButtonOn("Do You Have Appa Id Page")
 
     }
   }

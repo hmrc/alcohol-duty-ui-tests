@@ -713,7 +713,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Declaring Your Wine For Duty")
 
       And("I click continue button on Declaring Your Wine For Duty")
-      whenIClickContinueButtonO("Declaring Your Wine For Duty")
+      whenIClickContinueButtonOn("Declaring Your Wine For Duty")
 
       Then("I am presented with the What Do You Need To Declare Wine Page")
       thenIAmPresentedWithThe("What Do You Need To Declare Wine Page")
@@ -1658,7 +1658,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -1718,7 +1718,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -1799,7 +1799,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -1907,7 +1907,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -1978,7 +1978,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Duty Suspended Deliveries Guidance Page")
 
       When("I click continue button on Duty Suspended Deliveries Guidance Page")
-      whenIClickContinueButtonO("Duty Suspended Deliveries Guidance Page")
+      whenIClickContinueButtonOn("Duty Suspended Deliveries Guidance Page")
 
       Then("I am presented with the Duty Suspended Beer Page")
       thenIAmPresentedWithThe("Duty Suspended Beer Page")
@@ -2048,7 +2048,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
 
       When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
-      whenIClickContinueButtonO("Duty Suspended Deliveries Check Your Answers Page")
+      whenIClickContinueButtonOn("Duty Suspended Deliveries Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
       thenIAmPresentedWithThe("Task List Page")
@@ -2339,7 +2339,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
@@ -2537,7 +2537,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Cider Page")
 
       When("I click continue button on Check Your Answers SPR Cider Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Cider Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Cider Page")
 
       Then("I am presented with the Multiple SPR List Question Cider Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Cider Page")
@@ -2570,7 +2570,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Declaring Your Wine For Duty")
 
       And("I click continue button on Declaring Your Wine For Duty")
-      whenIClickContinueButtonO("Declaring Your Wine For Duty")
+      whenIClickContinueButtonOn("Declaring Your Wine For Duty")
 
       Then("I am presented with the What Do You Need To Declare Wine Page")
       thenIAmPresentedWithThe("What Do You Need To Declare Wine Page")
@@ -2741,7 +2741,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Wine Page")
 
       When("I click continue button on Check Your Answers SPR Wine Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Wine Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Wine Page")
 
       Then("I am presented with the Multiple SPR List Question Wine Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Wine Page")
@@ -2939,7 +2939,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Spirits Page")
 
       When("I click continue button on Check Your Answers SPR Spirits Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Spirits Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Spirits Page")
 
       Then("I am presented with the Multiple SPR List Question Spirits Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Spirits Page")
@@ -3152,7 +3152,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Other Fermented Product Page")
 
       When("I click continue button on Check Your Answers SPR Other Fermented Product Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Other Fermented Product Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Other Fermented Product Page")
 
       Then("I am presented with the Multiple SPR List Question Other Fermented Product Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Other Fermented Product Page")
@@ -3236,7 +3236,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -3299,7 +3299,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -3410,7 +3410,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Duty Value Page")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonO("Adjustment Duty Value Page")
+      whenIClickContinueButtonOn("Adjustment Duty Value Page")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
@@ -3668,7 +3668,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
@@ -3706,7 +3706,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
@@ -3972,7 +3972,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
 
       When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonO("Check Your Answers SPR Beer Page")
+      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
 
       Then("I am presented with the Multiple SPR List Question Beer Page")
       thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
