@@ -2,34 +2,44 @@ Alcohol Duty UI Tests
 Link: https://github.com/hmrc/alcohol-duty-ui-tests
 
 ### 1. Services
+
 Start the docker desktop application (and make sure the mongodb is running on the docker)
 
-Start `Alhocol Duty` services as follows:
-sm2 --start ALCOHOL_DUTY_ALL
+Start `Alcohol Duty` services as follows:
+sm2 --start ALCOHOL_DUTY_CONTACT_PREFERENCES_ALL
 
 To test specific microservices in your local, stop the microservice(s) you'd like to test using service-manager.
 Example: sm2 --stop ALCOHOL_DUTY_RETURNS_FRONTEND
 
 Run the microservice(s) you'd like to test using sbt:
 
-- **If running ALCOHOL_DUTY_RETURNS_FRONTEND or ALCOHOL_DUTY_RETURNS:** start using test only routes: `sbt "run -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"`
+- **If running ALCOHOL_DUTY_RETURNS_FRONTEND, ALCOHOL_DUTY_RETURNS, ALCOHOL_DUTY_ACCOUNT,
+  ALCOHOL_DUTY_CONTACT_PREFERENCES_FRONTEND or ALCOHOL_DUTY_CONTACT_PREFERENCES:** start using test only routes:
+  `sbt "run -Dapplication.router=testOnlyDoNotUseInAppConf.Routes"`
 - **If running other microservices:** start normally: `sbt run`
 
+### 2. To run all ADR tests from the UI journey, use below command from the terminal
 
-### 2. To run all the tests from the UI journey, use below command from the terminal
-./run_tests.sh
+`./run_tests.sh`
 
-### 3. To run individual tests from the IDB
-Pass below parameters to the VM options under the configuration (Edit Configuration -> VM Options)
--Denv=local -Dbrowser=chrome -Dbrowser.option.headless=false -Dwebdriver.chrome.driver=<pathOfTheDriver>
-To enable headless mode replace <-Dbrowser.option.headless=false> with <-Dbrowser.option.headless=true> in the VM option
+### 3. To run ECP tests, use below command from the terminal
 
-### 4. To run the tests on docker
-Start Mongo Docker container as follows:
-docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:<version>
-Then, run the below command to execute tests 
-./run_browser_with_docker.sh <browser>
-(* Argument `<browser>` must be `remote-chrome`, `remote-edge` or `remote-firefox`)
+`./run_ecp.sh`
+
+Note that you will have to stop ALCOHOL_DUTY_CONTACT_PREFERENCES in sm2 and run it locally, with email-verification-stub
+changed to true in application.conf
+
+### 4. To run individual tests from the IDB
+
+Right click the Play button for the Feature or Scenario and select 'Modify Run Configuration...'
+
+Ensure that `-Dbrowser=chrome` is passed as a parameter to the VM options.
+
+To disable headless mode (i.e. see the scenarios running in a browser window), also add
+`-Dbrowser.option.headless=false`.
+
+The tests will also run, more slowly, using the full set of parameters:
+`-Denv=local -Dbrowser=chrome -Dbrowser.option.headless=false -Dwebdriver.chrome.driver=<pathOfTheDriver>`
 
 ### 5. Accessibility and ZAP tests
 Since the introduction of the ui-test-runner, there is no need to run the Accessibility and ZAP tests separately. They are now part of the test runs. 
