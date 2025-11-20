@@ -78,7 +78,7 @@ object BaseStepDefSteps extends BasePage {
     PageObjectFinder.page(page).clickConfirmAndContinueButton()
 
   // I click continue button on {string}
-  def whenIClickContinueButtonO(page: String): Unit =
+  def whenIClickContinueButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
 
