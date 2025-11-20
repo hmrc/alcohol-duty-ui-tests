@@ -1553,7 +1553,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Page")
+      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
 
       Then("I am presented with the Adjustment List Page")
       thenIAmPresentedWithThe("Adjustment List Page")
@@ -1595,7 +1595,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
 
       When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterOn("3000.75","Total Litres on Adjustment Volume With Spr Page")
+      whenIEnterForOn("3000.75","Total Litres", "Adjustment Volume With Spr Page")
 
       And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
       whenIEnterForOn("250.5500","Litres Of Pure Alcohol","Adjustment Volume With Spr Page")
@@ -1706,7 +1706,7 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("Adjustment Return Date Page")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "year", "2023")
+      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
 
       And("I click save and continue button on Adjustment Return Date Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
