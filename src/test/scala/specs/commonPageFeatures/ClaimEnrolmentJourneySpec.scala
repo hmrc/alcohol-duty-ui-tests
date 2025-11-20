@@ -17,7 +17,7 @@
 package specs.commonPageFeatures
 
 import specs.BaseSpec
-import specs.tags.{AllTests, CommonPages}
+import specs.tags.{AllTests, CommonPages, ZapTests}
 import specsteps.AlcoholDutyStepDefSteps._
 import specsteps.BaseStepDefSteps._
 
@@ -25,7 +25,12 @@ class ClaimEnrolmentJourneySpec extends BaseSpec {
 
   Feature("Claim Enrolment Journey") {
 
-    Scenario("Claim Enrolment Journey - Happy path - When user does not have APPA ID", AllTests, CommonPages) {
+    Scenario(
+      "Claim Enrolment Journey - Happy path - When user does not have APPA ID",
+      AllTests,
+      CommonPages,
+      ZapTests
+    ) {
       Given("I enter the url for Claim Enrolment journey")
       givenIEnterTheUrlForClaimEnrolmentJourney()
 

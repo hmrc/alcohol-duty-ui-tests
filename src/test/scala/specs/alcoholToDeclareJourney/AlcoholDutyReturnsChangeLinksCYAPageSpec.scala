@@ -17,7 +17,7 @@
 package specs.alcoholToDeclareJourney
 
 import specs.BaseSpec
-import specs.tags.{AlcoholToDeclare, AllTests}
+import specs.tags.{AlcoholToDeclare, AllTests, ZapTests}
 import specsteps.BaseStepDefSteps._
 
 class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
@@ -27,7 +27,8 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
     Scenario(
       "Beer- Alcohol Duty Returns Journey - When Multiple SPR is set to 'Yes' - Change link functionality",
       AllTests,
-      AlcoholToDeclare
+      AlcoholToDeclare,
+      ZapTests
     ) {
       Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
@@ -317,7 +318,8 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
     Scenario(
       "Cider- Alcohol Duty Returns Journey - When Multiple SPR is set to 'No' - Change link functionality",
       AllTests,
-      AlcoholToDeclare
+      AlcoholToDeclare,
+      ZapTests
     ) {
       Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
@@ -1129,7 +1131,12 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
 
     }
 
-    Scenario("To verify the change link functionalities from the Return Summary Page", AllTests, AlcoholToDeclare) {
+    Scenario(
+      "To verify the change link functionalities from the Return Summary Page",
+      AllTests,
+      AlcoholToDeclare,
+      ZapTests
+    ) {
       Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()

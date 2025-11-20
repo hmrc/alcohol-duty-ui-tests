@@ -17,7 +17,7 @@
 package specs.quarterlySpiritsQuestionsJourney
 
 import specs.BaseSpec
-import specs.tags.{AllTests, QuarterlySpirits}
+import specs.tags.{AllTests, QuarterlySpirits, ZapTests}
 import specsteps.BaseStepDefSteps._
 
 class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
@@ -27,7 +27,8 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
     Scenario(
       "1. To verify the change link functionality at Check Your Answers page - Quarterly Spirits Journey",
       AllTests,
-      QuarterlySpirits
+      QuarterlySpirits,
+      ZapTests
     ) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")

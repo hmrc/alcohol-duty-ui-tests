@@ -17,14 +17,14 @@
 package specs.emailContactPreference
 
 import specs.BaseSpec
-import specs.tags.ECP
+import specs.tags.{ECP, ZapTests}
 import specsteps.BaseStepDefSteps._
 
 class EmailJourneySpec extends BaseSpec {
 
   Feature("Change contact preference from BTA for Alcohol Duty Returns") {
 
-    Scenario("1. ECP - User on post changes to existing email in system", ECP) {
+    Scenario("1. ECP - User on post changes to existing email in system", ECP, ZapTests) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1000100211")
 
@@ -57,7 +57,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("2. ECP - User on post stays on post", ECP) {
+    Scenario("2. ECP - User on post stays on post", ECP, ZapTests) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1000100211")
 
@@ -75,7 +75,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("3. ECP - User on email changes to Post", ECP) {
+    Scenario("3. ECP - User on email changes to Post", ECP, ZapTests) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP5000100211")
 
@@ -105,7 +105,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("4. ECP - User on email stays on email, then updates to new email address", ECP) {
+    Scenario("4. ECP - User on email stays on email, then updates to new email address", ECP, ZapTests) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP0000100211")
 
@@ -146,7 +146,8 @@ class EmailJourneySpec extends BaseSpec {
 
     Scenario(
       "5. ECP - User on post (with verified email in ETMP) changes to email unsuccessfully (email locked)",
-      ECP
+      ECP,
+      ZapTests
     ) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1002100211")
@@ -183,7 +184,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("6. ECP - User on email updates email (enters same email as existing one)", ECP) {
+    Scenario("6. ECP - User on email updates email (enters same email as existing one)", ECP, ZapTests) {
       Given("I enter the ECP service using the update email url")
       loginForEcp("XMADP0002100211", "Email Update")
 
@@ -216,7 +217,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("7. ECP - User on post and changes to new email address", ECP) {
+    Scenario("7. ECP - User on post and changes to new email address", ECP, ZapTests) {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP9002100211")
 
@@ -249,7 +250,7 @@ class EmailJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("8. ECP - Bounced email", ECP) {
+    Scenario("8. ECP - Bounced email", ECP, ZapTests) {
       Given("I enter the ECP service using the bounced email url")
       loginForEcp("XMADP3002100211", "Email Bounce")
 

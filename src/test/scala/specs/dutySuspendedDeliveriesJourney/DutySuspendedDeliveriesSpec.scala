@@ -17,7 +17,7 @@
 package specs.dutySuspendedDeliveriesJourney
 
 import specs.BaseSpec
-import specs.tags.{AllTests, DutySuspendedDeliveries}
+import specs.tags.{AllTests, DutySuspendedDeliveries, ZapTests}
 import specsteps.BaseStepDefSteps._
 
 class DutySuspendedDeliveriesSpec extends BaseSpec {
@@ -27,7 +27,8 @@ class DutySuspendedDeliveriesSpec extends BaseSpec {
     Scenario(
       "1. Declare Duty Suspended Deliveries - Verify 'Change' links at Check your answers page",
       AllTests,
-      DutySuspendedDeliveries
+      DutySuspendedDeliveries,
+      ZapTests
     ) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
