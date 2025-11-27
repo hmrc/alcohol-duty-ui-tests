@@ -126,16 +126,6 @@ object BaseStepDefSteps extends BasePage {
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations"
     )
 
-  // I click the link to view completed returns from the previous year on {string}
-  def whenIClickTheLinkToViewCompletedReturnsFromThePreviousYearOn(page: String): Unit = {
-    PageObjectFinder.page(page).waitForPageHeader
-    Driver.instance
-      .findElement(
-        By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")
-      )
-      .click()
-  }
-
   // I click on the first {string} link on {string}
   def whenIClickOnTheFirstLinkOn(hyperlink: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
