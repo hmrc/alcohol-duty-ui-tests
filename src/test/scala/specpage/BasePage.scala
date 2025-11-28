@@ -22,6 +22,7 @@ import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
 import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
+import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.format.DateTimeFormatter
@@ -30,7 +31,7 @@ import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 import scala.util.matching.Regex
 
-trait BasePage extends Page with Matchers with BrowserDriver with Eventually with WebBrowser {
+trait BasePage extends Page with PageObject with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
   val newUrl: String       = ""
   val title: String        = ""
@@ -155,6 +156,8 @@ trait BasePage extends Page with Matchers with BrowserDriver with Eventually wit
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
+
+  def clickHyperlink(text: String): Unit = click(By.linkText(text))
 
   def pageData: Map[String, String] = Driver.instance
     .findElements(By.cssSelector(".govuk-summary-list__row"))

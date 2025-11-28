@@ -16,6 +16,7 @@
 
 package specs.commonPageFeatures
 
+import specpage.common.ViewPastReturnsPage
 import specs.BaseSpec
 import specs.tags.{AllTests, CommonPages, ZapTests}
 import specsteps.AlcoholDutyStepDefSteps._
@@ -55,7 +56,7 @@ class ViewPastReturnsPageSpec extends BaseSpec {
       thenIAmPresentedWithThe("View Past Returns Page")
 
       When("I click the link to view completed returns from the previous year on View Past Returns Page")
-      whenIClickTheLinkToViewCompletedReturnsFromThePreviousYearOn("View Past Returns Page")
+      ViewPastReturnsPage.clickPreviousYearHyperlink()
 
       Then("I am presented with the View Completed Returns Page")
       thenIAmPresentedWithThe("View Completed Returns Page")
