@@ -16,27 +16,29 @@
 
 package specpage.ECP
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object HowWouldYouLikeToBeContactedPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/method"
-  override val title = "How would you like to be contacted?"
-
-  override def expectedPageTitle: Option[String] = Some(
-    "How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How would you like to be contacted? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("How would you like to be contacted?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Email me when I have a digital message" => click on cssSelector("#contactPreferenceEmail")
-      case "Send me letters by post" => click on cssSelector("#contactPreferencePost")
+      case "Email me when I have a digital message" => click(By.cssSelector("#contactPreferenceEmail"))
+      case "Send me letters by post" => click(By.cssSelector("#contactPreferencePost"))
     }
+
+  def submitEmailOption(): Unit = {
+    checkURL
+    clickRadioButton("Email me when I have a digital message")
+    clickContinueButton()
+  }
+
+  def submitPostOption(): Unit = {
+    checkURL
+    clickRadioButton("Send me letters by post")
+    clickContinueButton()
+  }
 }

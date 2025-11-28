@@ -16,6 +16,7 @@
 
 package specs.emailContactPreference
 
+import specpage.ECP._
 import specs.BaseSpec
 import specs.tags.{ECP, ZapTests}
 import specsteps.BaseStepDefSteps._
@@ -28,14 +29,8 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1000100211")
 
-      Then("I am presented with the How Would You Like To Be Contacted Page")
-      thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-
-      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
-      whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-      whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+      When("I select email on the How Would You Like To Be Contacted Page")
+      HowWouldYouLikeToBeContactedPage.submitEmailOption()
 
       Then("I am presented with the ECP Existing Email Page")
       thenIAmPresentedWithThe("ECP Existing Email Page")
