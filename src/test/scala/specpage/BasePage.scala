@@ -81,10 +81,8 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     expectedPageErrorTitleList should contain(List(pageTitle))
   }
 
-  def enterText(id: String, textToEnter: String): Unit = {
-    Driver.instance.findElement(By.id(id)).clear()
-    Driver.instance.findElement(By.id(id)).sendKeys(textToEnter)
-  }
+  def enterText(id: String, textToEnter: String): Unit =
+    sendKeys(By.id(id), textToEnter)
 
   def checkURL: Assertion =
     if (url.contains("...")) {

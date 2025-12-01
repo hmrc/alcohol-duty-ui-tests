@@ -30,15 +30,10 @@ object HowWouldYouLikeToBeContactedPage extends BasePage {
       case "Send me letters by post" => click(By.cssSelector("#contactPreferencePost"))
     }
 
-  def submitEmailOption(): Unit = {
+  def selectPreference(email: Boolean): Unit = {
     checkURL
-    clickRadioButton("Email me when I have a digital message")
-    clickContinueButton()
-  }
-
-  def submitPostOption(): Unit = {
-    checkURL
-    clickRadioButton("Send me letters by post")
+    if (email) clickRadioButton("Email me when I have a digital message")
+    else clickRadioButton("Send me letters by post")
     clickContinueButton()
   }
 }

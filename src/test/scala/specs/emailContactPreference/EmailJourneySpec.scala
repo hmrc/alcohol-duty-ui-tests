@@ -30,7 +30,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP1000100211")
 
       When("I select email on the How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.submitEmailOption()
+      HowWouldYouLikeToBeContactedPage.selectPreference(email = true)
 
       Then("I am presented with the ECP Existing Email Page")
       thenIAmPresentedWithThe("ECP Existing Email Page")
@@ -119,14 +119,8 @@ class EmailJourneySpec extends BaseSpec {
       When("I click on If this is not the correct address, you can update it hyperlink on ECP Enrolled Email Page")
       whenIClickOnHyperlinkOn("If this is not the correct address, you can update it", "ECP Enrolled Email Page")
 
-      Then("I am presented with the Enter Email Address Page")
-      thenIAmPresentedWithThe("Enter Email Address Page")
-
-      When("I enter jane.doe2@example.com on Enter Email Address Page")
-      whenIEnterOn("jane.doe2@example.com", "Enter Email Address Page")
-
-      And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonOn("Enter Email Address Page")
+      And("I enter jane.doe2@example.com on Enter Email Address Page")
+      EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -165,14 +159,8 @@ class EmailJourneySpec extends BaseSpec {
       And("I click continue button on ECP Existing Email Page")
       whenIClickContinueButtonOn("ECP Existing Email Page")
 
-      Then("I am presented with the Enter Email Address Page")
-      thenIAmPresentedWithThe("Enter Email Address Page")
-
-      When("I enter jane.doe@example.com on Enter Email Address Page")
-      whenIEnterOn("jane.doe@example.com", "Enter Email Address Page")
-
-      And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonOn("Enter Email Address Page")
+      And("I enter jane.doe@example.com on Enter Email Address Page")
+      EnterEmailAddressPage.enterEmailAddress("jane.doe@example.com")
 
       Then("I am presented with the ECP Confirmation Code Limit Page")
       thenIAmPresentedWithThe("ECP Confirmation Code Limit Page")
@@ -192,14 +180,8 @@ class EmailJourneySpec extends BaseSpec {
       And("I click continue button on ECP Existing Email Page")
       whenIClickContinueButtonOn("ECP Existing Email Page")
 
-      Then("I am presented with the Enter Email Address Page")
-      thenIAmPresentedWithThe("Enter Email Address Page")
-
-      When("I enter john.doe@example.com on Enter Email Address Page")
-      whenIEnterOn("john.doe@example.com", "Enter Email Address Page")
-
-      And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonOn("Enter Email Address Page")
+      And("I enter john.doe@example.com on Enter Email Address Page")
+      EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -225,14 +207,8 @@ class EmailJourneySpec extends BaseSpec {
       And("I click continue button on How Would You Like To Be Contacted Page")
       whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
 
-      Then("I am presented with the Enter Email Address Page")
-      thenIAmPresentedWithThe("Enter Email Address Page")
-
-      When("I enter john.doe@example.com on Enter Email Address Page")
-      whenIEnterOn("john.doe@example.com", "Enter Email Address Page")
-
-      And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonOn("Enter Email Address Page")
+      And("I enter john.doe@example.com on Enter Email Address Page")
+      EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")
@@ -255,14 +231,8 @@ class EmailJourneySpec extends BaseSpec {
       When("I click continue button on ECP Email Error Page")
       whenIClickContinueButtonOn("ECP Email Error Page")
 
-      Then("I am presented with the Enter Email Address Page")
-      thenIAmPresentedWithThe("Enter Email Address Page")
-
-      When("I enter jane.doe2@example.com on Enter Email Address Page")
-      whenIEnterOn("jane.doe2@example.com", "Enter Email Address Page")
-
-      And("I click continue button on Enter Email Address Page")
-      whenIClickContinueButtonOn("Enter Email Address Page")
+      And("I enter jane.doe2@example.com on Enter Email Address Page")
+      EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       thenIAmPresentedWithThe("ECP Check Your Answers Page")

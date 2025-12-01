@@ -22,18 +22,10 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object EnterEmailAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/what-email-address"
-  override val title       = "What is the email address we should use to contact you about your Alcohol Duty?"
 
-  override def expectedPageTitle: Option[String]  = Some(
-    "What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the email address we should use to contact you about your Alcohol Duty? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("What is the email address we should use to contact you about your Alcohol Duty?")
-
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("emailAddress", textToEnter)
+  def enterEmailAddress(email: String): Unit = {
+    checkURL
+    enterText("emailAddress", email)
+    clickContinueButton()
+  }
 }
