@@ -131,7 +131,7 @@ object BaseStepDefSteps extends BasePage {
     PageObjectFinder.page(page).waitForPageHeader
     Driver.instance
       .findElement(
-        By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/a")
+        By.xpath("//h2[normalize-space()='Completed returns from previous years']/following-sibling::p[1]/span/a")
       )
       .click()
   }
