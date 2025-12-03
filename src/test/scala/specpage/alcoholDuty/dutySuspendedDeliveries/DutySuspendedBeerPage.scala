@@ -25,17 +25,6 @@ object DutySuspendedBeerPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Beer/report"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Beer/change"
-  override val title          = "Tell us about your duty suspended beer"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your duty suspended beer - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your duty suspended beer - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Tell us about your duty suspended beer")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
@@ -43,4 +32,10 @@ object DutySuspendedBeerPage extends BasePage {
       case "Pure Alcohol In Beer" => enterText("pureAlcoholInBeer", textToEnter)
     }
 
+  def enterVolumes(): Unit = {
+    checkURL
+    enterMultipleDetails("2000.75", "Total Beer")
+    enterMultipleDetails("150.5500", "Pure Alcohol In Beer")
+    clickSaveAndContinueButton()
+  }
 }

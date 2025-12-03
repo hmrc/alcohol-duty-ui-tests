@@ -21,18 +21,9 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
 
-  override val url: String =
-    TestConfiguration.url(
+  override val url: String = TestConfiguration.url(
       "alcohol-duty-returns-frontend"
     ) + "/complete-return/duty-suspended-deliveries/check-your-answers"
-  override val title       = "Check your answers"
-
-  override def expectedPageTitle: Option[String]  = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-  override def expectedPageHeader: Option[String] = Some(
-    "Check your answers"
-  )
 
   override def clickButton(text: String): Unit =
     text match {
@@ -65,4 +56,9 @@ object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
           "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change'])[2]"
         )
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
 }

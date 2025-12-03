@@ -19,9 +19,10 @@ package specsteps
 import org.openqa.selenium.By
 import org.scalatestplus.selenium.Page
 import specpage.BasePage
+import specpage.alcoholDuty.adjustments.{AdjustmentTypePage, DeclareAdjustmentQuestionPage}
 import specpage.alcoholDuty.alcoholToDeclare.{DeclareAlcoholDutyQuestionPage, WhatAlcoholDoYouNeedToDeclarePage}
 import specpage.auth.AuthLoginStubPage
-import specpage.common.TaskListPage
+import specpage.common.{BeforeYouStartPage, TaskListPage}
 import specpage.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.selenium.webdriver.Driver
@@ -183,8 +184,7 @@ object BaseStepDefSteps extends BasePage {
     clearDataForReturns()
     navigateToPage(AuthLoginStubPage)
     AuthLoginStubPage.enterAuthDetails(appaId)
-    thenIAmPresentedWithThe("Before You Start Page")
-    whenIClickContinueButtonOn("Before You Start Page")
+    BeforeYouStartPage.continue()
     TaskListPage.checkURL
   }
 
@@ -199,10 +199,8 @@ object BaseStepDefSteps extends BasePage {
   // Background steps 2 for adjustments
   def navigateToAdjustmentTypePage(): Unit = {
     TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
-    thenIAmPresentedWithThe("Declare Adjustment Question Page")
-    whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
-    whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
-    thenIAmPresentedWithThe("Adjustment Type Page")
+    DeclareAdjustmentQuestionPage.declareAdjustments(true)
+    AdjustmentTypePage.checkURL
   }
 
   // Background steps for payments

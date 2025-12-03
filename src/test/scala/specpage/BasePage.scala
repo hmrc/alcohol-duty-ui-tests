@@ -275,7 +275,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     case _             => throw new IllegalArgumentException("Invalid ordinal")
   }
 
-  def clickAgreeAndSendReturnButton(): Unit = click on cssSelector("#continueButton")
+  def clickAgreeAndSendReturnButton(): Unit = click(By.cssSelector("#continueButton"))
 
   def getSpecificMonth: String =
     currentDate.minusMonths(12).format(formatter)

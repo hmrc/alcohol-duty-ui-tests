@@ -25,17 +25,6 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/volumes"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/change/volumes"
-  override val title          = "Tell us about the beer you need to declare"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the beer you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the beer you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Tell us about the beer you need to declare")
 
   override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
     val modifiedIndex = ordinalToNumber(index)
@@ -65,5 +54,12 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
       case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol"  =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
     }
+  }
+
+  def enterDetailsForLimitedRegimeApprovals(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
   }
 }
