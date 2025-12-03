@@ -16,10 +16,10 @@
 
 package specs.commonPageFeatures
 
+import specpage.auth.AuthLoginStubPage
 import specpage.common.ViewPastReturnsPage
 import specs.BaseSpec
 import specs.tags.{AllTests, CommonPages}
-import specsteps.AlcoholDutyStepDefSteps._
 import specsteps.BaseStepDefSteps._
 
 class ViewPastReturnsPageSpec extends BaseSpec {
@@ -28,29 +28,11 @@ class ViewPastReturnsPageSpec extends BaseSpec {
 
     Scenario("1. ADR Journey - View Completed Returns from previous years", AllTests, CommonPages) {
       Given("I cleared the data to view completed returns from previous years")
-      givenIClearedTheDataToViewCompletedReturnsFromPreviousYears()
+      clearDataForPastReturns()
 
-      When("I navigate to the Auth Login Stub Page")
-      thenINavigateToThe("Auth Login Stub Page")
-
-      And("I enter redirect URL on Auth Login Stub Page for View Past Returns Page")
-      whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Returns Page")
-
-      And("I select Affinity Type as Organisation on Auth Login Stub Page")
-      whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-
-      And(
-        "I enter Enrollment Key HMRC-AD-ORG, Identifier Name APPAID and Identifier Value XMADP0000100211 on Auth Login Stub Page"
-      )
-      whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn(
-        "HMRC-AD-ORG",
-        "APPAID",
-        "XMADP0000100211",
-        "Auth Login Stub Page"
-      )
-
-      And("I click submit button on Auth Login Stub Page")
-      whenIClickSubmitButtonOn("Auth Login Stub Page")
+      When("I enter login details on Authority Wizard")
+      navigateToPage(AuthLoginStubPage)
+      AuthLoginStubPage.enterAuthDetails("XMADP0000100211", "View Past Returns")
 
       Then("I am presented with the View Past Returns Page")
       thenIAmPresentedWithThe("View Past Returns Page")

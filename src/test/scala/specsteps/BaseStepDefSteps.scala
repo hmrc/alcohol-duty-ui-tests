@@ -17,17 +17,20 @@
 package specsteps
 
 import org.openqa.selenium.By
+import org.scalatestplus.selenium.Page
 import specpage.BasePage
+import specpage.alcoholDuty.alcoholToDeclare.{DeclareAlcoholDutyQuestionPage, WhatAlcoholDoYouNeedToDeclarePage}
+import specpage.auth.AuthLoginStubPage
+import specpage.common.TaskListPage
 import specpage.generic.PageObjectFinder
-import specsteps.AlcoholDutyStepDefSteps._
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.selenium.webdriver.Driver
 
 object BaseStepDefSteps extends BasePage {
 
   // I navigate to the {string}
-  def thenINavigateToThe(page: String): Unit =
-    go to PageObjectFinder.page(page)
+  def navigateToPage(page: Page): Unit =
+    go to page
 
   // I click submit button on {string}
   def whenIClickSubmitButtonOn(page: String): Unit =
@@ -121,7 +124,7 @@ object BaseStepDefSteps extends BasePage {
     }
 
   // I cleared the data to view completed returns from previous years
-  def givenIClearedTheDataToViewCompletedReturnsFromPreviousYears(): Unit =
+  def clearDataForPastReturns(): Unit =
     Driver.instance.get(
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations"
     )
@@ -145,15 +148,15 @@ object BaseStepDefSteps extends BasePage {
     Driver.instance.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
 
   // I cleared the data for the service
-  def givenIClearedTheDataForTheService(): Unit =
+  def clearDataForReturns(): Unit =
     Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
 
   // I cleared the data for ECP service
-  def givenIClearedTheDataForECPService(): Unit =
+  def clearDataForEcp(): Unit =
     Driver.instance.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
 
   // I clear the data to view Past Payments
-  def givenIClearTheDataToViewPastPayments(): Unit =
+  def clearDataForPastPayments(): Unit =
     Driver.instance.get(
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments"
     )
@@ -177,36 +180,25 @@ object BaseStepDefSteps extends BasePage {
 
   // Background steps 1 for starting a return
   def loginAndStartReturn(appaId: String): Unit = {
-    givenIClearedTheDataForTheService()
-    thenINavigateToThe("Auth Login Stub Page")
-    whenIEnterRedirectURLOnAuthLoginStubPageFor("Alcohol Duty Service")
-    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
-    whenIClickSubmitButtonOn("Auth Login Stub Page")
+    clearDataForReturns()
+    navigateToPage(AuthLoginStubPage)
+    AuthLoginStubPage.enterAuthDetails(appaId)
     thenIAmPresentedWithThe("Before You Start Page")
     whenIClickContinueButtonOn("Before You Start Page")
-    thenIAmPresentedWithThe("Task List Page")
+    TaskListPage.checkURL
   }
 
   // Background steps 2 for AlcoholDutyReturnsChangeLinksCYAPage.feature
   def selectAllRegimes(): Unit = {
-    whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
-    thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-    whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
-    whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
-    thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
-    whenICheckboxOn(
-      "select",
-      "Beer,Cider,Wine,Spirits,Other fermented products",
-      "What Alcohol Do You Need To Declare Page"
-    )
-    whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
-    thenIAmPresentedWithThe("Task List Page")
+    TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
+    DeclareAlcoholDutyQuestionPage.declareAlcohol(true)
+    WhatAlcoholDoYouNeedToDeclarePage.selectAllRegimes()
+    TaskListPage.checkURL
   }
 
   // Background steps 2 for adjustments
   def navigateToAdjustmentTypePage(): Unit = {
-    whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+    TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
     thenIAmPresentedWithThe("Declare Adjustment Question Page")
     whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
     whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
@@ -215,23 +207,16 @@ object BaseStepDefSteps extends BasePage {
 
   // Background steps for payments
   def loginForPayments(appaId: String = "XMADP0002900211"): Unit = {
-    givenIClearTheDataToViewPastPayments()
-    thenINavigateToThe("Auth Login Stub Page")
-    whenIEnterRedirectURLOnAuthLoginStubPageFor("View Past Payments Page")
-    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
-    whenIClickSubmitButtonOn("Auth Login Stub Page")
+    clearDataForPastPayments()
+    navigateToPage(AuthLoginStubPage)
+    AuthLoginStubPage.enterAuthDetails(appaId, "View Past Payments")
   }
 
   // Background steps for ECP
   def loginForEcp(appaId: String, typeOfJourney: String = "Email Contact Preference"): Unit = {
-    givenIClearedTheDataForECPService()
-    thenINavigateToThe("Auth Login Stub Page")
-    whenIEnterRedirectURLOnAuthLoginStubPageFor(typeOfJourney) // specify if "Email Update" or "Email Bounce"
-    whenISelectAffinityTypeAsOn("Organisation", "Auth Login Stub Page")
-    whenIEnterEnrollmentKeyIdentifierNameAndIdentifierValueOn("HMRC-AD-ORG", "APPAID", appaId, "Auth Login Stub Page")
-    whenIEnterCredIDOn("cred0", "Auth Login Stub Page")
-    whenIClickSubmitButtonOn("Auth Login Stub Page")
+    clearDataForEcp()
+    navigateToPage(AuthLoginStubPage)
+    AuthLoginStubPage.enterAuthDetails(appaId, typeOfJourney)
   }
 
 }

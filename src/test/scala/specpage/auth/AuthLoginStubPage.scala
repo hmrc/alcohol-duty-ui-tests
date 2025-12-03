@@ -19,36 +19,58 @@ package specpage.auth
 import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.selenium.webdriver.Driver
 
 object AuthLoginStubPage extends BasePage {
 
   override val url: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
-  override val title = "Authority Wizard"
 
-  override def expectedPageErrorTitle: Option[String] = Some("")
+  def enterRedirectUrlFor(typeOfJourney: String): Unit =
+    typeOfJourney match {
+      case "Alcohol Duty Service"     =>
+        enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
+        )
+      case "View Past Returns"   =>
+        enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
+        )
+      case "View Past Payments"  =>
+        enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
+      case "Email Contact Preference" =>
+        enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference"
+        )
+      case "Email Update"             =>
+        enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email"
+        )
+      case "Email Bounce"             =>
+        enterRedirectURL(
+          TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/bounced-email"
+        )
+      case _                          => enterRedirectURL(typeOfJourney)
+    }
 
-  override def expectedPageTitle: Option[String] = Some("Authority Wizard")
+  def enterRedirectURL(url: String): Unit =
+    sendKeys(By.cssSelector("#redirectionUrl"), url)
 
-  override def expectedPageHeader: Option[String] = Some("Authority Wizard")
+  def authorityId(CredID: String): Unit =
+    sendKeys(By.id("authorityId"), CredID)
 
-  def enterRedirectURL(url: String): Unit = {
-    Driver.instance.findElement(By.cssSelector("#redirectionUrl")).sendKeys(url)
+  def enrolments(enrolmentKey: String, IdentifierName: String, IdentifierValue: String): Unit = {
+    sendKeys(By.id("enrolment[0].name"), enrolmentKey)
+    sendKeys(By.id("input-0-0-name"), IdentifierName)
+    sendKeys(By.id("input-0-0-value"), IdentifierValue)
   }
 
-  def authorityId(CredID: String): Unit = {
-    Driver.instance.findElement(By.id("authorityId")).sendKeys(CredID)
+  def selectAffinityGroup(value: String): Unit =
+    selectByVisibleText(By.cssSelector("select[name=affinityGroup]"), value)
 
-  }
-
-  def enrolments(enrollmentKey: String, IdentifierName: String, IdentifierValue: String): Unit = {
-    Driver.instance.findElement(By.id("enrolment[0].name")).sendKeys(enrollmentKey)
-    Driver.instance.findElement(By.id("input-0-0-name")).sendKeys(IdentifierName)
-    Driver.instance.findElement(By.id("input-0-0-value")).sendKeys(IdentifierValue)
-  }
-
-  def selectAffinityGroup(value: String): Unit = {
-    Driver.instance.findElement(By.cssSelector("select[name=affinityGroup]")).sendKeys(value)
+  def enterAuthDetails(appaId: String, typeOfJourney: String = "Alcohol Duty Service"): Unit = {
+    enterRedirectUrlFor(typeOfJourney)
+    selectAffinityGroup("Organisation")
+    enrolments("HMRC-AD-ORG", "APPAID", appaId)
+    clickSubmitButton()
   }
 
 }

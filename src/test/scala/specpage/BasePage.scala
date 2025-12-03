@@ -129,15 +129,15 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     expectedPageHeaderList should contain(List(pageHeader.get))
   }
 
-  def clickSubmitButton(): Unit = click on cssSelector("#submit")
+  def clickSubmitButton(): Unit = click(By.cssSelector("#submit"))
 
   def clickECPSubmitButton(): Unit = click on cssSelector("#submitButton")
 
-  def clickSaveAndContinueButton(): Unit = click on id("saveAndContinueButton")
+  def clickSaveAndContinueButton(): Unit = click(By.id("saveAndContinueButton"))
 
   def clickConfirmAndContinueButton(): Unit = click on id("confirmAndContinueButton")
 
-  def clickContinueButton(): Unit = click on id("continueButton")
+  def clickContinueButton(): Unit = click(By.id("continueButton"))
 
   def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
 
@@ -249,7 +249,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
-      click on xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']")
+      selectCheckbox(By.xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']"))
 
   def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
     case "first"       => 0

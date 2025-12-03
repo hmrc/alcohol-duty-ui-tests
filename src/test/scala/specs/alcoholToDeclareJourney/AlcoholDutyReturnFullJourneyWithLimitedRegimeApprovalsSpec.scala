@@ -16,6 +16,8 @@
 
 package specs.alcoholToDeclareJourney
 
+import specpage.alcoholDuty.alcoholToDeclare._
+import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
@@ -29,16 +31,10 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       loginAndStartReturn("XMADP0000178208")
 
       When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
 
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-
-      When("I select radio button Yes on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
-
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+      And("I select Yes on Declare Alcohol Duty Question Page")
+      DeclareAlcoholDutyQuestionPage.declareAlcohol(true)
 
       Then("I am presented with the What Do You Need To Declare Beer Page")
       thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")

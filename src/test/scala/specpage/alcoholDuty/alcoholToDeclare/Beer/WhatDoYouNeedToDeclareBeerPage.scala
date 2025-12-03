@@ -25,17 +25,6 @@ object WhatDoYouNeedToDeclareBeerPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/products-to-include"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/change/products-to-include"
-  override val title          = "What do you need to declare?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("What do you need to declare?")
 
   override def clickCheckBox(text: String): Unit =
     text match {
