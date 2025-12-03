@@ -17,19 +17,14 @@
 package specs.alcoholToDeclareJourney
 
 import specs.BaseSpec
-import specs.tags.{AlcoholToDeclare, AllTests, ZapTests}
+import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
 
 class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpec {
 
   Feature("Alcohol Duty Returns Journey with Limited Regime Approvals") {
 
-    Scenario(
-      "1. Alcohol Duty Returns Journey - user with only Beer regime approval",
-      AllTests,
-      AlcoholToDeclare,
-      ZapTests
-    ) {
+    Scenario("1. Alcohol Duty Returns Journey - user with only Beer regime approval", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("XMADP0000178208")
 

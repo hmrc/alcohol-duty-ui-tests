@@ -17,7 +17,7 @@
 package specs.adjustmentsJourney
 
 import specs.BaseSpec
-import specs.tags.{Adjustments, AllTests, ZapTests}
+import specs.tags.{Adjustments, AllTests}
 import specsteps.BaseStepDefSteps._
 
 class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
@@ -27,8 +27,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
     Scenario(
       "Adjustments Journey - Validating under-declaration-reason removal from task List page when amount is changed to less than £1000 - Under-declaration - Beer - With SPR",
       AllTests,
-      Adjustments,
-      ZapTests
+      Adjustments
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")
@@ -171,8 +170,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
     Scenario(
       "Adjustments Journey - Validating over-declaration-reason removal from task List page when amount is changed to less than £1000 after deleting one of the adjustment- Over-declaration - Cider - With SPR",
       AllTests,
-      Adjustments,
-      ZapTests
+      Adjustments
     ) {
       Given("I start a return and navigate to the Adjustment Type Page")
       loginAndStartReturn("AABCP0000100208")

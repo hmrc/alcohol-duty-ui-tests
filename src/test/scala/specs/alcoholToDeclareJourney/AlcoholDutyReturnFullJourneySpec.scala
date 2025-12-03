@@ -17,19 +17,14 @@
 package specs.alcoholToDeclareJourney
 
 import specs.BaseSpec
-import specs.tags.{AlcoholToDeclare, AllTests, ZapTests}
+import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
 
 class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
 
   Feature("Alcohol Duty Returns Journey") {
 
-    Scenario(
-      "1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission",
-      AllTests,
-      AlcoholToDeclare,
-      ZapTests
-    ) {
+    Scenario("1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
@@ -2138,12 +2133,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
 
     }
 
-    Scenario(
-      "2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission",
-      AllTests,
-      AlcoholToDeclare,
-      ZapTests
-    ) {
+    Scenario("2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
@@ -3519,7 +3509,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
 
     }
 
-    Scenario("3. Alcohol Duty Returns Journey - Happy Path - Nil Return", AllTests, AlcoholToDeclare, ZapTests) {
+    Scenario("3. Alcohol Duty Returns Journey - Happy Path - Nil Return", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
@@ -3602,12 +3592,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
 
     }
 
-    Scenario(
-      "4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality",
-      AllTests,
-      AlcoholToDeclare,
-      ZapTests
-    ) {
+    Scenario("4. Alcohol Duty Returns Journey - Verifying 'Remove' link functionality", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
@@ -3773,12 +3758,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
 
     }
 
-    Scenario(
-      "5. Alcohol Duty Returns Journey - Happy Path - Delete Missing Details",
-      AllTests,
-      AlcoholToDeclare,
-      ZapTests
-    ) {
+    Scenario("5. Alcohol Duty Returns Journey - Happy Path - Delete Missing Details", AllTests, AlcoholToDeclare) {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 

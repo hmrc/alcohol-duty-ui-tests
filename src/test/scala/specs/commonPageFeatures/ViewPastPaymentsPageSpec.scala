@@ -17,7 +17,7 @@
 package specs.commonPageFeatures
 
 import specs.BaseSpec
-import specs.tags.{AllTests, CommonPages, ZapTests}
+import specs.tags.{AllTests, CommonPages}
 import specsteps.BaseStepDefSteps._
 
 class ViewPastPaymentsPageSpec extends BaseSpec {
@@ -27,8 +27,7 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
     Scenario(
       "1. ADR Journey - Verify that past year payments can be accessed under cleared payments section",
       AllTests,
-      CommonPages,
-      ZapTests
+      CommonPages
     ) {
       Given("I log in to view payments")
       loginForPayments()
@@ -53,8 +52,7 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
     Scenario(
       "2. ADR Central Assessment - Manage central assessment charge and pay central assessment charge",
       AllTests,
-      CommonPages,
-      ZapTests
+      CommonPages
     ) {
       Given("I log in to view payments")
       loginForPayments()
