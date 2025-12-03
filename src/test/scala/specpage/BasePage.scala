@@ -135,7 +135,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickSaveAndContinueButton(): Unit = click(By.id("saveAndContinueButton"))
 
-  def clickConfirmAndContinueButton(): Unit = click on id("confirmAndContinueButton")
+  def clickConfirmAndContinueButton(): Unit = click(By.id("confirmAndContinueButton"))
 
   def clickContinueButton(): Unit = click(By.id("continueButton"))
 

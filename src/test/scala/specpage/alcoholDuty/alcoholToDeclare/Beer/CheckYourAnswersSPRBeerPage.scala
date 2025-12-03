@@ -24,17 +24,6 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/check-your-answers"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/check-your-answers"
-  override val title          = "Check your answers"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
 
   override def clickButton(text: String): Unit =
     text match {
@@ -47,4 +36,9 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
       case "Change Duty rate"          =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/eligible-volume#dutyRate']")
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
 }

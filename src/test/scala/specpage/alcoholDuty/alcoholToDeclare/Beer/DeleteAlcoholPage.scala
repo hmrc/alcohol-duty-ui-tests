@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Beer
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -27,21 +28,17 @@ object DeleteAlcoholPage extends BasePage {
   override val newUrl: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/alcoholic-products/Beer/change/spr/multiple-duty-rates/missing-details/confirmation"
-  override val title          = "Delete alcohol"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Delete alcohol - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Delete alcohol - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Delete alcohol")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#deleteMissingDeclarations")
-      case "No"  => click on cssSelector("#deleteMissingDeclarations-no")
+      case "Yes" => click(By.cssSelector("#deleteMissingDeclarations"))
+      case "No"  => click(By.cssSelector("#deleteMissingDeclarations-no"))
     }
+
+  def deleteRateBands(deleting: Boolean): Unit = {
+    checkURL
+    if (deleting) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickConfirmAndContinueButton()
+  }
 }

@@ -62,4 +62,21 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
     enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", "first")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsForAllRateBands(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("898.34", "Standard beer between 3.5% and 8.4% ABV - Total litres", "second")
+    enterMultipleDetailsWithIndex("77.5500", "Standard beer between 3.5% and 8.4% ABV - Pure alcohol", "second")
+    enterMultipleDetailsWithIndex("667.32", "Standard beer between 8.5% and 22% ABV - Total litres", "third")
+    enterMultipleDetailsWithIndex("66.3400", "Standard beer between 8.5% and 22% ABV - Pure alcohol", "third")
+    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", "fourth")
+    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", "fourth")
+    enterMultipleDetailsWithIndex("887.54", "Draught beer between 1.3% and 3.4% ABV - Total litres", "fifth")
+    enterMultipleDetailsWithIndex("66.4400", "Draught beer between 1.3% and 3.4% ABV - Pure alcohol", "fifth")
+    enterMultipleDetailsWithIndex("699.45", "Draught beer between 3.5% and 8.4% ABV - Total litres", "sixth")
+    enterMultipleDetailsWithIndex("66.8900", "Draught beer between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
+    clickSaveAndContinueButton()
+  }
 }

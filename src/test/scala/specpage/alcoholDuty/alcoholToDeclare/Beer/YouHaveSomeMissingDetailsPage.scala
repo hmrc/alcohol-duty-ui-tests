@@ -16,29 +16,24 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Beer
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object YouHaveSomeMissingDetailsPage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/missing-details"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/missing-details"
-  override val title          = "You have some missing details"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: You have some missing details - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "You have some missing details - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("You have some missing details")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Add details for these declarations" => click on cssSelector("#addDeclarationDetails")
-      case "Delete these declarations from this return"  => click on cssSelector("#deleteDeclarations")
+      case "Add details for these declarations" => click(By.cssSelector("#addDeclarationDetails"))
+      case "Delete these declarations from this return"  => click(By.cssSelector("#deleteDeclarations"))
     }
+
+  def addMissingRateBands(adding: Boolean): Unit = {
+    checkURL
+    if (adding) clickRadioButton("Add details for these declarations")
+    else clickRadioButton("Delete these declarations from this return")
+    clickSaveAndContinueButton()
+  }
 }

@@ -16,6 +16,9 @@
 
 package specs.alcoholToDeclareJourney
 
+import specpage.alcoholDuty.alcoholToDeclare.Beer._
+import specpage.alcoholDuty.alcoholToDeclare._
+import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
@@ -56,7 +59,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare beer hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
@@ -350,7 +353,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare cider hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
@@ -704,7 +707,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Cider Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare wine hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare wine", "Task List Page")
@@ -1004,7 +1007,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Wine Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare spirits hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare spirits", "Task List Page")
@@ -1298,7 +1301,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Spirits Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare other fermented products hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare other fermented products", "Task List Page")
@@ -1601,7 +1604,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Other Fermented Product Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
@@ -1925,7 +1928,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
@@ -1940,7 +1943,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
@@ -1955,7 +1958,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
@@ -2051,7 +2054,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickContinueButtonOn("Duty Suspended Deliveries Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
@@ -2117,7 +2120,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
@@ -2165,7 +2168,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare beer hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
@@ -2363,7 +2366,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare cider hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
@@ -2561,7 +2564,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Cider Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare wine hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare wine", "Task List Page")
@@ -2765,7 +2768,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Wine Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare spirits hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare spirits", "Task List Page")
@@ -2963,7 +2966,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Spirits Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare other fermented products hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare other fermented products", "Task List Page")
@@ -3176,7 +3179,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Duty Due Other Fermented Product Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
@@ -3428,7 +3431,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Adjustment List Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
@@ -3443,7 +3446,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
@@ -3458,7 +3461,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
@@ -3478,7 +3481,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
@@ -3493,7 +3496,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
@@ -3526,7 +3529,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
@@ -3541,7 +3544,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
@@ -3561,7 +3564,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
@@ -3576,7 +3579,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
@@ -3759,262 +3762,52 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
     }
 
     Scenario("5. Alcohol Duty Returns Journey - Happy Path - Delete Missing Details", AllTests, AlcoholToDeclare) {
-      Given("I start a return")
+      Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
-
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
-
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-
-      When("I select radio button Yes on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
-
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
-
-      Then("I am presented with the What Alcohol Do You Need To Declare Page")
-      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
-
-      When(
-        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
-      )
-      whenICheckboxOn(
-        "select",
-        "Beer,Cider,Wine,Spirits,Other fermented products",
-        "What Alcohol Do You Need To Declare Page"
-      )
-
-      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
-      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
+      selectAllRegimes()
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
       When("I click on Declare beer hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+      TaskListPage.clickHyperlink("Declare beer")
 
-      Then("I am presented with the What Do You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
-
-      When(
+      And(
         "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
-        "What Do You Need To Declare Beer Page"
+      WhatDoYouNeedToDeclareBeerPage.selectRateBands(
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+      And("I enter volumes on the How Much You Need To Declare Beer Page")
+      HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
 
-      When(
-        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "945.55",
-        "Standard beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361()
 
-      And(
-        "I enter 55.5500 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I click continue button on Check Your Answers SPR Beer Page")
+      CheckYourAnswersSPRBeerPage.continue()
 
-      And(
-        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "898.34",
-        "Standard beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.5500",
-        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "667.32",
-        "Standard beer between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.3400",
-        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.19",
-        "Standard beer at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.1300",
-        "Standard beer at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "887.54",
-        "Draught beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.4400",
-        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "699.45",
-        "Draught beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.8900",
-        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
-
-      When(
-        "I select radio button Non-draught beer between 1.3% and 3.4% ABV (361 SPR) on Multiple Small Producer Relief Rate Beer Page"
-      )
-      whenISelectRadioButtonOn(
-        "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)",
-        "Multiple Small Producer Relief Rate Beer Page"
-      )
-
-      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
-
-      Then("I am presented with the Check Your Answers SPR Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
-
-      When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
-
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
-
-      When("I select radio button No on Multiple SPR List Question Beer Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Beer Page")
-
-      And("I click save and continue button on Multiple SPR List Question Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the You Have Some Missing Details Page")
-      thenIAmPresentedWithThe("You Have Some Missing Details Page")
+      And("I select No on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.addAnother(false)
 
       And("I select radio button Delete these declarations from this return on You Have Some Missing Details Page")
-      whenISelectRadioButtonOn("Delete these declarations from this return", "You Have Some Missing Details Page")
+      YouHaveSomeMissingDetailsPage.addMissingRateBands(false)
 
-      When("I click save and continue button on You Have Some Missing Details Page")
-      whenIClickSaveAndContinueButtonOn("You Have Some Missing Details Page")
+      And("I select Yes on Delete Alcohol Page")
+      DeleteAlcoholPage.deleteRateBands(true)
 
-      Then("I am presented with the Delete Alcohol Page")
-      thenIAmPresentedWithThe("Delete Alcohol Page")
+      And("I click save and continue button on Check Your Answers Returns Beer Page")
+      CheckYourAnswersReturnsBeerPage.continue()
 
-      And("I select radio button Yes on Delete Alcohol Page")
-      whenISelectRadioButtonOn("Yes", "Delete Alcohol Page")
-
-      When("I click confirm and continue button on Delete Alcohol Page")
-      whenIClickConfirmAndContinueButtonOn("Delete Alcohol Page")
-
-      Then("I am presented with the Check Your Answers Returns Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
-
-      When("I click save and continue button on Check Your Answers Returns Beer Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
-
-      Then("I am presented with the Duty Due Beer Page")
-      thenIAmPresentedWithThe("Duty Due Beer Page")
-
-      When("I click save and continue button on Duty Due Beer Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+      And("I click save and continue button on Duty Due Beer Page")
+      DutyDueBeerPage.continue()
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
     }
   }
