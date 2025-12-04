@@ -193,35 +193,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Under-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("09", "2023")
 
-      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
+      And("I enter 311 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("311")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 311 on Adjustment Tax Type Code Page")
-      whenIEnterOn("311", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
-
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -235,35 +214,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
+      And("I enter 312 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("312")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 312 on Adjustment Tax Type Code Page")
-      whenIEnterOn("312", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
-
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -277,56 +235,20 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Repackaged draught products on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 11 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("11", "2023")
 
-      When("I enter month 11 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("11", "2023", "Adjustment Return Date Page")
+      And("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
+      AdjustmentTaxTypeCodePage.enterDetails("373")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
-      Then("I am presented with the Adjustment Tax Type Code For Repackaged Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code For Repackaged Page")
+      And("I enter 363 on New Tax Type Code Page")
+      NewTaxTypeCodePage.enterDetails("363")
 
-      When("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
-      whenIEnterOn("373", "Adjustment Tax Type Code For Repackaged Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code For Repackaged Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code For Repackaged Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the New Tax Type Code Page")
-      thenIAmPresentedWithThe("New Tax Type Code Page")
-
-      When("I enter 363 on New Tax Type Code Page")
-      whenIEnterOn("363", "New Tax Type Code Page")
-
-      And("I click save and continue button on New Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
-
-      Then("I am presented with the New Spr Duty Rate Page")
-      thenIAmPresentedWithThe("New Spr Duty Rate Page")
-
-      When("I enter 11.5 on New Spr Duty Rate Page")
-      whenIEnterOn("11.5", "New Spr Duty Rate Page")
-
-      And("I click save and continue button on New Spr Duty Rate Page")
-      whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
+      And("I enter 11.5 on New Spr Duty Rate Page")
+      NewSprDutyRatePage.enterDetails("11.5")
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -340,29 +262,11 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
 
-      Then("I am presented with the Spoilt Alcohol Type Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
+      And("I select radio button Spirits on Spoilt Alcohol Type Page")
+      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
 
-      When("I select radio button Spirits on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
+      And("I enter volumes on the Spoilt Alcohol Volume Page")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
       And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
@@ -373,35 +277,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Drawback on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
-
       And("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
+      And("I enter 314 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("314")
 
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 314 on Adjustment Tax Type Code Page")
-      whenIEnterOn("314", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
-
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -693,38 +576,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Under-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("09", "2023")
 
-      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
+      And("I enter 371 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("371")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 371 on Adjustment Tax Type Code Page")
-      whenIEnterOn("371", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -738,38 +597,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
+      And("I enter 372 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("372")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 372 on Adjustment Tax Type Code Page")
-      whenIEnterOn("372", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 9999.99 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9999.99", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 7777.7700 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("7777.7700", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 898.89 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("898.89", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("9999.99", "7777.7700", "898.89")
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -783,77 +618,29 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
 
-      Then("I am presented with the Spoilt Alcohol Type Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
+      And("I select radio button Spirits on Spoilt Alcohol Type Page")
+      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
 
-      When("I select radio button Spirits on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
+      And("I enter volumes on the Spoilt Alcohol Volume Page")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
       And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Drawback on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
+      And("I enter 374 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("374")
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 374 on Adjustment Tax Type Code Page")
-      whenIEnterOn("374", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 250.5599 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5599", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5599", "9.8")
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()

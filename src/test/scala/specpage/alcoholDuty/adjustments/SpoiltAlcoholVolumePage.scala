@@ -24,19 +24,6 @@ object SpoiltAlcoholVolumePage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/spoilt-product/volume"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/spoilt-product/volume"
-  override val title          = "Tell us about your spoilt spirits"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your spoilt spirits - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your spoilt spirits - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Tell us about your spoilt spirits"
-  )
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
@@ -44,4 +31,12 @@ object SpoiltAlcoholVolumePage extends BasePage {
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
       case "Duty Paid"              => enterText("volumes_duty", textToEnter)
     }
+
+  def enterVolumes(): Unit = {
+    checkURL
+    enterMultipleDetails("3000.75", "Total Litres")
+    enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
+    enterMultipleDetails("3255.55", "Duty Paid")
+    clickSaveAndContinueButton()
+  }
 }

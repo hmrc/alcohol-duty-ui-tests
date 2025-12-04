@@ -24,19 +24,6 @@ object AdjustmentVolumeWithSprPage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/spr/eligible-volume"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/spr/eligible-volume"
-  override val title          = "How much do you need to adjust?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "How much do you need to adjust? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "How much do you need to adjust?"
-  )
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
@@ -44,4 +31,12 @@ object AdjustmentVolumeWithSprPage extends BasePage {
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
       case "SPR Duty Rate"          => enterText("volumes_sprDutyRate", textToEnter)
     }
+
+  def enterVolumes(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "SPR Duty Rate")
+    clickSaveAndContinueButton()
+  }
 }

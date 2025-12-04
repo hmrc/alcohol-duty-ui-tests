@@ -24,20 +24,10 @@ object NewSprDutyRatePage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/repackaged/new-spr-duty-rate"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/repackaged/new-spr-duty-rate"
-  override val title          = "What is your Small Producer Relief Duty rate for the newly repackaged products?"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is your Small Producer Relief Duty rate for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "What is your Small Producer Relief Duty rate for the newly repackaged products? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "What is your Small Producer Relief Duty rate for the newly repackaged products?"
-  )
-
-  override def enterDetails(textToEnter: String): Unit =
+  override def enterDetails(textToEnter: String): Unit = {
+    checkURL
     enterText("adjustment-small-producer-relief-duty-rate-input", textToEnter)
+    clickSaveAndContinueButton()
+  }
 }
