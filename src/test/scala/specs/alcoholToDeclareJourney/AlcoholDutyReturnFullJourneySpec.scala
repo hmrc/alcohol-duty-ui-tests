@@ -379,7 +379,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      And("I click on Agree and send return button Return Summary Page")
+      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
@@ -695,7 +695,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      And("I click on Agree and send return button Return Summary Page")
+      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
@@ -748,8 +748,8 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      And("I click on Agree and send return button No Duty Due Page")
-      NoDutyDuePage.continue()
+      And("I click on Agree and send return button on Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
       ReturnSubmittedPage.checkURL

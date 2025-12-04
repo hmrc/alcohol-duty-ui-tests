@@ -88,7 +88,7 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      When("I click on Agree and send return button on Return Summary Page")
+      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
