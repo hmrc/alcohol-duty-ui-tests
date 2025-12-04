@@ -153,7 +153,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def clickCheckBox(text: String): Unit =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
-  def clickButton(buttonText: String): Unit = click on partialLinkText(buttonText)
+  def clickButton(buttonText: String): Unit = click(By.partialLinkText(buttonText))
 
   def clickHyperlink(text: String): Unit = click(By.linkText(text))
 

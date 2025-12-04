@@ -50,4 +50,13 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
     enterMultipleDetails("19", "Duty rate")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor371InChangeMode(): Unit = {
+    checkNewURL
+    clickRadioButton("Draught beer between 1.3% and 3.4% ABV (371 SPR)")
+    enterMultipleDetails("7777.77", "Total litres")
+    enterMultipleDetails("777.7777", "Litres of pure alcohol")
+    enterMultipleDetails("77.77", "Duty rate")
+    clickSaveAndContinueButton()
+  }
 }

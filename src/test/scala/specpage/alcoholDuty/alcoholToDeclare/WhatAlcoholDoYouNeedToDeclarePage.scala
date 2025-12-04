@@ -21,14 +21,19 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object WhatAlcoholDoYouNeedToDeclarePage extends BasePage {
 
-  override val url: String =
-    TestConfiguration.url(
-      "alcohol-duty-returns-frontend"
-    ) + "/complete-return/alcoholic-products/alcoholic-products-to-include"
+  override val url: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/alcoholic-products/alcoholic-products-to-include"
 
   def selectAllRegimes(): Unit = {
     checkURL
     selectCheckBoxes(Array("Beer", "Cider", "Wine", "Spirits", "Other fermented products"))
+    clickSaveAndContinueButton()
+  }
+
+  def selectSingleRegime(regime: String): Unit = {
+    checkURL
+    selectCheckBoxes(Array(regime))
     clickSaveAndContinueButton()
   }
 }

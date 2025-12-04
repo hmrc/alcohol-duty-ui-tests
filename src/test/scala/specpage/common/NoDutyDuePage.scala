@@ -22,13 +22,9 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object NoDutyDuePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
-  override val title       = "No duty due"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "No duty due - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "No duty due"
-  )
+  def continue(): Unit = {
+    checkURL
+    clickAgreeAndSendReturnButton()
+  }
 }

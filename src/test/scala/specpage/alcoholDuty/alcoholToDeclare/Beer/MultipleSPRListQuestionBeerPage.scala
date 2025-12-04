@@ -33,9 +33,9 @@ object MultipleSPRListQuestionBeerPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/eligible-volume?index=0']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/eligible-volume?index=0']"))
       case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/remove-volume?index=0']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/remove-volume?index=0']"))
     }
 
   def addAnother(adding: Boolean): Unit = {
@@ -43,5 +43,10 @@ object MultipleSPRListQuestionBeerPage extends BasePage {
     if (adding) clickRadioButton("Yes")
     else clickRadioButton("No")
     clickSaveAndContinueButton()
+  }
+
+  def clickRemoveHyperlink(): Unit = {
+    checkURL
+    clickButton("Remove hyperlink")
   }
 }

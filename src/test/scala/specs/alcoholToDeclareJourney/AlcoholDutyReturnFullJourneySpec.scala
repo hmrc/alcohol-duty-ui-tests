@@ -16,9 +16,12 @@
 
 package specs.alcoholToDeclareJourney
 
+import specpage.alcoholDuty.adjustments._
 import specpage.alcoholDuty.alcoholToDeclare.Beer._
 import specpage.alcoholDuty.alcoholToDeclare._
-import specpage.common.TaskListPage
+import specpage.alcoholDuty.dutySuspendedDeliveries._
+import specpage.alcoholDuty.quarterlySpiritsQuestion._
+import specpage.common._
 import specs.BaseSpec
 import specs.tags.{AlcoholToDeclare, AllTests}
 import specsteps.BaseStepDefSteps._
@@ -3517,31 +3520,19 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
 
       When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
 
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-
-      When("I select radio button No on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("No", "Declare Alcohol Duty Question Page")
-
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
+      And("I select No on Declare Alcohol Duty Question Page")
+      DeclareAlcoholDutyQuestionPage.declareAlcohol(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
 
-      Then("I am presented with the Declare Adjustment Question Page")
-      thenIAmPresentedWithThe("Declare Adjustment Question Page")
-
-      When("I select radio button No on Declare Adjustment Question Page")
-      whenISelectRadioButtonOn("No", "Declare Adjustment Question Page")
-
-      And("I click save and continue button on Declare Adjustment Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+      And("I select No on Declare Adjustment Question Page")
+      DeclareAdjustmentQuestionPage.declareAdjustments(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
@@ -3549,49 +3540,31 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn(
-        "Tell us if you have delivered or received finished products in duty suspense",
-        "Task List Page"
-      )
+      TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
 
-      Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
-
-      When("I select radio button No on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("No", "Declare Duty Suspended Deliveries Page")
-
-      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+      And("I select No on Declare Duty Suspended Deliveries Page")
+      DeclareDutySuspendedDeliveriesPage.declareDSD(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
-      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
-
-      When("I select radio button No on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("No", "Quarterly Spirits Returns Guidance Page")
-
-      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      And("I select No on Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.declareSpirits(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+      TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      Then("I am presented with the No Duty Due Page")
-      thenIAmPresentedWithThe("No Duty Due Page")
-
-      When("I click on Agree and send return button No Duty Due Page")
-      whenIClickOnAgreeAndSendReturnButton("No Duty Due Page")
+      And("I click on Agree and send return button No Duty Due Page")
+      NoDutyDuePage.continue()
 
       Then("I am presented with the Return Submitted Page")
-      thenIAmPresentedWithThe("Return Submitted Page")
+      ReturnSubmittedPage.checkURL
 
     }
 
@@ -3600,164 +3573,59 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
 
       When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
 
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
+      And("I select Yes on Declare Alcohol Duty Question Page")
+      DeclareAlcoholDutyQuestionPage.declareAlcohol(true)
 
-      When("I select radio button Yes on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
+      And("I select checkbox Beer on What Alcohol Do You Need To Declare Page")
+      WhatAlcoholDoYouNeedToDeclarePage.selectSingleRegime("Beer")
 
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
-
-      Then("I am presented with the What Alcohol Do You Need To Declare Page")
-      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
-
-      When("I select checkbox Beer on What Alcohol Do You Need To Declare Page")
-      whenICheckboxOn("select", "Beer", "What Alcohol Do You Need To Declare Page")
-
-      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
-      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
-
-      Then("I am presented with the What Do You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
-
-      When(
+      And(
         "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
-        "What Do You Need To Declare Beer Page"
+      WhatDoYouNeedToDeclareBeerPage.selectRateBands(
+        "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
-
-      And("I click save and continue button on What Do You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
 
       When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
 
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361()
 
-      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
+      And("I click continue button on Check Your Answers SPR Beer Page")
+      CheckYourAnswersSPRBeerPage.continue()
 
-      When(
-        "I select radio button Non-draught beer between 1.3% and 3.4% ABV (361 SPR) on Multiple Small Producer Relief Rate Beer Page"
-      )
-      whenISelectRadioButtonOn(
-        "Non-draught beer between 1.3% and 3.4% ABV (361 SPR)",
-        "Multiple Small Producer Relief Rate Beer Page"
-      )
+      And("I select radio button Yes on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.addAnother(true)
 
-      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
+      And("I enter details for tax type 371 on Multiple Small Producer Relief Rate Beer Page")
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InChangeMode()
 
-      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
+      And("I click continue button on Check Your Answers SPR Beer Page")
+      CheckYourAnswersSPRBeerPage.continue()
 
-      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
+      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
 
-      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
+      And("I select radio button No on Delete Multiple SPR Product Question Page")
+      DeleteMultipleSPRProductQuestionPage.deleteEntry(false)
 
-      Then("I am presented with the Check Your Answers SPR Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
+      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
 
-      When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
+      And("I select radio button Yes on Delete Multiple SPR Product Question Page")
+      DeleteMultipleSPRProductQuestionPage.deleteEntry(true)
 
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
+      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
 
-      When("I select radio button Yes on Multiple SPR List Question Beer Page")
-      whenISelectRadioButtonOn("Yes", "Multiple SPR List Question Beer Page")
-
-      And("I click save and continue button on Multiple SPR List Question Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page with new url")
-      thenIAmPresentedWithTheWithNewUrl("Multiple Small Producer Relief Rate Beer Page")
-
-      When(
-        "I select radio button Draught beer between 1.3% and 3.4% ABV (371 SPR) on Multiple Small Producer Relief Rate Beer Page"
-      )
-      whenISelectRadioButtonOn(
-        "Draught beer between 1.3% and 3.4% ABV (371 SPR)",
-        "Multiple Small Producer Relief Rate Beer Page"
-      )
-
-      And("I enter 7777.77 for Total litres on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("7777.77", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 777.7777 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("777.7777", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 77.77 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("77.77", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
-
-      Then("I am presented with the Check Your Answers SPR Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
-
-      When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
-
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
-
-      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
-      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the Delete Multiple SPR Product Question Page")
-      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
-
-      When("I select radio button No on Delete Multiple SPR Product Question Page")
-      whenISelectRadioButtonOn("No", "Delete Multiple SPR Product Question Page")
-
-      And("I click save and continue button on Delete Multiple SPR Product Question Page")
-      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
-
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
-
-      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
-      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the Delete Multiple SPR Product Question Page")
-      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
-
-      When("I select radio button Yes on Delete Multiple SPR Product Question Page")
-      whenISelectRadioButtonOn("Yes", "Delete Multiple SPR Product Question Page")
-
-      And("I click save and continue button on Delete Multiple SPR Product Question Page")
-      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
-
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
-
-      When("I click Remove hyperlink on Multiple SPR List Question Beer Page")
-      whenIClickOn("Remove hyperlink", "Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the Delete Multiple SPR Product Question Page")
-      thenIAmPresentedWithThe("Delete Multiple SPR Product Question Page")
-
-      When("I select radio button Yes on Delete Multiple SPR Product Question Page")
-      whenISelectRadioButtonOn("Yes", "Delete Multiple SPR Product Question Page")
-
-      And("I click save and continue button on Delete Multiple SPR Product Question Page")
-      whenIClickSaveAndContinueButtonOn("Delete Multiple SPR Product Question Page")
+      And("I select radio button Yes on Delete Multiple SPR Product Question Page")
+      DeleteMultipleSPRProductQuestionPage.deleteEntry(true)
 
       Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.checkURL
 
     }
 
