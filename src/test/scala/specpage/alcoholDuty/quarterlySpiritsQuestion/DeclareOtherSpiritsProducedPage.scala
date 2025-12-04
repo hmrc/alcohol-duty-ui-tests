@@ -25,18 +25,10 @@ object DeclareOtherSpiritsProducedPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/other-spirits-produced"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/other-spirits-produced"
-  override val title          = "Which other types of spirits have you produced?"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Which other types of spirits have you produced? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Which other types of spirits have you produced? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Which other types of spirits have you produced?")
-
-  override def enterDetails(textToEnter: String): Unit =
+  override def enterDetails(textToEnter: String): Unit = {
+    checkURL
     enterText("otherSpiritsProduced", textToEnter)
+    clickSaveAndContinueButton()
+  }
 }

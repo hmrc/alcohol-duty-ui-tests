@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -24,28 +25,24 @@ object AdjustmentListPage extends BasePage {
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/1"
 
-  override val title = "Adjustments from previous returns"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Adjustments from previous returns - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Adjustments from previous returns - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Adjustments from previous returns")
-
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#adjustment-list-yes-no-value")
-      case "No"  => click on cssSelector("#adjustment-list-yes-no-value-no")
+      case "Yes" => click(By.cssSelector("#adjustment-list-yes-no-value"))
+      case "No"  => click (By.cssSelector("#adjustment-list-yes-no-value-no"))
     }
 
   override def clickButton(buttonText: String): Unit =
     buttonText match {
       case "Change Hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/check-your-answers?index=0']")
-      case "Remove Hyperlink" => click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/remove-adjustment?index=0']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/check-your-answers?index=0']"))
+      case "Remove Hyperlink" =>
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/declare/remove-adjustment?index=0']"))
     }
+
+  def addAnother(adding: Boolean): Unit = {
+    checkURL
+    if (adding) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

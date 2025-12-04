@@ -223,26 +223,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
@@ -277,26 +265,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Repackaged draught products on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
@@ -352,26 +328,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on New Spr Duty Rate Page")
       whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
@@ -400,20 +364,11 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Spoilt Alcohol Volume Page")
       whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Drawback on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
@@ -448,56 +403,32 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button No on Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were under-declared")
 
-      Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("Under Declaration Reason Page")
-
-      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
-
-      And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
+      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
-      Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("Over Declaration Reason Page")
-
-      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
-      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
-
-      And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
+      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
@@ -505,176 +436,71 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn(
-        "Tell us if you have delivered or received finished products in duty suspense",
-        "Task List Page"
-      )
+      TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
 
-      Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
+      And("I select Yes on Declare Duty Suspended Deliveries Page")
+      DeclareDutySuspendedDeliveriesPage.declareDSD(true)
 
-      When("I select radio button Yes on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("Yes", "Declare Duty Suspended Deliveries Page")
+      And("I click continue button on Duty Suspended Deliveries Guidance Page")
+      DutySuspendedDeliveriesGuidancePage.continue()
 
-      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+      And("I enter volumes on Duty Suspended Beer Page")
+      DutySuspendedBeerPage.enterVolumes()
 
-      Then("I am presented with the Duty Suspended Deliveries Guidance Page")
-      thenIAmPresentedWithThe("Duty Suspended Deliveries Guidance Page")
+      And("I enter volumes on Duty Suspended Cider Page")
+      DutySuspendedCiderPage.enterVolumes()
 
-      When("I click continue button on Duty Suspended Deliveries Guidance Page")
-      whenIClickContinueButtonOn("Duty Suspended Deliveries Guidance Page")
+      And("I enter volumes on Duty Suspended Wine Page")
+      DutySuspendedWinePage.enterVolumes()
 
-      Then("I am presented with the Duty Suspended Beer Page")
-      thenIAmPresentedWithThe("Duty Suspended Beer Page")
+      And("I enter volumes on Duty Suspended Spirits Page")
+      DutySuspendedSpiritsPage.enterVolumes()
 
-      When("I enter 2000.75 for Total Beer on Duty Suspended Beer Page")
-      whenIEnterForOn("2000.75", "Total Beer", "Duty Suspended Beer Page")
+      And("I enter volumes on Duty Suspended Other Fermented Products Page")
+      DutySuspendedOtherFermentedProductsPage.enterVolumes()
 
-      And("I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page")
-      whenIEnterForOn("150.55", "Pure Alcohol In Beer", "Duty Suspended Beer Page")
-
-      And("I click save and continue button on Duty Suspended Beer Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Beer Page")
-
-      Then("I am presented with the Duty Suspended Cider Page")
-      thenIAmPresentedWithThe("Duty Suspended Cider Page")
-
-      When("I enter 9999.99 for Total Cider on Duty Suspended Cider Page")
-      whenIEnterForOn("9999.99", "Total Cider", "Duty Suspended Cider Page")
-
-      And("I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page")
-      whenIEnterForOn("99.19", "Pure Alcohol In Cider", "Duty Suspended Cider Page")
-
-      And("I click save and continue button on Duty Suspended Cider Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Cider Page")
-
-      Then("I am presented with the Duty Suspended Wine Page")
-      thenIAmPresentedWithThe("Duty Suspended Wine Page")
-
-      When("I enter 7777.77 for Total Wine on Duty Suspended Wine Page")
-      whenIEnterForOn("7777.77", "Total Wine", "Duty Suspended Wine Page")
-
-      And("I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page")
-      whenIEnterForOn("77.77", "Pure Alcohol In Wine", "Duty Suspended Wine Page")
-
-      And("I click save and continue button on Duty Suspended Wine Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Wine Page")
-
-      Then("I am presented with the Duty Suspended Spirits Page")
-      thenIAmPresentedWithThe("Duty Suspended Spirits Page")
-
-      When("I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page")
-      whenIEnterForOn("2100.75", "Total Spirits", "Duty Suspended Spirits Page")
-
-      And("I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page")
-      whenIEnterForOn("160.55", "Pure Alcohol In Spirits", "Duty Suspended Spirits Page")
-
-      And("I click save and continue button on Duty Suspended Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Spirits Page")
-
-      Then("I am presented with the Duty Suspended Other Fermented Products Page")
-      thenIAmPresentedWithThe("Duty Suspended Other Fermented Products Page")
-
-      When("I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      whenIEnterForOn("8888.88", "Total Other Fermented Products", "Duty Suspended Other Fermented Products Page")
-
-      And("I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      whenIEnterForOn(
-        "88.88",
-        "Pure Alcohol In Other Fermented Products",
-        "Duty Suspended Other Fermented Products Page"
-      )
-
-      And("I click save and continue button on Duty Suspended Other Fermented Products Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Other Fermented Products Page")
-
-      Then("I am presented with the Duty Suspended Deliveries Check Your Answers Page")
-      thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
-
-      When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
-      whenIClickContinueButtonOn("Duty Suspended Deliveries Check Your Answers Page")
+      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
+      DutySuspendedDeliveriesCheckYourAnswersPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
-      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
+      And("I select Yes on Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.declareSpirits(true)
 
-      When("I select radio button Yes on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("Yes", "Quarterly Spirits Returns Guidance Page")
+      And("I enter 99 on Total Of All Spirits Page")
+      TotalOfAllSpiritsPage.enterVolume("99")
 
-      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      And("I enter volumes on Declare Whiskey Page")
+      DeclareWhiskeyPage.enterVolumes()
 
-      Then("I am presented with the Total Of All Spirits Page")
-      thenIAmPresentedWithThe("Total Of All Spirits Page")
-
-      When("I enter 99 on Total Of All Spirits Page")
-      whenIEnterOn("99", "Total Of All Spirits Page")
-
-      And("I click save and continue button on Total Of All Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Total Of All Spirits Page")
-
-      Then("I am presented with the Declare Whiskey Page")
-      thenIAmPresentedWithThe("Declare Whiskey Page")
-
-      When("I enter 10.55 for Scotch Whisky on Declare Whiskey Page")
-      whenIEnterForOn("10.55", "Scotch Whisky", "Declare Whiskey Page")
-
-      And("I enter 20.67 for Irish Whiskey on Declare Whiskey Page")
-      whenIEnterForOn("20.67", "Irish Whiskey", "Declare Whiskey Page")
-
-      And("I click save and continue button on Declare Whiskey Page")
-      whenIClickSaveAndContinueButtonOn("Declare Whiskey Page")
-
-      Then("I am presented with the Which Of These Spirits Have You Produced Page")
-      thenIAmPresentedWithThe("Which Of These Spirits Have You Produced Page")
-
-      When(
+      And(
         "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits",
-        "Which Of These Spirits Have You Produced Page"
+      WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes(
+        "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits"
       )
 
-      And("I click save and continue button on Which Of These Spirits Have You Produced Page")
-      whenIClickSaveAndContinueButtonOn("Which Of These Spirits Have You Produced Page")
+      And("I enter Test Spirits on Declare Other Spirits Produced Page")
+      DeclareOtherSpiritsProducedPage.enterDetails("Test Spirits")
 
-      Then("I am presented with the Declare Other Spirits Produced Page")
-      thenIAmPresentedWithThe("Declare Other Spirits Produced Page")
-
-      When("I enter Test Spirits on Declare Other Spirits Produced Page")
-      whenIEnterOn("Test Spirits", "Declare Other Spirits Produced Page")
-
-      And("I click save and continue button on Declare Other Spirits Produced Page")
-      whenIClickSaveAndContinueButtonOn("Declare Other Spirits Produced Page")
-
-      Then("I am presented with the Quarterly Spirits Check Your Answers Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Check Your Answers Page")
-
-      When("I click save and continue button on Quarterly Spirits Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
+      And("I click save and continue button on Quarterly Spirits Check Your Answers Page")
+      QuarterlySpiritsCheckYourAnswersPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+      TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      Then("I am presented with the Return Summary Page")
-      thenIAmPresentedWithThe("Return Summary Page")
-
-      When("I click on Agree and send return button Return Summary Page")
-      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+      And("I click on Agree and send return button Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
-      thenIAmPresentedWithThe("Return Submitted Page")
+      ReturnSubmittedPage.checkURL
 
     }
 
@@ -900,26 +726,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume With Spr Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
@@ -957,26 +771,14 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume With Spr Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
       And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
@@ -1005,11 +807,8 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Spoilt Alcohol Volume Page")
       whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I am presented with the Adjustment List Page")
       thenIAmPresentedWithThe("Adjustment List Page")
@@ -1056,56 +855,32 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       And("I click save and continue button on Adjustment Volume With Spr Page")
       whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button No on Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were under-declared")
 
-      Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("Under Declaration Reason Page")
-
-      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
-
-      And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
+      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
-      Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("Over Declaration Reason Page")
-
-      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
-      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
-
-      And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
+      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
@@ -1113,49 +888,31 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn(
-        "Tell us if you have delivered or received finished products in duty suspense",
-        "Task List Page"
-      )
+      TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
 
-      Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
-
-      When("I select radio button No on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("No", "Declare Duty Suspended Deliveries Page")
-
-      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+      And("I select No on Declare Duty Suspended Deliveries Page")
+      DeclareDutySuspendedDeliveriesPage.declareDSD(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
-      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
-
-      When("I select radio button No on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("No", "Quarterly Spirits Returns Guidance Page")
-
-      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      And("I select No on Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.declareSpirits(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+      TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      Then("I am presented with the Return Summary Page")
-      thenIAmPresentedWithThe("Return Summary Page")
-
-      When("I click on Agree and send return button Return Summary Page")
-      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+      And("I click on Agree and send return button Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
-      thenIAmPresentedWithThe("Return Submitted Page")
+      ReturnSubmittedPage.checkURL
 
     }
 

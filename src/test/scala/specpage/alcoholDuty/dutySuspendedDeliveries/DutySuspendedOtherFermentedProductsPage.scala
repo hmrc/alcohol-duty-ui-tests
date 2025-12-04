@@ -27,19 +27,6 @@ object DutySuspendedOtherFermentedProductsPage extends BasePage {
     TestConfiguration.url(
       "alcohol-duty-returns-frontend"
     ) + "/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change"
-  override val title          = "Tell us about your other fermented products with duty suspended"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your other fermented products with duty suspended - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your other fermented products with duty suspended - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Tell us about your other fermented products with duty suspended"
-  )
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
@@ -47,4 +34,10 @@ object DutySuspendedOtherFermentedProductsPage extends BasePage {
       case "Pure Alcohol In Other Fermented Products" => enterText("pureAlcoholInOtherFermented", textToEnter)
     }
 
+  def enterVolumes(): Unit = {
+    checkURL
+    enterMultipleDetails("8888.88", "Total Other Fermented Products")
+    enterMultipleDetails("88.88", "Pure Alcohol In Other Fermented Products")
+    clickSaveAndContinueButton()
+  }
 }
