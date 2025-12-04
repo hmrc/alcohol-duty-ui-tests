@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.OtherFermentedProducts
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -23,31 +24,25 @@ object MultipleSPRListQuestionOtherFermentedProductPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/eligible-volumes"
-  override val title       = "Other fermented products with Small Producer Relief duty to declare"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Other fermented products with Small Producer Relief duty to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Other fermented products with Small Producer Relief duty to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Other fermented products with Small Producer Relief duty to declare"
-  )
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#multipleSPRList-yesNoValue")
-      case "No"  => click on cssSelector("#multipleSPRList-yesNoValue-no")
+      case "Yes" => click(By.cssSelector("#multipleSPRList-yesNoValue"))
+      case "No"  => click(By.cssSelector("#multipleSPRList-yesNoValue-no"))
     }
 
   override def clickButton(text: String): Unit =
     text match {
       case "Change hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/eligible-volume?index=0']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/eligible-volume?index=0']"))
       case "Remove hyperlink" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/remove-volume?index=0']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/spr/multiple-duty-rates/remove-volume?index=0']"))
     }
+
+  def addAnother(adding: Boolean): Unit = {
+    checkURL
+    if (adding) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

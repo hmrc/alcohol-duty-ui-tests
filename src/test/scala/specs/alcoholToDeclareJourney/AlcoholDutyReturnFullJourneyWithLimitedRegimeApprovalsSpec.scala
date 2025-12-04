@@ -44,7 +44,7 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands("Beer between 1.3% and 3.4% ABV (tax type code 311)")
 
-      And("I enter volumes on How Much You Need To Declare Beer Page")
+      And("I enter volumes on the How Much You Need To Declare Beer Page")
       HowMuchYouNeedToDeclareBeerPage.enterDetailsForLimitedRegimeApprovals()
 
       And("I click save and continue button on Check Your Answers Returns Beer Page")

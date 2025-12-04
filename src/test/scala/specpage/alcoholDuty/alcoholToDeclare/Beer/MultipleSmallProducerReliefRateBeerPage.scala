@@ -42,9 +42,9 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
       case "Duty rate"              => enterText("volumesWithRate_dutyRate", textToEnter)
     }
 
-  def enterDetailsFor361(): Unit = {
+  def enterDetailsFor361(mustSelectRateBand: Boolean = true): Unit = {
     checkURL
-    clickRadioButton("Non-draught beer between 1.3% and 3.4% ABV (361 SPR)")
+    if (mustSelectRateBand) clickRadioButton("Non-draught beer between 1.3% and 3.4% ABV (361 SPR)")
     enterMultipleDetails("9999.99", "Total litres")
     enterMultipleDetails("89.9999", "Litres of pure alcohol")
     enterMultipleDetails("19", "Duty rate")

@@ -1253,11 +1253,11 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       When("I click on Declare wine hyperlink on Task List Page")
       whenIClickOnHyperlinkOn("Declare wine", "Task List Page")
 
-      Then("I am presented with the Declaring Your Wine For Duty")
-      thenIAmPresentedWithThe("Declaring Your Wine For Duty")
+      Then("I am presented with the Declaring Your Wine For Duty Page")
+      thenIAmPresentedWithThe("Declaring Your Wine For Duty Page")
 
-      And("I click continue button on Declaring Your Wine For Duty")
-      whenIClickContinueButtonOn("Declaring Your Wine For Duty")
+      And("I click continue button on Declaring Your Wine For Duty Page")
+      whenIClickContinueButtonOn("Declaring Your Wine For Duty Page")
 
       Then("I am presented with the What Do You Need To Declare Wine Page")
       thenIAmPresentedWithThe("What Do You Need To Declare Wine Page")
