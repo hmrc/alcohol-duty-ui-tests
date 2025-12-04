@@ -30,11 +30,11 @@ object AuthLoginStubPage extends BasePage {
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
-      case "View Past Returns"   =>
+      case "View Past Returns"        =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
         )
-      case "View Past Payments"  =>
+      case "View Past Payments"       =>
         enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
       case "Email Contact Preference" =>
         enterRedirectURL(
@@ -66,9 +66,14 @@ object AuthLoginStubPage extends BasePage {
   def selectAffinityGroup(value: String): Unit =
     selectByVisibleText(By.cssSelector("select[name=affinityGroup]"), value)
 
-  def enterAuthDetails(appaId: String, typeOfJourney: String = "Alcohol Duty Service"): Unit = {
+  def enterAuthDetails(
+    appaId: String,
+    typeOfJourney: String = "Alcohol Duty Service",
+    useCredId: Boolean = false
+  ): Unit = {
     enterRedirectUrlFor(typeOfJourney)
     selectAffinityGroup("Organisation")
+    if (useCredId) authorityId("cred0")
     enrolments("HMRC-AD-ORG", "APPAID", appaId)
     clickSubmitButton()
   }

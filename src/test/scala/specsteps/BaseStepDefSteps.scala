@@ -214,7 +214,7 @@ object BaseStepDefSteps extends BasePage {
   def loginForEcp(appaId: String, typeOfJourney: String = "Email Contact Preference"): Unit = {
     clearDataForEcp()
     navigateToPage(AuthLoginStubPage)
-    AuthLoginStubPage.enterAuthDetails(appaId, typeOfJourney)
+    AuthLoginStubPage.enterAuthDetails(appaId, typeOfJourney, useCredId = true)
   }
 
 }
