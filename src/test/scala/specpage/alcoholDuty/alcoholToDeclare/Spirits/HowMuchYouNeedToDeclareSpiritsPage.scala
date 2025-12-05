@@ -76,4 +76,11 @@ object HowMuchYouNeedToDeclareSpiritsPage extends BasePage {
     enterMultipleDetailsWithIndex("33.3300", "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor315(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
+  }
 }

@@ -31,10 +31,10 @@ object AdjustmentVolumePage extends BasePage {
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
     }
 
-  def enterVolumes(): Unit = {
+  def enterVolumes(total: String = "3000.75", pureAlcohol: String = "250.5500"): Unit = {
     checkURL
-    enterMultipleDetails("3000.75", "Total Litres")
-    enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
     clickSaveAndContinueButton()
   }
 }

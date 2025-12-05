@@ -122,4 +122,19 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
     )
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor314(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex(
+      "2233.33",
+      "Standard other fermented products between 1.3% and 3.4% ABV - Total litres",
+      "first"
+    )
+    enterMultipleDetailsWithIndex(
+      "33.3300",
+      "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
+      "first"
+    )
+    clickSaveAndContinueButton()
+  }
 }

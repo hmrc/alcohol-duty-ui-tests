@@ -94,4 +94,11 @@ object HowMuchYouNeedToDeclareCiderPage extends BasePage {
     enterMultipleDetailsWithIndex("99.9900", "Standard cider between 1.3% and 3.4% ABV - Pure alcohol", "first")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor312(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("789.44", "Standard cider between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("43.4400", "Standard cider between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
+  }
 }

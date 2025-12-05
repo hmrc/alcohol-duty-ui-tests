@@ -72,4 +72,11 @@ object HowMuchYouNeedToDeclareWinePage extends BasePage {
     enterMultipleDetailsWithIndex("24.5500", "Draught wine between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor313(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("1234.55", "Standard wine between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("35.5500", "Standard wine between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
+  }
 }

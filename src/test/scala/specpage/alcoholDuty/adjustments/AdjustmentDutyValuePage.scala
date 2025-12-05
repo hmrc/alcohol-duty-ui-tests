@@ -16,11 +16,8 @@
 
 package specpage.alcoholDuty.adjustments
 
-import org.openqa.selenium.By
-import org.scalatest.Assertion
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.selenium.webdriver.Driver
 
 object AdjustmentDutyValuePage extends BasePage {
 

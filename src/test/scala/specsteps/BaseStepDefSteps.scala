@@ -111,19 +111,6 @@ object BaseStepDefSteps extends BasePage {
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
 
-  // I enter redirect url for {string}
-  def whenIEnterRedirectUrlFor(page: String): Unit =
-    page match {
-      case "Task List Page"       =>
-        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
-      case "Return Summary Page"  =>
-        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
-      case "Alcohol Duty Service" =>
-        Driver.instance.get(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-        )
-    }
-
   // I cleared the data to view completed returns from previous years
   def clearDataForPastReturns(): Unit =
     Driver.instance.get(
