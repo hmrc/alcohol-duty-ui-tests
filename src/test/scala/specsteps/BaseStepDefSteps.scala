@@ -162,18 +162,6 @@ object BaseStepDefSteps extends BasePage {
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments"
     )
 
-  // I click on change link {int} on {string} for alcohol type {string}
-  def andIClickOnChangeLinkOnForAlcoholType(changeLinkIndex: Int, page: String, alcoholType: String): Unit = {
-    PageObjectFinder.page(page).waitForPageHeader
-    Driver.instance
-      .findElement(
-        By.xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
-        )
-      )
-      .click()
-  }
-
   // I click on Agree and send return button {string}
   def whenIClickOnAgreeAndSendReturnButton(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader

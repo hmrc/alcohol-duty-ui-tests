@@ -37,4 +37,9 @@ object CheckYourAnswersReturnsCiderPage extends BasePage {
     checkURL
     clickSaveAndContinueButton()
   }
+
+  def clickChangeLink(text: String): Unit = {
+    checkURL
+    clickButton(text)
+  }
 }

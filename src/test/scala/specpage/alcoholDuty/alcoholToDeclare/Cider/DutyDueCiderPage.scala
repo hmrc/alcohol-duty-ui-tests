@@ -16,12 +16,18 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Cider
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object DutyDueCiderPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/duty-due"
+
+  def clickChangeLink(changeLinkIndex: Int): Unit = {
+    checkURL
+    click(By.xpath(s"(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/declare/check-your-answers'])[$changeLinkIndex]"))
+  }
 
   def continue(): Unit = {
     checkURL

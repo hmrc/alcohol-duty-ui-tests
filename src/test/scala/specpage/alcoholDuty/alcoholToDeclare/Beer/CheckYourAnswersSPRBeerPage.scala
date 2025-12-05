@@ -40,4 +40,14 @@ object CheckYourAnswersSPRBeerPage extends BasePage {
     checkURL
     clickContinueButton()
   }
+
+  def clickChangeLink(text: String): Unit = {
+    checkURL
+    clickButton(text)
+  }
+
+  def continueAfterChange(): Unit = {
+    checkExistingDynamicURL("?index=0")
+    clickContinueButton()
+  }
 }

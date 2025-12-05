@@ -56,7 +56,7 @@ object HowMuchYouNeedToDeclareCiderPage extends BasePage {
     }
   }
 
-  def enterDetailsForAllRateBands(): Unit = {
+  def enterDetailsForAllRateBands(exclude359: Boolean = false): Unit = {
     checkURL
     enterMultipleDetailsWithIndex("789.44", "Standard cider between 1.3% and 3.4% ABV - Total litres", "first")
     enterMultipleDetailsWithIndex("43.4400", "Standard cider between 1.3% and 3.4% ABV - Pure alcohol", "first")
@@ -68,12 +68,30 @@ object HowMuchYouNeedToDeclareCiderPage extends BasePage {
     enterMultipleDetailsWithIndex("33.2100", "Draught cider between 1.3% and 3.4% ABV - Pure alcohol", "fourth")
     enterMultipleDetailsWithIndex("889.12", "Draught cider between 3.5% and 8.4% ABV - Total litres", "fifth")
     enterMultipleDetailsWithIndex("22.4500", "Draught cider between 3.5% and 8.4% ABV - Pure alcohol", "fifth")
-    enterMultipleDetailsWithIndex("888.88", "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres", "sixth")
-    enterMultipleDetailsWithIndex(
-      "888.8800",
-      "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol",
-      "sixth"
-    )
+    if (!exclude359) {
+      enterMultipleDetailsWithIndex(
+        "888.88",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
+        "sixth"
+      )
+      enterMultipleDetailsWithIndex(
+        "888.8800",
+        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol",
+        "sixth"
+      )
+    }
+    clickSaveAndContinueButton()
+  }
+
+  def continueInCheckMode(): Unit = {
+    checkNewURL
+    clickSaveAndContinueButton()
+  }
+
+  def updateDetailsInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetailsWithIndex("999.99", "Standard cider between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("99.9900", "Standard cider between 1.3% and 3.4% ABV - Pure alcohol", "first")
     clickSaveAndContinueButton()
   }
 }

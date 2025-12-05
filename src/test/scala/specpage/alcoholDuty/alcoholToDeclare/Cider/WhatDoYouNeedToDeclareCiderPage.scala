@@ -33,4 +33,15 @@ object WhatDoYouNeedToDeclareCiderPage extends BasePage {
     selectCheckBoxes(choices.split(","))
     clickSaveAndContinueButton()
   }
+
+  def continueInCheckMode(): Unit = {
+    checkNewURL
+    clickSaveAndContinueButton()
+  }
+
+  def unselectRateBandsInCheckMode(choices: String): Unit = {
+    checkNewURL
+    selectCheckBoxes(choices.split(","))
+    clickSaveAndContinueButton()
+  }
 }

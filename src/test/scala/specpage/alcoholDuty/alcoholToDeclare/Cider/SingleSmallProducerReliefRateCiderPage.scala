@@ -120,4 +120,21 @@ object SingleSmallProducerReliefRateCiderPage extends BasePage {
     enterMultipleDetailsWithIndex("17", "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate", "sixth")
     clickSaveAndContinueButton()
   }
+
+  def continueInCheckMode(): Unit = {
+    checkNewURL
+    clickSaveAndContinueButton()
+  }
+
+  def updateDetailsInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetailsWithIndex("777.77", "Draught cider between 1.3% and 3.4% ABV - Total litres", "fourth")
+    enterMultipleDetailsWithIndex(
+      "77.7700",
+      "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
+      "fourth"
+    )
+    enterMultipleDetailsWithIndex("7.7", "Draught cider between 1.3% and 3.4% ABV - SPR Rate", "fourth")
+    clickSaveAndContinueButton()
+  }
 }

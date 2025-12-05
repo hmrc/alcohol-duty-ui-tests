@@ -45,6 +45,11 @@ object MultipleSPRListQuestionBeerPage extends BasePage {
     clickSaveAndContinueButton()
   }
 
+  def clickChangeHyperlink(): Unit = {
+    checkURL
+    clickButton("Change hyperlink")
+  }
+
   def clickRemoveHyperlink(): Unit = {
     checkURL
     clickButton("Remove hyperlink")

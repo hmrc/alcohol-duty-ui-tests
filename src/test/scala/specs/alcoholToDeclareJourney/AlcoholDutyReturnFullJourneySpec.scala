@@ -789,7 +789,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       MultipleSPRListQuestionBeerPage.addAnother(true)
 
       And("I enter details for tax type 371 on Multiple Small Producer Relief Rate Beer Page")
-      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InChangeMode()
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InCheckMode()
 
       And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()
