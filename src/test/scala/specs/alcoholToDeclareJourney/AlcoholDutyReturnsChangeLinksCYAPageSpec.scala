@@ -306,101 +306,20 @@ class AlcoholDutyReturnsChangeLinksCYAPageSpec extends BaseSpec {
       And("I select Yes on Declare Adjustment Question Page")
       DeclareAdjustmentQuestionPage.declareAdjustments(true)
 
-      And("I select radio button Under-declaration on Adjustment Type Page")
-      AdjustmentTypePage.selectAdjustmentType("Under-declaration")
-
-      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("09", "2023")
-
-      And("I enter 311 on Adjustment Tax Type Code Page")
-      AdjustmentTaxTypeCodePage.enterDetails("311")
-
-      And("I enter volumes on the Adjustment Volume Page")
-      AdjustmentVolumePage.enterVolumes("123.45", "5.5000")
-
-      And("I click continue button on Adjustment Duty Value Page")
-      AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.continue()
-
-      And("I select radio button Yes on Adjustment List Page")
-      AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Over-declaration on Adjustment Type Page")
-      AdjustmentTypePage.selectAdjustmentType("Over-declaration")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 312 on Adjustment Tax Type Code Page")
-      AdjustmentTaxTypeCodePage.enterDetails("312")
-
-      And("I enter volumes on the Adjustment Volume Page")
-      AdjustmentVolumePage.enterVolumes("222.22", "22.2200")
-
-      And("I click continue button on Adjustment Duty Value Page")
-      AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.continue()
-
-      And("I select radio button Yes on Adjustment List Page")
-      AdjustmentListPage.addAnother(true)
-
       And("I select radio button Repackaged draught products on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
 
       And("I enter month 11 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("11", "2023")
 
-      And("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
-      AdjustmentTaxTypeCodePage.enterDetails("373")
-
-      And("I enter volumes on the Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      And("I enter 363 on New Tax Type Code Page")
-      NewTaxTypeCodePage.enterDetails("363")
-
-      And("I enter 11.5 on New Spr Duty Rate Page")
-      NewSprDutyRatePage.enterDetails("11.5")
-
-      And("I click continue button on Adjustment Duty Value Page")
-      AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.continue()
-
-      And("I select radio button Yes on Adjustment List Page")
-      AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Spoilt on Adjustment Type Page")
-      AdjustmentTypePage.selectAdjustmentType("Spoilt")
-
-      And("I select radio button Spirits on Spoilt Alcohol Type Page")
-      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
-
-      And("I enter volumes the Spoilt Alcohol Volume Page")
-      SpoiltAlcoholVolumePage.enterVolumes()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.continue()
-
-      And("I select radio button Yes on Adjustment List Page")
-      AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Drawback on Adjustment Type Page")
-      AdjustmentTypePage.selectAdjustmentType("Drawback")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 314 on Adjustment Tax Type Code Page")
-      AdjustmentTaxTypeCodePage.enterDetails("314")
+      And("I enter 353 on Adjustment Tax Type Code For Repackaged Page")
+      AdjustmentTaxTypeCodePage.enterDetails("353")
 
       And("I enter volumes on the Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
+
+      And("I enter 313 on New Tax Type Code Page")
+      NewTaxTypeCodePage.enterDetails("313")
 
       And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()

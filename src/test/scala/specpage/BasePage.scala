@@ -67,18 +67,11 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   }
 
   private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
-  private val expectedPageErrorTitleList = expectedPageErrorTitle.map(_.split(";").toList)
   private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
 
   def checkPageTitle(): Assertion = {
     fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
     expectedPageTitleList should contain(List(pageTitle))
-  }
-
-  def checkPageErrorTitle(): Assertion = {
-    //    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.className("govuk-error-summary__title")))
-    expectedPageErrorTitleList should contain(List(pageTitle))
   }
 
   def enterText(id: String, textToEnter: String): Unit =
@@ -157,16 +150,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickHyperlink(text: String): Unit = click(By.linkText(text))
 
-  def pageData: Map[String, String] = Driver.instance
-    .findElements(By.cssSelector(".govuk-summary-list__row"))
-    .asScala
-    .flatMap { row =>
-      val key   = row.findElement(By.cssSelector(".govuk-summary-list__key")).getText.trim
-      val value = row.findElement(By.cssSelector(".govuk-summary-list__value")).getText.trim.replace("\n", ",")
-      Map(key -> value)
-    }
-    .toMap
-
   def periodKey: String = {
     val adjustedYear = if (currentMonth <= 3) previousYear else year
     val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
@@ -181,19 +164,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     }
   }
 
-  def previousPeriodKey: String = {
-    val adjustedYear = if (currentMonth <= 3) previousYear else year
-    val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year
-
-    // Get the month before the most recent month with quarterly spirits
-    generateMonth(currentMonth) match {
-      case 1  => s"${yearSuffix}AK" // First month of Q1 -> AL
-      case 4  => s"${yearSuffix}AB" // First month of Q2 -> AC
-      case 7  => s"${yearSuffix}AE" // First month of Q3 -> AF
-      case 10 => s"${yearSuffix}AH" // First month of Q4 -> AI
-    }
-  }
-
   def generateMonth(month: Int): Int =
     month match {
       case m if m >= 1 && m <= 3   => 1
@@ -203,24 +173,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
       case _                       => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
 
     }
-
-  def getDateRange: String = {
-    val Month: Int = LocalDate.now().getMonthValue
-
-    val (startMonth, startYear) = Month match {
-      case 1 | 2 | 3    => (12, previousYear) // If in January, take December of the previous year
-      case 4 | 5 | 6    => (3, year) // If in April, take March of the current year
-      case 7 | 8 | 9    => (6, year) // If in July, take June of the current year
-      case 10 | 11 | 12 => (9, year) // If in October, take September of the
-      case _            => throw new IllegalArgumentException("Invalid month value")
-    }
-
-    val startDate = LocalDate.of(startYear, startMonth, 1)
-    val endDate   = startDate.withDayOfMonth(startDate.lengthOfMonth())
-
-    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(Locale.UK)
-    s"${startDate.format(formatter)} to ${endDate.format(formatter)}"
-  }
 
   val currentDate: LocalDate = LocalDate.now()
   val year: Int              = currentDate.getYear
@@ -233,17 +185,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate
       .minusMonths(12)
       .getMonthValue + 64).toChar}"""
-
-  def productsList: Seq[List[String]]                         = Driver.instance
-    .findElement(By.tagName("table"))
-    .findElements(By.tagName("tr"))
-    .asScala
-    .map(
-      _.findElements(By.xpath("td | th")).asScala
-        .map(getVisibleTextFromElement)
-        .toList
-    )
-    .toList
 
   def enterDate(month: String, year: String): Unit = {}
 
@@ -279,64 +220,4 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def getSpecificMonth: String =
     currentDate.minusMonths(12).format(formatter)
-
-  def getMonthDetails(formatType: String): Map[String, String] = {
-    val currentDate = LocalDate.now()
-
-    // Define the formatter based on the formatType
-    val formatter = formatType match {
-      case "MonthYear" => DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(java.util.Locale.UK)
-      case "FullDate"  => DateTimeFormatter.ofPattern("d MMMM yyyy").withLocale(java.util.Locale.UK)
-      case _           => throw new IllegalArgumentException("Invalid format type. Use 'MonthYear' or 'FullDate'.")
-    }
-
-    // Function to compute dates for a specific day and month offset
-    def computeDate(day: Int, offset: Int): String = {
-      val targetDate  = currentDate.plusMonths(offset)
-      val adjustedDay = Math.min(day, targetDate.lengthOfMonth()) // Adjust day to the last valid day of the month
-      targetDate.withDayOfMonth(adjustedDay).format(formatter)
-    }
-
-    // Generate keys for all days (1 to 31) and special cases like "CurrentDateAndMonth"
-    val monthOffsets: Seq[(String, String)] = (-10 to 10).flatMap { offset =>
-      (1 to 31).map { day =>
-        val key =
-          if (offset < 0) s"${day}Minus${-offset}Months"
-          else if (offset > 0) s"${day}Plus${offset}Months"
-          else s"${day}CurrentMonth"
-        key -> computeDate(day, offset)
-      }
-    } ++ Seq("CurrentDateAndMonth" -> computeDate(currentDate.getDayOfMonth, 0))
-
-    monthOffsets.toMap
-  }
-
-  def replacePlaceholdersInScenario(dataTable: List[List[String]], formatType: String): List[List[String]] = {
-    // Retrieve the month details for replacements
-    val monthDetails = getMonthDetails(formatType)
-
-    // Replace placeholders in the data table
-    dataTable.map { row =>
-      row.map { cell =>
-        // Replace "[empty]" with an empty string
-        val withoutEmptyPlaceholder = if (cell == "[empty]") "" else cell
-
-        // Replace dynamic month placeholders
-        monthDetails.foldLeft(withoutEmptyPlaceholder) { (updatedCell, replacement) =>
-          val (key, value) = replacement
-          if (updatedCell.contains(key)) updatedCell.replace(key, value) else updatedCell
-        }
-      }
-    }
-  }
-
-  def getVisibleTextFromElement(element: WebElement): String = {
-    val htmlContent = element.getAttribute("innerHTML")
-    htmlContent
-      .replaceAll("""<span[^>]*class="[^"]*govuk-visually-hidden[^"]*"[^>]*>.*?</span>""", "")
-      .replaceAll("<[^>]+>", "")
-      .replaceAll("\n", " ")
-      .replaceAll("\\s+", " ")
-      .trim
-  }
 }
