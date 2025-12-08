@@ -23,5 +23,8 @@ object ViewPastReturnsPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
 
-  def clickPreviousYearHyperlink(): Unit = clickHyperlink(s"View $previousYear returns")
+  def clickPreviousYearHyperlink(): Unit = {
+    checkURL
+    clickHyperlink(s"View $previousYear returns")
+  }
 }

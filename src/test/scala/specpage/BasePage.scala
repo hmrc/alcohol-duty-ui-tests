@@ -57,26 +57,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def expectedPageHeader: Option[String] = None
 
-  def pageHeader: Option[String] = {
-    waitForPageHeader
-    val header: Option[String] = find(tagName("h1")).map(_.text)
-    if (header.get.takeRight(2) == " ?")
-      Some(header.get.replaceAll(" \\?$", "?"))
-    else
-      header
-  }
-
-  private val expectedPageTitleList      = expectedPageTitle.map(_.split(";").toList)
-  private val expectedPageHeaderList     = expectedPageHeader.map(_.split(";").toList)
-
-  def checkPageTitle(): Assertion = {
-    fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
-    expectedPageTitleList should contain(List(pageTitle))
-  }
-
-  def enterText(id: String, textToEnter: String): Unit =
-    sendKeys(By.id(id), textToEnter)
-
   def checkURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
@@ -105,11 +85,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
   }
 
-  def checkPageHeader(): Assertion = {
-    fluentWait.until(ExpectedConditions.textToBe(By.cssSelector("h1"), expectedPageHeader.get))
-    expectedPageHeaderList should contain(List(pageHeader.get))
-  }
-
   def clickSubmitButton(): Unit = click(By.cssSelector("#submit"))
 
   def clickECPSubmitButton(): Unit = click on cssSelector("#submitButton")
@@ -120,7 +95,10 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickContinueButton(): Unit = click(By.id("continueButton"))
 
-  def clickBackButton(): Unit = click on xpath("//a[normalize-space()='Back']")
+  def clickBackButton(): Unit = click(By.xpath("//a[normalize-space()='Back']"))
+
+  def enterText(id: String, textToEnter: String): Unit =
+    sendKeys(By.id(id), textToEnter)
 
   def enterDetails(data: String): Unit = {}
 
@@ -128,7 +106,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
 
-  def clickRadioButton(text: String): Unit =
+  def clickRadioButton(text: String): Unit             =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
 
   def clickCheckBox(text: String): Unit =
@@ -169,7 +147,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
 
-  def get12MonthsAgoPeriodKey: String =
+  def get12MonthsAgoPeriodKey: String                         =
     s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate
       .minusMonths(12)
       .getMonthValue + 64).toChar}"""

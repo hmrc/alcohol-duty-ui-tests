@@ -21,14 +21,15 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object ViewCompletedReturnsPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + s"/completed-returns/${year-1}"
-  override val title       = "Completed returns"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + s"/completed-returns/$previousYear"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Completed returns - Manage your Alcohol Duty - GOV.UK"
-  )
+  def clickFirstViewReturnLink(): Unit = {
+    checkURL
+    clickHyperlink("View return")
+  }
 
-  override def expectedPageHeader: Option[String] = Some(
-    "Completed returns"
-  )
+  def backToCurrentReturns(): Unit = {
+    checkURL
+    clickHyperlink("Back to current returns")
+  }
 }
