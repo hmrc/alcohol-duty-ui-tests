@@ -97,24 +97,12 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = newUrl + urlSuffix
-    if (url.contains("...")) {
-      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
-      Driver.instance.getCurrentUrl should equal(expectedUrl)
-    }
+    fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
   }
 
   def checkExistingDynamicURL(urlSuffix: String): Unit = {
     val expectedUrl = url + urlSuffix
-    if (url.contains("...")) {
-      fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
-    } else {
-      fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
-      Driver.instance.getCurrentUrl should equal(expectedUrl)
-    }
+    fluentWait.until(ExpectedConditions.urlToBe(expectedUrl))
   }
 
   def checkPageHeader(): Assertion = {
