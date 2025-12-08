@@ -50,6 +50,7 @@ object BaseStepDefSteps extends BasePage {
   // I am presented with the {string} with new url
   def thenIAmPresentedWithTheWithNewUrl(page: String): Unit =
     PageObjectFinder.page(page).checkNewURL
+  
 
   // I am presented with the {string} with url suffix as {string}
   def thenIAmPresentedWithTheWithUrlSuffixAs(page: String, urlSuffix: String): Unit =

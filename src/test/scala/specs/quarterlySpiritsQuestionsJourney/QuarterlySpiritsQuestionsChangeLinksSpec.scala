@@ -16,6 +16,8 @@
 
 package specs.quarterlySpiritsQuestionsJourney
 
+import specpage.alcoholDuty.quarterlySpiritsQuestion.QuarterlySpiritsReturnsGuidancePage
+import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{AllTests, QuarterlySpirits}
 import specsteps.BaseStepDefSteps._
@@ -36,13 +38,17 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
       whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
 
       Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
+     // thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.checkURL
 
       When("I select radio button Yes on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("Yes", "Quarterly Spirits Returns Guidance Page")
-
+     // whenISelectRadioButtonOn("Yes", "Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.clickRadioButton("Yes")
+      
+      
       And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+     // whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.clickSaveAndContinueButton()
 
       Then("I am presented with the Total Of All Spirits Page")
       thenIAmPresentedWithThe("Total Of All Spirits Page")
