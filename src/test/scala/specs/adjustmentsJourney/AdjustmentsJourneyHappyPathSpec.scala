@@ -16,7 +16,7 @@
 
 package specs.adjustmentsJourney
 
-import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumeWithSprPage, UnderDeclarationReasonPage}
+import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumeWithSprPage, OverDeclarationReasonPage, RemoveAdjustmentPage, UnderDeclarationReasonPage}
 import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{Adjustments, AllTests}
@@ -98,191 +98,73 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       navigateToAdjustmentTypePage()
 
       When("I select radio button Over-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
+      AdjustmentReturnDatePage.enterDate("10","2023")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
-      whenIEnterOn("372", "Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("372")
 
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 1000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("1000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 150.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("150.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 4.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("4.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      When("I enter volumes on Total Litres on Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("1000.75","150.5500","4.5")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
+      AdjustmentDutyValuePage.continue()
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
       When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
+      AdjustmentListPage.addAnother(true)
 
       When("I select radio button Over-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
+      AdjustmentReturnDatePage.enterDate("10","2023")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
-      whenIEnterOn("372", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
+      AdjustmentTaxTypeCodePage.enterDetails("372")
 
       When("I enter 1000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("1000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 150.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("150.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 4.5 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("4.5", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("1000.75","150.5500","4.5")
 
       When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
+      AdjustmentDutyValuePage.continue()
 
       When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
       When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      AdjustmentListPage.addAnother(false)
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
-
-      Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("Over Declaration Reason Page")
+      TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
       When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
-      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
-
-      And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
-
-      Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
       When("I click on Declare adjustments hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare adjustments", "Task List Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      TaskListPage.clickHyperlink("Declare adjustments")
 
       When("I click Remove Hyperlink on Adjustment List Page")
-      whenIClickOn("Remove Hyperlink", "Adjustment List Page")
-
-      Then("I am presented with the Remove Adjustment Page")
-      thenIAmPresentedWithThe("Remove Adjustment Page")
+      AdjustmentListPage.clickHyperlink("Remove")
 
       When("I select radio button No on Remove Adjustment Page")
-      whenISelectRadioButtonOn("No", "Remove Adjustment Page")
-
-      And("I click save and continue button on Remove Adjustment Page")
-      whenIClickSaveAndContinueButtonOn("Remove Adjustment Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      RemoveAdjustmentPage.addAnother(false)
 
       When("I click Remove Hyperlink on Adjustment List Page")
-      whenIClickOn("Remove Hyperlink", "Adjustment List Page")
-
-      Then("I am presented with the Remove Adjustment Page")
-      thenIAmPresentedWithThe("Remove Adjustment Page")
+      AdjustmentListPage.clickHyperlink("Remove")
 
       When("I select radio button Yes on Remove Adjustment Page")
-      whenISelectRadioButtonOn("Yes", "Remove Adjustment Page")
-
-      And("I click save and continue button on Remove Adjustment Page")
-      whenIClickSaveAndContinueButtonOn("Remove Adjustment Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      RemoveAdjustmentPage.addAnother(true)
 
       When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
-
+      TaskListPage.checkURL
     }
   }
 }
