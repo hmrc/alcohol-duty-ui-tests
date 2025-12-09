@@ -52,7 +52,12 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
 
   def continue(): Unit = {
     checkURL
-    clickButton("Adjustment")
+    clickSaveAndContinueButton()
+  }
+
+  def clickChangeLink(text: String): Unit = {
+    checkURL
+    clickButton(text)
   }
 
   def saveAndContinue(): Unit = {

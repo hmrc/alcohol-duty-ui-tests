@@ -51,7 +51,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.continue()
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Adjustment")
 
       Then("I am presented with the Adjustment Type Page with new url")
       AdjustmentTypePage.selectAdjustmentTypeWithNewUrl("Over-declaration")
@@ -69,7 +69,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on Adjustment List Page")
       AdjustmentListPage.addAnother(false)
@@ -104,7 +104,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click on Return period being adjusted on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Return period being adjusted")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Return period being adjusted")
 
       Then("I enter month 12 and year 2023 on Adjustment Return Date Page with new url")
       AdjustmentReturnDatePage.enterDateWithNewUrl("12","2023")
@@ -119,7 +119,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click button Tax type on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Tax type")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
 
       Then("I enter 374 on Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("374")
@@ -131,7 +131,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click SPR duty rate on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("SPR duty rate")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("SPR duty rate")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","12.5")
@@ -140,7 +140,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
@@ -181,7 +181,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click button Volume on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Volume")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Volume")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("4000.75","350.5500","8.5")
@@ -196,7 +196,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click button New SPR duty rate on Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("New SPR duty rate")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("New SPR duty rate")
 
       Then("I enter 14.5 on New Spr Duty Rate Page with new url")
       NewSprDutyRatePage.enterDetailsWithNewUrl("14.5")
@@ -205,7 +205,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click New tax type on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("New tax type")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("New tax type")
 
       Then("I enter 313 on the New Tax Type Code Page with new url")
       NewTaxTypeCodePage.enterDetailsWithNewUrl("313")
@@ -214,7 +214,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
@@ -245,7 +245,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I click button Tax type on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Tax type")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
 
       When("I enter 375 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("375")
@@ -257,7 +257,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
@@ -292,7 +292,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I select Tax type on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Tax type")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
 
       Then("I enter 314 on the Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("314")
@@ -304,7 +304,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentDutyValuePage.continue()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
@@ -328,7 +328,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       SpoiltAlcoholVolumePage.enterVolumes()
 
       Then("I click button Description on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Description")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Description")
 
       When("I select radio button Beer on Spoilt Alcohol Type Page")
       SpoiltAlcoholTypePage.selectAlcoholTypeWithNewUrl("Beer")
@@ -337,13 +337,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       SpoiltBeerAlcoholVolumePage.enterVolumes("3000.75","250.5500","3255.55")
 
       Then("I select Duty value on the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.clickButton("Duty value")
+      AdjustmentCheckYourAnswersPage.clickChangeLink("Duty value")
 
       Then("I enter volumes on the Spoilt Beer Alcohol Volume Page with new url")
       SpoiltBeerAlcoholVolumePage.enterVolumesWithNewUrl("3222.75","255.5500","3200.55")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      AdjustmentCheckYourAnswersPage.saveAndContinue()
+      AdjustmentCheckYourAnswersPage.continue()
 
       Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
