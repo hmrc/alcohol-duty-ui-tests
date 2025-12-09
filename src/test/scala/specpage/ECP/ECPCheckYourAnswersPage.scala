@@ -29,4 +29,10 @@ object ECPCheckYourAnswersPage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("Check your answers")
+
+
+  def ecpSubmitButton(): Unit = {
+    checkURL
+    clickECPSubmitButton()
+  }
 }

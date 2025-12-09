@@ -32,25 +32,30 @@ class EmailJourneySpec extends BaseSpec {
       When("I select email on the How Would You Like To Be Contacted Page")
       HowWouldYouLikeToBeContactedPage.selectPreference(email = true)
 
+      
+      
       Then("I am presented with the ECP Existing Email Page")
-      //thenIAmPresentedWithThe("ECP Existing Email Page")
-      ECPExistingEmailPage.checkURL
-
-      When("I select radio button Yes on ECP Existing Email Page")
-     //whenISelectRadioButtonOn("Yes", "ECP Existing Email Page")
-      ECPExistingEmailPage.clickRadioButton("Yes")
-
-      And("I click continue button on ECP Existing Email Page")
-      //whenIClickContinueButtonOn("ECP Existing Email Page")
-      ECPExistingEmailPage.clickContinueButton()
+      ECPExistingEmailPage.ECPExistingEmail(true)
+      
+//      //thenIAmPresentedWithThe("ECP Existing Email Page")
+//      ECPExistingEmailPage.checkURL
+//
+//      When("I select radio button Yes on ECP Existing Email Page")
+//     //whenISelectRadioButtonOn("Yes", "ECP Existing Email Page")
+//      ECPExistingEmailPage.clickRadioButton("Yes")
+//
+//      And("I click continue button on ECP Existing Email Page")
+//      //whenIClickContinueButtonOn("ECP Existing Email Page")
+//      ECPExistingEmailPage.clickContinueButton()
 
       Then("I am presented with the ECP Check Your Answers Page")
-      //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
-
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+      ECPCheckYourAnswersPage.ecpSubmitButton()
+//      //thenIAmPresentedWithThe("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.checkURL
+//
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
       //thenIAmPresentedWithThe("ECP Confirmation Page")

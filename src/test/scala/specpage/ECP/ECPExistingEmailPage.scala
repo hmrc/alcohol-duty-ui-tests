@@ -39,4 +39,11 @@ object ECPExistingEmailPage extends BasePage {
       case "Yes" => click on cssSelector("#useExistingEmail")
       case "No, I want to use a different email" => click on cssSelector("#useExistingEmail-no")
     }
+
+  def ECPExistingEmail(ECPRadiobutton : Boolean): Unit = {
+    checkURL
+    if (ECPRadiobutton) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }
