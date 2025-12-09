@@ -30,4 +30,10 @@ object NewSprDutyRatePage extends BasePage {
     enterText("adjustment-small-producer-relief-duty-rate-input", textToEnter)
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsWithNewUrl(textToEnter: String): Unit = {
+    checkNewURL
+    enterText("adjustment-small-producer-relief-duty-rate-input", textToEnter)
+    clickSaveAndContinueButton()
+  }
 }

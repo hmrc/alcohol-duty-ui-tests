@@ -32,8 +32,17 @@ object AdjustmentVolumeWithSprPage extends BasePage {
       case "SPR Duty Rate"          => enterText("volumes_sprDutyRate", textToEnter)
     }
 
+
   def enterVolumes(total: String, pureAlcohol: String, dutyRate: String): Unit = {
     checkURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "SPR Duty Rate")
+    clickSaveAndContinueButton()
+  }
+
+  def enterVolumesWithNewUrl(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkNewURL
     enterMultipleDetails(total, "Total Litres")
     enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
     enterMultipleDetails(dutyRate, "SPR Duty Rate")

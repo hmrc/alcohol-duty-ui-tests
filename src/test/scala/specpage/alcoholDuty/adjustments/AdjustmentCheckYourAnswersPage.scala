@@ -47,9 +47,15 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']")
       case "Duty value" =>
         click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spoilt-product/volume']")
+
     }
 
   def continue(): Unit = {
+    checkURL
+    clickButton("Adjustment")
+  }
+
+  def saveAndContinue(): Unit = {
     checkURL
     clickSaveAndContinueButton()
   }

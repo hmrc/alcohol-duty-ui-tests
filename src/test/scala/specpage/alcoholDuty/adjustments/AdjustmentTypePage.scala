@@ -40,4 +40,10 @@ object AdjustmentTypePage extends BasePage {
     clickRadioButton(adjustmentType)
     clickSaveAndContinueButton()
   }
+
+  def selectAdjustmentTypeWithNewUrl(adjustmentType: String): Unit = {
+    checkNewURL
+    clickRadioButton(adjustmentType)
+    clickSaveAndContinueButton()
+  }
 }

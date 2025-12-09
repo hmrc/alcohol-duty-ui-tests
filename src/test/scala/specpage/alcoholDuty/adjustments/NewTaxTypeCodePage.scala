@@ -30,4 +30,10 @@ object NewTaxTypeCodePage extends BasePage {
     enterText("new-tax-type-code", textToEnter)
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsWithNewUrl(textToEnter: String): Unit = {
+    checkNewURL
+    enterText("new-tax-type-code", textToEnter)
+    clickSaveAndContinueButton()
+  }
 }

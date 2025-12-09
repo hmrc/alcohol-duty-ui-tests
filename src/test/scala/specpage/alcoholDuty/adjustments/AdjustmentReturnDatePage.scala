@@ -31,4 +31,11 @@ object AdjustmentReturnDatePage extends BasePage {
     enterText("adjustment-return-period-input.year", year)
     clickSaveAndContinueButton()
   }
+
+   def enterDateWithNewUrl(month: String, year: String): Unit = {
+    checkNewURL
+    enterText("adjustment-return-period-input.month", month)
+    enterText("adjustment-return-period-input.year", year)
+    clickSaveAndContinueButton()
+  }
 }

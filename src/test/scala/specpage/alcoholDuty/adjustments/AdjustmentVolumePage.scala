@@ -23,18 +23,34 @@ object AdjustmentVolumePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/volume"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/volume"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/spr/eligible-volume"
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
       case "Total Litres"           => enterText("volumes_totalLitresVolume", textToEnter)
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
+      case "Small Producer Relief duty rate" => enterText("volumes_sprDutyRate",textToEnter)
     }
 
   def enterVolumes(total: String = "3000.75", pureAlcohol: String = "250.5500"): Unit = {
     checkURL
     enterMultipleDetails(total, "Total Litres")
     enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    clickSaveAndContinueButton()
+  }
+
+  def enterVolumesWithoutSpr(): Unit = {
+    checkNewURL
+    enterMultipleDetails("3000.75", "Total Litres")
+    enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
+    clickSaveAndContinueButton()
+  }
+
+  def enterVolumesWithNewUrl(): Unit = {
+    checkNewURL
+    enterMultipleDetails("3000.75", "Total Litres")
+    enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
+    enterMultipleDetails("9.8","Small Producer Relief duty rate")
     clickSaveAndContinueButton()
   }
 }
