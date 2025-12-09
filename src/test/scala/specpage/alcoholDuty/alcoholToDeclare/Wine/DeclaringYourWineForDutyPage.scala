@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package specpage.common
+package specpage.alcoholDuty.alcoholToDeclare.Wine
 
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
-object NoDutyDuePage extends BasePage {
+object DeclaringYourWineForDutyPage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return"
+  override val url: String    = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/alcoholic-products/Wine/declaring-wine-duty"
 
   def continue(): Unit = {
     checkURL
-    clickAgreeAndSendReturnButton()
+    clickContinueButton()
   }
 }

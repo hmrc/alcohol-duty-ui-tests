@@ -42,21 +42,36 @@ object MultipleSmallProducerReliefRateBeerPage extends BasePage {
       case "Duty rate"              => enterText("volumesWithRate_dutyRate", textToEnter)
     }
 
-  def enterDetailsFor361(): Unit = {
+  def enterDetailsFor361(mustSelectRateBand: Boolean = true): Unit = {
     checkURL
-    clickRadioButton("Non-draught beer between 1.3% and 3.4% ABV (361 SPR)")
+    if (mustSelectRateBand) clickRadioButton("Non-draught beer between 1.3% and 3.4% ABV (361 SPR)")
     enterMultipleDetails("9999.99", "Total litres")
     enterMultipleDetails("89.9999", "Litres of pure alcohol")
     enterMultipleDetails("19", "Duty rate")
     clickSaveAndContinueButton()
   }
 
-  def enterDetailsFor371InChangeMode(): Unit = {
+  def enterDetailsFor371InCheckMode(): Unit = {
     checkNewURL
     clickRadioButton("Draught beer between 1.3% and 3.4% ABV (371 SPR)")
     enterMultipleDetails("7777.77", "Total litres")
     enterMultipleDetails("777.7777", "Litres of pure alcohol")
     enterMultipleDetails("77.77", "Duty rate")
+    clickSaveAndContinueButton()
+  }
+
+  def changeTaxTypeFromCheckYourAnswers(): Unit = {
+    checkNewDynamicURL("#taxType")
+    clickRadioButton("Non-draught beer between 3.5% and 8.4% ABV (366 SPR)")
+    clickSaveAndContinueButton()
+  }
+
+  def changeDetailsFromMultipleSprList(): Unit = {
+    checkExistingDynamicURL("?index=0")
+    clickRadioButton("Draught beer between 1.3% and 3.4% ABV (371 SPR)")
+    enterMultipleDetails("8888.88", "Total litres")
+    enterMultipleDetails("88.8800", "Litres of pure alcohol")
+    enterMultipleDetails("22", "Duty rate")
     clickSaveAndContinueButton()
   }
 }

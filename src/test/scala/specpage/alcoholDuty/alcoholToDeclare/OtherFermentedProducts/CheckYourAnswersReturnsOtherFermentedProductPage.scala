@@ -23,19 +23,6 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
 
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers"
-  override val title          = "Check your answers"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
 
   override def clickButton(text: String): Unit =
     text match {
@@ -50,4 +37,9 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/spr/eligible-volumes']"
         )
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickSaveAndContinueButton()
+  }
 }

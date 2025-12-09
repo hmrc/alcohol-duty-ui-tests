@@ -18,6 +18,10 @@ package specs.alcoholToDeclareJourney
 
 import specpage.alcoholDuty.adjustments._
 import specpage.alcoholDuty.alcoholToDeclare.Beer._
+import specpage.alcoholDuty.alcoholToDeclare.Cider._
+import specpage.alcoholDuty.alcoholToDeclare.OtherFermentedProducts._
+import specpage.alcoholDuty.alcoholToDeclare.Spirits._
+import specpage.alcoholDuty.alcoholToDeclare.Wine._
 import specpage.alcoholDuty.alcoholToDeclare._
 import specpage.alcoholDuty.dutySuspendedDeliveries._
 import specpage.alcoholDuty.quarterlySpiritsQuestion._
@@ -31,1934 +35,283 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
   Feature("Alcohol Duty Returns Journey") {
 
     Scenario("1. Alcohol Duty Returns Journey - Happy Path - Positive Value Submission", AllTests, AlcoholToDeclare) {
-      Given("I start a return")
+      Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
-
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
-
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-
-      When("I select radio button Yes on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
-
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
-
-      Then("I am presented with the What Alcohol Do You Need To Declare Page")
-      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
-
-      When(
-        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
-      )
-      whenICheckboxOn(
-        "select",
-        "Beer,Cider,Wine,Spirits,Other fermented products",
-        "What Alcohol Do You Need To Declare Page"
-      )
-
-      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
-      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
-
-      Then("I am presented with the Task List Page")
-      TaskListPage.checkURL
+      selectAllRegimes()
 
       When("I click on Declare beer hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+      TaskListPage.clickHyperlink("Declare beer")
 
-      Then("I am presented with the What Do You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
-
-      When(
+      And(
         "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)",
-        "What Do You Need To Declare Beer Page"
+      WhatDoYouNeedToDeclareBeerPage.selectRateBands(
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+      And("I enter volumes on the How Much You Need To Declare Beer Page")
+      HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(false)
 
-      When(
-        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "945.55",
-        "Standard beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I enter volumes on the Single Small Producer Relief Rate Beer Page")
+      SingleSmallProducerReliefRateBeerPage.enterDetailsForAllSprRateBands()
 
-      And(
-        "I enter 55.5555 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5555",
-        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I click save and continue button on Check Your Answers Returns Beer Page")
+      CheckYourAnswersReturnsBeerPage.continue()
 
-      And(
-        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "898.34",
-        "Standard beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.5500",
-        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "667.32",
-        "Standard beer between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.3400",
-        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.19",
-        "Standard beer at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.1300",
-        "Standard beer at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "887.54",
-        "Draught beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.4400",
-        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "699.45",
-        "Draught beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.8900",
-        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      Then("I am presented with the Single Small Producer Relief Rate Beer Page")
-      thenIAmPresentedWithThe("Single Small Producer Relief Rate Beer Page")
-
-      When(
-        "I enter 888.88 for Non-draught beer between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Non-draught beer between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "first"
-      )
-
-      And(
-        "I enter 99.4500 for Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.4500",
-        "Non-draught beer between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "first"
-      )
-
-      And(
-        "I enter 15 for Non-draught beer between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Non-draught beer between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Beer Page",
-        "first"
-      )
-
-      And(
-        "I enter 776.45 for Non-draught beer between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.45",
-        "Non-draught beer between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 78.9000 for Non-draught beer between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "78.9000",
-        "Non-draught beer between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 18 for Non-draught beer between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "18",
-        "Non-draught beer between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Beer Page",
-        "second"
-      )
-
-      And(
-        "I enter 776.89 for Draught beer between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.89",
-        "Draught beer between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 99.9900 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.9900",
-        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 15 for Draught beer between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Draught beer between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 889.65 for Draught beer between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "889.65",
-        "Draught beer between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 66.5400 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.5400",
-        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 20 for Draught beer between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "20",
-        "Draught beer between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Beer Page",
-        "fourth"
-      )
-
-      And("I click save and continue button on Single Small Producer Relief Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Beer Page")
-
-      Then("I am presented with the Check Your Answers Returns Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
-
-      When("I click save and continue button on Check Your Answers Returns Beer Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
-
-      Then("I am presented with the Duty Due Beer Page")
-      thenIAmPresentedWithThe("Duty Due Beer Page")
-
-      When("I click save and continue button on Duty Due Beer Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+      And("I click save and continue button on Duty Due Beer Page")
+      DutyDueBeerPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare cider hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
+      TaskListPage.clickHyperlink("Declare cider")
 
-      Then("I am presented with the What Do You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Cider Page")
-
-      When(
+      And(
         "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)",
-        "What Do You Need To Declare Cider Page"
+      WhatDoYouNeedToDeclareCiderPage.selectRateBands(
+        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Cider Page")
+      And("I enter volumes on the How Much You Need To Declare Cider Page")
+      HowMuchYouNeedToDeclareCiderPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page")
+      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateCiderPage.selectMultipleSpr(false)
 
-      When(
-        "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "789.44",
-        "Standard cider between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "first"
-      )
+      And("I enter volumes on the Single Small Producer Relief Rate Cider Page")
+      SingleSmallProducerReliefRateCiderPage.enterDetailsForAllSprRateBands()
 
-      And(
-        "I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "43.4400",
-        "Standard cider between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "first"
-      )
+      And("I click save and continue button on Check Your Answers Returns Cider Page")
+      CheckYourAnswersReturnsCiderPage.continue()
 
-      And(
-        "I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "898.12",
-        "Standard cider between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "second"
-      )
-
-      And(
-        "I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard cider between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "second"
-      )
-
-      And(
-        "I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.99",
-        "Standard sparkling between 5.6% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.9900",
-        "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "787.44",
-        "Draught cider between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.2100",
-        "Draught cider between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "889.12",
-        "Draught cider between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.4500",
-        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.8800",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Cider Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      Then("I am presented with the Single Small Producer Relief Rate Cider Page")
-      thenIAmPresentedWithThe("Single Small Producer Relief Rate Cider Page")
-
-      When(
-        "I enter 656.66 for Non-draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "656.66",
-        "Non-draught cider between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "first"
-      )
-
-      And(
-        "I enter 66.6600 for Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.6600",
-        "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "first"
-      )
-
-      And(
-        "I enter 14 for Non-draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "14",
-        "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "first"
-      )
-
-      And(
-        "I enter 999.99 for Non-draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.99",
-        "Non-draught cider between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "second"
-      )
-
-      And(
-        "I enter 98.9900 for Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "98.9900",
-        "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "second"
-      )
-
-      And(
-        "I enter 12.45 for Non-draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "12.45",
-        "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "second"
-      )
-
-      And(
-        "I enter 6666.66 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "6666.66",
-        "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 666.6600 for Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "666.6600",
-        "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 36 for Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "36",
-        "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 887.21 for Draught cider between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "887.21",
-        "Draught cider between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 45.5600 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "45.5600",
-        "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 16 for Draught cider between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "16",
-        "Draught cider between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 653.11 for Draught cider between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "653.11",
-        "Draught cider between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 33.3300 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.3300",
-        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 18 for Draught cider between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "18",
-        "Draught cider between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 777.77 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "777.77",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 77.7700 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.7700",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Cider Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 17 for Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "17",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Cider Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on Single Small Producer Relief Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Cider Page")
-
-      Then("I am presented with the Check Your Answers Returns Cider Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
-
-      When("I click save and continue button on Check Your Answers Returns Cider Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Cider Page")
-
-      Then("I am presented with the Duty Due Cider Page")
-      thenIAmPresentedWithThe("Duty Due Cider Page")
-
-      When("I click save and continue button on Duty Due Cider Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Cider Page")
+      And("I click save and continue button on Duty Due Cider Page")
+      DutyDueCiderPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare wine hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare wine", "Task List Page")
+      TaskListPage.clickHyperlink("Declare wine")
 
-      Then("I am presented with the Declaring Your Wine For Duty")
-      thenIAmPresentedWithThe("Declaring Your Wine For Duty")
+      And("I click continue button on Declaring Your Wine For Duty Page")
+      DeclaringYourWineForDutyPage.continue()
 
-      And("I click continue button on Declaring Your Wine For Duty")
-      whenIClickContinueButtonOn("Declaring Your Wine For Duty")
-
-      Then("I am presented with the What Do You Need To Declare Wine Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Wine Page")
-
-      When(
+      And(
         "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR) on What Do You Need To Declare Wine Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)",
-        "What Do You Need To Declare Wine Page"
+      WhatDoYouNeedToDeclareWinePage.selectRateBands(
+        "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Wine Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Wine Page")
+      And("I enter volumes on the How Much You Need To Declare Wine Page")
+      HowMuchYouNeedToDeclareWinePage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Wine Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Wine Page")
+      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateWinePage.selectMultipleSpr(false)
 
-      When(
-        "I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "1234.55",
-        "Standard wine between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "first"
-      )
+      And("I enter volumes on the Single Small Producer Relief Rate Wine Page")
+      SingleSmallProducerReliefRateWinePage.enterDetailsForAllSprRateBands()
 
-      And(
-        "I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "35.5500",
-        "Standard wine between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "first"
-      )
+      And("I click save and continue button on Check Your Answers Returns Wine Page")
+      CheckYourAnswersReturnsWinePage.continue()
 
-      And(
-        "I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3698.52",
-        "Standard wine between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "second"
-      )
-
-      And(
-        "I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "88.8800",
-        "Standard wine between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "second"
-      )
-
-      And(
-        "I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "8974.23",
-        "Standard wine between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard wine between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "990.01",
-        "Standard wine at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "82.2200",
-        "Standard wine at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "895.22",
-        "Draught wine between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.3300",
-        "Draught wine between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "569.33",
-        "Draught wine between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "24.5500",
-        "Draught wine between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Wine Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Wine Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      Then("I am presented with the Single Small Producer Relief Rate Wine Page")
-      thenIAmPresentedWithThe("Single Small Producer Relief Rate Wine Page")
-
-      When(
-        "I enter 888.88 for Non-draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Non-draught wine between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "first"
-      )
-
-      And(
-        "I enter 99.4500 for Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.4500",
-        "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "first"
-      )
-
-      And(
-        "I enter 15 for Non-draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Wine Page",
-        "first"
-      )
-
-      And(
-        "I enter 776.45 for Non-draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.45",
-        "Non-draught wine between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "second"
-      )
-
-      And(
-        "I enter 78.9000 for Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "78.9000",
-        "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "second"
-      )
-
-      And(
-        "I enter 18 for Non-draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "18",
-        "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Wine Page",
-        "second"
-      )
-
-      And(
-        "I enter 776.89 for Draught wine between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.89",
-        "Draught wine between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 99.9900 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.9900",
-        "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 15 for Draught wine between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Draught wine between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 889.65 for Draught wine between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "889.65",
-        "Draught wine between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 66.5400 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.5400",
-        "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 20 for Draught wine between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "20",
-        "Draught wine between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Wine Page",
-        "fourth"
-      )
-
-      And("I click save and continue button on Single Small Producer Relief Rate Wine Page")
-      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Wine Page")
-
-      Then("I am presented with the Check Your Answers Returns Wine Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Wine Page")
-
-      When("I click save and continue button on Check Your Answers Returns Wine Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Wine Page")
-
-      Then("I am presented with the Duty Due Wine Page")
-      thenIAmPresentedWithThe("Duty Due Wine Page")
-
-      When("I click save and continue button on Duty Due Wine Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Wine Page")
+      And("I click save and continue button on Duty Due Wine Page")
+      DutyDueWinePage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare spirits hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare spirits", "Task List Page")
+      TaskListPage.clickHyperlink("Declare spirits")
 
-      Then("I am presented with the What Do You Need To Declare Spirits Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Spirits Page")
-
-      When(
+      And(
         "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)",
-        "What Do You Need To Declare Spirits Page"
+      WhatDoYouNeedToDeclareSpiritsPage.selectRateBands(
+        "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Spirits Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Spirits Page")
+      And("I enter volumes on the How Much You Need To Declare Spirits Page")
+      HowMuchYouNeedToDeclareSpiritsPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Spirits Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Spirits Page")
+      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage.selectMultipleSpr(false)
 
-      When(
-        "I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "8888.66",
-        "Standard spirits between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "first"
-      )
+      And("I enter volumes on the Single Small Producer Relief Rate Spirits Page")
+      SingleSmallProducerReliefRateSpiritsPage.enterDetailsForAllSprRateBands()
 
-      And(
-        "I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "88.8800",
-        "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "first"
-      )
+      And("I click save and continue button on Check Your Answers Returns Spirits Page")
+      CheckYourAnswersReturnsSpiritsPage.continue()
 
-      And(
-        "I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "7777.77",
-        "Standard spirits between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "second"
-      )
-
-      And(
-        "I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.7700",
-        "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "second"
-      )
-
-      And(
-        "I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "6666.66",
-        "Standard spirits between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.6600",
-        "Standard spirits between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "5555.55",
-        "Standard spirits at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard spirits at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "4444.44",
-        "Draught spirits between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "44.4400",
-        "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3333.33",
-        "Draught spirits between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.3300",
-        "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Spirits Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Spirits Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      When("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      whenISelectRadioButtonOn("No", "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      Then("I am presented with the Single Small Producer Relief Rate Spirits Page")
-      thenIAmPresentedWithThe("Single Small Producer Relief Rate Spirits Page")
-
-      When(
-        "I enter 888.88 for Non-draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Non-draught spirits between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "first"
-      )
-
-      And(
-        "I enter 99.4500 for Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.4500",
-        "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "first"
-      )
-
-      And(
-        "I enter 15 for Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Spirits Page",
-        "first"
-      )
-
-      And(
-        "I enter 776.45 for Non-draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.45",
-        "Non-draught spirits between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "second"
-      )
-
-      And(
-        "I enter 78.9000 for Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "78.9000",
-        "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "second"
-      )
-
-      And(
-        "I enter 18 for Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "18",
-        "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Spirits Page",
-        "second"
-      )
-
-      And(
-        "I enter 776.89 for Draught spirits between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "776.89",
-        "Draught spirits between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 99.9900 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.9900",
-        "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 15 for Draught spirits between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Draught spirits between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 889.65 for Draught spirits between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "889.65",
-        "Draught spirits between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 66.5400 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.5400",
-        "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 20 for Draught spirits between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "20",
-        "Draught spirits between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Spirits Page",
-        "fourth"
-      )
-
-      And("I click save and continue button on Single Small Producer Relief Rate Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Spirits Page")
-
-      Then("I am presented with the Check Your Answers Returns Spirits Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Spirits Page")
-
-      When("I click save and continue button on Check Your Answers Returns Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Spirits Page")
-
-      Then("I am presented with the Duty Due Spirits Page")
-      thenIAmPresentedWithThe("Duty Due Spirits Page")
-
-      When("I click save and continue button on Duty Due Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Spirits Page")
+      And("I click save and continue button on Duty Due Spirits Page")
+      DutyDueSpiritsPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare other fermented products hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare other fermented products", "Task List Page")
+      TaskListPage.clickHyperlink("Declare other fermented products")
 
-      Then("I am presented with the What Do You Need To Declare Other Fermented Product Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Other Fermented Product Page")
-
-      When(
+      And(
         "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Wine Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)",
-        "What Do You Need To Declare Other Fermented Product Page"
+      WhatDoYouNeedToDeclareOtherFermentedProductPage.selectRateBands(
+        "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Other Fermented Product Page")
-
-      Then("I am presented with the How Much You Need To Declare Other Fermented Product Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Other Fermented Product Page")
-
-      When(
-        "I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "2233.33",
-        "Standard other fermented products between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "first"
-      )
+      And("I enter volumes on the How Much You Need To Declare Other Fermented Product Page")
+      HowMuchYouNeedToDeclareOtherFermentedProductPage.enterDetailsForAllRateBands()
 
       And(
-        "I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.3300",
-        "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "first"
-      )
-
-      And(
-        "I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3322.22",
-        "Standard other fermented products between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "4433.44",
-        "Standard other fermented products between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "44.4400",
-        "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "5544.55",
-        "Standard other fermented products at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard other fermented products at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "6666.66",
-        "Draught other fermented products between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.6600",
-        "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "7865.12",
-        "Draught other fermented products between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "34.5500",
-        "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Other Fermented Product Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
-
-      When(
         "I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
       )
-      whenISelectRadioButtonOn(
-        "No",
-        "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
+      DoYouHaveMultipleSmallProducerReliefDutyRateOtherFermentedProductPage.selectMultipleSpr(false)
 
-      And(
-        "I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
-      whenIClickSaveAndContinueButtonOn(
-        "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
+      And("I enter volumes on the Single Small Producer Relief Rate Other Fermented Product Page")
+      SingleSmallProducerReliefRateOtherFermentedProductPage.enterDetailsForAllSprRateBands()
 
-      Then("I am presented with the Single Small Producer Relief Rate Other Fermented Product Page")
-      thenIAmPresentedWithThe("Single Small Producer Relief Rate Other Fermented Product Page")
+      And("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
+      CheckYourAnswersReturnsOtherFermentedProductPage.continue()
 
-      When(
-        "I enter 777.77 for Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "777.77",
-        "Non-draught other fermented product between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "first"
-      )
-
-      And(
-        "I enter 77.7700 for Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.7700",
-        "Non-draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "first"
-      )
-
-      And(
-        "I enter 15 for Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "15",
-        "Non-draught other fermented product between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "first"
-      )
-
-      And(
-        "I enter 888.88 for Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Non-draught other fermented product between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 88.8800 for Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "88.8800",
-        "Non-draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 16 for Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "16",
-        "Non-draught other fermented product between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 667.88 for Draught other fermented product between 1.3% and 3.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "667.88",
-        "Draught other fermented product between 1.3% and 3.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 78.7700 for Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "78.7700",
-        "Draught other fermented product between 1.3% and 3.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 20 for Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "20",
-        "Draught other fermented product between 1.3% and 3.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 678.44 for Draught other fermented product between 3.5% and 8.4% ABV - Total litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "678.44",
-        "Draught other fermented product between 3.5% and 8.4% ABV - Total litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 99.2300 for Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.2300",
-        "Draught other fermented product between 3.5% and 8.4% ABV - Pure alcohol litres",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 19 for Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate on Single Small Producer Relief Rate Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "19",
-        "Draught other fermented product between 3.5% and 8.4% ABV - SPR Rate",
-        "Single Small Producer Relief Rate Other Fermented Product Page",
-        "fourth"
-      )
-
-      And("I click save and continue button on Single Small Producer Relief Rate Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Single Small Producer Relief Rate Other Fermented Product Page")
-
-      Then("I am presented with the Check Your Answers Returns Other Fermented Product Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Other Fermented Product Page")
-
-      When("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Other Fermented Product Page")
-
-      Then("I am presented with the Duty Due Other Fermented Product Page")
-      thenIAmPresentedWithThe("Duty Due Other Fermented Product Page")
-
-      When("I click save and continue button on Duty Due Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Other Fermented Product Page")
+      And("I click save and continue button on Duty Due Other Fermented Product Page")
+      DutyDueOtherFermentedProductPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
 
-      Then("I am presented with the Declare Adjustment Question Page")
-      thenIAmPresentedWithThe("Declare Adjustment Question Page")
+      And("I select Yes on Declare Adjustment Question Page")
+      DeclareAdjustmentQuestionPage.declareAdjustments(true)
 
-      When("I select radio button Yes on Declare Adjustment Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
+      And("I select radio button Under-declaration on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Under-declaration")
 
-      And("I click save and continue button on Declare Adjustment Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("09", "2023")
 
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
+      And("I enter 311 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("311")
 
-      When("I select radio button Under-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Under-declaration", "Adjustment Type Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
+      And("I select radio button Over-declaration on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I enter 311 on Adjustment Tax Type Code Page")
-      whenIEnterOn("311", "Adjustment Tax Type Code Page")
+      And("I enter 312 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("312")
 
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
+      And("I select radio button Repackaged draught products on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I enter month 11 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("11", "2023")
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
+      AdjustmentTaxTypeCodePage.enterDetails("373")
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
+      And("I enter 363 on New Tax Type Code Page")
+      NewTaxTypeCodePage.enterDetails("363")
 
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      And("I enter 11.5 on New Spr Duty Rate Page")
+      NewSprDutyRatePage.enterDetails("11.5")
 
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      When("I select radio button Over-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
+      And("I select radio button Spoilt on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Spoilt")
 
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
+      And("I select radio button Spirits on Spoilt Alcohol Type Page")
+      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I enter volumes on the Spoilt Alcohol Volume Page")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
+      And("I select radio button Drawback on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Drawback")
 
-      When("I enter 312 on Adjustment Tax Type Code Page")
-      whenIEnterOn("312", "Adjustment Tax Type Code Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
+      And("I enter 314 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("314")
 
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
+      And("I enter volumes on the Adjustment Volume Page")
+      AdjustmentVolumePage.enterVolumes()
 
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
-
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
-
-      When("I select radio button Repackaged draught products on Adjustment Type Page")
-      whenISelectRadioButtonOn("Repackaged draught products", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
-
-      When("I enter month 11 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("11", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code For Repackaged Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code For Repackaged Page")
-
-      When("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
-      whenIEnterOn("373", "Adjustment Tax Type Code For Repackaged Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code For Repackaged Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code For Repackaged Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the New Tax Type Code Page")
-      thenIAmPresentedWithThe("New Tax Type Code Page")
-
-      When("I enter 363 on New Tax Type Code Page")
-      whenIEnterOn("363", "New Tax Type Code Page")
-
-      And("I click save and continue button on New Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("New Tax Type Code Page")
-
-      Then("I am presented with the New Spr Duty Rate Page")
-      thenIAmPresentedWithThe("New Spr Duty Rate Page")
-
-      When("I enter 11.5 on New Spr Duty Rate Page")
-      whenIEnterOn("11.5", "New Spr Duty Rate Page")
-
-      And("I click save and continue button on New Spr Duty Rate Page")
-      whenIClickSaveAndContinueButtonOn("New Spr Duty Rate Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
-
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
-
-      When("I select radio button Spoilt on Adjustment Type Page")
-      whenISelectRadioButtonOn("Spoilt", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Type Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
-
-      When("I select radio button Spirits on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
-
-      When("I select radio button Drawback on Adjustment Type Page")
-      whenISelectRadioButtonOn("Drawback", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
-
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 314 on Adjustment Tax Type Code Page")
-      whenIEnterOn("314", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume Page")
-      thenIAmPresentedWithThe("Adjustment Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume Page")
-
-      And("I click save and continue button on Adjustment Volume Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
-
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button No on Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were under-declared")
 
-      Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("Under Declaration Reason Page")
-
-      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
-
-      And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
+      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
-      Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("Over Declaration Reason Page")
-
-      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
-      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
-
-      And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
+      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
@@ -1966,1502 +319,355 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn(
-        "Tell us if you have delivered or received finished products in duty suspense",
-        "Task List Page"
-      )
+      TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
 
-      Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
+      And("I select Yes on Declare Duty Suspended Deliveries Page")
+      DeclareDutySuspendedDeliveriesPage.declareDSD(true)
 
-      When("I select radio button Yes on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("Yes", "Declare Duty Suspended Deliveries Page")
+      And("I click continue button on Duty Suspended Deliveries Guidance Page")
+      DutySuspendedDeliveriesGuidancePage.continue()
 
-      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+      And("I enter volumes on Duty Suspended Beer Page")
+      DutySuspendedBeerPage.enterVolumes()
 
-      Then("I am presented with the Duty Suspended Deliveries Guidance Page")
-      thenIAmPresentedWithThe("Duty Suspended Deliveries Guidance Page")
+      And("I enter volumes on Duty Suspended Cider Page")
+      DutySuspendedCiderPage.enterVolumes()
 
-      When("I click continue button on Duty Suspended Deliveries Guidance Page")
-      whenIClickContinueButtonOn("Duty Suspended Deliveries Guidance Page")
+      And("I enter volumes on Duty Suspended Wine Page")
+      DutySuspendedWinePage.enterVolumes()
 
-      Then("I am presented with the Duty Suspended Beer Page")
-      thenIAmPresentedWithThe("Duty Suspended Beer Page")
+      And("I enter volumes on Duty Suspended Spirits Page")
+      DutySuspendedSpiritsPage.enterVolumes()
 
-      When("I enter 2000.75 for Total Beer on Duty Suspended Beer Page")
-      whenIEnterForOn("2000.75", "Total Beer", "Duty Suspended Beer Page")
+      And("I enter volumes on Duty Suspended Other Fermented Products Page")
+      DutySuspendedOtherFermentedProductsPage.enterVolumes()
 
-      And("I enter 150.55 for Pure Alcohol In Beer on Duty Suspended Beer Page")
-      whenIEnterForOn("150.55", "Pure Alcohol In Beer", "Duty Suspended Beer Page")
-
-      And("I click save and continue button on Duty Suspended Beer Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Beer Page")
-
-      Then("I am presented with the Duty Suspended Cider Page")
-      thenIAmPresentedWithThe("Duty Suspended Cider Page")
-
-      When("I enter 9999.99 for Total Cider on Duty Suspended Cider Page")
-      whenIEnterForOn("9999.99", "Total Cider", "Duty Suspended Cider Page")
-
-      And("I enter 99.19 for Pure Alcohol In Cider on Duty Suspended Cider Page")
-      whenIEnterForOn("99.19", "Pure Alcohol In Cider", "Duty Suspended Cider Page")
-
-      And("I click save and continue button on Duty Suspended Cider Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Cider Page")
-
-      Then("I am presented with the Duty Suspended Wine Page")
-      thenIAmPresentedWithThe("Duty Suspended Wine Page")
-
-      When("I enter 7777.77 for Total Wine on Duty Suspended Wine Page")
-      whenIEnterForOn("7777.77", "Total Wine", "Duty Suspended Wine Page")
-
-      And("I enter 77.77 for Pure Alcohol In Wine on Duty Suspended Wine Page")
-      whenIEnterForOn("77.77", "Pure Alcohol In Wine", "Duty Suspended Wine Page")
-
-      And("I click save and continue button on Duty Suspended Wine Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Wine Page")
-
-      Then("I am presented with the Duty Suspended Spirits Page")
-      thenIAmPresentedWithThe("Duty Suspended Spirits Page")
-
-      When("I enter 2100.75 for Total Spirits on Duty Suspended Spirits Page")
-      whenIEnterForOn("2100.75", "Total Spirits", "Duty Suspended Spirits Page")
-
-      And("I enter 160.55 for Pure Alcohol In Spirits on Duty Suspended Spirits Page")
-      whenIEnterForOn("160.55", "Pure Alcohol In Spirits", "Duty Suspended Spirits Page")
-
-      And("I click save and continue button on Duty Suspended Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Spirits Page")
-
-      Then("I am presented with the Duty Suspended Other Fermented Products Page")
-      thenIAmPresentedWithThe("Duty Suspended Other Fermented Products Page")
-
-      When("I enter 8888.88 for Total Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      whenIEnterForOn("8888.88", "Total Other Fermented Products", "Duty Suspended Other Fermented Products Page")
-
-      And("I enter 88.88 for Pure Alcohol In Other Fermented Products on Duty Suspended Other Fermented Products Page")
-      whenIEnterForOn(
-        "88.88",
-        "Pure Alcohol In Other Fermented Products",
-        "Duty Suspended Other Fermented Products Page"
-      )
-
-      And("I click save and continue button on Duty Suspended Other Fermented Products Page")
-      whenIClickSaveAndContinueButtonOn("Duty Suspended Other Fermented Products Page")
-
-      Then("I am presented with the Duty Suspended Deliveries Check Your Answers Page")
-      thenIAmPresentedWithThe("Duty Suspended Deliveries Check Your Answers Page")
-
-      When("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
-      whenIClickContinueButtonOn("Duty Suspended Deliveries Check Your Answers Page")
+      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
+      DutySuspendedDeliveriesCheckYourAnswersPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
-      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
+      And("I select Yes on Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.declareSpirits(true)
 
-      When("I select radio button Yes on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("Yes", "Quarterly Spirits Returns Guidance Page")
+      And("I enter 99 on Total Of All Spirits Page")
+      TotalOfAllSpiritsPage.enterVolume("99")
 
-      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      And("I enter volumes on Declare Whiskey Page")
+      DeclareWhiskeyPage.enterVolumes()
 
-      Then("I am presented with the Total Of All Spirits Page")
-      thenIAmPresentedWithThe("Total Of All Spirits Page")
-
-      When("I enter 99 on Total Of All Spirits Page")
-      whenIEnterOn("99", "Total Of All Spirits Page")
-
-      And("I click save and continue button on Total Of All Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Total Of All Spirits Page")
-
-      Then("I am presented with the Declare Whiskey Page")
-      thenIAmPresentedWithThe("Declare Whiskey Page")
-
-      When("I enter 10.55 for Scotch Whisky on Declare Whiskey Page")
-      whenIEnterForOn("10.55", "Scotch Whisky", "Declare Whiskey Page")
-
-      And("I enter 20.67 for Irish Whiskey on Declare Whiskey Page")
-      whenIEnterForOn("20.67", "Irish Whiskey", "Declare Whiskey Page")
-
-      And("I click save and continue button on Declare Whiskey Page")
-      whenIClickSaveAndContinueButtonOn("Declare Whiskey Page")
-
-      Then("I am presented with the Which Of These Spirits Have You Produced Page")
-      thenIAmPresentedWithThe("Which Of These Spirits Have You Produced Page")
-
-      When(
+      And(
         "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits",
-        "Which Of These Spirits Have You Produced Page"
+      WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes(
+        "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits"
       )
 
-      And("I click save and continue button on Which Of These Spirits Have You Produced Page")
-      whenIClickSaveAndContinueButtonOn("Which Of These Spirits Have You Produced Page")
+      And("I enter Test Spirits on Declare Other Spirits Produced Page")
+      DeclareOtherSpiritsProducedPage.enterDetails("Test Spirits")
 
-      Then("I am presented with the Declare Other Spirits Produced Page")
-      thenIAmPresentedWithThe("Declare Other Spirits Produced Page")
-
-      When("I enter Test Spirits on Declare Other Spirits Produced Page")
-      whenIEnterOn("Test Spirits", "Declare Other Spirits Produced Page")
-
-      And("I click save and continue button on Declare Other Spirits Produced Page")
-      whenIClickSaveAndContinueButtonOn("Declare Other Spirits Produced Page")
-
-      Then("I am presented with the Quarterly Spirits Check Your Answers Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Check Your Answers Page")
-
-      When("I click save and continue button on Quarterly Spirits Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
+      And("I click save and continue button on Quarterly Spirits Check Your Answers Page")
+      QuarterlySpiritsCheckYourAnswersPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+      TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      Then("I am presented with the Return Summary Page")
-      thenIAmPresentedWithThe("Return Summary Page")
-
-      When("I click on Agree and send return button Return Summary Page")
-      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+      And("I click on Agree and send return button on Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
-      thenIAmPresentedWithThe("Return Submitted Page")
+      ReturnSubmittedPage.checkURL
 
     }
 
     Scenario("2. Alcohol Duty Returns Journey - Happy Path - Negative Value Submission", AllTests, AlcoholToDeclare) {
-      Given("I start a return")
+      Given("I start a return and select all alcohol regimes")
       loginAndStartReturn("AABCP0000100208")
-
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have alcoholic products to declare", "Task List Page")
-
-      Then("I am presented with the Declare Alcohol Duty Question Page")
-      thenIAmPresentedWithThe("Declare Alcohol Duty Question Page")
-
-      When("I select radio button Yes on Declare Alcohol Duty Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Alcohol Duty Question Page")
-
-      And("I click save and continue button on Declare Alcohol Duty Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Alcohol Duty Question Page")
-
-      Then("I am presented with the What Alcohol Do You Need To Declare Page")
-      thenIAmPresentedWithThe("What Alcohol Do You Need To Declare Page")
-
-      When(
-        "I select checkbox Beer,Cider,Wine,Spirits,Other fermented products on What Alcohol Do You Need To Declare Page"
-      )
-      whenICheckboxOn(
-        "select",
-        "Beer,Cider,Wine,Spirits,Other fermented products",
-        "What Alcohol Do You Need To Declare Page"
-      )
-
-      And("I click save and continue button on What Alcohol Do You Need To Declare Page")
-      whenIClickSaveAndContinueButtonOn("What Alcohol Do You Need To Declare Page")
-
-      Then("I am presented with the Task List Page")
-      TaskListPage.checkURL
+      selectAllRegimes()
 
       When("I click on Declare beer hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare beer", "Task List Page")
+      TaskListPage.clickHyperlink("Declare beer")
 
-      Then("I am presented with the What Do You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Beer Page")
-
-      When(
+      And(
         "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR) on What Do You Need To Declare Beer Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR)",
-        "What Do You Need To Declare Beer Page"
+      WhatDoYouNeedToDeclareBeerPage.selectRateBands(
+        "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Beer Page")
+      And("I enter volumes on the How Much You Need To Declare Beer Page")
+      HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Beer Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Beer Page")
+      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
 
-      When(
-        "I enter 945.55 for Standard beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "945.55",
-        "Standard beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361(mustSelectRateBand = false)
 
-      And(
-        "I enter 55.5500 for Standard beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "first"
-      )
+      And("I click continue button on Check Your Answers SPR Beer Page")
+      CheckYourAnswersSPRBeerPage.continue()
 
-      And(
-        "I enter 898.34 for Standard beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "898.34",
-        "Standard beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
+      And("I select radio button No on Multiple SPR List Question Beer Page")
+      MultipleSPRListQuestionBeerPage.addAnother(false)
 
-      And(
-        "I enter 77.5500 for Standard beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.5500",
-        "Standard beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "second"
-      )
+      And("I click save and continue button on Check Your Answers Returns Beer Page")
+      CheckYourAnswersReturnsBeerPage.continue()
 
-      And(
-        "I enter 667.32 for Standard beer between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "667.32",
-        "Standard beer between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 66.3400 for Standard beer between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Beer Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.3400",
-        "Standard beer between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "third"
-      )
-
-      And(
-        "I enter 999.19 for Standard beer at or above 22.1% ABV - Total litres on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.19",
-        "Standard beer at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 99.1300 for Standard beer at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.1300",
-        "Standard beer at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 887.54 for Draught beer between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "887.54",
-        "Draught beer between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 66.4400 for Draught beer between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.4400",
-        "Draught beer between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 699.45 for Draught beer between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "699.45",
-        "Draught beer between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 66.8900 for Draught beer between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Beer Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.8900",
-        "Draught beer between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Beer Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Beer Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Beer Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Beer Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 9999.99 for Total litres on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("9999.99", "Total litres", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 89.9999 for Litres of pure alcohol on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("89.9999", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I enter 19 for Duty rate on Multiple Small Producer Relief Rate Beer Page")
-      whenIEnterForOn("19", "Duty rate", "Multiple Small Producer Relief Rate Beer Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Beer Page")
-
-      Then("I am presented with the Check Your Answers SPR Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Beer Page")
-
-      When("I click continue button on Check Your Answers SPR Beer Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Beer Page")
-
-      Then("I am presented with the Multiple SPR List Question Beer Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Beer Page")
-
-      When("I select radio button No on Multiple SPR List Question Beer Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Beer Page")
-
-      And("I click save and continue button on Multiple SPR List Question Beer Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Beer Page")
-
-      Then("I am presented with the Check Your Answers Returns Beer Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Beer Page")
-
-      When("I click save and continue button on Check Your Answers Returns Beer Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Beer Page")
-
-      Then("I am presented with the Duty Due Beer Page")
-      thenIAmPresentedWithThe("Duty Due Beer Page")
-
-      When("I click save and continue button on Duty Due Beer Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Beer Page")
+      And("I click save and continue button on Duty Due Beer Page")
+      DutyDueBeerPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare cider hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare cider", "Task List Page")
+      TaskListPage.clickHyperlink("Declare cider")
 
-      Then("I am presented with the What Do You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Cider Page")
-
-      When(
+      And(
         "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) on What Do You Need To Declare Cider Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR)",
-        "What Do You Need To Declare Cider Page"
+      WhatDoYouNeedToDeclareCiderPage.selectRateBands(
+        "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Cider Page")
+      And("I enter volumes on the How Much You Need To Declare Cider Page")
+      HowMuchYouNeedToDeclareCiderPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Cider Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Cider Page")
+      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateCiderPage.selectMultipleSpr(true)
 
-      When(
-        "I enter 789.44 for Standard cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "789.44",
-        "Standard cider between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "first"
-      )
+      And("I enter details for tax type 367 on Multiple Small Producer Relief Rate Cider Page")
+      MultipleSmallProducerReliefRateCiderPage.enterDetailsFor367()
 
-      And(
-        "I enter 43.4400 for Standard cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "43.4400",
-        "Standard cider between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "first"
-      )
+      And("I click continue button on Check Your Answers SPR Cider Page")
+      CheckYourAnswersSPRCiderPage.continue()
 
-      And(
-        "I enter 898.12 for Standard cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "898.12",
-        "Standard cider between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "second"
-      )
+      And("I select radio button No on Multiple SPR List Question Cider Page")
+      MultipleSPRListQuestionCiderPage.addAnother(false)
 
-      And(
-        "I enter 22.2200 for Standard cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard cider between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "second"
-      )
+      And("I click save and continue button on Check Your Answers Returns Cider Page")
+      CheckYourAnswersReturnsCiderPage.continue()
 
-      And(
-        "I enter 999.99 for Standard sparkling between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "999.99",
-        "Standard sparkling between 5.6% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 99.9900 for Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "99.9900",
-        "Standard sparkling between 5.6% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "third"
-      )
-
-      And(
-        "I enter 787.77 for Draught cider between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "787.44",
-        "Draught cider between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 33.2100 for Draught cider between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.2100",
-        "Draught cider between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 889.12 for Draught cider between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "889.12",
-        "Draught cider between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 22.4500 for Draught cider between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.4500",
-        "Draught cider between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 888.88 for Draught sparkling cider between 5.6% and 8.4% ABV - Total litres on How Much You Need To Declare Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.88",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Cider Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 888.8800 for Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Cider Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "888.8800",
-        "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Cider Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Cider Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Cider Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Cider Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Cider Page")
-
-      And("I enter 7999.99 for Total litres on Multiple Small Producer Relief Rate Cider Page")
-      whenIEnterForOn("7999.99", "Total litres", "Multiple Small Producer Relief Rate Cider Page")
-
-      And("I enter 77.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Cider Page")
-      whenIEnterForOn("77.9900", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Cider Page")
-
-      And("I enter 20.99 for Duty rate on Multiple Small Producer Relief Rate Cider Page")
-      whenIEnterForOn("20.99", "Duty rate", "Multiple Small Producer Relief Rate Cider Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Cider Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Cider Page")
-
-      Then("I am presented with the Check Your Answers SPR Cider Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Cider Page")
-
-      When("I click continue button on Check Your Answers SPR Cider Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Cider Page")
-
-      Then("I am presented with the Multiple SPR List Question Cider Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Cider Page")
-
-      When("I select radio button No on Multiple SPR List Question Cider Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Cider Page")
-
-      And("I click save and continue button on Multiple SPR List Question Cider Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Cider Page")
-
-      Then("I am presented with the Check Your Answers Returns Cider Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Cider Page")
-
-      When("I click save and continue button on Check Your Answers Returns Cider Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Cider Page")
-
-      Then("I am presented with the Duty Due Cider Page")
-      thenIAmPresentedWithThe("Duty Due Cider Page")
-
-      When("I click save and continue button on Duty Due Cider Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Cider Page")
+      And("I click save and continue button on Duty Due Cider Page")
+      DutyDueCiderPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare wine hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare wine", "Task List Page")
+      TaskListPage.clickHyperlink("Declare wine")
 
-      Then("I am presented with the Declaring Your Wine For Duty")
-      thenIAmPresentedWithThe("Declaring Your Wine For Duty")
+      And("I click continue button on Declaring Your Wine For Duty Page")
+      DeclaringYourWineForDutyPage.continue()
 
-      And("I click continue button on Declaring Your Wine For Duty")
-      whenIClickContinueButtonOn("Declaring Your Wine For Duty")
-
-      Then("I am presented with the What Do You Need To Declare Wine Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Wine Page")
-
-      When(
+      And(
         "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR) on What Do You Need To Declare Wine Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR)",
-        "What Do You Need To Declare Wine Page"
+      WhatDoYouNeedToDeclareWinePage.selectRateBands(
+        "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Wine Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Wine Page")
+      And("I enter volumes on the How Much You Need To Declare Wine Page")
+      HowMuchYouNeedToDeclareWinePage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Wine Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Wine Page")
+      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateWinePage.selectMultipleSpr(true)
 
-      When(
-        "I enter 1234.55 for Standard wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "1234.55",
-        "Standard wine between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "first"
-      )
+      And("I enter details for tax type 368 on the Multiple Small Producer Relief Rate Wine Page")
+      MultipleSmallProducerReliefRateWinePage.enterDetailsFor368()
 
-      And(
-        "I enter 35.5500 for Standard wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "35.5500",
-        "Standard wine between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "first"
-      )
+      And("I click continue button on Check Your Answers SPR Wine Page")
+      CheckYourAnswersSPRWinePage.continue()
 
-      And(
-        "I enter 3698.52 for Standard wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3698.52",
-        "Standard wine between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "second"
-      )
+      And("I select radio button No on Multiple SPR List Question Wine Page")
+      MultipleSPRListQuestionWinePage.addAnother(false)
 
-      And(
-        "I enter 88.8800 for Standard wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "88.8800",
-        "Standard wine between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "second"
-      )
+      And("I click save and continue button on Check Your Answers Returns Wine Page")
+      CheckYourAnswersReturnsWinePage.continue()
 
-      And(
-        "I enter 8974.23 for Standard wine between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "8974.23",
-        "Standard wine between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 22.2200 for Standard wine between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Wine Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard wine between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "third"
-      )
-
-      And(
-        "I enter 990.01 for Standard wine at or above 22.1% ABV - Total litres on How Much You Need To Declare Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "990.01",
-        "Standard wine at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 82.2200 for Standard wine at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "82.2200",
-        "Standard wine at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 895.22 for Draught wine between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Wine Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "895.22",
-        "Draught wine between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 22.3300 for Draught wine between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.3300",
-        "Draught wine between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 569.33 for Draught wine between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Wine Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "569.33",
-        "Draught wine between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Wine Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 24.5500 for Draught wine between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Wine Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "24.5500",
-        "Draught wine between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Wine Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Wine Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Wine Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Wine Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Wine Page")
-
-      And("I enter 678.99 for Total litres on Multiple Small Producer Relief Rate Wine Page")
-      whenIEnterForOn("678.99", "Total litres", "Multiple Small Producer Relief Rate Wine Page")
-
-      And("I enter 66.4300 for Litres of pure alcohol on Multiple Small Producer Relief Rate Wine Page")
-      whenIEnterForOn("66.4300", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Wine Page")
-
-      And("I enter 15.65 for Duty rate on Multiple Small Producer Relief Rate Wine Page")
-      whenIEnterForOn("15.65", "Duty rate", "Multiple Small Producer Relief Rate Wine Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Wine Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Wine Page")
-
-      Then("I am presented with the Check Your Answers SPR Wine Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Wine Page")
-
-      When("I click continue button on Check Your Answers SPR Wine Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Wine Page")
-
-      Then("I am presented with the Multiple SPR List Question Wine Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Wine Page")
-
-      When("I select radio button No on Multiple SPR List Question Wine Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Wine Page")
-
-      And("I click save and continue button on Multiple SPR List Question Wine Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Wine Page")
-
-      Then("I am presented with the Check Your Answers Returns Wine Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Wine Page")
-
-      When("I click save and continue button on Check Your Answers Returns Wine Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Wine Page")
-
-      Then("I am presented with the Duty Due Wine Page")
-      thenIAmPresentedWithThe("Duty Due Wine Page")
-
-      When("I click save and continue button on Duty Due Wine Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Wine Page")
+      And("I click save and continue button on Duty Due Wine Page")
+      DutyDueWinePage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare spirits hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare spirits", "Task List Page")
+      TaskListPage.clickHyperlink("Declare spirits")
 
-      Then("I am presented with the What Do You Need To Declare Spirits Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Spirits Page")
-
-      When(
+      And(
         "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)",
-        "What Do You Need To Declare Spirits Page"
+      WhatDoYouNeedToDeclareSpiritsPage.selectRateBands(
+        "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Spirits Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Spirits Page")
+      And("I enter volumes on the How Much You Need To Declare Spirits Page")
+      HowMuchYouNeedToDeclareSpiritsPage.enterDetailsForAllRateBands()
 
-      Then("I am presented with the How Much You Need To Declare Spirits Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Spirits Page")
+      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
+      DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage.selectMultipleSpr(true)
 
-      When(
-        "I enter 8888.66 for Standard spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "8888.66",
-        "Standard spirits between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "first"
-      )
+      And("I enter details for tax type 380 on Multiple Small Producer Relief Rate Spirits Page")
+      MultipleSmallProducerReliefRateSpiritsPage.enterDetailsFor380()
 
-      And(
-        "I enter 88.8000 for Standard spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "88.8800",
-        "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "first"
-      )
+      And("I click continue button on Check Your Answers SPR Spirits Page")
+      CheckYourAnswersSPRSpiritsPage.continue()
 
-      And(
-        "I enter 7777.77 for Standard spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "7777.77",
-        "Standard spirits between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "second"
-      )
+      And("I select radio button No on Multiple SPR List Question Spirits Page")
+      MultipleSPRListQuestionSpiritsPage.addAnother(false)
 
-      And(
-        "I enter 77.7700 for Standard spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "77.7700",
-        "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "second"
-      )
+      And("I click save and continue button on Check Your Answers Returns Spirits Page")
+      CheckYourAnswersReturnsSpiritsPage.continue()
 
-      And(
-        "I enter 6666.66 for Standard spirits between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "6666.66",
-        "Standard spirits between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 66.6600 for Standard spirits between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.6600",
-        "Standard spirits between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "third"
-      )
-
-      And(
-        "I enter 5555.55 for Standard spirits at or above 22.1% ABV - Total litres on How Much You Need To Declare Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "5555.55",
-        "Standard spirits at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 55.5500 for Standard spirits at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard spirits at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 4444.44 for Draught spirits between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Spirits Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "4444.44",
-        "Draught spirits between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 44.4400 for Draught spirits between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "44.4400",
-        "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 3333.33 for Draught spirits between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Spirits Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3333.33",
-        "Draught spirits between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Spirits Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 33.3300 for Draught spirits between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Spirits Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.3300",
-        "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Spirits Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Spirits Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Spirits Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      And("I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
-
-      Then("I am presented with the Multiple Small Producer Relief Rate Spirits Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Spirits Page")
-
-      And("I enter 789.99 for Total litres on Multiple Small Producer Relief Rate Spirits Page")
-      whenIEnterForOn("789.99", "Total litres", "Multiple Small Producer Relief Rate Spirits Page")
-
-      And("I enter 55.5500 for Litres of pure alcohol on Multiple Small Producer Relief Rate Spirits Page")
-      whenIEnterForOn("55.5500", "Litres of pure alcohol", "Multiple Small Producer Relief Rate Spirits Page")
-
-      And("I enter 20 for Duty rate on Multiple Small Producer Relief Rate Spirits Page")
-      whenIEnterForOn("20", "Duty rate", "Multiple Small Producer Relief Rate Spirits Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Spirits Page")
-
-      Then("I am presented with the Check Your Answers SPR Spirits Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Spirits Page")
-
-      When("I click continue button on Check Your Answers SPR Spirits Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Spirits Page")
-
-      Then("I am presented with the Multiple SPR List Question Spirits Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Spirits Page")
-
-      When("I select radio button No on Multiple SPR List Question Spirits Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Spirits Page")
-
-      And("I click save and continue button on Multiple SPR List Question Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Spirits Page")
-
-      Then("I am presented with the Check Your Answers Returns Spirits Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Spirits Page")
-
-      When("I click save and continue button on Check Your Answers Returns Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Spirits Page")
-
-      Then("I am presented with the Duty Due Spirits Page")
-      thenIAmPresentedWithThe("Duty Due Spirits Page")
-
-      When("I click save and continue button on Duty Due Spirits Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Spirits Page")
+      And("I click save and continue button on Duty Due Spirits Page")
+      DutyDueSpiritsPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Declare other fermented products hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Declare other fermented products", "Task List Page")
+      TaskListPage.clickHyperlink("Declare other fermented products")
 
-      Then("I am presented with the What Do You Need To Declare Other Fermented Product Page")
-      thenIAmPresentedWithThe("What Do You Need To Declare Other Fermented Product Page")
-
-      When(
+      And(
         "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) on What Do You Need To Declare Wine Page"
       )
-      whenICheckboxOn(
-        "select",
-        "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR)",
-        "What Do You Need To Declare Other Fermented Product Page"
+      WhatDoYouNeedToDeclareOtherFermentedProductPage.selectRateBands(
+        "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR)"
       )
 
-      And("I click save and continue button on What Do You Need To Declare Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("What Do You Need To Declare Other Fermented Product Page")
-
-      Then("I am presented with the How Much You Need To Declare Other Fermented Product Page")
-      thenIAmPresentedWithThe("How Much You Need To Declare Other Fermented Product Page")
-
-      When(
-        "I enter 2233.33 for Standard other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "2233.33",
-        "Standard other fermented products between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "first"
-      )
+      And("I enter volumes on the How Much You Need To Declare Other Fermented Product Page")
+      HowMuchYouNeedToDeclareOtherFermentedProductPage.enterDetailsForAllRateBands()
 
       And(
-        "I enter 33.3300 for Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at first input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "33.3300",
-        "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "first"
-      )
-
-      And(
-        "I enter 3322.22 for Standard other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "3322.22",
-        "Standard other fermented products between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 22.2200 for Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at second input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "22.2200",
-        "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "second"
-      )
-
-      And(
-        "I enter 4433.44 for Standard other fermented products between 8.5% and 22% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "4433.44",
-        "Standard other fermented products between 8.5% and 22% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 44.4400 for Standard other fermented products between 8.5% and 22% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at third input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "44.4400",
-        "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "third"
-      )
-
-      And(
-        "I enter 5544.55 for Standard other fermented products at or above 22.1% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "5544.55",
-        "Standard other fermented products at or above 22.1% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 55.5500 for Standard other fermented products at or above 22.1% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fourth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "55.5500",
-        "Standard other fermented products at or above 22.1% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fourth"
-      )
-
-      And(
-        "I enter 6666.66 for Draught other fermented products between 1.3% and 3.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "6666.66",
-        "Draught other fermented products between 1.3% and 3.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 66.6600 for Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at fifth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "66.6600",
-        "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "fifth"
-      )
-
-      And(
-        "I enter 7865.12 for Draught other fermented products between 3.5% and 8.4% ABV - Total litres on How Much You Need To Declare Other Fermented Product Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "7865.12",
-        "Draught other fermented products between 3.5% and 8.4% ABV - Total litres",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "sixth"
-      )
-
-      And(
-        "I enter 34.5500 for Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol on How Much You Need To Declare Other Fermented Product Page at sixth input box"
-      )
-      whenIEnterForOnAtInputBox(
-        "34.5500",
-        "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-        "How Much You Need To Declare Other Fermented Product Page",
-        "sixth"
-      )
-
-      And("I click save and continue button on How Much You Need To Declare Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("How Much You Need To Declare Other Fermented Product Page")
-
-      Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
-      thenIAmPresentedWithThe("Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page")
-
-      When(
         "I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
       )
-      whenISelectRadioButtonOn(
-        "Yes",
-        "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
+      DoYouHaveMultipleSmallProducerReliefDutyRateOtherFermentedProductPage.selectMultipleSpr(true)
 
-      And(
-        "I click save and continue button on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
-      whenIClickSaveAndContinueButtonOn(
-        "Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
+      And("I enter details for tax type 369 on Multiple Small Producer Relief Rate Other Fermented Product Page")
+      MultipleSmallProducerReliefRateOtherFermentedProductPage.enterDetailsFor369()
 
-      Then("I am presented with the Multiple Small Producer Relief Rate Other Fermented Product Page")
-      thenIAmPresentedWithThe("Multiple Small Producer Relief Rate Other Fermented Product Page")
+      And("I click continue button on Check Your Answers SPR Other Fermented Product Page")
+      CheckYourAnswersSPROtherFermentedProductPage.continue()
 
-      And("I enter 999.99 for Total litres on Multiple Small Producer Relief Rate Other Fermented Product Page")
-      whenIEnterForOn("999.99", "Total litres", "Multiple Small Producer Relief Rate Other Fermented Product Page")
+      And("I select radio button No on Multiple SPR List Question Other Fermented Product Page")
+      MultipleSPRListQuestionOtherFermentedProductPage.addAnother(false)
 
-      And(
-        "I enter 99.9900 for Litres of pure alcohol on Multiple Small Producer Relief Rate Other Fermented Product Page"
-      )
-      whenIEnterForOn(
-        "99.9900",
-        "Litres of pure alcohol",
-        "Multiple Small Producer Relief Rate Other Fermented Product Page"
-      )
+      And("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
+      CheckYourAnswersReturnsOtherFermentedProductPage.continue()
 
-      And("I enter 20 for Duty rate on Multiple Small Producer Relief Rate Other Fermented Product Page")
-      whenIEnterForOn("20", "Duty rate", "Multiple Small Producer Relief Rate Other Fermented Product Page")
-
-      And("I click save and continue button on Multiple Small Producer Relief Rate Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Multiple Small Producer Relief Rate Other Fermented Product Page")
-
-      Then("I am presented with the Check Your Answers SPR Other Fermented Product Page")
-      thenIAmPresentedWithThe("Check Your Answers SPR Other Fermented Product Page")
-
-      When("I click continue button on Check Your Answers SPR Other Fermented Product Page")
-      whenIClickContinueButtonOn("Check Your Answers SPR Other Fermented Product Page")
-
-      Then("I am presented with the Multiple SPR List Question Other Fermented Product Page")
-      thenIAmPresentedWithThe("Multiple SPR List Question Other Fermented Product Page")
-
-      When("I select radio button No on Multiple SPR List Question Other Fermented Product Page")
-      whenISelectRadioButtonOn("No", "Multiple SPR List Question Other Fermented Product Page")
-
-      And("I click save and continue button on Multiple SPR List Question Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Multiple SPR List Question Other Fermented Product Page")
-
-      Then("I am presented with the Check Your Answers Returns Other Fermented Product Page")
-      thenIAmPresentedWithThe("Check Your Answers Returns Other Fermented Product Page")
-
-      When("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Check Your Answers Returns Other Fermented Product Page")
-
-      Then("I am presented with the Duty Due Other Fermented Product Page")
-      thenIAmPresentedWithThe("Duty Due Other Fermented Product Page")
-
-      When("I click save and continue button on Duty Due Other Fermented Product Page")
-      whenIClickSaveAndContinueButtonOn("Duty Due Other Fermented Product Page")
+      And("I click save and continue button on Duty Due Other Fermented Product Page")
+      DutyDueOtherFermentedProductPage.continue()
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us if you have adjustments to declare", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
 
-      Then("I am presented with the Declare Adjustment Question Page")
-      thenIAmPresentedWithThe("Declare Adjustment Question Page")
+      And("I select Yes on Declare Adjustment Question Page")
+      DeclareAdjustmentQuestionPage.declareAdjustments(true)
 
-      When("I select radio button Yes on Declare Adjustment Question Page")
-      whenISelectRadioButtonOn("Yes", "Declare Adjustment Question Page")
+      And("I select radio button Under-declaration on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Under-declaration")
 
-      And("I click save and continue button on Declare Adjustment Question Page")
-      whenIClickSaveAndContinueButtonOn("Declare Adjustment Question Page")
+      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("09", "2023")
 
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
+      And("I enter 371 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("371")
 
-      When("I select radio button Under-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Under-declaration", "Adjustment Type Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("09", "2023", "Adjustment Return Date Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
+      And("I select radio button Over-declaration on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I enter 371 on Adjustment Tax Type Code Page")
-      whenIEnterOn("371", "Adjustment Tax Type Code Page")
+      And("I enter 372 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("372")
 
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("9999.99", "7777.7700", "898.89")
 
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
+      And("I select radio button Spoilt on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Spoilt")
 
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
+      And("I select radio button Spirits on Spoilt Alcohol Type Page")
+      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
 
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
+      And("I enter volumes on the Spoilt Alcohol Volume Page")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
+      And("I select radio button Yes on Adjustment List Page")
+      AdjustmentListPage.addAnother(true)
 
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
+      And("I select radio button Drawback on Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Drawback")
 
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
+      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
+      And("I enter 374 on Adjustment Tax Type Code Page")
+      AdjustmentTaxTypeCodePage.enterDetails("374")
 
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I enter volumes on the Adjustment Volume With Spr Page")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5599", "9.8")
 
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
+      And("I click continue button on Adjustment Duty Value Page")
+      AdjustmentDutyValuePage.continue()
 
-      When("I select radio button Over-declaration on Adjustment Type Page")
-      whenISelectRadioButtonOn("Over-declaration", "Adjustment Type Page")
+      And("I click save and continue button on Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.continue()
 
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
-
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 372 on Adjustment Tax Type Code Page")
-      whenIEnterOn("372", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 9999.99 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9999.99", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 7777.7700 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("7777.7700", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 898.89 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("898.89", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
-
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
-
-      When("I select radio button Spoilt on Adjustment Type Page")
-      whenISelectRadioButtonOn("Spoilt", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Type Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
-
-      When("I select radio button Spirits on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
-
-      Then("I am presented with the Spoilt Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button Yes on Adjustment List Page")
-      whenISelectRadioButtonOn("Yes", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
-
-      Then("I am presented with the Adjustment Type Page")
-      thenIAmPresentedWithThe("Adjustment Type Page")
-
-      When("I select radio button Drawback on Adjustment Type Page")
-      whenISelectRadioButtonOn("Drawback", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
-
-      Then("I am presented with the Adjustment Return Date Page")
-      thenIAmPresentedWithThe("Adjustment Return Date Page")
-
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      whenIEnterMonthAndYearOn("10", "2023", "Adjustment Return Date Page")
-
-      And("I click save and continue button on Adjustment Return Date Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Return Date Page")
-
-      Then("I am presented with the Adjustment Tax Type Code Page")
-      thenIAmPresentedWithThe("Adjustment Tax Type Code Page")
-
-      When("I enter 374 on Adjustment Tax Type Code Page")
-      whenIEnterOn("374", "Adjustment Tax Type Code Page")
-
-      And("I click save and continue button on Adjustment Tax Type Code Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Tax Type Code Page")
-
-      Then("I am presented with the Adjustment Volume With Spr Page")
-      thenIAmPresentedWithThe("Adjustment Volume With Spr Page")
-
-      When("I enter 3000.75 for Total Litres on Adjustment Volume With Spr Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Adjustment Volume With Spr Page")
-
-      And("I enter 250.5599 for Litres Of Pure Alcohol on Adjustment Volume With Spr Page")
-      whenIEnterForOn("250.5599", "Litres Of Pure Alcohol", "Adjustment Volume With Spr Page")
-
-      And("I enter 9.8 for SPR Duty Rate on Adjustment Volume With Spr Page")
-      whenIEnterForOn("9.8", "SPR Duty Rate", "Adjustment Volume With Spr Page")
-
-      And("I click save and continue button on Adjustment Volume With Spr Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Volume With Spr Page")
-
-      Then("I am presented with the Adjustment Duty Value Page")
-      thenIAmPresentedWithThe("Adjustment Duty Value Page")
-
-      When("I click continue button on Adjustment Duty Value Page")
-      whenIClickContinueButtonOn("Adjustment Duty Value Page")
-
-      Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      And("I select radio button No on Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were under-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were under-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were under-declared")
 
-      Then("I am presented with the Under Declaration Reason Page")
-      thenIAmPresentedWithThe("Under Declaration Reason Page")
-
-      When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
-      whenIEnterOn("Test Under Declaration Reason", "Under Declaration Reason Page")
-
-      And("I click save and continue button on Under Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Under Declaration Reason Page")
+      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
+      UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us why products were over-declared", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
-      Then("I am presented with the Over Declaration Reason Page")
-      thenIAmPresentedWithThe("Over Declaration Reason Page")
-
-      When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
-      whenIEnterOn("Test Over Declaration Reason", "Over Declaration Reason Page")
-
-      And("I click save and continue button on Over Declaration Reason Page")
-      whenIClickSaveAndContinueButtonOn("Over Declaration Reason Page")
+      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
+      OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
@@ -3469,49 +675,31 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When(
         "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
       )
-      whenIClickOnHyperlinkOn(
-        "Tell us if you have delivered or received finished products in duty suspense",
-        "Task List Page"
-      )
+      TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
 
-      Then("I am presented with the Declare Duty Suspended Deliveries Page")
-      thenIAmPresentedWithThe("Declare Duty Suspended Deliveries Page")
-
-      When("I select radio button No on Declare Duty Suspended Deliveries Page")
-      whenISelectRadioButtonOn("No", "Declare Duty Suspended Deliveries Page")
-
-      And("I click save and continue button on Declare Duty Suspended Deliveries Page")
-      whenIClickSaveAndContinueButtonOn("Declare Duty Suspended Deliveries Page")
+      And("I select No on Declare Duty Suspended Deliveries Page")
+      DeclareDutySuspendedDeliveriesPage.declareDSD(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
-      Then("I am presented with the Quarterly Spirits Returns Guidance Page")
-      thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
-
-      When("I select radio button No on Quarterly Spirits Returns Guidance Page")
-      whenISelectRadioButtonOn("No", "Quarterly Spirits Returns Guidance Page")
-
-      And("I click save and continue button on Quarterly Spirits Returns Guidance Page")
-      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Returns Guidance Page")
+      And("I select No on Quarterly Spirits Returns Guidance Page")
+      QuarterlySpiritsReturnsGuidancePage.declareSpirits(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Check duty payable and send your return", "Task List Page")
+      TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      Then("I am presented with the Return Summary Page")
-      thenIAmPresentedWithThe("Return Summary Page")
-
-      When("I click on Agree and send return button Return Summary Page")
-      whenIClickOnAgreeAndSendReturnButton("Return Summary Page")
+      And("I click on Agree and send return button on Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
-      thenIAmPresentedWithThe("Return Submitted Page")
+      ReturnSubmittedPage.checkURL
 
     }
 
@@ -3560,8 +748,8 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       When("I click on Check duty payable and send your return hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
 
-      And("I click on Agree and send return button No Duty Due Page")
-      NoDutyDuePage.continue()
+      And("I click on Agree and send return button on Return Summary Page")
+      ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
       ReturnSubmittedPage.checkURL
@@ -3601,7 +789,7 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       MultipleSPRListQuestionBeerPage.addAnother(true)
 
       And("I enter details for tax type 371 on Multiple Small Producer Relief Rate Beer Page")
-      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InChangeMode()
+      MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InCheckMode()
 
       And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()

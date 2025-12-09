@@ -25,21 +25,17 @@ object DeclareWhiskeyPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/scotch-whisky-and-irish-whiskey-volumes"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes"
-  override val title          = "How much Scotch Whisky and Irish Whiskey have you produced?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: How much Scotch Whisky and Irish Whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "How much Scotch Whisky and Irish Whiskey have you produced? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("How much Scotch Whisky and Irish Whiskey have you produced?")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
       case "Scotch Whisky" => enterText("scotchWhisky", textToEnter)
       case "Irish Whiskey" => enterText("irishWhiskey", textToEnter)
     }
+
+  def enterVolumes(): Unit = {
+    checkURL
+    enterMultipleDetails("10.55", "Scotch Whisky")
+    enterMultipleDetails("20.67", "Irish Whiskey")
+    clickSaveAndContinueButton()
+  }
 }

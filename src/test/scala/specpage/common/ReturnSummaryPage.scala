@@ -16,6 +16,7 @@
 
 package specpage.common
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -26,39 +27,44 @@ object ReturnSummaryPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Declared spirits duty"                  =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/declare/check-your-answers']"
-        )
+        ))
       case "Change Declared wine duty"                     =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/declare/check-your-answers']"
-        )
+        ))
       case "Change Declared cider duty"                    =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/declare/check-your-answers']"
-        )
+        ))
       case "Change Declared other fermented products duty" =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers']"
-        )
+        ))
       case "Change Declared beer duty"                     =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Beer/declare/check-your-answers']"
-        )
+        ))
       case "Change Adjustment duty value"                  =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/1']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/1']"))
       case "Change Duty suspended alcohol"                 =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/check-your-answers']"
-        )
+        ))
       case "Change Spirits production"                     =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/check-your-answers']"
-        )
+        ))
     }
 
   def continue(): Unit = {
     checkURL
     clickAgreeAndSendReturnButton()
+  }
+  
+  def clickChangeLink(text: String): Unit = {
+    checkURL
+    clickButton(text)
   }
 }

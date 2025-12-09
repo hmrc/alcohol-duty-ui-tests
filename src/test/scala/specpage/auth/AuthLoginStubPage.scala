@@ -71,6 +71,7 @@ object AuthLoginStubPage extends BasePage {
     typeOfJourney: String = "Alcohol Duty Service",
     useCredId: Boolean = false
   ): Unit = {
+    checkURL
     enterRedirectUrlFor(typeOfJourney)
     selectAffinityGroup("Organisation")
     if (useCredId) authorityId("cred0")

@@ -25,17 +25,6 @@ object DutySuspendedCiderPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Cider/report"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/Cider/change"
-  override val title          = "Tell us about your duty suspended cider"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about your duty suspended cider - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about your duty suspended cider - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Tell us about your duty suspended cider")
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
@@ -43,4 +32,10 @@ object DutySuspendedCiderPage extends BasePage {
       case "Pure Alcohol In Cider" => enterText("pureAlcoholInCider", textToEnter)
     }
 
+  def enterVolumes(): Unit = {
+    checkURL
+    enterMultipleDetails("9999.99", "Total Cider")
+    enterMultipleDetails("99.19", "Pure Alcohol In Cider")
+    clickSaveAndContinueButton()
+  }
 }

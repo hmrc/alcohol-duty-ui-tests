@@ -22,17 +22,14 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ViewPastPaymentsPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments"
-  override val title       = "Alcohol Duty payments"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Alcohol Duty payments - Manage your Alcohol Duty - GOV.UK"
-  )
+  def viewPastYearPayments(): Unit = {
+    checkURL
+    clickHyperlink("View 2024 payments")
+  }
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Alcohol Duty payments - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Alcohol Duty payments"
-  )
+  def clickManageLink(): Unit = {
+    checkURL
+    clickHyperlink("Manage")
+  }
 }

@@ -22,20 +22,13 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object HowMuchYouNeedToDeclareSpiritsPage extends BasePage {
 
   override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/volumes"
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Spirits/declare/volumes"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/change/volumes"
-  override val title          = "Tell us about the spirits you need to declare"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the spirits you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the spirits you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Tell us about the spirits you need to declare")
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/complete-return/alcoholic-products/Spirits/change/volumes"
 
   override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
     val modifiedIndex = ordinalToNumber(index)
@@ -65,5 +58,29 @@ object HowMuchYouNeedToDeclareSpiritsPage extends BasePage {
       case "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol"  =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
     }
+  }
+
+  def enterDetailsForAllRateBands(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("7777.77", "Standard spirits between 3.5% and 8.4% ABV - Total litres", "second")
+    enterMultipleDetailsWithIndex("77.7700", "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol", "second")
+    enterMultipleDetailsWithIndex("6666.66", "Standard spirits between 8.5% and 22% ABV - Total litres", "third")
+    enterMultipleDetailsWithIndex("66.6600", "Standard spirits between 8.5% and 22% ABV - Pure alcohol", "third")
+    enterMultipleDetailsWithIndex("5555.55", "Standard spirits at or above 22.1% ABV - Total litres", "fourth")
+    enterMultipleDetailsWithIndex("55.5500", "Standard spirits at or above 22.1% ABV - Pure alcohol", "fourth")
+    enterMultipleDetailsWithIndex("4444.44", "Draught spirits between 1.3% and 3.4% ABV - Total litres", "fifth")
+    enterMultipleDetailsWithIndex("44.4400", "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol", "fifth")
+    enterMultipleDetailsWithIndex("3333.33", "Draught spirits between 3.5% and 8.4% ABV - Total litres", "sixth")
+    enterMultipleDetailsWithIndex("33.3300", "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
+    clickSaveAndContinueButton()
+  }
+
+  def enterDetailsFor315(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
   }
 }

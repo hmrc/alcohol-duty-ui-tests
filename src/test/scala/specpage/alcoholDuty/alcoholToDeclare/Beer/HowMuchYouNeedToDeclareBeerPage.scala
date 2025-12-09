@@ -79,4 +79,11 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
     enterMultipleDetailsWithIndex("66.8900", "Draught beer between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
     clickSaveAndContinueButton()
   }
+
+  def enterDetailsFor341(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
+  }
 }

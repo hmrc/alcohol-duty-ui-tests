@@ -16,26 +16,15 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Spirits
 
-import org.openqa.selenium.By
-import org.scalatest.Assertion
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.selenium.webdriver.Driver
 
 object DutyDueSpiritsPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/duty-due"
-  override val title = "You will owe £"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "You will owe £4,588.83 - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("You will owe £14,749.70")
-
-  override def checkPageTitle(): Assertion =
-    pageTitle should startWith(title)
-
-  override def checkPageHeader(): Assertion =
-    Driver.instance.findElement(By tagName "h1").getText should startWith(title)
+  def continue(): Unit = {
+    checkURL
+    clickSaveAndContinueButton()
+  }
 }

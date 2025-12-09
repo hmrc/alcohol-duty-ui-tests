@@ -52,14 +52,6 @@ object BaseStepDefSteps extends BasePage {
     PageObjectFinder.page(page).checkNewURL
   
 
-  // I am presented with the {string} with url suffix as {string}
-  def thenIAmPresentedWithTheWithUrlSuffixAs(page: String, urlSuffix: String): Unit =
-    PageObjectFinder.page(page).checkNewDynamicURL(urlSuffix)
-
-  // I am presented with the {string} with existing url suffix as {string}
-  def thenIAmPresentedWithTheWithExistingUrlSuffixAs(page: String, urlSuffix: String): Unit =
-    PageObjectFinder.page(page).checkExistingDynamicURL(urlSuffix)
-
   // I select radio button {string} on {string}
   def whenISelectRadioButtonOn(choice: String, page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
@@ -77,20 +69,10 @@ object BaseStepDefSteps extends BasePage {
   def whenIClickSaveAndContinueButtonOn(page: String): Unit =
     PageObjectFinder.page(page).clickSaveAndContinueButton()
 
-  // I click confirm and continue button on {string}
-  def whenIClickConfirmAndContinueButtonOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickConfirmAndContinueButton()
-
   // I click continue button on {string}
   def whenIClickContinueButtonOn(page: String): Unit =
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).clickContinueButton()
-
-  // I click back button on {string}
-  def whenIClickBackButtonOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickBackButton()
 
   // I enter {string} on {string}
   def whenIEnterOn(data: String, page: String): Unit =
@@ -112,29 +94,11 @@ object BaseStepDefSteps extends BasePage {
     //    PageObjectFinder.page(page).waitForPageHeader
     PageObjectFinder.page(page).enterDate(month, year)
 
-  // I enter redirect url for {string}
-  def whenIEnterRedirectUrlFor(page: String): Unit =
-    page match {
-      case "Task List Page"       =>
-        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/task-list")
-      case "Return Summary Page"  =>
-        Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/check-return")
-      case "Alcohol Duty Service" =>
-        Driver.instance.get(
-          TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
-        )
-    }
-
   // I cleared the data to view completed returns from previous years
   def clearDataForPastReturns(): Unit =
     Driver.instance.get(
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations"
     )
-
-  // I click on the first {string} link on {string}
-  def whenIClickOnTheFirstLinkOn(hyperlink: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    Driver.instance.findElement(By.xpath("//tbody[@class='govuk-table__body']//td[3]//a[1]")).click()
 
   // I click {string} on {string}
   def whenIClickOn(button: String, page: String): Unit =
@@ -143,11 +107,6 @@ object BaseStepDefSteps extends BasePage {
   // I click on {string} hyperlink on {string}
   def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit =
     Driver.instance.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
-
-  // I click on {string} link on {string}
-  def whenIClickOnLinkOn(hyperlink: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    Driver.instance.findElement(By.xpath("//tbody/tr[3]/td[5]/ul[1]/li[1]/a[1]")).click()
 
   // I cleared the data for the service
   def clearDataForReturns(): Unit =
@@ -162,23 +121,6 @@ object BaseStepDefSteps extends BasePage {
     Driver.instance.get(
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-historic-payments"
     )
-
-  // I click on change link {int} on {string} for alcohol type {string}
-  def andIClickOnChangeLinkOnForAlcoholType(changeLinkIndex: Int, page: String, alcoholType: String): Unit = {
-    PageObjectFinder.page(page).waitForPageHeader
-    Driver.instance
-      .findElement(
-        By.xpath(
-          "(//a[@href='/manage-alcohol-duty/complete-return/alcoholic-products/" + alcoholType + "/declare/check-your-answers'])[" + changeLinkIndex + "]"
-        )
-      )
-      .click()
-  }
-
-  // I click on Agree and send return button {string}
-  def whenIClickOnAgreeAndSendReturnButton(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickAgreeAndSendReturnButton()
 
   // Background steps 1 for starting a return
   def loginAndStartReturn(appaId: String): Unit = {

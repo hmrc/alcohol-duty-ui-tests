@@ -17,6 +17,7 @@
 package specpage.alcoholDuty.adjustments
 
 import specpage.BasePage
+import specpage.alcoholDuty.adjustments.SpoiltAlcoholTypePage.{checkURL, clickSaveAndContinueButton, enterMultipleDetails}
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object SpoiltBeerAlcoholVolumePage extends BasePage {
@@ -44,4 +45,21 @@ object SpoiltBeerAlcoholVolumePage extends BasePage {
       case "Litres Of Pure Alcohol" => enterText("volumes_pureAlcoholVolume", textToEnter)
       case "Duty Paid"              => enterText("volumes_duty", textToEnter)
     }
+
+  def enterVolumes(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "Duty Paid")
+    clickSaveAndContinueButton()
+  }
+
+  def enterVolumesWithNewUrl(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkNewURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "Duty Paid")
+    clickSaveAndContinueButton()
+  }
+
 }

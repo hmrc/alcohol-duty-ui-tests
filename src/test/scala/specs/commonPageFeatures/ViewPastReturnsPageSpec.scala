@@ -17,7 +17,7 @@
 package specs.commonPageFeatures
 
 import specpage.auth.AuthLoginStubPage
-import specpage.common.ViewPastReturnsPage
+import specpage.common.{ViewCompletedReturnsPage, ViewPastReturnsPage, ViewSpecificReturnPage}
 import specs.BaseSpec
 import specs.tags.{AllTests, CommonPages}
 import specsteps.BaseStepDefSteps._
@@ -30,36 +30,24 @@ class ViewPastReturnsPageSpec extends BaseSpec {
       Given("I cleared the data to view completed returns from previous years")
       clearDataForPastReturns()
 
-      When("I enter login details on Authority Wizard")
+      And("I enter login details on Authority Wizard")
       navigateToPage(AuthLoginStubPage)
       AuthLoginStubPage.enterAuthDetails("XMADP0000100211", "View Past Returns")
-
-      Then("I am presented with the View Past Returns Page")
-      thenIAmPresentedWithThe("View Past Returns Page")
 
       When("I click the link to view completed returns from the previous year on View Past Returns Page")
       ViewPastReturnsPage.clickPreviousYearHyperlink()
 
-      Then("I am presented with the View Completed Returns Page")
-      thenIAmPresentedWithThe("View Completed Returns Page")
-
       And("I click on the first View return link on View Completed Returns Page")
-      whenIClickOnTheFirstLinkOn("View return", "View Completed Returns Page")
+      ViewCompletedReturnsPage.clickFirstViewReturnLink()
 
-      Then("I am presented with the View Specific Return Page")
-      thenIAmPresentedWithThe("View Specific Return Page")
+      And("I click back button on View Specific Return Page")
+      ViewSpecificReturnPage.clickBackButton()
 
-      And("I click back button on View Completed Returns Page")
-      whenIClickBackButtonOn("View Completed Returns Page")
-
-      Then("I am presented with the View Completed Returns Page")
-      thenIAmPresentedWithThe("View Completed Returns Page")
-
-      When("I click on Back to current returns hyperlink on View Completed Returns Page")
-      whenIClickOnHyperlinkOn("Back to current returns", "View Completed Returns Page")
+      And("I click on Back to current returns hyperlink on View Completed Returns Page")
+      ViewCompletedReturnsPage.backToCurrentReturns()
 
       Then("I am presented with the View Past Returns Page")
-      thenIAmPresentedWithThe("View Past Returns Page")
+      ViewPastReturnsPage.checkURL
 
     }
   }

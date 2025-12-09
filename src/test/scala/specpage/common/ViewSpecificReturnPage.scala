@@ -16,30 +16,16 @@
 
 package specpage.common
 
-import org.openqa.selenium.By
-import org.scalatest.Assertion
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
-import uk.gov.hmrc.selenium.webdriver.Driver
 
 object ViewSpecificReturnPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-your-return/" + get12MonthsAgoPeriodKey
-  override val title = "April 2024 Alcohol Duty Return"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Alcohol Duty Return"
-  )
-
-  override def checkPageTitle(): Assertion =
-    pageTitle should equal(getSpecificMonth + " Alcohol Duty Return - Manage your Alcohol Duty - GOV.UK")
-
-  override def checkPageHeader(): Assertion =
-    Driver.instance.findElement(By tagName "h1").getText should equal(getSpecificMonth + " Alcohol Duty Return")
-
+  def clickBackLink(): Unit = {
+    checkURL
+    clickBackButton()
+  }
 }
