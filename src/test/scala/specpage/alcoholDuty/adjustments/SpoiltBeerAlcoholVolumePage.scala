@@ -17,7 +17,6 @@
 package specpage.alcoholDuty.adjustments
 
 import specpage.BasePage
-import specpage.alcoholDuty.adjustments.SpoiltAlcoholTypePage.{checkURL, clickSaveAndContinueButton, enterMultipleDetails}
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object SpoiltBeerAlcoholVolumePage extends BasePage {
