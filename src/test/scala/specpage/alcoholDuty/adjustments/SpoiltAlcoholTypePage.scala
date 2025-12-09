@@ -17,6 +17,7 @@
 package specpage.alcoholDuty.adjustments
 
 import specpage.BasePage
+import specpage.alcoholDuty.adjustments.AdjustmentVolumeWithSprPage.{checkURL, clickSaveAndContinueButton, enterMultipleDetails}
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object SpoiltAlcoholTypePage extends BasePage {
@@ -37,6 +38,20 @@ object SpoiltAlcoholTypePage extends BasePage {
   def selectAlcoholType(regime: String): Unit = {
     checkURL
     clickRadioButton(regime)
+    clickSaveAndContinueButton()
+  }
+
+  def selectAlcoholTypeWithNewUrl(regime: String): Unit = {
+    checkNewURL
+    clickRadioButton(regime)
+    clickSaveAndContinueButton()
+  }
+
+  def enterVolumes(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "Duty Paid")
     clickSaveAndContinueButton()
   }
 }

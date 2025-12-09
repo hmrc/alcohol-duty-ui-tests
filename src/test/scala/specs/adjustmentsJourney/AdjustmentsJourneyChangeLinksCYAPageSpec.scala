@@ -16,7 +16,7 @@
 
 package specs.adjustmentsJourney
 
-import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumePage, AdjustmentVolumeWithSprPage, NewSprDutyRatePage, NewTaxTypeCodePage}
+import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumePage, AdjustmentVolumeWithSprPage, NewSprDutyRatePage, NewTaxTypeCodePage, SpoiltAlcoholTypePage, SpoiltAlcoholVolumePage, SpoiltBeerAlcoholVolumePage}
 import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{Adjustments, AllTests}
@@ -63,7 +63,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("371")
 
       Then("I am presented with the Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumePage.enterVolumesWithNewUrl()
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","9.8")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -319,104 +319,37 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       navigateToAdjustmentTypePage()
 
       When("I select radio button Spoilt on Adjustment Type Page")
-      whenISelectRadioButtonOn("Spoilt", "Adjustment Type Page")
-
-      And("I click save and continue button on Adjustment Type Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Type Page")
+      AdjustmentTypePage.selectAdjustmentType("Spoilt")
 
       Then("I am presented with the Spoilt Alcohol Type Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Type Page")
-
-      When("I select radio button Spirits on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Spirits", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
+      SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
 
       Then("I am presented with the Spoilt Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Alcohol Volume Page")
-
-      When("I enter 3000.75 for Total Litres on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Volume Page")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click Description on Adjustment Check Your Answers Page")
-      whenIClickOn("Description", "Adjustment Check Your Answers Page")
-
-      Then("I am presented with the Spoilt Alcohol Type Page with new url")
-      thenIAmPresentedWithTheWithNewUrl("Spoilt Alcohol Type Page")
+      AdjustmentCheckYourAnswersPage.clickButton("Description")
 
       When("I select radio button Beer on Spoilt Alcohol Type Page")
-      whenISelectRadioButtonOn("Beer", "Spoilt Alcohol Type Page")
-
-      And("I click save and continue button on Spoilt Alcohol Type Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Alcohol Type Page")
-
-      Then("I am presented with the Spoilt Beer Alcohol Volume Page")
-      thenIAmPresentedWithThe("Spoilt Beer Alcohol Volume Page")
+      SpoiltAlcoholTypePage.selectAlcoholTypeWithNewUrl("Beer")
 
       When("I enter 3000.75 for Total Litres on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("3000.75", "Total Litres", "Spoilt Beer Alcohol Volume Page")
-
-      And("I enter 250.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("250.5500", "Litres Of Pure Alcohol", "Spoilt Beer Alcohol Volume Page")
-
-      And("I enter 3255.55 for Duty Paid on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("3255.55", "Duty Paid", "Spoilt Beer Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Beer Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Beer Alcohol Volume Page")
+      SpoiltBeerAlcoholVolumePage.enterVolumes("3000.75","250.5500","3255.55")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click Duty value on Adjustment Check Your Answers Page")
-      whenIClickOn("Duty value", "Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.clickButton("Duty value")
 
       Then("I am presented with the Spoilt Beer Alcohol Volume Page with new url")
-      thenIAmPresentedWithTheWithNewUrl("Spoilt Beer Alcohol Volume Page")
-
-      When("I enter 3222.75 for Total Litres on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("3222.75", "Total Litres", "Spoilt Beer Alcohol Volume Page")
-
-      And("I enter 255.5500 for Litres Of Pure Alcohol on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("255.5500", "Litres Of Pure Alcohol", "Spoilt Beer Alcohol Volume Page")
-
-      And("I enter 3200.55 for Duty Paid on Spoilt Beer Alcohol Volume Page")
-      whenIEnterForOn("3200.55", "Duty Paid", "Spoilt Beer Alcohol Volume Page")
-
-      And("I click save and continue button on Spoilt Beer Alcohol Volume Page")
-      whenIClickSaveAndContinueButtonOn("Spoilt Beer Alcohol Volume Page")
+      SpoiltBeerAlcoholVolumePage.enterVolumesWithNewUrl("3222.75","255.5500","3200.55")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
-      thenIAmPresentedWithThe("Adjustment Check Your Answers Page")
-
-      When("I click save and continue button on Adjustment Check Your Answers Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment Check Your Answers Page")
+      AdjustmentCheckYourAnswersPage.saveAndContinue()
 
       Then("I am presented with the Adjustment List Page")
-      thenIAmPresentedWithThe("Adjustment List Page")
-
-      When("I select radio button No on Adjustment List Page")
-      whenISelectRadioButtonOn("No", "Adjustment List Page")
-
-      And("I click save and continue button on Adjustment List Page")
-      whenIClickSaveAndContinueButtonOn("Adjustment List Page")
+      AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
-
+      TaskListPage.url
     }
   }
 }

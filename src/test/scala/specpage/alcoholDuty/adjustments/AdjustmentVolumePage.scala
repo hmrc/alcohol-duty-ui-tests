@@ -23,7 +23,7 @@ object AdjustmentVolumePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/volume"
   override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/spr/eligible-volume"
+    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/volume"
 
   override def enterMultipleDetails(textToEnter: String, text: String): Unit =
     text match {
