@@ -43,7 +43,7 @@ object ECPExistingEmailPage extends BasePage {
   def ECPExistingEmail(ECPRadiobutton : Boolean): Unit = {
     checkURL
     if (ECPRadiobutton) clickRadioButton("Yes")
-    else clickRadioButton("No")
+    else clickRadioButton("No, I want to use a different email")
     clickContinueButton()
   }
 }

@@ -31,4 +31,10 @@ object TotalOfAllSpiritsPage extends BasePage {
     enterText("declare-spirits-total-input", volume)
     clickSaveAndContinueButton()
   }
+  def enterNewVolume(volume: String): Unit = {
+    checkNewURL
+    enterText("declare-spirits-total-input", volume)
+    clickSaveAndContinueButton()
+  }
+  
 }

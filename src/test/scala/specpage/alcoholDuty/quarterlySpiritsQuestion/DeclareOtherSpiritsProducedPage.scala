@@ -21,7 +21,7 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object DeclareOtherSpiritsProducedPage extends BasePage {
 
-  override val url: String    =
+  override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/other-spirits-produced"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/other-spirits-produced"
@@ -31,4 +31,12 @@ object DeclareOtherSpiritsProducedPage extends BasePage {
     enterText("otherSpiritsProduced", textToEnter)
     clickSaveAndContinueButton()
   }
+
+  def enterNewDetails(textToEnter: String): Unit = {
+    checkNewURL
+    enterText("otherSpiritsProduced", textToEnter)
+    clickSaveAndContinueButton()
+  }
 }
+  
+

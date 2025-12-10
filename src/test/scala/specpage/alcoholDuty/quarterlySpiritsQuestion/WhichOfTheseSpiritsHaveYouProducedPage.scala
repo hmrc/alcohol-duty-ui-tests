@@ -31,4 +31,10 @@ object WhichOfTheseSpiritsHaveYouProducedPage extends BasePage {
     selectCheckBoxes(choices.split(","))
     clickSaveAndContinueButton()
   }
+
+  def selectNewSpiritTypes(choices: String): Unit = {
+    checkNewURL
+    selectCheckBoxes(choices.split(","))
+    clickSaveAndContinueButton()
+  }
 }

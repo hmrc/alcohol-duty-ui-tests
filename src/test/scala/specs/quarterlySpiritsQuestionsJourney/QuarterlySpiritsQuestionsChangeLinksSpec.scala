@@ -36,7 +36,8 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
 
       When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
-      whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+     // whenIClickOnHyperlinkOn("Tell us about spirits produced in the past three months", "Task List Page")
+      TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
 
       Then("I am presented with the Quarterly Spirits Returns Guidance Page")
      // thenIAmPresentedWithThe("Quarterly Spirits Returns Guidance Page")
@@ -105,14 +106,14 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 
       Then("I am presented with the Quarterly Spirits Check Your Answers Page")
     //  thenIAmPresentedWithThe("Quarterly Spirits Check Your Answers Page")
-      QuarterlySpiritsCheckYourAnswersPage.continue()
+      QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change total of all spirits")
 
 //      When("I click Change total of all spirits on Quarterly Spirits Check Your Answers Page")
 //      whenIClickOn("Change total of all spirits", "Quarterly Spirits Check Your Answers Page")
 
       Then("I am presented with the Total Of All Spirits Page with new url")
      // thenIAmPresentedWithTheWithNewUrl("Total Of All Spirits Page")
-      TotalOfAllSpiritsPage.enterVolume()
+      TotalOfAllSpiritsPage.enterNewVolume("111.99")
 
 //      When("I enter 111.99 on Total Of All Spirits Page")
 //      whenIEnterOn("111.99", "Total Of All Spirits Page")
@@ -129,7 +130,7 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 
       Then("I am presented with the Declare Whiskey Page")
 //      thenIAmPresentedWithTheWithNewUrl("Declare Whiskey Page")
-      DeclareWhiskeyPage.enterVolumes()
+      DeclareWhiskeyPage.enterNewVolumes()
 
 //
 //      When("I enter 222.99 for Scotch Whisky on Declare Whiskey Page")
@@ -150,7 +151,7 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 
       Then("I am presented with the Which Of These Spirits Have You Produced Page with new url")
      // thenIAmPresentedWithTheWithNewUrl("Which Of These Spirits Have You Produced Page")
-      WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes("Grain spirits")
+      WhichOfTheseSpiritsHaveYouProducedPage.selectNewSpiritTypes("Grain spirits")
 
 //      When("I select checkbox Grain spirits on Which Of These Spirits Have You Produced Page")
 //      whenICheckboxOn("select", "Grain spirits", "Which Of These Spirits Have You Produced Page")
@@ -167,7 +168,7 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 
       Then("I am presented with the Declare Other Spirits Produced Page with new url")
       //thenIAmPresentedWithTheWithNewUrl("Declare Other Spirits Produced Page")
-      DeclareOtherSpiritsProducedPage.enterDetails("Test Spirits1")
+      DeclareOtherSpiritsProducedPage.enterNewDetails("Test Spirits1")
 
 //      When("I enter Test Spirits1 on Declare Other Spirits Produced Page")
 //      whenIEnterOn("Test Spirits1", "Declare Other Spirits Produced Page")
@@ -184,7 +185,7 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 
       Then("I am presented with the Which Of These Spirits Have You Produced Page with new url")
      // thenIAmPresentedWithTheWithNewUrl("Which Of These Spirits Have You Produced Page")
-      WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes("Other spirits")
+      WhichOfTheseSpiritsHaveYouProducedPage.selectNewSpiritTypes("Other spirits")
 
       // deselecting Other spirits
 //      When("I select checkbox Other spirits on Which Of These Spirits Have You Produced Page")
@@ -201,7 +202,8 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
 //      whenIClickSaveAndContinueButtonOn("Quarterly Spirits Check Your Answers Page")
 
       Then("I am presented with the Task List Page")
-      thenIAmPresentedWithThe("Task List Page")
+      //thenIAmPresentedWithThe("Task List Page")
+      TaskListPage.checkURL
 
     }
   }
