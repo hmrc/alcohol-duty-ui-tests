@@ -45,4 +45,9 @@ object AdjustmentListPage extends BasePage {
     else clickRadioButton("No")
     clickSaveAndContinueButton()
   }
+
+  def selectHyperlink(text: String): Unit = {
+    checkURL
+    clickButton(text)
+  }
 }

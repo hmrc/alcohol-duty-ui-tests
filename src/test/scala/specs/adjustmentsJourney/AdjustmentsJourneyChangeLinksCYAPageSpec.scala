@@ -16,7 +16,7 @@
 
 package specs.adjustmentsJourney
 
-import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumePage, AdjustmentVolumeWithSprPage, NewSprDutyRatePage, NewTaxTypeCodePage, SpoiltAlcoholTypePage, SpoiltAlcoholVolumePage}
+import specpage.alcoholDuty.adjustments._
 import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{Adjustments, AllTests}

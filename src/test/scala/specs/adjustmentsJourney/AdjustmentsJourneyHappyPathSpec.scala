@@ -16,7 +16,7 @@
 
 package specs.adjustmentsJourney
 
-import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumeWithSprPage, OverDeclarationReasonPage, RemoveAdjustmentPage, UnderDeclarationReasonPage}
+import specpage.alcoholDuty.adjustments._
 import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{Adjustments, AllTests}
@@ -56,17 +56,23 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       Then("I select No radio button on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
+      Then("I am presented with the Task List Page")
+      TaskListPage.checkURL
+
       Then("I click on Tell us why products were under-declared hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Tell us why products were under-declared")
 
       When("I enter Test Under Declaration Reason on Under Declaration Reason Page")
       UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
 
+      Then("I am presented with the Task List Page")
+      TaskListPage.checkURL
+
       When("I click on Declare adjustments hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Declare adjustments")
 
       When("I click Change Hyperlink on Adjustment List Page")
-      AdjustmentListPage.clickHyperlink("Change")
+      AdjustmentListPage.selectHyperlink("Remove Hyperlink")
 
       When("I click Volume on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.clickChangeLinkWithNewUrl("Volume")
@@ -139,26 +145,32 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       When("I select radio button No on Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
+      Then("I am presented with the Task List Page")
+      TaskListPage.checkURL
+
       When("I click on Tell us why products were over-declared hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Tell us why products were over-declared")
 
       When("I enter Test Over Declaration Reason on Over Declaration Reason Page")
       OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
 
+      Then("I am presented with the Task List Page")
+      TaskListPage.checkURL
+
       When("I click on Declare adjustments hyperlink on Task List Page")
       TaskListPage.clickHyperlink("Declare adjustments")
 
       When("I click Remove Hyperlink on Adjustment List Page")
-      AdjustmentListPage.clickHyperlink("Remove")
+      AdjustmentListPage.selectHyperlink("Remove Hyperlink")
 
       When("I select radio button No on Remove Adjustment Page")
-      RemoveAdjustmentPage.addAnother(false)
+      RemoveAdjustmentPage.remove(false)
 
       When("I click Remove Hyperlink on Adjustment List Page")
-      AdjustmentListPage.clickHyperlink("Remove")
+      AdjustmentListPage.selectHyperlink("Remove Hyperlink")
 
       When("I select radio button Yes on Remove Adjustment Page")
-      RemoveAdjustmentPage.addAnother(true)
+      RemoveAdjustmentPage.remove(false)
 
       When("I select radio button No on Adjustment List Page")
       AdjustmentListPage.addAnother(false)
