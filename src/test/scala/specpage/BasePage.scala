@@ -25,16 +25,13 @@ import uk.gov.hmrc.alcoholDuty.driver.BrowserDriver
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
 
-import java.time.format.DateTimeFormatter
 import java.time.{Duration, LocalDate}
-import java.util.Locale
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 import scala.util.matching.Regex
 
 trait BasePage extends Page with PageObject with Matchers with BrowserDriver with Eventually with WebBrowser {
   override val url: String = ""
   val newUrl: String       = ""
-  val title: String        = ""
   val urlPattern: Regex    = "^(https?://)?([\\w.-]+)?(\\.[a-z]{2,6})([/\\w .-]*)*\\??([^#\\s]*)#?([^\\s]*)$".r
 
   def validateUrl(url: String): Boolean =
@@ -47,9 +44,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(20))
     .pollingEvery(Duration.ofMillis(500))
-
-  def waitForPageHeader: WebElement = fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
-
+  
   /** Page assertions * */
   def checkURL: Assertion =
     if (url.contains("...")) {
@@ -139,8 +134,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   val previousYear: Int      = year - 1
   val currentMonth: Int      = currentDate.getMonthValue
 
-  val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy").withLocale(Locale.UK)
-
   def get12MonthsAgoPeriodKey: String                         =
     s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate
       .minusMonths(12)
@@ -177,7 +170,4 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   }
 
   def clickAgreeAndSendReturnButton(): Unit = click(By.cssSelector("#continueButton"))
-
-  def getSpecificMonth: String =
-    currentDate.minusMonths(12).format(formatter)
 }
