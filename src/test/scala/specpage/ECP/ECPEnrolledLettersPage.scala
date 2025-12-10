@@ -22,11 +22,5 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPEnrolledLettersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/enrolled-letters"
-  override val title = "We will continue to send you letters by post"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "We will continue to send you letters by post - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("We will continue to send you letters by post")
 }

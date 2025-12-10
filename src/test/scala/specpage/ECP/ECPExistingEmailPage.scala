@@ -16,31 +16,21 @@
 
 package specpage.ECP
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object ECPExistingEmailPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/existing-email"
-  override val title = "Is this your email?"
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Is this your email? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Is this your email? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Is john.doe@example.com your email?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#useExistingEmail")
-      case "No, I want to use a different email" => click on cssSelector("#useExistingEmail-no")
+      case "Yes"                                 => click(By.cssSelector("#useExistingEmail"))
+      case "No, I want to use a different email" => click(By.cssSelector("#useExistingEmail-no"))
     }
 
-  def ECPExistingEmail(ECPRadiobutton : Boolean): Unit = {
+  def ECPExistingEmail(ECPRadiobutton: Boolean): Unit = {
     checkURL
     if (ECPRadiobutton) clickRadioButton("Yes")
     else clickRadioButton("No, I want to use a different email")

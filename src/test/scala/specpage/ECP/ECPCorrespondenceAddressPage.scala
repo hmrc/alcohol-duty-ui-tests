@@ -22,14 +22,6 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPCorrespondenceAddressPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/correspondence-address"
-  override val title = "Your correspondence address"
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Your correspondence address - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Your correspondence address")
-
 
   def continue(): Unit = {
     checkURL

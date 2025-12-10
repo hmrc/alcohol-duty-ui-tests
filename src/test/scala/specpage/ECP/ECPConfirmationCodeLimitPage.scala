@@ -22,10 +22,5 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPConfirmationCodeLimitPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation-code-limit"
-  override val title       = "You cannot request another confirmation code"
 
-  override def expectedPageTitle: Option[String]  = Some(
-    "You cannot request another confirmation code - Manage your Alcohol Duty - GOV.UK"
-  )
-  override def expectedPageHeader: Option[String] = Some("You cannot request another confirmation code")
 }

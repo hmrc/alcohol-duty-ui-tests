@@ -87,7 +87,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickSubmitButton(): Unit = click(By.cssSelector("#submit"))
 
-  def clickECPSubmitButton(): Unit = click on cssSelector("#submitButton")
+  def clickECPSubmitButton(): Unit = click(By.cssSelector("#submitButton"))
 
   def clickSaveAndContinueButton(): Unit = click(By.id("saveAndContinueButton"))
 

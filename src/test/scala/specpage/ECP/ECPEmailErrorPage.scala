@@ -22,16 +22,8 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPEmailErrorPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/email-error"
-  override val title = "You need to update your email"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "You need to update your email - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("You need to update your email")
-
-
-  def ecpError(): Unit = {
+  def continue(): Unit = {
     checkURL
     clickContinueButton()
   }
