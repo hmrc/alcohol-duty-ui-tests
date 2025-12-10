@@ -24,8 +24,6 @@ object CheckYourAnswersSPRWinePage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/spr/check-your-answers"
   
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
-
   override def clickButton(text: String): Unit =
     text match {
       case "Change Description"        =>

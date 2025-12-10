@@ -22,10 +22,5 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPConfirmationPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation"
-  override val title       = "Your contact preference has been updated"
 
-  override def expectedPageTitle: Option[String]  = Some(
-    "Your contact preference has been updated - Manage your Alcohol Duty - GOV.UK"
-  )
-  override def expectedPageHeader: Option[String] = Some("Your contact preference has been updated")
 }

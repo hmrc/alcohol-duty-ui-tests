@@ -51,12 +51,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def waitForPageHeader: WebElement = fluentWait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")))
 
   /** Page assertions * */
-  def expectedPageTitle: Option[String] = None
-
-  def expectedPageErrorTitle: Option[String] = None
-
-  def expectedPageHeader: Option[String] = None
-
   def checkURL: Assertion =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))

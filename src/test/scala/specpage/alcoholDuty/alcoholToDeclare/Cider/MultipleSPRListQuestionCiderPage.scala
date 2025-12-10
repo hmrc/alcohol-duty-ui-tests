@@ -24,8 +24,6 @@ object MultipleSPRListQuestionCiderPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Cider/declare/spr/multiple-duty-rates/eligible-volumes"
 
-  override def expectedPageHeader: Option[String] = Some("Cider with Small Producer Relief duty to declare")
-
   override def clickRadioButton(text: String): Unit =
     text match {
       case "Yes" => click(By.cssSelector("#multipleSPRList-yesNoValue"))

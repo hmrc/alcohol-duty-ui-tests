@@ -16,14 +16,12 @@
 
 package specsteps
 
-import org.openqa.selenium.By
 import org.scalatestplus.selenium.Page
 import specpage.BasePage
 import specpage.alcoholDuty.adjustments.{AdjustmentTypePage, DeclareAdjustmentQuestionPage}
 import specpage.alcoholDuty.alcoholToDeclare.{DeclareAlcoholDutyQuestionPage, WhatAlcoholDoYouNeedToDeclarePage}
 import specpage.auth.AuthLoginStubPage
 import specpage.common.{BeforeYouStartPage, TaskListPage}
-import specpage.generic.PageObjectFinder
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.selenium.webdriver.Driver
 
@@ -33,80 +31,11 @@ object BaseStepDefSteps extends BasePage {
   def navigateToPage(page: Page): Unit =
     go to page
 
-  // I click submit button on {string}
-  def whenIClickSubmitButtonOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickSubmitButton()
-
-  // I click ECPSubmit on {string}
-  def whenIClickECPSubmitOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickECPSubmitButton()
-
-  // I am presented with the {string}
-  def thenIAmPresentedWithThe(page: String): Unit =
-    PageObjectFinder.page(page).checkURL
-
-  // I am presented with the {string} with new url
-  def thenIAmPresentedWithTheWithNewUrl(page: String): Unit =
-    PageObjectFinder.page(page).checkNewURL
-  
-
-  // I select radio button {string} on {string}
-  def whenISelectRadioButtonOn(choice: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickRadioButton(choice)
-
-  // I {string} checkbox {string} on {string}
-  def whenICheckboxOn(checkBoxAction: String, choice: String, page: String): Unit =
-    checkBoxAction match {
-      case "select" | "unselect" =>
-        //        PageObjectFinder.page(page).waitForPageHeader
-        PageObjectFinder.page(page).selectCheckBoxes(choice.split(","))
-    }
-
-  // I click save and continue button on {string}
-  def whenIClickSaveAndContinueButtonOn(page: String): Unit =
-    PageObjectFinder.page(page).clickSaveAndContinueButton()
-
-  // I click continue button on {string}
-  def whenIClickContinueButtonOn(page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).clickContinueButton()
-
-  // I enter {string} on {string}
-  def whenIEnterOn(data: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDetails(data)
-
-  // I enter {string} for {string} on {string}
-  def whenIEnterForOn(textToEnter: String, text: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterMultipleDetails(textToEnter, text)
-
-  // I enter {string} for {string} on {string} at {string} input box
-  def whenIEnterForOnAtInputBox(textToEnter: String, text: String, page: String, index: String): Unit =
-    //      PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterMultipleDetailsWithIndex(textToEnter, text, index)
-
-  // I enter month {string} and year {string} on {string}
-  def whenIEnterMonthAndYearOn(month: String, year: String, page: String): Unit =
-    //    PageObjectFinder.page(page).waitForPageHeader
-    PageObjectFinder.page(page).enterDate(month, year)
-
   // I cleared the data to view completed returns from previous years
   def clearDataForPastReturns(): Unit =
     Driver.instance.get(
       TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-user-fulfilled-obligations"
     )
-
-  // I click {string} on {string}
-  def whenIClickOn(button: String, page: String): Unit =
-    PageObjectFinder.page(page).clickButton(button)
-
-  // I click on {string} hyperlink on {string}
-  def whenIClickOnHyperlinkOn(hyperlink: String, page: String): Unit =
-    Driver.instance.findElement(By.xpath("//a[normalize-space()='" + hyperlink + "']")).click()
 
   // I cleared the data for the service
   def clearDataForReturns(): Unit =
