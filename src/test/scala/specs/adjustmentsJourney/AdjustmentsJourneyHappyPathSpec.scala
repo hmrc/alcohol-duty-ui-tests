@@ -39,13 +39,13 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
 
       Then("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("09","2023")
+      AdjustmentReturnDatePage.enterDate("09", "2023")
 
       When("I enter 371 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("371")
 
       When("I enter volumes on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
       Then("I click save and continue on the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -72,13 +72,13 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       TaskListPage.clickHyperlink("Declare adjustments")
 
       When("I click Change Hyperlink on Adjustment List Page")
-      AdjustmentListPage.selectHyperlink("Remove Hyperlink")
+      AdjustmentListPage.selectHyperlink("Change Hyperlink")
 
       When("I click Volume on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.clickChangeLinkWithNewUrl("Volume")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("2000.55","100.2500","6.50")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("2000.55", "100.2500", "6.50")
 
       Then("I click save and continue on the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -107,13 +107,13 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10","2023")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("372")
 
       When("I enter volumes on Total Litres on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("1000.75","150.5500","4.5")
+      AdjustmentVolumeWithSprPage.enterVolumes("1000.75", "150.5500", "4.5")
 
       When("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -128,13 +128,13 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10","2023")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
       When("I enter 372 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("372")
 
       When("I enter 1000.75 for Total Litres on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("1000.75","150.5500","4.5")
+      AdjustmentVolumeWithSprPage.enterVolumes("1000.75", "150.5500", "4.5")
 
       When("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -170,7 +170,7 @@ class AdjustmentsJourneyHappyPathSpec extends BaseSpec {
       AdjustmentListPage.selectHyperlink("Remove Hyperlink")
 
       When("I select radio button Yes on Remove Adjustment Page")
-      RemoveAdjustmentPage.remove(false)
+      RemoveAdjustmentPage.remove(true)
 
       When("I select radio button No on Adjustment List Page")
       AdjustmentListPage.addAnother(false)

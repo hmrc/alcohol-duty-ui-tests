@@ -57,13 +57,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentTypeWithNewUrl("Over-declaration")
 
       When("I enter month 09 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDateWithNewUrl("09","2023")
+      AdjustmentReturnDatePage.enterDateWithNewUrl("09", "2023")
 
       When("I enter 371 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("371")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "9.8")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -92,13 +92,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
 
       When("I enter month 10 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10","2023")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
       Then("I enter 372 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("372")
 
       Then("I enter volumes on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -107,13 +107,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentCheckYourAnswersPage.clickChangeLink("Return period being adjusted")
 
       Then("I enter month 12 and year 2023 on Adjustment Return Date Page with new url")
-      AdjustmentReturnDatePage.enterDateWithNewUrl("12","2023")
+      AdjustmentReturnDatePage.enterDateWithNewUrl("12", "2023")
 
       Then("I enter 372 on Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("372")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","10.5")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "10.5")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -125,7 +125,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("374")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","10.5")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "10.5")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -134,7 +134,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentCheckYourAnswersPage.clickChangeLink("SPR duty rate")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","12.5")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "12.5")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -163,13 +163,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
 
       Then("I enter month 11 and year 2023 on Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("11","2023")
+      AdjustmentReturnDatePage.enterDate("11", "2023")
 
       Then("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
       AdjustmentTaxTypeCodePage.enterDetails("373")
 
       Then("I enter volumes on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
       Then("I enter 363 on New Tax Type Code Page")
       NewTaxTypeCodePage.enterDetails("363")
@@ -184,7 +184,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentCheckYourAnswersPage.clickChangeLink("Volume")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("4000.75","350.5500","8.5")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("4000.75", "350.5500", "8.5")
 
       Then("I enter 363 on the New Tax Type Code Page with new url")
       NewTaxTypeCodePage.enterDetailsWithNewUrl("363")
@@ -233,7 +233,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Drawback")
 
       Then("I enter month 10 and year 3023 the Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10","2023")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
       Then("I enter 315 on the Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("315")
@@ -251,7 +251,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("375")
 
       Then("I enter volumes on Adjustment Volume With Spr Page with new url")
-      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "9.8")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -280,13 +280,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentTypePage.selectAdjustmentType("Drawback")
 
       Then("I enter month 10 and year 2023 on the Adjustment Return Date Page")
-      AdjustmentReturnDatePage.enterDate("10","2023")
+      AdjustmentReturnDatePage.enterDate("10", "2023")
 
       Then("I enter 374 on the Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("374")
 
       Then("I enter volumes on Adjustment Volume With Spr Page")
-      AdjustmentVolumeWithSprPage.enterVolumes("3000.75","250.5500","9.8")
+      AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
 
       Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
@@ -340,7 +340,7 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       AdjustmentCheckYourAnswersPage.clickChangeLink("Duty value")
 
       Then("I enter volumes on the Spoilt Beer Alcohol Volume Page with new url")
-      SpoiltAlcoholVolumePage.enterVolumesWithNewUrl("3222.75","255.5500","3200.55")
+      SpoiltAlcoholVolumePage.enterVolumesWithNewUrl("3222.75", "255.5500", "3200.55")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
