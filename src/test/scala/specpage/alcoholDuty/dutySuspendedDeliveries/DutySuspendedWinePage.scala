@@ -38,4 +38,12 @@ object DutySuspendedWinePage extends BasePage {
     enterMultipleDetails("77.77", "Pure Alcohol In Wine")
     clickSaveAndContinueButton()
   }
+
+  def enterWineVolumesInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetails("2800.35", "Total Wine")
+    enterMultipleDetails("160.55", "Pure Alcohol In Wine")
+    clickSaveAndContinueButton()
+  }
+  
 }

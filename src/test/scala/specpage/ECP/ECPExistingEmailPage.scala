@@ -44,6 +44,6 @@ object ECPExistingEmailPage extends BasePage {
     checkURL
     if (ECPRadiobutton) clickRadioButton("Yes")
     else clickRadioButton("No")
-    clickSaveAndContinueButton()
+    clickContinueButton()
   }
 }

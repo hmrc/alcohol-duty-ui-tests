@@ -40,4 +40,11 @@ object DutySuspendedOtherFermentedProductsPage extends BasePage {
     enterMultipleDetails("88.88", "Pure Alcohol In Other Fermented Products")
     clickSaveAndContinueButton()
   }
+
+  def enterOfpVolumesInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetails("8800.35", "Total Other Fermented Products")
+    enterMultipleDetails("560.55", "Pure Alcohol In Other Fermented Products")
+    clickSaveAndContinueButton()
+  }
 }

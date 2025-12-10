@@ -34,8 +34,8 @@ object DeclareWhiskeyPage extends BasePage {
 
   def enterVolumes(): Unit = {
     checkURL
-    enterMultipleDetails("10.55", "Scotch Whisky")
-    enterMultipleDetails("20.67", "Irish Whiskey")
+    enterMultipleDetails("222.99", "Scotch Whisky")
+    enterMultipleDetails("333.99", "Irish Whiskey")
     clickSaveAndContinueButton()
   }
 }

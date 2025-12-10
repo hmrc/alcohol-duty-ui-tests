@@ -30,9 +30,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP1000100211")
 
       When("I select email on the How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.selectPreference(email = true)
-
-      
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
       
       Then("I am presented with the ECP Existing Email Page")
       ECPExistingEmailPage.ECPExistingEmail(true)
@@ -70,15 +68,15 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the How Would You Like To Be Contacted Page")
       //thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.checkURL
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = false)
 
-      When("I select radio button Send me letters by post on How Would You Like To Be Contacted Page")
-     // whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickRadioButton("Send me letters by post")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-     // whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickContinueButton()
+//      When("I select radio button Send me letters by post on How Would You Like To Be Contacted Page")
+//     // whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickRadioButton("Send me letters by post")
+//
+//      And("I click continue button on How Would You Like To Be Contacted Page")
+//     // whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickContinueButton()
 
       Then("I am presented with the ECP Enrolled Letters Page")
       //thenIAmPresentedWithThe("ECP Enrolled Letters Page")
@@ -92,31 +90,31 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the How Would You Like To Be Contacted Page")
      // thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.checkURL
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = false)
 
-      When("I select radio button Send me letters by post on How Would You Like To Be Contacted Page")
-      //whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickRadioButton("Send me letters by post")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickContinueButton()
+//      When("I select radio button Send me letters by post on How Would You Like To Be Contacted Page")
+//      //whenISelectRadioButtonOn("Send me letters by post", "How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickRadioButton("Send me letters by post")
+//
+//      And("I click continue button on How Would You Like To Be Contacted Page")
+//      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickContinueButton()
 
       Then("I am presented with the ECP Correspondence Address Page")
       //thenIAmPresentedWithThe("ECP Correspondence Address Page")
-      ECPCorrespondenceAddressPage.checkURL
+      ECPCorrespondenceAddressPage.continue()
 
-      When("I click continue button on ECP Correspondence Address Page")
-      //whenIClickContinueButtonOn("ECP Correspondence Address Page")
-      ECPCorrespondenceAddressPage.clickContinueButton()
+//      When("I click continue button on ECP Correspondence Address Page")
+//      //whenIClickContinueButtonOn("ECP Correspondence Address Page")
+//      ECPCorrespondenceAddressPage.clickContinueButton()
 
       Then("I am presented with the ECP Check Your Answers Page")
       //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
+      ECPCheckYourAnswersPage.ecpSubmitButton()
 
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
       //thenIAmPresentedWithThe("ECP Confirmation Page")
@@ -129,16 +127,17 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP0000100211")
 
       Then("I am presented with the How Would You Like To Be Contacted Page")
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
       //thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.checkURL
+      
 
-      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
-      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickContinueButton()
+//      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
+//      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
+//
+//      And("I click continue button on How Would You Like To Be Contacted Page")
+//      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickContinueButton()
 
       Then("I am presented with the ECP Enrolled Email Page")
       //thenIAmPresentedWithThe("ECP Enrolled Email Page")
@@ -146,18 +145,18 @@ class EmailJourneySpec extends BaseSpec {
 
       When("I click on If this is not the correct address, you can update it hyperlink on ECP Enrolled Email Page")
       whenIClickOnHyperlinkOn("If this is not the correct address, you can update it", "ECP Enrolled Email Page")
-     // ECPEnrolledEmailPage.
+     
 
       And("I enter jane.doe2@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
+      ECPCheckYourAnswersPage.ecpSubmitButton()
 
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
 
       Then("I am presented with the ECP Confirmation Page")
@@ -175,28 +174,28 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the How Would You Like To Be Contacted Page")
      // thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.checkURL
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
 
-      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
-      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickContinueButton()
+//      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
+//      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
+//
+//      And("I click continue button on How Would You Like To Be Contacted Page")
+//      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickContinueButton()
 
       Then("I am presented with the ECP Existing Email Page")
       //thenIAmPresentedWithThe("ECP Existing Email Page")
-      ECPExistingEmailPage.checkURL
+      ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton= false)
 
 
-      When("I select radio button No, I want to use a different email on ECP Existing Email Page")
-      //whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
-      ECPExistingEmailPage.clickRadioButton("No, I want to use a different email")
-
-      And("I click continue button on ECP Existing Email Page")
-     // whenIClickContinueButtonOn("ECP Existing Email Page")
-      ECPExistingEmailPage.clickContinueButton()
+//      When("I select radio button No, I want to use a different email on ECP Existing Email Page")
+//      //whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
+//      ECPExistingEmailPage.clickRadioButton("No, I want to use a different email")
+//
+//      And("I click continue button on ECP Existing Email Page")
+ //    whenIClickContinueButtonOn("ECP Existing Email Page")
+//      ECPExistingEmailPage.clickContinueButton()
 
       And("I enter jane.doe@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("jane.doe@example.com")
@@ -213,26 +212,26 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the ECP Existing Email Page")
       //thenIAmPresentedWithThe("ECP Existing Email Page")
-      ECPExistingEmailPage.checkURL
+      ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton= false)
 
-      When("I select radio button No, I want to use a different email on ECP Existing Email Page")
-     // whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
-      ECPExistingEmailPage.clickRadioButton("No, I want to use a different email")
-
-      And("I click continue button on ECP Existing Email Page")
-     // whenIClickContinueButtonOn("ECP Existing Email Page")
-      ECPExistingEmailPage.clickContinueButton()
+//      When("I select radio button No, I want to use a different email on ECP Existing Email Page")
+//     // whenISelectRadioButtonOn("No, I want to use a different email", "ECP Existing Email Page")
+//      ECPExistingEmailPage.clickRadioButton("No, I want to use a different email")
+//
+//      And("I click continue button on ECP Existing Email Page")
+//     // whenIClickContinueButtonOn("ECP Existing Email Page")
+//      ECPExistingEmailPage.clickContinueButton()
 
       And("I enter john.doe@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
+      ECPCheckYourAnswersPage.ecpSubmitButton()
 
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
       Then("I am presented with the ECP Confirmation Email Page")
       //thenIAmPresentedWithThe("ECP Confirmation Email Page")
@@ -246,27 +245,27 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the How Would You Like To Be Contacted Page")
       //thenIAmPresentedWithThe("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.checkURL
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
 
 
-      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
-      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
-
-      And("I click continue button on How Would You Like To Be Contacted Page")
-      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.clickContinueButton()
+//      When("I select radio button Email me when I have a digital message on How Would You Like To Be Contacted Page")
+//      //whenISelectRadioButtonOn("Email me when I have a digital message", "How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickRadioButton("Email me when I have a digital message")
+//
+//      And("I click continue button on How Would You Like To Be Contacted Page")
+//      //whenIClickContinueButtonOn("How Would You Like To Be Contacted Page")
+//      HowWouldYouLikeToBeContactedPage.clickContinueButton()
 
       And("I enter john.doe@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
+      ECPCheckYourAnswersPage.ecpSubmitButton()
 
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
       //thenIAmPresentedWithThe("ECP Confirmation Page")
@@ -281,22 +280,22 @@ class EmailJourneySpec extends BaseSpec {
 
       Then("I am presented with the ECP Email Error Page")
       //thenIAmPresentedWithThe("ECP Email Error Page")
-      ECPEmailErrorPage.checkURL
+      ECPEmailErrorPage.ecpError()
 
-      When("I click continue button on ECP Email Error Page")
-      //whenIClickContinueButtonOn("ECP Email Error Page")
-      ECPEmailErrorPage.clickContinueButton()
+//      When("I click continue button on ECP Email Error Page")
+//      //whenIClickContinueButtonOn("ECP Email Error Page")
+//      ECPEmailErrorPage.clickContinueButton()
 
       And("I enter jane.doe2@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
 
       Then("I am presented with the ECP Check Your Answers Page")
       //thenIAmPresentedWithThe("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.checkURL
+      ECPCheckYourAnswersPage.ecpSubmitButton()
 
-      When("I click ECPSubmit on ECP Check Your Answers Page")
-      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
-      ECPCheckYourAnswersPage.clickECPSubmitButton()
+//      When("I click ECPSubmit on ECP Check Your Answers Page")
+//      //whenIClickECPSubmitOn("ECP Check Your Answers Page")
+//      ECPCheckYourAnswersPage.clickECPSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
       //thenIAmPresentedWithThe("ECP Confirmation Page")

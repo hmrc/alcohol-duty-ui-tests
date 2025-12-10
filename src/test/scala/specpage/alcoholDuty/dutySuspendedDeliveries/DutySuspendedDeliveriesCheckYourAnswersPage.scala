@@ -61,4 +61,9 @@ object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
     checkURL
     clickContinueButton()
   }
+
+  def clickChangeLink(text:String): Unit = {
+    checkURL
+    clickButton(text)
+  }
 }

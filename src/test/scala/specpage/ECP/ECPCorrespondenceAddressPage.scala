@@ -29,4 +29,11 @@ object ECPCorrespondenceAddressPage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("Your correspondence address")
+
+
+  def continue(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
 }
+

@@ -37,4 +37,12 @@ object DutySuspendedSpiritsPage extends BasePage {
     enterMultipleDetails("160.55", "Pure Alcohol In Spirits")
     clickSaveAndContinueButton()
   }
+
+  def enterSpiritsVolumesInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetails("7800.35", "Total Spirits")
+    enterMultipleDetails("460.55", "Pure Alcohol In Spirits")
+    clickSaveAndContinueButton()
+  }
+  
 }

@@ -29,4 +29,10 @@ object ECPEmailErrorPage extends BasePage {
   )
 
   override def expectedPageHeader: Option[String] = Some("You need to update your email")
+
+
+  def ecpError(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
 }

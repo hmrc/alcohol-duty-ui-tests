@@ -38,4 +38,11 @@ object DutySuspendedBeerPage extends BasePage {
     enterMultipleDetails("150.55", "Pure Alcohol In Beer")
     clickSaveAndContinueButton()
   }
+
+  def enterVolumesInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetails("3000.75", "Total Beer")
+    enterMultipleDetails("250.55", "Pure Alcohol In Beer")
+    clickSaveAndContinueButton()
+  }
 }

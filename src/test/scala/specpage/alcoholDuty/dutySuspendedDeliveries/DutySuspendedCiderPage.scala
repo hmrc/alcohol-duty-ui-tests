@@ -38,4 +38,11 @@ object DutySuspendedCiderPage extends BasePage {
     enterMultipleDetails("99.19", "Pure Alcohol In Cider")
     clickSaveAndContinueButton()
   }
+
+  def enterCiderVolumesInCheckMode(): Unit = {
+    checkNewURL
+    enterMultipleDetails("1500.35", "Total Cider")
+    enterMultipleDetails("300.55", "Pure Alcohol In Cider")
+    clickSaveAndContinueButton()
+  }
 }
