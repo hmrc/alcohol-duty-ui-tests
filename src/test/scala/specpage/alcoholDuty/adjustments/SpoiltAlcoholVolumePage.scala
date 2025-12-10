@@ -39,4 +39,12 @@ object SpoiltAlcoholVolumePage extends BasePage {
     enterMultipleDetails("3255.55", "Duty Paid")
     clickSaveAndContinueButton()
   }
+
+  def enterVolumesWithNewUrl(total: String, pureAlcohol: String, dutyRate: String): Unit = {
+    checkNewURL
+    enterMultipleDetails(total, "Total Litres")
+    enterMultipleDetails(pureAlcohol, "Litres Of Pure Alcohol")
+    enterMultipleDetails(dutyRate, "Duty Paid")
+    clickSaveAndContinueButton()
+  }
 }

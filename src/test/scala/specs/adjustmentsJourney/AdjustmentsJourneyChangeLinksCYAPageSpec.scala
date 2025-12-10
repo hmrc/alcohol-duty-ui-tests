@@ -16,7 +16,7 @@
 
 package specs.adjustmentsJourney
 
-import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumePage, AdjustmentVolumeWithSprPage, NewSprDutyRatePage, NewTaxTypeCodePage, SpoiltAlcoholTypePage, SpoiltAlcoholVolumePage, SpoiltBeerAlcoholVolumePage}
+import specpage.alcoholDuty.adjustments.{AdjustmentCheckYourAnswersPage, AdjustmentDutyValuePage, AdjustmentListPage, AdjustmentReturnDatePage, AdjustmentTaxTypeCodePage, AdjustmentTypePage, AdjustmentVolumePage, AdjustmentVolumeWithSprPage, NewSprDutyRatePage, NewTaxTypeCodePage, SpoiltAlcoholTypePage, SpoiltAlcoholVolumePage}
 import specpage.common.TaskListPage
 import specs.BaseSpec
 import specs.tags.{Adjustments, AllTests}
@@ -334,13 +334,13 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       SpoiltAlcoholTypePage.selectAlcoholTypeWithNewUrl("Beer")
 
       When("I enter volumes on Spoilt Beer Alcohol Volume Page")
-      SpoiltBeerAlcoholVolumePage.enterVolumes("3000.75","250.5500","3255.55")
+      SpoiltAlcoholVolumePage.enterVolumes()
 
       Then("I select Duty value on the Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Duty value")
 
       Then("I enter volumes on the Spoilt Beer Alcohol Volume Page with new url")
-      SpoiltBeerAlcoholVolumePage.enterVolumesWithNewUrl("3222.75","255.5500","3200.55")
+      SpoiltAlcoholVolumePage.enterVolumesWithNewUrl("3222.75","255.5500","3200.55")
 
       Then("I am presented with the Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
