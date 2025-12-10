@@ -43,4 +43,11 @@ object RemoveAdjustmentPage extends BasePage {
       case "Yes" => click on cssSelector("#delete-adjustment-yes-no-value")
       case "No"  => click on cssSelector("#delete-adjustment-yes-no-value-no")
     }
+
+  def addAnother(adding: Boolean): Unit = {
+    checkURL
+    if (adding) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }
