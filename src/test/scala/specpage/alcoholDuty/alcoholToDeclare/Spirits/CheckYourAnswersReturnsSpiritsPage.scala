@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Spirits
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -27,11 +28,11 @@ object CheckYourAnswersReturnsSpiritsPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Spirits to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/products-to-include']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/products-to-include']"))
       case "Change Spirits duty"                               =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/volumes']"))
       case "Change Spirits eligible for Small Producer Relief" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes']"))
     }
 
   def continue(): Unit = {

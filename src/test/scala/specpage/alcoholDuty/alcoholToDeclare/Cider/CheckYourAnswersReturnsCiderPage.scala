@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Cider
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -26,11 +27,11 @@ object CheckYourAnswersReturnsCiderPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Cider to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/products-to-include']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/products-to-include']"))
       case "Change Cider duty"                               =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/volumes']"))
       case "Change Cider eligible for Small Producer Relief" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/eligible-volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Cider/change/spr/eligible-volumes']"))
     }
 
   def continue(): Unit = {

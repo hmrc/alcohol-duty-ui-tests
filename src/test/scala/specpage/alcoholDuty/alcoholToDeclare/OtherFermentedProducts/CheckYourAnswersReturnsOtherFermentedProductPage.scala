@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.OtherFermentedProducts
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -27,15 +28,15 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Change Other Fermented Product to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/products-to-include']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/products-to-include']"))
       case "Change Other Fermented Product duty"                               =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/volumes']"
-        )
+        ))
       case "Change Other Fermented Product eligible for Small Producer Relief" =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/spr/eligible-volumes']"
-        )
+        ))
     }
 
   def continue(): Unit = {

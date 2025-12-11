@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -27,11 +28,11 @@ object SpoiltAlcoholTypePage extends BasePage {
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Beer"                     => click on cssSelector("#Beer")
-      case "Cider"                    => click on cssSelector("#Cider")
-      case "Wine"                     => click on cssSelector("#Wine")
-      case "Spirits"                  => click on cssSelector("#Spirits")
-      case "Other fermented products" => click on cssSelector("#OtherFermentedProduct")
+      case "Beer"                     => click(By.cssSelector("#Beer"))
+      case "Cider"                    => click(By.cssSelector("#Cider"))
+      case "Wine"                     => click(By.cssSelector("#Wine"))
+      case "Spirits"                  => click(By.cssSelector("#Spirits"))
+      case "Other fermented products" => click(By.cssSelector("#OtherFermentedProduct"))
     }
 
   def selectAlcoholType(regime: String): Unit = {
