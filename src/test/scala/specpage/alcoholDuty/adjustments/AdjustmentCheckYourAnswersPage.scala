@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -28,25 +29,35 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
   override def clickButton(text: String): Unit =
     text match {
       case "Adjustment" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']")
+    //    click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/type']"))
       case "Description" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type']")
+   //     click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type']"))
       case "Return period being adjusted" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']")
+   //     click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/return-period']"))
       case "Tax type" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
+  //      click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']"))
       case "Original tax type" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
+   //     click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/tax-type-code']"))
       case "SPR duty rate" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
+   //     click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']"))
       case "New SPR duty rate" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/repackaged/new-spr-duty-rate']")
+    //    click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/repackaged/new-spr-duty-rate']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/repackaged/new-spr-duty-rate']"))
       case "Volume" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
+    //    click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spr/eligible-volume']"))
       case "New tax type" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']")
+   //     click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/change/repackaged/new-tax-type-code']"))
       case "Duty value" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spoilt-product/volume']")
+    //    click on cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spoilt-product/volume']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/adjustments/adjustment/change/spoilt-product/volume']"))
 
     }
 
@@ -65,8 +76,4 @@ object AdjustmentCheckYourAnswersPage extends BasePage {
     clickButton(text)
   }
 
-  def saveAndContinue(): Unit = {
-    checkURL
-    clickSaveAndContinueButton()
-  }
 }
