@@ -16,7 +16,7 @@
 
 package specpage
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
-import org.openqa.selenium.{By, WebDriver, WebElement}
+import org.openqa.selenium.{By, WebDriver}
 import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
@@ -44,7 +44,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
     .withTimeout(Duration.ofSeconds(20))
     .pollingEvery(Duration.ofMillis(500))
-  
+
   /** Page assertions * */
   def checkURL: Assertion =
     if (url.contains("...")) {
@@ -84,6 +84,8 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickContinueButton(): Unit = click(By.id("continueButton"))
 
+  def clickAgreeAndSendReturnButton(): Unit = click(By.cssSelector("#continueButton"))
+
   def clickBackButton(): Unit = click(By.xpath("//a[normalize-space()='Back']"))
 
   def enterText(id: String, textToEnter: String): Unit =
@@ -94,6 +96,8 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
 
   def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
+
+  def enterDate(month: String, year: String): Unit = {}
 
   def clickRadioButton(text: String): Unit             =
     Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
@@ -126,7 +130,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
       case m if m >= 7 && m <= 9   => 7
       case m if m >= 10 && m <= 12 => 10
       case _                       => throw new IllegalArgumentException(s"Invalid month: $month. Valid values are 1 to 12.")
-
     }
 
   val currentDate: LocalDate = LocalDate.now()
@@ -138,8 +141,6 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     s"""${currentDate.minusMonths(12).getYear.toString.takeRight(2)}A${(currentDate
       .minusMonths(12)
       .getMonthValue + 64).toChar}"""
-
-  def enterDate(month: String, year: String): Unit = {}
 
   def selectCheckBoxes(choiceOfCheckBox: Array[String]): Unit =
     for (i <- choiceOfCheckBox.indices)
@@ -168,6 +169,4 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     case "twentieth"   => 19
     case _             => throw new IllegalArgumentException("Invalid ordinal")
   }
-
-  def clickAgreeAndSendReturnButton(): Unit = click(By.cssSelector("#continueButton"))
 }
