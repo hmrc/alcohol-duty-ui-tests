@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Beer
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -23,21 +24,17 @@ object DeleteMultipleSPRProductQuestionPage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/spr/multiple-duty-rates/remove-volume?index=0"
-  override val title       = "Remove this beer entry?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Remove this beer entry? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Remove this beer entry? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Remove this beer entry?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#deleteMultipleSPREntry-yesNoValue")
-      case "No"  => click on cssSelector("#deleteMultipleSPREntry-yesNoValue-no")
+      case "Yes" => click(By.cssSelector("#deleteMultipleSPREntry-yesNoValue"))
+      case "No"  => click(By.cssSelector("#deleteMultipleSPREntry-yesNoValue-no"))
     }
+
+  def deleteEntry(deleting: Boolean): Unit = {
+    checkURL
+    if (deleting) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

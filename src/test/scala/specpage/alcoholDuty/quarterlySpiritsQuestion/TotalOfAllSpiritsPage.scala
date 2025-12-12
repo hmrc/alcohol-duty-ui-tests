@@ -25,18 +25,16 @@ object TotalOfAllSpiritsPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/report/total-volume"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/change/total-volume"
-  override val title          = "What is the total of all spirits taken this quarter?"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What is the total of all spirits taken this quarter? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "What is the total of all spirits taken this quarter? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("What is the total of all spirits taken this quarter?")
-
-  override def enterDetails(textToEnter: String): Unit =
-    enterText("declare-spirits-total-input", textToEnter)
+  def enterVolume(volume: String): Unit = {
+    checkURL
+    enterText("declare-spirits-total-input", volume)
+    clickSaveAndContinueButton()
+  }
+  def enterNewVolume(volume: String): Unit = {
+    checkNewURL
+    enterText("declare-spirits-total-input", volume)
+    clickSaveAndContinueButton()
+  }
+  
 }

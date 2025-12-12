@@ -22,11 +22,9 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPEnrolledEmailPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/enrolled-emails"
-  override val title = "We will email you when you have a digital message"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "We will email you when you have a digital message - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("We will email you at john.doe@example.com when you have a digital message")
+  def clickUpdateEmailLink(): Unit = {
+    checkURL
+    clickHyperlink("If this is not the correct address, you can update it")
+  }
 }

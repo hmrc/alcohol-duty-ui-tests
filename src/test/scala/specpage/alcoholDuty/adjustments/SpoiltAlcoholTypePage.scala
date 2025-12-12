@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -24,24 +25,26 @@ object SpoiltAlcoholTypePage extends BasePage {
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/declare/spoilt-product/alcohol-type"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/adjustment/change/change/spoilt-product/alcohol-type"
-  override val title          = "Which alcoholic product is spoilt?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Which alcoholic product is spoilt? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Which alcoholic product is spoilt? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Which alcoholic product is spoilt?")
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Beer"                     => click on cssSelector("#Beer")
-      case "Cider"                    => click on cssSelector("#Cider")
-      case "Wine"                     => click on cssSelector("#Wine")
-      case "Spirits"                  => click on cssSelector("#Spirits")
-      case "Other fermented products" => click on cssSelector("#OtherFermentedProduct")
+      case "Beer"                     => click(By.cssSelector("#Beer"))
+      case "Cider"                    => click(By.cssSelector("#Cider"))
+      case "Wine"                     => click(By.cssSelector("#Wine"))
+      case "Spirits"                  => click(By.cssSelector("#Spirits"))
+      case "Other fermented products" => click(By.cssSelector("#OtherFermentedProduct"))
     }
+
+  def selectAlcoholType(regime: String): Unit = {
+    checkURL
+    clickRadioButton(regime)
+    clickSaveAndContinueButton()
+  }
+
+  def selectAlcoholTypeWithNewUrl(regime: String): Unit = {
+    checkNewURL
+    clickRadioButton(regime)
+    clickSaveAndContinueButton()
+  }
+
 }

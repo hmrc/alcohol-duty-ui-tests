@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -24,23 +25,17 @@ object RemoveAdjustmentPage extends BasePage {
   override val url: String = TestConfiguration.url(
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/adjustments/adjustment/declare/remove-adjustment?index=0"
-  override val title       = "Remove this adjustment?"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Remove this adjustment? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Remove this adjustment? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Remove this adjustment?"
-  )
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#delete-adjustment-yes-no-value")
-      case "No"  => click on cssSelector("#delete-adjustment-yes-no-value-no")
+      case "Yes" => click(By.cssSelector("#delete-adjustment-yes-no-value"))
+      case "No"  => click(By.cssSelector("#delete-adjustment-yes-no-value-no"))
     }
+
+  def remove(removing: Boolean): Unit = {
+    checkURL
+    if (removing) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

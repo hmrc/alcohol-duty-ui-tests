@@ -16,30 +16,24 @@
 
 package specpage.common
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object DoYouHaveAppaIdPage extends BasePage {
 
-  override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id"
-  override val title          = "Do you have an alcoholic products producer approval ID?"
+  override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/enrol/approval-id"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Do you have an alcoholic products producer approval ID? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Do you have an alcoholic products producer approval ID? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Do you have an alcoholic products producer approval ID?"
-  )
-
-  override def clickRadioButton(text: String): Unit = {
+  override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#doYouHaveAnAppaId-yesNoValue")
-      case "No" => click on cssSelector("#doYouHaveAnAppaId-yesNoValue-no")
+      case "Yes" => click(By.cssSelector("#doYouHaveAnAppaId-yesNoValue"))
+      case "No"  => click(By.cssSelector("#doYouHaveAnAppaId-yesNoValue-no"))
     }
+
+  def answer(hasAppaId: Boolean): Unit = {
+    checkURL
+    if (hasAppaId) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickContinueButton()
   }
 }

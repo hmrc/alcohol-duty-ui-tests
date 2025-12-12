@@ -25,17 +25,6 @@ object HowMuchYouNeedToDeclareWinePage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/volumes"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/change/volumes"
-  override val title          = "Tell us about the wine you need to declare"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the wine you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the wine you need to declare - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Tell us about the wine you need to declare")
 
   override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
     val modifiedIndex = ordinalToNumber(index)
@@ -65,5 +54,29 @@ object HowMuchYouNeedToDeclareWinePage extends BasePage {
       case "Draught wine between 3.5% and 8.4% ABV - Pure alcohol"  =>
         enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
     }
+  }
+
+  def enterDetailsForAllRateBands(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("1234.55", "Standard wine between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("35.5500", "Standard wine between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("3698.52", "Standard wine between 3.5% and 8.4% ABV - Total litres", "second")
+    enterMultipleDetailsWithIndex("88.8800", "Standard wine between 3.5% and 8.4% ABV - Pure alcohol", "second")
+    enterMultipleDetailsWithIndex("8974.23", "Standard wine between 8.5% and 22% ABV - Total litres", "third")
+    enterMultipleDetailsWithIndex("22.2200", "Standard wine between 8.5% and 22% ABV - Pure alcohol", "third")
+    enterMultipleDetailsWithIndex("990.01", "Standard wine at or above 22.1% ABV - Total litres", "fourth")
+    enterMultipleDetailsWithIndex("82.2200", "Standard wine at or above 22.1% ABV - Pure alcohol", "fourth")
+    enterMultipleDetailsWithIndex("895.22", "Draught wine between 1.3% and 3.4% ABV - Total litres", "fifth")
+    enterMultipleDetailsWithIndex("22.3300", "Draught wine between 1.3% and 3.4% ABV - Pure alcohol", "fifth")
+    enterMultipleDetailsWithIndex("569.33", "Draught wine between 3.5% and 8.4% ABV - Total litres", "sixth")
+    enterMultipleDetailsWithIndex("24.5500", "Draught wine between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
+    clickSaveAndContinueButton()
+  }
+
+  def enterDetailsFor313(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("1234.55", "Standard wine between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex("35.5500", "Standard wine between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    clickSaveAndContinueButton()
   }
 }

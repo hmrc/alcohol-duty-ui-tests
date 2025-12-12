@@ -16,34 +16,29 @@
 
 package specpage.alcoholDuty.quarterlySpiritsQuestion
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object QuarterlySpiritsReturnsGuidancePage extends BasePage {
 
-  override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/have-you-produced-spirits"
-  override val newUrl: String =
-    TestConfiguration.url(
-      "alcohol-duty-returns-frontend"
-    ) + "/complete-return/quarterly-spirits-production/change-if-you-have-produced-spirits"
-  override val title          = "Tell us about the spirits you have produced from raw ingredients"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the spirits you have produced from raw ingredients - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the spirits you have produced from raw ingredients - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Tell us about the spirits you have produced from raw ingredients"
-  )
+  override val url: String    = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/quarterly-spirits-production/have-you-produced-spirits"
+  override val newUrl: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/quarterly-spirits-production/change-if-you-have-produced-spirits"
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#declareQuarterlySpirits-yesNoValue")
-      case "No"  => click on cssSelector("#declareQuarterlySpirits-yesNoValue-no")
+      case "Yes" => click(By.cssSelector("#declareQuarterlySpirits-yesNoValue"))
+      case "No"  => click(By.cssSelector("#declareQuarterlySpirits-yesNoValue-no"))
     }
+
+  def declareSpirits(declaringSpirits: Boolean): Unit = {
+    checkURL
+    if (declaringSpirits) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

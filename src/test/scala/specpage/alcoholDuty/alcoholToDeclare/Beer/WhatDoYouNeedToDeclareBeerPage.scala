@@ -25,29 +25,10 @@ object WhatDoYouNeedToDeclareBeerPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/declare/products-to-include"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/change/products-to-include"
-  override val title          = "What do you need to declare?"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("What do you need to declare?")
-
-  override def clickCheckBox(text: String): Unit =
-    text match {
-      case "Between 1.3% and 3.4% ABV (tax type code 311)" => click on cssSelector("#rateBand_311")
-      case "Between 3.5% and 8.4% ABV (tax type code 321)" => click on cssSelector("#rateBand_321")
-      case "Between 8.5% and 22% ABV (tax type code 331)"  => click on cssSelector("#rateBand_331")
-      case "Exceeding 22.1% ABV (tax type code 341)"       => click on cssSelector("#rateBand_341")
-      case "Between 1.3% and 3.4% ABV (tax type code 351)" => click on cssSelector("#rateBand_351")
-      case "Between 3.5% and 8.4% ABV (tax type code 356)" => click on cssSelector("#rateBand_356")
-      case "Between 1.3% and 3.4% ABV (tax type code 361)" => click on cssSelector("#rateBand_361")
-      case "Between 3.5% and 8.4% ABV (tax type code 366)" => click on cssSelector("#rateBand_366")
-      case "Between 1.3% and 3.4% ABV (tax type code 371)" => click on cssSelector("#rateBand_371")
-      case "Between 3.5% and 8.4% ABV (tax type code 376)" => click on cssSelector("#rateBand_376")
-    }
+  def selectRateBands(choices: String): Unit = {
+    checkURL
+    selectCheckBoxes(choices.split(","))
+    clickSaveAndContinueButton()
+  }
 }

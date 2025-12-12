@@ -16,47 +16,27 @@
 
 package specs.commonPageFeatures
 
+import specpage.common.{DoYouHaveAppaIdPage, YouNeedAnAppaIdPage}
 import specs.BaseSpec
-import specs.tags.{AllTests, CommonPages, ZapTests}
-import specsteps.AlcoholDutyStepDefSteps._
+import specs.tags.{AllTests, CommonPages}
 import specsteps.BaseStepDefSteps._
 
 class ClaimEnrolmentJourneySpec extends BaseSpec {
 
   Feature("Claim Enrolment Journey") {
 
-    Scenario(
-      "Claim Enrolment Journey - Happy path - When user does not have APPA ID",
-      AllTests,
-      CommonPages,
-      ZapTests
-    ) {
+    Scenario("Claim Enrolment Journey - Happy path - When user does not have APPA ID", AllTests, CommonPages) {
       Given("I enter the url for Claim Enrolment journey")
-      givenIEnterTheUrlForClaimEnrolmentJourney()
+      navigateToPage(DoYouHaveAppaIdPage)
 
-      Then("I am presented with the Do You Have Appa Id Page")
-      thenIAmPresentedWithThe("Do You Have Appa Id Page")
+      And("I select radio button No on Do You Have Appa Id Page")
+      DoYouHaveAppaIdPage.answer(false)
 
-      When("I select radio button No on Do You Have Appa Id Page")
-      whenISelectRadioButtonOn("No", "Do You Have Appa Id Page")
+      And("I click back button on You Need An Appa Id Page")
+      YouNeedAnAppaIdPage.clickBackLink()
 
-      And("I click continue button on Do You Have Appa Id Page")
-      whenIClickContinueButtonOn("Do You Have Appa Id Page")
-
-      Then("I am presented with the You Need An Appa Id Page")
-      thenIAmPresentedWithThe("You Need An Appa Id Page")
-
-      When("I click back button on You Need An Appa Id Page")
-      whenIClickBackButtonOn("You Need An Appa Id Page")
-
-      Then("I am presented with the Do You Have Appa Id Page")
-      thenIAmPresentedWithThe("Do You Have Appa Id Page")
-
-      When("I select radio button Yes on Do You Have Appa Id Page")
-      whenISelectRadioButtonOn("Yes", "Do You Have Appa Id Page")
-
-      And("I click continue button on Do You Have Appa Id Page")
-      whenIClickContinueButtonOn("Do You Have Appa Id Page")
+      Then("I select radio button Yes on Do You Have Appa Id Page")
+      DoYouHaveAppaIdPage.answer(true)
 
     }
   }

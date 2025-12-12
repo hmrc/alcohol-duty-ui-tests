@@ -21,23 +21,12 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object SingleSmallProducerReliefRateSpiritsPage extends BasePage {
 
-  override val url: String    =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/spr/eligible-volumes"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes"
-  override val title          = "Tell us about the spirits that are eligible for Small Producer Relief"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Tell us about the spirits that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Tell us about the spirits that are eligible for Small Producer Relief - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Tell us about the spirits that are eligible for Small Producer Relief"
-  )
+  override val url: String    = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/alcoholic-products/Spirits/declare/spr/eligible-volumes"
+  override val newUrl: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/alcoholic-products/Spirits/change/spr/eligible-volumes"
 
   override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
     val modifiedIndex = ordinalToNumber(index)
@@ -67,5 +56,34 @@ object SingleSmallProducerReliefRateSpiritsPage extends BasePage {
       case "Draught spirits between 3.5% and 8.4% ABV - SPR Rate"                =>
         enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
     }
+  }
+
+  def enterDetailsForAllSprRateBands(): Unit = {
+    checkURL
+    enterMultipleDetailsWithIndex("888.88", "Non-draught spirits between 1.3% and 3.4% ABV - Total litres", "first")
+    enterMultipleDetailsWithIndex(
+      "99.4500",
+      "Non-draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres",
+      "first"
+    )
+    enterMultipleDetailsWithIndex("15", "Non-draught spirits between 1.3% and 3.4% ABV - SPR Rate", "first")
+    enterMultipleDetailsWithIndex("776.45", "Non-draught spirits between 3.5% and 8.4% ABV - Total litres", "second")
+    enterMultipleDetailsWithIndex(
+      "78.9000",
+      "Non-draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres",
+      "second"
+    )
+    enterMultipleDetailsWithIndex("18", "Non-draught spirits between 3.5% and 8.4% ABV - SPR Rate", "second")
+    enterMultipleDetailsWithIndex("776.89", "Draught spirits between 1.3% and 3.4% ABV - Total litres", "third")
+    enterMultipleDetailsWithIndex("99.9900", "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol litres", "third")
+    enterMultipleDetailsWithIndex("15", "Draught spirits between 1.3% and 3.4% ABV - SPR Rate", "third")
+    enterMultipleDetailsWithIndex("889.65", "Draught spirits between 3.5% and 8.4% ABV - Total litres", "fourth")
+    enterMultipleDetailsWithIndex(
+      "66.5400",
+      "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol litres",
+      "fourth"
+    )
+    enterMultipleDetailsWithIndex("20", "Draught spirits between 3.5% and 8.4% ABV - SPR Rate", "fourth")
+    clickSaveAndContinueButton()
   }
 }

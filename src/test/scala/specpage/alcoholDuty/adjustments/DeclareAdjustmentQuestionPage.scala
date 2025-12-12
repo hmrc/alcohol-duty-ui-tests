@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.adjustments
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -25,26 +26,20 @@ object DeclareAdjustmentQuestionPage extends BasePage {
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/adjustments/do-you-need-to-declare"
 
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/adjustments/change-if-you-need-to-declare"
-
-  override val title = "Declare adjustments from earlier returns"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Declare adjustments from earlier returns - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Declare adjustments from earlier returns - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Declare adjustments from earlier returns"
-  )
+  override val newUrl: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/adjustments/change-if-you-need-to-declare"
 
   override def clickRadioButton(text: String): Unit =
     text match {
-      case "Yes" => click on cssSelector("#declare-adjustment-question-value")
-      case "No"  => click on cssSelector("#declare-adjustment-question-value-no")
+      case "Yes" => click(By.cssSelector("#declare-adjustment-question-value"))
+      case "No"  => click(By.cssSelector("#declare-adjustment-question-value-no"))
     }
+
+  def declareAdjustments(declaringAdjustments: Boolean): Unit = {
+    checkURL
+    if (declaringAdjustments) clickRadioButton("Yes")
+    else clickRadioButton("No")
+    clickSaveAndContinueButton()
+  }
 }

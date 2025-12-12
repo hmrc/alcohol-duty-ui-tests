@@ -23,12 +23,9 @@ object DutySuspendedDeliveriesGuidancePage extends BasePage {
 
   override val url: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/duty-suspended-deliveries/report/calculating-volumes"
-  override val title       = "Calculate the volume of duty suspended finished alcoholic products"
 
-  override def expectedPageTitle: Option[String]  = Some(
-    "Calculate the volume of duty suspended finished alcoholic products - Manage your Alcohol Duty - GOV.UK"
-  )
-  override def expectedPageHeader: Option[String] = Some(
-    "Calculate the volume of duty suspended finished alcoholic products"
-  )
+  def continue(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
 }

@@ -16,8 +16,9 @@
 
 package specs.commonPageFeatures
 
+import specpage.common._
 import specs.BaseSpec
-import specs.tags.{AllTests, CommonPages, ZapTests}
+import specs.tags.{AllTests, CommonPages}
 import specsteps.BaseStepDefSteps._
 
 class ViewPastPaymentsPageSpec extends BaseSpec {
@@ -27,55 +28,38 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
     Scenario(
       "1. ADR Journey - Verify that past year payments can be accessed under cleared payments section",
       AllTests,
-      CommonPages,
-      ZapTests
+      CommonPages
     ) {
       Given("I log in to view payments")
       loginForPayments()
 
-      Then("I am presented with the View Past Payments Page")
-      thenIAmPresentedWithThe("View Past Payments Page")
-
       When("I click on View 2024 payments hyperlink on View Past Payments Page")
-      whenIClickOnHyperlinkOn("View 2024 payments", "View Past Payments Page")
+      ViewPastPaymentsPage.viewPastYearPayments()
 
-      Then("I am presented with the Past Payments Page")
-      thenIAmPresentedWithThe("Past Payments Page")
-
-      When("I click on Back to payments hyperlink on Past Payments Page")
-      whenIClickOnHyperlinkOn("Back to payments", "Past Payments Page")
+      And("I click on Back to payments hyperlink on Past Payments Page")
+      PastPaymentsPage.backToPayments()
 
       Then("I am presented with the View Past Payments Page")
-      thenIAmPresentedWithThe("View Past Payments Page")
+      ViewPastPaymentsPage.checkURL
 
     }
 
     Scenario(
       "2. ADR Central Assessment - Manage central assessment charge and pay central assessment charge",
       AllTests,
-      CommonPages,
-      ZapTests
+      CommonPages
     ) {
       Given("I log in to view payments")
       loginForPayments()
 
-      Then("I am presented with the View Past Payments Page")
-      thenIAmPresentedWithThe("View Past Payments Page")
-
       When("I click on Manage link on View Past Payments Page")
-      whenIClickOnLinkOn("Manage", "View Past Payments Page")
+      ViewPastPaymentsPage.clickManageLink()
 
-      Then("I am presented with the Manage Central Assessment Page")
-      thenIAmPresentedWithThe("Manage Central Assessment Page")
-
-      When("I select radio button Pay central assessment charge on Manage Central Assessment Page")
-      whenISelectRadioButtonOn("Pay central assessment charge", "Manage Central Assessment Page")
-
-      And("I click continue button on Manage Central Assessment Page")
-      whenIClickContinueButtonOn("Manage Central Assessment Page")
+      And("I select radio button Pay central assessment charge on Manage Central Assessment Page")
+      ManageCentralAssessmentPage.selectOption(submitReturn = false)
 
       Then("I am presented with the Pay Central Assessment Charge Page")
-      thenIAmPresentedWithThe("Pay Central Assessment Charge Page")
+      PayCentralAssessmentChargePage.checkURL
 
     }
   }

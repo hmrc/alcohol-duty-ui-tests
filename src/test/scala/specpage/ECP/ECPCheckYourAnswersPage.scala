@@ -22,11 +22,9 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object ECPCheckYourAnswersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/check-answers"
-  override val title = "Check your answers"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
+  def ecpSubmitButton(): Unit = {
+    checkURL
+    clickECPSubmitButton()
+  }
 }

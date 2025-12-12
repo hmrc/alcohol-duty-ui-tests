@@ -25,29 +25,10 @@ object WhatDoYouNeedToDeclareSpiritsPage extends BasePage {
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/declare/products-to-include"
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Spirits/change/products-to-include"
-  override val title          = "What do you need to declare?"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "What do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("What do you need to declare?")
-
-  override def clickCheckBox(text: String): Unit =
-    text match {
-      case "Between 1.3% and 3.4% ABV (tax type code 315)" => click on cssSelector("#rateBand_315")
-      case "Between 3.5% and 8.4% ABV (tax type code 325)" => click on cssSelector("#rateBand_325")
-      case "Between 8.5% and 22% ABV (tax type code 335)"  => click on cssSelector("#rateBand_335")
-      case "Exceeding 22% ABV (tax type code 345)"         => click on cssSelector("#rateBand_345")
-      case "Between 1.3% and 3.4% ABV (tax type code 355)" => click on cssSelector("#rateBand_355")
-      case "Between 3.5% and 8.4% ABV (tax type code 360)" => click on cssSelector("#rateBand_360")
-      case "Between 1.3% and 3.4% ABV (tax type code 365)" => click on cssSelector("#rateBand_365")
-      case "Between 3.5% and 8.4% ABV (tax type code 370)" => click on cssSelector("#rateBand_370")
-      case "Between 1.3% and 3.4% ABV (tax type code 375)" => click on cssSelector("#rateBand_375")
-      case "Between 3.5% and 8.4% ABV (tax type code 380)" => click on cssSelector("#rateBand_380")
-    }
+  def selectRateBands(choices: String): Unit = {
+    checkURL
+    selectCheckBoxes(choices.split(","))
+    clickSaveAndContinueButton()
+  }
 }

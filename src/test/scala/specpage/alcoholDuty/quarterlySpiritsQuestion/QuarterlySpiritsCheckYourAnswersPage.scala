@@ -16,37 +16,37 @@
 
 package specpage.alcoholDuty.quarterlySpiritsQuestion
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object QuarterlySpiritsCheckYourAnswersPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/quarterly-spirits-production/check-your-answers"
-  override val title       = "Check your answers"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
 
   override def clickButton(text: String): Unit =
     text match {
       case "Change total of all spirits"   =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/total-volume']"
-        )
+        ))
       case "Change Scotch Whisky"          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[1]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[1]"))
       case "Change Irish Whiskey"          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[2]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/scotch-whisky-and-irish-whiskey-volumes'])[2]"))
       case "Change type of spirits"        =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/spirits-produced']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/spirits-produced']"))
       case "Change other spirits produced" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/other-spirits-produced']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/quarterly-spirits-production/change/other-spirits-produced']"))
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickSaveAndContinueButton()
+  }
+  def clickChangeLink(text:String): Unit = {
+    checkURL
+    clickButton(text)
+  }
+  
 }

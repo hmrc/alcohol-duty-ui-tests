@@ -22,13 +22,5 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 object PayCentralAssessmentChargePage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-returns-frontend") + "/pay-central-assessment/..."
-  override val title = "Alcohol Duty payments"
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Pay central assessment charge - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Pay central assessment charge"
-  )
 }

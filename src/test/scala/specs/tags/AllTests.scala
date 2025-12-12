@@ -34,6 +34,4 @@ object ECP extends Tag("ECP")
 
 object WIP extends Tag("WIP")
 
-object ZapTests extends Tag("ZapTests")
-
 object BrowserStack extends Tag("BrowserStack")

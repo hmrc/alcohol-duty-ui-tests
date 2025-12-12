@@ -16,53 +16,55 @@
 
 package specpage.alcoholDuty.dutySuspendedDeliveries
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object DutySuspendedDeliveriesCheckYourAnswersPage extends BasePage {
 
-  override val url: String =
-    TestConfiguration.url(
+  override val url: String = TestConfiguration.url(
       "alcohol-duty-returns-frontend"
     ) + "/complete-return/duty-suspended-deliveries/check-your-answers"
-  override val title       = "Check your answers"
-
-  override def expectedPageTitle: Option[String]  = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-  override def expectedPageHeader: Option[String] = Some(
-    "Check your answers"
-  )
 
   override def clickButton(text: String): Unit =
     text match {
       case "Change total net quantity of duty suspended beer"                                          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[1]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[1]"))
       case "Change total net quantity of pure alcohol in your duty suspended beer"                     =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[2]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Beer/change'])[2]"))
       case "Change total net quantity of duty suspended cider"                                         =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[1]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[1]"))
       case "Change total net quantity of pure alcohol in your duty suspended cider"                    =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[2]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Cider/change'])[2]"))
       case "Change total net quantity of duty suspended wine"                                          =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[1]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[1]"))
       case "Change total net quantity of pure alcohol in your duty suspended wine"                     =>
-        click on xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[2]")
+        click(By.xpath("(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Wine/change'])[2]"))
       case "Change total net quantity of duty suspended spirits"                                       =>
-        click on xpath(
+        click(By.xpath(
           "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Spirits/change'])[1]"
-        )
+        ))
       case "Change total net quantity of pure alcohol in your duty suspended spirits"                  =>
-        click on xpath(
+        click(By.xpath(
           "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/Spirits/change'])[2]"
-        )
+        ))
       case "Change total net quantity of duty suspended other fermented products"                      =>
-        click on xpath(
+        click(By.xpath(
           "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change'])[1]"
-        )
+        ))
       case "Change total net quantity of pure alcohol in your duty suspended other fermented products" =>
-        click on xpath(
+        click(By.xpath(
           "(//a[@href='/manage-alcohol-duty/complete-return/duty-suspended-deliveries/OtherFermentedProducts/change'])[2]"
-        )
+        ))
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickContinueButton()
+  }
+
+  def clickChangeLink(text:String): Unit = {
+    checkURL
+    clickButton(text)
+  }
 }

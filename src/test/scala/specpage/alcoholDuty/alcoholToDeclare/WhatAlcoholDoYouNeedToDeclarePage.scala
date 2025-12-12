@@ -21,19 +21,19 @@ import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object WhatAlcoholDoYouNeedToDeclarePage extends BasePage {
 
-  override val url: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/alcoholic-products-to-include"
-  override val title       = "Which types of alcoholic products do you need to declare?"
+  override val url: String = TestConfiguration.url(
+    "alcohol-duty-returns-frontend"
+  ) + "/complete-return/alcoholic-products/alcoholic-products-to-include"
 
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Which types of alcoholic products do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
+  def selectAllRegimes(): Unit = {
+    checkURL
+    selectCheckBoxes(Array("Beer", "Cider", "Wine", "Spirits", "Other fermented products"))
+    clickSaveAndContinueButton()
+  }
 
-  override def expectedPageTitle: Option[String] = Some(
-    "Which types of alcoholic products do you need to declare? - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some(
-    "Which types of alcoholic products do you need to declare?"
-  )
+  def selectSingleRegime(regime: String): Unit = {
+    checkURL
+    selectCheckBoxes(Array(regime))
+    clickSaveAndContinueButton()
+  }
 }

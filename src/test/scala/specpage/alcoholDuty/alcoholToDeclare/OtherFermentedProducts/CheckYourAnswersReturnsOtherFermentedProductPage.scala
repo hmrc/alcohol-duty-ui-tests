@@ -16,6 +16,7 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.OtherFermentedProducts
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
@@ -23,31 +24,23 @@ object CheckYourAnswersReturnsOtherFermentedProductPage extends BasePage {
 
   override val url: String    =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/OtherFermentedProduct/declare/check-your-answers"
-  override val title          = "Check your answers"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
 
   override def clickButton(text: String): Unit =
     text match {
       case "Change Other Fermented Product to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/products-to-include']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/products-to-include']"))
       case "Change Other Fermented Product duty"                               =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/volumes']"
-        )
+        ))
       case "Change Other Fermented Product eligible for Small Producer Relief" =>
-        click on cssSelector(
+        click(By.cssSelector(
           "a[href='/manage-alcohol-duty/complete-return/alcoholic-products/OtherFermentedProduct/change/spr/eligible-volumes']"
-        )
+        ))
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickSaveAndContinueButton()
+  }
 }

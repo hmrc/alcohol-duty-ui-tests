@@ -16,33 +16,26 @@
 
 package specpage.alcoholDuty.alcoholToDeclare.Wine
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object CheckYourAnswersReturnsWinePage extends BasePage {
 
   override val url: String    = TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/check-your-answers"
-  override val newUrl: String =
-    TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Wine/declare/check-your-answers"
-  override val title          = "Check your answers"
-
-  override def expectedPageErrorTitle: Option[String] = Some(
-    "Error: Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageTitle: Option[String] = Some(
-    "Check your answers - Manage your Alcohol Duty - GOV.UK"
-  )
-
-  override def expectedPageHeader: Option[String] = Some("Check your answers")
 
   override def clickButton(text: String): Unit =
     text match {
       case "Change Wine to declare"                         =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/products-to-include']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/products-to-include']"))
       case "Change Wine duty"                               =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/volumes']"))
       case "Change Wine eligible for Small Producer Relief" =>
-        click on cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/spr/eligible-volumes']")
+        click(By.cssSelector("a[href='/manage-alcohol-duty/complete-return/alcoholic-products/Wine/change/spr/eligible-volumes']"))
     }
+
+  def continue(): Unit = {
+    checkURL
+    clickSaveAndContinueButton()
+  }
 }
