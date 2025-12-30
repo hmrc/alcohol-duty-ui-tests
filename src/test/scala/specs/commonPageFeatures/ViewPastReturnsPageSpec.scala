@@ -27,23 +27,17 @@ class ViewPastReturnsPageSpec extends BaseSpec {
   Feature("View Past Returns Journey") {
 
     Scenario("1. ADR Journey - View Completed Returns from previous years", AllTests, CommonPages) {
-      Given("I cleared the data to view completed returns from previous years")
+      Given("I log in to view returns")
       clearDataForPastReturns()
-
-      And("I enter login details on Authority Wizard")
       navigateToPage(AuthLoginStubPage)
       AuthLoginStubPage.enterAuthDetails("XMADP0000100211", "View Past Returns")
 
-      When("I click the link to view completed returns from the previous year on View Past Returns Page")
+      When("I navigate to view a specific completed return")
       ViewPastReturnsPage.clickPreviousYearHyperlink()
-
-      And("I click on the first View return link on View Completed Returns Page")
       ViewCompletedReturnsPage.clickFirstViewReturnLink()
 
-      And("I click back button on View Specific Return Page")
+      And("I navigate back to View Past Returns Page")
       ViewSpecificReturnPage.clickBackButton()
-
-      And("I click on Back to current returns hyperlink on View Completed Returns Page")
       ViewCompletedReturnsPage.backToCurrentReturns()
 
       Then("I am presented with the View Past Returns Page")

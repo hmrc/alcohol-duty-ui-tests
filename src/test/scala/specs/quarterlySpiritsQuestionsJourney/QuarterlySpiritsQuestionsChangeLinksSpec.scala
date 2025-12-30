@@ -34,56 +34,34 @@ class QuarterlySpiritsQuestionsChangeLinksSpec extends BaseSpec {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
-      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      When("I declare quarterly spirits (including other spirits)")
       TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
-
-      And("I select Yes on Quarterly Spirits Returns Guidance Page")
       QuarterlySpiritsReturnsGuidancePage.declareSpirits(declaringSpirits = true)
-
-      And("I enter 111.11 on Total Of All Spirits Page")
       TotalOfAllSpiritsPage.enterVolume("111.11")
-
-      And("I enter volumes on Declare Whiskey Page")
       DeclareWhiskeyPage.enterVolumes()
-
-      And(
-        "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
-      )
       WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes(
         "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits"
       )
-
-      And("I enter Test Spirits on Declare Other Spirits Produced Page")
       DeclareOtherSpiritsProducedPage.enterDetails("Test Spirits")
 
-      And("I click Change total of all spirits on Quarterly Spirits Check Your Answers Page")
+      And("I change the total of all spirits from the Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change total of all spirits")
-
-      And("I enter 111.99 on Total Of All Spirits Page in check mode")
       TotalOfAllSpiritsPage.enterNewVolume("111.99")
 
-      And("I click Change Scotch Whisky on Quarterly Spirits Check Your Answers Page")
+      And("I change the volume of Scotch Whisky from the Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change Scotch Whisky")
-
-      And("I enter new volumes on Declare Whiskey Page")
       DeclareWhiskeyPage.enterNewVolumes()
 
-      And("I click Change type of spirits on Quarterly Spirits Check Your Answers Page")
+      And("I add Grain spirits to the spirit types from the Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change type of spirits")
-
-      And("I select checkbox Grain spirits on Which Of These Spirits Have You Produced Page in check mode")
       WhichOfTheseSpiritsHaveYouProducedPage.selectNewSpiritTypes("Grain spirits")
 
-      And("I click Change other spirits produced on Quarterly Spirits Check Your Answers Page")
+      And("I change the other spirits produced from the Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change other spirits produced")
-
-      And("I enter Test Spirits1 on Declare Other Spirits Produced Page in check mode")
       DeclareOtherSpiritsProducedPage.enterNewDetails("Test Spirits1")
 
-      And("I click Change type of spirits on Quarterly Spirits Check Your Answers Page")
+      And("I remove Other spirits from the spirit types from the Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.clickChangeLink("Change type of spirits")
-
-      And("I deselect checkbox Other spirits on Which Of These Spirits Have You Produced Page in check mode")
       WhichOfTheseSpiritsHaveYouProducedPage.selectNewSpiritTypes("Other spirits")
 
       And("I click save and continue button on Quarterly Spirits Check Your Answers Page")

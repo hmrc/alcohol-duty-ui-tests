@@ -17,7 +17,6 @@
 package specpage
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
 import org.openqa.selenium.{By, WebDriver}
-import org.scalatest.Assertion
 import org.scalatest.concurrent.Eventually
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.selenium.{Page, WebBrowser}
@@ -46,22 +45,18 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     .pollingEvery(Duration.ofMillis(500))
 
   /** Page assertions * */
-  def checkURL: Assertion =
+  def checkURL: Unit =
     if (url.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(url.replace("...", "") + ".*"))
-      Driver.instance.getCurrentUrl should fullyMatch regex (url.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(url))
-      Driver.instance.getCurrentUrl should equal(url)
     }
 
-  def checkNewURL: Assertion =
+  def checkNewURL: Unit =
     if (newUrl.contains("...")) {
       fluentWait.until(ExpectedConditions.urlMatches(newUrl.replace("...", "") + ".*"))
-      Driver.instance.getCurrentUrl should fullyMatch regex (newUrl.replace("...", "") + ".*").r
     } else {
       fluentWait.until(ExpectedConditions.urlToBe(newUrl))
-      Driver.instance.getCurrentUrl should equal(newUrl)
     }
 
   def checkNewDynamicURL(urlSuffix: String): Unit = {

@@ -29,13 +29,9 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1000100211")
 
-      When("I select email on How Would You Like To Be Contacted Page")
+      When("I select email and use the existing email in ETMP")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
-
-      And("I select radio button Yes on ECP Existing Email Page")
       ECPExistingEmailPage.ECPExistingEmail(true)
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
@@ -59,13 +55,9 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP5000100211")
 
-      When("I select post on How Would You Like To Be Contacted Page")
+      When("I change my contact preference to post")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = false)
-
-      And("I click continue button on ECP Correspondence Address Page")
       ECPCorrespondenceAddressPage.continue()
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
@@ -77,16 +69,12 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP0000100211")
 
-      When("I select email on How Would You Like To Be Contacted Page")
+      When("I select email and choose to update my email address")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
-
-      And("I click on If this is not the correct address, you can update it hyperlink on ECP Enrolled Email Page")
       ECPEnrolledEmailPage.clickUpdateEmailLink()
 
-      And("I enter jane.doe2@example.com on Enter Email Address Page")
+      And("I submit a new email address")
       EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
@@ -101,13 +89,11 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP1002100211")
 
-      When("I select email on How Would You Like To Be Contacted Page")
+      When("I select email and choose not to use the existing email in ETMP")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
-
-      And("I select radio button No, I want to use a different email on ECP Existing Email Page")
       ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton = false)
 
-      And("I enter jane.doe@example.com on Enter Email Address Page")
+      And("I enter an email address that is locked")
       EnterEmailAddressPage.enterEmailAddress("jane.doe@example.com")
 
       Then("I am presented with the ECP Confirmation Code Limit Page")
@@ -119,13 +105,9 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the update email url")
       loginForEcp("XMADP0002100211", "Email Update")
 
-      When("I select radio button No, I want to use a different email on ECP Existing Email Page")
+      When("I update my email to the same email as my existing one")
       ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton = false)
-
-      And("I enter john.doe@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Email Page")
@@ -137,13 +119,9 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the change preference url")
       loginForEcp("XMADP9002100211")
 
-      When("I select email on How Would You Like To Be Contacted Page")
+      When("I select email and submit a new email address")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
-
-      And("I enter john.doe@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")
@@ -155,13 +133,9 @@ class EmailJourneySpec extends BaseSpec {
       Given("I enter the ECP service using the bounced email url")
       loginForEcp("XMADP3002100211", "Email Bounce")
 
-      When("I click continue button on ECP Email Error Page")
+      When("I submit a new email address to replace the bounced email")
       ECPEmailErrorPage.continue()
-
-      And("I enter jane.doe2@example.com on Enter Email Address Page")
       EnterEmailAddressPage.enterEmailAddress("jane.doe2@example.com")
-
-      And("I click submit button on ECP Check Your Answers Page")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
       Then("I am presented with the ECP Confirmation Page")

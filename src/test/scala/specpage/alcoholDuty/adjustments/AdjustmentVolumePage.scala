@@ -39,18 +39,10 @@ object AdjustmentVolumePage extends BasePage {
     clickSaveAndContinueButton()
   }
 
-  def enterVolumesWithoutSpr(): Unit = {
-    checkNewURL
-    enterMultipleDetails("3000.75", "Total Litres")
-    enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
-    clickSaveAndContinueButton()
-  }
-
   def enterVolumesWithNewUrl(): Unit = {
     checkNewURL
     enterMultipleDetails("3000.75", "Total Litres")
     enterMultipleDetails("250.5500", "Litres Of Pure Alcohol")
-    enterMultipleDetails("9.8","Small Producer Relief duty rate")
     clickSaveAndContinueButton()
   }
 }
