@@ -33,62 +33,30 @@ class AlcoholDutyReturnFullJourneyWithLimitedRegimeApprovalsSpec extends BaseSpe
       Given("I start a return")
       loginAndStartReturn("XMADP0000178208")
 
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      When("I declare beer (tax type 311 only)")
       TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
-
-      And("I select Yes on Declare Alcohol Duty Question Page")
       DeclareAlcoholDutyQuestionPage.declareAlcohol(true)
-
-      And(
-        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311) on What Do You Need To Declare Beer Page"
-      )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands("Beer between 1.3% and 3.4% ABV (tax type code 311)")
-
-      And("I enter volumes on the How Much You Need To Declare Beer Page")
       HowMuchYouNeedToDeclareBeerPage.enterDetailsForLimitedRegimeApprovals()
-
-      And("I click save and continue button on Check Your Answers Returns Beer Page")
       CheckYourAnswersReturnsBeerPage.continue()
-
-      And("I click save and continue button on Duty Due Beer Page")
       DutyDueBeerPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      And("I declare no adjustments")
       TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
-
-      And("I select No on Declare Adjustment Question Page")
       DeclareAdjustmentQuestionPage.declareAdjustments(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When(
-        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
-      )
+      And("I declare duty suspended deliveries")
       TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
-
-      And("I select Yes on Declare Duty Suspended Deliveries Page")
       DeclareDutySuspendedDeliveriesPage.declareDSD(true)
-
-      And("I click continue button on Duty Suspended Deliveries Guidance Page")
       DutySuspendedDeliveriesGuidancePage.continue()
-
-      And("I enter volumes on Duty Suspended Beer Page")
       DutySuspendedBeerPage.enterVolumes()
-
-      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      And("I submit the return")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
-
-      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
