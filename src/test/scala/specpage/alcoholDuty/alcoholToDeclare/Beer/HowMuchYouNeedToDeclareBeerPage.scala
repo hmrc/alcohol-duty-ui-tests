@@ -26,64 +26,62 @@ object HowMuchYouNeedToDeclareBeerPage extends BasePage {
   override val newUrl: String =
     TestConfiguration.url("alcohol-duty-returns-frontend") + "/complete-return/alcoholic-products/Beer/change/volumes"
 
-  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
-    val modifiedIndex = ordinalToNumber(index)
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit =
     text match {
       case "Standard beer between 1.3% and 3.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard beer between 1.3% and 3.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard beer between 3.5% and 8.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard beer between 3.5% and 8.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard beer between 8.5% and 22% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard beer between 8.5% and 22% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard beer at or above 22.1% ABV - Total litres"     =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard beer at or above 22.1% ABV - Pure alcohol"     =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught beer between 1.3% and 3.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught beer between 1.3% and 3.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught beer between 3.5% and 8.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught beer between 3.5% and 8.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
     }
-  }
 
   def enterDetailsForLimitedRegimeApprovals(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", 0)
     clickSaveAndContinueButton()
   }
 
   def enterDetailsForAllRateBands(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", "first")
-    enterMultipleDetailsWithIndex("898.34", "Standard beer between 3.5% and 8.4% ABV - Total litres", "second")
-    enterMultipleDetailsWithIndex("77.5500", "Standard beer between 3.5% and 8.4% ABV - Pure alcohol", "second")
-    enterMultipleDetailsWithIndex("667.32", "Standard beer between 8.5% and 22% ABV - Total litres", "third")
-    enterMultipleDetailsWithIndex("66.3400", "Standard beer between 8.5% and 22% ABV - Pure alcohol", "third")
-    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", "fourth")
-    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", "fourth")
-    enterMultipleDetailsWithIndex("887.54", "Draught beer between 1.3% and 3.4% ABV - Total litres", "fifth")
-    enterMultipleDetailsWithIndex("66.4400", "Draught beer between 1.3% and 3.4% ABV - Pure alcohol", "fifth")
-    enterMultipleDetailsWithIndex("699.45", "Draught beer between 3.5% and 8.4% ABV - Total litres", "sixth")
-    enterMultipleDetailsWithIndex("66.8900", "Draught beer between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
+    enterMultipleDetailsWithIndex("945.55", "Standard beer between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("55.5555", "Standard beer between 1.3% and 3.4% ABV - Pure alcohol", 0)
+    enterMultipleDetailsWithIndex("898.34", "Standard beer between 3.5% and 8.4% ABV - Total litres", 1)
+    enterMultipleDetailsWithIndex("77.5500", "Standard beer between 3.5% and 8.4% ABV - Pure alcohol", 1)
+    enterMultipleDetailsWithIndex("667.32", "Standard beer between 8.5% and 22% ABV - Total litres", 2)
+    enterMultipleDetailsWithIndex("66.3400", "Standard beer between 8.5% and 22% ABV - Pure alcohol", 2)
+    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", 3)
+    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", 3)
+    enterMultipleDetailsWithIndex("887.54", "Draught beer between 1.3% and 3.4% ABV - Total litres", 4)
+    enterMultipleDetailsWithIndex("66.4400", "Draught beer between 1.3% and 3.4% ABV - Pure alcohol", 4)
+    enterMultipleDetailsWithIndex("699.45", "Draught beer between 3.5% and 8.4% ABV - Total litres", 5)
+    enterMultipleDetailsWithIndex("66.8900", "Draught beer between 3.5% and 8.4% ABV - Pure alcohol", 5)
     clickSaveAndContinueButton()
   }
 
   def enterDetailsFor341(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("999.19", "Standard beer at or above 22.1% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("99.1300", "Standard beer at or above 22.1% ABV - Pure alcohol", 0)
     clickSaveAndContinueButton()
   }
 }

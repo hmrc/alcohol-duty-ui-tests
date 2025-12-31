@@ -90,7 +90,7 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def enterMultipleDetails(textToEnter: String, text: String): Unit = {}
 
-  def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {}
+  def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit = {}
 
   def enterDate(month: String, year: String): Unit = {}
 
@@ -141,27 +141,4 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
     for (i <- choiceOfCheckBox.indices)
       selectCheckbox(By.xpath(s"//label[normalize-space()='${choiceOfCheckBox(i)}']"))
 
-  def ordinalToNumber(ordinal: String): Int = ordinal.toLowerCase() match {
-    case "first"       => 0
-    case "second"      => 1
-    case "third"       => 2
-    case "fourth"      => 3
-    case "fifth"       => 4
-    case "sixth"       => 5
-    case "seventh"     => 6
-    case "eighth"      => 7
-    case "ninth"       => 8
-    case "tenth"       => 9
-    case "eleventh"    => 10
-    case "twelfth"     => 11
-    case "thirteenth"  => 12
-    case "fourteenth"  => 13
-    case "fifteenth"   => 14
-    case "sixteenth"   => 15
-    case "seventeenth" => 16
-    case "eighteenth"  => 17
-    case "nineteenth"  => 18
-    case "twentieth"   => 19
-    case _             => throw new IllegalArgumentException("Invalid ordinal")
-  }
 }

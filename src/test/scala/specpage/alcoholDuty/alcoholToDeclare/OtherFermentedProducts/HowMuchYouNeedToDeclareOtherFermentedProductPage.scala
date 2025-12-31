@@ -28,97 +28,95 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/alcoholic-products/OtherFermentedProduct/change/volumes"
 
-  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
-    val modifiedIndex = ordinalToNumber(index)
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit =
     text match {
       case "Standard other fermented products between 1.3% and 3.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard other fermented products between 3.5% and 8.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard other fermented products between 8.5% and 22% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard other fermented products at or above 22.1% ABV - Total litres"     =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard other fermented products at or above 22.1% ABV - Pure alcohol"     =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught other fermented products between 1.3% and 3.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught other fermented products between 3.5% and 8.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
     }
-  }
 
   def enterDetailsForAllRateBands(): Unit = {
     checkURL
     enterMultipleDetailsWithIndex(
       "2233.33",
       "Standard other fermented products between 1.3% and 3.4% ABV - Total litres",
-      "first"
+      0
     )
     enterMultipleDetailsWithIndex(
       "33.3300",
       "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-      "first"
+      0
     )
     enterMultipleDetailsWithIndex(
       "3322.22",
       "Standard other fermented products between 3.5% and 8.4% ABV - Total litres",
-      "second"
+      1
     )
     enterMultipleDetailsWithIndex(
       "22.2200",
       "Standard other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-      "second"
+      1
     )
     enterMultipleDetailsWithIndex(
       "4433.44",
       "Standard other fermented products between 8.5% and 22% ABV - Total litres",
-      "third"
+      2
     )
     enterMultipleDetailsWithIndex(
       "44.4400",
       "Standard other fermented products between 8.5% and 22% ABV - Pure alcohol",
-      "third"
+      2
     )
     enterMultipleDetailsWithIndex(
       "5544.55",
       "Standard other fermented products at or above 22.1% ABV - Total litres",
-      "fourth"
+      3
     )
     enterMultipleDetailsWithIndex(
       "55.5500",
       "Standard other fermented products at or above 22.1% ABV - Pure alcohol",
-      "fourth"
+      3
     )
     enterMultipleDetailsWithIndex(
       "6666.66",
       "Draught other fermented products between 1.3% and 3.4% ABV - Total litres",
-      "fifth"
+      4
     )
     enterMultipleDetailsWithIndex(
       "66.6600",
       "Draught other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-      "fifth"
+      4
     )
     enterMultipleDetailsWithIndex(
       "7865.12",
       "Draught other fermented products between 3.5% and 8.4% ABV - Total litres",
-      "sixth"
+      5
     )
     enterMultipleDetailsWithIndex(
       "34.5500",
       "Draught other fermented products between 3.5% and 8.4% ABV - Pure alcohol",
-      "sixth"
+      5
     )
     clickSaveAndContinueButton()
   }
@@ -128,12 +126,12 @@ object HowMuchYouNeedToDeclareOtherFermentedProductPage extends BasePage {
     enterMultipleDetailsWithIndex(
       "2233.33",
       "Standard other fermented products between 1.3% and 3.4% ABV - Total litres",
-      "first"
+      0
     )
     enterMultipleDetailsWithIndex(
       "33.3300",
       "Standard other fermented products between 1.3% and 3.4% ABV - Pure alcohol",
-      "first"
+      0
     )
     clickSaveAndContinueButton()
   }
