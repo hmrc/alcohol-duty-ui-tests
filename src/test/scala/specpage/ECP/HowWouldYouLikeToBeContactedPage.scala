@@ -31,9 +31,9 @@ object HowWouldYouLikeToBeContactedPage extends BasePage {
     }
   
 
-  def HowWouldYouLikeToBeContacted(value: Boolean): Unit = {
+  def HowWouldYouLikeToBeContacted(email: Boolean): Unit = {
     checkURL
-    if (value) clickRadioButton("Email me when I have a digital message")
+    if (email) clickRadioButton("Email me when I have a digital message")
     else clickRadioButton("Send me letters by post")
     clickContinueButton()
   }

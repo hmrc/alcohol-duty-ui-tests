@@ -16,10 +16,11 @@
 
 package specs.emailContactPreference
 
-import specpage.ECP._
+import specpage.ECP.*
+import specpage.auth.JourneyType.{EcpBouncedEmail, EcpUpdateEmail}
 import specs.BaseSpec
 import specs.tags.ECP
-import specsteps.BaseStepDefSteps._
+import specsteps.BaseStepDefSteps.*
 
 class EmailJourneySpec extends BaseSpec {
 
@@ -30,7 +31,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP1000100211")
 
       When("I select email and use the existing email in ETMP")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = true)
       ECPExistingEmailPage.ECPExistingEmail(true)
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
@@ -44,7 +45,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP1000100211")
 
       When("I select post on How Would You Like To Be Contacted Page")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = false)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = false)
 
       Then("I am presented with the ECP Enrolled Letters Page")
       ECPEnrolledLettersPage.checkURL
@@ -56,7 +57,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP5000100211")
 
       When("I change my contact preference to post")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = false)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = false)
       ECPCorrespondenceAddressPage.continue()
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
@@ -70,7 +71,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP0000100211")
 
       When("I select email and choose to update my email address")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = true)
       ECPEnrolledEmailPage.clickUpdateEmailLink()
 
       And("I submit a new email address")
@@ -90,7 +91,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP1002100211")
 
       When("I select email and choose not to use the existing email in ETMP")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = true)
       ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton = false)
 
       And("I enter an email address that is locked")
@@ -103,10 +104,10 @@ class EmailJourneySpec extends BaseSpec {
 
     Scenario("6. ECP - User on email updates email (enters same email as existing one)", ECP) {
       Given("I enter the ECP service using the update email url")
-      loginForEcp("XMADP0002100211", "Email Update")
+      loginForEcp("XMADP0002100211", EcpUpdateEmail)
 
       When("I update my email to the same email as my existing one")
-      ECPExistingEmailPage.ECPExistingEmail(ECPRadiobutton = false)
+      ECPExistingEmailPage.ECPExistingEmail(false)
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
@@ -120,7 +121,7 @@ class EmailJourneySpec extends BaseSpec {
       loginForEcp("XMADP9002100211")
 
       When("I select email and submit a new email address")
-      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(value = true)
+      HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = true)
       EnterEmailAddressPage.enterEmailAddress("john.doe@example.com")
       ECPCheckYourAnswersPage.ecpSubmitButton()
 
@@ -131,7 +132,7 @@ class EmailJourneySpec extends BaseSpec {
 
     Scenario("8. ECP - Bounced email", ECP) {
       Given("I enter the ECP service using the bounced email url")
-      loginForEcp("XMADP3002100211", "Email Bounce")
+      loginForEcp("XMADP3002100211", EcpBouncedEmail)
 
       When("I submit a new email address to replace the bounced email")
       ECPEmailErrorPage.continue()

@@ -17,10 +17,11 @@
 package specs.commonPageFeatures
 
 import specpage.auth.AuthLoginStubPage
+import specpage.auth.JourneyType.ViewReturns
 import specpage.common.{ViewCompletedReturnsPage, ViewPastReturnsPage, ViewSpecificReturnPage}
 import specs.BaseSpec
 import specs.tags.{AllTests, CommonPages}
-import specsteps.BaseStepDefSteps._
+import specsteps.BaseStepDefSteps.*
 
 class ViewPastReturnsPageSpec extends BaseSpec {
 
@@ -30,7 +31,7 @@ class ViewPastReturnsPageSpec extends BaseSpec {
       Given("I log in to view returns")
       clearDataForPastReturns()
       navigateToPage(AuthLoginStubPage)
-      AuthLoginStubPage.enterAuthDetails("XMADP0000100211", "View Past Returns")
+      AuthLoginStubPage.enterAuthDetails("XMADP0000100211", ViewReturns)
 
       When("I navigate to view a specific completed return")
       ViewPastReturnsPage.clickPreviousYearHyperlink()
