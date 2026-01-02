@@ -20,7 +20,8 @@ import org.scalatestplus.selenium.Page
 import specpage.BasePage
 import specpage.alcoholDuty.adjustments.{AdjustmentTypePage, DeclareAdjustmentQuestionPage}
 import specpage.alcoholDuty.alcoholToDeclare.{DeclareAlcoholDutyQuestionPage, WhatAlcoholDoYouNeedToDeclarePage}
-import specpage.auth.AuthLoginStubPage
+import specpage.auth.{AuthLoginStubPage, JourneyType}
+import specpage.auth.JourneyType.{EcpChangePreference, ViewPayments}
 import specpage.common.{BeforeYouStartPage, TaskListPage}
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 import uk.gov.hmrc.selenium.webdriver.Driver
@@ -79,11 +80,11 @@ object BaseStepDefSteps extends BasePage {
   def loginForPayments(appaId: String = "XMADP0002900211"): Unit = {
     clearDataForPastPayments()
     navigateToPage(AuthLoginStubPage)
-    AuthLoginStubPage.enterAuthDetails(appaId, "View Past Payments")
+    AuthLoginStubPage.enterAuthDetails(appaId, ViewPayments)
   }
 
   // Background steps for ECP
-  def loginForEcp(appaId: String, typeOfJourney: String = "Email Contact Preference"): Unit = {
+  def loginForEcp(appaId: String, typeOfJourney: JourneyType = EcpChangePreference): Unit = {
     clearDataForEcp()
     navigateToPage(AuthLoginStubPage)
     AuthLoginStubPage.enterAuthDetails(appaId, typeOfJourney, useCredId = true)

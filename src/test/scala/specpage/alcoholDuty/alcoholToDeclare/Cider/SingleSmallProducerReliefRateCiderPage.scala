@@ -28,96 +28,74 @@ object SingleSmallProducerReliefRateCiderPage extends BasePage {
     "alcohol-duty-returns-frontend"
   ) + "/complete-return/alcoholic-products/Cider/change/spr/eligible-volumes"
 
-  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
-    val modifiedIndex = ordinalToNumber(index)
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit =
     text match {
       case "Non-draught cider between 1.3% and 3.4% ABV - Total litres"                  =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres"           =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate"                      =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Non-draught cider between 3.5% and 8.4% ABV - Total litres"                  =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres"           =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate"                      =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres"        =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres" =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Draught cider between 1.3% and 3.4% ABV - Total litres"                      =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres"               =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Draught cider between 1.3% and 3.4% ABV - SPR Rate"                          =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Draught cider between 3.5% and 8.4% ABV - Total litres"                      =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres"               =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Draught cider between 3.5% and 8.4% ABV - SPR Rate"                          =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres"     =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate"                =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
     }
-  }
 
   def enterDetailsForAllSprRateBands(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("656.66", "Non-draught cider between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex(
-      "66.6600",
-      "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
-      "first"
-    )
-    enterMultipleDetailsWithIndex("14", "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate", "first")
-    enterMultipleDetailsWithIndex("999.99", "Non-draught cider between 3.5% and 8.4% ABV - Total litres", "second")
-    enterMultipleDetailsWithIndex(
-      "98.9900",
-      "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
-      "second"
-    )
-    enterMultipleDetailsWithIndex("12.45", "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate", "second")
-    enterMultipleDetailsWithIndex(
-      "6666.66",
-      "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres",
-      "third"
-    )
+    enterMultipleDetailsWithIndex("656.66", "Non-draught cider between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("66.6600", "Non-draught cider between 1.3% and 3.4% ABV - Pure alcohol litres", 0)
+    enterMultipleDetailsWithIndex("14", "Non-draught cider between 1.3% and 3.4% ABV - SPR Rate", 0)
+    enterMultipleDetailsWithIndex("999.99", "Non-draught cider between 3.5% and 8.4% ABV - Total litres", 1)
+    enterMultipleDetailsWithIndex("98.9900", "Non-draught cider between 3.5% and 8.4% ABV - Pure alcohol litres", 1)
+    enterMultipleDetailsWithIndex("12.45", "Non-draught cider between 3.5% and 8.4% ABV - SPR Rate", 1)
+    enterMultipleDetailsWithIndex("6666.66", "Non-draught sparkling cider between 5.6% and 8.4% ABV - Total litres", 2)
     enterMultipleDetailsWithIndex(
       "666.6600",
       "Non-draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
-      "third"
+      2
     )
-    enterMultipleDetailsWithIndex("36", "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate", "third")
-    enterMultipleDetailsWithIndex("887.21", "Draught cider between 1.3% and 3.4% ABV - Total litres", "fourth")
-    enterMultipleDetailsWithIndex(
-      "45.5600",
-      "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
-      "fourth"
-    )
-    enterMultipleDetailsWithIndex("16", "Draught cider between 1.3% and 3.4% ABV - SPR Rate", "fourth")
-    enterMultipleDetailsWithIndex("653.11", "Draught cider between 3.5% and 8.4% ABV - Total litres", "fifth")
-    enterMultipleDetailsWithIndex(
-      "33.3300",
-      "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres",
-      "fifth"
-    )
-    enterMultipleDetailsWithIndex("18", "Draught cider between 3.5% and 8.4% ABV - SPR Rate", "fifth")
-    enterMultipleDetailsWithIndex("777.77", "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres", "sixth")
+    enterMultipleDetailsWithIndex("36", "Non-draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate", 2)
+    enterMultipleDetailsWithIndex("887.21", "Draught cider between 1.3% and 3.4% ABV - Total litres", 3)
+    enterMultipleDetailsWithIndex("45.5600", "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres", 3)
+    enterMultipleDetailsWithIndex("16", "Draught cider between 1.3% and 3.4% ABV - SPR Rate", 3)
+    enterMultipleDetailsWithIndex("653.11", "Draught cider between 3.5% and 8.4% ABV - Total litres", 4)
+    enterMultipleDetailsWithIndex("33.3300", "Draught cider between 3.5% and 8.4% ABV - Pure alcohol litres", 4)
+    enterMultipleDetailsWithIndex("18", "Draught cider between 3.5% and 8.4% ABV - SPR Rate", 4)
+    enterMultipleDetailsWithIndex("777.77", "Draught sparkling cider between 5.6% and 8.4% ABV - Total litres", 5)
     enterMultipleDetailsWithIndex(
       "77.7700",
       "Draught sparkling cider between 5.6% and 8.4% ABV - Pure alcohol litres",
-      "sixth"
+      5
     )
-    enterMultipleDetailsWithIndex("17", "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate", "sixth")
+    enterMultipleDetailsWithIndex("17", "Draught sparkling cider between 5.6% and 8.4% ABV - SPR Rate", 5)
     clickSaveAndContinueButton()
   }
 
@@ -128,13 +106,9 @@ object SingleSmallProducerReliefRateCiderPage extends BasePage {
 
   def updateDetailsInCheckMode(): Unit = {
     checkNewURL
-    enterMultipleDetailsWithIndex("777.77", "Draught cider between 1.3% and 3.4% ABV - Total litres", "fourth")
-    enterMultipleDetailsWithIndex(
-      "77.7700",
-      "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres",
-      "fourth"
-    )
-    enterMultipleDetailsWithIndex("7.7", "Draught cider between 1.3% and 3.4% ABV - SPR Rate", "fourth")
+    enterMultipleDetailsWithIndex("777.77", "Draught cider between 1.3% and 3.4% ABV - Total litres", 3)
+    enterMultipleDetailsWithIndex("77.7700", "Draught cider between 1.3% and 3.4% ABV - Pure alcohol litres", 3)
+    enterMultipleDetailsWithIndex("7.7", "Draught cider between 1.3% and 3.4% ABV - SPR Rate", 3)
     clickSaveAndContinueButton()
   }
 }

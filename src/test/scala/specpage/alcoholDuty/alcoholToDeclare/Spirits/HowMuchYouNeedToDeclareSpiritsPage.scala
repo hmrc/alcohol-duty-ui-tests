@@ -30,57 +30,55 @@ object HowMuchYouNeedToDeclareSpiritsPage extends BasePage {
       "alcohol-duty-returns-frontend"
     ) + "/complete-return/alcoholic-products/Spirits/change/volumes"
 
-  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
-    val modifiedIndex = ordinalToNumber(index)
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit =
     text match {
       case "Standard spirits between 1.3% and 3.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard spirits between 3.5% and 8.4% ABV - Total litres" =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol" =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard spirits between 8.5% and 22% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard spirits between 8.5% and 22% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Standard spirits at or above 22.1% ABV - Total litres"     =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Standard spirits at or above 22.1% ABV - Pure alcohol"     =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught spirits between 1.3% and 3.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
       case "Draught spirits between 3.5% and 8.4% ABV - Total litres"  =>
-        enterText("volumes_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumes_" + index + "_totalLitres", textToEnter)
       case "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol"  =>
-        enterText("volumes_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumes_" + index + "_pureAlcohol", textToEnter)
     }
-  }
 
   def enterDetailsForAllRateBands(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", "first")
-    enterMultipleDetailsWithIndex("7777.77", "Standard spirits between 3.5% and 8.4% ABV - Total litres", "second")
-    enterMultipleDetailsWithIndex("77.7700", "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol", "second")
-    enterMultipleDetailsWithIndex("6666.66", "Standard spirits between 8.5% and 22% ABV - Total litres", "third")
-    enterMultipleDetailsWithIndex("66.6600", "Standard spirits between 8.5% and 22% ABV - Pure alcohol", "third")
-    enterMultipleDetailsWithIndex("5555.55", "Standard spirits at or above 22.1% ABV - Total litres", "fourth")
-    enterMultipleDetailsWithIndex("55.5500", "Standard spirits at or above 22.1% ABV - Pure alcohol", "fourth")
-    enterMultipleDetailsWithIndex("4444.44", "Draught spirits between 1.3% and 3.4% ABV - Total litres", "fifth")
-    enterMultipleDetailsWithIndex("44.4400", "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol", "fifth")
-    enterMultipleDetailsWithIndex("3333.33", "Draught spirits between 3.5% and 8.4% ABV - Total litres", "sixth")
-    enterMultipleDetailsWithIndex("33.3300", "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol", "sixth")
+    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", 0)
+    enterMultipleDetailsWithIndex("7777.77", "Standard spirits between 3.5% and 8.4% ABV - Total litres", 1)
+    enterMultipleDetailsWithIndex("77.7700", "Standard spirits between 3.5% and 8.4% ABV - Pure alcohol", 1)
+    enterMultipleDetailsWithIndex("6666.66", "Standard spirits between 8.5% and 22% ABV - Total litres", 2)
+    enterMultipleDetailsWithIndex("66.6600", "Standard spirits between 8.5% and 22% ABV - Pure alcohol", 2)
+    enterMultipleDetailsWithIndex("5555.55", "Standard spirits at or above 22.1% ABV - Total litres", 3)
+    enterMultipleDetailsWithIndex("55.5500", "Standard spirits at or above 22.1% ABV - Pure alcohol", 3)
+    enterMultipleDetailsWithIndex("4444.44", "Draught spirits between 1.3% and 3.4% ABV - Total litres", 4)
+    enterMultipleDetailsWithIndex("44.4400", "Draught spirits between 1.3% and 3.4% ABV - Pure alcohol", 4)
+    enterMultipleDetailsWithIndex("3333.33", "Draught spirits between 3.5% and 8.4% ABV - Total litres", 5)
+    enterMultipleDetailsWithIndex("33.3300", "Draught spirits between 3.5% and 8.4% ABV - Pure alcohol", 5)
     clickSaveAndContinueButton()
   }
 
   def enterDetailsFor315(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", "first")
+    enterMultipleDetailsWithIndex("8888.66", "Standard spirits between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("88.8800", "Standard spirits between 1.3% and 3.4% ABV - Pure alcohol", 0)
     clickSaveAndContinueButton()
   }
 }

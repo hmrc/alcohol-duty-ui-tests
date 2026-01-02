@@ -39,347 +39,155 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()
 
-      When("I click on Declare beer hyperlink on Task List Page")
+      When("I declare beer with single SPR")
       TaskListPage.clickHyperlink("Declare beer")
-
-      And(
-        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
-      )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands(
         "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Beer Page")
       HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
-
-      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(false)
-
-      And("I enter volumes on the Single Small Producer Relief Rate Beer Page")
       SingleSmallProducerReliefRateBeerPage.enterDetailsForAllSprRateBands()
-
-      And("I click save and continue button on Check Your Answers Returns Beer Page")
       CheckYourAnswersReturnsBeerPage.continue()
-
-      And("I click save and continue button on Duty Due Beer Page")
       DutyDueBeerPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare cider hyperlink on Task List Page")
+      And("I declare cider with single SPR")
       TaskListPage.clickHyperlink("Declare cider")
-
-      And(
-        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Cider Page"
-      )
       WhatDoYouNeedToDeclareCiderPage.selectRateBands(
         "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 1.3% and 3.4% ABV (tax type code 362 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 369 SPR),Cider between 1.3% and 3.4% ABV (tax type code 372 SPR),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 377 SPR),Sparkling cider between 5.6% and 8.4% ABV (tax type code 379 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Cider Page")
       HowMuchYouNeedToDeclareCiderPage.enterDetailsForAllRateBands()
-
-      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateCiderPage.selectMultipleSpr(false)
-
-      And("I enter volumes on the Single Small Producer Relief Rate Cider Page")
       SingleSmallProducerReliefRateCiderPage.enterDetailsForAllSprRateBands()
-
-      And("I click save and continue button on Check Your Answers Returns Cider Page")
       CheckYourAnswersReturnsCiderPage.continue()
-
-      And("I click save and continue button on Duty Due Cider Page")
       DutyDueCiderPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare wine hyperlink on Task List Page")
+      And("I declare wine with single SPR")
       TaskListPage.clickHyperlink("Declare wine")
-
-      And("I click continue button on Declaring Your Wine For Duty Page")
       DeclaringYourWineForDutyPage.continue()
-
-      And(
-        "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR) on What Do You Need To Declare Wine Page"
-      )
       WhatDoYouNeedToDeclareWinePage.selectRateBands(
         "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 1.3% and 3.4% ABV (tax type code 363 SPR),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR),Wine between 1.3% and 3.4% ABV (tax type code 373 SPR),Wine between 3.5% and 8.4% ABV (tax type code 378 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Wine Page")
       HowMuchYouNeedToDeclareWinePage.enterDetailsForAllRateBands()
-
-      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateWinePage.selectMultipleSpr(false)
-
-      And("I enter volumes on the Single Small Producer Relief Rate Wine Page")
       SingleSmallProducerReliefRateWinePage.enterDetailsForAllSprRateBands()
-
-      And("I click save and continue button on Check Your Answers Returns Wine Page")
       CheckYourAnswersReturnsWinePage.continue()
-
-      And("I click save and continue button on Duty Due Wine Page")
       DutyDueWinePage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare spirits hyperlink on Task List Page")
+      And("I declare spirits with single SPR")
       TaskListPage.clickHyperlink("Declare spirits")
-
-      And(
-        "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
-      )
       WhatDoYouNeedToDeclareSpiritsPage.selectRateBands(
         "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 1.3% and 3.4% ABV (tax type code 365 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 370 SPR),Spirits between 1.3% and 3.4% ABV (tax type code 375 SPR),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Spirits Page")
       HowMuchYouNeedToDeclareSpiritsPage.enterDetailsForAllRateBands()
-
-      And("I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage.selectMultipleSpr(false)
-
-      And("I enter volumes on the Single Small Producer Relief Rate Spirits Page")
       SingleSmallProducerReliefRateSpiritsPage.enterDetailsForAllSprRateBands()
-
-      And("I click save and continue button on Check Your Answers Returns Spirits Page")
       CheckYourAnswersReturnsSpiritsPage.continue()
-
-      And("I click save and continue button on Duty Due Spirits Page")
       DutyDueSpiritsPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare other fermented products hyperlink on Task List Page")
+      And("I declare other fermented products with single SPR")
       TaskListPage.clickHyperlink("Declare other fermented products")
-
-      And(
-        "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR) on What Do You Need To Declare Wine Page"
-      )
       WhatDoYouNeedToDeclareOtherFermentedProductPage.selectRateBands(
         "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 1.3% and 3.4% ABV (tax type code 364 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR),Other fermented products between 1.3% and 3.4% ABV (tax type code 374 SPR),Other fermented products between 3.5% and 8.4% ABV (tax type code 379 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Other Fermented Product Page")
       HowMuchYouNeedToDeclareOtherFermentedProductPage.enterDetailsForAllRateBands()
-
-      And(
-        "I select radio button No on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
       DoYouHaveMultipleSmallProducerReliefDutyRateOtherFermentedProductPage.selectMultipleSpr(false)
-
-      And("I enter volumes on the Single Small Producer Relief Rate Other Fermented Product Page")
       SingleSmallProducerReliefRateOtherFermentedProductPage.enterDetailsForAllSprRateBands()
-
-      And("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
       CheckYourAnswersReturnsOtherFermentedProductPage.continue()
-
-      And("I click save and continue button on Duty Due Other Fermented Product Page")
       DutyDueOtherFermentedProductPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      And("I select to declare adjustments")
       TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
-
-      And("I select Yes on Declare Adjustment Question Page")
       DeclareAdjustmentQuestionPage.declareAdjustments(true)
 
-      And("I select radio button Under-declaration on Adjustment Type Page")
+      And("I add an under-declaration adjustment")
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
-
-      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("09", "2023")
-
-      And("I enter 311 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("311")
-
-      And("I enter volumes on the Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add an over-declaration adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 312 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("312")
-
-      And("I enter volumes on the Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add a repackaged (SPR) adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Repackaged draught products on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
-
-      And("I enter month 11 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("11", "2023")
-
-      And("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
       AdjustmentTaxTypeCodePage.enterDetails("373")
-
-      And("I enter volumes on the Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      And("I enter 363 on New Tax Type Code Page")
       NewTaxTypeCodePage.enterDetails("363")
-
-      And("I enter 11.5 on New Spr Duty Rate Page")
       NewSprDutyRatePage.enterDetails("11.5")
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add a spoilt adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
-
-      And("I select radio button Spirits on Spoilt Alcohol Type Page")
       SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
-
-      And("I enter volumes on the Spoilt Alcohol Volume Page")
       SpoiltAlcoholVolumePage.enterVolumes()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add a drawback adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Drawback on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 314 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("314")
-
-      And("I enter volumes on the Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button No on Adjustment List Page")
+      And("I complete the adjustments journey")
       AdjustmentListPage.addAnother(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us why products were under-declared hyperlink on Task List Page")
+      And("I add an under-declaration reason")
       TaskListPage.clickHyperlink("Tell us why products were under-declared")
-
-      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
       UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us why products were over-declared hyperlink on Task List Page")
+      And("I add an over-declaration reason")
       TaskListPage.clickHyperlink("Tell us why products were over-declared")
-
-      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
       OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When(
-        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
-      )
+      And("I declare duty suspended deliveries")
       TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
-
-      And("I select Yes on Declare Duty Suspended Deliveries Page")
       DeclareDutySuspendedDeliveriesPage.declareDSD(true)
-
-      And("I click continue button on Duty Suspended Deliveries Guidance Page")
       DutySuspendedDeliveriesGuidancePage.continue()
-
-      And("I enter volumes on Duty Suspended Beer Page")
       DutySuspendedBeerPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Cider Page")
       DutySuspendedCiderPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Wine Page")
       DutySuspendedWinePage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Spirits Page")
       DutySuspendedSpiritsPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Other Fermented Products Page")
       DutySuspendedOtherFermentedProductsPage.enterVolumes()
-
-      And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      And("I declare quarterly spirits")
       TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
-
-      And("I select Yes on Quarterly Spirits Returns Guidance Page")
       QuarterlySpiritsReturnsGuidancePage.declareSpirits(true)
-
-      And("I enter 99 on Total Of All Spirits Page")
       TotalOfAllSpiritsPage.enterVolume("99")
-
-      And("I enter volumes on Declare Whiskey Page")
       DeclareWhiskeyPage.enterVolumes()
-
-      And(
-        "I select checkbox Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits on Which Of These Spirits Have You Produced Page"
-      )
       WhichOfTheseSpiritsHaveYouProducedPage.selectSpiritTypes(
         "Malt spirits,Neutral spirits of agricultural origin,Spirits produced from beer,Other spirits"
       )
-
-      And("I enter Test Spirits on Declare Other Spirits Produced Page")
       DeclareOtherSpiritsProducedPage.enterDetails("Test Spirits")
-
-      And("I click save and continue button on Quarterly Spirits Check Your Answers Page")
       QuarterlySpiritsCheckYourAnswersPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      And("I submit the return")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
-
-      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
@@ -392,310 +200,140 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()
 
-      When("I click on Declare beer hyperlink on Task List Page")
+      When("I declare beer with multiple SPR")
       TaskListPage.clickHyperlink("Declare beer")
-
-      And(
-        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR) on What Do You Need To Declare Beer Page"
-      )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands(
         "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Beer Page")
       HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
-
-      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
       MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361(mustSelectRateBand = false)
-
-      And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()
-
-      And("I select radio button No on Multiple SPR List Question Beer Page")
       MultipleSPRListQuestionBeerPage.addAnother(false)
-
-      And("I click save and continue button on Check Your Answers Returns Beer Page")
       CheckYourAnswersReturnsBeerPage.continue()
-
-      And("I click save and continue button on Duty Due Beer Page")
       DutyDueBeerPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare cider hyperlink on Task List Page")
+      And("I declare cider with multiple SPR")
       TaskListPage.clickHyperlink("Declare cider")
-
-      And(
-        "I select checkbox Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR) on What Do You Need To Declare Cider Page"
-      )
       WhatDoYouNeedToDeclareCiderPage.selectRateBands(
         "Cider between 1.3% and 3.4% ABV (tax type code 312),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 322),Sparkling cider between 5.6% and 8.4% ABV (tax type code 324),Cider between 1.3% and 3.4% ABV (tax type code 352),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 357),Sparkling cider between 5.6% and 8.4% ABV (tax type code 359),Cider between 3.5% and 8.4% ABV and sparkling cider between 3.5% and 5.5% ABV (tax type code 367 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Cider Page")
       HowMuchYouNeedToDeclareCiderPage.enterDetailsForAllRateBands()
-
-      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Cider Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateCiderPage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 367 on Multiple Small Producer Relief Rate Cider Page")
       MultipleSmallProducerReliefRateCiderPage.enterDetailsFor367()
-
-      And("I click continue button on Check Your Answers SPR Cider Page")
       CheckYourAnswersSPRCiderPage.continue()
-
-      And("I select radio button No on Multiple SPR List Question Cider Page")
       MultipleSPRListQuestionCiderPage.addAnother(false)
-
-      And("I click save and continue button on Check Your Answers Returns Cider Page")
       CheckYourAnswersReturnsCiderPage.continue()
-
-      And("I click save and continue button on Duty Due Cider Page")
       DutyDueCiderPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare wine hyperlink on Task List Page")
+      And("I declare wine with multiple SPR")
       TaskListPage.clickHyperlink("Declare wine")
-
-      And("I click continue button on Declaring Your Wine For Duty Page")
       DeclaringYourWineForDutyPage.continue()
-
-      And(
-        "I select checkbox Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR) on What Do You Need To Declare Wine Page"
-      )
       WhatDoYouNeedToDeclareWinePage.selectRateBands(
         "Wine between 1.3% and 3.4% ABV (tax type code 313),Wine between 3.5% and 8.4% ABV (tax type code 323),Wine between 8.5% and 22% ABV (tax type code 333),Wine at or above 22.1% ABV (tax type code 343),Wine between 1.3% and 3.4% ABV (tax type code 353),Wine between 3.5% and 8.4% ABV (tax type code 358),Wine between 3.5% and 8.4% ABV (tax type code 368 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Wine Page")
       HowMuchYouNeedToDeclareWinePage.enterDetailsForAllRateBands()
-
-      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Wine Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateWinePage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 368 on the Multiple Small Producer Relief Rate Wine Page")
       MultipleSmallProducerReliefRateWinePage.enterDetailsFor368()
-
-      And("I click continue button on Check Your Answers SPR Wine Page")
       CheckYourAnswersSPRWinePage.continue()
-
-      And("I select radio button No on Multiple SPR List Question Wine Page")
       MultipleSPRListQuestionWinePage.addAnother(false)
-
-      And("I click save and continue button on Check Your Answers Returns Wine Page")
       CheckYourAnswersReturnsWinePage.continue()
-
-      And("I click save and continue button on Duty Due Wine Page")
       DutyDueWinePage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare spirits hyperlink on Task List Page")
+      And("I declare spirits with multiple SPR")
       TaskListPage.clickHyperlink("Declare spirits")
-
-      And(
-        "I select checkbox Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR) on What Do You Need To Declare Spirits Page"
-      )
       WhatDoYouNeedToDeclareSpiritsPage.selectRateBands(
         "Spirits between 1.3% and 3.4% ABV (tax type code 315),Spirits between 3.5% and 8.4% ABV (tax type code 325),Spirits between 8.5% and 22% ABV (tax type code 335),Spirits at or above 22.1% ABV (tax type code 345),Spirits between 1.3% and 3.4% ABV (tax type code 355),Spirits between 3.5% and 8.4% ABV (tax type code 360),Spirits between 3.5% and 8.4% ABV (tax type code 380 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Spirits Page")
       HowMuchYouNeedToDeclareSpiritsPage.enterDetailsForAllRateBands()
-
-      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Spirits Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateSpiritsPage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 380 on Multiple Small Producer Relief Rate Spirits Page")
       MultipleSmallProducerReliefRateSpiritsPage.enterDetailsFor380()
-
-      And("I click continue button on Check Your Answers SPR Spirits Page")
       CheckYourAnswersSPRSpiritsPage.continue()
-
-      And("I select radio button No on Multiple SPR List Question Spirits Page")
       MultipleSPRListQuestionSpiritsPage.addAnother(false)
-
-      And("I click save and continue button on Check Your Answers Returns Spirits Page")
       CheckYourAnswersReturnsSpiritsPage.continue()
-
-      And("I click save and continue button on Duty Due Spirits Page")
       DutyDueSpiritsPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Declare other fermented products hyperlink on Task List Page")
+      And("I declare other fermented products with multiple SPR")
       TaskListPage.clickHyperlink("Declare other fermented products")
-
-      And(
-        "I select checkbox Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR) on What Do You Need To Declare Wine Page"
-      )
       WhatDoYouNeedToDeclareOtherFermentedProductPage.selectRateBands(
         "Other fermented products between 1.3% and 3.4% ABV (tax type code 314),Other fermented products between 3.5% and 8.4% ABV (tax type code 324),Other fermented products between 8.5% and 22% ABV (tax type code 334),Other fermented products at or above 22.1% ABV (tax type code 344),Other fermented products between 1.3% and 3.4% ABV (tax type code 354),Other fermented products between 3.5% and 8.4% ABV (tax type code 359),Other fermented products between 3.5% and 8.4% ABV (tax type code 369 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Other Fermented Product Page")
       HowMuchYouNeedToDeclareOtherFermentedProductPage.enterDetailsForAllRateBands()
-
-      And(
-        "I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Other Fermented Product Page"
-      )
       DoYouHaveMultipleSmallProducerReliefDutyRateOtherFermentedProductPage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 369 on Multiple Small Producer Relief Rate Other Fermented Product Page")
       MultipleSmallProducerReliefRateOtherFermentedProductPage.enterDetailsFor369()
-
-      And("I click continue button on Check Your Answers SPR Other Fermented Product Page")
       CheckYourAnswersSPROtherFermentedProductPage.continue()
-
-      And("I select radio button No on Multiple SPR List Question Other Fermented Product Page")
       MultipleSPRListQuestionOtherFermentedProductPage.addAnother(false)
-
-      And("I click save and continue button on Check Your Answers Returns Other Fermented Product Page")
       CheckYourAnswersReturnsOtherFermentedProductPage.continue()
-
-      And("I click save and continue button on Duty Due Other Fermented Product Page")
       DutyDueOtherFermentedProductPage.continue()
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      And("I select to declare adjustments")
       TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
-
-      And("I select Yes on Declare Adjustment Question Page")
       DeclareAdjustmentQuestionPage.declareAdjustments(true)
 
-      And("I select radio button Under-declaration on Adjustment Type Page")
+      And("I add an under-declaration adjustment")
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
-
-      And("I enter month 09 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("09", "2023")
-
-      And("I enter 371 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("371")
-
-      And("I enter volumes on the Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add an over-declaration adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Over-declaration on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 372 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("372")
-
-      And("I enter volumes on the Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("9999.99", "7777.7700", "898.89")
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add a spoilt adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Spoilt on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
-
-      And("I select radio button Spirits on Spoilt Alcohol Type Page")
       SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
-
-      And("I enter volumes on the Spoilt Alcohol Volume Page")
       SpoiltAlcoholVolumePage.enterVolumes()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button Yes on Adjustment List Page")
+      And("I add a drawback adjustment")
       AdjustmentListPage.addAnother(true)
-
-      And("I select radio button Drawback on Adjustment Type Page")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
-
-      And("I enter month 10 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      And("I enter 374 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("374")
-
-      And("I enter volumes on the Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5599", "9.8")
-
-      And("I click continue button on Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
-
-      And("I click save and continue button on Adjustment Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.continue()
 
-      And("I select radio button No on Adjustment List Page")
+      And("I complete the adjustments journey")
       AdjustmentListPage.addAnother(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us why products were under-declared hyperlink on Task List Page")
+      And("I add an under-declaration reason")
       TaskListPage.clickHyperlink("Tell us why products were under-declared")
-
-      And("I enter Test Under Declaration Reason on Under Declaration Reason Page")
       UnderDeclarationReasonPage.enterDetails("Test Under Declaration Reason")
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us why products were over-declared hyperlink on Task List Page")
+      And("I add an over-declaration reason")
       TaskListPage.clickHyperlink("Tell us why products were over-declared")
-
-      And("I enter Test Over Declaration Reason on Over Declaration Reason Page")
       OverDeclarationReasonPage.enterDetails("Test Over Declaration Reason")
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When(
-        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
-      )
+      And("I declare no duty suspended deliveries")
       TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
-
-      And("I select No on Declare Duty Suspended Deliveries Page")
       DeclareDutySuspendedDeliveriesPage.declareDSD(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      And("I declare no quarterly spirits")
       TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
-
-      And("I select No on Quarterly Spirits Returns Guidance Page")
       QuarterlySpiritsReturnsGuidancePage.declareSpirits(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      And("I submit the return")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
-
-      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
@@ -707,48 +345,28 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      When("I declare no alcohol")
       TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
-
-      And("I select No on Declare Alcohol Duty Question Page")
       DeclareAlcoholDutyQuestionPage.declareAlcohol(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us if you have adjustments to declare hyperlink on Task List Page")
+      And("I declare no adjustments")
       TaskListPage.clickHyperlink("Tell us if you have adjustments to declare")
-
-      And("I select No on Declare Adjustment Question Page")
       DeclareAdjustmentQuestionPage.declareAdjustments(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When(
-        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
-      )
+      And("I declare no duty suspended deliveries")
       TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
-
-      And("I select No on Declare Duty Suspended Deliveries Page")
       DeclareDutySuspendedDeliveriesPage.declareDSD(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Tell us about spirits produced in the past three months hyperlink on Task List Page")
+      And("I declare no quarterly spirits")
       TaskListPage.clickHyperlink("Tell us about spirits produced in the past three months")
-
-      And("I select No on Quarterly Spirits Returns Guidance Page")
       QuarterlySpiritsReturnsGuidancePage.declareSpirits(false)
-
-      Then("I am presented with the Task List Page")
       TaskListPage.checkURL
 
-      When("I click on Check duty payable and send your return hyperlink on Task List Page")
+      And("I submit the return")
       TaskListPage.clickHyperlink("Check duty payable and send your return")
-
-      And("I click on Agree and send return button on Return Summary Page")
       ReturnSummaryPage.continue()
 
       Then("I am presented with the Return Submitted Page")
@@ -760,56 +378,28 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
-      When("I click on Tell us if you have alcoholic products to declare hyperlink on Task List Page")
+      When("I select beer only and declare multiple SPR")
       TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
-
-      And("I select Yes on Declare Alcohol Duty Question Page")
       DeclareAlcoholDutyQuestionPage.declareAlcohol(true)
-
-      And("I select checkbox Beer on What Alcohol Do You Need To Declare Page")
       WhatAlcoholDoYouNeedToDeclarePage.selectSingleRegime("Beer")
-
-      And(
-        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
-      )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands(
         "Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
-
-      When("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
 
-      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
+      And("I add multiple SPR declarations for 2 rate bands")
       MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361()
-
-      And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()
-
-      And("I select radio button Yes on Multiple SPR List Question Beer Page")
       MultipleSPRListQuestionBeerPage.addAnother(true)
-
-      And("I enter details for tax type 371 on Multiple Small Producer Relief Rate Beer Page")
       MultipleSmallProducerReliefRateBeerPage.enterDetailsFor371InCheckMode()
-
-      And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()
 
-      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
+      And("I remove both multiple SPR declarations from the Multiple SPR List")
       MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
-
-      And("I select radio button No on Delete Multiple SPR Product Question Page")
       DeleteMultipleSPRProductQuestionPage.deleteEntry(false)
-
-      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
       MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
-
-      And("I select radio button Yes on Delete Multiple SPR Product Question Page")
       DeleteMultipleSPRProductQuestionPage.deleteEntry(true)
-
-      And("I click Remove hyperlink on Multiple SPR List Question Beer Page")
       MultipleSPRListQuestionBeerPage.clickRemoveHyperlink()
-
-      And("I select radio button Yes on Delete Multiple SPR Product Question Page")
       DeleteMultipleSPRProductQuestionPage.deleteEntry(true)
 
       Then("I am presented with the Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
@@ -822,44 +412,23 @@ class AlcoholDutyReturnFullJourneySpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       selectAllRegimes()
 
-      Then("I am presented with the Task List Page")
-      TaskListPage.checkURL
-
-      When("I click on Declare beer hyperlink on Task List Page")
+      When("I declare beer with one multiple SPR declaration")
       TaskListPage.clickHyperlink("Declare beer")
-
-      And(
-        "I select checkbox Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR) on What Do You Need To Declare Beer Page"
-      )
       WhatDoYouNeedToDeclareBeerPage.selectRateBands(
         "Beer between 1.3% and 3.4% ABV (tax type code 311),Beer between 3.5% and 8.4% ABV (tax type code 321),Beer between 8.5% and 22% ABV (tax type code 331),Beer at or above 22.1% ABV (tax type code 341),Beer between 1.3% and 3.4% ABV (tax type code 351),Beer between 3.5% and 8.4% ABV (tax type code 356),Beer between 1.3% and 3.4% ABV (tax type code 361 SPR),Beer between 3.5% and 8.4% ABV (tax type code 366 SPR),Beer between 1.3% and 3.4% ABV (tax type code 371 SPR),Beer between 3.5% and 8.4% ABV (tax type code 376 SPR)"
       )
-
-      And("I enter volumes on the How Much You Need To Declare Beer Page")
       HowMuchYouNeedToDeclareBeerPage.enterDetailsForAllRateBands()
-
-      And("I select radio button Yes on Do You Have Multiple Small Producer Relief Duty Rate Beer Page")
       DoYouHaveMultipleSmallProducerReliefDutyRateBeerPage.selectMultipleSpr(true)
-
-      And("I enter details for tax type 361 on Multiple Small Producer Relief Rate Beer Page")
       MultipleSmallProducerReliefRateBeerPage.enterDetailsFor361()
-
-      And("I click continue button on Check Your Answers SPR Beer Page")
       CheckYourAnswersSPRBeerPage.continue()
 
-      And("I select No on Multiple SPR List Question Beer Page")
+      And("I delete the rate bands with missing multiple SPR declarations")
       MultipleSPRListQuestionBeerPage.addAnother(false)
-
-      And("I select radio button Delete these declarations from this return on You Have Some Missing Details Page")
       YouHaveSomeMissingDetailsPage.addMissingRateBands(false)
-
-      And("I select Yes on Delete Alcohol Page")
       DeleteAlcoholPage.deleteRateBands(true)
 
-      And("I click save and continue button on Check Your Answers Returns Beer Page")
+      And("I confirm the declarations and complete the journey")
       CheckYourAnswersReturnsBeerPage.continue()
-
-      And("I click save and continue button on Duty Due Beer Page")
       DutyDueBeerPage.continue()
 
       Then("I am presented with the Task List Page")

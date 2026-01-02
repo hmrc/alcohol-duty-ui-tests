@@ -30,58 +30,48 @@ object SingleSmallProducerReliefRateWinePage extends BasePage {
       "alcohol-duty-returns-frontend"
     ) + "/complete-return/alcoholic-products/Wine/change/spr/eligible-volumes"
 
-  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: String): Unit = {
-    val modifiedIndex = ordinalToNumber(index)
+  override def enterMultipleDetailsWithIndex(textToEnter: String, text: String, index: Int): Unit =
     text match {
       case "Non-draught wine between 1.3% and 3.4% ABV - Total litres"        =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres" =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Non-draught wine between 3.5% and 8.4% ABV - Total litres"        =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres" =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Draught wine between 1.3% and 3.4% ABV - Total litres"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres"     =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Draught wine between 1.3% and 3.4% ABV - SPR Rate"                =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
       case "Draught wine between 3.5% and 8.4% ABV - Total litres"            =>
-        enterText("volumesWithRate_" + modifiedIndex + "_totalLitres", textToEnter)
+        enterText("volumesWithRate_" + index + "_totalLitres", textToEnter)
       case "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres"     =>
-        enterText("volumesWithRate_" + modifiedIndex + "_pureAlcohol", textToEnter)
+        enterText("volumesWithRate_" + index + "_pureAlcohol", textToEnter)
       case "Draught wine between 3.5% and 8.4% ABV - SPR Rate"                =>
-        enterText("volumesWithRate_" + modifiedIndex + "_dutyRate", textToEnter)
+        enterText("volumesWithRate_" + index + "_dutyRate", textToEnter)
     }
-  }
 
   def enterDetailsForAllSprRateBands(): Unit = {
     checkURL
-    enterMultipleDetailsWithIndex("888.88", "Non-draught wine between 1.3% and 3.4% ABV - Total litres", "first")
-    enterMultipleDetailsWithIndex(
-      "99.4500",
-      "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres",
-      "first"
-    )
-    enterMultipleDetailsWithIndex("15", "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate", "first")
-    enterMultipleDetailsWithIndex("776.45", "Non-draught wine between 3.5% and 8.4% ABV - Total litres", "second")
-    enterMultipleDetailsWithIndex(
-      "78.9000",
-      "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres",
-      "second"
-    )
-    enterMultipleDetailsWithIndex("18", "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate", "second")
-    enterMultipleDetailsWithIndex("776.89", "Draught wine between 1.3% and 3.4% ABV - Total litres", "third")
-    enterMultipleDetailsWithIndex("99.9900", "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres", "third")
-    enterMultipleDetailsWithIndex("15", "Draught wine between 1.3% and 3.4% ABV - SPR Rate", "third")
-    enterMultipleDetailsWithIndex("889.65", "Draught wine between 3.5% and 8.4% ABV - Total litres", "fourth")
-    enterMultipleDetailsWithIndex("66.5400", "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres", "fourth")
-    enterMultipleDetailsWithIndex("20", "Draught wine between 3.5% and 8.4% ABV - SPR Rate", "fourth")
+    enterMultipleDetailsWithIndex("888.88", "Non-draught wine between 1.3% and 3.4% ABV - Total litres", 0)
+    enterMultipleDetailsWithIndex("99.4500", "Non-draught wine between 1.3% and 3.4% ABV - Pure alcohol litres", 0)
+    enterMultipleDetailsWithIndex("15", "Non-draught wine between 1.3% and 3.4% ABV - SPR Rate", 0)
+    enterMultipleDetailsWithIndex("776.45", "Non-draught wine between 3.5% and 8.4% ABV - Total litres", 1)
+    enterMultipleDetailsWithIndex("78.9000", "Non-draught wine between 3.5% and 8.4% ABV - Pure alcohol litres", 1)
+    enterMultipleDetailsWithIndex("18", "Non-draught wine between 3.5% and 8.4% ABV - SPR Rate", 1)
+    enterMultipleDetailsWithIndex("776.89", "Draught wine between 1.3% and 3.4% ABV - Total litres", 2)
+    enterMultipleDetailsWithIndex("99.9900", "Draught wine between 1.3% and 3.4% ABV - Pure alcohol litres", 2)
+    enterMultipleDetailsWithIndex("15", "Draught wine between 1.3% and 3.4% ABV - SPR Rate", 2)
+    enterMultipleDetailsWithIndex("889.65", "Draught wine between 3.5% and 8.4% ABV - Total litres", 3)
+    enterMultipleDetailsWithIndex("66.5400", "Draught wine between 3.5% and 8.4% ABV - Pure alcohol litres", 3)
+    enterMultipleDetailsWithIndex("20", "Draught wine between 3.5% and 8.4% ABV - SPR Rate", 3)
     clickSaveAndContinueButton()
   }
 }

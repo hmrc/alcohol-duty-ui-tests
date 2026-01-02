@@ -34,78 +34,42 @@ class DutySuspendedDeliveriesSpec extends BaseSpec {
       Given("I start a return")
       loginAndStartReturn("AABCP0000100208")
 
-      When(
-        "I click on Tell us if you have delivered or received finished products in duty suspense hyperlink on Task List Page"
-      )
+      When("I declare volumes for duty suspended deliveries")
       TaskListPage.clickHyperlink("Tell us if you have delivered or received finished products in duty suspense")
-
-      And("I select Yes on Declare Duty Suspended Deliveries Page")
       DeclareDutySuspendedDeliveriesPage.declareDSD(declaringDSD = true)
-
-      And("I click continue button on Duty Suspended Deliveries Guidance Page")
       DutySuspendedDeliveriesGuidancePage.continue()
-
-      And("I enter volumes on Duty Suspended Beer Page")
       DutySuspendedBeerPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Cider Page")
       DutySuspendedCiderPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Wine Page")
       DutySuspendedWinePage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Spirits Page")
       DutySuspendedSpiritsPage.enterVolumes()
-
-      And("I enter volumes on Duty Suspended Other Fermented Products Page")
       DutySuspendedOtherFermentedProductsPage.enterVolumes()
 
-      And(
-        "I click Change total net quantity of duty suspended beer on Duty Suspended Deliveries Check Your Answers Page"
-      )
+      And("I change the volumes of duty suspended beer from the Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.clickChangeLink("Change total net quantity of duty suspended beer")
-
-      And("I enter new volumes on Duty Suspended Beer Page")
       DutySuspendedBeerPage.enterVolumesInCheckMode()
 
-      And(
-        "I click Change total net quantity of pure alcohol in your duty suspended cider on Duty Suspended Deliveries Check Your Answers Page"
-      )
+      And("I change the volumes of duty suspended cider from the Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.clickChangeLink(
         "Change total net quantity of pure alcohol in your duty suspended cider"
       )
-
-      And("I enter new volumes on Duty Suspended Cider Page")
       DutySuspendedCiderPage.enterCiderVolumesInCheckMode()
 
-      And(
-        "I click Change total net quantity of pure alcohol in your duty suspended wine on Duty Suspended Deliveries Check Your Answers Page"
-      )
+      And("I change the volumes of duty suspended wine from the Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.clickChangeLink(
         "Change total net quantity of pure alcohol in your duty suspended wine"
       )
-
-      And("I enter new volumes on Duty Suspended Wine Page")
       DutySuspendedWinePage.enterWineVolumesInCheckMode()
 
-      And(
-        "I click Change total net quantity of pure alcohol in your duty suspended spirits on Duty Suspended Deliveries Check Your Answers Page"
-      )
+      And("I change the volumes of duty suspended spirits from the Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.clickChangeLink(
         "Change total net quantity of pure alcohol in your duty suspended spirits"
       )
-
-      And("I enter new volumes on Duty Suspended Spirits Page")
       DutySuspendedSpiritsPage.enterSpiritsVolumesInCheckMode()
 
-      And(
-        "I click Change total net quantity of pure alcohol in your duty suspended other fermented products on Duty Suspended Deliveries Check Your Answers Page"
-      )
+      And("I change the volumes of duty suspended other fermented products from the Check Your Answers Page")
       DutySuspendedDeliveriesCheckYourAnswersPage.clickChangeLink(
         "Change total net quantity of pure alcohol in your duty suspended other fermented products"
       )
-
-      And("I enter new volumes on Duty Suspended Other Fermented Products Page")
       DutySuspendedOtherFermentedProductsPage.enterOfpVolumesInCheckMode()
 
       And("I click continue button on Duty Suspended Deliveries Check Your Answers Page")

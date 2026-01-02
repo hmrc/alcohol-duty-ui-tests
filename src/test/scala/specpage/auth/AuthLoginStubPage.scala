@@ -18,37 +18,37 @@ package specpage.auth
 
 import org.openqa.selenium.By
 import specpage.BasePage
+import specpage.auth.JourneyType.*
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object AuthLoginStubPage extends BasePage {
 
   override val url: String = TestConfiguration.url("auth-login-stub") + "/gg-sign-in"
 
-  def enterRedirectUrlFor(typeOfJourney: String): Unit =
+  def enterRedirectUrlFor(typeOfJourney: JourneyType): Unit =
     typeOfJourney match {
-      case "Alcohol Duty Service"     =>
+      case AlcoholDutyService  =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/before-you-start-your-return/" + periodKey
         )
-      case "View Past Returns"        =>
+      case ViewReturns         =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-returns-frontend") + "/check-your-returns"
         )
-      case "View Past Payments"       =>
+      case ViewPayments        =>
         enterRedirectURL(TestConfiguration.url("alcohol-duty-returns-frontend") + "/view-payments")
-      case "Email Contact Preference" =>
+      case EcpChangePreference =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/change-preference"
         )
-      case "Email Update"             =>
+      case EcpUpdateEmail      =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/update-email"
         )
-      case "Email Bounce"             =>
+      case EcpBouncedEmail     =>
         enterRedirectURL(
           TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/start/bounced-email"
         )
-      case _                          => enterRedirectURL(typeOfJourney)
     }
 
   def enterRedirectURL(url: String): Unit =
@@ -68,7 +68,7 @@ object AuthLoginStubPage extends BasePage {
 
   def enterAuthDetails(
     appaId: String,
-    typeOfJourney: String = "Alcohol Duty Service",
+    typeOfJourney: JourneyType = AlcoholDutyService,
     useCredId: Boolean = false
   ): Unit = {
     checkURL

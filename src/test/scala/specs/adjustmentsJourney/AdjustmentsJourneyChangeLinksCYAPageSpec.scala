@@ -35,43 +35,23 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Under-declaration on Adjustment Type Page")
+      When("I enter an under-declaration adjustment (beer, non-SPR)")
       AdjustmentTypePage.selectAdjustmentType("Under-declaration")
-
-      Then("I enter month 09 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("09", "2023")
-
-      Then("I enter 311 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("311")
-
-      Then("I am presented with the Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I change the adjustment type to over-declaration (beer, SPR) from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Adjustment")
-
-      Then("I am presented with the Adjustment Type Page with new url")
       AdjustmentTypePage.selectAdjustmentTypeWithNewUrl("Over-declaration")
-
-      When("I enter month 09 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDateWithNewUrl("09", "2023")
-
-      When("I enter 371 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("371")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "9.8")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
@@ -88,61 +68,33 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Over-declaration on Adjustment Type Page")
+      When("I enter an over-declaration adjustment (cider, SPR)")
       AdjustmentTypePage.selectAdjustmentType("Over-declaration")
-
-      When("I enter month 10 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      Then("I enter 372 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("372")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click on Return period being adjusted on Adjustment Check Your Answers Page")
+      And("I change the Return period being adjusted from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Return period being adjusted")
-
-      Then("I enter month 12 and year 2023 on Adjustment Return Date Page with new url")
       AdjustmentReturnDatePage.enterDateWithNewUrl("12", "2023")
-
-      Then("I enter 372 on Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("372")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "10.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click button Tax type on Adjustment Check Your Answers Page")
+      And("I change the tax type (to OFP, SPR) from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
-
-      Then("I enter 374 on Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("374")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "10.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click SPR duty rate on Adjustment Check Your Answers Page")
+      And("I change the SPR duty rate from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("SPR duty rate")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "12.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
@@ -159,64 +111,34 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Repackaged draught products on Adjustment Type Page")
+      When("I enter a repackaged adjustment (SPR)")
       AdjustmentTypePage.selectAdjustmentType("Repackaged draught products")
-
-      Then("I enter month 11 and year 2023 on Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("11", "2023")
-
-      Then("I enter 373 on Adjustment Tax Type Code For Repackaged Page")
       AdjustmentTaxTypeCodePage.enterDetails("373")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      Then("I enter 363 on New Tax Type Code Page")
       NewTaxTypeCodePage.enterDetails("363")
-
-      Then("I enter 11.5 on the New Spr Duty Rate Page")
       NewSprDutyRatePage.enterDetails("11.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click button Volume on the Adjustment Check Your Answers Page")
+      And("I change the volumes from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Volume")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("4000.75", "350.5500", "8.5")
-
-      Then("I enter 363 on the New Tax Type Code Page with new url")
       NewTaxTypeCodePage.enterDetailsWithNewUrl("363")
-
-      Then("I enter 11.5 on the New Spr Duty Rate Page with new url")
       NewSprDutyRatePage.enterDetailsWithNewUrl("11.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click button New SPR duty rate on Adjustment Check Your Answers Page")
+      And("I change the new SPR duty rate from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("New SPR duty rate")
-
-      Then("I enter 14.5 on New Spr Duty Rate Page with new url")
       NewSprDutyRatePage.enterDetailsWithNewUrl("14.5")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click New tax type on the Adjustment Check Your Answers Page")
+      And("I change the new tax type (to non-SPR) from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("New tax type")
-
-      Then("I enter 313 on the New Tax Type Code Page with new url")
       NewTaxTypeCodePage.enterDetailsWithNewUrl("313")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
@@ -229,37 +151,21 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Drawback on Adjustment Type Page")
+      When("I enter a drawback adjustment (spirits, non-SPR)")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
-
-      Then("I enter month 10 and year 3023 the Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      Then("I enter 315 on the Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("315")
-
-      Then("I enter volumes on Adjustment Volume Page")
       AdjustmentVolumePage.enterVolumes()
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I click button Tax type on the Adjustment Check Your Answers Page")
+      And("I change the tax type (to SPR) from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
-
-      When("I enter 375 on Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("375")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page with new url")
       AdjustmentVolumeWithSprPage.enterVolumesWithNewUrl("3000.75", "250.5500", "9.8")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
@@ -276,41 +182,26 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Drawback on Adjustment Type Page")
+      When("I enter a drawback adjustment (OFP, SPR)")
       AdjustmentTypePage.selectAdjustmentType("Drawback")
-
-      Then("I enter month 10 and year 2023 on the Adjustment Return Date Page")
       AdjustmentReturnDatePage.enterDate("10", "2023")
-
-      Then("I enter 374 on the Adjustment Tax Type Code Page")
       AdjustmentTaxTypeCodePage.enterDetails("374")
-
-      Then("I enter volumes on Adjustment Volume With Spr Page")
       AdjustmentVolumeWithSprPage.enterVolumes("3000.75", "250.5500", "9.8")
-
-      Then("I am presented with the Adjustment Duty Value Page")
       AdjustmentDutyValuePage.continue()
 
-      Then("I select Tax type on the Adjustment Check Your Answers Page")
+      And("I change the tax type (to non-SPR) from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Tax type")
-
-      Then("I enter 314 on the Adjustment Tax Type Code Page with new url")
       AdjustmentTaxTypeCodePage.enterDetailsWithNewUrl("314")
-
-      Then("I enter volumes on the Adjustment Volume Page with new url")
-      AdjustmentVolumePage.enterVolumesWithoutSpr()
-
-      Then("I am presented with the Adjustment Duty Value Page")
+      AdjustmentVolumePage.enterVolumesWithNewUrl()
       AdjustmentDutyValuePage.continue()
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
+
     }
 
     Scenario("6 Adjustments Journey - Change Link Functionality - Spoilt - Spirits", AllTests, Adjustments) {
@@ -318,38 +209,27 @@ class AdjustmentsJourneyChangeLinksCYAPageSpec extends BaseSpec {
       loginAndStartReturn("AABCP0000100208")
       navigateToAdjustmentTypePage()
 
-      When("I select radio button Spoilt on Adjustment Type Page")
+      When("I enter a spoilt adjustment for spirits")
       AdjustmentTypePage.selectAdjustmentType("Spoilt")
-
-      Then("I select Spirits on the Spoilt Alcohol Type Page")
       SpoiltAlcoholTypePage.selectAlcoholType("Spirits")
-
-      Then("I enter Volumes on the Spoilt Alcohol Volume Page")
       SpoiltAlcoholVolumePage.enterVolumes()
 
-      Then("I click button Description on the Adjustment Check Your Answers Page")
+      And("I change the alcohol type to beer from the Check Your Answers Page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Description")
-
-      When("I select radio button Beer on Spoilt Alcohol Type Page")
       SpoiltAlcoholTypePage.selectAlcoholTypeWithNewUrl("Beer")
-
-      When("I enter volumes on Spoilt Beer Alcohol Volume Page")
       SpoiltAlcoholVolumePage.enterVolumes()
 
-      Then("I select Duty value on the Adjustment Check Your Answers Page")
+      And("I change the volumes and duty value from the Check Your Answers page")
       AdjustmentCheckYourAnswersPage.clickChangeLink("Duty value")
-
-      Then("I enter volumes on the Spoilt Beer Alcohol Volume Page with new url")
       SpoiltAlcoholVolumePage.enterVolumesWithNewUrl("3222.75", "255.5500", "3200.55")
 
-      Then("I am presented with the Adjustment Check Your Answers Page")
+      And("I add the adjustment and complete the journey")
       AdjustmentCheckYourAnswersPage.continue()
-
-      Then("I select No on the Adjustment List Page")
       AdjustmentListPage.addAnother(false)
 
       Then("I am presented with the Task List Page")
       TaskListPage.checkURL
+
     }
   }
 }
