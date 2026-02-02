@@ -3,6 +3,6 @@ organisation: mdtp
 digital-service: Alcohol Duty Reforms
 description: UI tests for the Manage your Alcohol Duty service
 owning-teams:
-  - Alcohol Duty Reforms
+  - DDCE Live Service
 type: Test
 test-type: Acceptance
