@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-package specpage.ECP
+package specpage.common
 
-import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
-object ECPConfirmationPage extends BasePage {
+object ContactPreferenceCompletePage extends BasePage {
 
-  override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation"
+  override val url: String =
+    TestConfiguration.url(
+      "alcohol-duty-returns-frontend"
+    ) + "/before-you-start-your-return/" + periodKey + "/contact-preference-complete"
 
-  def continueReturn(): Unit = {
+  def continue(): Unit = {
     checkURL
-    click(By.id("continueReturnButton"))
+    clickContinueButton()
   }
-
 }

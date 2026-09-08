@@ -16,11 +16,17 @@
 
 package specpage.ECP
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
 
 object ECPConfirmationEmailPage extends BasePage {
 
   override val url: String = TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/confirmation-digital-message"
+
+  def continueReturn(): Unit = {
+    checkURL
+    click(By.id("continueReturnButton"))
+  }
 
 }

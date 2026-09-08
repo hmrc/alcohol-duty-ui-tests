@@ -61,6 +61,14 @@ object BaseStepDefSteps extends BasePage {
     TaskListPage.checkURL
   }
 
+  // Background steps for starting a return where the user has not yet been asked their contact preference
+  def loginAndStartReturnWithContactPreferenceCheck(appaId: String): Unit = {
+    clearDataForReturns()
+    clearDataForEcp()
+    navigateToPage(AuthLoginStubPage)
+    AuthLoginStubPage.enterAuthDetails(appaId, useCredId = true)
+  }
+
   // Background steps 2 for AlcoholDutyReturnsChangeLinksCYAPage.feature
   def selectAllRegimes(): Unit = {
     TaskListPage.clickHyperlink("Tell us if you have alcoholic products to declare")
