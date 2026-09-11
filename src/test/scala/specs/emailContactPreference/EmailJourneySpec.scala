@@ -42,7 +42,7 @@ class EmailJourneySpec extends BaseSpec {
 
     Scenario("2. ECP - User on post stays on post", ECP) {
       Given("I enter the ECP service using the change preference url")
-      loginForEcp("XMADP1000100211")
+      loginForEcp("XMADP1000200211")
 
       When("I select post on How Would You Like To Be Contacted Page")
       HowWouldYouLikeToBeContactedPage.HowWouldYouLikeToBeContacted(email = false)

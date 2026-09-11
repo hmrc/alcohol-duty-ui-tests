@@ -43,8 +43,14 @@ object BaseStepDefSteps extends BasePage {
     Driver.instance.get(TestConfiguration.url("alcohol-duty-returns-frontend") + "/test-only/clear-all")
 
   // I cleared the data for ECP service
-  def clearDataForEcp(): Unit =
+  def clearDataForEcp(): Unit = {
     Driver.instance.get(TestConfiguration.url("alcohol-duty-contact-preferences-frontend") + "/test-only/clear-all")
+    if (TestConfiguration.env == "local") {
+      Driver.instance.get(
+        TestConfiguration.url("alcohol-duty-stubs") + "/test-only/contact-preference-override/clear-all"
+      )
+    }
+  }
 
   // I clear the data to view Past Payments
   def clearDataForPastPayments(): Unit =
