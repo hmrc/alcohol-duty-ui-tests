@@ -16,8 +16,12 @@
 
 package specpage.common
 
+import org.openqa.selenium.By
 import specpage.BasePage
 import uk.gov.hmrc.alcoholDuty.conf.TestConfiguration
+import uk.gov.hmrc.selenium.webdriver.Driver
+
+import scala.jdk.CollectionConverters.CollectionHasAsScala
 
 object ViewPastPaymentsPage extends BasePage {
 
@@ -31,5 +35,23 @@ object ViewPastPaymentsPage extends BasePage {
   def clickManageLink(): Unit = {
     checkURL
     clickHyperlink("Manage")
+  }
+
+  def checkYouOweAmount(amount: String): Unit = {
+    checkURL
+    Driver.instance.findElement(By.cssSelector("p.govuk-heading-m span.govuk-heading-l")).getText shouldBe amount
+  }
+
+  def checkOutstandingPayments(expectedRows: Seq[(String, String, String)]): Unit = {
+    checkURL
+    val rows = Driver.instance
+      .findElements(By.xpath("//table[caption[normalize-space()='Outstanding payments']]/tbody/tr"))
+      .asScala
+      .map { row =>
+        val cells = row.findElements(By.tagName("td")).asScala.map(_.getText.trim).toSeq
+        (cells(1).linesIterator.next(), cells(2), cells(4).linesIterator.next())
+      }
+      .toSeq
+    rows shouldBe expectedRows
   }
 }
