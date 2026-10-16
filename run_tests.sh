@@ -2,11 +2,13 @@
 
 BROWSER=${1:-chrome}
 JOURNEY=${2:-Alcohol Duty UI Tests}
+HEADLESS=${3:-true}
 
 echo "Running browser tests..."
 echo "=========================================="
 echo "Browser:              ${BROWSER}"
 echo "Env:                  local"
 echo "Journey:              ${JOURNEY}"
+echo "HEADLESS:              ${HEADLESS}"
 echo "=========================================="
-sbt clean -Dbrowser="${BROWSER}" -Denvironment=local "testOnly specs.* -- -n AllTests" testReport
+sbt clean -Dbrowser="${BROWSER}" -Denvironment=local "testOnly specs.* -- -n AllTests" testReport -Dbrowser.option.headless="${HEADLESS}"

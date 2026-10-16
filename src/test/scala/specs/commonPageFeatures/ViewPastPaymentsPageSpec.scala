@@ -62,5 +62,66 @@ class ViewPastPaymentsPageSpec extends BaseSpec {
       PayCentralAssessmentChargePage.checkURL
 
     }
+
+    Scenario(
+      "3. ADR Payments - LPI and RPI on the same SAP document are displayed separately and RPI is not added to You owe",
+      AllTests,
+      CommonPages
+    ) {
+      Given("I log in to view payments")
+      loginForPayments("XMADP0003500811")
+
+      Then("I am presented with the LPI and RPI as separate outstanding payments")
+      ViewPastPaymentsPage.checkOutstandingPayments(
+        Seq(
+          ("Late payment interest charge", "£41.95", "Pay now"),
+          ("Refund payment interest charge", "£0.09", "Claim refund"),
+          ("Late payment interest charge", "£105.80", "Pay now")
+        )
+      )
+
+      And("You owe only includes the debits")
+      ViewPastPaymentsPage.checkYouOweAmount("£147.75")
+    }
+
+    Scenario(
+      "4. ADR Payments - LPI greater than RPI on the same SAP document are displayed separately",
+      AllTests,
+      CommonPages
+    ) {
+      Given("I log in to view payments")
+      loginForPayments("XMADP0003400811")
+
+      Then("I am presented with the LPI and RPI as separate outstanding payments")
+      ViewPastPaymentsPage.checkOutstandingPayments(
+        Seq(
+          ("Late payment interest charge", "£60.00", "Pay now"),
+          ("Refund payment interest charge", "£50.00", "Claim refund")
+        )
+      )
+
+      And("You owe only includes the debits")
+      ViewPastPaymentsPage.checkYouOweAmount("£60.00")
+    }
+
+    Scenario(
+      "5. ADR Payments - RPI greater than LPI on the same SAP document are displayed separately",
+      AllTests,
+      CommonPages
+    ) {
+      Given("I log in to view payments")
+      loginForPayments("XMADP0003300811")
+
+      Then("I am presented with the LPI and RPI as separate outstanding payments")
+      ViewPastPaymentsPage.checkOutstandingPayments(
+        Seq(
+          ("Late payment interest charge", "£30.00", "Pay now"),
+          ("Refund payment interest charge", "£100.00", "Claim refund")
+        )
+      )
+
+      And("You owe only includes the debits")
+      ViewPastPaymentsPage.checkYouOweAmount("£30.00")
+    }
   }
 }
