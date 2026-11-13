@@ -18,7 +18,7 @@ package specs.commonPageFeatures
 
 import specpage.auth.AuthLoginStubPage
 import specpage.auth.JourneyType.ViewReturns
-import specpage.common.{ViewCompletedReturnsPage, ViewPastReturnsPage, ViewSpecificReturnPage}
+import specpage.common.{BeforeYouStartPage, TaskListPage, ViewCompletedReturnsPage, ViewPastReturnsPage, ViewSpecificReturnPage}
 import specs.BaseSpec
 import specs.tags.{AllTests, CommonPages}
 import specsteps.BaseStepDefSteps.*
@@ -44,6 +44,23 @@ class ViewPastReturnsPageSpec extends BaseSpec {
       Then("I am presented with the View Past Returns Page")
       ViewPastReturnsPage.checkURL
 
+    }
+
+    Scenario("2. ADR Journey - View and Access Outstanding Return using a DeRegistered account", AllTests, CommonPages) {
+      Given("I log in to view returns")
+      clearDataForReturns()
+      clearDataForPastReturns()
+      navigateToPage(AuthLoginStubPage)
+      AuthLoginStubPage.enterAuthDetails("XMADP0002100711", ViewReturns)
+
+      When("I navigate to view a specific outstanding return")
+      ViewPastReturnsPage.clickCompleteReturnHyperlink()
+
+      And("I am presented with the Submit your Alcohol Duty Return page and click Start now")
+      BeforeYouStartPage.continue()
+
+      Then("I am presented with the Complete your Alcohol Duty return task list page")
+      TaskListPage.checkURL
     }
   }
 }

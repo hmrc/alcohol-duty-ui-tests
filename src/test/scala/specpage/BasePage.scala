@@ -104,6 +104,8 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
 
   def clickHyperlink(text: String): Unit = click(By.linkText(text))
 
+  def clickSpecificHyperlink(text: String, index: Int): Unit = driver.findElements(By.linkText(text)).get(index).click()
+
   def periodKey: String = {
     val adjustedYear = if (currentMonth <= 3) previousYear else year
     val yearSuffix   = adjustedYear.toString.takeRight(2) // Last two digits of the year

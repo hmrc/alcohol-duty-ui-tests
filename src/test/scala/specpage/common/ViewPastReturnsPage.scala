@@ -27,4 +27,9 @@ object ViewPastReturnsPage extends BasePage {
     checkURL
     clickHyperlink(s"View $previousYear returns")
   }
+
+  def clickCompleteReturnHyperlink(): Unit = {
+    checkURL
+    clickSpecificHyperlink("Complete return", 1)
+  }
 }
