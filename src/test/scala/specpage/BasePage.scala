@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -103,6 +103,8 @@ trait BasePage extends Page with PageObject with Matchers with BrowserDriver wit
   def clickButton(buttonText: String): Unit = click(By.partialLinkText(buttonText))
 
   def clickHyperlink(text: String): Unit = click(By.linkText(text))
+
+  def clickSpecificHyperlink(text: String, index: Int): Unit = driver.findElements(By.linkText(text)).get(index).click()
 
   def periodKey: String = {
     val adjustedYear = if (currentMonth <= 3) previousYear else year
